@@ -18,8 +18,8 @@ const config = {
   trailingSlash: false,
   onBrokenLinks: 'throw',
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
   },
   presets: [
     [
@@ -28,7 +28,7 @@ const config = {
         docs: false,
         blog: {
           remarkPlugins: [remarkFlexibleMarkers],
-          routeBasePath: '/',
+          routeBasePath: '/blog',
           showReadingTime: true,
           blogSidebarTitle: '最近文章',
           blogSidebarCount: 10,
@@ -43,24 +43,40 @@ const config = {
     ],
   ],
   themeConfig: ({
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
       title: 'mikeQ95',
       items: [
-        {to: '/', label: 'Blog', position: 'left'},
+        {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          href: 'mailto:malaxiangguo13579@icloud.com',
+          position: 'right',
+          className: 'header-email-link',
+          'aria-label': 'Email me',
+          html: '<span class="nav-tooltip">发邮件给我</span>',
+        },
+        {
+          href: 'sms:giffgaffuk78459@icloud.com',
+          position: 'right',
+          className: 'header-imessage-link',
+          'aria-label': 'iMessage me',
+          html: '<span class="nav-tooltip">通过 iMessage 联系我</span>',
+        },
         {
           href: 'https://github.com/mikeQ95',
-          label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
+          html: '<span class="nav-tooltip">访问我的 GitHub</span>',
         },
       ],
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} mikeQ95. Built with Docusaurus.`,
+      copyright: `💡 Think independently and distinguish right from wrong. ⚖️<br/>Copyright © ${new Date().getFullYear()} mikeQ95. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

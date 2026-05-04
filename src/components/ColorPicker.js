@@ -30,6 +30,7 @@ export default function ColorPicker() {
     <div style={{ position: 'relative' }}>
       <button
         onClick={() => setOpen(!open)}
+        className="header-theme-btn"
         style={{
           background: 'var(--ifm-color-primary)',
           border: 'none',
@@ -43,6 +44,7 @@ export default function ColorPicker() {
         }}
       >
         Theme color
+        <span className="nav-tooltip">切换主题颜色</span>
       </button>
       {open && (
         <div style={{
