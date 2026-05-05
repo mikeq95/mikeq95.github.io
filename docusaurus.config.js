@@ -18,8 +18,8 @@ const config = {
   trailingSlash: false,
   onBrokenLinks: 'throw',
   i18n: {
-    defaultLocale: 'zh-Hans',
-    locales: ['zh-Hans'],
+    defaultLocale: 'zh',
+    locales: ['zh'],
   },
   presets: [
     [
