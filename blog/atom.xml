@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mikeq95.github.io/blog</id>
+    <title>mikeQ95 Blog</title>
+    <updated>2026-04-29T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://mikeq95.github.io/blog"/>
+    <subtitle>mikeQ95 Blog</subtitle>
+    <icon>https://mikeq95.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[SwiftUI代码驱动英语学习-Skill配置)]]></title>
+        <id>https://mikeq95.github.io/blog/2026/04/29/claude-english-swift</id>
+        <link href="https://mikeq95.github.io/blog/2026/04/29/claude-english-swift"/>
+        <updated>2026-04-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Skill Name]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="skill-name">Skill Name<a href="https://mikeq95.github.io/blog/2026/04/29/claude-english-swift#skill-name" class="hash-link" aria-label="Skill Name的直接链接" title="Skill Name的直接链接" translate="no">​</a></h2>
+<p>SwiftUI Code-Driven English Learning</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="description">Description<a href="https://mikeq95.github.io/blog/2026/04/29/claude-english-swift#description" class="hash-link" aria-label="Description的直接链接" title="Description的直接链接" translate="no">​</a></h2>
+<p>This skill is designed to help users learn Swift/SwiftUI programming English through a "code-first, English-second" approach. It focuses on practical code examples, scenario-based explanations, and interactive challenges to build vocabulary and understanding of SwiftUI concepts.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="instructions">Instructions<a href="https://mikeq95.github.io/blog/2026/04/29/claude-english-swift#instructions" class="hash-link" aria-label="Instructions的直接链接" title="Instructions的直接链接" translate="no">​</a></h2>
+<p>As an AI tutor for Swift/SwiftUI programming English, your primary goal is to facilitate learning based on the user's current progress and the following teaching principles:</p>
+<p><strong>Teaching Principles:</strong></p>
+<ol>
+<li class=""><strong>Code First, English Second (代码为主，英语为辅)</strong>: Always present a code example first. After the code, break down the core English vocabulary and concepts used within that example.</li>
+<li class=""><strong>Scenario-based Learning (场景化学习)</strong>: Explain concepts by integrating them into specific SwiftUI layouts, data models, or common error messages. Provide context that is directly applicable to real-world SwiftUI development.</li>
+<li class=""><strong>Figurative Language (形象化比喻)</strong>: Use straightforward and relatable analogies (e.g., '套娃' for nested views, '蓝图' for structs/classes, '零件' for individual UI components) to clarify abstract programming concepts.</li>
+<li class=""><strong>Interactive Challenges (互动挑战)</strong>: After explaining each knowledge point, provide 1-2 interactive challenges. These should be either code fill-in-the-blanks or English-to-Chinese/Chinese-to-English translation tasks related to the discussed concept.</li>
+</ol>
+<p><strong>User's Current Learning Progress:</strong></p>
+<ul>
+<li class=""><strong>Mastered Concepts</strong>: VStack, HStack, Alignment, Padding, Spacing, Embed, Apply, Class, Properties, Layout, Initializer (init).</li>
+<li class=""><strong>Currently Learning</strong>: How to use code to 'Represent' (代表/体现) real-world data.</li>
+</ul>
+<p><strong>Task Flow:</strong></p>
+<ol>
+<li class="">Acknowledge the user's understanding of the teaching mode and readiness to continue.</li>
+<li class="">Begin teaching from the user's current learning focus: "How to use code to 'Represent' real-world data."</li>
+<li class="">For each new concept, strictly follow the teaching principles outlined above.</li>
+<li class="">Ensure that explanations are clear, concise, and directly relevant to Swift/SwiftUI.</li>
+<li class="">Maintain a supportive and encouraging tone throughout the learning process.</li>
+</ol>]]></content>
+        <category label="claude" term="claude"/>
+        <category label="Swift" term="Swift"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[编程英语单词短语收集]]></title>
+        <id>https://mikeq95.github.io/blog/2026/04/29/coding-english-vocabulary</id>
+        <link href="https://mikeq95.github.io/blog/2026/04/29/coding-english-vocabulary"/>
+        <updated>2026-04-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[1.  demonstrate]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li class="">
+<p><strong>demonstrate</strong></p>
+<ul>
+<li class="">例句: This tutorial no longer <mark class="flexible-marker flexible-marker-default">demonstrates</mark> current SwiftUI or Xcode practices.</li>
+<li class="">译文: 本教程不再演示当前的 SwiftUI 或 Xcode 实践。</li>
+<li class="">释义: 演示</li>
+</ul>
+</li>
+<li class="">
+<p><strong>prevent</strong></p>
+<ul>
+<li class="">例句: This option will <mark class="flexible-marker flexible-marker-default">prevent</mark> Shadowrocket from being set as the default route.</li>
+<li class="">译文: 此选项将阻止 Shadowrocket 被设置为默认路由。</li>
+<li class="">释义: 阻止</li>
+</ul>
+</li>
+<li class="">
+<p><strong>modifier</strong></p>
+<ul>
+<li class="">例句: A new <mark class="flexible-marker flexible-marker-default">modifier</mark> creates a new view based on the original one.</li>
+<li class="">译文: 一个新的修饰符基于原始的样子，会创建一个新的视图。</li>
+<li class="">释义: 修饰符</li>
+</ul>
+</li>
+<li class="">
+<p><strong>components</strong></p>
+<ul>
+<li class="">例句: One of the most common and recognizable user interface <mark class="flexible-marker flexible-marker-default">components</mark> is the combination of an icon and a label.</li>
+<li class="">译文: 最常见、最容易识别的用户界面组件之一，就是图标+文字的组合。</li>
+<li class="">释义: 零件，组件</li>
+</ul>
+</li>
+<li class="">
+<p><strong>idiom</strong></p>
+<ul>
+<li class="">例句: This <mark class="flexible-marker flexible-marker-default">idiom</mark> appears across many kinds of apps and shows up in collections, lists, menus of action items, and disclosable lists, just to name a few.</li>
+<li class="">译文: 这种惯用组合出现在许多类型的应用程序中，也出现在集合视图、列表、操作菜单以及可展开列表里——仅举几例而已。</li>
+<li class="">释义: 惯用模式，惯用组合</li>
+</ul>
+</li>
+<li class="">
+<p><strong>just to name a few</strong></p>
+<ul>
+<li class="">例句: This idiom appears across many kinds of apps and shows up in collections, lists, menus of action items, and disclosable lists, <mark class="flexible-marker flexible-marker-default">just to name a few</mark>.</li>
+<li class="">译文: 这种惯用组合出现在许多类型的应用程序中，也出现在集合视图、列表、操作菜单以及可展开列表里——仅举几例而已。</li>
+<li class="">释义: 仅举几例 / 只是列举这么多</li>
+</ul>
+</li>
+<li class="">
+<p><strong>interface</strong></p>
+<ul>
+<li class="">例句: You create the user <mark class="flexible-marker flexible-marker-default">interface</mark>, or UI, for your app inside the body, the entire contents of your app are in the code below.</li>
+<li class="">译文: 你在 body 属性中创建应用的用户界面（UI），应用程序的全部内容都在下面的代码中。</li>
+<li class="">释义: 界面</li>
+</ul>
+</li>
+</ol>
+<div class="language-swift codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-swift codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// NOTE: - 演示代码</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token class-name">SwiftUI</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">struct</span><span class="token plain"> </span><span class="token class-name">ContentView</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token class-name">View</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">var</span><span class="token plain"> body</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">some</span><span class="token plain"> </span><span class="token class-name">View</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token class-name">VStack</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">            </span><span class="token class-name">Image</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">systemName</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string-literal string" style="color:#e3116c">"globe"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">                </span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">imageScale</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">large</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">                </span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">foregroundColor</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">tint</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">            </span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">            </span><span class="token class-name">Text</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string-literal string" style="color:#e3116c">"Hello World"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token other-directive property" style="color:#36acaa">#Preview</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token class-name">ContentView</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></div></code></pre></div></div>
+<ol start="8">
+<li class="">
+<p><strong>instance</strong></p>
+<ul>
+<li class="">例句: To construct your narrative, the app needs an <mark class="flexible-marker flexible-marker-default">instance</mark> of Story, which takes an array of StoryPage instances.</li>
+<li class="">译文: 要构建你的叙事，该应用需要一个 Story 实例，该实例接受一个 StoryPage 实例数组。</li>
+<li class="">释义: 实例</li>
+</ul>
+</li>
+<li class="">
+<p><strong>hold</strong></p>
+<ul>
+<li class="">例句: The text property <mark class="flexible-marker flexible-marker-default">holds</mark> a String that describes the choice readers can make.</li>
+<li class="">译文: 文本属性保存一个字符串，用于描述读者可以做出的选择。</li>
+<li class="">释义: 保存，持有</li>
+</ul>
+</li>
+<li class="">
+<p><strong>present</strong></p>
+<ul>
+<li class="">例句: Use a navigation stack to ==present= a stack of views over a root view.</li>
+<li class="">译文: 使用导航堆栈在根视图上呈现一系列视图。</li>
+<li class="">释义: 显示，呈现</li>
+</ul>
+</li>
+<li class="">
+<p><strong>indicates</strong></p>
+<ul>
+<li class="">例句: A value-destination <mark class="flexible-marker flexible-marker-default">indicates</mark> that you are pushing a value onto the path.</li>
+<li class="">译文: "Value destination"这种用法表明/意味着你正在将一个值推送到导航路径（Navigation path）上。</li>
+<li class="">释义: 表明，意味着</li>
+</ul>
+</li>
+</ol>]]></content>
+        <category label="English" term="English"/>
+        <category label="Swift" term="Swift"/>
+        <category label="collection" term="collection"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Claude Code 免费模型接入使用说明]]></title>
+        <id>https://mikeq95.github.io/blog/2026/04/29/free-claude-code</id>
+        <link href="https://mikeq95.github.io/blog/2026/04/29/free-claude-code"/>
+        <updated>2026-04-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[快速启动（两步完成）]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="快速启动两步完成">快速启动（两步完成）<a href="https://mikeq95.github.io/blog/2026/04/29/free-claude-code#%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%E4%B8%A4%E6%AD%A5%E5%AE%8C%E6%88%90" class="hash-link" aria-label="快速启动（两步完成）的直接链接" title="快速启动（两步完成）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="第一步启动服务器终端-1">第一步：启动服务器（终端 1）<a href="https://mikeq95.github.io/blog/2026/04/29/free-claude-code#%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%88%E7%AB%AF-1" class="hash-link" aria-label="第一步：启动服务器（终端 1）的直接链接" title="第一步：启动服务器（终端 1）的直接链接" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cd free-claude-code</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">uv run uvicorn server:app --host 0.0.0.0 --port 8082</span><br></div></code></pre></div></div>
+<blockquote>
+<p>✅ <strong>成功标志：</strong> 看到 <code>Uvicorn running on http://0.0.0.0:8082</code> 提示 ⚠️ <strong>注意：</strong> 不要关闭此窗口，必须保持运行状态</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="第二步启动-claude-code终端-2">第二步：启动 Claude Code（终端 2）<a href="https://mikeq95.github.io/blog/2026/04/29/free-claude-code#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E5%90%AF%E5%8A%A8-claude-code%E7%BB%88%E7%AB%AF-2" class="hash-link" aria-label="第二步：启动 Claude Code（终端 2）的直接链接" title="第二步：启动 Claude Code（终端 2）的直接链接" translate="no">​</a></h3>
+<p>新开一个终端窗口，运行：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">ANTHROPIC_AUTH_TOKEN="freecc" ANTHROPIC_BASE_URL="http://localhost:8082" claude</span><br></div></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="️-切换模型配置">⚙️ 切换模型配置<a href="https://mikeq95.github.io/blog/2026/04/29/free-claude-code#%EF%B8%8F-%E5%88%87%E6%8D%A2%E6%A8%A1%E5%9E%8B%E9%85%8D%E7%BD%AE" class="hash-link" aria-label="⚙️ 切换模型配置的直接链接" title="⚙️ 切换模型配置的直接链接" translate="no">​</a></h2>
+<p>根据需求修改 <code>.env</code> 文件来切换底层模型：</p>
+<p><strong>切换为 Kimi K2</strong>（编程能力最强）</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sed -i '' 's|MODEL="nvidia_nim/z-ai/glm4.7"|MODEL="nvidia_nim/moonshotai/kimi-k2-instruct"|' /Users/a1234/free-claude-code/.env</span><br></div></code></pre></div></div>
+<p><strong>切换为 GLM-4.7</strong>（中文能力较强）</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sed -i '' 's|MODEL="nvidia_nim/moonshotai/kimi-k2-instruct"|MODEL="nvidia_nim/z-ai/glm4.7"|' /Users/a1234/free-claude-code/.env</span><br></div></code></pre></div></div>
+<p><strong>验证当前模型</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">grep MODEL /Users/a1234/free-claude-code/.env</span><br></div></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-应用更改">🔄 应用更改<a href="https://mikeq95.github.io/blog/2026/04/29/free-claude-code#-%E5%BA%94%E7%94%A8%E6%9B%B4%E6%94%B9" class="hash-link" aria-label="🔄 应用更改的直接链接" title="🔄 应用更改的直接链接" translate="no">​</a></h2>
+<p>修改模型后，需重启服务器才能生效：</p>
+<ol>
+<li class="">在终端 1 按 <code>Ctrl+C</code> 停止当前服务</li>
+<li class="">重新运行启动命令：</li>
+</ol>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cd free-claude-code</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">uv run uvicorn server:app --host 0.0.0.0 --port 8082</span><br></div></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-注意事项">📝 注意事项<a href="https://mikeq95.github.io/blog/2026/04/29/free-claude-code#-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" class="hash-link" aria-label="📝 注意事项的直接链接" title="📝 注意事项的直接链接" translate="no">​</a></h2>
+<table><thead><tr><th>事项</th><th>说明</th></tr></thead><tbody><tr><td>🟢 保持运行</td><td>终端 1（服务器）必须一直开着，关闭后 Claude Code 将无法连接</td></tr><tr><td>💡 显示说明</td><td>底层使用 NVIDIA NIM 免费模型，界面显示 "Sonnet 4.6" 属正常现象</td></tr><tr><td>⏱️ 使用限额</td><td>免费额度限制为 <strong>40 次 / 分钟</strong></td></tr><tr><td>🔒 安全提醒</td><td>请勿将 API Key 泄露给他人</td></tr></tbody></table>]]></content>
+        <category label="#claude" term="#claude"/>
+        <category label="#github" term="#github"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[通用英语单词短语收集]]></title>
+        <id>https://mikeq95.github.io/blog/2026/04/29/general-english-vocabulary</id>
+        <link href="https://mikeq95.github.io/blog/2026/04/29/general-english-vocabulary"/>
+        <updated>2026-04-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[1. Based on the principle of voluntariness]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li class="">
+<p><strong>Based on the principle of voluntariness</strong></p>
+<ul>
+<li class="">例句: Membership in the union is <mark class="flexible-marker flexible-marker-default">based on the principle of voluntariness</mark>—no employee is forced to join.</li>
+<li class="">译文: 加入工会遵循自愿原则，没有任何员工被强迫参加。</li>
+<li class="">释义: 根据自愿的原则</li>
+</ul>
+</li>
+<li class="">
+<p><strong>One for all, all for one</strong></p>
+<ul>
+<li class="">例句: The three friends made a pact: <mark class="flexible-marker flexible-marker-default">one for all, all for one</mark>. They promised to stand by each other no matter what challenges lay ahead.</li>
+<li class="">译文: 三位朋友立下誓言：人人为我，我为人人。他们承诺无论未来面临何种挑战，都会相互扶持。</li>
+<li class="">释义: 人人为我，我为人人</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Be careful, though</strong></p>
+<ul>
+<li class="">例句: The restaurant is amazing and cheap. <mark class="flexible-marker flexible-marker-default">Be careful</mark>, though: it gets really crowded on weekends.</li>
+<li class="">译文: 那家餐厅很棒，还很便宜。不过要注意：周末人会特别多。</li>
+<li class="">释义: 不过要注意（用于补充警示信息）</li>
+</ul>
+</li>
+<li class="">
+<p><strong>embedded in</strong></p>
+<ul>
+<li class="">例句: These attitudes are <mark class="flexible-marker flexible-marker-default">embedded in</mark> our society.</li>
+<li class="">译文: 这些观念根植于我们的社会之中。</li>
+<li class="">释义: 根植于，深深嵌入</li>
+</ul>
+</li>
+<li class="">
+<p><strong>enthusiasts</strong></p>
+<ul>
+<li class="">例句: She is one of the most dedicated fitness <mark class="flexible-marker flexible-marker-default">enthusiasts</mark> I have ever met.</li>
+<li class="">译文: 她是我见过的最投入的健身爱好者之一。</li>
+<li class="">释义: 爱好者，发烧友</li>
+</ul>
+</li>
+</ol>]]></content>
+        <category label="#English" term="#English"/>
+        <category label="#collection" term="#collection"/>
+    </entry>
+</feed>
