@@ -4,32 +4,29 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Apple Pay',
+    Svg: require('@site/static/img/Apply-pay.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+       Apple Pay is a mobile payment and digital wallet service by Apple Inc. that allows users to make payments using their Apple devices. It provides a secure and convenient way to pay for goods and services both online and in physical stores, using compatible iPhones, iPads, Apple Watches, and Macs.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'iCloud',
+    Svg: require('@site/static/img/iCloud.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        iCloud is a cloud storage service by Apple Inc. that allows users to store and sync their data across multiple Apple devices. It provides seamless integration with Apple's ecosystem, enabling users to access their files, photos, and other data from anywhere.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Siri',
+    Svg: require('@site/static/img/Siri.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Siri is a virtual assistant by Apple Inc. that allows users to interact with their Apple devices using voice commands. It can perform various tasks such as setting reminders, making calls, sending messages, and providing information.
       </>
     ),
   },

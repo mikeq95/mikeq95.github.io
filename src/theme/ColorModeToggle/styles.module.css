@@ -1,0 +1,15 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.modeLabel {
+  font-size: 13px;
+  font-weight: 500;
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ifm-navbar-link-color);
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1;
+}

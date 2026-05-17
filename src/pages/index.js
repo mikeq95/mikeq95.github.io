@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
@@ -10,18 +10,27 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
+    <header className={styles.heroBanner}>
+      <div className={styles.heroContainer}>
+        <div className={styles.heroText}>
+          <Heading as="h1" className={styles.title}>
+            你好, <span className={styles.gradientText}>こんにちは, 안녕하세요, Hello</span>
+          </Heading>
+          <p className={styles.description}>
+            我是一个来自中国的大学生,欢迎来到我的博客
+          </p>
+          <div className={styles.buttons}>
+            <Link className={styles.blogButton} to="/blog">
+              Read my blog
+            </Link>
+          </div>
+        </div>
+        <div className={styles.heroImageContainer}>
+          <img 
+            src={useBaseUrl('/img/颗秘！.jpg')} 
+            alt="Profile Avatar" 
+            className={styles.heroImage}
+          />
         </div>
       </div>
     </header>
@@ -36,7 +45,6 @@ export default function Home() {
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
       </main>
     </Layout>
   );

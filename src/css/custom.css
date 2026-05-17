@@ -6,25 +6,65 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary: #f40795;
+  /* --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
   --ifm-color-primary-darkest: #205d3b;
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1); */
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary: #06d6fb;
+  /* --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
   --ifm-color-primary-darkest: #1a8870;
   --ifm-color-primary-light: #29d5b0;
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3); */
+}
+
+/* 隐藏原来的图标按钮 */
+.navbar__items--right .clean-btn {
+  position: relative;
+  width: 51px;
+  height: 31px;
+  padding: 0;
+  border-radius: 999px;
+  background-color: #e5e5ea;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+/* 滑块 */
+.navbar__items--right .clean-btn::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+/* 深色模式下变绿，滑块右移 */
+[data-theme='dark'] .navbar__items--right .clean-btn {
+  background-color: #34c759; /* iOS 绿色 */
+}
+
+[data-theme='dark'] .navbar__items--right .clean-btn::after {
+  transform: translateX(20px);
+}
+
+/* 隐藏原来的太阳/月亮图标 */
+.navbar__items--right .clean-btn svg {
+  display: none;
 }

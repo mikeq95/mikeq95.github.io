@@ -1,0 +1,35 @@
+.wrapper {
+  position: relative;
+}
+
+.trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0); /* 浅色模式：黑色 */
+}
+
+[data-theme='dark'] .icon {
+  filter: brightness(0) invert(1); /* 深色模式：白色 */
+}
+
+.panel {
+  position: absolute;
+  right: 0;
+  top: 36px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  padding: 12px;
+  width: 220px;
+  z-index: 999;
+  color: black;
+}

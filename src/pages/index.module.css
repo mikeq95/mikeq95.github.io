@@ -3,21 +3,143 @@
  * and scoped locally.
  */
 
+/* ── Hero wrapper: full viewport height, content centered ── */
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-content);
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
-
-.buttons {
+/* ── Two-column flex row ── */
+.heroContainer {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6rem;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  box-sizing: border-box;
+}
+
+/* ── Left: text ── */
+.heroText {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: left;
+}
+
+/* ── Right: avatar ── */
+.heroImageContainer {
+  flex: 0 0 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImage {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* ── Gradient on part of title ── */
+.gradientText {
+  background-image: linear-gradient(to right, rgb(168, 85, 247), rgb(45, 212, 191));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Title ── */
+.title {
+  font-family: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  line-height: 1.25;
+}
+
+/* ── Sub-title / description ── */
+.description {
+  font-family: "SF Pro Text", "SF", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 1.8rem 0;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* ── CTA button ── */
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.blogButton {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--ifm-color-primary);
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.01em;
+}
+
+.blogButton:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ── Mobile ── */
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    min-height: unset;
+    padding: 3rem 0;
+  }
+
+  .heroContainer {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .heroText {
+    text-align: center;
+    order: 2;
+  }
+
+  .heroImageContainer {
+    flex: 0 0 auto;
+    order: 1;
+  }
+
+  .heroImage {
+    width: 180px;
+    height: 180px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
 }
