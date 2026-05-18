@@ -12,18 +12,7 @@ const PRESET_COLORS = [
 
 export default function ThemeColorButton() {
   const [color, setColor] = useState('#AF52DE'); // Default purple
-  const [isOpen, setIsOpen] = useState(false);
-  const wrapperRef = useRef(null);
-
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const styleId = 'custom-theme-color-style';
@@ -59,26 +48,29 @@ export default function ThemeColorButton() {
   }, [color]);
 
   return (
-    <div className={styles.colorPickerWrapper} ref={wrapperRef}>
-      <button 
-        className={styles.colorPickerPill} 
-        style={{ backgroundColor: color, color: '#fff' }}
-        onClick={() => setIsOpen(!isOpen)}
+    <div style={{ marginBottom: '12px' }}>
+      <div 
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer' }}
+        onClick={() => setIsExpanded(!isExpanded)}
       >
-        Theme Color
-      </button>
+        <span style={{ fontSize: '15px', fontWeight: '500', whiteSpace: 'nowrap' }}>外观</span>
+        <span style={{ fontSize: '16px', color: 'var(--ifm-color-content-secondary)' }}>
+          {isExpanded ? '˅' : '›'}
+        </span>
+      </div>
       
-      {isOpen && (
-        <div className={styles.palette}>
+      {isExpanded && (
+        <div className={styles.paletteInline}>
           {PRESET_COLORS.map(c => (
             <div 
               key={c}
               className={styles.colorSwatch}
-              style={{ backgroundColor: c }}
-              onClick={() => {
-                setColor(c);
-                setIsOpen(false);
+              style={{ 
+                backgroundColor: c, 
+                border: color === c ? '2px solid var(--ifm-color-content)' : '1px solid rgba(0,0,0,0.15)',
+                transform: color === c ? 'scale(1.15)' : 'scale(1)'
               }}
+              onClick={() => setColor(c)}
             />
           ))}
         </div>

@@ -13,7 +13,7 @@ const config = {
   title: ' Apple Intelligence',
   tagline: 'It\'s our world, we just live in it.',
   favicon: 'img/favicon.ico',
-
+deploymentBranch: 'gh-pages',
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
@@ -70,7 +70,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
-        // respectPrefersColorScheme: true,
+        disableSwitch: true,
       },
       navbar: {
         title: 'Clearlove7',
