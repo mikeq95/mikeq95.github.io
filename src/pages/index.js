@@ -27,7 +27,7 @@ function HomepageHeader() {
         </div>
         <div className={styles.heroImageContainer}>
           <img 
-            src={useBaseUrl('/img/ahri.png')} 
+            src={useBaseUrl('/img/ahri.jpg')} 
             alt="Profile Avatar" 
             className={styles.heroImage}
           />
