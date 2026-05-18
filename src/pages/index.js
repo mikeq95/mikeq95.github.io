@@ -17,7 +17,7 @@ function HomepageHeader() {
             你好, <span className={styles.gradientText}>こんにちは, 안녕하세요, Hello</span>
           </Heading>
           <p className={styles.description}>
-            我是一个来自中国的大学生,欢迎来到我的博客
+            I am a university student from China. Welcome to my blog.
           </p>
           <div className={styles.buttons}>
             <Link className={styles.blogButton} to="/blog">

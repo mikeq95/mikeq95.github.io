@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import OriginalNavbar from '@theme-original/Navbar';
 import SettingsDropdown from '@site/src/components/SettingsDropdown';
-import ThemeColorButton from '@site/src/components/ThemeColorButton';
 import TranslateButton from '@site/src/components/TranslateButton';
 
-function ModeLabelBadge() {
+function useTheme() {
   const [isDark, setIsDark] = useState(false);
   useEffect(() => {
     const update = () => {
@@ -15,14 +14,26 @@ function ModeLabelBadge() {
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     return () => observer.disconnect();
   }, []);
+  return isDark;
+}
 
+function ModeLabelBadge() {
+  const isDark = useTheme();
   const labelStyle = {
     fontSize: '20px',
     userSelect: 'none',
     lineHeight: '1',
   };
-
   return <span style={labelStyle}>{isDark ? '🌙' : '🌞'}</span>;
+}
+
+function MessageIcon() {
+  const isDark = useTheme();
+  return (
+    <a href="mailto:giffgaffuk78459@icloud.com" style={{ display: 'flex', alignItems: 'center' }} title="iMessage me">
+      <img src={isDark ? "/img/message-dark.png" : "/img/message-light.png"} alt="iMessage" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+    </a>
+  );
 }
 
 export default function NavbarWrapper(props) {
@@ -36,10 +47,13 @@ export default function NavbarWrapper(props) {
         height: '60px',
         zIndex: 1000,
         display: 'flex',
-        gap: '16px',
+        gap: '20px',
         alignItems: 'center',
       }}>
-        <ThemeColorButton />
+        <MessageIcon />
+        <a href="mailto:giffgaffuk78459@icloud.com" style={{ display: 'flex', alignItems: 'center' }} title="Email me">
+          <img src="/img/email.png" alt="Email" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+        </a>
         <TranslateButton />
         <SettingsDropdown />
         <ModeLabelBadge />

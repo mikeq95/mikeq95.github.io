@@ -2,17 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './styles.module.css';
 
 const PRESET_COLORS = [
-  '#000000', // Black
   '#007AFF', // Blue
-  '#A2845E', // Brown
   '#32ADE6', // Cyan
   '#34C759', // Green
   '#FF2D55', // Magenta
   '#FF9500', // Orange
   '#AF52DE', // Purple (Default)
-  '#FF3B30', // Red
-  '#FFCC00', // Yellow
-  '#FFFFFF', // White
 ];
 
 export default function ThemeColorButton() {
@@ -67,7 +62,7 @@ export default function ThemeColorButton() {
     <div className={styles.colorPickerWrapper} ref={wrapperRef}>
       <button 
         className={styles.colorPickerPill} 
-        style={{ backgroundColor: color, color: color === '#FFFFFF' ? '#000' : '#fff' }}
+        style={{ backgroundColor: color, color: '#fff' }}
         onClick={() => setIsOpen(!isOpen)}
       >
         Theme Color

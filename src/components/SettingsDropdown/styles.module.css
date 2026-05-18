@@ -14,11 +14,13 @@
 .icon {
   width: 24px;
   height: 24px;
-  filter: brightness(0); /* 浅色模式：黑色 */
+  filter: brightness(0);
+  /* 浅色模式：黑色 */
 }
 
 [data-theme='dark'] .icon {
-  filter: brightness(0) invert(1); /* 深色模式：白色 */
+  filter: brightness(0) invert(1);
+  /* 深色模式：白色 */
 }
 
 .panel {
@@ -27,7 +29,7 @@
   top: 36px;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   padding: 12px;
   width: 220px;
   z-index: 999;
