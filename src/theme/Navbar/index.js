@@ -9,7 +9,7 @@ export default function NavbarWrapper(props) {
       <div style={{
         position: 'fixed',
         top: '0',
-        right: '72px',
+        right: '24px',
         height: '60px',
         zIndex: 1000,
         display: 'flex',
