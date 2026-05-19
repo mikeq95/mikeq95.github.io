@@ -74,6 +74,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // Google Analytics 统计
+      gtag: {
+        trackingID: 'G-2DYQKKG4V1',
+        anonymizeIP: true,
+      },
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
