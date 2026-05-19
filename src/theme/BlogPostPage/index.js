@@ -13,15 +13,21 @@ import BlogPostPageStructuredData from '@theme/BlogPostPage/StructuredData';
 import TOC from '@theme/TOC';
 import ContentVisibility from '@theme/ContentVisibility';
 import GiscusComment from '@site/src/components/GiscusComment';
+import ShareButtons from '@site/src/components/ShareButtons';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 function BlogPostPageContent({sidebar, children}) {
   const {metadata, toc} = useBlogPost();
   const {nextItem, prevItem, frontMatter} = metadata;
+  const {siteConfig} = useDocusaurusContext();
   const {
     hide_table_of_contents: hideTableOfContents,
     toc_min_heading_level: tocMinHeadingLevel,
     toc_max_heading_level: tocMaxHeadingLevel,
   } = frontMatter;
+
+  const postUrl = `${siteConfig.url}${metadata.permalink}`;
+
   return (
     <BlogLayout
       sidebar={sidebar}
@@ -36,6 +42,7 @@ function BlogPostPageContent({sidebar, children}) {
       }>
       <ContentVisibility metadata={metadata} />
       <BlogPostItem>{children}</BlogPostItem>
+      <ShareButtons title={metadata.title} url={postUrl} />
       {(nextItem || prevItem) && (
         <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
       )}
