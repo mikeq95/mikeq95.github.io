@@ -13,7 +13,8 @@ const config = {
   title: ' Apple Intelligence',
   tagline: 'It\'s our world, we just live in it.',
   favicon: 'img/favicon.ico',
-deploymentBranch: 'gh-pages',
+  deploymentBranch: 'gh-pages',
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
@@ -41,29 +42,35 @@ deploymentBranch: 'gh-pages',
   },
 
   presets: [
-  [
-    'classic',
-    /** @type {import('@docusaurus/preset-classic').Options} */
-    ({
-      docs: false,
-      blog: {
-        showReadingTime: true,
-        feedOptions: {
-          type: ['rss', 'atom'],
-          xslt: true,
+    [
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        docs: false,
+        blog: {
+          showReadingTime: true,
+          feedOptions: {
+            type: ['rss', 'atom'],
+            xslt: true,
+          },
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          onInlineTags: 'warn',
+          onInlineAuthors: 'warn',
+          onUntruncatedBlogPosts: 'warn',
         },
-        editUrl:
-          'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        onInlineTags: 'warn',
-        onInlineAuthors: 'warn',
-        onUntruncatedBlogPosts: 'warn',
-      },
-      theme: {
-        customCss: './src/css/custom.css',
-      },
-    }),
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+        // 自动生成 sitemap.xml，让搜索引擎收录你的页面
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+        },
+      }),
+    ],
   ],
-],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -75,9 +82,7 @@ deploymentBranch: 'gh-pages',
       navbar: {
         title: 'Clearlove7',
         items: [
-          
           {to: '/blog', label: 'Blog', position: 'left'},
-          
         ],
       },
       prism: {
