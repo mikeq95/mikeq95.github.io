@@ -8,6 +8,8 @@ tags:
 
 > 本文记录了如何在 Mac (Apple Silicon) 上通过 Docker 本地部署 Kokoro TTS，将英文/中文文章转换为高质量音频。
 
+<!-- truncate -->
+
 ---
 
 ## 一、为什么选 Kokoro？

@@ -12,6 +12,8 @@ tags:
     - 译文: 本教程不再演示当前的 SwiftUI 或 Xcode 实践。
     - 释义: 演示
 
+<!-- truncate -->
+
 2. **prevent**  
      
     - 例句: This option will ==prevent== Shadowrocket from being set as the default route.

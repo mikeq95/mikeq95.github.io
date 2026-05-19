@@ -20,6 +20,7 @@
     "@giscus/react": "^3.1.0",
     "@iconify/react": "^6.0.2",
     "@mdx-js/react": "^3.0.0",
+    "@waline/client": "^3.13.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",

@@ -11,6 +11,8 @@ tags:
     - 译文: 加入工会遵循自愿原则，没有任何员工被强迫参加。
     - 释义: 根据自愿的原则
 
+<!-- truncate -->
+
 2. **One for all, all for one**
     
     - 例句: The three friends made a pact: ==one for all, all for one==. They promised to stand by each other no matter what challenges lay ahead.
