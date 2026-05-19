@@ -11,7 +11,7 @@ tags:
     - 译文: 加入工会遵循自愿原则，没有任何员工被强迫参加。
     - 释义: 根据自愿的原则
 
-<!-- truncate -->
+{/* truncate */}
 
 2. **One for all, all for one**
     

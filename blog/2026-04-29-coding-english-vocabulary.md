@@ -12,7 +12,7 @@ tags:
     - 译文: 本教程不再演示当前的 SwiftUI 或 Xcode 实践。
     - 释义: 演示
 
-<!-- truncate -->
+{/* truncate */}
 
 2. **prevent**  
      
