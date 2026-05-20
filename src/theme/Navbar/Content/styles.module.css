@@ -1,0 +1,21 @@
+.authItem {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.placeholder {
+  display: inline-block;
+  width: 120px;
+  height: 32px;
+}
+
+@media (max-width: 996px) {
+  .colorModeToggle {
+    display: none;
+  }
+}
+
+:global(.navbar__items--right) > :last-child {
+  padding-right: 0;
+}

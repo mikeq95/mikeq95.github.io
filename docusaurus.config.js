@@ -4,7 +4,10 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env.local' });
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -33,6 +36,10 @@ const config = {
 
   onBrokenLinks: 'throw',
   trailingSlash: false,
+
+  customFields: {
+    clerkPublishableKey: process.env.VITE_CLERK_PUBLISHABLE_KEY,
+  },
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -87,7 +94,7 @@ const config = {
       navbar: {
         title: 'Clearlove7',
         items: [
-          {to: '/blog', label: 'Blog', position: 'left'},
+          { to: '/blog', label: 'Blog', position: 'left' },
         ],
       },
       prism: {

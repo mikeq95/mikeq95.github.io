@@ -6,16 +6,17 @@ export default function NavbarWrapper(props) {
   return (
     <>
       <OriginalNavbar {...props} />
-      <div style={{
-        position: 'fixed',
-        top: '0',
-        right: '24px',
-        height: '60px',
-        zIndex: 1000,
-        display: 'flex',
-        gap: '20px',
-        alignItems: 'center',
-      }}>
+      <div
+        style={{
+          position: 'fixed',
+          top: '0',
+          right: '24px',
+          height: '60px',
+          zIndex: 1000,
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
         <SettingsDropdown />
       </div>
     </>

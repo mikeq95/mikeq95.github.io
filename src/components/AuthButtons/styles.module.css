@@ -1,0 +1,43 @@
+.auth {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.loading {
+  font-size: 14px;
+  color: var(--ifm-color-emphasis-600);
+  min-width: 1rem;
+}
+
+.btn {
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.btnPrimary {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  filter: brightness(1.05);
+  background: var(--ifm-color-primary);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+}
