@@ -69,3 +69,10 @@
 .navbar__items--right .clean-btn svg {
   display: none;
 }
+
+.cl-modalBackdrop {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  animation: none !important;
+  transition: none !important;
+}

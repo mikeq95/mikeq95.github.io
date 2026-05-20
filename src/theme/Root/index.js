@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { ClerkProvider } from '@clerk/clerk-react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { ClerkReadyContext } from '@site/src/components/ClerkReadyContext';
+import { clerkAppearance } from '@site/src/lib/clerkAppearance';
 
 function ClerkWrapper({ children, publishableKey }) {
   return (
     <ClerkProvider
+      appearance={clerkAppearance}
       publishableKey={publishableKey}
       signInUrl="/sign-in"
       signUpUrl="/sign-up"
