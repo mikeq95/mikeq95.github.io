@@ -374,7 +374,7 @@
 </ul>
 </li>
 </ol>]]></content>
-        <category label="#English" term="#English"/>
-        <category label="#collection" term="#collection"/>
+        <category label="English" term="English"/>
+        <category label="Collection" term="Collection"/>
     </entry>
 </feed>
