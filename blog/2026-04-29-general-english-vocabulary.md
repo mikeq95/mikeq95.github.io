@@ -2,8 +2,8 @@
 title: 通用英语单词短语收集
 date: 2026-04-29
 tags:
-  - "#English"
-  - "#collection"
+  - English
+  - collection
 ---
 1. **Based on the principle of voluntariness**
     

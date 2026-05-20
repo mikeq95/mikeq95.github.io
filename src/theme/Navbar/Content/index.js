@@ -16,6 +16,7 @@ import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 import AuthButtons from '@site/src/components/AuthButtons';
+import SettingsDropdown from '@site/src/components/SettingsDropdown';
 
 import styles from './styles.module.css';
 
@@ -85,6 +86,9 @@ export default function NavbarContent() {
           <NavbarItems items={rightItems} />
           <div className={styles.authItem}>
             <AuthButtons />
+          </div>
+          <div className={styles.settingsItem}>
+            <SettingsDropdown />
           </div>
           <NavbarColorModeToggle className={styles.colorModeToggle} />
           {!searchBarItem && (

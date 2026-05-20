@@ -1,9 +1,9 @@
-english:
+English:
   label: English
   permalink: /english
   description: English learning related posts
 
-swift:
+Swift:
   label: Swift
   permalink: /swift
   description: Swift programming language

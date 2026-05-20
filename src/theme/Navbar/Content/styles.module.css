@@ -4,6 +4,12 @@
   margin-right: 0.5rem;
 }
 
+.settingsItem {
+  display: flex;
+  align-items: center;
+  margin-right: 0.25rem;
+}
+
 .placeholder {
   display: inline-block;
   width: 120px;

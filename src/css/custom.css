@@ -51,13 +51,14 @@
   height: 27px;
   border-radius: 50%;
   background: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 
 /* 深色模式下变绿，滑块右移 */
 [data-theme='dark'] .navbar__items--right .clean-btn {
-  background-color: #34c759; /* iOS 绿色 */
+  background-color: #34c759;
+  /* iOS 绿色 */
 }
 
 [data-theme='dark'] .navbar__items--right .clean-btn::after {
