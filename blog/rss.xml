@@ -4,10 +4,19 @@
         <title> Apple Intelligence Blog</title>
         <link>https://mikeQ95.github.io/blog</link>
         <description> Apple Intelligence Blog</description>
-        <lastBuildDate>Sat, 16 May 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 20 May 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[测试一下表情包是否能够正常显示]]></title>
+            <link>https://mikeQ95.github.io/blog/2026/05/20/emoji-test</link>
+            <guid>https://mikeQ95.github.io/blog/2026/05/20/emoji-test</guid>
+            <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[maodie]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="maodie" src="https://mikeq95.github.io/assets/images/maotie-dance-7bf77d2cabd8b668628ec8d1dda612ae.gif" width="240" height="240" class="img_ev3q"></p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[🌐 macOS 网络重置命令速查]]></title>
             <link>https://mikeQ95.github.io/blog/2025/05/16/quick-reference-for-macOS network-reset-commands</link>
