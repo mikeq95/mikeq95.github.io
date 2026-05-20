@@ -1,6 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-import BrowserOnly from '@docusaurus/BrowserOnly';
 import {
   useThemeConfig,
   ErrorCauseBoundary,
@@ -85,9 +84,7 @@ export default function NavbarContent() {
         <>
           <NavbarItems items={rightItems} />
           <div className={styles.authItem}>
-            <BrowserOnly fallback={<span className={styles.placeholder} />}>
-              {() => <AuthButtons />}
-            </BrowserOnly>
+            <AuthButtons />
           </div>
           <NavbarColorModeToggle className={styles.colorModeToggle} />
           {!searchBarItem && (

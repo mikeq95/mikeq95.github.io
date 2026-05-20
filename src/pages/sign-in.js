@@ -1,7 +1,7 @@
 import React from 'react';
-import BrowserOnly from '@docusaurus/BrowserOnly';
 import Layout from '@theme/Layout';
 import { SignIn } from '@clerk/clerk-react';
+import ClerkGate from '@site/src/components/ClerkGate';
 
 export default function SignInPage() {
   return (
@@ -15,9 +15,9 @@ export default function SignInPage() {
           padding: '2rem 1rem',
         }}
       >
-        <BrowserOnly fallback={<p>加载中…</p>}>
-          {() => <SignIn routing="path" path="/sign-in" signUpUrl="/sign-up" />}
-        </BrowserOnly>
+        <ClerkGate fallback={<p>加载中…</p>}>
+          <SignIn routing="path" path="/sign-in" signUpUrl="/sign-up" />
+        </ClerkGate>
       </main>
     </Layout>
   );

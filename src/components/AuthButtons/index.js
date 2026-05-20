@@ -1,7 +1,7 @@
 import React from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useClerkReady } from '@site/src/components/ClerkReadyContext';
 import {
-  ClerkLoaded,
-  ClerkLoading,
   SignedIn,
   SignedOut,
   SignInButton,
@@ -10,13 +10,9 @@ import {
 } from '@clerk/clerk-react';
 import styles from './styles.module.css';
 
-export default function AuthButtons() {
+function AuthButtonsInner() {
   return (
-    <div className={styles.auth}>
-      <ClerkLoading>
-        <span className={styles.loading}>…</span>
-      </ClerkLoading>
-      <ClerkLoaded>
+    <>
       <SignedOut>
         <SignInButton mode="modal">
           <button type="button" className={styles.btn}>
@@ -38,7 +34,26 @@ export default function AuthButtons() {
           }}
         />
       </SignedIn>
-      </ClerkLoaded>
+    </>
+  );
+}
+
+export default function AuthButtons() {
+  const { siteConfig } = useDocusaurusContext();
+  const publishableKey = siteConfig.customFields?.clerkPublishableKey;
+  const clerkReady = useClerkReady();
+
+  if (!publishableKey) {
+    return null;
+  }
+
+  if (!clerkReady) {
+    return <span className={styles.loading}>…</span>;
+  }
+
+  return (
+    <div className={styles.auth}>
+      <AuthButtonsInner />
     </div>
   );
 }
