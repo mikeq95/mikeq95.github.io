@@ -59,6 +59,9 @@ const config = {
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
+            blogSidebarCount: 'ALL',
+            // 生成 RSS 和 Atom 订阅源，方便用户订阅博客更新
+            //slidebar显示所有文章
           },
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
