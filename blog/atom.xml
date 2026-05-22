@@ -2,11 +2,45 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mikeQ95.github.io/blog</id>
     <title> Apple Intelligence Blog</title>
-    <updated>2026-05-20T00:00:00.000Z</updated>
+    <updated>2026-05-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mikeQ95.github.io/blog"/>
     <subtitle> Apple Intelligence Blog</subtitle>
     <icon>https://mikeQ95.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[测试 AI 解释功能]]></title>
+        <id>https://mikeQ95.github.io/blog/2026/05/22/test-ai-explain</id>
+        <link href="https://mikeQ95.github.io/blog/2026/05/22/test-ai-explain"/>
+        <updated>2026-05-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[这是一篇测试文章，点击下面的词语跳转到 AI 解释器：]]></summary>
+        <content type="html"><![CDATA[<p>这是一篇测试文章，点击下面的词语跳转到 AI 解释器：</p>
+<p><a href="https://clearlove7-ai.vercel.app/?word=%E8%8B%B9%E6%9E%9C&amp;context=%E6%9C%AC%E6%96%87%E5%9C%A8%E6%B5%8B%E8%AF%95AI%E8%A7%A3%E9%87%8A%E5%8A%9F%E8%83%BD" target="_blank" rel="noopener noreferrer" class="">苹果</a></p>
+<p><a href="https://clearlove7-ai.vercel.app/?word=%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0&amp;context=%E6%9C%AC%E6%96%87%E5%9C%A8%E6%B5%8B%E8%AF%95AI%E8%A7%A3%E9%87%8A%E5%8A%9F%E8%83%BD" target="_blank" rel="noopener noreferrer" class="">机器学习</a></p>
+<p><a href="https://clearlove7-ai.vercel.app/?word=%E5%8C%BA%E5%9D%97%E9%93%BE&amp;context=%E6%9C%AC%E6%96%87%E5%9C%A8%E6%B5%8B%E8%AF%95AI%E8%A7%A3%E9%87%8A%E5%8A%9F%E8%83%BD" target="_blank" rel="noopener noreferrer" class="">区块链</a></p>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[什么是 GenZ？]]></title>
+        <id>https://mikeQ95.github.io/blog/2026/05/22/blog/genz</id>
+        <link href="https://mikeQ95.github.io/blog/2026/05/22/blog/genz"/>
+        <updated>2026-05-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[最近我在刷短视频的时候，突然意识到自己已经完全看不懂年轻人在说什么了。"绝绝子"、"yyds"、"躺平"……这些词对我来说就像外星语言。于是我开始研究这群人——GenZ，也就是Z世代，到底是什么来头。]]></summary>
+        <content type="html"><![CDATA[<p>最近我在刷短视频的时候，突然意识到自己已经完全看不懂年轻人在说什么了。"绝绝子"、"yyds"、"躺平"……这些词对我来说就像外星语言。于是我开始研究这群人——<a href="https://clearlove7-ai.vercel.app/?word=GenZ&amp;context=%E6%9C%AC%E6%96%87%E4%BB%8B%E7%BB%8DGenZ%E4%B8%96%E4%BB%A3%E7%9A%84%E7%89%B9%E5%BE%81%E5%92%8C%E6%96%87%E5%8C%96" target="_blank" rel="noopener noreferrer" class="">GenZ</a>，也就是Z世代，到底是什么来头。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="他们是谁">他们是谁？<a href="https://mikeq95.github.io/blog/2026/05/22/blog/genz#%E4%BB%96%E4%BB%AC%E6%98%AF%E8%B0%81" class="hash-link" aria-label="Direct link to 他们是谁？" title="Direct link to 他们是谁？" translate="no">​</a></h2>
+<p>GenZ 通常指1997年至2012年出生的人，现在大概在13到27岁之间。他们是历史上第一批从出生就被智能手机包围的人，被称为真正的<a href="https://clearlove7-ai.vercel.app/?word=%E6%95%B0%E5%AD%97%E5%8E%9F%E4%BD%8F%E6%B0%91&amp;postId=2026-05-22-genz" target="_blank" rel="noopener noreferrer" class="">数字原住民</a>。对他们来说，没有网络的生活是无法想象的，就像我们这代人无法想象没有电视一样。</p>
+<p>这代人成长的背景非常特殊。他们经历了2008年金融危机带来的家庭压力，目睹了父母为生计挣扎；青春期遭遇了新冠疫情，在最该社交的年龄被困在家里；还有不断恶化的气候问题和社会矛盾。这些经历让他们比想象中更加务实，甚至有点悲观。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="他们和千禧一代有什么不同">他们和千禧一代有什么不同？<a href="https://mikeq95.github.io/blog/2026/05/22/blog/genz#%E4%BB%96%E4%BB%AC%E5%92%8C%E5%8D%83%E7%A6%A7%E4%B8%80%E4%BB%A3%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C" class="hash-link" aria-label="Direct link to 他们和千禧一代有什么不同？" title="Direct link to 他们和千禧一代有什么不同？" translate="no">​</a></h2>
+<p>很多人容易把 GenZ 和千禧一代混为一谈，但其实差别挺大的。千禧一代（1981-1996年出生）成长于互联网兴起的时代，对科技充满乐观；而 GenZ 则是在科技的阴影下长大的，他们比任何人都清楚<a href="https://clearlove7-ai.vercel.app/?word=%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93&amp;context=%E6%9C%AC%E6%96%87%E4%BB%8B%E7%BB%8DGenZ%E4%B8%96%E4%BB%A3%E7%9A%84%E7%89%B9%E5%BE%81%E5%92%8C%E6%96%87%E5%8C%96" target="_blank" rel="noopener noreferrer" class="">社交媒体</a>对心理健康的伤害，却又离不开它。</p>
+<p>另一个明显区别是对待工作的态度。千禧一代被称为"工作狂"，拼命证明自己；GenZ 则更推崇"工作是为了生活，而不是生活是为了工作"。他们不怕在 LinkedIn 上公开说"我离职了，因为公司文化太差"，这在上一代人眼里简直不可思议。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="他们的文化是什么样的">他们的文化是什么样的？<a href="https://mikeq95.github.io/blog/2026/05/22/blog/genz#%E4%BB%96%E4%BB%AC%E7%9A%84%E6%96%87%E5%8C%96%E6%98%AF%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84" class="hash-link" aria-label="Direct link to 他们的文化是什么样的？" title="Direct link to 他们的文化是什么样的？" translate="no">​</a></h2>
+<p>GenZ 的文化很难用几句话概括，因为他们本身就拒绝被定义。但有几个特征是比较明显的。</p>
+<p>首先是对真实性的追求。他们讨厌精心包装的广告，喜欢看起来随意、真实的内容。这也是为什么 TikTok 能打败 Instagram——前者更随意，后者太精致。他们能一眼看穿品牌的"假装接地气"，并且毫不留情地嘲讽它。</p>
+<p>其次是对<a href="https://clearlove7-ai.vercel.app/?word=%E5%BF%83%E7%90%86%E5%81%A5%E5%BA%B7&amp;context=%E6%9C%AC%E6%96%87%E4%BB%8B%E7%BB%8DGenZ%E4%B8%96%E4%BB%A3%E7%9A%84%E7%89%B9%E5%BE%81%E5%92%8C%E6%96%87%E5%8C%96" target="_blank" rel="noopener noreferrer" class="">心理健康</a>的重视。这代人是第一批公开谈论焦虑、抑郁和心理治疗的年轻人。"我最近状态不好，需要休息"对他们来说是完全正常的表达，而不是软弱的表现。这种态度正在慢慢改变整个社会对精神健康的看法。</p>
+<p>还有就是他们独特的幽默感——充满自嘲、荒诞和末日感。"反正地球也快完了，笑一笑又何妨"大概是他们的精神底色。这种幽默风格渗透进了他们创造的所有网络文化，让外人看起来常常一头雾水。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="我对他们的看法">我对他们的看法<a href="https://mikeq95.github.io/blog/2026/05/22/blog/genz#%E6%88%91%E5%AF%B9%E4%BB%96%E4%BB%AC%E7%9A%84%E7%9C%8B%E6%B3%95" class="hash-link" aria-label="Direct link to 我对他们的看法" title="Direct link to 我对他们的看法" translate="no">​</a></h2>
+<p>说实话，刚开始了解 GenZ 的时候，我有点不理解。感觉这代人既焦虑又躺平，既想改变世界又觉得一切都无所谓。但后来我想明白了——他们面对的世界确实比我们那时候更复杂、更不稳定。</p>
+<p>他们的应对方式或许在旁人看来奇怪，但那是他们找到的一种生存方式。而且不得不承认，正是这代人在推动着关于<a href="https://clearlove7-ai.vercel.app/?word=%E6%B0%94%E5%80%99%E5%8F%98%E5%8C%96&amp;context=%E6%9C%AC%E6%96%87%E4%BB%8B%E7%BB%8DGenZ%E4%B8%96%E4%BB%A3%E7%9A%84%E7%89%B9%E5%BE%81%E5%92%8C%E6%96%87%E5%8C%96" target="_blank" rel="noopener noreferrer" class="">气候变化</a>、性别平等和心理健康的讨论，让这些话题走进了主流视野。</p>
+<p>也许我们不需要完全理解他们，但值得去尝试。</p>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[测试一下表情包是否能够正常显示]]></title>
         <id>https://mikeQ95.github.io/blog/2026/05/20/emoji-test</id>
