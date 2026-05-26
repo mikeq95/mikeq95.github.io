@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 32px 0 16px;
+}
+
+.actionBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s ease;
+}
+
+.actionBtn:hover {
+  transform: scale(1.1);
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  color: var(--ifm-color-emphasis-500);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.count {
+  font-size: 13px;
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.liked .icon {
+  color: #fe2c55;
+}
+
+.liked .count {
+  color: #fe2c55;
+}
+
+.bookmarked .icon {
+  color: #ffcc00;
+}
+
+.bookmarked .count {
+  color: #ffcc00;
+}
+
+.pop {
+  animation: pop 0.35s ease;
+}
+
+@keyframes pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.4); }
+  70%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}

@@ -1,4 +1,5 @@
 ---
+slug: 2026/04/29/general-english-vocabulary
 title: 通用英语单词短语收集
 date: 2026-04-29
 tags:

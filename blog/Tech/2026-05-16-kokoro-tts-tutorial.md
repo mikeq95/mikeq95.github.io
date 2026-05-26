@@ -1,4 +1,5 @@
 ---
+slug: 2026/05/16/kokoro-tts-tutorial
 title: "用 Kokoro 把文章变成播客音频 —— 从零部署教程"
 date: 2026-05-16
 tags:

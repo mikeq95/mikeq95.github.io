@@ -1,4 +1,5 @@
 ---
+slug: 2026/05/14/do-chinese-face-racial-discrimination-abroad
 title: 问题-中国人在国外会被种族歧视嘛？
 date: 2026-05-14
 tags:

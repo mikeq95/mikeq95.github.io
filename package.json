@@ -14,13 +14,13 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@clerk/clerk-react": "^5.61.6",
     "@docusaurus/core": "3.10.1",
     "@docusaurus/faster": "3.10.1",
     "@docusaurus/preset-classic": "3.10.1",
-    "@giscus/react": "^3.1.0",
+    "@easyops-cn/docusaurus-search-local": "^0.55.1",
     "@iconify/react": "^6.0.2",
     "@mdx-js/react": "^3.0.0",
+    "@supabase/supabase-js": "^2.106.2",
     "@waline/client": "^3.13.0",
     "clsx": "^2.0.0",
     "dotenv": "^17.4.2",

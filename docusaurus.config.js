@@ -5,15 +5,12 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import { themes as prismThemes } from 'prism-react-renderer';
-import dotenv from 'dotenv';
-
-dotenv.config({ path: '.env.local' });
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: ' Apple Intelligence',
+  title: 'mijeq95\'s blog',
   tagline: 'It\'s our world, we just live in it.',
   favicon: 'img/favicon.ico',
   deploymentBranch: 'gh-pages',
@@ -37,9 +34,6 @@ const config = {
   onBrokenLinks: 'throw',
   trailingSlash: false,
 
-  customFields: {
-    clerkPublishableKey: process.env.VITE_CLERK_PUBLISHABLE_KEY,
-  },
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -53,10 +47,12 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: false,
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+        },
         blog: {
-           blogSidebarCount: 'ALL',
-            blogSidebarTitle: 'All posts',
+          blogSidebarCount: 'ALL',
+          blogSidebarTitle: 'All posts',
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
@@ -64,7 +60,7 @@ const config = {
             // 生成 RSS 和 Atom 订阅源，方便用户订阅博客更新
           },
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/mikeq95/mikeq95.github.io/tree/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -77,11 +73,26 @@ const config = {
           changefreq: 'weekly',
           priority: 0.5,
         },
-        // Google Analytics 统计，追踪访客数据
-        gtag: {
-          trackingID: 'G-2DYQKKG4V1',
-          anonymizeIP: true, // 匿名化 IP 地址，保护用户隐私
-        },
+        ...(process.env.NODE_ENV === 'production' ? {
+          gtag: {
+            trackingID: 'G-2DYQKKG4V1',
+            anonymizeIP: true,
+          },
+        } : {}),
+      }),
+    ],
+  ],
+
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        hashed: true,
+        language: ["en", "zh"],
+        indexDocs: false,
+        indexBlog: true,
+        indexPages: true,
       }),
     ],
   ],

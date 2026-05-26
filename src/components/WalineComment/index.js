@@ -1,21 +1,30 @@
 import React, { useEffect, useRef } from 'react';
-import { init } from '@waline/client';
-import '@waline/client/style';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
-export default function WalineComment() {
+function WalineCommentInner() {
   const containerRef = useRef(null);
+  const walineRef = useRef(null);
 
   useEffect(() => {
-    const waline = init({
-      el: containerRef.current,
-      serverURL: 'https://waline-gamma-lovat.vercel.app',
-      lang: 'en',
-    });
-
+    (async () => {
+      const { init } = await import('@waline/client');
+      await import('@waline/client/style');
+      if (containerRef.current) {
+        walineRef.current = init({
+          el: containerRef.current,
+          serverURL: 'https://waline1111.vercel.app',
+          lang: 'en',
+        });
+      }
+    })();
     return () => {
-      waline?.destroy();
+      walineRef.current?.destroy();
     };
   }, []);
 
   return <div ref={containerRef} />;
+}
+
+export default function WalineComment() {
+  return <BrowserOnly fallback={<div />}>{() => <WalineCommentInner />}</BrowserOnly>;
 }

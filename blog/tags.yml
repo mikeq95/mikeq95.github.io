@@ -52,3 +52,13 @@ github:
   label: GitHub
   permalink: /github
   description: GitHub related posts
+
+Music:
+  label: Music
+  permalink: /music
+  description: Music related posts
+
+"Jay Chou":
+  label: Jay Chou
+  permalink: /jay-chou
+  description: Jay Chou related posts

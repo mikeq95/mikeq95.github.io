@@ -1,4 +1,5 @@
 ---
+slug: 2026/05/16/earch-engine-user-guide
 title: "搜索引擎使用指南"
 date: 2026-05-16
 tags: []

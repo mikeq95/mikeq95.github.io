@@ -8,7 +8,7 @@ import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={styles.heroBanner}>
       <div className={styles.heroContainer}>
@@ -26,9 +26,9 @@ function HomepageHeader() {
           </div>
         </div>
         <div className={styles.heroImageContainer}>
-          <img 
-            src={useBaseUrl('/img/ahri.jpg')} 
-            alt="Profile Avatar" 
+          <img
+            src={useBaseUrl('/img/ahri.jpg')}
+            alt="Profile Avatar"
             className={styles.heroImage}
           />
         </div>
@@ -38,11 +38,11 @@ function HomepageHeader() {
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`Welcome to ${siteConfig.title}`}
+      description="mijeq95's personal blog - A university student from China sharing thoughts, UI designs, and coding experiences.">
       <HomepageHeader />
       <main>
       </main>

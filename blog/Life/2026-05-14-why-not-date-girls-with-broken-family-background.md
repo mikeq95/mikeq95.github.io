@@ -1,4 +1,5 @@
 ---
+slug: 2026/05/14/why-not-date-girls-with-broken-family-background
 title: "问题: 为什么不能找原生家庭不好的女生做女朋友?"
 date: 2026-05-14
 tags:

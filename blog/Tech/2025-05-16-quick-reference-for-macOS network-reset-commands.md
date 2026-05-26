@@ -1,4 +1,5 @@
 ---
+slug: 2025/05/16/quick-reference-for-macOS network-reset-commands
 title: "🌐 macOS 网络重置命令速查"
 date: 2026-05-16
 tags:
