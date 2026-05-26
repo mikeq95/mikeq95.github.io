@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mikeQ95.github.io/blog</id>
-    <title> Apple Intelligence Blog</title>
-    <updated>2026-05-22T00:00:00.000Z</updated>
+    <title>mijeq95's blog Blog</title>
+    <updated>2026-05-24T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mikeQ95.github.io/blog"/>
-    <subtitle> Apple Intelligence Blog</subtitle>
+    <subtitle>mijeq95's blog Blog</subtitle>
     <icon>https://mikeQ95.github.io/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[测试 AI 解释功能]]></title>
-        <id>https://mikeQ95.github.io/blog/2026/05/22/test-ai-explain</id>
-        <link href="https://mikeQ95.github.io/blog/2026/05/22/test-ai-explain"/>
-        <updated>2026-05-22T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[这是一篇测试文章，点击下面的词语跳转到 AI 解释器：]]></summary>
-        <content type="html"><![CDATA[<p>这是一篇测试文章，点击下面的词语跳转到 AI 解释器：</p>
-<p><a href="https://clearlove7-ai.vercel.app/?word=%E8%8B%B9%E6%9E%9C&amp;context=%E6%9C%AC%E6%96%87%E5%9C%A8%E6%B5%8B%E8%AF%95AI%E8%A7%A3%E9%87%8A%E5%8A%9F%E8%83%BD" target="_blank" rel="noopener noreferrer" class="">苹果</a></p>
-<p><a href="https://clearlove7-ai.vercel.app/?word=%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0&amp;context=%E6%9C%AC%E6%96%87%E5%9C%A8%E6%B5%8B%E8%AF%95AI%E8%A7%A3%E9%87%8A%E5%8A%9F%E8%83%BD" target="_blank" rel="noopener noreferrer" class="">机器学习</a></p>
-<p><a href="https://clearlove7-ai.vercel.app/?word=%E5%8C%BA%E5%9D%97%E9%93%BE&amp;context=%E6%9C%AC%E6%96%87%E5%9C%A8%E6%B5%8B%E8%AF%95AI%E8%A7%A3%E9%87%8A%E5%8A%9F%E8%83%BD" target="_blank" rel="noopener noreferrer" class="">区块链</a></p>]]></content>
+        <title type="html"><![CDATA[我最喜欢的歌（周杰伦）]]></title>
+        <id>https://mikeQ95.github.io/blog/2026/05/24/my-favorite-songs</id>
+        <link href="https://mikeQ95.github.io/blog/2026/05/24/my-favorite-songs"/>
+        <updated>2026-05-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[周杰伦的经典歌曲陪伴了我的整个青春。以下是我最喜欢的一些歌曲：]]></summary>
+        <content type="html"><![CDATA[<p>周杰伦的经典歌曲陪伴了我的整个青春。以下是我最喜欢的一些歌曲：</p>
+<ol>
+<li class=""><strong>七里香</strong> - 经典的旋律，夏天的味道。</li>
+<li class=""><strong>夜曲</strong> - 前奏一响，回忆涌上心头。</li>
+<li class=""><strong>晴天</strong> - 青春期的暗恋与遗憾。</li>
+<li class=""><strong>以父之名</strong> - 暗黑风格的巅峰之作。</li>
+<li class=""><strong>青花瓷</strong> - 唯美的中国风。</li>
+</ol>
+<p>这些歌曲不仅仅是旋律的组合，更是岁月的印记。</p>]]></content>
+        <category label="Music" term="Music"/>
+        <category label="Jay Chou" term="Jay Chou"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[什么是 GenZ？]]></title>
@@ -40,15 +47,6 @@
 <p>说实话，刚开始了解 GenZ 的时候，我有点不理解。感觉这代人既焦虑又躺平，既想改变世界又觉得一切都无所谓。但后来我想明白了——他们面对的世界确实比我们那时候更复杂、更不稳定。</p>
 <p>他们的应对方式或许在旁人看来奇怪，但那是他们找到的一种生存方式。而且不得不承认，正是这代人在推动着关于<a href="https://clearlove7-ai.vercel.app/?word=%E6%B0%94%E5%80%99%E5%8F%98%E5%8C%96&amp;context=%E6%9C%AC%E6%96%87%E4%BB%8B%E7%BB%8DGenZ%E4%B8%96%E4%BB%A3%E7%9A%84%E7%89%B9%E5%BE%81%E5%92%8C%E6%96%87%E5%8C%96" target="_blank" rel="noopener noreferrer" class="">气候变化</a>、性别平等和心理健康的讨论，让这些话题走进了主流视野。</p>
 <p>也许我们不需要完全理解他们，但值得去尝试。</p>]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试一下表情包是否能够正常显示]]></title>
-        <id>https://mikeQ95.github.io/blog/2026/05/20/emoji-test</id>
-        <link href="https://mikeQ95.github.io/blog/2026/05/20/emoji-test"/>
-        <updated>2026-05-20T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[maodie]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="maodie" src="https://mikeq95.github.io/assets/images/maotie-dance-7bf77d2cabd8b668628ec8d1dda612ae.gif" width="240" height="240" class="img_ev3q"></p>
-]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[🌐 macOS 网络重置命令速查]]></title>
