@@ -2,8 +2,8 @@
 slug: 2026/05/16/earch-engine-user-guide
 title: "搜索引擎使用指南"
 date: 2026-05-16
-tags: []
-  
+tags:
+  - collection
 ---
 
 
@@ -31,7 +31,7 @@ tags: []
 - **Yandex**：完全不理会西方政治正确那套，适合搜敏感/劲爆内容
     - 例：搜「爱泼斯坦名单」，只有 Yandex 将名单置顶
     - 例：搜「好莱坞丑闻」，只有 Yandex 显示激烈结果
-- **政治正确程度**：`Google > Brave > DuckDuckGo > Yandex`
+- **[政治正确](https://clearlove7-ai.vercel.app?word=政治正确&postId=2026-05-16-earch-engine-user-guide)程度**：`Google > Brave > DuckDuckGo > Yandex`
 
 ---
 
@@ -81,7 +81,7 @@ tags: []
 
 ### 三、DuckDuckGo 搜索词高亮脚本
 
-> 需安装 [Tampermonkey](https://www.tampermonkey.net/) 浏览器插件后使用。
+> 需安装 [Tampermonkey](https://clearlove7-ai.vercel.app?word=Tampermonkey&postId=2026-05-16-earch-engine-user-guide) 浏览器插件后使用。
 
 javascript
 

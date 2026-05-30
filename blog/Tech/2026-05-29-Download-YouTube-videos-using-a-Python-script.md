@@ -1,6 +1,14 @@
-# 用 Python 脚本下载 YouTube 视频
+---
+slug: 2026/05/29/download-youtube-videos-using-a-python-script
+title: 用 Python 脚本下载 YouTube 视频
+date: 2026-05-29
+tags:
+  - macos
+---
 
 想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。
+
+{/* truncate */}
 
 ---
 
@@ -26,7 +34,7 @@ brew --version
 
 ---
 
-### ffmpeg
+### [ffmpeg](https://clearlove7-ai.vercel.app?word=ffmpeg&postId=2026-05-29-Download-YouTube-videos-using-a-Python-script)
 
 合并音视频流，缺它就只能下到没声音的视频。
 
@@ -62,7 +70,7 @@ node --version
 
 ---
 
-### yt-dlp
+### [yt-dlp](https://clearlove7-ai.vercel.app?word=yt-dlp&postId=2026-05-29-Download-YouTube-videos-using-a-Python-script)
 
 核心下载库。
 
@@ -82,7 +90,7 @@ yt-dlp --version
 
 ### 两项额外配置
 
-**终端获得完全磁盘访问权限**（读取 Safari Cookie 需要）
+**终端获得完全磁盘访问权限**（读取 Safari [Cookie](https://clearlove7-ai.vercel.app?word=Cookie&postId=2026-05-29-Download-YouTube-videos-using-a-Python-script) 需要）
 
 系统设置 → 隐私与安全性 → 完全磁盘访问权限 → 添加「终端」
 

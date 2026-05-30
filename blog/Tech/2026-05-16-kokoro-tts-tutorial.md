@@ -4,10 +4,11 @@ title: "用 Kokoro 把文章变成播客音频 —— 从零部署教程"
 date: 2026-05-16
 tags:
   - github
+  - macos
 ---
 
 
-> 本文记录了如何在 Mac (Apple Silicon) 上通过 Docker 本地部署 Kokoro TTS，将英文/中文文章转换为高质量音频。
+> 本文记录了如何在 Mac (Apple Silicon) 上通过 [Docker](https://clearlove7-ai.vercel.app?word=Docker&postId=2026-05-16-kokoro-tts-tutorial) 本地部署 Kokoro [TTS](https://clearlove7-ai.vercel.app?word=TTS&postId=2026-05-16-kokoro-tts-tutorial)，将英文/中文文章转换为高质量音频。
 
 {/* truncate */}
 
@@ -19,7 +20,7 @@ tags:
 
 |方案|Stars|英文效果|声音种类|协议|
 |---|---|---|---|---|
-|**Kokoro**|7k+|⭐ 顶级|88 种可选|Apache 2.0|
+|**Kokoro**|7k+|⭐ 顶级|88 种可选|[Apache 2.0](https://clearlove7-ai.vercel.app?word=Apache+2.0&postId=2026-05-16-kokoro-tts-tutorial)|
 |ChatTTS|~33k|中等|随机生成，不可选|CC BY-NC（不可商用）|
 |CosyVoice|高|一般|中文最强|Apache 2.0|
 
@@ -58,7 +59,7 @@ Kokoro 的声音按质量分为 A~D 级，**A 级最高**：
 
 ## 三、部署方式对比
 
-||Docker Compose|源码运行|纯浏览器（WebGPU）|
+||[Docker Compose](https://clearlove7-ai.vercel.app?word=Docker+Compose&postId=2026-05-16-kokoro-tts-tutorial)|源码运行|纯浏览器（[WebGPU](https://clearlove7-ai.vercel.app?word=WebGPU&postId=2026-05-16-kokoro-tts-tutorial)）|
 |---|---|---|---|
 |难度|⭐⭐|⭐⭐⭐|⭐|
 |需要安装|Docker|Node.js + npm|无|
@@ -190,7 +191,7 @@ pandoc article.md -t plain | kokoro-tts - output.mp3 --voice am_michael
 影响生成速度的因素：
 
 - **文章长度**：线性增长，300 词约需 30~60 秒
-- **模型量化**：`fp32` 最慢，`q8f16` 平衡，`q4` 最快
+- **[模型量化](https://clearlove7-ai.vercel.app?word=模型量化&postId=2026-05-16-kokoro-tts-tutorial)**：`fp32` 最慢，`q8f16` 平衡，`q4` 最快
 - **运行位置**：`API (Self-hosted)` 用 CPU 跑；`Browser` 用 GPU 跑但首次需下载模型到浏览器
 
 ---

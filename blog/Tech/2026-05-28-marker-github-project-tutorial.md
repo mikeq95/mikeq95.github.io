@@ -1,7 +1,16 @@
-# Marker 使用教程
+---
+slug: 2026/05/28/marker-github-project-tutorial
+title: Marker 使用教程
+date: 2026-05-28
+tags:
+  - github
+  - macos
+---
 
-我个人很喜欢浏览[instructables](https://www.instructables.com)这个网站，网站很贴心的在右上角给了你“将文章导出为PDF”的选项，但是没有“导出为markdown”的选项。我很希望格式是md，因为在AI更喜欢读md而不是PDF的文件。我在网上搜索，最终找到这个github项目。
+我个人很喜欢浏览[instructables](https://www.instructables.com)这个网站，网站很贴心的在右上角给了你”将文章导出为PDF”的选项，但是没有”导出为markdown”的选项。我很希望格式是md，因为在AI更喜欢读md而不是PDF的文件。我在网上搜索，最终找到这个github项目。
 Marker 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdown 格式，速度快，识别准确率也不错。这篇文章记录一下怎么把它跑起来。
+
+{/* truncate */}
 
 ---
 
@@ -10,7 +19,7 @@ Marker 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdo
 ### 前置条件
 
 - Python 3.10 或以上
-- 推荐用 Conda 管理环境（下面会说为什么）
+- 推荐用 [Conda](https://clearlove7-ai.vercel.app?word=Conda&postId=2026-05-28-marker-github-project-tutorial) 管理环境（下面会说为什么）
 
 如果你用的是 Mac M1/M2/M3，不需要额外配置，PyTorch 已经原生支持。
 
@@ -38,7 +47,7 @@ bash Miniforge3-MacOSX-arm64.sh
 
 ### 创建虚拟环境
 
-简单理解：虚拟环境就是给这个项目单独开一个"房间"，里面装的东西不会影响你电脑上别的项目。
+简单理解：[虚拟环境](https://clearlove7-ai.vercel.app?word=虚拟环境&postId=2026-05-28-marker-github-project-tutorial)就是给这个项目单独开一个"房间"，里面装的东西不会影响你电脑上别的项目。
 
 ```bash
 conda create -n marker python=3.11 -y
@@ -96,7 +105,7 @@ marker_single 你的文件路径 --output_dir 输出目录
 - `--output_dir`：指定输出到哪个文件夹
 - `--output_format`：输出格式，可以选 markdown、json、html
 - `--page_range`：只转某几页，比如 `"0,5-10"`（页码从 0 开始）
-- `--force_ocr`：强制 OCR，PDF 里文字是图片时用这个
+- `--force_ocr`：强制 [OCR](https://clearlove7-ai.vercel.app?word=OCR&postId=2026-05-28-marker-github-project-tutorial)，PDF 里文字是图片时用这个
 - `--langs zh`：告诉它文档是中文，识别更准
 - `--use_llm`：用大模型辅助，精度更高，需要配 API Key
 
@@ -113,7 +122,7 @@ marker_single ~/Downloads/paper.pdf \
   --output_dir ~/Documents/notes
 ```
 
-第一次跑会下载 AI 模型，大概 1GB 左右，耐心等一下。跑完之后数学公式会变成 LaTeX，表格和标题格式都会保留，效果还不错。
+第一次跑会下载 AI 模型，大概 1GB 左右，耐心等一下。跑完之后数学公式会变成 [LaTeX](https://clearlove7-ai.vercel.app?word=LaTeX&postId=2026-05-28-marker-github-project-tutorial)，表格和标题格式都会保留，效果还不错。
 
 ---
 
@@ -195,7 +204,7 @@ conda env remove -n marker
 export https_proxy=http://127.0.0.1:你的端口
 ```
 
-**Mac 上报 `libtorch_cpu.dylib` 错误？** 重装一下 PyTorch 就好：
+**Mac 上报 `libtorch_cpu.dylib` 错误？** 重装一下 [PyTorch](https://clearlove7-ai.vercel.app?word=PyTorch&postId=2026-05-28-marker-github-project-tutorial) 就好：
 
 ```bash
 pip uninstall torch torchvision torchaudio -y

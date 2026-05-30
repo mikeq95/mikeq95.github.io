@@ -15,14 +15,14 @@ tags:
 
 ## 常用命令（按推荐顺序）
 
-### 1. 刷新 DNS 缓存
+### 1. 刷新 [DNS 缓存](https://clearlove7-ai.vercel.app?word=DNS缓存&postId=2025-05-16-quick-reference-for-macOS%20network-reset-commands)
 
 
 ```bash
 sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 ```
 
-### 2. 释放并重新获取 IP（DHCP）
+### 2. 释放并重新获取 IP（[DHCP](https://clearlove7-ai.vercel.app?word=DHCP&postId=2025-05-16-quick-reference-for-macOS%20network-reset-commands)）
 
 ```bash
 sudo ipconfig set en0 DHCP

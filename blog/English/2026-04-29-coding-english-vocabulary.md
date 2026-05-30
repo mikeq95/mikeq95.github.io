@@ -9,7 +9,7 @@ tags:
 ---
 1.  **demonstrate**
     
-    - 例句: This tutorial no longer ==demonstrates== current SwiftUI or Xcode practices.
+    - 例句: This tutorial no longer ==demonstrates== current [SwiftUI](https://clearlove7-ai.vercel.app?word=SwiftUI&postId=2026-04-29-coding-english-vocabulary) or Xcode practices.
     - 译文: 本教程不再演示当前的 SwiftUI 或 Xcode 实践。
     - 释义: 演示
 
@@ -88,7 +88,7 @@ struct ContentView: View {
 
 10. **present**
     
-    - 例句: Use a navigation stack to ==present= a stack of views over a root view.
+    - 例句: Use a [navigation stack](https://clearlove7-ai.vercel.app?word=NavigationStack&postId=2026-04-29-coding-english-vocabulary) to ==present= a stack of views over a root view.
     - 译文: 使用导航堆栈在根视图上呈现一系列视图。
     - 释义: 显示，呈现
 
