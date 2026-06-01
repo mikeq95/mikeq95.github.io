@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import { Icon } from '@iconify/react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
 import styles from './styles.module.css';
@@ -14,6 +15,9 @@ const PROVIDERS = [
 
 function AuthButtonsInner() {
   const { user, loading } = useAuth();
+  const { i18n: { currentLocale, defaultLocale } } = useDocusaurusContext();
+  const isEn = currentLocale === 'en';
+  const lp = currentLocale === defaultLocale ? '' : `/${currentLocale}`;
   const [loginOpen, setLoginOpen] = useState(false);
   const [userOpen, setUserOpen] = useState(false);
   const loginRef = useRef(null);
@@ -52,7 +56,7 @@ function AuthButtonsInner() {
           data-auth-trigger
           onClick={() => setLoginOpen(o => !o)}
         >
-          登录
+          {isEn ? 'Login' : '登录'}
         </button>
         {loginOpen && (
           <div className={styles.dropdown}>
@@ -64,7 +68,7 @@ function AuthButtonsInner() {
                 onClick={() => signIn(id)}
               >
                 <Icon icon={icon} width={18} />
-                <span>{label} 登录</span>
+                <span>{label} {isEn ? 'Login' : '登录'}</span>
               </button>
             ))}
           </div>
@@ -93,11 +97,15 @@ function AuthButtonsInner() {
         <div className={styles.dropdown}>
           <div className={styles.userName}>{name}</div>
           <hr className={styles.divider} />
-          <a href="/my-likes" className={styles.dropdownItem}>我的点赞</a>
-          <a href="/my-bookmarks" className={styles.dropdownItem}>我的收藏</a>
+          <a href={`${lp}/my-likes`} className={styles.dropdownItem}>
+            {isEn ? 'My Likes' : '我的点赞'}
+          </a>
+          <a href={`${lp}/my-bookmarks`} className={styles.dropdownItem}>
+            {isEn ? 'My Bookmarks' : '我的收藏'}
+          </a>
           <hr className={styles.divider} />
           <button type="button" className={styles.dropdownItem} onClick={signOut}>
-            退出登录
+            {isEn ? 'Sign Out' : '退出登录'}
           </button>
         </div>
       )}

@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 function WalineCommentInner() {
   const containerRef = useRef(null);
   const walineRef = useRef(null);
+  const { i18n: { currentLocale } } = useDocusaurusContext();
 
   useEffect(() => {
     (async () => {
@@ -13,14 +15,14 @@ function WalineCommentInner() {
         walineRef.current = init({
           el: containerRef.current,
           serverURL: 'https://waline1111.vercel.app',
-          lang: 'en',
+          lang: currentLocale === 'en' ? 'en' : 'zh-CN',
         });
       }
     })();
     return () => {
       walineRef.current?.destroy();
     };
-  }, []);
+  }, [currentLocale]);
 
   return <div ref={containerRef} />;
 }
