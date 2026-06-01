@@ -6,6 +6,7 @@
   border-top: 1px solid var(--ifm-color-emphasis-200);
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   margin: 16px 0;
+  overflow-x: auto;
 }
 
 .actions {
@@ -67,19 +68,10 @@
 }
 
 /* Active states */
-.liked .icon {
-  color: #fe2c55;
-}
-.liked .count {
-  color: #fe2c55;
-}
-
-.bookmarked .icon {
-  color: #ffb400;
-}
-.bookmarked .count {
-  color: #ffb400;
-}
+.liked .icon { color: #fe2c55; }
+.liked .count { color: #fe2c55; }
+.bookmarked .icon { color: #ffb400; }
+.bookmarked .count { color: #ffb400; }
 
 .pop {
   animation: pop 0.35s ease;
@@ -99,39 +91,67 @@
   flex-shrink: 0;
 }
 
+/* ── Share section ── */
 .share {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
-.shareLabel {
-  font-size: 13px;
-  color: var(--ifm-color-emphasis-500);
-  font-weight: 500;
-  margin-right: 2px;
-}
-
-.shareLink {
-  display: flex;
+/* Pill button base */
+.pillBtn {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  color: var(--ifm-color-emphasis-600);
-  transition: background 0.2s ease, color 0.2s ease, filter 0.2s ease;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: transparent;
+  color: var(--ifm-color-content-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.pillBtn:hover {
   text-decoration: none;
 }
 
-.shareLink:hover {
+.pillIcon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* X (Twitter) — blue */
+.pillX:hover {
   background: rgba(29, 155, 240, 0.1);
+  border-color: #1d9bf0;
   color: #1d9bf0;
-  filter: drop-shadow(0 0 5px rgba(29, 155, 240, 0.4));
-  text-decoration: none;
 }
 
-.shareIcon {
-  width: 16px;
-  height: 16px;
+/* Discord — purple */
+.pillDiscord:hover {
+  background: rgba(88, 101, 242, 0.1);
+  border-color: #5865f2;
+  color: #5865f2;
+}
+
+/* Markdown — neutral/green */
+.pillMd:hover {
+  background: rgba(0, 160, 100, 0.1);
+  border-color: #00a064;
+  color: #00a064;
+}
+
+/* Copied feedback state */
+.pillCopied {
+  background: rgba(0, 160, 100, 0.1) !important;
+  border-color: #00a064 !important;
+  color: #00a064 !important;
 }

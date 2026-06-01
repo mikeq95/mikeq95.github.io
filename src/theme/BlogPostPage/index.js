@@ -19,7 +19,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 function BlogPostPageContent({sidebar, children}) {
   const {metadata, toc} = useBlogPost();
   const {nextItem, prevItem, frontMatter} = metadata;
-  const {siteConfig} = useDocusaurusContext();
+  const {siteConfig, i18n: {currentLocale, defaultLocale}} = useDocusaurusContext();
   const {
     hide_table_of_contents: hideTableOfContents,
     toc_min_heading_level: tocMinHeadingLevel,
@@ -27,6 +27,11 @@ function BlogPostPageContent({sidebar, children}) {
   } = frontMatter;
 
   const postUrl = `${siteConfig.url}${metadata.permalink}`;
+
+  // Strip locale prefix so likes/bookmarks/comments are shared across locales
+  const postId = currentLocale !== defaultLocale
+    ? metadata.permalink.replace(`/${currentLocale}`, '')
+    : metadata.permalink;
 
   return (
     <BlogLayout
@@ -45,8 +50,8 @@ function BlogPostPageContent({sidebar, children}) {
       {(nextItem || prevItem) && (
         <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
       )}
-      <ActionBar postId={metadata.permalink} title={metadata.title} url={postUrl} />
-      <CommentSection postId={metadata.permalink} />
+      <ActionBar postId={postId} title={metadata.title} url={postUrl} />
+      <CommentSection postId={postId} />
     </BlogLayout>
   );
 }

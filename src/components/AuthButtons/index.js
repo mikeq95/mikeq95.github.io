@@ -15,7 +15,7 @@ const PROVIDERS = [
 
 function AuthButtonsInner() {
   const { user, loading } = useAuth();
-  const { i18n: { currentLocale, defaultLocale } } = useDocusaurusContext();
+  const { siteConfig, i18n: { currentLocale, defaultLocale } } = useDocusaurusContext();
   const isEn = currentLocale === 'en';
   const lp = currentLocale === defaultLocale ? '' : `/${currentLocale}`;
   const [loginOpen, setLoginOpen] = useState(false);
@@ -36,7 +36,7 @@ function AuthButtonsInner() {
     setLoginOpen(false);
     await supabase.auth.signInWithOAuth({
       provider,
-      options: { redirectTo: window.location.origin },
+      options: { redirectTo: siteConfig.url },
     });
   };
 
