@@ -10,7 +10,7 @@ const PRESET_COLORS = [
   '#AF52DE', // Purple (Default)
 ];
 
-export default function ThemeColorButton() {
+export default function ThemeColorButton({ label = '外观' }) {
   const [color, setColor] = useState('#AF52DE'); // Default purple
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -53,7 +53,7 @@ export default function ThemeColorButton() {
         style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer' }}
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <span style={{ fontSize: '15px', fontWeight: '500', whiteSpace: 'nowrap' }}>外观</span>
+        <span style={{ fontSize: '15px', fontWeight: '500', whiteSpace: 'nowrap' }}>{label}</span>
         <span style={{ fontSize: '16px', color: 'var(--ifm-color-content-secondary)' }}>
           {isExpanded ? '˅' : '›'}
         </span>

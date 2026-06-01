@@ -4,70 +4,12 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #f40795;
-  /* --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1); */
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #06d6fb;
-  /* --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3); */
-}
-
-/* 隐藏原来的图标按钮 */
-.navbar__items--right .clean-btn {
-  position: relative;
-  width: 51px;
-  height: 31px;
-  padding: 0;
-  border-radius: 999px;
-  background-color: #e5e5ea;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-/* 滑块 */
-.navbar__items--right .clean-btn::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 27px;
-  height: 27px;
-  border-radius: 50%;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-}
-
-/* 深色模式下变绿，滑块右移 */
-[data-theme='dark'] .navbar__items--right .clean-btn {
-  background-color: #34c759;
-  /* iOS 绿色 */
-}
-
-[data-theme='dark'] .navbar__items--right .clean-btn::after {
-  transform: translateX(20px);
-}
-
-/* 隐藏原来的太阳/月亮图标 */
-.navbar__items--right .clean-btn svg {
-  display: none;
 }
 
 .cl-modalBackdrop {
@@ -75,4 +17,101 @@
   backdrop-filter: none !important;
   animation: none !important;
   transition: none !important;
+}
+
+/* ── Waline comment box — X-style ── */
+:root {
+  --waline-theme-color: var(--ifm-color-primary);
+  --waline-active-color: var(--ifm-color-primary);
+  --waline-bgcolor: var(--ifm-background-color);
+  --waline-bgcolor-light: var(--ifm-background-surface-color);
+  --waline-color: var(--ifm-color-content);
+  --waline-border-color: var(--ifm-color-emphasis-200);
+  --waline-avatar-radius: 50%;
+  --waline-box-shadow: none;
+  --waline-border: 1px solid var(--ifm-color-emphasis-200);
+  --waline-font-size: 14px;
+}
+
+/* Remove outer card border, use separator lines like X */
+.wl-panel {
+  border: none !important;
+  border-top: 1px solid var(--ifm-color-emphasis-200) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 16px 0 !important;
+}
+
+/* Input area: only bottom border, no heavy box */
+.wl-editor {
+  border: none !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 8px 0 !important;
+  font-size: 15px !important;
+  resize: none !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.wl-editor:focus {
+  border-bottom-color: var(--ifm-color-primary) !important;
+  outline: none !important;
+}
+
+/* Info fields row (nickname, email, website) */
+.wl-header {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
+  margin-bottom: 8px !important;
+}
+
+.wl-header input {
+  border: none !important;
+  border-right: 1px solid var(--ifm-color-emphasis-200) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  font-size: 14px !important;
+}
+
+.wl-header input:last-child {
+  border-right: none !important;
+}
+
+.wl-header input:focus {
+  outline: none !important;
+  background: var(--ifm-color-emphasis-100) !important;
+}
+
+/* Submit button */
+.wl-btn.wl-btn-primary {
+  border-radius: 999px !important;
+  padding: 6px 20px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  background: var(--ifm-color-primary) !important;
+  border: none !important;
+  transition: opacity 0.2s !important;
+}
+
+.wl-btn.wl-btn-primary:hover {
+  opacity: 0.85 !important;
+}
+
+/* Each comment card */
+.wl-card {
+  border: none !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 12px 0 !important;
+}
+
+.wl-card:last-child {
+  border-bottom: none !important;
+}
+
+/* Avatar circular */
+.wl-user img,
+.wl-avatar img {
+  border-radius: 50% !important;
 }

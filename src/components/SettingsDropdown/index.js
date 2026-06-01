@@ -1,14 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './styles.module.css';
 import ThemeColorButton from '@site/src/components/ThemeColorButton';
-import TranslateButton from '@site/src/components/TranslateButton';
 import { useColorMode } from '@docusaurus/theme-common';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export default function SettingsDropdown() {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
-  const { colorMode, setColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   const isDark = colorMode === 'dark';
+  const { i18n: { currentLocale } } = useDocusaurusContext();
+  const isZh = currentLocale.startsWith('zh');
+
+  const t = {
+    settings: isZh ? '设置' : 'Settings',
+    appearance: isZh ? '外观' : 'Appearance',
+    email: isZh ? '电子邮件' : 'Email',
+  };
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -29,40 +37,10 @@ export default function SettingsDropdown() {
       {open && (
         <div className={styles.panel}>
           <div style={{ borderBottom: '1px solid var(--ifm-color-emphasis-200)', paddingBottom: '8px', marginBottom: '12px' }}>
-            <span style={{ fontSize: '16px', fontWeight: 'bold' }}>设置</span>
+            <span style={{ fontSize: '16px', fontWeight: 'bold' }}>{t.settings}</span>
           </div>
 
-          <ThemeColorButton />
-
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-            <span style={{ fontSize: '15px', fontWeight: '500' }}>深色模式</span>
-            <div 
-              onClick={() => setColorMode(isDark ? 'light' : 'dark')}
-              style={{
-                width: '44px',
-                height: '24px',
-                borderRadius: '12px',
-                backgroundColor: isDark ? 'var(--ifm-color-primary)' : 'var(--ifm-color-emphasis-300)',
-                position: 'relative',
-                cursor: 'pointer',
-                transition: 'background-color 0.2s',
-              }}
-            >
-              <div style={{
-                width: '20px',
-                height: '20px',
-                borderRadius: '50%',
-                backgroundColor: '#fff',
-                position: 'absolute',
-                top: '2px',
-                left: isDark ? '22px' : '2px',
-                transition: 'left 0.2s',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
-              }} />
-            </div>
-          </div>
-
-          <TranslateButton />
+          <ThemeColorButton label={t.appearance} />
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
             <span style={{ fontSize: '15px', fontWeight: '500' }}>iMessage</span>
@@ -72,7 +50,7 @@ export default function SettingsDropdown() {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <span style={{ fontSize: '15px', fontWeight: '500' }}>Email</span>
+            <span style={{ fontSize: '15px', fontWeight: '500' }}>{t.email}</span>
             <a href="mailto:giffgaffuk78459@icloud.com" style={{ display: 'flex', alignItems: 'center' }} title="Email me">
               <img src="/img/email.png" alt="Email" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
             </a>

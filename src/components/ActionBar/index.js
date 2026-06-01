@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import { Icon } from '@iconify/react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
 import styles from './styles.module.css';
 
 function ActionBarInner({ postId, title, url }) {
   const { user } = useAuth();
+  const { i18n: { currentLocale } } = useDocusaurusContext();
+  const isEn = currentLocale === 'en';
   const [liked, setLiked] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
@@ -84,18 +87,18 @@ function ActionBarInner({ postId, title, url }) {
       <div className={styles.actions}>
         <button
           type="button"
-          className={`${styles.actionBtn} ${liked ? styles.liked : ''} ${likeAnim ? styles.pop : ''}`}
+          className={`${styles.actionBtn} ${styles.likeBtn} ${liked ? styles.liked : ''} ${likeAnim ? styles.pop : ''}`}
           onClick={toggleLike}
-          title="点赞"
+          title={isEn ? 'Like' : '点赞'}
         >
           <Icon icon={liked ? 'mdi:heart' : 'mdi:heart-outline'} className={styles.icon} />
           <span className={styles.count}>{likeCount}</span>
         </button>
         <button
           type="button"
-          className={`${styles.actionBtn} ${bookmarked ? styles.bookmarked : ''} ${bookmarkAnim ? styles.pop : ''}`}
+          className={`${styles.actionBtn} ${styles.bookmarkBtn} ${bookmarked ? styles.bookmarked : ''} ${bookmarkAnim ? styles.pop : ''}`}
           onClick={toggleBookmark}
-          title="收藏"
+          title={isEn ? 'Bookmark' : '收藏'}
         >
           <Icon icon={bookmarked ? 'mdi:bookmark' : 'mdi:bookmark-outline'} className={styles.icon} />
           <span className={styles.count}>{bookmarkCount}</span>
@@ -105,14 +108,14 @@ function ActionBarInner({ postId, title, url }) {
       <div className={styles.divider} />
 
       <div className={styles.share}>
-        <span className={styles.shareLabel}>分享</span>
-        <a href={twitterUrl} target="_blank" rel="noopener noreferrer" className={styles.shareLink} title="分享到 X">
+        <span className={styles.shareLabel}>{isEn ? 'Share' : '分享'}</span>
+        <a href={twitterUrl} target="_blank" rel="noopener noreferrer" className={styles.shareLink} title={isEn ? 'Share on X' : '分享到 X'}>
           <Icon icon="simple-icons:x" className={styles.shareIcon} />
         </a>
-        <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className={styles.shareLink} title="分享到 Facebook">
+        <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className={styles.shareLink} title={isEn ? 'Share on Facebook' : '分享到 Facebook'}>
           <Icon icon="mdi:facebook" className={styles.shareIcon} />
         </a>
-        <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className={styles.shareLink} title="分享到 LinkedIn">
+        <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className={styles.shareLink} title={isEn ? 'Share on LinkedIn' : '分享到 LinkedIn'}>
           <Icon icon="mdi:linkedin" className={styles.shareIcon} />
         </a>
       </div>

@@ -1,15 +1,27 @@
-.wrapper {
+.pill {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  background-color: var(--ifm-color-emphasis-200);
+  border-radius: 999px;
+  padding: 3px;
+  cursor: pointer;
+  gap: 2px;
+  user-select: none;
 }
 
-.modeLabel {
-  font-size: 13px;
-  font-weight: 500;
-  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
-  color: var(--ifm-navbar-link-color);
-  white-space: nowrap;
-  user-select: none;
-  line-height: 1;
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  color: var(--ifm-color-content-secondary);
+}
+
+.active {
+  background-color: var(--ifm-background-surface-color, #fff);
+  color: var(--ifm-color-content);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }

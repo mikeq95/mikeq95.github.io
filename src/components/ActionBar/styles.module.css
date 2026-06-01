@@ -11,7 +11,7 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .actionBtn {
@@ -21,21 +21,41 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 20px;
-  transition: background 0.15s ease, transform 0.15s ease;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-.actionBtn:hover {
-  background: var(--ifm-color-emphasis-100);
+/* Like button hover — red glow */
+.actionBtn.likeBtn:hover {
+  background: rgba(254, 44, 85, 0.1);
+}
+.actionBtn.likeBtn:hover .icon {
+  color: #fe2c55;
+  filter: drop-shadow(0 0 6px rgba(254, 44, 85, 0.6));
+}
+.actionBtn.likeBtn:hover .count {
+  color: #fe2c55;
+}
+
+/* Bookmark button hover — yellow glow */
+.actionBtn.bookmarkBtn:hover {
+  background: rgba(255, 180, 0, 0.1);
+}
+.actionBtn.bookmarkBtn:hover .icon {
+  color: #ffb400;
+  filter: drop-shadow(0 0 6px rgba(255, 180, 0, 0.6));
+}
+.actionBtn.bookmarkBtn:hover .count {
+  color: #ffb400;
 }
 
 .icon {
   width: 20px;
   height: 20px;
   color: var(--ifm-color-emphasis-500);
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, filter 0.2s ease;
 }
 
 .count {
@@ -46,6 +66,7 @@
   min-width: 12px;
 }
 
+/* Active states */
 .liked .icon {
   color: #fe2c55;
 }
@@ -54,10 +75,10 @@
 }
 
 .bookmarked .icon {
-  color: #ffcc00;
+  color: #ffb400;
 }
 .bookmarked .count {
-  color: #ffcc00;
+  color: #ffb400;
 }
 
 .pop {
@@ -81,30 +102,32 @@
 .share {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 .shareLabel {
   font-size: 13px;
   color: var(--ifm-color-emphasis-500);
   font-weight: 500;
+  margin-right: 2px;
 }
 
 .shareLink {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   color: var(--ifm-color-emphasis-600);
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.2s ease, color 0.2s ease, filter 0.2s ease;
   text-decoration: none;
 }
 
 .shareLink:hover {
-  background: var(--ifm-color-emphasis-100);
-  color: var(--ifm-color-primary);
+  background: rgba(29, 155, 240, 0.1);
+  color: #1d9bf0;
+  filter: drop-shadow(0 0 5px rgba(29, 155, 240, 0.4));
   text-decoration: none;
 }
 

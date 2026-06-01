@@ -12,9 +12,8 @@ import BlogPostPageMetadata from '@theme/BlogPostPage/Metadata';
 import BlogPostPageStructuredData from '@theme/BlogPostPage/StructuredData';
 import TOC from '@theme/TOC';
 import ContentVisibility from '@theme/ContentVisibility';
-import WalineComment from '@site/src/components/WalineComment';
-import ShareButtons from '@site/src/components/ShareButtons';
-import PostActions from '@site/src/components/PostActions';
+import CommentSection from '@site/src/components/CommentSection';
+import ActionBar from '@site/src/components/ActionBar';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 function BlogPostPageContent({sidebar, children}) {
@@ -43,12 +42,11 @@ function BlogPostPageContent({sidebar, children}) {
       }>
       <ContentVisibility metadata={metadata} />
       <BlogPostItem>{children}</BlogPostItem>
-      <ShareButtons title={metadata.title} url={postUrl} />
-      <PostActions postId={metadata.permalink} />
       {(nextItem || prevItem) && (
         <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
       )}
-      <WalineComment />
+      <ActionBar postId={metadata.permalink} title={metadata.title} url={postUrl} />
+      <CommentSection postId={metadata.permalink} />
     </BlogLayout>
   );
 }

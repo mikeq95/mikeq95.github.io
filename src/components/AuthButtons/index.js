@@ -45,7 +45,7 @@ function AuthButtonsInner() {
     await supabase.auth.signOut();
   };
 
-  if (loading) return <span className={styles.loading}>…</span>;
+  if (loading) return null;
 
   if (!user) {
     return (

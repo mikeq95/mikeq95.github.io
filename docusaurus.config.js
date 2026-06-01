@@ -63,8 +63,6 @@ const config = {
             xslt: true,
             // 生成 RSS 和 Atom 订阅源，方便用户订阅博客更新
           },
-          editUrl:
-            'https://github.com/mikeq95/mikeq95.github.io/tree/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -111,7 +109,8 @@ const config = {
         { name: 'twitter:site', content: '@' },
       ],
       colorMode: {
-        disableSwitch: true,
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
       },
       navbar: {
         title: 'Clearlove7',

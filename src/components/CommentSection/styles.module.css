@@ -1,0 +1,231 @@
+.section {
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ifm-color-content);
+}
+
+.count {
+  font-size: 14px;
+  color: var(--ifm-color-content-secondary);
+  font-weight: 500;
+}
+
+/* ── Input area ── */
+.inputRow {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  margin-bottom: 8px;
+}
+
+.inputBox {
+  flex: 1;
+  min-width: 0;
+}
+
+.textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: transparent;
+  color: var(--ifm-color-content);
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 4px 0 8px;
+  resize: none;
+  outline: none;
+  overflow: hidden;
+  min-height: 36px;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.textarea:focus {
+  border-bottom-color: var(--ifm-color-primary);
+}
+
+.textarea::placeholder {
+  color: var(--ifm-color-emphasis-400);
+}
+
+.inputFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.charCount {
+  font-size: 12px;
+  color: var(--ifm-color-emphasis-400);
+}
+
+.charWarn {
+  color: #e0a000;
+}
+
+.submitBtn {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  font-family: inherit;
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.submitBtn:not(:disabled):hover {
+  opacity: 0.85;
+}
+
+/* ── Not logged in ── */
+.loginPrompt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  margin-bottom: 8px;
+}
+
+.loginPrompt span {
+  font-size: 14px;
+  color: var(--ifm-color-content-secondary);
+}
+
+.loginBtn {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  font-family: inherit;
+}
+
+.loginBtn:hover {
+  opacity: 0.85;
+}
+
+/* ── Avatar ── */
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.avatarFallback {
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Comment list ── */
+.list {
+  margin-top: 4px;
+}
+
+.empty {
+  font-size: 14px;
+  color: var(--ifm-color-emphasis-400);
+  padding: 20px 0;
+  text-align: center;
+}
+
+.comment {
+  display: flex;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+.commentAvatar {
+  flex-shrink: 0;
+}
+
+.commentBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.commentMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.commentName {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ifm-color-content);
+}
+
+.commentTime {
+  font-size: 13px;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.deleteBtn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: var(--ifm-color-emphasis-400);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+  font-family: inherit;
+}
+
+.deleteBtn:hover {
+  color: #e53e3e;
+  background: rgba(229, 62, 62, 0.08);
+}
+
+.commentContent {
+  font-size: 14px;
+  color: var(--ifm-color-content);
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

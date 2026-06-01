@@ -8,7 +8,8 @@ import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
+  const { i18n: { currentLocale } } = useDocusaurusContext();
+  const isZh = currentLocale.startsWith('zh');
   return (
     <header className={styles.heroBanner}>
       <div className={styles.heroContainer}>
@@ -17,11 +18,13 @@ function HomepageHeader() {
             你好, <span className={styles.gradientText}>こんにちは, 안녕하세요, Hello</span>
           </Heading>
           <p className={styles.description}>
-            I am a university student from China. Welcome to my blog.
+            {isZh
+              ? '我是一名来自中国的大学生，欢迎来到我的博客。'
+              : 'I am a university student from China. Welcome to my blog.'}
           </p>
           <div className={styles.buttons}>
             <Link className={styles.blogButton} to="/blog">
-              Read my blog
+              {isZh ? '阅读我的博客' : 'Read my blog'}
             </Link>
           </div>
         </div>
@@ -38,10 +41,11 @@ function HomepageHeader() {
 }
 
 export default function Home() {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig, i18n: { currentLocale } } = useDocusaurusContext();
+  const isZh = currentLocale.startsWith('zh');
   return (
     <Layout
-      title={`Welcome to ${siteConfig.title}`}
+      title={isZh ? `欢迎来到 ${siteConfig.title}` : `Welcome to ${siteConfig.title}`}
       description="mijeq95's personal blog - A university student from China sharing thoughts, UI designs, and coding experiences.">
       <HomepageHeader />
       <main>
