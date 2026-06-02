@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import {HtmlClassNameProvider, ThemeClassNames} from '@docusaurus/theme-common';
 import {
   BlogPostProvider,
@@ -15,6 +16,7 @@ import ContentVisibility from '@theme/ContentVisibility';
 import WalineComment from '@site/src/components/WalineComment';
 import ShareButtons from '@site/src/components/ShareButtons';
 import PostActions from '@site/src/components/PostActions';
+import ReadingProgress from '@site/src/components/ReadingProgress';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 function BlogPostPageContent({sidebar, children}) {
@@ -30,6 +32,8 @@ function BlogPostPageContent({sidebar, children}) {
   const postUrl = `${siteConfig.url}${metadata.permalink}`;
 
   return (
+    <>
+      <BrowserOnly>{() => <ReadingProgress />}</BrowserOnly>
     <BlogLayout
       sidebar={sidebar}
       toc={
@@ -50,6 +54,7 @@ function BlogPostPageContent({sidebar, children}) {
       )}
       <WalineComment />
     </BlogLayout>
+    </>
   );
 }
 

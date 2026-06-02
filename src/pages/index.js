@@ -2,9 +2,11 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { useAllPluginInstancesData } from '@docusaurus/useGlobalData';
 import Layout from '@theme/Layout';
 
 import Heading from '@theme/Heading';
+import RecentPosts from '@site/src/components/RecentPosts';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -39,12 +41,16 @@ function HomepageHeader() {
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
+  const allBlogData = useAllPluginInstancesData('docusaurus-plugin-content-blog');
+  const recentPosts = (allBlogData?.default?.posts ?? []).slice(0, 5);
+
   return (
     <Layout
       title={`Welcome to ${siteConfig.title}`}
       description="mijeq95's personal blog - A university student from China sharing thoughts, UI designs, and coding experiences.">
       <HomepageHeader />
       <main>
+        <RecentPosts posts={recentPosts} />
       </main>
     </Layout>
   );
