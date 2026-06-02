@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import {HtmlClassNameProvider, ThemeClassNames} from '@docusaurus/theme-common';
 import {
   BlogPostProvider,
@@ -14,6 +15,7 @@ import TOC from '@theme/TOC';
 import ContentVisibility from '@theme/ContentVisibility';
 import CommentSection from '@site/src/components/CommentSection';
 import ActionBar from '@site/src/components/ActionBar';
+import ReadingProgress from '@site/src/components/ReadingProgress';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 function BlogPostPageContent({sidebar, children}) {
@@ -34,25 +36,28 @@ function BlogPostPageContent({sidebar, children}) {
     : metadata.permalink;
 
   return (
-    <BlogLayout
-      sidebar={sidebar}
-      toc={
-        !hideTableOfContents && toc.length > 0 ? (
-          <TOC
-            toc={toc}
-            minHeadingLevel={tocMinHeadingLevel}
-            maxHeadingLevel={tocMaxHeadingLevel}
-          />
-        ) : undefined
-      }>
-      <ContentVisibility metadata={metadata} />
-      <BlogPostItem>{children}</BlogPostItem>
-      {(nextItem || prevItem) && (
-        <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
-      )}
-      <ActionBar postId={postId} title={metadata.title} url={postUrl} />
-      <CommentSection postId={postId} />
-    </BlogLayout>
+    <>
+      <BrowserOnly>{() => <ReadingProgress />}</BrowserOnly>
+      <BlogLayout
+        sidebar={sidebar}
+        toc={
+          !hideTableOfContents && toc.length > 0 ? (
+            <TOC
+              toc={toc}
+              minHeadingLevel={tocMinHeadingLevel}
+              maxHeadingLevel={tocMaxHeadingLevel}
+            />
+          ) : undefined
+        }>
+        <ContentVisibility metadata={metadata} />
+        <BlogPostItem>{children}</BlogPostItem>
+        {(nextItem || prevItem) && (
+          <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
+        )}
+        <ActionBar postId={postId} title={metadata.title} url={postUrl} />
+        <CommentSection postId={postId} />
+      </BlogLayout>
+    </>
   );
 }
 

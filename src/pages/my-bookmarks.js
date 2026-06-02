@@ -5,6 +5,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
+import { useBlogTitleMap } from '@site/src/hooks/useBlogTitleMap';
 import styles from './my-collection.module.css';
 
 function MyBookmarksInner() {
@@ -13,6 +14,7 @@ function MyBookmarksInner() {
   const isEn = currentLocale === 'en';
   const [posts, setPosts] = useState([]);
   const [fetching, setFetching] = useState(false);
+  const titleMap = useBlogTitleMap();
 
   useEffect(() => {
     if (!user || !supabase) return;
@@ -32,14 +34,37 @@ function MyBookmarksInner() {
 
   if (!user) {
     return (
-      <div className={styles.hint}>
-        <p>{isEn ? 'Please log in to see your bookmarks.' : '请先登录查看你的收藏记录。'}</p>
+      <div className={styles.emptyState}>
+        <p className={styles.emptyText}>
+          {isEn ? 'Please log in to see your bookmarks.' : '请先登录查看你的收藏记录。'}
+        </p>
+        <div className={styles.emptyActions}>
+          <button
+            type="button"
+            className={styles.emptyBtn}
+            onClick={() => document.querySelector('[data-auth-trigger]')?.click()}
+          >
+            {isEn ? 'Log in' : '立即登录'}
+          </button>
+          <Link to="/blog" className={`${styles.emptyBtn} ${styles.emptyBtnSecondary}`}>
+            {isEn ? 'Browse posts' : '去浏览文章'}
+          </Link>
+        </div>
       </div>
     );
   }
 
   if (posts.length === 0) {
-    return <p className={styles.hint}>{isEn ? 'No bookmarks yet.' : '还没有收藏任何文章。'}</p>;
+    return (
+      <div className={styles.emptyState}>
+        <p className={styles.emptyText}>
+          {isEn ? 'No bookmarks yet.' : '还没有收藏任何文章。'}
+        </p>
+        <Link to="/blog" className={styles.emptyBtn}>
+          {isEn ? 'Browse posts' : '去浏览文章'}
+        </Link>
+      </div>
+    );
   }
 
   return (
@@ -47,7 +72,7 @@ function MyBookmarksInner() {
       {posts.map(({ post_id, created_at }) => (
         <li key={post_id} className={styles.item}>
           <Link to={post_id} className={styles.link}>
-            {post_id}
+            {titleMap.get(post_id) ?? post_id}
           </Link>
           <span className={styles.date}>
             {new Date(created_at).toLocaleDateString(isEn ? 'en-US' : 'zh-CN')}

@@ -43,7 +43,7 @@
   font-size: 14px;
   color: var(--ifm-color-primary);
   text-decoration: none;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .link:hover {
@@ -55,4 +55,54 @@
   color: var(--ifm-color-emphasis-500);
   white-space: nowrap;
   margin-left: 16px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.emptyText {
+  font-size: 15px;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 24px;
+}
+
+.emptyActions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.emptyBtn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: var(--ifm-color-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.emptyBtn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  color: #fff;
+  text-decoration: none;
+}
+
+.emptyBtnSecondary {
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-color-primary);
+}
+
+.emptyBtnSecondary:hover {
+  color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
 }
