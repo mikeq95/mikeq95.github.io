@@ -14,11 +14,11 @@ function HomepageHeader() {
   const isZh = currentLocale.startsWith('zh');
   const heroTextRef = useRef(null);
   const imgRef = useRef(null);
-  const blogData = usePluginData('docusaurus-plugin-content-blog');
+  const blogData = usePluginData('blog-global-data');
   const tags = useMemo(() => {
     const map = new Map();
-    (blogData?.blogPosts ?? []).forEach(({ metadata }) => {
-      metadata.tags.forEach(tag => {
+    (blogData?.blogPosts ?? []).forEach(post => {
+      (post.tags ?? []).forEach(tag => {
         const e = map.get(tag.label) ?? { ...tag, count: 0 };
         e.count++;
         map.set(tag.label, e);
@@ -95,13 +95,18 @@ function HomepageHeader() {
 export default function Home() {
   const { siteConfig, i18n: { currentLocale } } = useDocusaurusContext();
   const isZh = currentLocale.startsWith('zh');
+  const blogData = usePluginData('blog-global-data');
+  const recentPosts = useMemo(
+    () => (blogData?.blogPosts ?? []).slice(0, 4),
+    [blogData],
+  );
   return (
     <Layout
       title={isZh ? `欢迎来到 ${siteConfig.title}` : `Welcome to ${siteConfig.title}`}
       description="mijeq95's personal blog - A university student from China sharing thoughts, UI designs, and coding experiences.">
       <HomepageHeader />
       <main>
-        <RecentPosts />
+        <RecentPosts posts={recentPosts} />
       </main>
     </Layout>
   );

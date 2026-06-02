@@ -86,6 +86,10 @@ const config = {
     ],
   ],
 
+  plugins: [
+    require.resolve('./src/plugins/blogGlobalDataPlugin'),
+  ],
+
   themes: [
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),

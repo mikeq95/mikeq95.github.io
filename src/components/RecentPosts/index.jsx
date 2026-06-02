@@ -1,16 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import Link from '@docusaurus/Link';
-import { usePluginData } from '@docusaurus/useGlobalData';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 
-export default function RecentPosts() {
+export default function RecentPosts({ posts = [] }) {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const isZh = currentLocale.startsWith('zh');
-  const blogData = usePluginData('docusaurus-plugin-content-blog');
   const cardsRef = useRef(null);
-
-  const posts = (blogData?.blogPosts ?? []).slice(0, 4);
 
   useEffect(() => {
     if (!cardsRef.current || !cardsRef.current.children.length) return;
@@ -46,27 +42,20 @@ export default function RecentPosts() {
           {isZh ? '最新文章' : 'Recent Posts'}
         </h2>
         <div className={styles.grid} ref={cardsRef}>
-          {posts.map(({ id, metadata }) => (
-            <Link key={id} to={metadata.permalink} className={styles.card}>
+          {posts.map(post => (
+            <Link key={post.id} to={post.permalink} className={styles.card}>
               <div className={styles.cardMeta}>
                 <time className={styles.date}>
-                  {new Date(metadata.date).toLocaleDateString(
+                  {new Date(post.date).toLocaleDateString(
                     isZh ? 'zh-CN' : 'en-US',
                     { year: 'numeric', month: 'short', day: 'numeric' },
                   )}
                 </time>
-                {metadata.readingTime != null && (
-                  <span className={styles.readTime}>
-                    {isZh
-                      ? `${Math.ceil(metadata.readingTime)} 分钟`
-                      : `${Math.ceil(metadata.readingTime)} min`}
-                  </span>
-                )}
               </div>
-              <h3 className={styles.cardTitle}>{metadata.title}</h3>
-              {metadata.tags.length > 0 && (
+              <h3 className={styles.cardTitle}>{post.title}</h3>
+              {post.tags.length > 0 && (
                 <div className={styles.tags}>
-                  {metadata.tags.slice(0, 2).map(tag => (
+                  {post.tags.slice(0, 2).map(tag => (
                     <span key={tag.label} className={styles.tag}>{tag.label}</span>
                   ))}
                 </div>
