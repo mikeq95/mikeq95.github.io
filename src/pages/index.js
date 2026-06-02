@@ -1,21 +1,61 @@
-import clsx from 'clsx';
+import { useMemo } from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { useAllPluginInstancesData } from '@docusaurus/useGlobalData';
 import Layout from '@theme/Layout';
-
+import { useEffect, useRef } from 'react';
 import Heading from '@theme/Heading';
+import { usePluginData } from '@docusaurus/useGlobalData';
 import RecentPosts from '@site/src/components/RecentPosts';
 import styles from './index.module.css';
 
 function HomepageHeader() {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const isZh = currentLocale.startsWith('zh');
+  const heroTextRef = useRef(null);
+  const imgRef = useRef(null);
+  const blogData = usePluginData('docusaurus-plugin-content-blog');
+  const tags = useMemo(() => {
+    const map = new Map();
+    (blogData?.blogPosts ?? []).forEach(({ metadata }) => {
+      metadata.tags.forEach(tag => {
+        const e = map.get(tag.label) ?? { ...tag, count: 0 };
+        e.count++;
+        map.set(tag.label, e);
+      });
+    });
+    return Array.from(map.values()).sort((a, b) => b.count - a.count).slice(0, 8);
+  }, [blogData]);
+
+  useEffect(() => {
+    let ctx;
+    import('gsap').then(({ gsap }) => {
+      ctx = gsap.context(() => {
+        const children = heroTextRef.current?.children;
+        if (children) {
+          gsap.from(Array.from(children), {
+            opacity: 0,
+            y: 20,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: 'power2.out',
+          });
+        }
+        gsap.from(imgRef.current, {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: 'power2.out',
+        });
+      });
+    });
+    return () => ctx?.revert();
+  }, []);
+
   return (
     <header className={styles.heroBanner}>
       <div className={styles.heroContainer}>
-        <div className={styles.heroText}>
+        <div className={styles.heroText} ref={heroTextRef}>
           <Heading as="h1" className={styles.title}>
             你好, <span className={styles.gradientText}>こんにちは, 안녕하세요, Hello</span>
           </Heading>
@@ -29,9 +69,19 @@ function HomepageHeader() {
               {isZh ? '阅读我的博客' : 'Read my blog'}
             </Link>
           </div>
+          {tags.length > 0 && (
+            <div className={styles.heroTags}>
+              {tags.map(tag => (
+                <Link key={tag.label} to={tag.permalink} className={styles.heroTag}>
+                  {tag.label}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
         <div className={styles.heroImageContainer}>
           <img
+            ref={imgRef}
             src={useBaseUrl('/img/ahri.jpg')}
             alt="Profile Avatar"
             className={styles.heroImage}
@@ -45,16 +95,13 @@ function HomepageHeader() {
 export default function Home() {
   const { siteConfig, i18n: { currentLocale } } = useDocusaurusContext();
   const isZh = currentLocale.startsWith('zh');
-  const allBlogData = useAllPluginInstancesData('docusaurus-plugin-content-blog');
-  const recentPosts = (allBlogData?.default?.posts ?? []).slice(0, 5);
-
   return (
     <Layout
       title={isZh ? `欢迎来到 ${siteConfig.title}` : `Welcome to ${siteConfig.title}`}
       description="mijeq95's personal blog - A university student from China sharing thoughts, UI designs, and coding experiences.">
       <HomepageHeader />
       <main>
-        <RecentPosts posts={recentPosts} />
+        <RecentPosts />
       </main>
     </Layout>
   );

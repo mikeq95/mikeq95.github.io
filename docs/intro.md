@@ -1,2 +1,3 @@
-# Intro
-
+---
+hidden: true
+---

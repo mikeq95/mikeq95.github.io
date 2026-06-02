@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f40795"/>
+      <stop offset="100%" stop-color="#06d6fb"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f40795" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#06d6fb" stop-opacity="0.05"/>
+    </linearGradient>
+    <radialGradient id="circle-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f40795" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#f40795" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#111111"/>
+
+  <!-- Subtle gradient overlay top-right -->
+  <ellipse cx="1050" cy="180" rx="320" ry="280" fill="url(#circle-glow)"/>
+
+  <!-- Top gradient bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+
+  <!-- Left accent line -->
+  <rect x="80" y="180" width="5" height="80" rx="2.5" fill="url(#accent)"/>
+
+  <!-- Blog name -->
+  <text
+    x="105"
+    y="244"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+    font-size="72"
+    font-weight="800"
+    letter-spacing="-1"
+    fill="white">Clearlove7</text>
+
+  <!-- Tagline -->
+  <text
+    x="105"
+    y="300"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+    font-size="26"
+    font-weight="400"
+    fill="#888888">Step-by-step guides · Tech tutorials · Personal notes</text>
+
+  <!-- Tag pills row -->
+  <!-- macOS -->
+  <rect x="105" y="340" width="86" height="30" rx="15" fill="#1e1e1e" stroke="#333333" stroke-width="1"/>
+  <text x="148" y="360" font-family="-apple-system, sans-serif" font-size="14" fill="#aaaaaa" text-anchor="middle">macOS</text>
+
+  <!-- GitHub -->
+  <rect x="201" y="340" width="82" height="30" rx="15" fill="#1e1e1e" stroke="#333333" stroke-width="1"/>
+  <text x="242" y="360" font-family="-apple-system, sans-serif" font-size="14" fill="#aaaaaa" text-anchor="middle">GitHub</text>
+
+  <!-- English -->
+  <rect x="293" y="340" width="84" height="30" rx="15" fill="#1e1e1e" stroke="#333333" stroke-width="1"/>
+  <text x="335" y="360" font-family="-apple-system, sans-serif" font-size="14" fill="#aaaaaa" text-anchor="middle">English</text>
+
+  <!-- Music -->
+  <rect x="387" y="340" width="74" height="30" rx="15" fill="#1e1e1e" stroke="#333333" stroke-width="1"/>
+  <text x="424" y="360" font-family="-apple-system, sans-serif" font-size="14" fill="#aaaaaa" text-anchor="middle">Music</text>
+
+  <!-- Divider -->
+  <line x1="80" y1="430" x2="600" y2="430" stroke="#222222" stroke-width="1"/>
+
+  <!-- Site URL -->
+  <text
+    x="80"
+    y="475"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+    font-size="20"
+    fill="#555555">mikeQ95.github.io</text>
+
+  <!-- Decorative large circle outline top-right -->
+  <circle cx="1020" cy="315" r="200" fill="none" stroke="#222222" stroke-width="1"/>
+  <circle cx="1020" cy="315" r="140" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+
+  <!-- Accent dot cluster -->
+  <circle cx="1020" cy="315" r="8" fill="url(#accent)"/>
+  <circle cx="1070" cy="260" r="4" fill="#f40795" opacity="0.6"/>
+  <circle cx="960" cy="370" r="3" fill="#06d6fb" opacity="0.5"/>
+  <circle cx="1090" cy="360" r="5" fill="#f40795" opacity="0.3"/>
+</svg>

@@ -52,7 +52,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          path: 'docs',
+          routeBasePath: 'docs',
         },
         blog: {
           blogSidebarCount: 'ALL',
@@ -95,6 +96,7 @@ const config = {
         indexDocs: false,
         indexBlog: true,
         indexPages: true,
+        docsRouteBasePath: [],
       }),
     ],
   ],
@@ -103,7 +105,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/og-card.svg',
       metadata: [
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@' },
