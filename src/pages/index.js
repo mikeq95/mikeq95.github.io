@@ -97,7 +97,7 @@ export default function Home() {
   const isZh = currentLocale.startsWith('zh');
   const blogData = usePluginData('blog-global-data');
   const recentPosts = useMemo(
-    () => (blogData?.blogPosts ?? []).slice(0, 4),
+    () => (blogData?.blogPosts ?? []).slice(0, 6),
     [blogData],
   );
   return (
