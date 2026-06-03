@@ -15,7 +15,8 @@ const config = {
   favicon: 'img/favicon.ico',
   deploymentBranch: 'gh-pages',
   customFields: {
-    adminUserId: process.env.DOCUSAURUS_ADMIN_USER_ID ?? '',
+    // comma-separated list of admin Supabase user UUIDs
+    adminUserIds: (process.env.DOCUSAURUS_ADMIN_USER_ID ?? '').split(',').filter(Boolean),
   },
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

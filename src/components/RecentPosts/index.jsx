@@ -33,8 +33,8 @@ export default function RecentPosts({ posts = [] }) {
   const isZh = currentLocale.startsWith('zh');
   const { user } = useAuth();
   const { siteConfig } = useDocusaurusContext();
-  const adminId = siteConfig.customFields?.adminUserId ?? '';
-  const isAdmin = !!adminId && user?.id === adminId;
+  const adminIds = siteConfig.customFields?.adminUserIds ?? [];
+  const isAdmin = user?.id && adminIds.includes(user.id);
 
   const cardsRef = useRef(null);
   const [pinnedIds, setPinnedIds] = useState(new Set());

@@ -26,14 +26,14 @@ function shouldRecord(postId) {
 export function usePostViews(postId) {
   const { user } = useAuth();
   const { siteConfig } = useDocusaurusContext();
-  const adminId = siteConfig.customFields?.adminUserId ?? '';
+  const adminIds = siteConfig.customFields?.adminUserIds ?? [];
   const [counts, setCounts] = useState(null);
 
   useEffect(() => {
     if (!postId || !supabase) return;
 
     const viewerKey = getViewerKey(user);
-    const isOwner = !!adminId && user?.id === adminId;
+    const isOwner = user?.id && adminIds.includes(user.id);
 
     // Record view (skip self, skip within cooldown window)
     if (!isOwner && shouldRecord(postId)) {
