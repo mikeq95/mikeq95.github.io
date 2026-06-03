@@ -10,10 +10,13 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'mijeq95\'s blog',
+  title: 'mikeq95\'s blog',
   tagline: 'It\'s our world, we just live in it.',
   favicon: 'img/favicon.ico',
   deploymentBranch: 'gh-pages',
+  customFields: {
+    adminUserId: process.env.DOCUSAURUS_ADMIN_USER_ID ?? '',
+  },
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -109,7 +112,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/og-card.svg',
+      image: 'img/og-card.png',
       metadata: [
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@' },
@@ -119,7 +122,7 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'Clearlove7',
+        title: 'mikeq95',
         items: [
           { to: '/blog', label: 'Blog', position: 'left' },
           { type: 'localeDropdown', position: 'right' },

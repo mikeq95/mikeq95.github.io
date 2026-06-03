@@ -15,6 +15,7 @@ import TOC from '@theme/TOC';
 import ContentVisibility from '@theme/ContentVisibility';
 import CommentSection from '@site/src/components/CommentSection';
 import ActionBar from '@site/src/components/ActionBar';
+import PostViews from '@site/src/components/PostViews';
 import ReadingProgress from '@site/src/components/ReadingProgress';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
@@ -54,6 +55,7 @@ function BlogPostPageContent({sidebar, children}) {
         {(nextItem || prevItem) && (
           <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
         )}
+        <PostViews postId={postId} />
         <ActionBar postId={postId} title={metadata.title} url={postUrl} />
         <CommentSection postId={postId} />
       </BlogLayout>

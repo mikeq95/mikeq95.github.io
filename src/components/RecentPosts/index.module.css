@@ -111,6 +111,53 @@
   text-decoration: none;
 }
 
+/* Pinned card */
+.pinned {
+  border-color: var(--ifm-color-primary) !important;
+}
+
+.pinBadge {
+  font-size: 0.7rem;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* Right-click context menu */
+.ctxOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.ctxMenu {
+  position: fixed;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  min-width: 140px;
+  z-index: 10000;
+}
+
+.ctxItem {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--ifm-color-content);
+  transition: background-color 0.1s;
+}
+
+.ctxItem:hover {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
 @media screen and (max-width: 996px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);

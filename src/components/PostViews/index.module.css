@@ -1,0 +1,22 @@
+.views {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.82rem;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.stat {
+  font-weight: 600;
+  color: var(--ifm-color-content);
+}
+
+.label {
+  color: var(--ifm-color-content-secondary);
+}
+
+.dot {
+  margin: 0 0.15rem;
+  color: var(--ifm-color-emphasis-400);
+}

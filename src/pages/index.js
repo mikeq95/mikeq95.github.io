@@ -102,8 +102,7 @@ export default function Home() {
   );
   return (
     <Layout
-      title={isZh ? `欢迎来到 ${siteConfig.title}` : `Welcome to ${siteConfig.title}`}
-      description="mijeq95's personal blog - A university student from China sharing thoughts, UI designs, and coding experiences.">
+      description="mikeq95's personal blog — a university student from China sharing tech, tools, and personal notes.">
       <HomepageHeader />
       <main>
         <RecentPosts posts={recentPosts} />
