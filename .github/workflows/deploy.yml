@@ -24,6 +24,7 @@ jobs:
         run: npm run build
         env:
           VITE_CLERK_PUBLISHABLE_KEY: ${{ secrets.VITE_CLERK_PUBLISHABLE_KEY }}
+          DOCUSAURUS_ADMIN_USER_ID: ${{ secrets.DOCUSAURUS_ADMIN_USER_ID }}
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
