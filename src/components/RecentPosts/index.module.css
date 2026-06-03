@@ -1,52 +1,90 @@
+/* ── Section ── */
 .section {
   padding: 4rem 0 5rem;
   background-color: var(--ifm-background-surface-color);
   border-top: 1px solid var(--ifm-color-emphasis-100);
-}
-
-.inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
+  overflow: hidden;
 }
 
 .sectionTitle {
   font-size: 1.75rem;
   font-weight: 700;
   margin: 0 0 2rem;
+  padding: 0 2.5rem;
   color: var(--ifm-color-content);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+/* ── Horizontal scroll track ── */
+.track {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 1.25rem;
+  /* side padding lets first/last card snap to center */
+  padding: 1.5rem calc(50% - 140px) 2rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
 }
 
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track:active {
+  cursor: grabbing;
+}
+
+/* ── Card base ── */
 .card {
-  display: flex;
-  flex-direction: column;
+  flex-shrink: 0;
+  width: 260px;
   padding: 1.5rem;
+  border-radius: 16px;
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 12px;
+  background-color: var(--ifm-background-color);
   text-decoration: none;
   color: inherit;
-  background-color: var(--ifm-background-color);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.35s ease,
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
+  will-change: transform, opacity;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border-color: var(--ifm-color-primary);
   text-decoration: none;
   color: inherit;
 }
 
-[data-theme='dark'] .card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+/* Active (centered) card — App Store scale-up */
+.cardActive {
+  transform: scale(1.06);
+  opacity: 1;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+  border-color: var(--ifm-color-primary);
+  z-index: 1;
 }
 
+[data-theme='dark'] .cardActive {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Inactive cards */
+.cardInactive {
+  transform: scale(0.93);
+  opacity: 0.6;
+}
+
+/* Pinned */
+.pinned {
+  border-color: var(--ifm-color-primary) !important;
+}
+
+/* ── Card internals ── */
 .cardMeta {
   display: flex;
   align-items: center;
@@ -59,14 +97,11 @@
   color: var(--ifm-color-content-secondary);
 }
 
-.readTime {
-  font-size: 0.8rem;
-  color: var(--ifm-color-content-secondary);
-}
-
-.readTime::before {
-  content: '·';
-  margin-right: 0.5rem;
+.pinBadge {
+  font-size: 0.7rem;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  margin-left: auto;
 }
 
 .cardTitle {
@@ -93,9 +128,11 @@
   color: var(--ifm-color-content-secondary);
 }
 
+/* ── Footer link ── */
 .more {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   text-align: right;
+  padding: 0 2.5rem;
 }
 
 .moreLink {
@@ -111,19 +148,7 @@
   text-decoration: none;
 }
 
-/* Pinned card */
-.pinned {
-  border-color: var(--ifm-color-primary) !important;
-}
-
-.pinBadge {
-  font-size: 0.7rem;
-  color: var(--ifm-color-primary);
-  font-weight: 600;
-  margin-left: auto;
-}
-
-/* Right-click context menu */
+/* ── Right-click context menu ── */
 .ctxOverlay {
   position: fixed;
   inset: 0;
@@ -158,26 +183,27 @@
   background-color: var(--ifm-color-emphasis-100);
 }
 
-@media screen and (max-width: 996px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
+/* ── Mobile ── */
 @media screen and (max-width: 600px) {
   .section {
     padding: 2.5rem 0 3rem;
   }
 
-  .inner {
+  .sectionTitle {
+    font-size: 1.4rem;
     padding: 0 1.5rem;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
+  .track {
+    padding: 1.5rem calc(50% - 37.5vw) 2rem;
+    gap: 1rem;
   }
 
-  .sectionTitle {
-    font-size: 1.4rem;
+  .card {
+    width: 75vw;
+  }
+
+  .more {
+    padding: 0 1.5rem;
   }
 }

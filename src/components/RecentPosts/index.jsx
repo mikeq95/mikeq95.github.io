@@ -36,11 +36,11 @@ export default function RecentPosts({ posts = [] }) {
   const adminIds = siteConfig.customFields?.adminUserIds ?? [];
   const isAdmin = user?.id && adminIds.includes(user.id);
 
-  const cardsRef = useRef(null);
+  const scrollRef = useRef(null);
+  const [activeIdx, setActiveIdx] = useState(0);
   const [pinnedIds, setPinnedIds] = useState(new Set());
-  const [menu, setMenu] = useState(null); // { x, y, permalink, isPinned }
+  const [menu, setMenu] = useState(null);
 
-  // Fetch pinned posts from Supabase
   useEffect(() => {
     if (!supabase) return;
     supabase
@@ -51,29 +51,28 @@ export default function RecentPosts({ posts = [] }) {
       });
   }, []);
 
-  // GSAP scroll animation
+  // Track which card is snapped to center
   useEffect(() => {
-    if (!cardsRef.current || !cardsRef.current.children.length) return;
-    let ctx;
-    Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(
-      ([{ gsap }, { ScrollTrigger }]) => {
-        gsap.registerPlugin(ScrollTrigger);
-        ctx = gsap.context(() => {
-          gsap.from(Array.from(cardsRef.current.children), {
-            opacity: 0,
-            y: 30,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'power2.out',
-            scrollTrigger: { trigger: cardsRef.current, start: 'top 80%' },
-          });
+    const container = scrollRef.current;
+    if (!container) return;
+    let rafId;
+    const onScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const center = container.scrollLeft + container.clientWidth / 2;
+        let closestIdx = 0;
+        let closestDist = Infinity;
+        Array.from(container.children).forEach((card, i) => {
+          const dist = Math.abs((card.offsetLeft + card.offsetWidth / 2) - center);
+          if (dist < closestDist) { closestDist = dist; closestIdx = i; }
         });
-      },
-    );
-    return () => ctx?.revert();
-  }, [posts.length]);
+        setActiveIdx(closestIdx);
+      });
+    };
+    container.addEventListener('scroll', onScroll, { passive: true });
+    return () => { container.removeEventListener('scroll', onScroll); cancelAnimationFrame(rafId); };
+  }, []);
 
-  // Pinned posts float to the top, order within group preserved
   const sortedPosts = useMemo(() => {
     return [...posts].sort((a, b) => {
       const aPin = pinnedIds.has(a.permalink) ? 0 : 1;
@@ -107,47 +106,51 @@ export default function RecentPosts({ posts = [] }) {
 
   return (
     <section className={styles.section}>
-      <div className={styles.inner}>
-        <h2 className={styles.sectionTitle}>
-          {isZh ? '最新文章' : 'Recent Posts'}
-        </h2>
-        <div className={styles.grid} ref={cardsRef}>
-          {sortedPosts.map(post => (
-            <Link
-              key={post.id}
-              to={post.permalink}
-              className={`${styles.card} ${pinnedIds.has(post.permalink) ? styles.pinned : ''}`}
-              onContextMenu={e => handleContextMenu(e, post.permalink)}
-            >
-              <div className={styles.cardMeta}>
-                <time className={styles.date}>
-                  {new Date(post.date).toLocaleDateString(
-                    isZh ? 'zh-CN' : 'en-US',
-                    { year: 'numeric', month: 'short', day: 'numeric' },
-                  )}
-                </time>
-                {pinnedIds.has(post.permalink) && (
-                  <span className={styles.pinBadge}>
-                    {isZh ? '📌 置顶' : '📌 Pinned'}
-                  </span>
+      <h2 className={styles.sectionTitle}>
+        {isZh ? '最新文章' : 'Recent Posts'}
+      </h2>
+
+      <div className={styles.track} ref={scrollRef}>
+        {sortedPosts.map((post, i) => (
+          <Link
+            key={post.id}
+            to={post.permalink}
+            className={[
+              styles.card,
+              i === activeIdx ? styles.cardActive : styles.cardInactive,
+              pinnedIds.has(post.permalink) ? styles.pinned : '',
+            ].join(' ')}
+            onContextMenu={e => handleContextMenu(e, post.permalink)}
+          >
+            <div className={styles.cardMeta}>
+              <time className={styles.date}>
+                {new Date(post.date).toLocaleDateString(
+                  isZh ? 'zh-CN' : 'en-US',
+                  { year: 'numeric', month: 'short', day: 'numeric' },
                 )}
-              </div>
-              <h3 className={styles.cardTitle}>{post.title}</h3>
-              {post.tags.length > 0 && (
-                <div className={styles.tags}>
-                  {post.tags.slice(0, 2).map(tag => (
-                    <span key={tag.label} className={styles.tag}>{tag.label}</span>
-                  ))}
-                </div>
+              </time>
+              {pinnedIds.has(post.permalink) && (
+                <span className={styles.pinBadge}>
+                  {isZh ? '📌 置顶' : '📌 Pinned'}
+                </span>
               )}
-            </Link>
-          ))}
-        </div>
-        <div className={styles.more}>
-          <Link to="/blog" className={styles.moreLink}>
-            {isZh ? '查看全部文章 →' : 'All posts →'}
+            </div>
+            <h3 className={styles.cardTitle}>{post.title}</h3>
+            {post.tags.length > 0 && (
+              <div className={styles.tags}>
+                {post.tags.slice(0, 2).map(tag => (
+                  <span key={tag.label} className={styles.tag}>{tag.label}</span>
+                ))}
+              </div>
+            )}
           </Link>
-        </div>
+        ))}
+      </div>
+
+      <div className={styles.more}>
+        <Link to="/blog" className={styles.moreLink}>
+          {isZh ? '查看全部文章 →' : 'All posts →'}
+        </Link>
       </div>
 
       {menu && typeof document !== 'undefined' && (
