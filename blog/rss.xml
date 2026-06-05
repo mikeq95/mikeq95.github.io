@@ -4,10 +4,62 @@
         <title>mikeq95's blog Blog</title>
         <link>https://mikeQ95.github.io/blog</link>
         <description>mikeq95's blog Blog</description>
-        <lastBuildDate>Tue, 02 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 04 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hans</language>
+        <item>
+            <title><![CDATA[关于这个博客]]></title>
+            <link>https://mikeQ95.github.io/blog/about</link>
+            <guid>https://mikeQ95.github.io/blog/about</guid>
+            <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[介绍一下自己]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="介绍一下自己">介绍一下自己<a href="https://mikeq95.github.io/blog/about#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E8%87%AA%E5%B7%B1" class="hash-link" aria-label="介绍一下自己的直接链接" title="介绍一下自己的直接链接" translate="no">​</a></h2>
+<p>05后，Gen Z，大二在读，电子信息工程专业。打篮球，玩游戏（LOL、CS2），顺带在学英语——英语不好，但在努力。</p>
+<p>理科生，语文作文向来写得跟白话文没什么区别。不过我觉得"好文章"就一个标准：读者能读懂。这个，我能做到。</p>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="这个博客是干什么的">这个博客是干什么的<a href="https://mikeq95.github.io/blog/about#%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%98%AF%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84" class="hash-link" aria-label="这个博客是干什么的的直接链接" title="这个博客是干什么的的直接链接" translate="no">​</a></h2>
+<p>写给自己的。记录我搞懂的东西，顺带验证一下我是不是真的搞懂了。如果你也能看懂，那挺好。</p>
+<p>内容以技术为主：AI 工具、Mac 开发、用过觉得值得记下来的东西。你懂那种感觉——很多 GitHub 项目一上来就是"配置环境"，从第一步就开始劝退人。我不想这样写。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="关于这个网站">关于这个网站<a href="https://mikeq95.github.io/blog/about#%E5%85%B3%E4%BA%8E%E8%BF%99%E4%B8%AA%E7%BD%91%E7%AB%99" class="hash-link" aria-label="关于这个网站的直接链接" title="关于这个网站的直接链接" translate="no">​</a></h2>
+<p>没有广告，以后也不会有，这个可以保证。我讨厌广告，我不想让任何人在这里被打扰——包括我自己，因为我也是这个网站的读者。</p>
+<p>我很在意体验。网站要快，页面要干净，打开之后不用想太多，找到想看的就行。</p>
+<p>至于赚不赚钱，以后再说。但前提只有一个：不以牺牲体验为代价。</p>
+<p>我其实不在乎有多少人看，在乎的是自己写得怎么样。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95.github.io/blog/about#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="总结的直接链接" title="总结的直接链接" translate="no">​</a></h2>
+<p>okay,这就是我的的这个网站的所有想法。</p>
+<p>中国有个成语叫“知行合一”，我也会按照知行合一，把这些我所想的，所要求的，变成现实。</p>]]></content:encoded>
+            <category>关于</category>
+        </item>
+        <item>
+            <title><![CDATA[CodeGraph：让 Claude Code 少走弯路，token 省一半]]></title>
+            <link>https://mikeQ95.github.io/blog/2026/06/03/codegraph-claude-code-knowledge-graph</link>
+            <guid>https://mikeQ95.github.io/blog/2026/06/03/codegraph-claude-code-knowledge-graph</guid>
+            <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[今天看到一个 GitHub 项目——CodeGraph，⭐ 三万八千多，MIT 开源。核心思路：把代码库预先建成知识图谱，让 Claude Code 直接查，而不是每次都 grep 扫文件。装来试了试，平均省 16% 费用、减少 58% 工具调用次数。]]></description>
+            <content:encoded><![CDATA[<p>今天看到一个 GitHub 项目——<a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener noreferrer" class="">CodeGraph</a>，⭐ 三万八千多，MIT 开源。核心思路：<strong>把代码库预先建成知识图谱，让 Claude Code 直接查，而不是每次都 grep 扫文件</strong>。装来试了试，平均省 16% 费用、减少 58% 工具调用次数。</p>
+<!-- -->
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="为什么-claude-code-会浪费-token">为什么 Claude Code 会"浪费" token<a href="https://mikeq95.github.io/blog/2026/06/03/codegraph-claude-code-knowledge-graph#%E4%B8%BA%E4%BB%80%E4%B9%88-claude-code-%E4%BC%9A%E6%B5%AA%E8%B4%B9-token" class="hash-link" aria-label="为什么 Claude Code 会&quot;浪费&quot; token的直接链接" title="为什么 Claude Code 会&quot;浪费&quot; token的直接链接" translate="no">​</a></h2>
+<p>用 Claude Code 问一个架构问题，比如"这个请求是怎么到数据库的"，它会先开 Explore 子代理，跑一堆 grep/ls/Read 去找文件，找完才开始分析。<strong>整个探索过程本身就在消耗 token</strong>，而且很多时候读了一堆不相关的文件。</p>
+<p>CodeGraph 的思路是：把这些探索工作提前做好，索引成本地 SQLite 数据库，Claude Code 直接查——一次工具调用返回相关符号的源码、调用图、依赖关系，不用再扫文件。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="安装">安装<a href="https://mikeq95.github.io/blog/2026/06/03/codegraph-claude-code-knowledge-graph#%E5%AE%89%E8%A3%85" class="hash-link" aria-label="安装的直接链接" title="安装的直接链接" translate="no">​</a></h2>
+<p><strong>安装 CLI</strong>（macOS/Linux，不需要 Node.js）：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh</span><br></div></code></pre></div></div>
+<p>安装完记得<strong>开新终端</strong>，不然 <code>codegraph</code> 命令找不到。</p>
+<p><strong>接入 Claude Code</strong>：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">codegraph install</span><br></div></code></pre></div></div>
+<p>它会自动检测你装了哪些 AI 工具（Claude Code、Cursor、Gemini CLI 等），选 Claude Code 就行，其他的不用勾。</p>
+<p><strong>初始化项目</strong>：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cd your-project</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">codegraph init -i</span><br></div></code></pre></div></div>
+<p><code>-i</code> 是 <code>--index</code>，创建目录的同时顺手把代码建索引，省一步。以后代码有改动，文件监听会自动增量同步，不用手动管。</p>
+<p>**怎么判断这个项目需不需要初始化？</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">ls your-project/.codegraph</span><br></div></code></pre></div></div>
+<p>有就是建过了，没有就跑一次 <code>codegraph init -i</code>。</p>]]></content:encoded>
+            <category>GitHub</category>
+            <category>AI</category>
+        </item>
         <item>
             <title><![CDATA[GSAP + Claude Code，为你的网页加上炫酷动画]]></title>
             <link>https://mikeQ95.github.io/blog/2026/06/02/gsap-claude-code-web-animation</link>
@@ -78,9 +130,7 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95.github.io/blog/2026/06/02/gsap-claude-code-web-animation#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="总结的直接链接" title="总结的直接链接" translate="no">​</a></h2>
 <p>GSAP 是做<strong>网页动画</strong>的，不是视频，这点一定要搞清楚😂。</p>
 <p><code>gsap-skills</code> 的价值在于让 Claude Code 真正懂 GSAP——不只是能写代码，而是能写出正确的代码，不会用过时的 API，React 里的 cleanup 也不会漏。安装过程五分钟搞定，之后直接描述需求让 Claude 写就行，不需要自己记任何 API。</p>
-<p>如果你的博客或者项目需要滚动动画、页面过渡、元素进场这类效果，GSAP 是目前开源方案里最值得用的一个。</p>
-<hr>
-<p><em>基于 <a href="https://github.com/greensock/gsap-skills" target="_blank" rel="noopener noreferrer" class="">greensock/gsap-skills</a> v1.5.9，GSAP v3.x</em></p>]]></content:encoded>
+<p>如果你的博客或者项目需要滚动动画、页面过渡、元素进场这类效果，GSAP 是目前开源方案里最值得用的一个。</p>]]></content:encoded>
             <category>GitHub</category>
             <category>macOS</category>
         </item>
@@ -89,8 +139,8 @@
             <link>https://mikeQ95.github.io/blog/2026/06/01/open-codesign-review</link>
             <guid>https://mikeQ95.github.io/blog/2026/06/01/open-codesign-review</guid>
             <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——Open CoDesign，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。]]></description>
-            <content:encoded><![CDATA[<p>最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——<a href="https://github.com/OpenCoworkAI/open-codesign" target="_blank" rel="noopener noreferrer" class="">Open CoDesign</a>，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。</p>
+            <description><![CDATA[最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，要moeny的，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——Open CoDesign，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。]]></description>
+            <content:encoded><![CDATA[<p>最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，要moeny的，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——<a href="https://github.com/OpenCoworkAI/open-codesign" target="_blank" rel="noopener noreferrer" class="">Open CoDesign</a>，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。</p>
 <!-- -->
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="它是什么">它是什么<a href="https://mikeq95.github.io/blog/2026/06/01/open-codesign-review#%E5%AE%83%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="它是什么的直接链接" title="它是什么的直接链接" translate="no">​</a></h2>
@@ -116,9 +166,6 @@
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="启动">启动<a href="https://mikeq95.github.io/blog/2026/06/01/open-codesign-review#%E5%90%AF%E5%8A%A8" class="hash-link" aria-label="启动的直接链接" title="启动的直接链接" translate="no">​</a></h3>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pnpm dev</span><br></div></code></pre></div></div>
 <p>稍等片刻，Electron 窗口会弹出来。第一次会让你配置 Provider，把你的 Claude API Key（<code>sk-ant-...</code>）粘进去，测试一下连接，就可以开始用了。</p>
-<blockquote>
-<p><strong>踩坑提示</strong>：别像我一样手滑在项目目录里 <code>git clone</code>，记得先 <code>cd</code> 到你想放的地方再克隆😂</p>
-</blockquote>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="实际使用感受">实际使用感受<a href="https://mikeq95.github.io/blog/2026/06/01/open-codesign-review#%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E6%84%9F%E5%8F%97" class="hash-link" aria-label="实际使用感受的直接链接" title="实际使用感受的直接链接" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="生成速度">生成速度<a href="https://mikeq95.github.io/blog/2026/06/01/open-codesign-review#%E7%94%9F%E6%88%90%E9%80%9F%E5%BA%A6" class="hash-link" aria-label="生成速度的直接链接" title="生成速度的直接链接" translate="no">​</a></h3>
@@ -133,20 +180,8 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="和-claude-design-比">和 Claude Design 比<a href="https://mikeq95.github.io/blog/2026/06/01/open-codesign-review#%E5%92%8C-claude-design-%E6%AF%94" class="hash-link" aria-label="和 Claude Design 比的直接链接" title="和 Claude Design 比的直接链接" translate="no">​</a></h2>
 <table><thead><tr><th></th><th style="text-align:center">Open CoDesign</th><th style="text-align:center">Claude Design</th></tr></thead><tbody><tr><td>开源</td><td style="text-align:center">✅ MIT</td><td style="text-align:center">❌</td></tr><tr><td>本地运行</td><td style="text-align:center">✅</td><td style="text-align:center">❌ 云端</td></tr><tr><td>支持多模型</td><td style="text-align:center">✅ 20+</td><td style="text-align:center">❌ 仅 Claude</td></tr><tr><td>价格</td><td style="text-align:center">✅ 免费（自付 API 费用）</td><td style="text-align:center">💳 订阅制</td></tr><tr><td>数据隐私</td><td style="text-align:center">✅ 本地</td><td style="text-align:center">❌ 云端处理</td></tr></tbody></table>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="目前的不足">目前的不足<a href="https://mikeq95.github.io/blog/2026/06/01/open-codesign-review#%E7%9B%AE%E5%89%8D%E7%9A%84%E4%B8%8D%E8%B6%B3" class="hash-link" aria-label="目前的不足的直接链接" title="目前的不足的直接链接" translate="no">​</a></h2>
-<p>说说不够满意的地方：</p>
-<ul>
-<li class="">安装包目前还没有签名，macOS 上需要手动执行 <code>xattr -cr</code> 绕过 Gatekeeper，对不熟悉命令行的人来说有点门槛</li>
-<li class="">现在还是 v0.2，功能还在快速迭代，偶尔会遇到一些小 bug</li>
-<li class="">如果网络不稳定，API 调用偶尔会超时</li>
-</ul>
-<hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95.github.io/blog/2026/06/01/open-codesign-review#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="总结的直接链接" title="总结的直接链接" translate="no">​</a></h2>
-<p>如果你已经有 Claude 或其他模型的 API Key，Open CoDesign 是目前开源 AI 设计工具里完成度最高的一个。本地运行、支持多模型、导出格式丰富，基本把"为什么不用 Claude Design"的问题都答上了。</p>
-<p>对于开发者来说，它的 Agent 面板透明度很高，能看到 AI 实际在做什么，这点比很多商业工具强。设计质量上也不是那种随便生成的粗糙感，内置的 taste layer 做了不少工作。</p>
-<p>整体来说值得一试，尤其是已经在用 Claude API 的人，装起来成本很低。</p>
-<hr>
-<p><em>基于 <a href="https://github.com/OpenCoworkAI/open-codesign" target="_blank" rel="noopener noreferrer" class="">OpenCoworkAI/open-codesign</a> v0.2.0</em></p>]]></content:encoded>
+<p>已经有 Claude API Key 的话，装起来成本很低，值得试试。</p>]]></content:encoded>
             <category>GitHub</category>
             <category>macOS</category>
             <category>AI</category>
@@ -157,7 +192,8 @@
             <guid>https://mikeQ95.github.io/blog/2026/05/29/download-youtube-videos-using-a-python-script</guid>
             <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。]]></description>
-            <content:encoded><![CDATA[<p>想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。</p>
+            <content:encoded><![CDATA[<p>想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。
+放心，这很简单，真的。</p>
 <!-- -->
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="配置运行环境">配置运行环境<a href="https://mikeq95.github.io/blog/2026/05/29/download-youtube-videos-using-a-python-script#%E9%85%8D%E7%BD%AE%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83" class="hash-link" aria-label="配置运行环境的直接链接" title="配置运行环境的直接链接" translate="no">​</a></h2>
@@ -168,6 +204,9 @@
 <p>验证：</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew --version</span><br></div></code></pre></div></div>
 <p>✅ 正常：显示 <code>Homebrew 4.x.x</code> ❌ 异常：显示 <code>command not found</code></p>
+<blockquote>
+<p>如果不知道 Homebrew，请看<a class="" href="https://mikeq95.github.io/blog/2026/05/28/homebrew-tutorials">这篇文章</a></p>
+</blockquote>
 <hr>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ffmpeg"><a href="https://clearlove7-ai.vercel.app/?word=ffmpeg&amp;postId=2026-05-29-Download-YouTube-videos-using-a-Python-script" target="_blank" rel="noopener noreferrer" class="">ffmpeg</a><a href="https://mikeq95.github.io/blog/2026/05/29/download-youtube-videos-using-a-python-script#ffmpeg" class="hash-link" aria-label="ffmpeg的直接链接" title="ffmpeg的直接链接" translate="no">​</a></h3>
 <p>合并音视频流，缺它就只能下到没声音的视频。</p>
@@ -317,11 +356,12 @@
             <link>https://mikeQ95.github.io/blog/2026/05/28/marker-github-project-tutorial</link>
             <guid>https://mikeQ95.github.io/blog/2026/05/28/marker-github-project-tutorial</guid>
             <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[我个人很喜欢浏览instructables这个网站，网站很贴心的在右上角给了你”将文章导出为PDF”的选项，但是没有”导出为markdown”的选项。我很希望格式是md，因为在AI更喜欢读md而不是PDF的文件。我在网上搜索，最终找到这个github项目。]]></description>
-            <content:encoded><![CDATA[<p>我个人很喜欢浏览<a href="https://www.instructables.com/" target="_blank" rel="noopener noreferrer" class="">instructables</a>这个网站，网站很贴心的在右上角给了你”将文章导出为PDF”的选项，但是没有”导出为markdown”的选项。我很希望格式是md，因为在AI更喜欢读md而不是PDF的文件。我在网上搜索，最终找到这个github项目。
-Marker 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdown 格式，速度快，识别准确率也不错。这篇文章记录一下怎么把它跑起来。</p>
+            <description><![CDATA[Marker 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdown 格式，速度快，识别准确率也不错。这篇文章记录一下怎么把它跑起来。]]></description>
+            <content:encoded><![CDATA[<p><a href="https://github.com/datalab-to/marker" target="_blank" rel="noopener noreferrer" class="">Marker</a> 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdown 格式，速度快，识别准确率也不错。这篇文章记录一下怎么把它跑起来。</p>
 <!-- -->
 <hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="前言">前言：<a href="https://mikeq95.github.io/blog/2026/05/28/marker-github-project-tutorial#%E5%89%8D%E8%A8%80" class="hash-link" aria-label="前言：的直接链接" title="前言：的直接链接" translate="no">​</a></h3>
+<p>我个人很喜欢浏览<a href="https://www.instructables.com/" target="_blank" rel="noopener noreferrer" class="">instructables</a>这个网站，网站很贴心的在右上角给了你”将文章导出为PDF”的选项，但是没有”导出为markdown”的选项。我很希望格式是md，因为在AI更喜欢读md而不是PDF的文件。我在网上搜索，最终找到这个github项目。</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="部署环境">部署环境<a href="https://mikeq95.github.io/blog/2026/05/28/marker-github-project-tutorial#%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83" class="hash-link" aria-label="部署环境的直接链接" title="部署环境的直接链接" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="前置条件">前置条件<a href="https://mikeq95.github.io/blog/2026/05/28/marker-github-project-tutorial#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6" class="hash-link" aria-label="前置条件的直接链接" title="前置条件的直接链接" translate="no">​</a></h3>
 <ul>
@@ -374,19 +414,12 @@ Marker 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdo
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">marker_single ~/Downloads/paper.pdf \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --output_dir ~/Documents/notes</span><br></div></code></pre></div></div>
 <p>第一次跑会下载 AI 模型，大概 1GB 左右，耐心等一下。跑完之后数学公式会变成 <a href="https://clearlove7-ai.vercel.app/?word=LaTeX&amp;postId=2026-05-28-marker-github-project-tutorial" target="_blank" rel="noopener noreferrer" class="">LaTeX</a>，表格和标题格式都会保留，效果还不错。</p>
 <hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="转扫描版-pdf">转扫描版 PDF<a href="https://mikeq95.github.io/blog/2026/05/28/marker-github-project-tutorial#%E8%BD%AC%E6%89%AB%E6%8F%8F%E7%89%88-pdf" class="hash-link" aria-label="转扫描版 PDF的直接链接" title="转扫描版 PDF的直接链接" translate="no">​</a></h3>
-<p>扫描版 PDF 里的文字是图片，普通方式识别不出来，要加 <code>--force_ocr</code>：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">marker_single ~/Downloads/scanned.pdf \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --output_dir ~/Desktop/output \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --force_ocr \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --langs zh</span><br></div></code></pre></div></div>
-<p>这个模式比较慢，一页大约要 5～15 秒，别中途关掉。</p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="只转某几页输出-json">只转某几页，输出 JSON<a href="https://mikeq95.github.io/blog/2026/05/28/marker-github-project-tutorial#%E5%8F%AA%E8%BD%AC%E6%9F%90%E5%87%A0%E9%A1%B5%E8%BE%93%E5%87%BA-json" class="hash-link" aria-label="只转某几页，输出 JSON的直接链接" title="只转某几页，输出 JSON的直接链接" translate="no">​</a></h3>
-<p>比如一份 200 页的报告，只需要第 1、5 到 10、20 页：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">marker_single ~/Downloads/report.pdf \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --output_dir ~/Desktop/output \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --page_range "0,4-9,19" \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --output_format json</span><br></div></code></pre></div></div>
-<p>JSON 格式输出的是结构化数据，适合拿来做进一步处理，比如导入数据库或者喂给大模型。</p>
-<hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="用-ai-工具帮你自动部署">用 AI 工具帮你自动部署<a href="https://mikeq95.github.io/blog/2026/05/28/marker-github-project-tutorial#%E7%94%A8-ai-%E5%B7%A5%E5%85%B7%E5%B8%AE%E4%BD%A0%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2" class="hash-link" aria-label="用 AI 工具帮你自动部署的直接链接" title="用 AI 工具帮你自动部署的直接链接" translate="no">​</a></h2>
 <p>如果觉得上面的步骤麻烦，可以把下面这段提示词丢给 Claude Code、Cursor 这类 AI 工具，让它帮你自动把环境跑通。</p>
+<p><strong>中文版：</strong></p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">你是一个专业的 Python 环境配置工程师。请帮我在这台电脑上完整部署 marker-pdf 的运行环境。</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">我的环境：macOS Apple Silicon（M1 Pro），Shell 为 zsh，Conda 安装在 ~/miniforge3。</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">请依次完成以下步骤，每步执行完检查结果，遇到报错立即分析并修复：</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">1. 检查 conda 是否可用（conda --version），不可用则运行 ~/miniforge3/bin/conda init zsh 并提示我重开终端</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">2. 创建并激活虚拟环境：conda create -n marker python=3.11 -y &amp;&amp; conda activate marker</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">3. 安装 marker：pip install marker-pdf</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">4. 验证 PyTorch：python -c "import torch; print(torch.__version__)"，若报 libtorch_cpu.dylib 错误，立即重装：pip uninstall torch torchvision torchaudio -y &amp;&amp; pip install torch torchvision torchaudio</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">5. 验证 marker：运行 marker_single --help，等待约 20 秒，输出参数列表即为成功</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">每步执行前先告诉我你要做什么，不要修改系统级配置。完成后输出已安装的 Python、PyTorch、marker-pdf 版本号。</span><br></div></code></pre></div></div>
+<p><strong>English version:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">You are a professional Python environment setup engineer. Please help me fully deploy the marker-pdf runtime environment on this machine.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">My setup: macOS Apple Silicon (M1 Pro), shell is zsh, Conda is installed at ~/miniforge3.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Complete the following steps in order. After each step, verify the result and immediately diagnose and fix any errors:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">1. Check if conda is available (conda --version). If not, run ~/miniforge3/bin/conda init zsh and ask me to reopen the terminal.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">2. Create and activate a virtual environment: conda create -n marker python=3.11 -y &amp;&amp; conda activate marker</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">3. Install marker: pip install marker-pdf</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">4. Verify PyTorch: python -c "import torch; print(torch.__version__)". If you see a libtorch_cpu.dylib error, reinstall immediately: pip uninstall torch torchvision torchaudio -y &amp;&amp; pip install torch torchvision torchaudio</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">5. Verify marker: run marker_single --help, wait about 20 seconds — a list of parameters means success.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Before each step, tell me what you are about to do. Do not modify any system-level configuration. When finished, print the installed versions of Python, PyTorch, and marker-pdf.</span><br></div></code></pre></div></div>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="卸载">卸载<a href="https://mikeq95.github.io/blog/2026/05/28/marker-github-project-tutorial#%E5%8D%B8%E8%BD%BD" class="hash-link" aria-label="卸载的直接链接" title="卸载的直接链接" translate="no">​</a></h2>
 <p>只卸载 marker 包，保留环境：</p>
@@ -394,39 +427,44 @@ Marker 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdo
 <p>直接删掉整个环境（更彻底）：</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">conda deactivate</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">conda env remove -n marker</span><br></div></code></pre></div></div>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="常见问题">常见问题<a href="https://mikeq95.github.io/blog/2026/05/28/marker-github-project-tutorial#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" class="hash-link" aria-label="常见问题的直接链接" title="常见问题的直接链接" translate="no">​</a></h2>
-<p><strong>终端卡住不动？</strong> 第一次运行会下载模型，国内网络可能很慢。给终端配个代理再试：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">export https_proxy=http://127.0.0.1:你的端口</span><br></div></code></pre></div></div>
-<p><strong>Mac 上报 <code>libtorch_cpu.dylib</code> 错误？</strong> 重装一下 <a href="https://clearlove7-ai.vercel.app/?word=PyTorch&amp;postId=2026-05-28-marker-github-project-tutorial" target="_blank" rel="noopener noreferrer" class="">PyTorch</a> 就好：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pip uninstall torch torchvision torchaudio -y</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pip install torch torchvision torchaudio</span><br></div></code></pre></div></div>
-<p><strong>中文识别效果差？</strong> 加上 <code>--langs zh</code>，如果是扫描件再加 <code>--force_ocr</code>。</p>
-<p><strong>提示 command not found？</strong> 没激活环境，先运行 <code>conda activate marker</code>。</p>
-<hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95.github.io/blog/2026/05/28/marker-github-project-tutorial#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="总结的直接链接" title="总结的直接链接" translate="no">​</a></h2>
-<p>Marker 本质上是一个<strong>本地运行的文档解析引擎</strong>，底层用的是专门针对文档版面训练的 AI 模型，而不是通用大模型，所以速度快、可离线运行、不需要 API Key 就能有不错的效果。它最擅长处理格式复杂的学术 PDF——数学公式转 LaTeX、表格保留结构、图片单独提取，这些场景下的输出质量明显优于直接复制粘贴。如果你有大量文档需要整理进知识库，或者想把 PDF 内容喂给大模型二次处理，Marker 是目前开源方案里性价比最高的选择之一。</p>
-<hr>
-<p><em>基于 <a href="https://github.com/datalab-to/marker" target="_blank" rel="noopener noreferrer" class="">datalab-to/marker</a>，适用于 marker v1.x</em></p>]]></content:encoded>
+<p>本地跑，不用 API Key，格式保留得还不错。有大量 PDF 要整理的话挺好用的。</p>
+<hr>]]></content:encoded>
             <category>GitHub</category>
             <category>macOS</category>
         </item>
         <item>
-            <title><![CDATA[我最喜欢的歌（周杰伦）]]></title>
-            <link>https://mikeQ95.github.io/blog/2026/05/24/my-favorite-songs</link>
-            <guid>https://mikeQ95.github.io/blog/2026/05/24/my-favorite-songs</guid>
+            <title><![CDATA[my-favorite-songs]]></title>
+            <link>https://mikeQ95.github.io/blog/2026/05/24/music/my-favorite-songs</link>
+            <guid>https://mikeQ95.github.io/blog/2026/05/24/music/my-favorite-songs</guid>
             <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[周杰伦的经典歌曲陪伴了我的整个青春。以下是我最喜欢的一些歌曲：]]></description>
-            <content:encoded><![CDATA[<p>周杰伦的经典歌曲陪伴了我的整个青春。以下是我最喜欢的一些歌曲：</p>
-<!-- -->
-<ol>
-<li class=""><strong>七里香</strong> - 经典的旋律，夏天的味道。</li>
-<li class=""><strong>夜曲</strong> - 前奏一响，回忆涌上心头。</li>
-<li class=""><strong>晴天</strong> - 青春期的暗恋与遗憾。</li>
-<li class=""><strong>以父之名</strong> - 暗黑风格的巅峰之作。</li>
-<li class=""><strong>青花瓷</strong> - 唯美的中国风。</li>
-</ol>
-<p>这些歌曲不仅仅是旋律的组合，更是岁月的印记。</p>]]></content:encoded>
-            <category>Music</category>
-            <category>Jay Chou</category>
+            <description><![CDATA[---]]></description>
+            <content:encoded><![CDATA[<p>我最喜欢的歌手就是周杰伦，周杰伦的歌真的陪伴我的全部青春。
+下面介绍一下我最喜欢的歌：</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第一首青花瓷">第一首：“青花瓷”<a href="https://mikeq95.github.io/blog/2026/05/24/music/my-favorite-songs#%E7%AC%AC%E4%B8%80%E9%A6%96%E9%9D%92%E8%8A%B1%E7%93%B7" class="hash-link" aria-label="第一首：“青花瓷”的直接链接" title="第一首：“青花瓷”的直接链接" translate="no">​</a></h2>
+<p>部分歌词：
+天青色等烟雨 而我在等你
+炊烟袅袅升起 隔江千万里
+在瓶底书汉隶仿前朝的飘逸
+就当我为遇见你伏笔</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第二首-半岛铁盒">第二首： “半岛铁盒”<a href="https://mikeq95.github.io/blog/2026/05/24/music/my-favorite-songs#%E7%AC%AC%E4%BA%8C%E9%A6%96-%E5%8D%8A%E5%B2%9B%E9%93%81%E7%9B%92" class="hash-link" aria-label="第二首： “半岛铁盒”的直接链接" title="第二首： “半岛铁盒”的直接链接" translate="no">​</a></h2>
+<p>部分歌词：
+走廊灯关上 书包放
+走到房间窗外望
+回想刚买的书
+一本名叫半岛铁盒
+放在床边堆好多
+第一页第六页第七页序
+我永远都想不到
+陪我看这书的你会要走</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第三首-等你下课">第三首： ”等你下课“<a href="https://mikeq95.github.io/blog/2026/05/24/music/my-favorite-songs#%E7%AC%AC%E4%B8%89%E9%A6%96-%E7%AD%89%E4%BD%A0%E4%B8%8B%E8%AF%BE" class="hash-link" aria-label="第三首： ”等你下课“的直接链接" title="第三首： ”等你下课“的直接链接" translate="no">​</a></h2>
+<p>你住的巷子里 我租了一间公寓
+为了想与你不期而遇
+高中三年 我为什么
+为什么不好好读书
+没考上跟你一样的大学</p>
+<p>这也是我一直在听的歌，真没想道这些歌这么耐听，我从上小学听到现在，还是觉得听不腻。</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[🌐 macOS 网络重置命令速查]]></title>
@@ -443,22 +481,7 @@ Marker 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdo
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-刷新-dns-缓存">1. 刷新 <a href="https://clearlove7-ai.vercel.app/?word=DNS%E7%BC%93%E5%AD%98&amp;postId=2025-05-16-quick-reference-for-macOS%20network-reset-commands" target="_blank" rel="noopener noreferrer" class="">DNS 缓存</a><a href="https://mikeq95.github.io/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#1-%E5%88%B7%E6%96%B0-dns-%E7%BC%93%E5%AD%98" class="hash-link" aria-label="1-刷新-dns-缓存的直接链接" title="1-刷新-dns-缓存的直接链接" translate="no">​</a></h3>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</span><br></div></code></pre></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-释放并重新获取-ipdhcp">2. 释放并重新获取 IP（<a href="https://clearlove7-ai.vercel.app/?word=DHCP&amp;postId=2025-05-16-quick-reference-for-macOS%20network-reset-commands" target="_blank" rel="noopener noreferrer" class="">DHCP</a>）<a href="https://mikeq95.github.io/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#2-%E9%87%8A%E6%94%BE%E5%B9%B6%E9%87%8D%E6%96%B0%E8%8E%B7%E5%8F%96-ipdhcp" class="hash-link" aria-label="2-释放并重新获取-ipdhcp的直接链接" title="2-释放并重新获取-ipdhcp的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sudo ipconfig set en0 DHCP</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-重启-wi-fi">3. 重启 Wi-Fi<a href="https://mikeq95.github.io/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#3-%E9%87%8D%E5%90%AF-wi-fi" class="hash-link" aria-label="3. 重启 Wi-Fi的直接链接" title="3. 重启 Wi-Fi的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">networksetup -setairportpower en0 off &amp;&amp; networksetup -setairportpower en0 on</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-重启网络接口">4. 重启网络接口<a href="https://mikeq95.github.io/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#4-%E9%87%8D%E5%90%AF%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3" class="hash-link" aria-label="4. 重启网络接口的直接链接" title="4. 重启网络接口的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sudo ifconfig en0 down &amp;&amp; sudo ifconfig en0 up</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-完整重置网络设置较彻底">🔧 完整重置网络设置（较彻底）<a href="https://mikeq95.github.io/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#-%E5%AE%8C%E6%95%B4%E9%87%8D%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE%E8%BE%83%E5%BD%BB%E5%BA%95" class="hash-link" aria-label="🔧 完整重置网络设置（较彻底）的直接链接" title="🔧 完整重置网络设置（较彻底）的直接链接" translate="no">​</a></h2>
-<p>删除网络偏好设置文件，重启后自动重建：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sudo rm /Library/Preferences/SystemConfiguration/com.apple.network.identification.plist</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">sudo rm /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">sudo rm /Library/Preferences/SystemConfiguration/preferences.plist</span><br></div></code></pre></div></div>
-<blockquote>
-<p>⚠️ <strong>注意：</strong> 执行后需重启 Mac，所有网络配置将重置为默认状态，Wi-Fi 等需重新配置。</p>
-</blockquote>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-补充说明">📌 补充说明<a href="https://mikeq95.github.io/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#-%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" class="hash-link" aria-label="📌 补充说明的直接链接" title="📌 补充说明的直接链接" translate="no">​</a></h2>
-<table><thead><tr><th>接口</th><th>说明</th></tr></thead><tbody><tr><td><code>en0</code></td><td>通常为 Wi-Fi 无线网卡</td></tr><tr><td><code>en1</code></td><td>通常为有线以太网卡</td></tr></tbody></table>
-<p>如不确定接口名称，可运行 <code>ifconfig</code> 查看确认。</p>]]></content:encoded>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sudo ipconfig set en0 DHCP</span><br></div></code></pre></div></div>]]></content:encoded>
             <category>macOS</category>
         </item>
         <item>
@@ -469,14 +492,13 @@ Marker 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdo
             <description><![CDATA[一、搜索引擎选择]]></description>
             <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="一搜索引擎选择">一、搜索引擎选择<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E4%B8%80%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E9%80%89%E6%8B%A9" class="hash-link" aria-label="一、搜索引擎选择的直接链接" title="一、搜索引擎选择的直接链接" translate="no">​</a></h3>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="推荐排序">推荐排序<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E6%8E%A8%E8%8D%90%E6%8E%92%E5%BA%8F" class="hash-link" aria-label="推荐排序的直接链接" title="推荐排序的直接链接" translate="no">​</a></h4>
-<p>抛弃百度，以下引擎均可替代：</p>
-<table><thead><tr><th>引擎</th><th>适合场景</th></tr></thead><tbody><tr><td><strong>Google</strong></td><td>日常搜索首选</td></tr><tr><td><strong>DuckDuckGo</strong></td><td>争议话题、隐私保护</td></tr><tr><td><strong>Yandex</strong></td><td>劲爆内容、软件资源、音乐</td></tr><tr><td><strong>Brave</strong></td><td>日常搜索备选</td></tr><tr><td><strong>Bing（国内版）</strong></td><td>萌新过渡使用</td></tr></tbody></table>
+<p>Google适合日常搜索，DuckDuckGo和Brave适合注重隐私的人用，yandex适合搜索那种不正经的内容，Bing国内版，如果无法上外网，这个也能凑活用。</p>
 <!-- -->
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="各引擎特点">各引擎特点<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E5%90%84%E5%BC%95%E6%93%8E%E7%89%B9%E7%82%B9" class="hash-link" aria-label="各引擎特点的直接链接" title="各引擎特点的直接链接" translate="no">​</a></h4>
 <ul>
-<li class=""><strong>Google</strong>：搜争议内容时结果偏 PC，反方观点少且力度弱，不够尖锐</li>
-<li class=""><strong>DuckDuckGo</strong>：比 Google 中立，搜索词无高亮显示（可用脚本改善，见文末）</li>
-<li class=""><strong>Yandex</strong>：完全不理会西方政治正确那套，适合搜敏感/劲爆内容<!-- -->
+<li class=""><strong>Google</strong>：搜争议内容时结果偏 PC，反方观点少且力度弱，不够尖锐。</li>
+<li class=""><strong>DuckDuckGo</strong>：比 Google 中立，但是每次用这个搜索结果的时候没有高亮，需要加一个脚本，我在文末会写到。（这个脚本用AI写就行）</li>
+<li class=""><strong>Yandex</strong>：完全不理会西方政治正确那套，适合搜一些敏感，比较劲爆的内容。<!-- -->
 <ul>
 <li class="">例：搜「爱泼斯坦名单」，只有 Yandex 将名单置顶</li>
 <li class="">例：搜「好莱坞丑闻」，只有 Yandex 显示激烈结果</li>
@@ -486,122 +508,115 @@ Marker 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdo
 </ul>
 <hr>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="二实用搜索技巧">二、实用搜索技巧<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E4%BA%8C%E5%AE%9E%E7%94%A8%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7" class="hash-link" aria-label="二、实用搜索技巧的直接链接" title="二、实用搜索技巧的直接链接" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="软件资源学生党">软件资源（学生党）<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E8%BD%AF%E4%BB%B6%E8%B5%84%E6%BA%90%E5%AD%A6%E7%94%9F%E5%85%9A" class="hash-link" aria-label="软件资源（学生党）的直接链接" title="软件资源（学生党）的直接链接" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="软件资源免费音乐下载">软件资源，免费音乐下载<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E8%BD%AF%E4%BB%B6%E8%B5%84%E6%BA%90%E5%85%8D%E8%B4%B9%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD" class="hash-link" aria-label="软件资源，免费音乐下载的直接链接" title="软件资源，免费音乐下载的直接链接" translate="no">​</a></h4>
 <p>用 <strong>Yandex</strong> 搜索：</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">软件名 + cracked / premium / unlocked</span><br></div></code></pre></div></div>
-<p>安卓、PC、Mac 均适用。</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="免费音乐下载学生党">免费音乐下载（学生党）<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E5%85%8D%E8%B4%B9%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD%E5%AD%A6%E7%94%9F%E5%85%9A" class="hash-link" aria-label="免费音乐下载（学生党）的直接链接" title="免费音乐下载（学生党）的直接链接" translate="no">​</a></h4>
-<p>用 <strong>Yandex</strong> 搜索：</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">歌名 + free download</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">歌名 + Скачать</span><br></div></code></pre></div></div>
-<p>结果中找带俄语的链接，一般可直接下载。</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="限定网站搜索">限定网站搜索<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E9%99%90%E5%AE%9A%E7%BD%91%E7%AB%99%E6%90%9C%E7%B4%A2" class="hash-link" aria-label="限定网站搜索的直接链接" title="限定网站搜索的直接链接" translate="no">​</a></h4>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">关键词 site:https://x.com</span><br></div></code></pre></div></div>
-<p>适合某些自带搜索功能较差的资源网站。</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="搜电子书annas-archive--z-library">搜电子书（Anna's Archive / Z-Library）<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E6%90%9C%E7%94%B5%E5%AD%90%E4%B9%A6annas-archive--z-library" class="hash-link" aria-label="搜电子书（Anna's Archive / Z-Library）的直接链接" title="搜电子书（Anna's Archive / Z-Library）的直接链接" translate="no">​</a></h4>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">关键词 + edition      # 搜再版书，质量通常更好，例：tort edition</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">关键词 + 译           # 搜中译版，例：文明史 译</span><br></div></code></pre></div></div>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="用豆瓣找好书">用豆瓣找好书<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E7%94%A8%E8%B1%86%E7%93%A3%E6%89%BE%E5%A5%BD%E4%B9%A6" class="hash-link" aria-label="用豆瓣找好书的直接链接" title="用豆瓣找好书的直接链接" translate="no">​</a></h4>
-<p>豆瓣搜索关键词 → 筛选高分书单；书籍详情页下方也会推荐同类书籍。</p>
-<hr>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">软件名 + cracked / premium / unlocked / Скачать</span><br></div></code></pre></div></div>
+<p>结果中找带俄语的链接，一般可直接下载。
+安卓、PC、Mac 均适用。</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="搜电子书annas-archive--z-library">搜电子书（<a href="https://annas-archive.gl/" target="_blank" rel="noopener noreferrer" class="">Anna's Archive</a> / <a href="https://z-lib.fm/" target="_blank" rel="noopener noreferrer" class="">Z-Library</a>）<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E6%90%9C%E7%94%B5%E5%AD%90%E4%B9%A6annas-archive--z-library" class="hash-link" aria-label="搜电子书annas-archive--z-library的直接链接" title="搜电子书annas-archive--z-library的直接链接" translate="no">​</a></h4>
+<blockquote>
+<p>我要补充一下，如果你在用Google 搜索引擎去搜索Anna's Archive/Z-library,大概率会出现一堆不相关的东西，直接用yandex搜索引擎搜索，大概率第一个搜索结果就是你要找的（yandex还是太夯了！）</p>
+</blockquote>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">关键词 + edition      </span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">关键词 + 译           \</span><br></div></code></pre></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="三duckduckgo-搜索词高亮脚本">三、DuckDuckGo 搜索词高亮脚本<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E4%B8%89duckduckgo-%E6%90%9C%E7%B4%A2%E8%AF%8D%E9%AB%98%E4%BA%AE%E8%84%9A%E6%9C%AC" class="hash-link" aria-label="三、DuckDuckGo 搜索词高亮脚本的直接链接" title="三、DuckDuckGo 搜索词高亮脚本的直接链接" translate="no">​</a></h3>
 <blockquote>
 <p>需安装 <a href="https://clearlove7-ai.vercel.app/?word=Tampermonkey&amp;postId=2026-05-16-earch-engine-user-guide" target="_blank" rel="noopener noreferrer" class="">Tampermonkey</a> 浏览器插件后使用。</p>
 </blockquote>
 <p>javascript</p>
-<div class="language-javascript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-javascript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// ==UserScript==</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @name         DuckDuckGo 搜索词高亮</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @namespace    http://tampermonkey.net/</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @version      2025-08-05</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @description  为 DuckDuckGo 搜索结果中的关键词添加高亮颜色</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @author       You</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @match        https://duckduckgo.com/?*</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @grant        GM_addStyle</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// ==/UserScript==</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">function</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">'use strict'</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function maybe-class-name" style="color:#d73a49">GM_addStyle</span><span class="token punctuation" style="color:#393A34">(</span><span class="token template-string template-punctuation string" style="color:#e3116c">`</span><span class="token template-string string" style="color:#e3116c"></span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">        .kY2IgmnCmOGjharHErah span b {</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">            color: #ff897e !important;</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">        }</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">    </span><span class="token template-string template-punctuation string" style="color:#e3116c">`</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></div></code></pre></div></div>]]></content:encoded>
+<div class="language-javascript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-javascript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// ==UserScript==</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @name         DuckDuckGo 搜索词高亮</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @namespace    http://tampermonkey.net/</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @version      2025-08-05</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @description  为 DuckDuckGo 搜索结果中的关键词添加高亮颜色</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @author       You</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @match        https://duckduckgo.com/?*</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @grant        GM_addStyle</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// ==/UserScript==</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">function</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">'use strict'</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function maybe-class-name" style="color:#d73a49">GM_addStyle</span><span class="token punctuation" style="color:#393A34">(</span><span class="token template-string template-punctuation string" style="color:#e3116c">`</span><span class="token template-string string" style="color:#e3116c"></span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">        .kY2IgmnCmOGjharHErah span b {</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">            color: #ff897e !important;</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">        }</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">    </span><span class="token template-string template-punctuation string" style="color:#e3116c">`</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></div></code></pre></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="四faq">四，FAQ<a href="https://mikeq95.github.io/blog/2026/05/16/earch-engine-user-guide#%E5%9B%9Bfaq" class="hash-link" aria-label="四，FAQ的直接链接" title="四，FAQ的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">为什么我按照你说的去搜索，但是我搜索不到？
+答： 因为搜索引擎默认是安全模式，你要在setting里面把安全模式关掉，一般来讲找到“No fliter”选择就行，fliter好像就是滤镜的意思，no fliter就是不会过滤敏感内容，选这个就对了。</li>
+<li class=""></li>
+</ol>]]></content:encoded>
             <category>Collection</category>
         </item>
         <item>
-            <title><![CDATA[用 Kokoro 把文章变成播客音频 —— 从零部署教程]]></title>
+            <title><![CDATA[用 Kokoro 把文章变成播客音频]]></title>
             <link>https://mikeQ95.github.io/blog/2026/05/16/kokoro-tts-tutorial</link>
             <guid>https://mikeQ95.github.io/blog/2026/05/16/kokoro-tts-tutorial</guid>
             <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[本文记录了如何在 Mac (Apple Silicon) 上通过 Docker 本地部署 Kokoro TTS，将英文/中文文章转换为高质量音频。]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<p>本文记录了如何在 Mac (Apple Silicon) 上通过 <a href="https://clearlove7-ai.vercel.app/?word=Docker&amp;postId=2026-05-16-kokoro-tts-tutorial" target="_blank" rel="noopener noreferrer" class="">Docker</a> 本地部署 Kokoro <a href="https://clearlove7-ai.vercel.app/?word=TTS&amp;postId=2026-05-16-kokoro-tts-tutorial" target="_blank" rel="noopener noreferrer" class="">TTS</a>，将英文/中文文章转换为高质量音频。</p>
-</blockquote>
+            <description><![CDATA[我想把自己写的英文文章转成音频，方便边走路边听。调研了一圈，免费、效果好、本地跑——这三个条件同时满足的，只有 Kokoro。]]></description>
+            <content:encoded><![CDATA[<p>我想把自己写的英文文章转成音频，方便边走路边听。调研了一圈，免费、效果好、本地跑——这三个条件同时满足的，只有 <a href="https://github.com/hexgrad/kokoro" target="_blank" rel="noopener noreferrer" class="">Kokoro</a>。</p>
 <!-- -->
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="一为什么选-kokoro">一、为什么选 Kokoro？<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E4%B8%80%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89-kokoro" class="hash-link" aria-label="一、为什么选 Kokoro？的直接链接" title="一、为什么选 Kokoro？的直接链接" translate="no">​</a></h2>
-<p>在调研了多个开源 TTS 方案后，最终选择&nbsp;<strong>Kokoro + kokoro-web</strong>&nbsp;的原因：</p>
-<table><thead><tr><th>方案</th><th>Stars</th><th>英文效果</th><th>声音种类</th><th>协议</th></tr></thead><tbody><tr><td><strong>Kokoro</strong></td><td>7k+</td><td>⭐ 顶级</td><td>88 种可选</td><td><a href="https://clearlove7-ai.vercel.app/?word=Apache+2.0&amp;postId=2026-05-16-kokoro-tts-tutorial" target="_blank" rel="noopener noreferrer" class="">Apache 2.0</a></td></tr><tr><td>ChatTTS</td><td>~33k</td><td>中等</td><td>随机生成，不可选</td><td>CC BY-NC（不可商用）</td></tr><tr><td>CosyVoice</td><td>高</td><td>一般</td><td>中文最强</td><td>Apache 2.0</td></tr></tbody></table>
-<p><strong>Kokoro 的核心优势：</strong></p>
-<ul>
-<li class="">英文效果接近 ElevenLabs 商业级别</li>
-<li class="">88 种声音（美式/英式，男/女，A~D 分级）</li>
-<li class="">82M 参数，轻量，M1 Mac CPU 可直接运行</li>
-<li class="">Apache 2.0，免费商用</li>
-</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="kokoro-是什么">Kokoro 是什么<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#kokoro-%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="Kokoro 是什么的直接链接" title="Kokoro 是什么的直接链接" translate="no">​</a></h2>
+<p>Kokoro 是一个开源 <a href="https://clearlove7-ai.vercel.app/?word=TTS&amp;postId=2026-05-16-kokoro-tts-tutorial" target="_blank" rel="noopener noreferrer" class="">TTS</a>（文字转语音）模型，82M 参数，轻量但效果出奇地好。英文效果接近 ElevenLabs 商业级别，88 种声音可选，Apache 2.0 协议，免费商用。</p>
+<p>我们要用的是 <a href="https://github.com/eduardolat/kokoro-web" target="_blank" rel="noopener noreferrer" class="">kokoro-web</a>——一个把 Kokoro 包成本地服务的项目，用 <a href="https://clearlove7-ai.vercel.app/?word=Docker&amp;postId=2026-05-16-kokoro-tts-tutorial" target="_blank" rel="noopener noreferrer" class="">Docker</a> 一键启动，带网页界面，开箱即用。</p>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="二声音分级说明">二、声音分级说明<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E4%BA%8C%E5%A3%B0%E9%9F%B3%E5%88%86%E7%BA%A7%E8%AF%B4%E6%98%8E" class="hash-link" aria-label="二、声音分级说明的直接链接" title="二、声音分级说明的直接链接" translate="no">​</a></h2>
-<p>Kokoro 的声音按质量分为 A~D 级，<strong>A 级最高</strong>：</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="english-us-推荐">English (US) 推荐<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#english-us-%E6%8E%A8%E8%8D%90" class="hash-link" aria-label="English (US) 推荐的直接链接" title="English (US) 推荐的直接链接" translate="no">​</a></h3>
-<table><thead><tr><th>声音</th><th>级别</th><th>风格</th></tr></thead><tbody><tr><td>Heart</td><td>A</td><td>温暖女声（推荐首选）</td></tr><tr><td>Bella</td><td>A-</td><td>高质量女声</td></tr><tr><td>Nicole</td><td>B-</td><td>自然女声</td></tr><tr><td>Michael</td><td>C+</td><td>成熟男声</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="english-uk-推荐">English (UK) 推荐<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#english-uk-%E6%8E%A8%E8%8D%90" class="hash-link" aria-label="English (UK) 推荐的直接链接" title="English (UK) 推荐的直接链接" translate="no">​</a></h3>
-<table><thead><tr><th>声音</th><th>级别</th><th>风格</th></tr></thead><tbody><tr><td>Emma</td><td>B-</td><td>英式女声</td></tr><tr><td>George</td><td>C</td><td>英式男声</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="声音怎么选">声音怎么选<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E5%A3%B0%E9%9F%B3%E6%80%8E%E4%B9%88%E9%80%89" class="hash-link" aria-label="声音怎么选的直接链接" title="声音怎么选的直接链接" translate="no">​</a></h2>
+<p>Kokoro 的声音按质量分 A~D 级，A 最高。英文推荐直接从这几个里挑：</p>
+<table><thead><tr><th>声音</th><th>级别</th><th>风格</th></tr></thead><tbody><tr><td>Heart</td><td>A</td><td>温暖女声，首选</td></tr><tr><td>Bella</td><td>A-</td><td>高质量女声</td></tr><tr><td>Michael</td><td>C+</td><td>成熟男声</td></tr><tr><td>Emma</td><td>B-</td><td>英式女声</td></tr></tbody></table>
 <blockquote>
-<p>💡 每个声音第一次使用时会下载对应的&nbsp;<code>.bin</code>&nbsp;文件，之后自动缓存，无需重复下载。</p>
+<p>每个声音第一次用会下载对应的模型文件，之后自动缓存，不用重复下载。</p>
 </blockquote>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="三部署方式对比">三、部署方式对比<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E4%B8%89%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E5%AF%B9%E6%AF%94" class="hash-link" aria-label="三、部署方式对比的直接链接" title="三、部署方式对比的直接链接" translate="no">​</a></h2>
-<table><thead><tr><th></th><th><a href="https://clearlove7-ai.vercel.app/?word=Docker+Compose&amp;postId=2026-05-16-kokoro-tts-tutorial" target="_blank" rel="noopener noreferrer" class="">Docker Compose</a></th><th>源码运行</th><th>纯浏览器（<a href="https://clearlove7-ai.vercel.app/?word=WebGPU&amp;postId=2026-05-16-kokoro-tts-tutorial" target="_blank" rel="noopener noreferrer" class="">WebGPU</a>）</th></tr></thead><tbody><tr><td>难度</td><td>⭐⭐</td><td>⭐⭐⭐</td><td>⭐</td></tr><tr><td>需要安装</td><td>Docker</td><td>Node.js + npm</td><td>无</td></tr><tr><td>推荐场景</td><td>本地长期使用</td><td>开发者改源码</td><td>偶尔体验</td></tr></tbody></table>
-<p><strong>结论：日常使用推荐 Docker Compose 方式。</strong></p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="四环境准备">四、环境准备<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E5%9B%9B%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87" class="hash-link" aria-label="四、环境准备的直接链接" title="四、环境准备的直接链接" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-安装-docker-desktop">1. 安装 Docker Desktop<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#1-%E5%AE%89%E8%A3%85-docker-desktop" class="hash-link" aria-label="1. 安装 Docker Desktop的直接链接" title="1. 安装 Docker Desktop的直接链接" translate="no">​</a></h3>
-<p>由于国内访问 Docker 官网较慢，建议从阿里云镜像下载：</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="安装-docker">安装 Docker<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E5%AE%89%E8%A3%85-docker" class="hash-link" aria-label="安装 Docker的直接链接" title="安装 Docker的直接链接" translate="no">​</a></h2>
+<p>如果还没装 Docker，先装。</p>
+<p><strong>国际网络</strong>，直接去官网下：<a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener noreferrer" class="">docker.com/products/docker-desktop</a></p>
+<p><strong>国内网络</strong>，官网访问慢，用阿里云镜像：</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">https://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/</span><br></div></code></pre></div></div>
-<p>下载&nbsp;<code>.dmg</code>&nbsp;文件，双击安装，打开 Docker Desktop 等待启动（菜单栏出现 🐳 图标）。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-配置命令行路径永久生效">2. 配置命令行路径（永久生效）<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#2-%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%B7%AF%E5%BE%84%E6%B0%B8%E4%B9%85%E7%94%9F%E6%95%88" class="hash-link" aria-label="2. 配置命令行路径（永久生效）的直接链接" title="2. 配置命令行路径（永久生效）的直接链接" translate="no">​</a></h3>
+<p>下载 <code>.dmg</code>，双击安装，打开 Docker Desktop，等菜单栏出现 🐳 图标。</p>
+<p>然后配置一下命令行路径（让终端能找到 docker 命令）：</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">echo 'export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin"' &gt;&gt; ~/.zshrc</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">source ~/.zshrc</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-验证安装">3. 验证安装<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#3-%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85" class="hash-link" aria-label="3. 验证安装的直接链接" title="3. 验证安装的直接链接" translate="no">​</a></h3>
+<p>验证安装成功：</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker --version &amp;&amp; docker compose version</span><br></div></code></pre></div></div>
-<p>输出类似以下内容即为成功：</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">Docker version 29.4.3, build 055a478</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Docker Compose version v5.1.3</span><br></div></code></pre></div></div>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="五部署-kokoro-web">五、部署 kokoro-web<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E4%BA%94%E9%83%A8%E7%BD%B2-kokoro-web" class="hash-link" aria-label="五、部署 kokoro-web的直接链接" title="五、部署 kokoro-web的直接链接" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="部署-kokoro-web">部署 kokoro-web<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E9%83%A8%E7%BD%B2-kokoro-web" class="hash-link" aria-label="部署 kokoro-web的直接链接" title="部署 kokoro-web的直接链接" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-创建项目目录">1. 创建项目目录<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#1-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95" class="hash-link" aria-label="1. 创建项目目录的直接链接" title="1. 创建项目目录的直接链接" translate="no">​</a></h3>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir kokoro-web &amp;&amp; cd kokoro-web</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-创建composeyaml">2. 创建&nbsp;<code>compose.yaml</code><a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#2-%E5%88%9B%E5%BB%BAcomposeyaml" class="hash-link" aria-label="2-创建composeyaml的直接链接" title="2-创建composeyaml的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cat &gt; compose.yaml &lt;&lt; 'EOF'</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">services:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  kokoro-web:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    image: ghcr.io/eduardolat/kokoro-web:latest</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    ports:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - "3000:3000"</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    environment:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - KW_SECRET_API_KEY=my-secret-key</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    volumes:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - ./kokoro-cache:/kokoro/cache  # 模型缓存，避免重复下载</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    restart: unless-stopped</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></div></code></pre></div></div>
 <blockquote>
-<p><code>KW_SECRET_API_KEY</code>&nbsp;是本地服务的访问密码，本地使用随便填即可。</p>
+<p><strong>一定要 <code>cd</code> 进去再操作</strong>，后面的 <code>docker compose</code> 命令必须在这个目录里跑，否则会报 <code>no configuration file provided</code>。</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-创建配置文件">2. 创建配置文件<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#2-%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" class="hash-link" aria-label="2. 创建配置文件的直接链接" title="2. 创建配置文件的直接链接" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cat &gt; compose.yaml &lt;&lt; 'EOF'</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">services:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  kokoro-web:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    image: ghcr.io/eduardolat/kokoro-web:latest</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    ports:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - "3000:3000"</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    environment:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - KW_SECRET_API_KEY=my-secret-key</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    volumes:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - ./kokoro-cache:/kokoro/cache</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    restart: unless-stopped</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></div></code></pre></div></div>
+<p><code>KW_SECRET_API_KEY</code> 是访问本地服务的密码，本地用随便填，记住这个值就行。</p>
+<blockquote>
+<p>我建议不用改，默认就行。</p>
 </blockquote>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-启动服务">3. 启动服务<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#3-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1" class="hash-link" aria-label="3. 启动服务的直接链接" title="3. 启动服务的直接链接" translate="no">​</a></h3>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose up -d</span><br></div></code></pre></div></div>
-<p>第一次启动会拉取镜像，需要几分钟。国内访问&nbsp;<code>ghcr.io</code>&nbsp;较慢，耐心等待。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-验证运行">4. 验证运行<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#4-%E9%AA%8C%E8%AF%81%E8%BF%90%E8%A1%8C" class="hash-link" aria-label="4. 验证运行的直接链接" title="4. 验证运行的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose logs -f</span><br></div></code></pre></div></div>
-<p>看到&nbsp;<code>Listening on http://0.0.0.0:3000</code>&nbsp;即为成功。</p>
+<p>第一次启动会拉取镜像，国内访问 <code>ghcr.io</code> 较慢，耐心等几分钟。</p>
+<p>看到这行就说明成功了：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose logs -f</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># 看到 Listening on http://0.0.0.0:3000 即为成功</span><br></div></code></pre></div></div>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="六使用-webui">六、使用 WebUI<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E5%85%AD%E4%BD%BF%E7%94%A8-webui" class="hash-link" aria-label="六、使用 WebUI的直接链接" title="六、使用 WebUI的直接链接" translate="no">​</a></h2>
-<p>打开浏览器访问：</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">http://localhost:3000</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="关键设置">关键设置<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE" class="hash-link" aria-label="关键设置的直接链接" title="关键设置的直接链接" translate="no">​</a></h3>
-<table><thead><tr><th>选项</th><th>推荐值</th><th>说明</th></tr></thead><tbody><tr><td><strong>Execution place</strong></td><td><code>API (Self-hosted)</code></td><td>使用本地 Docker 模型，而非浏览器</td></tr><tr><td><strong>API URL</strong></td><td><code>http://localhost:3000/api/v1</code></td><td>本地服务地址</td></tr><tr><td><strong>API Key</strong></td><td><code>my-secret-key</code></td><td>就是 compose.yaml 里设置的那个</td></tr><tr><td><strong>Model quantization</strong></td><td><code>model (q8f16)</code></td><td>速度和音质最平衡</td></tr><tr><td><strong>Voice quality</strong></td><td><code>Heart (A)</code></td><td>推荐首选</td></tr></tbody></table>
-<blockquote>
-<p>⚠️&nbsp;<strong>重要</strong>：<code>Execution place</code>&nbsp;一定要选&nbsp;<code>API (Self-hosted)</code>，否则会在浏览器内运行，速度很慢。</p>
-</blockquote>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="七关于-markdown-文件输入">七、关于 Markdown 文件输入<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E4%B8%83%E5%85%B3%E4%BA%8E-markdown-%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5" class="hash-link" aria-label="七、关于 Markdown 文件输入的直接链接" title="七、关于 Markdown 文件输入的直接链接" translate="no">​</a></h2>
-<p>Kokoro 原生只接受纯文本，直接输入&nbsp;<code>.md</code>&nbsp;文件会把&nbsp;<code>##</code>、<code>**bold**</code>&nbsp;等 Markdown 语法也读出来。</p>
-<p><strong>解决方案</strong>：用&nbsp;<code>pandoc</code>&nbsp;先转换：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain"># 安装 pandoc</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">brew install pandoc</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># 转换并生成音频</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pandoc article.md -t plain | kokoro-tts - output.mp3 --voice am_michael</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="八生成速度说明">八、生成速度说明<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E5%85%AB%E7%94%9F%E6%88%90%E9%80%9F%E5%BA%A6%E8%AF%B4%E6%98%8E" class="hash-link" aria-label="八、生成速度说明的直接链接" title="八、生成速度说明的直接链接" translate="no">​</a></h2>
-<p>影响生成速度的因素：</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="使用-webui">使用 WebUI<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E4%BD%BF%E7%94%A8-webui" class="hash-link" aria-label="使用 WebUI的直接链接" title="使用 WebUI的直接链接" translate="no">​</a></h2>
+<p>打开浏览器访问 <code>http://localhost:3000</code>，界面就出来了。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="配置-api重要">配置 API（重要）<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E9%85%8D%E7%BD%AE-api%E9%87%8D%E8%A6%81" class="hash-link" aria-label="配置 API（重要）的直接链接" title="配置 API（重要）的直接链接" translate="no">​</a></h3>
+<p>右上角点 <strong>API Settings</strong>，弹出配置框：</p>
 <ul>
-<li class=""><strong>文章长度</strong>：线性增长，300 词约需 30~60 秒</li>
-<li class=""><strong><a href="https://clearlove7-ai.vercel.app/?word=%E6%A8%A1%E5%9E%8B%E9%87%8F%E5%8C%96&amp;postId=2026-05-16-kokoro-tts-tutorial" target="_blank" rel="noopener noreferrer" class="">模型量化</a></strong>：<code>fp32</code>&nbsp;最慢，<code>q8f16</code>&nbsp;平衡，<code>q4</code>&nbsp;最快</li>
-<li class=""><strong>运行位置</strong>：<code>API (Self-hosted)</code>&nbsp;用 CPU 跑；<code>Browser</code>&nbsp;用 GPU 跑但首次需下载模型到浏览器</li>
+<li class=""><strong>Base URL</strong> 填：<code>http://localhost:3000/api/v1</code>（默认就是这个，不用改）</li>
+<li class=""><strong>API Key</strong> 填：<code>my-secret-key</code></li>
 </ul>
+<blockquote>
+<p><strong>坑</strong>：API Key 只填值本身，不要带 <code>- KW_SECRET_API_KEY=</code> 前缀，那是配置文件里的格式，不是 key 的内容。</p>
+</blockquote>
+<p>填完点 <strong>OK</strong>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="生成设置">生成设置<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E7%94%9F%E6%88%90%E8%AE%BE%E7%BD%AE" class="hash-link" aria-label="生成设置的直接链接" title="生成设置的直接链接" translate="no">​</a></h3>
+<p>回到主界面，几个关键选项：</p>
+<table><thead><tr><th>选项</th><th>推荐值</th><th>说明</th></tr></thead><tbody><tr><td><strong>Execution place</strong></td><td><code>API (Self-hosted)</code></td><td>用本地 Docker，不要选 Browser</td></tr><tr><td><strong>Model quantization</strong></td><td><code>q8f16</code></td><td>速度和音质最平衡</td></tr><tr><td><strong>Language accent</strong></td><td><code>English (US)</code></td><td>英文选这个</td></tr><tr><td><strong>Voice</strong></td><td><code>Heart</code></td><td>推荐首选</td></tr></tbody></table>
+<p><strong>Execution place 一定要选 <code>API (Self-hosted)</code></strong>，选 Browser 会在浏览器里跑模型，速度很慢，而且每次都要重新下载。</p>
+<p>在 <strong>Text to process</strong> 里粘贴文章内容，点 <strong>Generate</strong> 就行了。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="效果示例">效果示例<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E6%95%88%E6%9E%9C%E7%A4%BA%E4%BE%8B" class="hash-link" aria-label="效果示例的直接链接" title="效果示例的直接链接" translate="no">​</a></h3>
+<p>输入这段文字：</p>
+<blockquote>
+<p>Google is renowned for its innovative and employee-centric work environment. The company's campuses, often called "Googleplexes," feature vibrant designs with open spaces, recreational facilities, free gourmet meals, and wellness centers. Employees enjoy flexible work hours, remote options, and a strong emphasis on collaboration through team projects and hackathons.</p>
+<p>A culture of creativity thrives with "20% time," encouraging personal passion projects that have led to major products like Gmail. Diversity, inclusion, and continuous learning are prioritized through training programs and supportive leadership. This unique blend of fun, freedom, and purpose fosters high productivity and job satisfaction, making Google a top destination for tech talent worldwide.</p>
+</blockquote>
+<p>用 Heart 声音生成的效果（约 150 词，本地生成耗时约 30 秒）：</p>
+<audio controls=""><source src="/assets/kokoro-demo-google.mp3" type="audio/mpeg"></audio>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="九常用管理命令">九、常用管理命令<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E4%B9%9D%E5%B8%B8%E7%94%A8%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4" class="hash-link" aria-label="九、常用管理命令的直接链接" title="九、常用管理命令的直接链接" translate="no">​</a></h2>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose logs -f    # 查看实时日志</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose stop       # 停止服务</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose start      # 启动服务</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose restart    # 重启服务</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose pull       # 更新到最新版本</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="处理-markdown-文件">处理 Markdown 文件<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E5%A4%84%E7%90%86-markdown-%E6%96%87%E4%BB%B6" class="hash-link" aria-label="处理 Markdown 文件的直接链接" title="处理 Markdown 文件的直接链接" translate="no">​</a></h2>
+<p>Kokoro 只认纯文本，直接粘 <code>.md</code> 文件的话，<code>##</code>、<code>**bold**</code> 这些语法标记也会被读出来，很奇怪。</p>
+<p>用 <code>pandoc</code> 先转成纯文本再粘：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain"># 安装 pandoc</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">brew install pandoc</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># 把 md 转成纯文本，输出到终端，然后复制粘贴</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pandoc article.md -t plain</span><br></div></code></pre></div></div>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="十相关链接">十、相关链接<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E5%8D%81%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5" class="hash-link" aria-label="十、相关链接的直接链接" title="十、相关链接的直接链接" translate="no">​</a></h2>
-<table><thead><tr><th>资源</th><th>地址</th></tr></thead><tbody><tr><td>Kokoro 模型（核心）</td><td>github.com/hexgrad/kokoro</td></tr><tr><td>模型权重下载</td><td>huggingface.co/hexgrad/Kokoro-82M</td></tr><tr><td>在线试听 Demo</td><td>hf.co/spaces/hexgrad/Kokoro-TTS</td></tr><tr><td>kokoro-web（WebUI）</td><td>github.com/eduardolat/kokoro-web</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="常用命令">常用命令<a href="https://mikeq95.github.io/blog/2026/05/16/kokoro-tts-tutorial#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4" class="hash-link" aria-label="常用命令的直接链接" title="常用命令的直接链接" translate="no">​</a></h2>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose logs -f    # 查看实时日志</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose stop       # 停止服务</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose start      # 启动服务</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose pull       # 更新到最新版本</span><br></div></code></pre></div></div>
 <hr>
-<p><em>部署环境：MacBook Pro M1 Pro · macOS · Docker Desktop 29.4.3</em></p>]]></content:encoded>
+<p><em>运行环境：MacBook Pro M1 Pro · macOS · Docker Desktop 29.4.3</em></p>]]></content:encoded>
             <category>GitHub</category>
             <category>macOS</category>
         </item>

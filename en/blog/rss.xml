@@ -4,10 +4,62 @@
         <title>mikeq95's blog Blog</title>
         <link>https://mikeQ95.github.io/en/blog</link>
         <description>mikeq95's blog Blog</description>
-        <lastBuildDate>Tue, 02 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 04 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[About This Blog]]></title>
+            <link>https://mikeQ95.github.io/en/blog/about</link>
+            <guid>https://mikeQ95.github.io/en/blog/about</guid>
+            <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[About Me]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="about-me">About Me<a href="https://mikeq95.github.io/en/blog/about#about-me" class="hash-link" aria-label="Direct link to About Me" title="Direct link to About Me" translate="no">​</a></h2>
+<p>Born after 2005, Gen Z, sophomore majoring in Electronic Information Engineering. I play basketball, game (LoL, CS2), and I'm learning English on the side — not great at it yet, but working on it.</p>
+<p>Science student. My writing has always been pretty plain. But I think a good article has only one standard: the reader can understand it. That, I can manage.</p>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-this-blog-is-for">What This Blog Is For<a href="https://mikeq95.github.io/en/blog/about#what-this-blog-is-for" class="hash-link" aria-label="Direct link to What This Blog Is For" title="Direct link to What This Blog Is For" translate="no">​</a></h2>
+<p>Written for myself. To record things I've figured out, and to verify whether I've actually figured them out. If you can follow along too, great.</p>
+<p>The content is mostly technical: AI tools, Mac development, things I've used and found worth writing down. You know the feeling — a lot of GitHub projects hit you with "set up your environment" right at step one. I don't want to write like that.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="about-this-site">About This Site<a href="https://mikeq95.github.io/en/blog/about#about-this-site" class="hash-link" aria-label="Direct link to About This Site" title="Direct link to About This Site" translate="no">​</a></h2>
+<p>No ads, and there won't be. I can guarantee that. I hate ads, and I don't want anyone here to be interrupted — including me, because I'm a reader here too.</p>
+<p>I care about the experience. The site should be fast, pages should be clean, open it and you don't have to think — just find what you want to read.</p>
+<p>As for making money, I'll figure that out later. But only one condition: it won't come at the cost of the experience.</p>
+<p>I don't really care how many people read this. I care about how well I write.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary">Summary<a href="https://mikeq95.github.io/en/blog/about#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
+<p>okay, that's everything I want this site to be.</p>
+<p>There's a Chinese saying: "知行合一" — to unify knowing and doing. I'll hold myself to that: turn what I think, and what I demand of myself, into reality.</p>]]></content:encoded>
+            <category>about</category>
+        </item>
+        <item>
+            <title><![CDATA[CodeGraph：让 Claude Code 少走弯路，token 省一半]]></title>
+            <link>https://mikeQ95.github.io/en/blog/2026/06/03/codegraph-claude-code-knowledge-graph</link>
+            <guid>https://mikeQ95.github.io/en/blog/2026/06/03/codegraph-claude-code-knowledge-graph</guid>
+            <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[今天看到一个 GitHub 项目——CodeGraph，⭐ 三万八千多，MIT 开源。核心思路：把代码库预先建成知识图谱，让 Claude Code 直接查，而不是每次都 grep 扫文件。装来试了试，平均省 16% 费用、减少 58% 工具调用次数。]]></description>
+            <content:encoded><![CDATA[<p>今天看到一个 GitHub 项目——<a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener noreferrer" class="">CodeGraph</a>，⭐ 三万八千多，MIT 开源。核心思路：<strong>把代码库预先建成知识图谱，让 Claude Code 直接查，而不是每次都 grep 扫文件</strong>。装来试了试，平均省 16% 费用、减少 58% 工具调用次数。</p>
+<!-- -->
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="为什么-claude-code-会浪费-token">为什么 Claude Code 会"浪费" token<a href="https://mikeq95.github.io/en/blog/2026/06/03/codegraph-claude-code-knowledge-graph#%E4%B8%BA%E4%BB%80%E4%B9%88-claude-code-%E4%BC%9A%E6%B5%AA%E8%B4%B9-token" class="hash-link" aria-label="Direct link to 为什么 Claude Code 会&quot;浪费&quot; token" title="Direct link to 为什么 Claude Code 会&quot;浪费&quot; token" translate="no">​</a></h2>
+<p>用 Claude Code 问一个架构问题，比如"这个请求是怎么到数据库的"，它会先开 Explore 子代理，跑一堆 grep/ls/Read 去找文件，找完才开始分析。<strong>整个探索过程本身就在消耗 token</strong>，而且很多时候读了一堆不相关的文件。</p>
+<p>CodeGraph 的思路是：把这些探索工作提前做好，索引成本地 SQLite 数据库，Claude Code 直接查——一次工具调用返回相关符号的源码、调用图、依赖关系，不用再扫文件。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="安装">安装<a href="https://mikeq95.github.io/en/blog/2026/06/03/codegraph-claude-code-knowledge-graph#%E5%AE%89%E8%A3%85" class="hash-link" aria-label="Direct link to 安装" title="Direct link to 安装" translate="no">​</a></h2>
+<p><strong>安装 CLI</strong>（macOS/Linux，不需要 Node.js）：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh</span><br></div></code></pre></div></div>
+<p>安装完记得<strong>开新终端</strong>，不然 <code>codegraph</code> 命令找不到。</p>
+<p><strong>接入 Claude Code</strong>：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">codegraph install</span><br></div></code></pre></div></div>
+<p>它会自动检测你装了哪些 AI 工具（Claude Code、Cursor、Gemini CLI 等），选 Claude Code 就行，其他的不用勾。</p>
+<p><strong>初始化项目</strong>：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cd your-project</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">codegraph init -i</span><br></div></code></pre></div></div>
+<p><code>-i</code> 是 <code>--index</code>，创建目录的同时顺手把代码建索引，省一步。以后代码有改动，文件监听会自动增量同步，不用手动管。</p>
+<p>**怎么判断这个项目需不需要初始化？</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">ls your-project/.codegraph</span><br></div></code></pre></div></div>
+<p>有就是建过了，没有就跑一次 <code>codegraph init -i</code>。</p>]]></content:encoded>
+            <category>GitHub</category>
+            <category>AI</category>
+        </item>
         <item>
             <title><![CDATA[GSAP + Claude Code，为你的网页加上炫酷动画]]></title>
             <link>https://mikeQ95.github.io/en/blog/2026/06/02/gsap-claude-code-web-animation</link>
@@ -78,9 +130,7 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95.github.io/en/blog/2026/06/02/gsap-claude-code-web-animation#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="Direct link to 总结" title="Direct link to 总结" translate="no">​</a></h2>
 <p>GSAP 是做<strong>网页动画</strong>的，不是视频，这点一定要搞清楚😂。</p>
 <p><code>gsap-skills</code> 的价值在于让 Claude Code 真正懂 GSAP——不只是能写代码，而是能写出正确的代码，不会用过时的 API，React 里的 cleanup 也不会漏。安装过程五分钟搞定，之后直接描述需求让 Claude 写就行，不需要自己记任何 API。</p>
-<p>如果你的博客或者项目需要滚动动画、页面过渡、元素进场这类效果，GSAP 是目前开源方案里最值得用的一个。</p>
-<hr>
-<p><em>基于 <a href="https://github.com/greensock/gsap-skills" target="_blank" rel="noopener noreferrer" class="">greensock/gsap-skills</a> v1.5.9，GSAP v3.x</em></p>]]></content:encoded>
+<p>如果你的博客或者项目需要滚动动画、页面过渡、元素进场这类效果，GSAP 是目前开源方案里最值得用的一个。</p>]]></content:encoded>
             <category>GitHub</category>
             <category>macOS</category>
         </item>
@@ -89,8 +139,8 @@
             <link>https://mikeQ95.github.io/en/blog/2026/06/01/open-codesign-review</link>
             <guid>https://mikeQ95.github.io/en/blog/2026/06/01/open-codesign-review</guid>
             <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——Open CoDesign，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。]]></description>
-            <content:encoded><![CDATA[<p>最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——<a href="https://github.com/OpenCoworkAI/open-codesign" target="_blank" rel="noopener noreferrer" class="">Open CoDesign</a>，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。</p>
+            <description><![CDATA[最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，要moeny的，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——Open CoDesign，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。]]></description>
+            <content:encoded><![CDATA[<p>最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，要moeny的，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——<a href="https://github.com/OpenCoworkAI/open-codesign" target="_blank" rel="noopener noreferrer" class="">Open CoDesign</a>，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。</p>
 <!-- -->
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="它是什么">它是什么<a href="https://mikeq95.github.io/en/blog/2026/06/01/open-codesign-review#%E5%AE%83%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="Direct link to 它是什么" title="Direct link to 它是什么" translate="no">​</a></h2>
@@ -116,9 +166,6 @@
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="启动">启动<a href="https://mikeq95.github.io/en/blog/2026/06/01/open-codesign-review#%E5%90%AF%E5%8A%A8" class="hash-link" aria-label="Direct link to 启动" title="Direct link to 启动" translate="no">​</a></h3>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pnpm dev</span><br></div></code></pre></div></div>
 <p>稍等片刻，Electron 窗口会弹出来。第一次会让你配置 Provider，把你的 Claude API Key（<code>sk-ant-...</code>）粘进去，测试一下连接，就可以开始用了。</p>
-<blockquote>
-<p><strong>踩坑提示</strong>：别像我一样手滑在项目目录里 <code>git clone</code>，记得先 <code>cd</code> 到你想放的地方再克隆😂</p>
-</blockquote>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="实际使用感受">实际使用感受<a href="https://mikeq95.github.io/en/blog/2026/06/01/open-codesign-review#%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E6%84%9F%E5%8F%97" class="hash-link" aria-label="Direct link to 实际使用感受" title="Direct link to 实际使用感受" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="生成速度">生成速度<a href="https://mikeq95.github.io/en/blog/2026/06/01/open-codesign-review#%E7%94%9F%E6%88%90%E9%80%9F%E5%BA%A6" class="hash-link" aria-label="Direct link to 生成速度" title="Direct link to 生成速度" translate="no">​</a></h3>
@@ -133,20 +180,8 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="和-claude-design-比">和 Claude Design 比<a href="https://mikeq95.github.io/en/blog/2026/06/01/open-codesign-review#%E5%92%8C-claude-design-%E6%AF%94" class="hash-link" aria-label="Direct link to 和 Claude Design 比" title="Direct link to 和 Claude Design 比" translate="no">​</a></h2>
 <table><thead><tr><th></th><th style="text-align:center">Open CoDesign</th><th style="text-align:center">Claude Design</th></tr></thead><tbody><tr><td>开源</td><td style="text-align:center">✅ MIT</td><td style="text-align:center">❌</td></tr><tr><td>本地运行</td><td style="text-align:center">✅</td><td style="text-align:center">❌ 云端</td></tr><tr><td>支持多模型</td><td style="text-align:center">✅ 20+</td><td style="text-align:center">❌ 仅 Claude</td></tr><tr><td>价格</td><td style="text-align:center">✅ 免费（自付 API 费用）</td><td style="text-align:center">💳 订阅制</td></tr><tr><td>数据隐私</td><td style="text-align:center">✅ 本地</td><td style="text-align:center">❌ 云端处理</td></tr></tbody></table>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="目前的不足">目前的不足<a href="https://mikeq95.github.io/en/blog/2026/06/01/open-codesign-review#%E7%9B%AE%E5%89%8D%E7%9A%84%E4%B8%8D%E8%B6%B3" class="hash-link" aria-label="Direct link to 目前的不足" title="Direct link to 目前的不足" translate="no">​</a></h2>
-<p>说说不够满意的地方：</p>
-<ul>
-<li class="">安装包目前还没有签名，macOS 上需要手动执行 <code>xattr -cr</code> 绕过 Gatekeeper，对不熟悉命令行的人来说有点门槛</li>
-<li class="">现在还是 v0.2，功能还在快速迭代，偶尔会遇到一些小 bug</li>
-<li class="">如果网络不稳定，API 调用偶尔会超时</li>
-</ul>
-<hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95.github.io/en/blog/2026/06/01/open-codesign-review#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="Direct link to 总结" title="Direct link to 总结" translate="no">​</a></h2>
-<p>如果你已经有 Claude 或其他模型的 API Key，Open CoDesign 是目前开源 AI 设计工具里完成度最高的一个。本地运行、支持多模型、导出格式丰富，基本把"为什么不用 Claude Design"的问题都答上了。</p>
-<p>对于开发者来说，它的 Agent 面板透明度很高，能看到 AI 实际在做什么，这点比很多商业工具强。设计质量上也不是那种随便生成的粗糙感，内置的 taste layer 做了不少工作。</p>
-<p>整体来说值得一试，尤其是已经在用 Claude API 的人，装起来成本很低。</p>
-<hr>
-<p><em>基于 <a href="https://github.com/OpenCoworkAI/open-codesign" target="_blank" rel="noopener noreferrer" class="">OpenCoworkAI/open-codesign</a> v0.2.0</em></p>]]></content:encoded>
+<p>已经有 Claude API Key 的话，装起来成本很低，值得试试。</p>]]></content:encoded>
             <category>GitHub</category>
             <category>macOS</category>
             <category>AI</category>
