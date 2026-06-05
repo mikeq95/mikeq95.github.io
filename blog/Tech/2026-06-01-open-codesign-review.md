@@ -8,7 +8,7 @@ tags:
   - AI
 ---
 
-最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——[Open CoDesign](https://github.com/OpenCoworkAI/open-codesign)，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。
+最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，要moeny的，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——[Open CoDesign](https://github.com/OpenCoworkAI/open-codesign)，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。
 
 {/* truncate */}
 
@@ -60,8 +60,6 @@ pnpm dev
 
 稍等片刻，Electron 窗口会弹出来。第一次会让你配置 Provider，把你的 Claude API Key（`sk-ant-...`）粘进去，测试一下连接，就可以开始用了。
 
-> **踩坑提示**：别像我一样手滑在项目目录里 `git clone`，记得先 `cd` 到你想放的地方再克隆😂
-
 ---
 
 ## 实际使用感受
@@ -96,24 +94,6 @@ pnpm dev
 
 ---
 
-## 目前的不足
-
-说说不够满意的地方：
-
-- 安装包目前还没有签名，macOS 上需要手动执行 `xattr -cr` 绕过 Gatekeeper，对不熟悉命令行的人来说有点门槛
-- 现在还是 v0.2，功能还在快速迭代，偶尔会遇到一些小 bug
-- 如果网络不稳定，API 调用偶尔会超时
-
----
-
 ## 总结
 
-如果你已经有 Claude 或其他模型的 API Key，Open CoDesign 是目前开源 AI 设计工具里完成度最高的一个。本地运行、支持多模型、导出格式丰富，基本把"为什么不用 Claude Design"的问题都答上了。
-
-对于开发者来说，它的 Agent 面板透明度很高，能看到 AI 实际在做什么，这点比很多商业工具强。设计质量上也不是那种随便生成的粗糙感，内置的 taste layer 做了不少工作。
-
-整体来说值得一试，尤其是已经在用 Claude API 的人，装起来成本很低。
-
----
-
-_基于 [OpenCoworkAI/open-codesign](https://github.com/OpenCoworkAI/open-codesign) v0.2.0_
+已经有 Claude API Key 的话，装起来成本很低，值得试试。

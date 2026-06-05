@@ -36,7 +36,7 @@ function AuthButtonsInner() {
     setLoginOpen(false);
     await supabase.auth.signInWithOAuth({
       provider,
-      options: { redirectTo: siteConfig.url },
+      options: { redirectTo: window.location.origin },
     });
   };
 

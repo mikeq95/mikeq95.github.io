@@ -2,12 +2,13 @@
 slug: 2026/05/29/download-youtube-videos-using-a-python-script
 title: 用 Python 脚本下载 YouTube 视频
 date: 2026-05-29
+image: /assets/%E7%94%A8%E4%B8%80%E6%AE%B5python%E8%84%9A%E6%9C%AC%E4%B8%8B%E8%BD%BDyoutube%E8%A7%86%E9%A2%91.png
 tags:
   - macos
 ---
 
 想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。
-
+放心，这很简单，真的。
 {/* truncate */}
 
 ---
@@ -32,6 +33,7 @@ brew --version
 
 ✅ 正常：显示 `Homebrew 4.x.x` ❌ 异常：显示 `command not found`
 
+> 如果不知道 Homebrew，请看[这篇文章](/blog/2026/05/28/homebrew-tutorials)
 ---
 
 ### [ffmpeg](https://clearlove7-ai.vercel.app?word=ffmpeg&postId=2026-05-29-Download-YouTube-videos-using-a-Python-script)

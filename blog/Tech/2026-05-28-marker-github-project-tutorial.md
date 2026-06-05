@@ -7,13 +7,13 @@ tags:
   - macos
 ---
 
-我个人很喜欢浏览[instructables](https://www.instructables.com)这个网站，网站很贴心的在右上角给了你”将文章导出为PDF”的选项，但是没有”导出为markdown”的选项。我很希望格式是md，因为在AI更喜欢读md而不是PDF的文件。我在网上搜索，最终找到这个github项目。
-Marker 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdown 格式，速度快，识别准确率也不错。这篇文章记录一下怎么把它跑起来。
+[Marker](https://github.com/datalab-to/marker) 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdown 格式，速度快，识别准确率也不错。这篇文章记录一下怎么把它跑起来。
 
 {/* truncate */}
 
 ---
-
+### 前言：
+我个人很喜欢浏览[instructables](https://www.instructables.com)这个网站，网站很贴心的在右上角给了你”将文章导出为PDF”的选项，但是没有”导出为markdown”的选项。我很希望格式是md，因为在AI更喜欢读md而不是PDF的文件。我在网上搜索，最终找到这个github项目。
 ## 部署环境
 
 ### 前置条件
@@ -126,39 +126,11 @@ marker_single ~/Downloads/paper.pdf \
 
 ---
 
-### 转扫描版 PDF
-
-扫描版 PDF 里的文字是图片，普通方式识别不出来，要加 `--force_ocr`：
-
-```bash
-marker_single ~/Downloads/scanned.pdf \
-  --output_dir ~/Desktop/output \
-  --force_ocr \
-  --langs zh
-```
-
-这个模式比较慢，一页大约要 5～15 秒，别中途关掉。
-
----
-
-### 只转某几页，输出 JSON
-
-比如一份 200 页的报告，只需要第 1、5 到 10、20 页：
-
-```bash
-marker_single ~/Downloads/report.pdf \
-  --output_dir ~/Desktop/output \
-  --page_range "0,4-9,19" \
-  --output_format json
-```
-
-JSON 格式输出的是结构化数据，适合拿来做进一步处理，比如导入数据库或者喂给大模型。
-
----
-
 ## 用 AI 工具帮你自动部署
 
 如果觉得上面的步骤麻烦，可以把下面这段提示词丢给 Claude Code、Cursor 这类 AI 工具，让它帮你自动把环境跑通。
+
+**中文版：**
 
 ```
 你是一个专业的 Python 环境配置工程师。请帮我在这台电脑上完整部署 marker-pdf 的运行环境。
@@ -174,6 +146,24 @@ JSON 格式输出的是结构化数据，适合拿来做进一步处理，比如
 5. 验证 marker：运行 marker_single --help，等待约 20 秒，输出参数列表即为成功
 
 每步执行前先告诉我你要做什么，不要修改系统级配置。完成后输出已安装的 Python、PyTorch、marker-pdf 版本号。
+```
+
+**English version:**
+
+```
+You are a professional Python environment setup engineer. Please help me fully deploy the marker-pdf runtime environment on this machine.
+
+My setup: macOS Apple Silicon (M1 Pro), shell is zsh, Conda is installed at ~/miniforge3.
+
+Complete the following steps in order. After each step, verify the result and immediately diagnose and fix any errors:
+
+1. Check if conda is available (conda --version). If not, run ~/miniforge3/bin/conda init zsh and ask me to reopen the terminal.
+2. Create and activate a virtual environment: conda create -n marker python=3.11 -y && conda activate marker
+3. Install marker: pip install marker-pdf
+4. Verify PyTorch: python -c "import torch; print(torch.__version__)". If you see a libtorch_cpu.dylib error, reinstall immediately: pip uninstall torch torchvision torchaudio -y && pip install torch torchvision torchaudio
+5. Verify marker: run marker_single --help, wait about 20 seconds — a list of parameters means success.
+
+Before each step, tell me what you are about to do. Do not modify any system-level configuration. When finished, print the installed versions of Python, PyTorch, and marker-pdf.
 ```
 
 ---
@@ -196,31 +186,9 @@ conda env remove -n marker
 
 ---
 
-## 常见问题
-
-**终端卡住不动？** 第一次运行会下载模型，国内网络可能很慢。给终端配个代理再试：
-
-```bash
-export https_proxy=http://127.0.0.1:你的端口
-```
-
-**Mac 上报 `libtorch_cpu.dylib` 错误？** 重装一下 [PyTorch](https://clearlove7-ai.vercel.app?word=PyTorch&postId=2026-05-28-marker-github-project-tutorial) 就好：
-
-```bash
-pip uninstall torch torchvision torchaudio -y
-pip install torch torchvision torchaudio
-```
-
-**中文识别效果差？** 加上 `--langs zh`，如果是扫描件再加 `--force_ocr`。
-
-**提示 command not found？** 没激活环境，先运行 `conda activate marker`。
-
----
-
 ## 总结
 
-Marker 本质上是一个**本地运行的文档解析引擎**，底层用的是专门针对文档版面训练的 AI 模型，而不是通用大模型，所以速度快、可离线运行、不需要 API Key 就能有不错的效果。它最擅长处理格式复杂的学术 PDF——数学公式转 LaTeX、表格保留结构、图片单独提取，这些场景下的输出质量明显优于直接复制粘贴。如果你有大量文档需要整理进知识库，或者想把 PDF 内容喂给大模型二次处理，Marker 是目前开源方案里性价比最高的选择之一。
+本地跑，不用 API Key，格式保留得还不错。有大量 PDF 要整理的话挺好用的。
 
 ---
 
-_基于 [datalab-to/marker](https://github.com/datalab-to/marker)，适用于 marker v1.x_

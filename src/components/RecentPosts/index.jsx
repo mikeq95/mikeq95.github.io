@@ -8,6 +8,7 @@ import React, {
 import ReactDOM from 'react-dom';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import {translate} from '@docusaurus/Translate';
 import { gsap } from 'gsap';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
@@ -53,9 +54,6 @@ function CardCover({ image, permalink, title }) {
 }
 
 function ContextMenu({ x, y, isPinned, isFavorite, onPin, onFavorite, onClose }) {
-  const { i18n: { currentLocale } } = useDocusaurusContext();
-  const isZh = currentLocale.startsWith('zh');
-
   return ReactDOM.createPortal(
     <div className={styles.ctxOverlay} onMouseDown={onClose}>
       <div
@@ -65,13 +63,13 @@ function ContextMenu({ x, y, isPinned, isFavorite, onPin, onFavorite, onClose })
       >
         <button className={styles.ctxItem} onClick={onPin}>
           {isPinned
-            ? (isZh ? '📌 取消置顶' : '📌 Unpin')
-            : (isZh ? '📌 置顶文章' : '📌 Pin post')}
+            ? translate({id: 'recentPosts.context.unpin', message: '📌 Unpin'})
+            : translate({id: 'recentPosts.context.pin', message: '📌 Pin post'})}
         </button>
         <button className={styles.ctxItem} onClick={onFavorite}>
           {isFavorite
-            ? (isZh ? '❤️ 移出最爱' : '❤️ Remove favorite')
-            : (isZh ? '❤️ 加入最爱' : '❤️ Add to favorites')}
+            ? translate({id: 'recentPosts.context.unfav', message: '❤️ Remove favorite'})
+            : translate({id: 'recentPosts.context.fav', message: '❤️ Add to favorites'})}
         </button>
       </div>
     </div>,
@@ -80,15 +78,13 @@ function ContextMenu({ x, y, isPinned, isFavorite, onPin, onFavorite, onClose })
 }
 
 const TABS = [
-  { key: 'all',       zh: '所有文章',     en: 'All Posts' },
-  { key: 'pinned',    zh: '置顶文章',     en: 'Pinned' },
-  { key: 'favorites', zh: '我的最爱',     en: 'Favorites' },
-  { key: 'about',     zh: '关于这个博客', en: 'About This Blog' },
+  { key: 'all',       labelId: 'recentPosts.tab.all',       defaultLabel: 'All Posts' },
+  { key: 'pinned',    labelId: 'recentPosts.tab.pinned',    defaultLabel: 'Pinned' },
+  { key: 'favorites', labelId: 'recentPosts.tab.favorites', defaultLabel: 'Favorites' },
+  { key: 'about',     labelId: 'recentPosts.tab.about',     defaultLabel: 'About This Blog' },
 ];
 
 export default function RecentPosts({ posts = [] }) {
-  const { i18n: { currentLocale } } = useDocusaurusContext();
-  const isZh = currentLocale.startsWith('zh');
   const { user } = useAuth();
   const { siteConfig } = useDocusaurusContext();
   const adminIds = siteConfig.customFields?.adminUserIds ?? [];
@@ -120,13 +116,19 @@ export default function RecentPosts({ posts = [] }) {
   // Load pinned + favorite IDs from Supabase
   useEffect(() => {
     if (!supabase) return;
+    // pinned_posts is global — fetch for everyone
     supabase.from('pinned_posts').select('post_id').then(({ data }) => {
       if (data) setPinnedIds(new Set(data.map(r => r.post_id)));
     });
-    supabase.from('favorite_posts').select('post_id').then(({ data }) => {
-      if (data) setFavoriteIds(new Set(data.map(r => r.post_id)));
-    });
-  }, []);
+    // favorite_posts is user-specific — only fetch when logged in to avoid 403
+    if (user) {
+      supabase.from('favorite_posts').select('post_id').then(({ data }) => {
+        if (data) setFavoriteIds(new Set(data.map(r => r.post_id)));
+      });
+    } else {
+      setFavoriteIds(new Set());
+    }
+  }, [user]);
 
   // GSAP pill slide — runs synchronously after every activeTab change
   useLayoutEffect(() => {
@@ -213,7 +215,7 @@ export default function RecentPosts({ posts = [] }) {
         return sortedPosts.filter(p => favoriteIds.has(p.permalink));
       case 'about':
         return sortedPosts.filter(p =>
-          p.tags?.some(t => ['关于博客', 'about', 'faq'].includes(t.label?.toLowerCase()))
+          p.tags?.some(t => ['关于博客', '关于', 'about', 'faq'].includes(t.label?.toLowerCase()))
         );
       default:
         return sortedPosts;
@@ -259,7 +261,7 @@ export default function RecentPosts({ posts = [] }) {
   return (
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>
-        {isZh ? '最新文章' : 'Recent Posts'}
+        {translate({id: 'recentPosts.title', message: 'Recent Posts'})}
       </h2>
 
       {/* Tab bar — pill slides via GSAP, buttons are just labels */}
@@ -276,7 +278,7 @@ export default function RecentPosts({ posts = [] }) {
               ].join(' ')}
               onClick={() => setActiveTab(tab.key)}
             >
-              {isZh ? tab.zh : tab.en}
+              {translate({id: tab.labelId, message: tab.defaultLabel})}
             </button>
           ))}
         </div>
@@ -284,7 +286,7 @@ export default function RecentPosts({ posts = [] }) {
 
       {filteredPosts.length === 0 ? (
         <div className={styles.emptyWrapper}>
-          {isZh ? '暂无文章' : 'No posts yet'}
+          {translate({id: 'recentPosts.empty', message: 'No posts yet'})}
         </div>
       ) : (
         <div className={styles.track} ref={scrollRef}>
@@ -307,11 +309,11 @@ export default function RecentPosts({ posts = [] }) {
                 {(pinnedIds.has(post.permalink) || favoriteIds.has(post.permalink)) && (
                   <div className={styles.badges}>
                     {pinnedIds.has(post.permalink) && (
-                      <span className={styles.badge}>📌 {isZh ? '置顶' : 'PINNED'}</span>
+                      <span className={styles.badge}>📌 {translate({id: 'recentPosts.badge.pinned', message: 'PINNED'})}</span>
                     )}
                     {favoriteIds.has(post.permalink) && (
                       <span className={[styles.badge, styles.badgeFav].join(' ')}>
-                        ❤️ {isZh ? '最爱' : 'FAV'}
+                        ❤️ {translate({id: 'recentPosts.badge.fav', message: 'FAV'})}
                       </span>
                     )}
                   </div>
@@ -319,7 +321,7 @@ export default function RecentPosts({ posts = [] }) {
                 <h3 className={styles.cardTitle}>{post.title}</h3>
                 <time className={styles.cardDate}>
                   {new Date(post.date).toLocaleDateString(
-                    isZh ? 'zh-CN' : 'en-US',
+                    undefined,
                     { year: 'numeric', month: 'short', day: 'numeric' },
                   )}
                 </time>
@@ -338,7 +340,7 @@ export default function RecentPosts({ posts = [] }) {
 
       <div className={styles.more}>
         <Link to="/blog" className={styles.moreLink}>
-          {isZh ? '查看全部文章 →' : 'All posts →'}
+          {translate({id: 'recentPosts.viewAll', message: 'All posts →'})}
         </Link>
       </div>
 

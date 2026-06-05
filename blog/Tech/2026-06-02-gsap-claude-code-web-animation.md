@@ -159,6 +159,3 @@ GSAP 是做**网页动画**的，不是视频，这点一定要搞清楚😂。
 
 如果你的博客或者项目需要滚动动画、页面过渡、元素进场这类效果，GSAP 是目前开源方案里最值得用的一个。
 
----
-
-_基于 [greensock/gsap-skills](https://github.com/greensock/gsap-skills) v1.5.9，GSAP v3.x_

@@ -24,6 +24,29 @@ function loadTagsMap(blogDir) {
   }
 }
 
+// Returns the i18n override frontmatter for a post file, or null if none exists.
+function loadI18nOverride(filePath, blogDir, i18nBlogDir) {
+  if (!i18nBlogDir) return null;
+  const rel = path.relative(blogDir, filePath);
+  // Try both same extension and alternate (.md <-> .mdx)
+  const candidates = [
+    path.join(i18nBlogDir, rel),
+    path.join(i18nBlogDir, rel.replace(/\.mdx$/, '.md')),
+    path.join(i18nBlogDir, rel.replace(/\.md$/, '.mdx')),
+  ];
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      try {
+        const { data } = matter(fs.readFileSync(candidate, 'utf8'));
+        return data;
+      } catch {
+        return null;
+      }
+    }
+  }
+  return null;
+}
+
 module.exports = function blogGlobalDataPlugin(context) {
   return {
     name: 'blog-global-data',
@@ -33,16 +56,35 @@ module.exports = function blogGlobalDataPlugin(context) {
       const files = findMarkdownFiles(blogDir);
       const posts = [];
 
+      const { currentLocale, defaultLocale } = context.i18n;
+      const isDefaultLocale = currentLocale === defaultLocale;
+      const i18nBlogDir = !isDefaultLocale
+        ? path.join(
+            context.siteDir,
+            'i18n',
+            currentLocale,
+            'docusaurus-plugin-content-blog',
+          )
+        : null;
+
       for (const filePath of files) {
         try {
           const raw = fs.readFileSync(filePath, 'utf8');
           const { data: fm } = matter(raw);
           if (!fm.title || !fm.date || fm.draft) continue;
 
+          // For non-default locales, skip posts that have no i18n translation —
+          // those posts don't have pages in this locale (mirrors Docusaurus behavior).
+          const i18nFm = loadI18nOverride(filePath, blogDir, i18nBlogDir);
+          if (!isDefaultLocale && !i18nFm) continue;
+
+          // i18n override wins for title / tags / image
+          const effectiveFm = i18nFm ? { ...fm, ...i18nFm } : fm;
+
           const base = path.basename(filePath, path.extname(filePath));
           let permalink;
-          if (fm.slug) {
-            const s = fm.slug.startsWith('/') ? fm.slug : `/${fm.slug}`;
+          if (effectiveFm.slug) {
+            const s = effectiveFm.slug.startsWith('/') ? effectiveFm.slug : `/${effectiveFm.slug}`;
             permalink = s.startsWith('/blog') ? s : `/blog${s}`;
           } else {
             const m = base.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)$/);
@@ -51,7 +93,7 @@ module.exports = function blogGlobalDataPlugin(context) {
               : `/blog/${base}`;
           }
 
-          const rawTags = Array.isArray(fm.tags) ? fm.tags : [];
+          const rawTags = Array.isArray(effectiveFm.tags) ? effectiveFm.tags : [];
           const tags = rawTags.map(key => {
             const def = tagsMap[key];
             const label = def?.label ?? String(key);
@@ -63,10 +105,11 @@ module.exports = function blogGlobalDataPlugin(context) {
 
           posts.push({
             id: path.relative(blogDir, filePath),
-            title: fm.title,
-            date: new Date(fm.date).toISOString(),
+            title: effectiveFm.title,
+            date: new Date(effectiveFm.date ?? fm.date).toISOString(),
             permalink,
             tags,
+            frontMatter: { image: effectiveFm.image },
           });
         } catch {
           // skip unparseable files

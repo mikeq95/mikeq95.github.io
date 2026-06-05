@@ -360,5 +360,57 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "recentPosts.title": {
+    "message": "Recent Posts",
+    "description": "Section heading for the recent posts carousel"
+  },
+  "recentPosts.tab.all": {
+    "message": "All Posts",
+    "description": "Tab label: show all posts"
+  },
+  "recentPosts.tab.pinned": {
+    "message": "Pinned",
+    "description": "Tab label: show pinned posts"
+  },
+  "recentPosts.tab.favorites": {
+    "message": "Favorites",
+    "description": "Tab label: show favorited posts"
+  },
+  "recentPosts.tab.about": {
+    "message": "About This Blog",
+    "description": "Tab label: show about posts"
+  },
+  "recentPosts.empty": {
+    "message": "No posts yet",
+    "description": "Message when a tab has no posts"
+  },
+  "recentPosts.viewAll": {
+    "message": "All posts →",
+    "description": "Link to the full blog archive"
+  },
+  "recentPosts.badge.pinned": {
+    "message": "PINNED",
+    "description": "Badge label for pinned posts"
+  },
+  "recentPosts.badge.fav": {
+    "message": "FAV",
+    "description": "Badge label for favorited posts"
+  },
+  "recentPosts.context.pin": {
+    "message": "📌 Pin post",
+    "description": "Context menu: pin a post"
+  },
+  "recentPosts.context.unpin": {
+    "message": "📌 Unpin",
+    "description": "Context menu: unpin a post"
+  },
+  "recentPosts.context.fav": {
+    "message": "❤️ Add to favorites",
+    "description": "Context menu: add to favorites"
+  },
+  "recentPosts.context.unfav": {
+    "message": "❤️ Remove favorite",
+    "description": "Context menu: remove from favorites"
   }
 }
