@@ -111,9 +111,44 @@
   justify-content: center;
 }
 
+/* ── Card wrapper (handles flex + snap; admin button lives here, not inside the anchor) ── */
+.cardWrapper {
+  flex-shrink: 0;
+  position: relative;
+  scroll-snap-align: center;
+}
+
+/* Admin action button — sits above the card cover, only shown to admin */
+.adminBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  letter-spacing: -1px;
+  transition: background 0.15s;
+}
+
+.adminBtn:hover {
+  background: rgba(0, 0, 0, 0.72);
+}
+
 /* ── Card ── */
 .card {
-  flex-shrink: 0;
   width: 280px;
   height: 380px;
   border-radius: 18px;
@@ -121,7 +156,6 @@
   background-color: var(--ifm-background-color);
   text-decoration: none;
   color: inherit;
-  scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -155,11 +189,13 @@
 }
 
 /* ── Card cover (image or gradient placeholder) ── */
+/* Height tuned to 1200×650 source images: 280 × (650/1200) ≈ 152px */
 .cardCover {
   width: 100%;
-  height: 210px;
+  height: 152px;
   flex-shrink: 0;
   object-fit: cover;
+  object-position: center center;
   border-radius: 18px 18px 0 0;
   display: block;
 }
@@ -169,7 +205,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1rem 1.25rem;
+  padding: 0.85rem 1.25rem 3.25rem; /* bottom space reserved for actionRow */
   min-height: 0;
 }
 
@@ -214,7 +250,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-top: auto;
+  margin-bottom: 0.4rem;
 }
 
 .tag {
@@ -245,39 +281,92 @@
   text-decoration: none;
 }
 
-/* ── Right-click context menu ── */
-.ctxOverlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
+/* ── Action row — bottom of card, absolute positioned outside the <a> ── */
+.actionRow {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 5;
+  pointer-events: none;
 }
 
-.ctxMenu {
-  position: fixed;
+/* Base button: white bg + theme-color border */
+.actionBtn {
+  pointer-events: all;
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 0;
+  border-radius: 10px;
+  border: 1.5px solid var(--ifm-color-primary);
   background: var(--ifm-background-color);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  min-width: 160px;
-  z-index: 10000;
-}
-
-.ctxItem {
-  display: block;
-  width: 100%;
-  padding: 10px 16px;
-  text-align: left;
-  background: none;
-  border: none;
+  color: var(--ifm-color-primary);
+  font-size: 0.72rem;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 0.9rem;
-  color: var(--ifm-color-content);
-  transition: background-color 0.1s;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+  line-height: 1;
 }
 
-.ctxItem:hover {
-  background-color: var(--ifm-color-emphasis-100);
+.actionBtn:hover {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+[data-theme='dark'] .actionBtn:hover {
+  color: #1d1d1f;
+}
+
+/* Admin: pin — orange */
+.actionBtnPinActive {
+  border-color: #FF6B35;
+  color: #FF6B35;
+  background: rgba(255, 107, 53, 0.08);
+}
+
+.actionBtnPinActive:hover {
+  background: #FF6B35;
+  color: #fff;
+}
+
+/* Admin: favorite — red */
+.actionBtnFavActive {
+  border-color: #e03e3e;
+  color: #e03e3e;
+  background: rgba(224, 62, 62, 0.08);
+}
+
+.actionBtnFavActive:hover {
+  background: #e03e3e;
+  color: #fff;
+}
+
+/* User: liked — primary tint */
+.actionBtnLikeActive {
+  background: rgba(var(--ifm-color-primary-rgb, 37 194 160), 0.12);
+}
+
+/* User: bookmarked — primary tint */
+.actionBtnBookmarkActive {
+  background: rgba(var(--ifm-color-primary-rgb, 37 194 160), 0.12);
+}
+
+/* Not logged in — greyed out */
+.actionBtnGuest {
+  border-color: var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-content-secondary);
+  opacity: 0.65;
+}
+
+.actionBtnGuest:hover {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-content-secondary);
 }
 
 /* ── Mobile ── */
@@ -300,14 +389,18 @@
     gap: 1rem;
   }
 
-  .card {
+  .cardWrapper {
     width: 75vw;
+  }
+
+  .card {
+    width: 100%;
     height: auto;
     min-height: 340px;
   }
 
   .cardCover {
-    height: 180px;
+    height: 122px;
   }
 
   .more {

@@ -62,3 +62,18 @@ Music:
   label: Jay Chou
   permalink: /jay-chou
   description: Jay Chou related posts
+
+about:
+  label: About
+  permalink: /about
+  description: About this blog
+
+关于:
+  label: 关于
+  permalink: /guan-yu
+  description: 关于这个博客
+
+AI:
+  label: AI
+  permalink: /ai
+  description: AI related posts

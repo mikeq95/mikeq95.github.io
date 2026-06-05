@@ -5,11 +5,11 @@ import React, {
   useState,
   useMemo,
 } from 'react';
-import ReactDOM from 'react-dom';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {translate} from '@docusaurus/Translate';
 import { gsap } from 'gsap';
+import { Icon } from '@iconify/react';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
 import styles from './index.module.css';
@@ -53,29 +53,6 @@ function CardCover({ image, permalink, title }) {
   );
 }
 
-function ContextMenu({ x, y, isPinned, isFavorite, onPin, onFavorite, onClose }) {
-  return ReactDOM.createPortal(
-    <div className={styles.ctxOverlay} onMouseDown={onClose}>
-      <div
-        className={styles.ctxMenu}
-        style={{ top: y, left: x }}
-        onMouseDown={e => e.stopPropagation()}
-      >
-        <button className={styles.ctxItem} onClick={onPin}>
-          {isPinned
-            ? translate({id: 'recentPosts.context.unpin', message: '📌 Unpin'})
-            : translate({id: 'recentPosts.context.pin', message: '📌 Pin post'})}
-        </button>
-        <button className={styles.ctxItem} onClick={onFavorite}>
-          {isFavorite
-            ? translate({id: 'recentPosts.context.unfav', message: '❤️ Remove favorite'})
-            : translate({id: 'recentPosts.context.fav', message: '❤️ Add to favorites'})}
-        </button>
-      </div>
-    </div>,
-    document.body,
-  );
-}
 
 const TABS = [
   { key: 'all',       labelId: 'recentPosts.tab.all',       defaultLabel: 'All Posts' },
@@ -85,7 +62,7 @@ const TABS = [
 ];
 
 export default function RecentPosts({ posts = [] }) {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const { siteConfig } = useDocusaurusContext();
   const adminIds = siteConfig.customFields?.adminUserIds ?? [];
   const isAdmin = user?.id && adminIds.includes(user.id);
@@ -101,7 +78,8 @@ export default function RecentPosts({ posts = [] }) {
   const [activeTab, setActiveTab] = useState('all');
   const [pinnedIds, setPinnedIds] = useState(new Set());
   const [favoriteIds, setFavoriteIds] = useState(new Set());
-  const [menu, setMenu] = useState(null);
+  const [likedIds, setLikedIds] = useState(new Set());
+  const [bookmarkedIds, setBookmarkedIds] = useState(new Set());
 
   // Respect prefers-reduced-motion
   useEffect(() => {
@@ -113,22 +91,31 @@ export default function RecentPosts({ posts = [] }) {
     return () => mm.revert();
   }, []);
 
-  // Load pinned + favorite IDs from Supabase
+  // Load all Supabase-backed state. Wait for auth so the correct JWT is attached.
   useEffect(() => {
-    if (!supabase) return;
-    // pinned_posts is global — fetch for everyone
+    if (!supabase || authLoading) return;
     supabase.from('pinned_posts').select('post_id').then(({ data }) => {
       if (data) setPinnedIds(new Set(data.map(r => r.post_id)));
     });
-    // favorite_posts is user-specific — only fetch when logged in to avoid 403
     if (user) {
-      supabase.from('favorite_posts').select('post_id').then(({ data }) => {
-        if (data) setFavoriteIds(new Set(data.map(r => r.post_id)));
-      });
+      if (isAdmin) {
+        supabase.from('favorite_posts').select('post_id').then(({ data }) => {
+          if (data) setFavoriteIds(new Set(data.map(r => r.post_id)));
+        });
+      } else {
+        supabase.from('post_likes').select('post_id').eq('user_id', user.id).then(({ data }) => {
+          if (data) setLikedIds(new Set(data.map(r => r.post_id)));
+        });
+        supabase.from('post_bookmarks').select('post_id').eq('user_id', user.id).then(({ data }) => {
+          if (data) setBookmarkedIds(new Set(data.map(r => r.post_id)));
+        });
+      }
     } else {
       setFavoriteIds(new Set());
+      setLikedIds(new Set());
+      setBookmarkedIds(new Set());
     }
-  }, [user]);
+  }, [user, authLoading, isAdmin]);
 
   // GSAP pill slide — runs synchronously after every activeTab change
   useLayoutEffect(() => {
@@ -152,8 +139,8 @@ export default function RecentPosts({ posts = [] }) {
     gsap.to(pill, {
       x: targetX,
       width: targetW,
-      duration: reducedMotion.current ? 0 : 0.4,
-      ease: 'power2.inOut',
+      duration: reducedMotion.current ? 0 : 0.15,
+      ease: 'power3.out',
       overwrite: true,
     });
   }, [activeTab]);
@@ -222,37 +209,62 @@ export default function RecentPosts({ posts = [] }) {
     }
   }, [activeTab, sortedPosts, pinnedIds, favoriteIds]);
 
-  const handleContextMenu = (e, permalink) => {
-    if (!isAdmin) return;
+  const handlePin = async (e, permalink) => {
     e.preventDefault();
-    const x = Math.min(e.clientX, window.innerWidth - 180);
-    const y = Math.min(e.clientY, window.innerHeight - 90);
-    setMenu({ x, y, permalink, isPinned: pinnedIds.has(permalink), isFavorite: favoriteIds.has(permalink) });
-  };
-
-  const togglePin = async () => {
-    if (!menu || !supabase) return;
-    const { permalink, isPinned } = menu;
-    setMenu(null);
-    if (isPinned) {
-      await supabase.from('pinned_posts').delete().eq('post_id', permalink);
-      setPinnedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
+    e.stopPropagation();
+    if (!supabase) return;
+    if (pinnedIds.has(permalink)) {
+      const { error } = await supabase.from('pinned_posts').delete().eq('post_id', permalink);
+      if (!error) setPinnedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
     } else {
-      await supabase.from('pinned_posts').insert({ post_id: permalink });
-      setPinnedIds(prev => new Set([...prev, permalink]));
+      const { error } = await supabase.from('pinned_posts').insert({ post_id: permalink });
+      if (!error) setPinnedIds(prev => new Set([...prev, permalink]));
     }
   };
 
-  const toggleFavorite = async () => {
-    if (!menu || !supabase) return;
-    const { permalink, isFavorite } = menu;
-    setMenu(null);
-    if (isFavorite) {
-      await supabase.from('favorite_posts').delete().eq('post_id', permalink);
-      setFavoriteIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
+  const handleFavorite = async (e, permalink) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!supabase) return;
+    if (favoriteIds.has(permalink)) {
+      const { error } = await supabase.from('favorite_posts').delete().eq('post_id', permalink);
+      if (!error) setFavoriteIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
     } else {
-      await supabase.from('favorite_posts').insert({ post_id: permalink });
-      setFavoriteIds(prev => new Set([...prev, permalink]));
+      const { error } = await supabase.from('favorite_posts').insert({ post_id: permalink });
+      if (!error) setFavoriteIds(prev => new Set([...prev, permalink]));
+    }
+  };
+
+  const promptLogin = () => {
+    const btn = document.querySelector('[data-auth-trigger]');
+    if (btn) btn.click();
+  };
+
+  const handleLike = async (e, permalink) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!user) { promptLogin(); return; }
+    if (!supabase) return;
+    if (likedIds.has(permalink)) {
+      const { error } = await supabase.from('post_likes').delete().eq('post_id', permalink).eq('user_id', user.id);
+      if (!error) setLikedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
+    } else {
+      const { error } = await supabase.from('post_likes').insert({ post_id: permalink, user_id: user.id });
+      if (!error) setLikedIds(prev => new Set([...prev, permalink]));
+    }
+  };
+
+  const handleBookmark = async (e, permalink) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!user) { promptLogin(); return; }
+    if (!supabase) return;
+    if (bookmarkedIds.has(permalink)) {
+      const { error } = await supabase.from('post_bookmarks').delete().eq('post_id', permalink).eq('user_id', user.id);
+      if (!error) setBookmarkedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
+    } else {
+      const { error } = await supabase.from('post_bookmarks').insert({ post_id: permalink, user_id: user.id });
+      if (!error) setBookmarkedIds(prev => new Set([...prev, permalink]));
     }
   };
 
@@ -291,49 +303,87 @@ export default function RecentPosts({ posts = [] }) {
       ) : (
         <div className={styles.track} ref={scrollRef}>
           {filteredPosts.map((post, i) => (
-            <Link
-              key={post.id ?? post.permalink}
-              to={post.permalink}
-              className={[
-                styles.card,
-                i === activeIdx ? styles.cardActive : styles.cardInactive,
-              ].join(' ')}
-              onContextMenu={e => handleContextMenu(e, post.permalink)}
-            >
-              <CardCover
-                image={post.frontMatter?.image}
-                permalink={post.permalink}
-                title={post.title}
-              />
-              <div className={styles.cardBody}>
-                {(pinnedIds.has(post.permalink) || favoriteIds.has(post.permalink)) && (
-                  <div className={styles.badges}>
-                    {pinnedIds.has(post.permalink) && (
-                      <span className={styles.badge}>📌 {translate({id: 'recentPosts.badge.pinned', message: 'PINNED'})}</span>
-                    )}
-                    {favoriteIds.has(post.permalink) && (
-                      <span className={[styles.badge, styles.badgeFav].join(' ')}>
-                        ❤️ {translate({id: 'recentPosts.badge.fav', message: 'FAV'})}
-                      </span>
-                    )}
-                  </div>
-                )}
-                <h3 className={styles.cardTitle}>{post.title}</h3>
-                <time className={styles.cardDate}>
-                  {new Date(post.date).toLocaleDateString(
-                    undefined,
-                    { year: 'numeric', month: 'short', day: 'numeric' },
+            <div key={post.id ?? post.permalink} className={styles.cardWrapper}>
+              <Link
+                to={post.permalink}
+                className={[
+                  styles.card,
+                  i === activeIdx ? styles.cardActive : styles.cardInactive,
+                ].join(' ')}
+              >
+                <CardCover
+                  image={post.frontMatter?.image}
+                  permalink={post.permalink}
+                  title={post.title}
+                />
+                <div className={styles.cardBody}>
+                  {post.tags?.length > 0 && (
+                    <div className={styles.tags}>
+                      {post.tags.slice(0, 2).map(tag => (
+                        <span key={tag.label} className={styles.tag}>{tag.label}</span>
+                      ))}
+                    </div>
                   )}
-                </time>
-                {post.tags?.length > 0 && (
-                  <div className={styles.tags}>
-                    {post.tags.slice(0, 2).map(tag => (
-                      <span key={tag.label} className={styles.tag}>{tag.label}</span>
-                    ))}
-                  </div>
+                  {(pinnedIds.has(post.permalink) || favoriteIds.has(post.permalink)) && (
+                    <div className={styles.badges}>
+                      {pinnedIds.has(post.permalink) && (
+                        <span className={styles.badge}>📌 {translate({id: 'recentPosts.badge.pinned', message: 'PINNED'})}</span>
+                      )}
+                      {favoriteIds.has(post.permalink) && (
+                        <span className={[styles.badge, styles.badgeFav].join(' ')}>
+                          ❤️ {translate({id: 'recentPosts.badge.fav', message: 'FAV'})}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                  <h3 className={styles.cardTitle}>{post.title}</h3>
+                  <time className={styles.cardDate}>
+                    {new Date(post.date).toLocaleDateString(
+                      undefined,
+                      { year: 'numeric', month: 'short', day: 'numeric' },
+                    )}
+                  </time>
+                </div>
+              </Link>
+              {/* Action row — admin: pin+fav  |  user: like+bookmark (greyed if not logged in) */}
+              <div className={styles.actionRow}>
+                {isAdmin ? (
+                  <>
+                    <button
+                      className={[styles.actionBtn, pinnedIds.has(post.permalink) ? styles.actionBtnPinActive : ''].join(' ')}
+                      onClick={e => handlePin(e, post.permalink)}
+                    >
+                      <Icon icon={pinnedIds.has(post.permalink) ? 'ic:sharp-pin-off' : 'ic:sharp-push-pin'} width={14} />
+                      {pinnedIds.has(post.permalink) ? '已置顶' : '置顶'}
+                    </button>
+                    <button
+                      className={[styles.actionBtn, favoriteIds.has(post.permalink) ? styles.actionBtnFavActive : ''].join(' ')}
+                      onClick={e => handleFavorite(e, post.permalink)}
+                    >
+                      <Icon icon={favoriteIds.has(post.permalink) ? 'material-symbols:heart-check-rounded' : 'material-symbols:heart-plus-outline'} width={14} />
+                      {favoriteIds.has(post.permalink) ? '已最爱' : '最爱'}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      className={[styles.actionBtn, likedIds.has(post.permalink) ? styles.actionBtnLikeActive : !user ? styles.actionBtnGuest : ''].join(' ')}
+                      onClick={e => handleLike(e, post.permalink)}
+                    >
+                      <Icon icon={likedIds.has(post.permalink) ? 'material-symbols:thumb-up' : 'material-symbols:thumb-up-outline'} width={14} />
+                      {likedIds.has(post.permalink) ? '已点赞' : '点赞'}
+                    </button>
+                    <button
+                      className={[styles.actionBtn, bookmarkedIds.has(post.permalink) ? styles.actionBtnBookmarkActive : !user ? styles.actionBtnGuest : ''].join(' ')}
+                      onClick={e => handleBookmark(e, post.permalink)}
+                    >
+                      <Icon icon={bookmarkedIds.has(post.permalink) ? 'material-symbols:bookmark' : 'material-symbols:bookmark-outline'} width={14} />
+                      {bookmarkedIds.has(post.permalink) ? '已收藏' : '收藏'}
+                    </button>
+                  </>
                 )}
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       )}
@@ -344,17 +394,6 @@ export default function RecentPosts({ posts = [] }) {
         </Link>
       </div>
 
-      {menu && typeof document !== 'undefined' && (
-        <ContextMenu
-          x={menu.x}
-          y={menu.y}
-          isPinned={menu.isPinned}
-          isFavorite={menu.isFavorite}
-          onPin={togglePin}
-          onFavorite={toggleFavorite}
-          onClose={() => setMenu(null)}
-        />
-      )}
     </section>
   );
 }

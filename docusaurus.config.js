@@ -5,6 +5,11 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import { themes as prismThemes } from 'prism-react-renderer';
+import { createRequire } from 'module';
+
+// Load .env.local for local dev (Docusaurus doesn't load this automatically)
+const _require = createRequire(import.meta.url);
+_require('dotenv').config({ path: '.env.local' });
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
