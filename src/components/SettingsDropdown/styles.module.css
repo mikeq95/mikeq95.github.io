@@ -3,12 +3,23 @@
 }
 
 .trigger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: none;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content-secondary);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  user-select: none;
+}
+
+.trigger:hover {
+  background: var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-content);
 }
 
 .icon {
@@ -26,11 +37,11 @@
 .panel {
   position: absolute;
   right: 0;
-  top: 36px;
+  top: calc(100% + 6px);
   background: var(--ifm-background-color);
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 12px;
   width: 220px;
   z-index: 999;

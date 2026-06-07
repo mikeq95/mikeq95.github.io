@@ -7,10 +7,8 @@ import { supabase } from '@site/src/lib/supabase';
 import styles from './styles.module.css';
 
 const PROVIDERS = [
-  { id: 'google', label: 'Google', icon: 'logos:google-icon' },
   { id: 'github', label: 'GitHub', icon: 'mdi:github' },
   { id: 'discord', label: 'Discord', icon: 'logos:discord-icon' },
-  { id: 'twitter', label: 'X', icon: 'ri:twitter-x-fill' },
 ];
 
 function AuthButtonsInner() {

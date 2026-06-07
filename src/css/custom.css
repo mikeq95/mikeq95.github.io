@@ -6,10 +6,63 @@
 
 :root {
   --ifm-color-primary: #f40795;
+  --ifm-navbar-shadow: none;
 }
 
 [data-theme='dark'] {
   --ifm-color-primary: #06d6fb;
+}
+
+/* NavBar: show border only on scroll */
+html.nav-scrolled .navbar {
+  box-shadow: 0 1px 0 0 var(--ifm-color-emphasis-200);
+}
+
+/* NavBar brand title — SF Pro */
+.navbar__brand .navbar__title {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Search bar — icon-only by default, expand on focus */
+.navbar__search-input {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 999px !important;
+  background-color: var(--ifm-color-emphasis-200) !important;
+  border: none !important;
+  padding: 0 0 0 36px !important;
+  color: transparent !important;
+  cursor: pointer;
+  transition: width 0.25s ease, padding 0.25s ease, color 0.25s ease, background-color 0.2s !important;
+  box-shadow: none !important;
+}
+
+.navbar__search-input::placeholder {
+  color: transparent !important;
+  transition: color 0.2s;
+}
+
+.navbar__search-input:focus {
+  width: 200px !important;
+  padding: 0 12px 0 36px !important;
+  color: var(--ifm-color-content) !important;
+  background-color: var(--ifm-color-emphasis-200) !important;
+  outline: none !important;
+}
+
+.navbar__search-input:focus::placeholder {
+  color: var(--ifm-color-content-secondary) !important;
+}
+
+/* Solid dropdown backgrounds — no glass effect */
+[class*="searchBar"] [class*="dropdownMenu"],
+[class*="dropdownMenu"] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: var(--ifm-background-color) !important;
 }
 
 .cl-modalBackdrop {

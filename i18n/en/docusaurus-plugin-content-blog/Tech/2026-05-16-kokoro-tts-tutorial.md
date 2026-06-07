@@ -1,112 +1,81 @@
 ---
 slug: 2026/05/16/kokoro-tts-tutorial
-title: "Convert Articles to Podcast Audio with Kokoro — A Full Deployment Guide"
+title: "Convert Articles to Podcast Audio with Kokoro"
 date: 2026-05-16
 tags:
   - github
   - macos
 ---
 
-> This post documents how to locally deploy Kokoro TTS on a Mac (Apple Silicon) via Docker to convert English/Chinese articles into high-quality audio.
+I wanted to convert my English articles into audio so I could listen while walking. After looking around, the only option that's free, sounds good, and runs locally is [Kokoro](https://github.com/hexgrad/kokoro).
 
 {/* truncate */}
 
 ---
 
-## 1. Why Kokoro?
+## What Is Kokoro
 
-After evaluating several open-source TTS solutions, here's why **Kokoro + kokoro-web** came out on top:
+Kokoro is an open-source TTS (text-to-speech) model with 82M parameters — lightweight but surprisingly good. English quality approaches ElevenLabs commercial level, with 88 voices to choose from and an Apache 2.0 license, free for commercial use.
 
-| Solution | Stars | English Quality | Voice Variety | License |
-|----------|-------|-----------------|---------------|---------|
-| **Kokoro** | 7k+ | ⭐ Top-tier | 88 options | Apache 2.0 |
-| ChatTTS | ~33k | Moderate | Random, non-selectable | CC BY-NC (non-commercial) |
-| CosyVoice | High | Decent | Best Chinese | Apache 2.0 |
-
-**Key advantages of Kokoro:**
-
-- English quality approaches ElevenLabs commercial level
-- 88 voices (American/British, male/female, A–D quality grades)
-- 82M parameters — lightweight, runs directly on M1 Mac CPU
-- Apache 2.0 — free for commercial use
+We'll use [kokoro-web](https://github.com/eduardolat/kokoro-web) — a project that wraps Kokoro into a local service, launched with a single Docker command, with a web UI included, ready to use out of the box.
 
 ---
 
-## 2. Voice Quality Grades
+## Choosing a Voice
 
-Kokoro voices are graded A–D, with **A being the highest**:
-
-### English (US) — Recommended
+Kokoro voices are graded A–D by quality, A being highest. For English, just pick from these:
 
 | Voice | Grade | Style |
-|-------|-------|-------|
-| Heart | A | Warm female voice (top pick) |
+|---|---|---|
+| Heart | A | Warm female voice, top pick |
 | Bella | A- | High-quality female voice |
-| Nicole | B- | Natural female voice |
 | Michael | C+ | Mature male voice |
-
-### English (UK) — Recommended
-
-| Voice | Grade | Style |
-|-------|-------|-------|
 | Emma | B- | British female voice |
-| George | C | British male voice |
 
-> 💡 The first time you use a voice, its `.bin` file is downloaded automatically and cached — no need to re-download.
-
----
-
-## 3. Deployment Options
-
-| | Docker Compose | From Source | Browser (WebGPU) |
-|--|----------------|-------------|-----------------|
-| Difficulty | ⭐⭐ | ⭐⭐⭐ | ⭐ |
-| Requires | Docker | Node.js + npm | Nothing |
-| Best For | Daily local use | Developers modifying source | Occasional testing |
-
-**Verdict: Docker Compose is the recommended approach for daily use.**
+> The first time you use a voice, its model file is downloaded automatically and cached — no need to re-download.
 
 ---
 
-## 4. Prerequisites
+## Installing Docker
 
-### 1. Install Docker Desktop
+If you don't have Docker yet, install it first.
 
-Download Docker Desktop from the official site: [docker.com](https://www.docker.com/products/docker-desktop/)
+**International network**: download from the official site: [docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop/)
 
-Download the `.dmg` file, double-click to install, open Docker Desktop, and wait for it to start (a 🐳 icon appears in the menu bar).
+**Chinese network**: the official site can be slow, use Aliyun's mirror:
 
-### 2. Configure the Command-Line Path (permanent)
+```
+https://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/
+```
+
+Download the `.dmg`, double-click to install, open Docker Desktop, and wait for the 🐳 icon to appear in the menu bar.
+
+Then configure the command-line path so Terminal can find the docker command:
 
 ```bash
 echo 'export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-### 3. Verify Installation
+Verify the installation:
 
 ```bash
 docker --version && docker compose version
 ```
 
-Expected output:
-
-```
-Docker version 29.4.3, build 055a478
-Docker Compose version v5.1.3
-```
-
 ---
 
-## 5. Deploy kokoro-web
+## Deploying kokoro-web
 
-### 1. Create a Project Directory
+### 1. Create a project directory
 
 ```bash
 mkdir kokoro-web && cd kokoro-web
 ```
 
-### 2. Create `compose.yaml`
+> **Make sure you `cd` into the folder before doing anything else.** The `docker compose` commands must run inside this directory, otherwise you'll get `no configuration file provided`.
+
+### 2. Create the config file
 
 ```bash
 cat > compose.yaml << 'EOF'
@@ -118,100 +87,101 @@ services:
     environment:
       - KW_SECRET_API_KEY=my-secret-key
     volumes:
-      - ./kokoro-cache:/kokoro/cache  # cache models to avoid re-downloading
+      - ./kokoro-cache:/kokoro/cache
     restart: unless-stopped
 EOF
 ```
 
-> `KW_SECRET_API_KEY` is the access password for the local service — for local use, any value works.
+`KW_SECRET_API_KEY` is the access password for the local service — for local use, anything works, just remember what you set. I'd suggest leaving it as the default.
 
-### 3. Start the Service
+### 3. Start the service
 
 ```bash
 docker compose up -d
 ```
 
-The first start pulls the image, which may take a few minutes.
+The first start pulls the image, which can be slow on some networks — be patient.
 
-### 4. Verify It's Running
+Once you see this, it's up:
 
 ```bash
 docker compose logs -f
+# Success: Listening on http://0.0.0.0:3000
 ```
-
-When you see `Listening on http://0.0.0.0:3000`, the service is up.
 
 ---
 
-## 6. Using the WebUI
+## Using the Web UI
 
-Open your browser and go to:
+Open your browser and go to `http://localhost:3000`.
 
-```
-http://localhost:3000
-```
+### Configure the API (important)
 
-### Key Settings
+Click **API Settings** in the top right corner:
 
-| Option | Recommended Value | Notes |
-|--------|-------------------|-------|
-| **Execution place** | `API (Self-hosted)` | Use local Docker model, not in-browser |
-| **API URL** | `http://localhost:3000/api/v1` | Local service address |
-| **API Key** | `my-secret-key` | Same as the value in compose.yaml |
-| **Model quantization** | `model (q8f16)` | Best balance of speed and quality |
-| **Voice quality** | `Heart (A)` | Top recommendation |
+- **Base URL**: `http://localhost:3000/api/v1` (default, no change needed)
+- **API Key**: `my-secret-key`
 
-> ⚠️ **Important**: Always set `Execution place` to `API (Self-hosted)`. Running in the browser is very slow.
+> **Gotcha**: the API Key is just the value itself — don't include the `- KW_SECRET_API_KEY=` prefix from the compose file.
+
+Click **OK**.
+
+### Generation Settings
+
+Back on the main screen, a few key options:
+
+| Option | Recommended | Notes |
+|---|---|---|
+| **Execution place** | `API (Self-hosted)` | Use local Docker, not Browser |
+| **Model quantization** | `q8f16` | Best balance of speed and quality |
+| **Language accent** | `English (US)` | For English content |
+| **Voice** | `Heart` | Top recommendation |
+
+**Always set Execution place to `API (Self-hosted)`.** Running in the browser runs the model in your browser — much slower and re-downloads every time.
+
+Paste your article into **Text to process**, then click **Generate**.
+
+### Demo
+
+Input text:
+
+> Google is renowned for its innovative and employee-centric work environment. The company's campuses, often called "Googleplexes," feature vibrant designs with open spaces, recreational facilities, free gourmet meals, and wellness centers. Employees enjoy flexible work hours, remote options, and a strong emphasis on collaboration through team projects and hackathons.
+>
+> A culture of creativity thrives with "20% time," encouraging personal passion projects that have led to major products like Gmail. Diversity, inclusion, and continuous learning are prioritized through training programs and supportive leadership. This unique blend of fun, freedom, and purpose fosters high productivity and job satisfaction, making Google a top destination for tech talent worldwide.
+
+Generated with the Heart voice (~150 words, ~30 seconds on local CPU):
+
+<audio controls>
+  <source src="/assets/kokoro-demo-google.mp3" type="audio/mpeg" />
+</audio>
 
 ---
 
-## 7. Markdown File Input
+## Processing Markdown Files
 
-Kokoro only accepts plain text natively. Feeding a `.md` file directly will cause it to read out `##`, `**bold**`, and other Markdown syntax aloud.
+Kokoro only accepts plain text. Pasting a `.md` file directly will cause it to read out `##`, `**bold**`, and other Markdown syntax aloud.
 
-**Solution**: Use `pandoc` to convert first:
+Use `pandoc` to convert first:
 
 ```bash
 # Install pandoc
 brew install pandoc
 
-# Convert and generate audio
-pandoc article.md -t plain | kokoro-tts - output.mp3 --voice am_michael
+# Convert md to plain text, then copy-paste the output
+pandoc article.md -t plain
 ```
 
 ---
 
-## 8. Generation Speed
-
-Factors that affect speed:
-
-- **Article length**: scales linearly — ~300 words takes 30–60 seconds
-- **Model quantization**: `fp32` is slowest, `q8f16` is balanced, `q4` is fastest
-- **Execution location**: `API (Self-hosted)` runs on CPU; `Browser` uses GPU but requires an initial model download
-
----
-
-## 9. Common Management Commands
+## Useful Commands
 
 ```bash
 docker compose logs -f    # view live logs
 docker compose stop       # stop the service
 docker compose start      # start the service
-docker compose restart    # restart the service
 docker compose pull       # update to the latest version
 ```
 
 ---
 
-## 10. Related Links
-
-| Resource | URL |
-|----------|-----|
-| Kokoro model (core) | github.com/hexgrad/kokoro |
-| Model weights | huggingface.co/hexgrad/Kokoro-82M |
-| Live demo | hf.co/spaces/hexgrad/Kokoro-TTS |
-| kokoro-web (WebUI) | github.com/eduardolat/kokoro-web |
-
----
-
-_Deployment environment: MacBook Pro M1 Pro · macOS · Docker Desktop 29.4.3_
+_Environment: MacBook Pro M1 Pro · macOS · Docker Desktop 29.4.3_

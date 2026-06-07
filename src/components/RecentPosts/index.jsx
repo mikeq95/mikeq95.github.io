@@ -324,18 +324,6 @@ export default function RecentPosts({ posts = [] }) {
                       ))}
                     </div>
                   )}
-                  {(pinnedIds.has(post.permalink) || favoriteIds.has(post.permalink)) && (
-                    <div className={styles.badges}>
-                      {pinnedIds.has(post.permalink) && (
-                        <span className={styles.badge}>📌 {translate({id: 'recentPosts.badge.pinned', message: 'PINNED'})}</span>
-                      )}
-                      {favoriteIds.has(post.permalink) && (
-                        <span className={[styles.badge, styles.badgeFav].join(' ')}>
-                          ❤️ {translate({id: 'recentPosts.badge.fav', message: 'FAV'})}
-                        </span>
-                      )}
-                    </div>
-                  )}
                   <h3 className={styles.cardTitle}>{post.title}</h3>
                   <time className={styles.cardDate}>
                     {new Date(post.date).toLocaleDateString(

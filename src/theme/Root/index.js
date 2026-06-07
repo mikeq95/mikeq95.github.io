@@ -8,6 +8,13 @@ export default function Root({ children }) {
     if (typeof window !== 'undefined' && !window.gtag) {
       window.gtag = function() {};
     }
+
+    const onScroll = () => {
+      document.documentElement.classList.toggle('nav-scrolled', window.scrollY > 0);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
   return (
     <AuthProvider>

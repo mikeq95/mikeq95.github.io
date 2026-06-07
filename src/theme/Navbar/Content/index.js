@@ -87,15 +87,15 @@ export default function NavbarContent() {
           <div className={styles.authItem}>
             <AuthButtons />
           </div>
-          <div className={styles.settingsItem}>
-            <SettingsDropdown />
-          </div>
           <NavbarColorModeToggle className={styles.colorModeToggle} />
           {!searchBarItem && (
             <NavbarSearch>
               <SearchBar />
             </NavbarSearch>
           )}
+          <div className={styles.settingsItem}>
+            <SettingsDropdown />
+          </div>
         </>
       }
     />

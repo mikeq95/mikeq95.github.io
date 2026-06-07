@@ -209,24 +209,6 @@
   min-height: 0;
 }
 
-/* ── Badges ── */
-.badges {
-  display: flex;
-  gap: 0.4rem;
-  margin-bottom: 0.35rem;
-}
-
-.badge {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: #FF6B35;
-}
-
-.badgeFav {
-  color: #e03e3e;
-}
-
 /* ── Card text ── */
 .cardTitle {
   font-size: 1rem;

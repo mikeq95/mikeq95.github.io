@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import { useEffect, useRef } from 'react';
 import Heading from '@theme/Heading';
@@ -13,7 +12,6 @@ function HomepageHeader() {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const isZh = currentLocale.startsWith('zh');
   const heroTextRef = useRef(null);
-  const imgRef = useRef(null);
   const blogData = usePluginData('blog-global-data');
   const tags = useMemo(() => {
     const map = new Map();
@@ -41,12 +39,7 @@ function HomepageHeader() {
             ease: 'power2.out',
           });
         }
-        gsap.from(imgRef.current, {
-          opacity: 0,
-          scale: 0.9,
-          duration: 0.8,
-          ease: 'power2.out',
-        });
+
       });
     });
     return () => ctx?.revert();
@@ -78,14 +71,6 @@ function HomepageHeader() {
               ))}
             </div>
           )}
-        </div>
-        <div className={styles.heroImageContainer}>
-          <img
-            ref={imgRef}
-            src={useBaseUrl('/img/ahri.jpg')}
-            alt="Profile Avatar"
-            className={styles.heroImage}
-          />
         </div>
       </div>
     </header>

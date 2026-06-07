@@ -10,23 +10,15 @@ tags:
 
 #### Recommended Order
 
-Move away from Baidu. The following engines all make solid alternatives:
-
-| Engine | Best For |
-|--------|----------|
-| **Google** | Everyday searches, first choice |
-| **DuckDuckGo** | Controversial topics, privacy protection |
-| **Yandex** | Raw content, software resources, music |
-| **Brave** | Everyday searches, secondary option |
-| **Bing** | Casual use or transitioning from Baidu |
+Google is great for everyday searches. DuckDuckGo and Brave are better for privacy-conscious users. Yandex is good for finding edgier content. Bing (Chinese version) works as a fallback if you can't access international sites.
 
 {/* truncate */}
 
 #### Engine Characteristics
 
-- **Google**: Results for controversial content lean toward mainstream PC viewpoints; opposing views are sparse and weak
-- **DuckDuckGo**: More neutral than Google; no keyword highlighting in results (fixable with a userscript — see end of post)
-- **Yandex**: Completely ignores Western political correctness; good for sensitive or edgy content
+- **Google**: Results for controversial content lean toward mainstream PC viewpoints; opposing views are sparse and weak.
+- **DuckDuckGo**: More neutral than Google, but search keywords aren't highlighted in results — you'll need a userscript to fix that (see end of post). (Any AI can write the script for you.)
+- **Yandex**: Completely ignores Western political correctness; good for sensitive or edgy content.
     - e.g. Search "Epstein list" — only Yandex puts the actual list at the top
     - e.g. Search "Hollywood scandals" — only Yandex shows hard-hitting results
 - **Political correctness level**: `Google > Brave > DuckDuckGo > Yandex`
@@ -35,51 +27,34 @@ Move away from Baidu. The following engines all make solid alternatives:
 
 ### 2. Practical Search Tips
 
-#### Software Resources (for students)
+#### Software Resources & Free Music Downloads
 
 Use **Yandex** and search:
 
 ```
-software name + cracked / premium / unlocked
-```
-
-Works for Android, PC, and Mac.
-
-#### Free Music Downloads (for students)
-
-Use **Yandex** and search:
-
-```
-song name + free download
-song name + Скачать
+software name + cracked / premium / unlocked / Скачать
 ```
 
 Look for results with Russian-language links — they usually allow direct download.
+Works for Android, PC, and Mac.
 
-#### Site-Specific Search
-
-```
-keyword site:https://x.com
-```
-
-Useful for resource sites with poor built-in search.
 
 #### Finding E-books (Anna's Archive / Z-Library)
 
-```
-keyword + edition      # search for revised editions — usually higher quality, e.g.: tort edition
-keyword + translation  # search for translated versions
-```
+> Quick tip: if you Google "Anna's Archive" or "Z-Library", you'll likely get a bunch of unrelated results. Try Yandex instead — the first result is almost always what you're looking for. (Yandex is genuinely underrated!)
 
-#### Using Douban to Find Good Books
-
-Search on Douban → filter by high ratings; the book detail page also recommends similar titles.
+```
+keyword + edition      
+keyword + translation  
+```
 
 ---
 
 ### 3. DuckDuckGo Keyword Highlight Userscript
 
 > Requires the [Tampermonkey](https://www.tampermonkey.net/) browser extension.
+
+javascript
 
 ```javascript
 // ==UserScript==
@@ -100,3 +75,10 @@ Search on Douban → filter by high ratings; the book detail page also recommend
     `);
 })();
 ```
+
+---
+
+### 4. FAQ
+
+1. **I searched the way you described but got no results — why?**
+   Search engines use safe mode by default. Go to Settings and turn it off — look for "No filter" (filter = content filtering; no filter = uncensored results). That's the one you want.

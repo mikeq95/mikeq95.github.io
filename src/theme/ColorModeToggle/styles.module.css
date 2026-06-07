@@ -3,7 +3,7 @@
   align-items: center;
   background-color: var(--ifm-color-emphasis-200);
   border-radius: 999px;
-  padding: 3px;
+  padding: 5px;
   cursor: pointer;
   gap: 2px;
   user-select: none;

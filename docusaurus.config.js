@@ -50,7 +50,7 @@ const config = {
     defaultLocale: 'zh-Hans',
     locales: ['zh-Hans', 'en'],
     localeConfigs: {
-      'zh-Hans': { label: '中文', htmlLang: 'zh-Hans' },
+      'zh-Hans': { label: '简体中文', htmlLang: 'zh-Hans' },
       en: { label: 'English', htmlLang: 'en' },
     },
   },
@@ -110,6 +110,7 @@ const config = {
         indexBlog: true,
         indexPages: true,
         docsRouteBasePath: [],
+        searchBarShortcutHint: false,
       }),
     ],
   ],
@@ -128,10 +129,14 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'mikeq95',
+        logo: {
+          alt: 'poluobaby',
+          src: 'img/poluobaby.jpg',
+          style: { borderRadius: '50%', height: '36px', width: '36px', objectFit: 'cover' },
+        },
+        title: "mikeq95's blog",
         items: [
-          { to: '/blog', label: 'Blog', position: 'left' },
-          { type: 'localeDropdown', position: 'right' },
+          { type: 'custom-NavbarLanguageSwitcher', position: 'right' },
         ],
       },
       prism: {

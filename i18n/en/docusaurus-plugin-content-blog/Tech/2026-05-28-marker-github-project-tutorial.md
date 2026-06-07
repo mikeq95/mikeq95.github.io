@@ -7,13 +7,15 @@ tags:
   - macos
 ---
 
-I personally enjoy browsing [instructables](https://www.instructables.com) — the site helpfully provides a "Export article as PDF" button in the top right, but no "Export as Markdown" option. I really wanted Markdown format, since AI tools prefer reading `.md` over PDF. After searching online, I found this GitHub project.
-
-Marker is an open-source tool that converts PDF, Word, PPT, and other file formats into Markdown. It's fast, and accuracy is pretty solid. This post documents how to get it running.
+[Marker](https://github.com/datalab-to/marker) is an open-source tool that converts PDF, Word, PPT, and other file formats into Markdown. It's fast, and accuracy is pretty solid. This post documents how to get it running.
 
 {/* truncate */}
 
 ---
+
+### Preface:
+
+I personally enjoy browsing [instructables](https://www.instructables.com) — the site helpfully provides an "Export article as PDF" button in the top right, but no "Export as Markdown" option. I really wanted Markdown format, since AI tools prefer reading `.md` over PDF. After searching online, I found this GitHub project.
 
 ## Setting Up the Environment
 
@@ -126,34 +128,6 @@ marker_single ~/Downloads/paper.pdf \
 The first run downloads the AI models (~1 GB) — be patient. Afterwards, math formulas are converted to LaTeX, tables and headings are preserved. Results are quite good.
 
 ---
-
-### Convert a Scanned PDF
-
-Text in scanned PDFs is stored as images and can't be recognized normally. Add `--force_ocr`:
-
-```bash
-marker_single ~/Downloads/scanned.pdf \
-  --output_dir ~/Desktop/output \
-  --force_ocr \
-  --langs zh
-```
-
-This mode is slower — roughly 5–15 seconds per page. Don't stop it midway.
-
----
-
-### Convert Specific Pages, Output as JSON
-
-For example, from a 200-page report, extract only pages 1, 5–10, and 20:
-
-```bash
-marker_single ~/Downloads/report.pdf \
-  --output_dir ~/Desktop/output \
-  --page_range "0,4-9,19" \
-  --output_format json
-```
-
-JSON output produces structured data — useful for further processing, such as importing into a database or feeding into an LLM.
 
 ---
 
