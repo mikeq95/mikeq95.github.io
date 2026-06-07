@@ -6,12 +6,14 @@ import { useEffect, useRef } from 'react';
 import Heading from '@theme/Heading';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import RecentPosts from '@site/src/components/RecentPosts';
+import HeroAuthCard from '@site/src/components/HeroAuthCard';
 import styles from './index.module.css';
 
 function HomepageHeader() {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const isZh = currentLocale.startsWith('zh');
   const heroTextRef = useRef(null);
+  const cardRef = useRef(null);
   const blogData = usePluginData('blog-global-data');
   const tags = useMemo(() => {
     const map = new Map();
@@ -39,7 +41,12 @@ function HomepageHeader() {
             ease: 'power2.out',
           });
         }
-
+        gsap.from(cardRef.current, {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: 'power2.out',
+        });
       });
     });
     return () => ctx?.revert();
@@ -71,6 +78,9 @@ function HomepageHeader() {
               ))}
             </div>
           )}
+        </div>
+        <div className={styles.heroCardContainer} ref={cardRef}>
+          <HeroAuthCard />
         </div>
       </div>
     </header>

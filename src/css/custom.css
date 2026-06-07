@@ -26,6 +26,12 @@ html.nav-scrolled .navbar {
   letter-spacing: -0.02em;
 }
 
+/* Search container — drop default Infima padding so the icon button
+   sits flush, like the other navbar buttons (uniform gap handles spacing) */
+[class*="navbarSearchContainer"] {
+  padding: 0 !important;
+}
+
 /* Search bar — icon-only by default, expand on focus */
 .navbar__search-input {
   width: 38px !important;

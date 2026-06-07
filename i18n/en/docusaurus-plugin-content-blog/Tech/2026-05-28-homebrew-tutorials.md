@@ -2,6 +2,7 @@
 slug: 2026/05/28/homebrew-tutorials
 title: Introduction to Homebrew
 date: 2026-05-28
+image: /coverimage/Homebrew-coverimage.png
 tags:
   - macos
 ---

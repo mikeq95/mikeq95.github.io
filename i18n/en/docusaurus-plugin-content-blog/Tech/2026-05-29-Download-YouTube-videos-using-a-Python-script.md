@@ -2,7 +2,7 @@
 slug: 2026/05/29/download-youtube-videos-using-a-python-script
 title: Download YouTube Videos Using a Python Script
 date: 2026-05-29
-image: /assets/Download%20YouTube%20videos%20using%20a%20Python%20script..png
+image: /coverimage/Download%20YouTube%20videos%20using%20a%20Python%20script..png
 tags:
   - macos
 ---

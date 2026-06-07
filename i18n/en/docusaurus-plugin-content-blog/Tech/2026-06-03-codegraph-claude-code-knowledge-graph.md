@@ -2,6 +2,7 @@
 slug: 2026/06/03/codegraph-claude-code-knowledge-graph
 title: "CodeGraph: Help Claude Code Work Smarter, Cut Token Usage in Half"
 date: 2026-06-03
+image: /coverimage/codegraphCowerImage.png
 tags:
   - github
   - AI

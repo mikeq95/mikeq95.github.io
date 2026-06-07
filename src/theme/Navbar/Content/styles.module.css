@@ -1,13 +1,11 @@
 .authItem {
   display: flex;
   align-items: center;
-  margin-right: 0.5rem;
 }
 
 .settingsItem {
   display: flex;
   align-items: center;
-  margin-right: 0.25rem;
 }
 
 .placeholder {
@@ -20,6 +18,10 @@
   .colorModeToggle {
     display: none;
   }
+}
+
+:global(.navbar__items--right) {
+  gap: 0.5rem;
 }
 
 :global(.navbar__items--right) > :last-child {

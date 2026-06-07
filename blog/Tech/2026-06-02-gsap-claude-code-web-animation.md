@@ -2,6 +2,7 @@
 slug: 2026/06/02/gsap-claude-code-web-animation
 title: GSAP + Claude Code，为你的网页加上炫酷动画
 date: 2026-06-02
+image: /coverimage/GSAP-Skills-CoverImage.png
 tags:
   - github
   - macos

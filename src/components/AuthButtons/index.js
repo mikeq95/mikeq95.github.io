@@ -11,6 +11,25 @@ const PROVIDERS = [
   { id: 'discord', label: 'Discord', icon: 'logos:discord-icon' },
 ];
 
+function LoginIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" />
+    </svg>
+  );
+}
+
 function AuthButtonsInner() {
   const { user, loading } = useAuth();
   const { siteConfig, i18n: { currentLocale, defaultLocale } } = useDocusaurusContext();
@@ -50,11 +69,12 @@ function AuthButtonsInner() {
       <div className={styles.auth} ref={loginRef}>
         <button
           type="button"
-          className={`${styles.btn} ${styles.btnPrimary}`}
+          className={styles.iconBtn}
           data-auth-trigger
           onClick={() => setLoginOpen(o => !o)}
+          aria-label={isEn ? 'Login' : '登录'}
         >
-          {isEn ? 'Login' : '登录'}
+          <LoginIcon />
         </button>
         {loginOpen && (
           <div className={styles.dropdown}>

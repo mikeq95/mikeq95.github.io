@@ -33,20 +33,12 @@
   text-align: left;
 }
 
-/* ── Right: avatar ── */
-.heroImageContainer {
-  flex: 0 0 260px;
+/* ── Right: auth/welcome card ── */
+.heroCardContainer {
+  flex: 0 0 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.heroImage {
-  width: 260px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
 }
 
 /* ── Gradient on part of title ── */
@@ -151,14 +143,10 @@
     order: 2;
   }
 
-  .heroImageContainer {
+  .heroCardContainer {
     flex: 0 0 auto;
     order: 1;
-  }
-
-  .heroImage {
-    width: 180px;
-    height: 180px;
+    width: 100%;
   }
 
   .title {
