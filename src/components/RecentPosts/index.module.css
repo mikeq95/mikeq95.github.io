@@ -78,6 +78,51 @@
   color: #1d1d1f;
 }
 
+/* ── Track wrapper — anchors the prev/next scroll buttons ── */
+.trackWrapper {
+  position: relative;
+}
+
+/* Prev/next scroll buttons — same look as BackToTop: circular, primary-colored,
+   floating with a soft shadow, for mouse users who can't easily drag-scroll. */
+.scrollBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--ifm-color-primary);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.scrollBtn:hover {
+  opacity: 0.85;
+  transform: translateY(-50%) scale(1.06);
+}
+
+.scrollBtnLeft {
+  left: 1rem;
+}
+
+.scrollBtnRight {
+  right: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .scrollBtn {
+    display: none;
+  }
+}
+
 /* ── Horizontal scroll track ── */
 .track {
   display: flex;

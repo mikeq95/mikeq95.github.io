@@ -10,7 +10,7 @@ const PRESET_COLORS = [
   '#AF52DE', // Purple (Default)
 ];
 
-export default function ThemeColorButton({ label = '外观' }) {
+export default function ThemeColorButton({ label = '外观', children }) {
   const [color, setColor] = useState('#AF52DE'); // Default purple
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -60,19 +60,22 @@ export default function ThemeColorButton({ label = '外观' }) {
       </div>
       
       {isExpanded && (
-        <div className={styles.paletteInline}>
-          {PRESET_COLORS.map(c => (
-            <div 
-              key={c}
-              className={styles.colorSwatch}
-              style={{ 
-                backgroundColor: c, 
-                border: color === c ? '2px solid var(--ifm-color-content)' : '1px solid rgba(0,0,0,0.15)',
-                transform: color === c ? 'scale(1.15)' : 'scale(1)'
-              }}
-              onClick={() => setColor(c)}
-            />
-          ))}
+        <div className={styles.expanded}>
+          {children}
+          <div className={styles.paletteInline}>
+            {PRESET_COLORS.map(c => (
+              <div
+                key={c}
+                className={styles.colorSwatch}
+                style={{
+                  backgroundColor: c,
+                  border: color === c ? '2px solid var(--ifm-color-content)' : '1px solid rgba(0,0,0,0.15)',
+                  transform: color === c ? 'scale(1.15)' : 'scale(1)'
+                }}
+                onClick={() => setColor(c)}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

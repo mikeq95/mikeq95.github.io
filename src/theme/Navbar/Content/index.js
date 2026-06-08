@@ -10,13 +10,11 @@ import {
   useNavbarMobileSidebar,
 } from '@docusaurus/theme-common/internal';
 import NavbarItem from '@theme/NavbarItem';
-import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 import SearchBar from '@theme/SearchBar';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 import AuthButtons from '@site/src/components/AuthButtons';
-import SettingsDropdown from '@site/src/components/SettingsDropdown';
 
 import styles from './styles.module.css';
 
@@ -83,18 +81,14 @@ export default function NavbarContent() {
       }
       right={
         <>
-          <NavbarItems items={rightItems} />
-          <div className={styles.authItem}>
-            <AuthButtons />
-          </div>
-          <NavbarColorModeToggle className={styles.colorModeToggle} />
           {!searchBarItem && (
             <NavbarSearch>
               <SearchBar />
             </NavbarSearch>
           )}
-          <div className={styles.settingsItem}>
-            <SettingsDropdown />
+          <NavbarItems items={rightItems} />
+          <div className={styles.authItem}>
+            <AuthButtons />
           </div>
         </>
       }

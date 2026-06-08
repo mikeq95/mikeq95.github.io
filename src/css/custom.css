@@ -26,10 +26,30 @@ html.nav-scrolled .navbar {
   letter-spacing: -0.02em;
 }
 
+/* On narrow screens, show just the logo — title text gets cramped next to the
+   hamburger toggle and the right-side icon cluster, so drop it like Apple's
+   mobile nav does. */
+@media (max-width: 996px) {
+  .navbar__brand .navbar__title {
+    display: none;
+  }
+}
+
 /* Search container — drop default Infima padding so the icon button
-   sits flush, like the other navbar buttons (uniform gap handles spacing) */
+   sits flush, like the other navbar buttons (uniform gap handles spacing).
+   Docusaurus pins this container to the navbar's right edge with
+   `position: absolute` below 996px, which assumes search is the only
+   right-side icon on mobile — here it would float on top of and hide
+   the language switcher / profile buttons that sit next to it, so keep
+   it in normal flex flow alongside them instead. */
 [class*="navbarSearchContainer"] {
   padding: 0 !important;
+}
+
+@media (max-width: 996px) {
+  [class*="navbarSearchContainer"] {
+    position: static !important;
+  }
 }
 
 /* Search bar — icon-only by default, expand on focus */

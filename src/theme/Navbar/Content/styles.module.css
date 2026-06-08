@@ -3,21 +3,10 @@
   align-items: center;
 }
 
-.settingsItem {
-  display: flex;
-  align-items: center;
-}
-
 .placeholder {
   display: inline-block;
   width: 120px;
   height: 32px;
-}
-
-@media (max-width: 996px) {
-  .colorModeToggle {
-    display: none;
-  }
 }
 
 :global(.navbar__items--right) {

@@ -389,6 +389,14 @@
     "message": "All posts →",
     "description": "Link to the full blog archive"
   },
+  "recentPosts.scrollLeft": {
+    "message": "Scroll left",
+    "description": "Aria label for the button that scrolls the card track left"
+  },
+  "recentPosts.scrollRight": {
+    "message": "Scroll right",
+    "description": "Aria label for the button that scrolls the card track right"
+  },
   "recentPosts.badge.pinned": {
     "message": "PINNED",
     "description": "Badge label for pinned posts"

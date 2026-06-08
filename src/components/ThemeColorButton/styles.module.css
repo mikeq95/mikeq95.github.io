@@ -26,6 +26,12 @@
   opacity: 0.9;
 }
 
+.expanded {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .paletteInline {
   display: flex;
   gap: 12px;

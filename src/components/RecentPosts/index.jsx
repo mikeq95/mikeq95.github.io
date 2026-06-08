@@ -240,6 +240,12 @@ export default function RecentPosts({ posts = [] }) {
     if (btn) btn.click();
   };
 
+  const scrollTrack = (direction) => {
+    const track = scrollRef.current;
+    if (!track) return;
+    track.scrollBy({ left: direction * track.clientWidth * 0.8, behavior: 'smooth' });
+  };
+
   const handleLike = async (e, permalink) => {
     e.preventDefault();
     e.stopPropagation();
@@ -301,7 +307,16 @@ export default function RecentPosts({ posts = [] }) {
           {translate({id: 'recentPosts.empty', message: 'No posts yet'})}
         </div>
       ) : (
-        <div className={styles.track} ref={scrollRef}>
+        <div className={styles.trackWrapper}>
+          <button
+            type="button"
+            className={`${styles.scrollBtn} ${styles.scrollBtnLeft}`}
+            onClick={() => scrollTrack(-1)}
+            aria-label={translate({id: 'recentPosts.scrollLeft', message: 'Scroll left'})}
+          >
+            <Icon icon="mdi:chevron-left" width={24} height={24} />
+          </button>
+          <div className={styles.track} ref={scrollRef}>
           {filteredPosts.map((post, i) => (
             <div key={post.id ?? post.permalink} className={styles.cardWrapper}>
               <Link
@@ -373,6 +388,15 @@ export default function RecentPosts({ posts = [] }) {
               </div>
             </div>
           ))}
+          </div>
+          <button
+            type="button"
+            className={`${styles.scrollBtn} ${styles.scrollBtnRight}`}
+            onClick={() => scrollTrack(1)}
+            aria-label={translate({id: 'recentPosts.scrollRight', message: 'Scroll right'})}
+          >
+            <Icon icon="mdi:chevron-right" width={24} height={24} />
+          </button>
         </div>
       )}
 

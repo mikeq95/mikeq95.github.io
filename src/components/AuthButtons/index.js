@@ -4,6 +4,8 @@ import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
+import ThemeColorButton from '@site/src/components/ThemeColorButton';
+import ColorModeToggle from '@site/src/theme/ColorModeToggle';
 import styles from './styles.module.css';
 
 const PROVIDERS = [
@@ -27,6 +29,16 @@ function LoginIcon() {
       <circle cx="12" cy="8" r="4" />
       <path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" />
     </svg>
+  );
+}
+
+function CustomizeSection({ isEn }) {
+  return (
+    <div className={styles.customizeSection}>
+      <ThemeColorButton label={isEn ? 'Customize' : '个性化'}>
+        <ColorModeToggle />
+      </ThemeColorButton>
+    </div>
   );
 }
 
@@ -78,6 +90,8 @@ function AuthButtonsInner() {
         </button>
         {loginOpen && (
           <div className={styles.dropdown}>
+            <CustomizeSection isEn={isEn} />
+            <hr className={styles.divider} />
             {PROVIDERS.map(({ id, label, icon }) => (
               <button
                 key={id}
@@ -114,6 +128,8 @@ function AuthButtonsInner() {
       {userOpen && (
         <div className={styles.dropdown}>
           <div className={styles.userName}>{name}</div>
+          <hr className={styles.divider} />
+          <CustomizeSection isEn={isEn} />
           <hr className={styles.divider} />
           <a href={`${lp}/my-likes`} className={styles.dropdownItem}>
             {isEn ? 'My Likes' : '我的点赞'}

@@ -389,6 +389,14 @@
     "message": "查看全部文章 →",
     "description": "Link to the full blog archive"
   },
+  "recentPosts.scrollLeft": {
+    "message": "向左滚动",
+    "description": "Aria label for the button that scrolls the card track left"
+  },
+  "recentPosts.scrollRight": {
+    "message": "向右滚动",
+    "description": "Aria label for the button that scrolls the card track right"
+  },
   "recentPosts.badge.pinned": {
     "message": "置顶",
     "description": "Badge label for pinned posts"
