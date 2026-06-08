@@ -69,13 +69,16 @@
 }
 
 @media (max-width: 996px) {
-  .label {
+  .label,
+  .chevron {
     display: none;
   }
 
   .pill {
-    padding: 0 10px;
+    padding: 0;
     width: 38px;
+    height: 38px;
     justify-content: center;
+    gap: 0;
   }
 }

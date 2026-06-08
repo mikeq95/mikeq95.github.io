@@ -38,7 +38,7 @@ export default function Footer() {
           />
         </div>
         <div className={styles.copyright}>
-          © {year} {siteConfig.title} · {siteConfig.tagline}
+          © {year} {siteConfig.title}
         </div>
       </div>
     </footer>

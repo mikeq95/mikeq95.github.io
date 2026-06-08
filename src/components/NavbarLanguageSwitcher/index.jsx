@@ -88,7 +88,9 @@ function LanguageSwitcherButton() {
       >
         <GlobeIcon />
         <span className={styles.label}>{label}</span>
-        <ChevronIcon open={open} />
+        <span className={styles.chevron}>
+          <ChevronIcon open={open} />
+        </span>
       </button>
 
       {open && (

@@ -38,6 +38,19 @@
   padding: 6px 14px 4px;
 }
 
+.darkModeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.darkModeLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ifm-color-content);
+}
+
 .dropdown {
   position: absolute;
   top: calc(100% + 6px);

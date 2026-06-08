@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Icon } from '@iconify/react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useLocation } from '@docusaurus/router';
 import styles from './styles.module.css';
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
+  const { i18n: { currentLocale, defaultLocale } } = useDocusaurusContext();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400);
@@ -12,6 +16,13 @@ export default function BackToTop() {
   }, []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // The hero/landing page (site root) has its own short layout — back-to-top
+  // doesn't make sense there, only on long-scroll pages like the blog.
+  const basePath = currentLocale === defaultLocale
+    ? pathname
+    : pathname.replace(new RegExp(`^/${currentLocale}`), '') || '/';
+  if (basePath === '/' || basePath === '') return null;
 
   return (
     <button

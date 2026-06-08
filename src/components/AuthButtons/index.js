@@ -32,11 +32,20 @@ function LoginIcon() {
   );
 }
 
+function DarkModeRow({ isEn }) {
+  return (
+    <div className={styles.darkModeRow}>
+      <span className={styles.darkModeLabel}>{isEn ? 'Dark Mode:' : '夜间模式：'}</span>
+      <ColorModeToggle />
+    </div>
+  );
+}
+
 function CustomizeSection({ isEn }) {
   return (
     <div className={styles.customizeSection}>
       <ThemeColorButton label={isEn ? 'Customize' : '个性化'}>
-        <ColorModeToggle />
+        <DarkModeRow isEn={isEn} />
       </ThemeColorButton>
     </div>
   );
