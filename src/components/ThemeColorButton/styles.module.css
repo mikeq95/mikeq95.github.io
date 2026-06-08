@@ -32,11 +32,25 @@
   gap: 10px;
 }
 
+.paletteRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.paletteLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ifm-color-content);
+  white-space: nowrap;
+}
+
 .paletteInline {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
-  padding: 8px 0;
+  justify-content: flex-end;
 }
 
 .colorSwatch {

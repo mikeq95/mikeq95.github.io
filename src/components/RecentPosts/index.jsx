@@ -243,7 +243,10 @@ export default function RecentPosts({ posts = [] }) {
   const scrollTrack = (direction) => {
     const track = scrollRef.current;
     if (!track) return;
-    track.scrollBy({ left: direction * track.clientWidth * 0.8, behavior: 'smooth' });
+    const card = track.children[0];
+    if (!card) return;
+    const gap = parseFloat(getComputedStyle(track).columnGap || '0');
+    track.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: 'smooth' });
   };
 
   const handleLike = async (e, permalink) => {

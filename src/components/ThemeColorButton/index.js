@@ -2,15 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './styles.module.css';
 
 const PRESET_COLORS = [
-  '#007AFF', // Blue
   '#32ADE6', // Cyan
   '#34C759', // Green
   '#FF2D55', // Magenta
-  '#FF9500', // Orange
   '#AF52DE', // Purple (Default)
 ];
 
-export default function ThemeColorButton({ label = '外观', children }) {
+export default function ThemeColorButton({ label = '外观', colorLabel = '主题颜色', children }) {
   const [color, setColor] = useState('#AF52DE'); // Default purple
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -62,19 +60,22 @@ export default function ThemeColorButton({ label = '外观', children }) {
       {isExpanded && (
         <div className={styles.expanded}>
           {children}
-          <div className={styles.paletteInline}>
-            {PRESET_COLORS.map(c => (
-              <div
-                key={c}
-                className={styles.colorSwatch}
-                style={{
-                  backgroundColor: c,
-                  border: color === c ? '2px solid var(--ifm-color-content)' : '1px solid rgba(0,0,0,0.15)',
-                  transform: color === c ? 'scale(1.15)' : 'scale(1)'
-                }}
-                onClick={() => setColor(c)}
-              />
-            ))}
+          <div className={styles.paletteRow}>
+            <span className={styles.paletteLabel}>{colorLabel}</span>
+            <div className={styles.paletteInline}>
+              {PRESET_COLORS.map(c => (
+                <div
+                  key={c}
+                  className={styles.colorSwatch}
+                  style={{
+                    backgroundColor: c,
+                    border: color === c ? '2px solid var(--ifm-color-content)' : '1px solid rgba(0,0,0,0.15)',
+                    transform: color === c ? 'scale(1.15)' : 'scale(1)'
+                  }}
+                  onClick={() => setColor(c)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       )}

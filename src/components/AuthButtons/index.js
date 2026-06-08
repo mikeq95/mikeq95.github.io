@@ -44,7 +44,10 @@ function DarkModeRow({ isEn }) {
 function CustomizeSection({ isEn }) {
   return (
     <div className={styles.customizeSection}>
-      <ThemeColorButton label={isEn ? 'Customize' : '个性化'}>
+      <ThemeColorButton
+        label={isEn ? 'Customize' : '个性化'}
+        colorLabel={isEn ? 'Theme Colors' : '主题颜色'}
+      >
         <DarkModeRow isEn={isEn} />
       </ThemeColorButton>
     </div>
