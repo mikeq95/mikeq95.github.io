@@ -2,6 +2,7 @@
 slug: 2026/04/29/coding-english-vocabulary
 title: Programming English Vocabulary Collection
 date: 2026-04-29
+image: /coverimage/ProgrammingEnglish.png
 tags:
   - "English"
   - Swift

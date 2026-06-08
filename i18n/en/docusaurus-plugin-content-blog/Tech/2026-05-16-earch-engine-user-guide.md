@@ -1,7 +1,8 @@
 ---
-slug: 2026/05/16/earch-engine-user-guide
+slug: 2026/05/16/recommended-commonly-used-search-engines
 title: "Search Engine User Guide"
 date: 2026-05-16
+image: /coverimage/Recommended%20commonly%20used%20search%20engines.png
 tags:
   - collection
 ---

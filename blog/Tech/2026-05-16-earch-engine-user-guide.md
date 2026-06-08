@@ -1,7 +1,8 @@
 ---
-slug: 2026/05/16/earch-engine-user-guide
-title: "搜索引擎使用指南"
+slug: 2026/05/16/recommended-commonly-used-search-engines
+title: "常用的搜索引擎推荐"
 date: 2026-05-16
+image: /coverimage/%E5%B8%B8%E7%94%A8%E7%9A%84%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8E%A8%E8%8D%90.png
 tags:
   - collection
 ---
