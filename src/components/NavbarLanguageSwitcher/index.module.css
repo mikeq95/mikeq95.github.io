@@ -1,6 +1,7 @@
 .wrapper {
   position: relative;
   display: inline-flex;
+  align-items: center;
 }
 
 .pill {
@@ -26,6 +27,26 @@
 .pill:hover {
   background-color: var(--ifm-color-emphasis-300);
   color: var(--ifm-color-content);
+}
+
+/* Underline slide-in on hover */
+.label {
+  position: relative;
+}
+
+.label::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.2s ease;
+}
+
+.pill:hover .label::after {
+  width: 100%;
 }
 
 .dropdown {

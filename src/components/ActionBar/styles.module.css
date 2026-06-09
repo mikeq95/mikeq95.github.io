@@ -1,18 +1,26 @@
+/* ── Bar: floating card ── */
 .bar {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 0;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  margin: 16px 0;
-  overflow-x: auto;
+  padding: 12px 16px;
+  margin: 20px 0;
+  background: var(--ifm-background-surface-color);
+  border-radius: 16px;
+  border: 1px solid var(--ifm-color-emphasis-100);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
 }
 
+[data-theme='dark'] .bar {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Interaction group (like + bookmark) ── */
 .actions {
   display: flex;
   align-items: center;
   gap: 4px;
+  flex-shrink: 0;
 }
 
 .actionBtn {
@@ -24,11 +32,11 @@
   cursor: pointer;
   padding: 6px 10px;
   border-radius: 999px;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Like button hover — red glow */
+/* Like hover */
 .actionBtn.likeBtn:hover {
   background: rgba(254, 44, 85, 0.1);
 }
@@ -40,7 +48,7 @@
   color: #fe2c55;
 }
 
-/* Bookmark button hover — yellow glow */
+/* Bookmark hover */
 .actionBtn.bookmarkBtn:hover {
   background: rgba(255, 180, 0, 0.1);
 }
@@ -52,11 +60,20 @@
   color: #ffb400;
 }
 
+/* Icon wrapper — GSAP targets this element */
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, filter;
+}
+
 .icon {
   width: 20px;
   height: 20px;
   color: var(--ifm-color-emphasis-500);
   transition: color 0.2s ease, filter 0.2s ease;
+  display: block;
 }
 
 .count {
@@ -68,43 +85,38 @@
 }
 
 /* Active states */
-.liked .icon { color: #fe2c55; }
-.liked .count { color: #fe2c55; }
-.bookmarked .icon { color: #ffb400; }
+.liked     .icon  { color: #fe2c55; }
+.liked     .count { color: #fe2c55; }
+.bookmarked .icon  { color: #ffb400; }
 .bookmarked .count { color: #ffb400; }
 
-.pop {
-  animation: pop 0.35s ease;
-}
-
-@keyframes pop {
-  0%   { transform: scale(1); }
-  40%  { transform: scale(1.3); }
-  70%  { transform: scale(0.9); }
-  100% { transform: scale(1); }
-}
-
+/* ── Divider: primary-color block ── */
 .divider {
-  width: 1px;
-  height: 20px;
-  background: var(--ifm-color-emphasis-300);
   flex-shrink: 0;
+  width: 2px;
+  height: 28px;
+  border-radius: 2px;
+  background: var(--ifm-color-primary);
+  opacity: 0.12;
 }
 
-/* ── Share section ── */
+/* ── Share group ── */
 .share {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-shrink: 0;
+  flex-wrap: wrap;
+  flex: 1;
 }
 
-/* Pill button base */
+/* Pill button base — fixed min-width prevents jitter on text swap */
 .pillBtn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   padding: 5px 14px;
+  min-width: 160px;
   border-radius: 999px;
   border: 1px solid var(--ifm-color-emphasis-300);
   background: transparent;
@@ -116,6 +128,7 @@
   transition: background 0.2s, border-color 0.2s, color 0.2s;
   font-family: inherit;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .pillBtn:hover {
@@ -128,30 +141,63 @@
   flex-shrink: 0;
 }
 
-/* X (Twitter) — blue */
+/* X (Twitter) */
 .pillX:hover {
   background: rgba(29, 155, 240, 0.1);
   border-color: #1d9bf0;
   color: #1d9bf0;
 }
 
-/* Discord — purple */
+/* Discord */
 .pillDiscord:hover {
   background: rgba(88, 101, 242, 0.1);
   border-color: #5865f2;
   color: #5865f2;
 }
 
-/* Markdown — neutral/green */
+/* Markdown */
 .pillMd:hover {
   background: rgba(0, 160, 100, 0.1);
   border-color: #00a064;
   color: #00a064;
 }
 
-/* Copied feedback state */
+/* Copied feedback */
 .pillCopied {
   background: rgba(0, 160, 100, 0.1) !important;
   border-color: #00a064 !important;
   color: #00a064 !important;
+}
+
+/* ── Mobile (< 640px): two-row layout ── */
+@media (max-width: 640px) {
+  .bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  /* Horizontal divider replaces the vertical one */
+  .divider {
+    width: 100%;
+    height: 1px;
+    opacity: 0.15;
+  }
+
+  .share {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  /* Markdown (last button) spans full width */
+  .share .pillBtn:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .pillBtn {
+    min-width: unset;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
 }

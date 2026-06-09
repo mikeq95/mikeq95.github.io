@@ -1,9 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
 import styles from './styles.module.css';
+
+const AVATAR_COLORS = [
+  '#f97316', '#8b5cf6', '#06b6d4', '#10b981',
+  '#f59e0b', '#ef4444', '#3b82f6', '#ec4899',
+];
+
+function hashAvatarColor(str) {
+  let h = 0;
+  for (let i = 0; i < (str?.length ?? 0); i++) {
+    h = str.charCodeAt(i) + ((h << 5) - h);
+  }
+  return AVATAR_COLORS[Math.abs(h) % AVATAR_COLORS.length];
+}
 
 const MAX_LEN = 2000;
 
@@ -28,8 +42,9 @@ function Avatar({ user, size = 36 }) {
   if (url) {
     return <img src={url} alt={name} className={styles.avatar} style={{ width: size, height: size }} />;
   }
+  const bg = hashAvatarColor(user?.id || name);
   return (
-    <div className={styles.avatarFallback} style={{ width: size, height: size, fontSize: size * 0.4 }}>
+    <div className={styles.avatarFallback} style={{ width: size, height: size, fontSize: size * 0.4, background: bg }}>
       {name[0]?.toUpperCase()}
     </div>
   );
@@ -135,7 +150,7 @@ function CommentSectionInner({ postId }) {
         <div className={styles.commentAvatar}>
           {c.user_avatar
             ? <img src={c.user_avatar} alt={name} className={styles.avatar} style={{ width: isReply ? 28 : 36, height: isReply ? 28 : 36 }} />
-            : <div className={styles.avatarFallback} style={{ width: isReply ? 28 : 36, height: isReply ? 28 : 36, fontSize: isReply ? 11 : 14 }}>{name[0]?.toUpperCase()}</div>
+            : <div className={styles.avatarFallback} style={{ width: isReply ? 28 : 36, height: isReply ? 28 : 36, fontSize: isReply ? 11 : 14, background: hashAvatarColor(c.user_id || name) }}>{name[0]?.toUpperCase()}</div>
           }
         </div>
         <div className={styles.commentBody}>
@@ -207,7 +222,8 @@ function CommentSectionInner({ postId }) {
         </div>
       ) : (
         <div className={styles.loginPrompt}>
-          <span>{t.loginPrompt}</span>
+          <Icon icon="mdi:comment-account" className={styles.loginIcon} />
+          <span className={styles.loginText}>{t.loginPrompt}</span>
           <button className={styles.loginBtn} onClick={triggerLogin}>{t.login}</button>
         </div>
       )}

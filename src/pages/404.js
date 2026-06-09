@@ -14,6 +14,7 @@ export default function NotFound() {
       description={isZh ? '找不到您要访问的页面' : 'The page you are looking for does not exist'}
     >
       <main className={styles.container}>
+        <div className={styles.cat} aria-hidden="true">🐱</div>
         <div className={styles.code}>404</div>
         <h1 className={styles.title}>
           {isZh ? '找不到这个页面' : 'Page Not Found'}
@@ -23,9 +24,14 @@ export default function NotFound() {
             ? '您访问的页面不存在，可能已被移动或删除。'
             : "The page you're looking for doesn't exist or has been moved."}
         </p>
-        <Link className={styles.button} to="/">
-          {isZh ? '回到首页' : 'Back to Home'}
-        </Link>
+        <div className={styles.buttons}>
+          <Link className={styles.btnPrimary} to="/">
+            {isZh ? '回到首页' : 'Back to Home'}
+          </Link>
+          <Link className={styles.btnSecondary} to="/blog">
+            {isZh ? '浏览文章' : 'Browse Posts'}
+          </Link>
+        </div>
       </main>
     </Layout>
   );

@@ -51,7 +51,7 @@
   outline: none;
   overflow: hidden;
   min-height: 36px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, height 0.2s ease;
   font-family: inherit;
 }
 
@@ -102,18 +102,29 @@
   opacity: 0.85;
 }
 
-/* ── Not logged in ── */
+/* ── Not logged in: card prompt ── */
 .loginPrompt {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  margin-bottom: 8px;
+  justify-content: center;
+  gap: 12px;
+  padding: 28px 16px;
+  border-radius: 12px;
+  border: 1px dashed var(--ifm-color-primary-light);
+  margin-bottom: 16px;
+  text-align: center;
 }
 
-.loginPrompt span {
-  font-size: 14px;
+.loginIcon {
+  width: 38px;
+  height: 38px;
+  color: var(--ifm-color-primary);
+  opacity: 0.65;
+}
+
+.loginText {
+  font-size: 15px;
   color: var(--ifm-color-content-secondary);
 }
 
@@ -122,8 +133,8 @@
   color: #fff;
   border: none;
   border-radius: 999px;
-  padding: 6px 18px;
-  font-size: 14px;
+  padding: 8px 26px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   transition: opacity 0.2s;
@@ -143,7 +154,7 @@
 
 .avatarFallback {
   border-radius: 50%;
-  background: var(--ifm-color-primary);
+  /* background injected inline via hashAvatarColor() per-user */
   color: #fff;
   display: flex;
   align-items: center;
@@ -273,7 +284,7 @@
 /* ── Replies block ── */
 .replies {
   padding-left: 48px;
-  border-left: 2px solid var(--ifm-color-emphasis-200);
+  border-left: 2px solid var(--ifm-color-primary-lightest);
   margin: 0 0 4px 20px;
 }
 

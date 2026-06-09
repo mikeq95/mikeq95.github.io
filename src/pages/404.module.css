@@ -8,14 +8,30 @@
   padding: 2rem;
 }
 
+/* Bouncing cat emoji */
+@keyframes catBounce {
+  0%, 100% { transform: translateY(0)   rotate(0deg);  }
+  25%       { transform: translateY(-14px) rotate(-6deg); }
+  75%       { transform: translateY(-9px)  rotate(6deg);  }
+}
+
+.cat {
+  font-size: 4rem;
+  display: inline-block;
+  animation: catBounce 1.6s ease-in-out infinite;
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+
+/* Gradient 404 — same palette as hero gradientText */
 .code {
-  font-size: 8rem;
+  font-size: 7.5rem;
   font-weight: 800;
   line-height: 1;
-  background: linear-gradient(135deg, var(--ifm-color-primary), #a855f7);
+  background-image: linear-gradient(to right, #FF2D55, #AF52DE, #32ADE6, #34C759);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
   margin-bottom: 1rem;
   user-select: none;
 }
@@ -35,18 +51,51 @@
   line-height: 1.6;
 }
 
-.button {
-  display: inline-block;
-  padding: 0.6rem 1.5rem;
-  background-color: var(--ifm-color-primary);
-  color: #fff !important;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none !important;
-  transition: opacity 0.2s;
+/* Two-button row — matches hero CTA style */
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.button:hover {
-  opacity: 0.85;
+.btnPrimary {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--ifm-color-primary);
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.btnPrimary:hover {
+  opacity: 0.88;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  display: inline-block;
+  padding: 11px 26px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  background: transparent;
+  border: 2px solid var(--ifm-color-primary);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.btnSecondary:hover {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transform: translateY(-2px);
 }

@@ -5,6 +5,14 @@
   font-size: 0.82rem;
   color: var(--ifm-color-content-secondary);
   margin-bottom: 0.75rem;
+  min-height: 20px;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  color: var(--ifm-color-content-secondary);
+  flex-shrink: 0;
 }
 
 .stat {
@@ -19,4 +27,30 @@
 .dot {
   margin: 0 0.15rem;
   color: var(--ifm-color-emphasis-400);
+}
+
+/* ── Skeleton loading ── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+.skeleton {
+  display: inline-block;
+  width: 56px;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-200);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.skeletonSep {
+  display: inline-block;
+  width: 4px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--ifm-color-emphasis-200);
+  animation: pulse 1.4s ease-in-out infinite;
+  animation-delay: 0.2s;
+  margin: 0 0.15rem;
 }

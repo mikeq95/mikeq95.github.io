@@ -13,9 +13,22 @@
   --ifm-color-primary: #06d6fb;
 }
 
-/* NavBar: show border only on scroll */
+/* NavBar: glass morphism on scroll */
+.navbar {
+  transition: background 0.3s ease, border-bottom-color 0.3s ease,
+              backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
 html.nav-scrolled .navbar {
-  box-shadow: 0 1px 0 0 var(--ifm-color-emphasis-200);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: none;
+}
+
+[data-theme='dark'] html.nav-scrolled .navbar {
+  background: rgba(24, 24, 26, 0.88) !important;
 }
 
 /* NavBar brand title — SF Pro */

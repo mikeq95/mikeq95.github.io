@@ -34,22 +34,23 @@ function getGradient(permalink) {
 }
 
 function CardCover({ image, permalink, title }) {
+  const [loaded, setLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
-  if (!image || imgError) {
-    return (
-      <div
-        className={styles.cardCover}
-        style={{ background: getGradient(permalink) }}
-      />
-    );
-  }
   return (
-    <img
-      className={styles.cardCover}
-      src={image}
-      alt={title}
-      onError={() => setImgError(true)}
-    />
+    <div className={styles.cardCoverWrap}>
+      {/* Gradient placeholder always present underneath */}
+      <div className={styles.cardCoverPlaceholder} style={{ background: getGradient(permalink) }} />
+      {/* Image fades in on top once loaded */}
+      {image && !imgError && (
+        <img
+          className={`${styles.cardCoverImg} ${loaded ? styles.cardCoverImgLoaded : ''}`}
+          src={image}
+          alt={title}
+          onLoad={() => setLoaded(true)}
+          onError={() => setImgError(true)}
+        />
+      )}
+    </div>
   );
 }
 
@@ -67,10 +68,12 @@ export default function RecentPosts({ posts = [] }) {
   const adminIds = siteConfig.customFields?.adminUserIds ?? [];
   const isAdmin = user?.id && adminIds.includes(user.id);
 
-  const scrollRef = useRef(null);
-  const tabBarRef = useRef(null);
-  const pillRef = useRef(null);
-  const tabRefs = useRef([]);
+  const scrollRef    = useRef(null);
+  const tabBarRef    = useRef(null);
+  const pillRef      = useRef(null);
+  const tabRefs      = useRef([]);
+  const leftBtnRef   = useRef(null);
+  const rightBtnRef  = useRef(null);
   const isFirstRender = useRef(true);
   const reducedMotion = useRef(false);
 
@@ -89,6 +92,24 @@ export default function RecentPosts({ posts = [] }) {
       return () => { reducedMotion.current = false; };
     });
     return () => mm.revert();
+  }, []);
+
+  // GSAP scale hover on glass scroll buttons
+  useEffect(() => {
+    const buttons = [leftBtnRef.current, rightBtnRef.current].filter(Boolean);
+    if (!buttons.length) return;
+    const cleanups = [];
+    buttons.forEach(btn => {
+      const enter = () => gsap.to(btn, { scale: 1.1, duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
+      const leave = () => gsap.to(btn, { scale: 1,   duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
+      btn.addEventListener('mouseenter', enter);
+      btn.addEventListener('mouseleave', leave);
+      cleanups.push(() => {
+        btn.removeEventListener('mouseenter', enter);
+        btn.removeEventListener('mouseleave', leave);
+      });
+    });
+    return () => cleanups.forEach(fn => fn());
   }, []);
 
   // Load all Supabase-backed state. Wait for auth so the correct JWT is attached.
@@ -313,6 +334,7 @@ export default function RecentPosts({ posts = [] }) {
         <div className={styles.trackWrapper}>
           <button
             type="button"
+            ref={leftBtnRef}
             className={`${styles.scrollBtn} ${styles.scrollBtnLeft}`}
             onClick={() => scrollTrack(-1)}
             aria-label={translate({id: 'recentPosts.scrollLeft', message: 'Scroll left'})}
@@ -321,7 +343,10 @@ export default function RecentPosts({ posts = [] }) {
           </button>
           <div className={styles.track} ref={scrollRef}>
           {filteredPosts.map((post, i) => (
-            <div key={post.id ?? post.permalink} className={styles.cardWrapper}>
+            <div
+              key={post.id ?? post.permalink}
+              className={`${styles.cardWrapper} ${i === activeIdx ? styles.cardWrapperActive : ''}`}
+            >
               <Link
                 to={post.permalink}
                 className={[
@@ -394,6 +419,7 @@ export default function RecentPosts({ posts = [] }) {
           </div>
           <button
             type="button"
+            ref={rightBtnRef}
             className={`${styles.scrollBtn} ${styles.scrollBtnRight}`}
             onClick={() => scrollTrack(1)}
             aria-label={translate({id: 'recentPosts.scrollRight', message: 'Scroll right'})}

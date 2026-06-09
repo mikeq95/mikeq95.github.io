@@ -26,7 +26,6 @@
   display: none;
 }
 
-/* pill's anchor — must be relative + inline so getBoundingClientRect() is stable */
 .tabBar {
   position: relative;
   display: inline-flex;
@@ -42,18 +41,13 @@
   top: 4px;
   left: 0;
   height: calc(100% - 8px);
-  background: #000;
+  background: var(--ifm-color-primary);
   border-radius: 980px;
   z-index: 0;
   pointer-events: none;
   will-change: transform, width;
 }
 
-[data-theme='dark'] .tabPill {
-  background: #f5f5f7;
-}
-
-/* Buttons sit above the pill */
 .tabBtn {
   position: relative;
   z-index: 1;
@@ -70,57 +64,60 @@
   line-height: 1;
 }
 
+/* Active tab text is always white since pill is primary-colored */
 .tabBtnActive {
   color: #fff;
 }
 
-[data-theme='dark'] .tabBtnActive {
-  color: #1d1d1f;
-}
-
-/* ── Track wrapper — anchors the prev/next scroll buttons ── */
+/* ── Track wrapper — anchors scroll buttons ── */
 .trackWrapper {
   position: relative;
 }
 
-/* Prev/next scroll buttons — same look as BackToTop: circular, primary-colored,
-   floating with a soft shadow, for mouse users who can't easily drag-scroll. */
+/* ── Scroll buttons: glass morphism ── */
 .scrollBtn {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  /* center via margin to keep GSAP transforms clean (no translateY conflict) */
+  margin-top: -22px;
   z-index: 5;
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: none;
-  background-color: var(--ifm-color-primary);
-  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--ifm-color-primary);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s ease;
+  /* scale handled by GSAP on hover */
 }
 
 .scrollBtn:hover {
-  opacity: 0.85;
-  transform: translateY(-50%) scale(1.06);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
 }
 
-.scrollBtnLeft {
-  left: 1rem;
+[data-theme='dark'] .scrollBtn {
+  background: rgba(20, 20, 20, 0.75);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
-.scrollBtnRight {
-  right: 1rem;
+[data-theme='dark'] .scrollBtn:hover {
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.55);
 }
+
+.scrollBtnLeft  { left: 1rem; }
+.scrollBtnRight { right: 1rem; }
 
 @media screen and (max-width: 600px) {
-  .scrollBtn {
-    display: none;
-  }
+  .scrollBtn { display: none; }
 }
 
 /* ── Horizontal scroll track ── */
@@ -136,13 +133,8 @@
   align-items: center;
 }
 
-.track::-webkit-scrollbar {
-  display: none;
-}
-
-.track:active {
-  cursor: grabbing;
-}
+.track::-webkit-scrollbar { display: none; }
+.track:active { cursor: grabbing; }
 
 /* ── Empty state ── */
 .emptyWrapper {
@@ -156,14 +148,14 @@
   justify-content: center;
 }
 
-/* ── Card wrapper (handles flex + snap; admin button lives here, not inside the anchor) ── */
+/* ── Card wrapper ── */
 .cardWrapper {
   flex-shrink: 0;
   position: relative;
   scroll-snap-align: center;
 }
 
-/* Admin action button — sits above the card cover, only shown to admin */
+/* Admin action button */
 .adminBtn {
   position: absolute;
   top: 8px;
@@ -188,9 +180,7 @@
   transition: background 0.15s;
 }
 
-.adminBtn:hover {
-  background: rgba(0, 0, 0, 0.72);
-}
+.adminBtn:hover { background: rgba(0, 0, 0, 0.72); }
 
 /* ── Card ── */
 .card {
@@ -204,9 +194,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-              opacity 0.35s ease,
-              box-shadow 0.35s ease;
+  /* 0.3s ease for active/inactive state switch */
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
   will-change: transform, opacity;
 }
 
@@ -215,34 +204,54 @@
   color: inherit;
 }
 
-/* Active (centered) card */
+/* Active (centered) card — natural scale, strong shadow */
 .cardActive {
-  transform: scale(1.05);
+  transform: scale(1);
   opacity: 1;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
-  z-index: 1;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme='dark'] .cardActive {
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
 }
 
-/* Inactive cards */
+/* Inactive cards — shrink + fade */
 .cardInactive {
-  transform: scale(0.93);
-  opacity: 0.55;
+  transform: scale(0.92);
+  opacity: 0.6;
 }
 
-/* ── Card cover (image or gradient placeholder) ── */
-/* Height tuned to 1200×650 source images: 280 × (650/1200) ≈ 152px */
-.cardCover {
+/* ── Card cover: wrapper + placeholder + image ── */
+.cardCoverWrap {
+  position: relative;
   width: 100%;
   height: 152px;
   flex-shrink: 0;
-  object-fit: cover;
-  object-position: center center;
   border-radius: 18px 18px 0 0;
+  overflow: hidden;
+}
+
+/* Gradient placeholder — always present underneath */
+.cardCoverPlaceholder {
+  position: absolute;
+  inset: 0;
+}
+
+/* Image starts invisible, fades in once loaded */
+.cardCoverImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
   display: block;
+}
+
+.cardCoverImgLoaded {
+  opacity: 1;
 }
 
 /* ── Card body ── */
@@ -250,11 +259,10 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0.85rem 1.25rem 3.25rem; /* bottom space reserved for actionRow */
+  padding: 0.85rem 1.25rem 1rem;
   min-height: 0;
 }
 
-/* ── Card text ── */
 .cardTitle {
   font-size: 1rem;
   font-weight: 600;
@@ -308,21 +316,41 @@
   text-decoration: none;
 }
 
-/* ── Action row — bottom of card, absolute positioned outside the <a> ── */
+/* ── Action row — floats up from card bottom on hover / when active ── */
 .actionRow {
   position: absolute;
-  bottom: 1rem;
-  left: 1.25rem;
-  right: 1.25rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.55rem 0.85rem;
   display: flex;
   gap: 0.5rem;
   z-index: 5;
+  border-radius: 0 0 18px 18px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  /* hidden by default */
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
   pointer-events: none;
 }
 
-/* Base button: white bg + theme-color border */
+[data-theme='dark'] .actionRow {
+  background: rgba(22, 22, 22, 0.88);
+}
+
+/* Show when card wrapper is hovered (desktop) or active/centered (mobile) */
+.cardWrapper:hover .actionRow,
+.cardWrapperActive .actionRow {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ── Action buttons ── */
 .actionBtn {
-  pointer-events: all;
   flex: 1;
   display: inline-flex;
   align-items: center;
@@ -331,12 +359,12 @@
   padding: 6px 0;
   border-radius: 10px;
   border: 1.5px solid var(--ifm-color-primary);
-  background: var(--ifm-background-color);
+  background: transparent;
   color: var(--ifm-color-primary);
   font-size: 0.72rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
   white-space: nowrap;
   line-height: 1;
 }
@@ -356,7 +384,6 @@
   color: #FF6B35;
   background: rgba(255, 107, 53, 0.08);
 }
-
 .actionBtnPinActive:hover {
   background: #FF6B35;
   color: #fff;
@@ -368,20 +395,22 @@
   color: #e03e3e;
   background: rgba(224, 62, 62, 0.08);
 }
-
 .actionBtnFavActive:hover {
   background: #e03e3e;
   color: #fff;
 }
 
-/* User: liked — primary tint */
-.actionBtnLikeActive {
-  background: rgba(var(--ifm-color-primary-rgb, 37 194 160), 0.12);
+/* User: liked / bookmarked — primary fill */
+.actionBtnLikeActive,
+.actionBtnBookmarkActive {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border-color: var(--ifm-color-primary);
 }
 
-/* User: bookmarked — primary tint */
-.actionBtnBookmarkActive {
-  background: rgba(var(--ifm-color-primary-rgb, 37 194 160), 0.12);
+.actionBtnLikeActive:hover,
+.actionBtnBookmarkActive:hover {
+  opacity: 0.85;
 }
 
 /* Not logged in — greyed out */
@@ -426,7 +455,7 @@
     min-height: 340px;
   }
 
-  .cardCover {
+  .cardCoverWrap {
     height: 122px;
   }
 

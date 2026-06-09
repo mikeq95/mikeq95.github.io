@@ -1,20 +1,18 @@
-import { useAllPluginInstancesData } from '@docusaurus/useGlobalData';
+import { usePluginData } from '@docusaurus/useGlobalData';
 
 export function useBlogTitleMap() {
-  const allData = useAllPluginInstancesData('docusaurus-plugin-content-blog');
+  const data = usePluginData('blog-global-data');
   const map = new Map();
 
-  if (allData) {
-    for (const instanceData of Object.values(allData)) {
-      const posts = instanceData?.posts ?? [];
-      for (const post of posts) {
-        const { permalink, title } = post.metadata ?? {};
-        if (permalink && title) {
-          map.set(permalink, title);
-        }
-      }
+  (data?.blogPosts ?? []).forEach(post => {
+    if (post.permalink) {
+      map.set(post.permalink, {
+        title:  post.title,
+        image:  post.frontMatter?.image ?? null,
+        tags:   post.tags ?? [],
+      });
     }
-  }
+  });
 
   return map;
 }

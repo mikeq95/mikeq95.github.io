@@ -155,3 +155,12 @@
   text-decoration: none;
   color: var(--ifm-font-color-base);
 }
+
+/* ── Mobile: keep dropdown within viewport ── */
+@media (max-width: 768px) {
+  .dropdown {
+    right: 0;
+    min-width: 190px;
+    max-width: calc(100vw - 1.5rem);
+  }
+}

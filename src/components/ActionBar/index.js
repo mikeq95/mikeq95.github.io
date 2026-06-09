@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import { gsap } from 'gsap';
 import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
@@ -50,15 +51,17 @@ function ActionBarInner({ postId, title, url }) {
   const [bookmarked, setBookmarked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const [bookmarkCount, setBookmarkCount] = useState(0);
-  const [likeAnim, setLikeAnim] = useState(false);
-  const [bookmarkAnim, setBookmarkAnim] = useState(false);
   const [copied, setCopied] = useState(null);
 
-  const encodedUrl = encodeURIComponent(url);
-  const encodedTitle = encodeURIComponent(title);
-  const twitterUrl = 'https://twitter.com/intent/tweet?text=' + encodedTitle + '&url=' + encodedUrl;
+  const likeIconRef     = useRef(null);
+  const bookmarkIconRef = useRef(null);
 
-  useEffect(() => {
+  const encodedUrl   = encodeURIComponent(url);
+  const encodedTitle = encodeURIComponent(title);
+  const twitterUrl   = 'https://twitter.com/intent/tweet?text=' + encodedTitle + '&url=' + encodedUrl;
+
+  // ── Supabase fetch ────────────────────────────────────────────────────────
+  React.useEffect(() => {
     if (!supabase) return;
     fetchCounts();
     if (user) fetchUserState();
@@ -82,14 +85,41 @@ function ActionBarInner({ postId, title, url }) {
     setBookmarked(!!bookmarkData);
   };
 
-  const triggerLogin = () => {
-    document.querySelector('[data-auth-trigger]')?.click();
-  };
+  // ── GSAP icon animations ──────────────────────────────────────────────────
+  function triggerLikeAnim(isNowLiked) {
+    const el = likeIconRef.current;
+    if (!el) return;
+    const tl = gsap.timeline();
+    tl.to(el, { scale: 1.4, duration: 0.15, ease: 'back.out(3)' })
+      .to(el, { scale: 1,   duration: 0.1,  ease: 'power2.in'   });
+    if (isNowLiked) {
+      tl.to(el, { filter: 'drop-shadow(0 0 8px rgba(254,44,85,0.9))', duration: 0 }, '<')
+        .to(el, { filter: 'none', duration: 0.35, ease: 'power2.out' });
+    }
+  }
+
+  function triggerBookmarkAnim() {
+    const el = bookmarkIconRef.current;
+    if (!el) return;
+    gsap.fromTo(el,
+      { rotationY: 0 },
+      {
+        rotationY: 360,
+        transformPerspective: 600,
+        duration: 0.4,
+        ease: 'power2.inOut',
+        onComplete: () => gsap.set(el, { rotationY: 0 }),
+      }
+    );
+  }
+
+  // ── Interactions ──────────────────────────────────────────────────────────
+  const triggerLogin = () => document.querySelector('[data-auth-trigger]')?.click();
 
   const toggleLike = async () => {
     if (!user) { triggerLogin(); return; }
-    setLikeAnim(true);
-    setTimeout(() => setLikeAnim(false), 400);
+    const willLike = !liked;
+    triggerLikeAnim(willLike);
     if (liked) {
       await supabase.from('likes').delete().eq('post_id', postId).eq('user_id', user.id);
       setLiked(false);
@@ -103,8 +133,7 @@ function ActionBarInner({ postId, title, url }) {
 
   const toggleBookmark = async () => {
     if (!user) { triggerLogin(); return; }
-    setBookmarkAnim(true);
-    setTimeout(() => setBookmarkAnim(false), 400);
+    triggerBookmarkAnim();
     if (bookmarked) {
       await supabase.from('bookmarks').delete().eq('post_id', postId).eq('user_id', user.id);
       setBookmarked(false);
@@ -136,25 +165,31 @@ function ActionBarInner({ postId, title, url }) {
     } catch {}
   };
 
+  // ── Render ────────────────────────────────────────────────────────────────
   return (
     <div className={styles.bar}>
       <div className={styles.actions}>
         <button
           type="button"
-          className={`${styles.actionBtn} ${styles.likeBtn} ${liked ? styles.liked : ''} ${likeAnim ? styles.pop : ''}`}
+          className={`${styles.actionBtn} ${styles.likeBtn} ${liked ? styles.liked : ''}`}
           onClick={toggleLike}
           title={isEn ? 'Like' : '点赞'}
         >
-          <Icon icon={liked ? 'mdi:heart' : 'mdi:heart-outline'} className={styles.icon} />
+          <span ref={likeIconRef} className={styles.iconWrap}>
+            <Icon icon={liked ? 'mdi:heart' : 'mdi:heart-outline'} className={styles.icon} />
+          </span>
           <span className={styles.count}>{likeCount}</span>
         </button>
+
         <button
           type="button"
-          className={`${styles.actionBtn} ${styles.bookmarkBtn} ${bookmarked ? styles.bookmarked : ''} ${bookmarkAnim ? styles.pop : ''}`}
+          className={`${styles.actionBtn} ${styles.bookmarkBtn} ${bookmarked ? styles.bookmarked : ''}`}
           onClick={toggleBookmark}
           title={isEn ? 'Bookmark' : '收藏'}
         >
-          <Icon icon={bookmarked ? 'mdi:bookmark' : 'mdi:bookmark-outline'} className={styles.icon} />
+          <span ref={bookmarkIconRef} className={styles.iconWrap}>
+            <Icon icon={bookmarked ? 'mdi:bookmark' : 'mdi:bookmark-outline'} className={styles.icon} />
+          </span>
           <span className={styles.count}>{bookmarkCount}</span>
         </button>
       </div>
@@ -171,6 +206,7 @@ function ActionBarInner({ postId, title, url }) {
           <Icon icon="simple-icons:x" className={styles.pillIcon} />
           <span>{isEn ? 'Share on X' : '分享到 X'}</span>
         </a>
+
         <button
           type="button"
           className={`${styles.pillBtn} ${styles.pillDiscord} ${copied === 'discord' ? styles.pillCopied : ''}`}
@@ -183,6 +219,7 @@ function ActionBarInner({ postId, title, url }) {
               : (isEn ? 'Share to Discord' : '分享到 Discord')}
           </span>
         </button>
+
         <button
           type="button"
           className={`${styles.pillBtn} ${styles.pillMd} ${copied === 'markdown' ? styles.pillCopied : ''}`}
