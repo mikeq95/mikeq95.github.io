@@ -1,9 +1,4 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
-/* ── Hero wrapper: full viewport height, content centered ── */
+/* ── Hero wrapper ── */
 .heroBanner {
   min-height: calc(100vh - 60px);
   display: flex;
@@ -13,12 +8,12 @@
   overflow: hidden;
 }
 
-/* ── Two-column flex row ── */
+/* ── Two-column grid (desktop) ── */
 .heroContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 400px;
   align-items: center;
-  justify-content: center;
-  gap: 10rem;
+  gap: 5rem;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -26,27 +21,17 @@
   box-sizing: border-box;
 }
 
-/* ── Left: text ── */
+/* ── Left: text block ── */
 .heroText {
-  flex: 1 1 0;
   min-width: 0;
   text-align: left;
 }
 
-/* ── Right: auth/welcome card ── */
+/* ── Right: auth card ── */
 .heroCardContainer {
-  flex: 0 0 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* ── Gradient on part of title ── */
-.gradientText {
-  background-image: linear-gradient(to right, #FF2D55, #AF52DE, #32ADE6, #34C759);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
 /* ── Title ── */
@@ -56,10 +41,19 @@
   font-size: 2.8rem;
   font-weight: 800;
   margin: 0 0 1rem 0;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
-/* ── Sub-title / description ── */
+/* ── Individual gradient greeting words ── */
+.greetingWord {
+  display: inline-block;          /* required for GSAP y-transform */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 100%;
+}
+
+/* ── Description ── */
 .description {
   font-family: "SF Pro Text", "SF", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -86,15 +80,17 @@
   color: #fff;
   background-color: var(--ifm-color-primary);
   text-decoration: none;
-  transition: opacity 0.2s, transform 0.15s;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
   letter-spacing: 0.01em;
 }
 
 .blogButton:hover {
-  opacity: 0.85;
+  opacity: 0.88;
   color: #fff;
   text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* ── Hero tag pills ── */
@@ -102,58 +98,78 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 0.25rem;
+  margin-top: 1.5rem;
 }
 
 .heroTag {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 4px 13px;
   border-radius: 999px;
-  font-size: 0.78rem;
   font-weight: 500;
   border: 1px solid var(--ifm-color-emphasis-300);
   color: var(--ifm-color-content-secondary);
   text-decoration: none;
-  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+  transition: background-color 0.18s, border-color 0.18s, color 0.18s,
+              transform 0.18s, opacity 0.18s, box-shadow 0.18s;
+  /* font-size and opacity injected inline per tier */
 }
 
 .heroTag:hover {
   background-color: var(--ifm-color-primary);
   border-color: var(--ifm-color-primary);
-  color: #fff;
+  color: #fff !important;
   text-decoration: none;
+  transform: scale(1.07);
+  opacity: 1 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* ── Mobile ── */
-@media screen and (max-width: 768px) {
-  .heroBanner {
-    min-height: unset;
-    padding: 3rem 0;
-  }
-
+/* ── Tablet (≤ 996px): collapse to single column, card below text ── */
+@media screen and (max-width: 996px) {
   .heroContainer {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 0 1.5rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 2.5rem;
     text-align: center;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .heroText {
     text-align: center;
-    order: 2;
-  }
-
-  .heroCardContainer {
-    flex: 0 0 auto;
-    order: 1;
     width: 100%;
   }
 
-  .title {
-    font-size: 2rem;
+  .heroCardContainer {
+    width: 100%;
+    max-width: 360px;
   }
 
   .buttons {
     justify-content: center;
+  }
+
+  .heroTags {
+    justify-content: center;
+  }
+}
+
+/* ── Mobile (≤ 768px) ── */
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    min-height: unset;
+    padding: 2.5rem 0;
+  }
+
+  .heroContainer {
+    gap: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
   }
 }
