@@ -2,7 +2,7 @@
 slug: 2026/04/29/coding-english-vocabulary
 title: 编程英语单词短语收集
 date: 2026-04-29
-image: /coverimage/ProgrammingEnglish.png
+image: https://cdn.mikeq95blog.uk/coverimage/ProgrammingEnglish.png
 tags:
   - "English"
   - Swift

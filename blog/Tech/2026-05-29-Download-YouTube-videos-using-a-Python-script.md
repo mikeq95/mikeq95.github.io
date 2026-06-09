@@ -2,7 +2,7 @@
 slug: 2026/05/29/download-youtube-videos-using-a-python-script
 title: 用 Python 脚本下载 YouTube 视频
 date: 2026-05-29
-image: /coverimage/%E7%94%A8%E4%B8%80%E6%AE%B5python%E8%84%9A%E6%9C%AC%E4%B8%8B%E8%BD%BDyoutube%E8%A7%86%E9%A2%91.png
+image: https://cdn.mikeq95blog.uk/coverimage/%E7%94%A8%E4%B8%80%E6%AE%B5python%E8%84%9A%E6%9C%AC%E4%B8%8B%E8%BD%BDyoutube%E8%A7%86%E9%A2%91.png
 tags:
   - macos
 ---

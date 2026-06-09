@@ -2,7 +2,7 @@
 slug: 2026/05/16/kokoro-tts-tutorial
 title: "用 Kokoro 把文章变成播客音频"
 date: 2026-05-16
-image: /coverimage/kokoro-coverimage.png
+image: https://cdn.mikeq95blog.uk/coverimage/kokoro-coverimage.png
 tags:
   - github
   - macos

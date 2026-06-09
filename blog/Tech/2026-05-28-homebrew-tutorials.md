@@ -2,7 +2,7 @@
 slug: 2026/05/28/homebrew-tutorials
 title: 介绍 Homebrew
 date: 2026-05-28
-image: /coverimage/Homebrew-coverimage.png
+image: https://cdn.mikeq95blog.uk/coverimage/Homebrew-coverimage.png
 tags:
   - macos
 ---
