@@ -32,11 +32,18 @@ html[data-theme='dark'].nav-scrolled .navbar {
 }
 
 /* NavBar brand title — SF Pro */
+.navbar__brand {
+  align-items: center;
+}
+
 .navbar__brand .navbar__title {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1;
+  margin-top: 0;
+  vertical-align: middle;
 }
 
 /* On narrow screens, show just the logo — title text gets cramped next to the

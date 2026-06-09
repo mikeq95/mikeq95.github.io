@@ -130,9 +130,9 @@ const config = {
       },
       navbar: {
         logo: {
-          alt: 'poluobaby',
-          src: 'img/poluobaby.jpg',
-          style: { borderRadius: '50%', height: '36px', width: '36px', objectFit: 'cover' },
+          alt: 'pixel logo',
+          src: 'img/pixel-logo.png',
+          style: { height: '42px', width: '42px', objectFit: 'contain', imageRendering: 'pixelated' },
         },
         title: "mikeq95's blog",
         items: [
