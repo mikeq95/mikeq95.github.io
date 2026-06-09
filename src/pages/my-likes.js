@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -24,11 +24,18 @@ function getGradient(s) { return GRADIENTS[s.length % GRADIENTS.length]; }
 function CardCover({ image, permalink }) {
   const [loaded, setLoaded] = useState(false);
   const [err, setErr] = useState(false);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    if (imgRef.current?.complete) setLoaded(true);
+  }, []);
+
   return (
     <div className={styles.cardCoverWrap}>
       <div className={styles.cardCoverGradient} style={{ background: getGradient(permalink) }} />
       {image && !err && (
         <img
+          ref={imgRef}
           className={`${styles.cardCoverImg} ${loaded ? styles.cardCoverImgLoaded : ''}`}
           src={image} alt=""
           onLoad={() => setLoaded(true)}

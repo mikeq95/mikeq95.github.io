@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './styles.module.css';
 
 const PRESET_COLORS = [
@@ -7,15 +7,21 @@ const PRESET_COLORS = [
   '#FF2D55', // Magenta
   '#AF52DE', // Purple (Default)
 ];
+const STORAGE_KEY = 'theme-accent-color';
+const DEFAULT_COLOR = '#AF52DE';
 
 export default function ThemeColorButton({ label = '外观', colorLabel = '主题颜色', children }) {
-  const [color, setColor] = useState('#AF52DE'); // Default purple
+  const [color, setColor] = useState(() => {
+    try { return localStorage.getItem(STORAGE_KEY) || DEFAULT_COLOR; } catch { return DEFAULT_COLOR; }
+  });
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
+    try { localStorage.setItem(STORAGE_KEY, color); } catch {}
+
     const styleId = 'custom-theme-color-style';
     let styleEl = document.getElementById(styleId);
-    
+
     if (!styleEl) {
       styleEl = document.createElement('style');
       styleEl.id = styleId;

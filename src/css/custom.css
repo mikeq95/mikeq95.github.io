@@ -27,7 +27,7 @@ html.nav-scrolled .navbar {
   box-shadow: none;
 }
 
-[data-theme='dark'] html.nav-scrolled .navbar {
+html[data-theme='dark'].nav-scrolled .navbar {
   background: rgba(24, 24, 26, 0.88) !important;
 }
 

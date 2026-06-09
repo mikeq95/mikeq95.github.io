@@ -36,13 +36,19 @@ function getGradient(permalink) {
 function CardCover({ image, permalink, title }) {
   const [loaded, setLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
+  const imgRef = useRef(null);
+
+  // Cached images won't fire onLoad — check img.complete after mount
+  useEffect(() => {
+    if (imgRef.current?.complete) setLoaded(true);
+  }, []);
+
   return (
     <div className={styles.cardCoverWrap}>
-      {/* Gradient placeholder always present underneath */}
       <div className={styles.cardCoverPlaceholder} style={{ background: getGradient(permalink) }} />
-      {/* Image fades in on top once loaded */}
       {image && !imgError && (
         <img
+          ref={imgRef}
           className={`${styles.cardCoverImg} ${loaded ? styles.cardCoverImgLoaded : ''}`}
           src={image}
           alt={title}
