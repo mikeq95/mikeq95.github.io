@@ -6,7 +6,6 @@ import React, {
   useMemo,
 } from 'react';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {translate} from '@docusaurus/Translate';
 import { gsap } from 'gsap';
 import { Icon } from '@iconify/react';
@@ -62,17 +61,14 @@ function CardCover({ image, permalink, title }) {
 
 
 const TABS = [
-  { key: 'all',       labelId: 'recentPosts.tab.all',       defaultLabel: 'All Posts' },
-  { key: 'pinned',    labelId: 'recentPosts.tab.pinned',    defaultLabel: 'Pinned' },
-  { key: 'favorites', labelId: 'recentPosts.tab.favorites', defaultLabel: 'Favorites' },
-  { key: 'about',     labelId: 'recentPosts.tab.about',     defaultLabel: 'About This Blog' },
+  { key: 'all',           labelId: 'recentPosts.tab.all',           defaultLabel: 'All Posts' },
+  { key: 'mostLiked',     labelId: 'recentPosts.tab.mostLiked',     defaultLabel: '点赞最多' },
+  { key: 'mostBookmarked',labelId: 'recentPosts.tab.mostBookmarked', defaultLabel: '收藏最多' },
+  { key: 'about',         labelId: 'recentPosts.tab.about',         defaultLabel: 'About This Blog' },
 ];
 
 export default function RecentPosts({ posts = [] }) {
   const { user, loading: authLoading } = useAuth();
-  const { siteConfig } = useDocusaurusContext();
-  const adminIds = siteConfig.customFields?.adminUserIds ?? [];
-  const isAdmin = user?.id && adminIds.includes(user.id);
 
   const scrollRef    = useRef(null);
   const tabBarRef    = useRef(null);
@@ -85,10 +81,10 @@ export default function RecentPosts({ posts = [] }) {
 
   const [activeIdx, setActiveIdx] = useState(0);
   const [activeTab, setActiveTab] = useState('all');
-  const [pinnedIds, setPinnedIds] = useState(new Set());
-  const [favoriteIds, setFavoriteIds] = useState(new Set());
   const [likedIds, setLikedIds] = useState(new Set());
   const [bookmarkedIds, setBookmarkedIds] = useState(new Set());
+  const [likeCounts, setLikeCounts] = useState({});
+  const [bookmarkCounts, setBookmarkCounts] = useState({});
 
   // Respect prefers-reduced-motion
   useEffect(() => {
@@ -121,28 +117,33 @@ export default function RecentPosts({ posts = [] }) {
   // Load all Supabase-backed state. Wait for auth so the correct JWT is attached.
   useEffect(() => {
     if (!supabase || authLoading) return;
-    supabase.from('pinned_posts').select('post_id').then(({ data }) => {
-      if (data) setPinnedIds(new Set(data.map(r => r.post_id)));
+    // Load global like/bookmark counts for all posts
+    supabase.from('likes').select('post_id').then(({ data }) => {
+      if (data) {
+        const counts = {};
+        data.forEach(r => { counts[r.post_id] = (counts[r.post_id] ?? 0) + 1; });
+        setLikeCounts(counts);
+      }
+    });
+    supabase.from('bookmarks').select('post_id').then(({ data }) => {
+      if (data) {
+        const counts = {};
+        data.forEach(r => { counts[r.post_id] = (counts[r.post_id] ?? 0) + 1; });
+        setBookmarkCounts(counts);
+      }
     });
     if (user) {
-      if (isAdmin) {
-        supabase.from('favorite_posts').select('post_id').then(({ data }) => {
-          if (data) setFavoriteIds(new Set(data.map(r => r.post_id)));
-        });
-      } else {
-        supabase.from('likes').select('post_id').eq('user_id', user.id).then(({ data }) => {
-          if (data) setLikedIds(new Set(data.map(r => r.post_id)));
-        });
-        supabase.from('bookmarks').select('post_id').eq('user_id', user.id).then(({ data }) => {
-          if (data) setBookmarkedIds(new Set(data.map(r => r.post_id)));
-        });
-      }
+      supabase.from('likes').select('post_id').eq('user_id', user.id).then(({ data }) => {
+        if (data) setLikedIds(new Set(data.map(r => r.post_id)));
+      });
+      supabase.from('bookmarks').select('post_id').eq('user_id', user.id).then(({ data }) => {
+        if (data) setBookmarkedIds(new Set(data.map(r => r.post_id)));
+      });
     } else {
-      setFavoriteIds(new Set());
       setLikedIds(new Set());
       setBookmarkedIds(new Set());
     }
-  }, [user, authLoading, isAdmin]);
+  }, [user, authLoading]);
 
   // GSAP pill slide — runs synchronously after every activeTab change
   useLayoutEffect(() => {
@@ -213,54 +214,20 @@ export default function RecentPosts({ posts = [] }) {
     return () => { container.removeEventListener('scroll', onScroll); cancelAnimationFrame(rafId); };
   }, [activeTab]);
 
-  const sortedPosts = useMemo(() => {
-    return [...posts].sort((a, b) => {
-      const aPin = pinnedIds.has(a.permalink) ? 0 : 1;
-      const bPin = pinnedIds.has(b.permalink) ? 0 : 1;
-      return aPin - bPin;
-    });
-  }, [posts, pinnedIds]);
-
   const filteredPosts = useMemo(() => {
     switch (activeTab) {
-      case 'pinned':
-        return sortedPosts.filter(p => pinnedIds.has(p.permalink));
-      case 'favorites':
-        return sortedPosts.filter(p => favoriteIds.has(p.permalink));
+      case 'mostLiked':
+        return [...posts].sort((a, b) => (likeCounts[b.permalink] ?? 0) - (likeCounts[a.permalink] ?? 0));
+      case 'mostBookmarked':
+        return [...posts].sort((a, b) => (bookmarkCounts[b.permalink] ?? 0) - (bookmarkCounts[a.permalink] ?? 0));
       case 'about':
-        return sortedPosts.filter(p =>
+        return posts.filter(p =>
           p.tags?.some(t => ['关于博客', '关于', 'about', 'faq'].includes(t.label?.toLowerCase()))
         );
       default:
-        return sortedPosts;
+        return posts;
     }
-  }, [activeTab, sortedPosts, pinnedIds, favoriteIds]);
-
-  const handlePin = async (e, permalink) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!supabase) return;
-    if (pinnedIds.has(permalink)) {
-      const { error } = await supabase.from('pinned_posts').delete().eq('post_id', permalink);
-      if (!error) setPinnedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
-    } else {
-      const { error } = await supabase.from('pinned_posts').insert({ post_id: permalink });
-      if (!error) setPinnedIds(prev => new Set([...prev, permalink]));
-    }
-  };
-
-  const handleFavorite = async (e, permalink) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!supabase) return;
-    if (favoriteIds.has(permalink)) {
-      const { error } = await supabase.from('favorite_posts').delete().eq('post_id', permalink);
-      if (!error) setFavoriteIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
-    } else {
-      const { error } = await supabase.from('favorite_posts').insert({ post_id: permalink });
-      if (!error) setFavoriteIds(prev => new Set([...prev, permalink]));
-    }
-  };
+  }, [activeTab, posts, likeCounts, bookmarkCounts]);
 
   const promptLogin = () => {
     const btn = document.querySelector('[data-auth-trigger]');
@@ -382,43 +349,22 @@ export default function RecentPosts({ posts = [] }) {
                   </time>
                 </div>
               </Link>
-              {/* Action row — admin: pin+fav  |  user: like+bookmark (greyed if not logged in) */}
+              {/* Action row — like + bookmark for all users (greyed if not logged in) */}
               <div className={styles.actionRow}>
-                {isAdmin ? (
-                  <>
-                    <button
-                      className={[styles.actionBtn, pinnedIds.has(post.permalink) ? styles.actionBtnPinActive : ''].join(' ')}
-                      onClick={e => handlePin(e, post.permalink)}
-                    >
-                      <Icon icon={pinnedIds.has(post.permalink) ? 'ic:sharp-pin-off' : 'ic:sharp-push-pin'} width={14} />
-                      {pinnedIds.has(post.permalink) ? '已置顶' : '置顶'}
-                    </button>
-                    <button
-                      className={[styles.actionBtn, favoriteIds.has(post.permalink) ? styles.actionBtnFavActive : ''].join(' ')}
-                      onClick={e => handleFavorite(e, post.permalink)}
-                    >
-                      <Icon icon={favoriteIds.has(post.permalink) ? 'material-symbols:heart-check-rounded' : 'material-symbols:heart-plus-outline'} width={14} />
-                      {favoriteIds.has(post.permalink) ? '已最爱' : '最爱'}
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <button
-                      className={[styles.actionBtn, likedIds.has(post.permalink) ? styles.actionBtnLikeActive : !user ? styles.actionBtnGuest : ''].join(' ')}
-                      onClick={e => handleLike(e, post.permalink)}
-                    >
-                      <Icon icon={likedIds.has(post.permalink) ? 'material-symbols:thumb-up' : 'material-symbols:thumb-up-outline'} width={14} />
-                      {likedIds.has(post.permalink) ? '已点赞' : '点赞'}
-                    </button>
-                    <button
-                      className={[styles.actionBtn, bookmarkedIds.has(post.permalink) ? styles.actionBtnBookmarkActive : !user ? styles.actionBtnGuest : ''].join(' ')}
-                      onClick={e => handleBookmark(e, post.permalink)}
-                    >
-                      <Icon icon={bookmarkedIds.has(post.permalink) ? 'material-symbols:bookmark' : 'material-symbols:bookmark-outline'} width={14} />
-                      {bookmarkedIds.has(post.permalink) ? '已收藏' : '收藏'}
-                    </button>
-                  </>
-                )}
+                <button
+                  className={[styles.actionBtn, likedIds.has(post.permalink) ? styles.actionBtnLikeActive : !user ? styles.actionBtnGuest : ''].join(' ')}
+                  onClick={e => handleLike(e, post.permalink)}
+                >
+                  <Icon icon={likedIds.has(post.permalink) ? 'material-symbols:thumb-up' : 'material-symbols:thumb-up-outline'} width={14} />
+                  {likedIds.has(post.permalink) ? '已点赞' : '点赞'}
+                </button>
+                <button
+                  className={[styles.actionBtn, bookmarkedIds.has(post.permalink) ? styles.actionBtnBookmarkActive : !user ? styles.actionBtnGuest : ''].join(' ')}
+                  onClick={e => handleBookmark(e, post.permalink)}
+                >
+                  <Icon icon={bookmarkedIds.has(post.permalink) ? 'material-symbols:bookmark' : 'material-symbols:bookmark-outline'} width={14} />
+                  {bookmarkedIds.has(post.permalink) ? '已收藏' : '收藏'}
+                </button>
               </div>
             </div>
           ))}
