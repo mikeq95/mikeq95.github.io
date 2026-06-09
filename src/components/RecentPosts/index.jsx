@@ -103,10 +103,10 @@ export default function RecentPosts({ posts = [] }) {
           if (data) setFavoriteIds(new Set(data.map(r => r.post_id)));
         });
       } else {
-        supabase.from('post_likes').select('post_id').eq('user_id', user.id).then(({ data }) => {
+        supabase.from('likes').select('post_id').eq('user_id', user.id).then(({ data }) => {
           if (data) setLikedIds(new Set(data.map(r => r.post_id)));
         });
-        supabase.from('post_bookmarks').select('post_id').eq('user_id', user.id).then(({ data }) => {
+        supabase.from('bookmarks').select('post_id').eq('user_id', user.id).then(({ data }) => {
           if (data) setBookmarkedIds(new Set(data.map(r => r.post_id)));
         });
       }
@@ -255,10 +255,10 @@ export default function RecentPosts({ posts = [] }) {
     if (!user) { promptLogin(); return; }
     if (!supabase) return;
     if (likedIds.has(permalink)) {
-      const { error } = await supabase.from('post_likes').delete().eq('post_id', permalink).eq('user_id', user.id);
+      const { error } = await supabase.from('likes').delete().eq('post_id', permalink).eq('user_id', user.id);
       if (!error) setLikedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
     } else {
-      const { error } = await supabase.from('post_likes').insert({ post_id: permalink, user_id: user.id });
+      const { error } = await supabase.from('likes').insert({ post_id: permalink, user_id: user.id });
       if (!error) setLikedIds(prev => new Set([...prev, permalink]));
     }
   };
@@ -269,10 +269,10 @@ export default function RecentPosts({ posts = [] }) {
     if (!user) { promptLogin(); return; }
     if (!supabase) return;
     if (bookmarkedIds.has(permalink)) {
-      const { error } = await supabase.from('post_bookmarks').delete().eq('post_id', permalink).eq('user_id', user.id);
+      const { error } = await supabase.from('bookmarks').delete().eq('post_id', permalink).eq('user_id', user.id);
       if (!error) setBookmarkedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
     } else {
-      const { error } = await supabase.from('post_bookmarks').insert({ post_id: permalink, user_id: user.id });
+      const { error } = await supabase.from('bookmarks').insert({ post_id: permalink, user_id: user.id });
       if (!error) setBookmarkedIds(prev => new Set([...prev, permalink]));
     }
   };
