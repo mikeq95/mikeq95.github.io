@@ -103,6 +103,7 @@ function LanguageSwitcherButton() {
               <li key={locale} role="option" aria-selected={isCurrent}>
                 <a
                   href={href}
+                  rel={isCurrent ? undefined : 'prefetch'}
                   className={`${styles.option} ${isCurrent ? styles.optionActive : ''}`}
                 >
                   {localeLabel}
