@@ -8,9 +8,9 @@ function PillToggle({ className }) {
   const isDark = colorMode === 'dark';
 
   return (
-    <div
+    <button
+      type="button"
       className={`${styles.pill}${className ? ` ${className}` : ''}`}
-      role="button"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       onClick={() => setColorMode(isDark ? 'light' : 'dark')}
     >
@@ -32,7 +32,7 @@ function PillToggle({ className }) {
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       </div>
-    </div>
+    </button>
   );
 }
 
