@@ -118,11 +118,9 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
       image: 'img/og-card.png',
       metadata: [
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:site', content: '@' },
       ],
       colorMode: {
         disableSwitch: false,

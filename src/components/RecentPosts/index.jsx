@@ -118,14 +118,16 @@ export default function RecentPosts({ posts = [] }) {
   useEffect(() => {
     if (!supabase || authLoading) return;
     // Load global like/bookmark counts for all posts
-    supabase.from('likes').select('post_id').then(({ data }) => {
+    supabase.from('likes').select('post_id').then(({ data, error }) => {
+      if (error) { console.error('Failed to load like counts:', error); return; }
       if (data) {
         const counts = {};
         data.forEach(r => { counts[r.post_id] = (counts[r.post_id] ?? 0) + 1; });
         setLikeCounts(counts);
       }
     });
-    supabase.from('bookmarks').select('post_id').then(({ data }) => {
+    supabase.from('bookmarks').select('post_id').then(({ data, error }) => {
+      if (error) { console.error('Failed to load bookmark counts:', error); return; }
       if (data) {
         const counts = {};
         data.forEach(r => { counts[r.post_id] = (counts[r.post_id] ?? 0) + 1; });
@@ -133,10 +135,12 @@ export default function RecentPosts({ posts = [] }) {
       }
     });
     if (user) {
-      supabase.from('likes').select('post_id').eq('user_id', user.id).then(({ data }) => {
+      supabase.from('likes').select('post_id').eq('user_id', user.id).then(({ data, error }) => {
+        if (error) { console.error('Failed to load liked posts:', error); return; }
         if (data) setLikedIds(new Set(data.map(r => r.post_id)));
       });
-      supabase.from('bookmarks').select('post_id').eq('user_id', user.id).then(({ data }) => {
+      supabase.from('bookmarks').select('post_id').eq('user_id', user.id).then(({ data, error }) => {
+        if (error) { console.error('Failed to load bookmarked posts:', error); return; }
         if (data) setBookmarkedIds(new Set(data.map(r => r.post_id)));
       });
     } else {
@@ -259,12 +263,16 @@ export default function RecentPosts({ posts = [] }) {
         if (!error) {
           setLikedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
           setLikeCounts(prev => ({ ...prev, [permalink]: Math.max(0, (prev[permalink] ?? 0) - 1) }));
+        } else {
+          console.error('Failed to unlike post:', error);
         }
       } else {
         const { error } = await supabase.from('likes').insert({ post_id: permalink, user_id: user.id });
         if (!error) {
           setLikedIds(prev => new Set([...prev, permalink]));
           setLikeCounts(prev => ({ ...prev, [permalink]: (prev[permalink] ?? 0) + 1 }));
+        } else {
+          console.error('Failed to like post:', error);
         }
       }
     } finally {
@@ -286,12 +294,16 @@ export default function RecentPosts({ posts = [] }) {
         if (!error) {
           setBookmarkedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
           setBookmarkCounts(prev => ({ ...prev, [permalink]: Math.max(0, (prev[permalink] ?? 0) - 1) }));
+        } else {
+          console.error('Failed to remove bookmark:', error);
         }
       } else {
         const { error } = await supabase.from('bookmarks').insert({ post_id: permalink, user_id: user.id });
         if (!error) {
           setBookmarkedIds(prev => new Set([...prev, permalink]));
           setBookmarkCounts(prev => ({ ...prev, [permalink]: (prev[permalink] ?? 0) + 1 }));
+        } else {
+          console.error('Failed to bookmark post:', error);
         }
       }
     } finally {

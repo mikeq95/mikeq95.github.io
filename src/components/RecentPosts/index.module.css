@@ -102,6 +102,11 @@
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
 }
 
+.scrollBtn:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
 [data-theme='dark'] .scrollBtn {
   background: rgba(20, 20, 20, 0.75);
   border-color: rgba(255, 255, 255, 0.15);
@@ -155,33 +160,6 @@
   scroll-snap-align: center;
 }
 
-/* Admin action button */
-.adminBtn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: #fff;
-  border: none;
-  border-radius: 999px;
-  width: 28px;
-  height: 28px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  letter-spacing: -1px;
-  transition: background 0.15s;
-}
-
-.adminBtn:hover { background: rgba(0, 0, 0, 0.72); }
-
 /* ── Card ── */
 .card {
   width: 280px;
@@ -202,6 +180,11 @@
 .card:hover {
   text-decoration: none;
   color: inherit;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
 }
 
 /* Active (centered) card — natural scale, strong shadow */
@@ -316,6 +299,11 @@
   text-decoration: none;
 }
 
+.moreLink:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
 /* ── Action row — floats up from card bottom on hover / when active ── */
 .actionRow {
   position: absolute;
@@ -369,34 +357,17 @@
   line-height: 1;
 }
 
+.actionBtn:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
 .actionLabel {
   white-space: nowrap;
 }
 
 .actionCount {
   font-variant-numeric: tabular-nums;
-}
-
-/* Admin: pin — orange */
-.actionBtnPinActive {
-  border-color: #FF6B35;
-  color: #FF6B35;
-  background: rgba(255, 107, 53, 0.08);
-}
-.actionBtnPinActive:hover {
-  background: #FF6B35;
-  color: #fff;
-}
-
-/* Admin: favorite — red */
-.actionBtnFavActive {
-  border-color: #e03e3e;
-  color: #e03e3e;
-  background: rgba(224, 62, 62, 0.08);
-}
-.actionBtnFavActive:hover {
-  background: #e03e3e;
-  color: #fff;
 }
 
 /* Not logged in — greyed out */

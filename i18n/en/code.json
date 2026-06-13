@@ -412,5 +412,29 @@
   "recentPosts.unbookmark": {
     "message": "Remove bookmark",
     "description": "Action button: remove bookmark from a post"
+  },
+  "heroAuthCard.joinTitle": {
+    "message": "Join the conversation",
+    "description": "Hero auth card heading for signed-out visitors"
+  },
+  "heroAuthCard.joinDesc": {
+    "message": "Sign in to like posts, save bookmarks, and join the discussion.",
+    "description": "Hero auth card description for signed-out visitors"
+  },
+  "heroAuthCard.continueWith": {
+    "message": "Continue with {provider}",
+    "description": "Hero auth card OAuth sign-in button label"
+  },
+  "heroAuthCard.welcomeBack": {
+    "message": "Welcome back, {name}",
+    "description": "Hero auth card greeting for signed-in users"
+  },
+  "heroAuthCard.likes": {
+    "message": "Likes",
+    "description": "Hero auth card stat label for liked posts count"
+  },
+  "heroAuthCard.bookmarks": {
+    "message": "Bookmarks",
+    "description": "Hero auth card stat label for bookmarked posts count"
   }
 }
