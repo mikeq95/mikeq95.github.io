@@ -243,23 +243,32 @@ export default function RecentPosts({ posts = [] }) {
     track.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: 'smooth' });
   };
 
+  const pendingActions = useRef(new Set());
+
   const handleLike = async (e, permalink) => {
     e.preventDefault();
     e.stopPropagation();
     if (!user) { promptLogin(); return; }
     if (!supabase) return;
-    if (likedIds.has(permalink)) {
-      const { error } = await supabase.from('likes').delete().eq('post_id', permalink).eq('user_id', user.id);
-      if (!error) {
-        setLikedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
-        setLikeCounts(prev => ({ ...prev, [permalink]: Math.max(0, (prev[permalink] ?? 0) - 1) }));
+    const key = `like:${permalink}`;
+    if (pendingActions.current.has(key)) return;
+    pendingActions.current.add(key);
+    try {
+      if (likedIds.has(permalink)) {
+        const { error } = await supabase.from('likes').delete().eq('post_id', permalink).eq('user_id', user.id);
+        if (!error) {
+          setLikedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
+          setLikeCounts(prev => ({ ...prev, [permalink]: Math.max(0, (prev[permalink] ?? 0) - 1) }));
+        }
+      } else {
+        const { error } = await supabase.from('likes').insert({ post_id: permalink, user_id: user.id });
+        if (!error) {
+          setLikedIds(prev => new Set([...prev, permalink]));
+          setLikeCounts(prev => ({ ...prev, [permalink]: (prev[permalink] ?? 0) + 1 }));
+        }
       }
-    } else {
-      const { error } = await supabase.from('likes').insert({ post_id: permalink, user_id: user.id });
-      if (!error) {
-        setLikedIds(prev => new Set([...prev, permalink]));
-        setLikeCounts(prev => ({ ...prev, [permalink]: (prev[permalink] ?? 0) + 1 }));
-      }
+    } finally {
+      pendingActions.current.delete(key);
     }
   };
 
@@ -268,18 +277,25 @@ export default function RecentPosts({ posts = [] }) {
     e.stopPropagation();
     if (!user) { promptLogin(); return; }
     if (!supabase) return;
-    if (bookmarkedIds.has(permalink)) {
-      const { error } = await supabase.from('bookmarks').delete().eq('post_id', permalink).eq('user_id', user.id);
-      if (!error) {
-        setBookmarkedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
-        setBookmarkCounts(prev => ({ ...prev, [permalink]: Math.max(0, (prev[permalink] ?? 0) - 1) }));
+    const key = `bookmark:${permalink}`;
+    if (pendingActions.current.has(key)) return;
+    pendingActions.current.add(key);
+    try {
+      if (bookmarkedIds.has(permalink)) {
+        const { error } = await supabase.from('bookmarks').delete().eq('post_id', permalink).eq('user_id', user.id);
+        if (!error) {
+          setBookmarkedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
+          setBookmarkCounts(prev => ({ ...prev, [permalink]: Math.max(0, (prev[permalink] ?? 0) - 1) }));
+        }
+      } else {
+        const { error } = await supabase.from('bookmarks').insert({ post_id: permalink, user_id: user.id });
+        if (!error) {
+          setBookmarkedIds(prev => new Set([...prev, permalink]));
+          setBookmarkCounts(prev => ({ ...prev, [permalink]: (prev[permalink] ?? 0) + 1 }));
+        }
       }
-    } else {
-      const { error } = await supabase.from('bookmarks').insert({ post_id: permalink, user_id: user.id });
-      if (!error) {
-        setBookmarkedIds(prev => new Set([...prev, permalink]));
-        setBookmarkCounts(prev => ({ ...prev, [permalink]: (prev[permalink] ?? 0) + 1 }));
-      }
+    } finally {
+      pendingActions.current.delete(key);
     }
   };
 

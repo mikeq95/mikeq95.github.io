@@ -369,13 +369,13 @@
     "message": "所有文章",
     "description": "Tab label: show all posts"
   },
-  "recentPosts.tab.pinned": {
-    "message": "置顶文章",
-    "description": "Tab label: show pinned posts"
+  "recentPosts.tab.mostLiked": {
+    "message": "点赞最多",
+    "description": "Tab label: show most liked posts"
   },
-  "recentPosts.tab.favorites": {
-    "message": "我的最爱",
-    "description": "Tab label: show favorited posts"
+  "recentPosts.tab.mostBookmarked": {
+    "message": "收藏最多",
+    "description": "Tab label: show most bookmarked posts"
   },
   "recentPosts.tab.about": {
     "message": "关于这个博客",
@@ -397,28 +397,20 @@
     "message": "向右滚动",
     "description": "Aria label for the button that scrolls the card track right"
   },
-  "recentPosts.badge.pinned": {
-    "message": "置顶",
-    "description": "Badge label for pinned posts"
+  "recentPosts.like": {
+    "message": "点赞",
+    "description": "Action button: like a post"
   },
-  "recentPosts.badge.fav": {
-    "message": "最爱",
-    "description": "Badge label for favorited posts"
+  "recentPosts.unlike": {
+    "message": "取消点赞",
+    "description": "Action button: remove like from a post"
   },
-  "recentPosts.context.pin": {
-    "message": "📌 置顶文章",
-    "description": "Context menu: pin a post"
+  "recentPosts.bookmark": {
+    "message": "收藏",
+    "description": "Action button: bookmark a post"
   },
-  "recentPosts.context.unpin": {
-    "message": "📌 取消置顶",
-    "description": "Context menu: unpin a post"
-  },
-  "recentPosts.context.fav": {
-    "message": "❤️ 加入最爱",
-    "description": "Context menu: add to favorites"
-  },
-  "recentPosts.context.unfav": {
-    "message": "❤️ 移出最爱",
-    "description": "Context menu: remove from favorites"
+  "recentPosts.unbookmark": {
+    "message": "取消收藏",
+    "description": "Action button: remove bookmark from a post"
   }
 }

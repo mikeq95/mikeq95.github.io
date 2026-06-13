@@ -10,7 +10,7 @@
   margin: 0 auto;
   padding: 0 2.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 2fr;
   gap: 3rem;
 }
 

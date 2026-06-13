@@ -369,13 +369,13 @@
     "message": "All Posts",
     "description": "Tab label: show all posts"
   },
-  "recentPosts.tab.pinned": {
-    "message": "Pinned",
-    "description": "Tab label: show pinned posts"
+  "recentPosts.tab.mostLiked": {
+    "message": "Most Liked",
+    "description": "Tab label: show most liked posts"
   },
-  "recentPosts.tab.favorites": {
-    "message": "Favorites",
-    "description": "Tab label: show favorited posts"
+  "recentPosts.tab.mostBookmarked": {
+    "message": "Most Bookmarked",
+    "description": "Tab label: show most bookmarked posts"
   },
   "recentPosts.tab.about": {
     "message": "About This Blog",
@@ -397,28 +397,20 @@
     "message": "Scroll right",
     "description": "Aria label for the button that scrolls the card track right"
   },
-  "recentPosts.badge.pinned": {
-    "message": "PINNED",
-    "description": "Badge label for pinned posts"
+  "recentPosts.like": {
+    "message": "Like",
+    "description": "Action button: like a post"
   },
-  "recentPosts.badge.fav": {
-    "message": "FAV",
-    "description": "Badge label for favorited posts"
+  "recentPosts.unlike": {
+    "message": "Unlike",
+    "description": "Action button: remove like from a post"
   },
-  "recentPosts.context.pin": {
-    "message": "📌 Pin post",
-    "description": "Context menu: pin a post"
+  "recentPosts.bookmark": {
+    "message": "Bookmark",
+    "description": "Action button: bookmark a post"
   },
-  "recentPosts.context.unpin": {
-    "message": "📌 Unpin",
-    "description": "Context menu: unpin a post"
-  },
-  "recentPosts.context.fav": {
-    "message": "❤️ Add to favorites",
-    "description": "Context menu: add to favorites"
-  },
-  "recentPosts.context.unfav": {
-    "message": "❤️ Remove favorite",
-    "description": "Context menu: remove from favorites"
+  "recentPosts.unbookmark": {
+    "message": "Remove bookmark",
+    "description": "Action button: remove bookmark from a post"
   }
 }
