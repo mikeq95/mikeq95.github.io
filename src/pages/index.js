@@ -14,18 +14,6 @@ function HomepageHeader() {
   const isZh = currentLocale.startsWith('zh');
   const heroTextRef = useRef(null);
   const cardRef = useRef(null);
-  const blogData = usePluginData('blog-global-data');
-  const tags = useMemo(() => {
-    const map = new Map();
-    (blogData?.blogPosts ?? []).forEach(post => {
-      (post.tags ?? []).forEach(tag => {
-        const e = map.get(tag.label) ?? { ...tag, count: 0 };
-        e.count++;
-        map.set(tag.label, e);
-      });
-    });
-    return Array.from(map.values()).sort((a, b) => b.count - a.count).slice(0, 8);
-  }, [blogData]);
 
   useEffect(() => {
     let ctx;
@@ -69,15 +57,6 @@ function HomepageHeader() {
               {isZh ? '阅读我的博客' : 'Read my blog'}
             </Link>
           </div>
-          {tags.length > 0 && (
-            <div className={styles.heroTags}>
-              {tags.map(tag => (
-                <Link key={tag.label} to={tag.permalink} className={styles.heroTag}>
-                  {tag.label}
-                </Link>
-              ))}
-            </div>
-          )}
         </div>
         <div className={styles.heroCardContainer} ref={cardRef}>
           <HeroAuthCard />

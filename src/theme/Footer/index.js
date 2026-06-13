@@ -1,9 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { usePluginData } from '@docusaurus/useGlobalData';
 import styles from './styles.module.css';
 
 const SOCIAL = [
@@ -36,8 +34,6 @@ export default function Footer() {
   const { siteConfig, i18n: { currentLocale } } = useDocusaurusContext();
   const isZh = currentLocale.startsWith('zh');
   const year = new Date().getFullYear();
-  const blogData = usePluginData('blog-global-data');
-  const recentPosts = (blogData?.blogPosts ?? []).slice(0, 3);
 
   return (
     <footer className={styles.footer}>
@@ -53,20 +49,6 @@ export default function Footer() {
             <Icon icon="mdi:rss" className={styles.rssIcon} />
             RSS
           </a>
-        </div>
-
-        {/* Center: recent posts */}
-        <div className={styles.col}>
-          <div className={styles.colTitle}>{isZh ? '近期文章' : 'Recent Posts'}</div>
-          <ul className={styles.postList}>
-            {recentPosts.map(post => (
-              <li key={post.id ?? post.permalink}>
-                <Link to={post.permalink} className={styles.postLink}>
-                  {post.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
 
         {/* Right: social */}

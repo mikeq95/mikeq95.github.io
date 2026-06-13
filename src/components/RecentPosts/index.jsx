@@ -250,10 +250,16 @@ export default function RecentPosts({ posts = [] }) {
     if (!supabase) return;
     if (likedIds.has(permalink)) {
       const { error } = await supabase.from('likes').delete().eq('post_id', permalink).eq('user_id', user.id);
-      if (!error) setLikedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
+      if (!error) {
+        setLikedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
+        setLikeCounts(prev => ({ ...prev, [permalink]: Math.max(0, (prev[permalink] ?? 0) - 1) }));
+      }
     } else {
       const { error } = await supabase.from('likes').insert({ post_id: permalink, user_id: user.id });
-      if (!error) setLikedIds(prev => new Set([...prev, permalink]));
+      if (!error) {
+        setLikedIds(prev => new Set([...prev, permalink]));
+        setLikeCounts(prev => ({ ...prev, [permalink]: (prev[permalink] ?? 0) + 1 }));
+      }
     }
   };
 
@@ -264,10 +270,16 @@ export default function RecentPosts({ posts = [] }) {
     if (!supabase) return;
     if (bookmarkedIds.has(permalink)) {
       const { error } = await supabase.from('bookmarks').delete().eq('post_id', permalink).eq('user_id', user.id);
-      if (!error) setBookmarkedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
+      if (!error) {
+        setBookmarkedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
+        setBookmarkCounts(prev => ({ ...prev, [permalink]: Math.max(0, (prev[permalink] ?? 0) - 1) }));
+      }
     } else {
       const { error } = await supabase.from('bookmarks').insert({ post_id: permalink, user_id: user.id });
-      if (!error) setBookmarkedIds(prev => new Set([...prev, permalink]));
+      if (!error) {
+        setBookmarkedIds(prev => new Set([...prev, permalink]));
+        setBookmarkCounts(prev => ({ ...prev, [permalink]: (prev[permalink] ?? 0) + 1 }));
+      }
     }
   };
 
@@ -352,18 +364,22 @@ export default function RecentPosts({ posts = [] }) {
               {/* Action row — like + bookmark for all users (greyed if not logged in) */}
               <div className={styles.actionRow}>
                 <button
-                  className={[styles.actionBtn, likedIds.has(post.permalink) ? styles.actionBtnLikeActive : !user ? styles.actionBtnGuest : ''].join(' ')}
+                  className={[styles.actionBtn, styles.actionBtnLike, likedIds.has(post.permalink) ? styles.actionBtnLikeActive : !user ? styles.actionBtnGuest : ''].join(' ')}
                   onClick={e => handleLike(e, post.permalink)}
+                  aria-label={likedIds.has(post.permalink) ? translate({id: 'recentPosts.unlike', message: '取消点赞'}) : translate({id: 'recentPosts.like', message: '点赞'})}
                 >
-                  <Icon icon={likedIds.has(post.permalink) ? 'material-symbols:thumb-up' : 'material-symbols:thumb-up-outline'} width={14} />
-                  {likedIds.has(post.permalink) ? '已点赞' : '点赞'}
+                  <Icon icon={likedIds.has(post.permalink) ? 'tabler:thumb-up-filled' : 'tabler:thumb-up'} width={16} />
+                  <span className={styles.actionLabel}>{translate({id: 'recentPosts.like', message: '点赞'})}</span>
+                  <span className={styles.actionCount}>{likeCounts[post.permalink] ?? 0}</span>
                 </button>
                 <button
-                  className={[styles.actionBtn, bookmarkedIds.has(post.permalink) ? styles.actionBtnBookmarkActive : !user ? styles.actionBtnGuest : ''].join(' ')}
+                  className={[styles.actionBtn, styles.actionBtnBookmark, bookmarkedIds.has(post.permalink) ? styles.actionBtnBookmarkActive : !user ? styles.actionBtnGuest : ''].join(' ')}
                   onClick={e => handleBookmark(e, post.permalink)}
+                  aria-label={bookmarkedIds.has(post.permalink) ? translate({id: 'recentPosts.unbookmark', message: '取消收藏'}) : translate({id: 'recentPosts.bookmark', message: '收藏'})}
                 >
-                  <Icon icon={bookmarkedIds.has(post.permalink) ? 'material-symbols:bookmark' : 'material-symbols:bookmark-outline'} width={14} />
-                  {bookmarkedIds.has(post.permalink) ? '已收藏' : '收藏'}
+                  <Icon icon={bookmarkedIds.has(post.permalink) ? 'tabler:bookmark-filled' : 'tabler:bookmark'} width={16} />
+                  <span className={styles.actionLabel}>{translate({id: 'recentPosts.bookmark', message: '收藏'})}</span>
+                  <span className={styles.actionCount}>{bookmarkCounts[post.permalink] ?? 0}</span>
                 </button>
               </div>
             </div>

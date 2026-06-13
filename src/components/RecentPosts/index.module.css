@@ -349,33 +349,32 @@
   pointer-events: auto;
 }
 
-/* ── Action buttons ── */
+/* ── Action buttons (Juejin-style pills) ── */
 .actionBtn {
   flex: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
   padding: 6px 0;
-  border-radius: 10px;
-  border: 1.5px solid var(--ifm-color-primary);
-  background: transparent;
-  color: var(--ifm-color-primary);
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-content-secondary);
   font-size: 0.72rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   white-space: nowrap;
   line-height: 1;
 }
 
-.actionBtn:hover {
-  background: var(--ifm-color-primary);
-  color: #fff;
+.actionLabel {
+  white-space: nowrap;
 }
 
-[data-theme='dark'] .actionBtn:hover {
-  color: #1d1d1f;
+.actionCount {
+  font-variant-numeric: tabular-nums;
 }
 
 /* Admin: pin — orange */
@@ -400,29 +399,36 @@
   color: #fff;
 }
 
-/* User: liked / bookmarked — primary fill */
-.actionBtnLikeActive,
-.actionBtnBookmarkActive {
-  background: var(--ifm-color-primary);
-  color: #fff;
-  border-color: var(--ifm-color-primary);
-}
-
-.actionBtnLikeActive:hover,
-.actionBtnBookmarkActive:hover {
-  opacity: 0.85;
-}
-
 /* Not logged in — greyed out */
 .actionBtnGuest {
-  border-color: var(--ifm-color-emphasis-300);
   color: var(--ifm-color-content-secondary);
-  opacity: 0.65;
+  opacity: 0.5;
 }
 
-.actionBtnGuest:hover {
-  background: var(--ifm-color-emphasis-100);
-  color: var(--ifm-color-content-secondary);
+/* ── Like button — red on hover / when active ── */
+.actionBtnLike:hover {
+  border-color: #e03e3e;
+  color: #e03e3e;
+  background: rgba(224, 62, 62, 0.1);
+}
+
+.actionBtnLikeActive {
+  border-color: rgba(224, 62, 62, 0.35);
+  color: #e03e3e;
+  background: rgba(224, 62, 62, 0.1);
+}
+
+/* ── Bookmark button — blue on hover / when active ── */
+.actionBtnBookmark:hover {
+  border-color: #2e6be6;
+  color: #2e6be6;
+  background: rgba(46, 107, 230, 0.1);
+}
+
+.actionBtnBookmarkActive {
+  border-color: rgba(46, 107, 230, 0.35);
+  color: #2e6be6;
+  background: rgba(46, 107, 230, 0.1);
 }
 
 /* ── Mobile ── */
