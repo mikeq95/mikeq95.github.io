@@ -54,6 +54,22 @@ function CustomizeSection({ isEn }) {
   );
 }
 
+// Single cover thumbnail in the "My Likes" preview. Falls back to a grey
+// placeholder block when there is no image URL or the image fails to load.
+function CoverThumb({ src }) {
+  const [failed, setFailed] = useState(false);
+  if (!src || failed) return <div className={styles.coverPlaceholder} />;
+  return (
+    <img
+      src={src}
+      alt=""
+      className={styles.cover}
+      loading="lazy"
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
 function AuthButtonsInner() {
   const { user, loading } = useAuth();
   const { siteConfig, i18n: { currentLocale, defaultLocale } } = useDocusaurusContext();
@@ -64,6 +80,21 @@ function AuthButtonsInner() {
   const loginRef = useRef(null);
   const userRef = useRef(null);
 
+  // Pointer type: desktop (fine) uses hover, mobile (coarse) uses click.
+  const [isFine, setIsFine] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches,
+  );
+  const openTimer = useRef(null);
+  const closeTimer = useRef(null);
+
+  // Drawer data: posts-meta.json (cover images) + Supabase like/bookmark stats.
+  const [postsMeta, setPostsMeta] = useState(null);
+  const metaStarted = useRef(false);
+  const dataStarted = useRef(false);
+  const [likeCount, setLikeCount] = useState(null);
+  const [likeSlugs, setLikeSlugs] = useState([]);
+  const [bookmarkCount, setBookmarkCount] = useState(null);
+
   useEffect(() => {
     function handleClickOutside(e) {
       if (loginRef.current && !loginRef.current.contains(e.target)) setLoginOpen(false);
@@ -72,6 +103,78 @@ function AuthButtonsInner() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    setIsFine(window.matchMedia('(pointer: fine)').matches);
+  }, []);
+
+  // Clean up any pending hover timers on unmount.
+  useEffect(() => () => {
+    clearTimeout(openTimer.current);
+    clearTimeout(closeTimer.current);
+  }, []);
+
+  // Hover-to-open with delays (desktop only).
+  const handleDrawerEnter = () => {
+    if (!isFine) return;
+    clearTimeout(closeTimer.current);
+    openTimer.current = setTimeout(() => setUserOpen(true), 200);
+  };
+  const handleDrawerLeave = () => {
+    if (!isFine) return;
+    clearTimeout(openTimer.current);
+    closeTimer.current = setTimeout(() => setUserOpen(false), 300);
+  };
+
+  // Load drawer data the first time it opens (once per mount).
+  useEffect(() => {
+    if (!userOpen || !user) return;
+
+    if (!metaStarted.current) {
+      metaStarted.current = true;
+      fetch('/posts-meta.json')
+        .then(r => r.json())
+        .then(setPostsMeta)
+        .catch(() => setPostsMeta({}));
+    }
+
+    if (!dataStarted.current) {
+      dataStarted.current = true;
+      (async () => {
+        try {
+          const [likesRes, bmRes] = await Promise.all([
+            supabase
+              .from('post_likes')
+              .select('post_id', { count: 'exact' })
+              .eq('user_id', user.id)
+              .order('created_at', { ascending: false })
+              .limit(3),
+            supabase
+              .from('post_bookmarks')
+              .select('*', { count: 'exact', head: true })
+              .eq('user_id', user.id),
+          ]);
+          if (likesRes.error) throw likesRes.error;
+          if (bmRes.error) throw bmRes.error;
+          setLikeSlugs((likesRes.data || []).map(r => r.post_id));
+          setLikeCount(likesRes.count ?? 0);
+          setBookmarkCount(bmRes.count ?? 0);
+        } catch {
+          // Silent failure: show zero counts and no covers.
+          setLikeSlugs([]);
+          setLikeCount(0);
+          setBookmarkCount(0);
+        }
+      })();
+    }
+  }, [userOpen, user]);
+
+  // Lock body scroll while the drawer is open (mobile only).
+  useEffect(() => {
+    if (isFine || !userOpen) return;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, [userOpen, isFine]);
 
   const signIn = async (provider) => {
     setLoginOpen(false);
@@ -125,11 +228,19 @@ function AuthButtonsInner() {
   const name = user.user_metadata?.full_name || user.user_metadata?.name || user.email;
 
   return (
-    <div className={styles.auth} ref={userRef}>
+    <div
+      className={styles.auth}
+      ref={userRef}
+      onMouseEnter={handleDrawerEnter}
+      onMouseLeave={handleDrawerLeave}
+    >
       <button
         type="button"
         className={styles.avatarBtn}
-        onClick={() => setUserOpen(o => !o)}
+        onClick={() => { if (!isFine) setUserOpen(o => !o); }}
+        aria-label={name}
+        aria-expanded={userOpen}
+        aria-haspopup="menu"
       >
         {avatarUrl ? (
           <img src={avatarUrl} alt={name} className={styles.avatar} />
@@ -138,19 +249,61 @@ function AuthButtonsInner() {
         )}
       </button>
       {userOpen && (
-        <div className={styles.dropdown}>
-          <div className={styles.userName}>{name}</div>
-          <hr className={styles.divider} />
+        <div className={styles.drawer}>
+          {/* User info */}
+          <div className={styles.drawerHeader}>
+            {avatarUrl ? (
+              <img src={avatarUrl} alt={name} className={styles.drawerAvatar} />
+            ) : (
+              <div className={styles.drawerAvatarFallback}>{name?.[0]?.toUpperCase()}</div>
+            )}
+            <span className={styles.drawerName}>{name}</span>
+          </div>
+
+          <hr className={styles.drawerDivider} />
+
+          {/* My Likes */}
+          <div className={styles.section}>
+            <a href={`${lp}/my-likes`} className={styles.sectionRow}>
+              <span className={styles.sectionLabel}>{isEn ? '❤️ My Likes' : '❤️ 我的喜欢'}</span>
+              <span className={styles.sectionMeta}>
+                <span className={styles.count}>{likeCount === null ? '—' : likeCount}</span>
+                <span className={styles.arrow}>›</span>
+              </span>
+            </a>
+            {(likeCount === null || likeCount > 0) && (
+              <div className={styles.covers}>
+                {likeCount === null
+                  ? [0, 1, 2].map(i => <div key={i} className={styles.coverPlaceholder} />)
+                  : likeSlugs.slice(0, 3).map((slug, i) => (
+                      <CoverThumb key={`${slug}-${i}`} src={postsMeta?.[slug]?.image} />
+                    ))}
+              </div>
+            )}
+          </div>
+
+          <hr className={styles.drawerDivider} />
+
+          {/* My Bookmarks */}
+          <div className={styles.section}>
+            <a href={`${lp}/my-bookmarks`} className={styles.sectionRow}>
+              <span className={styles.sectionLabel}>{isEn ? '⭐ My Bookmarks' : '⭐ 我的收藏'}</span>
+              <span className={styles.sectionMeta}>
+                <span className={styles.count}>{bookmarkCount === null ? '—' : bookmarkCount}</span>
+                <span className={styles.arrow}>›</span>
+              </span>
+            </a>
+          </div>
+
+          <hr className={styles.drawerDivider} />
+
+          {/* Personalization (theme color + dark mode) */}
           <CustomizeSection isEn={isEn} />
-          <hr className={styles.divider} />
-          <a href={`${lp}/my-likes`} className={styles.dropdownItem}>
-            {isEn ? 'My Likes' : '我的点赞'}
-          </a>
-          <a href={`${lp}/my-bookmarks`} className={styles.dropdownItem}>
-            {isEn ? 'My Bookmarks' : '我的收藏'}
-          </a>
-          <hr className={styles.divider} />
-          <button type="button" className={styles.dropdownItem} onClick={signOut}>
+
+          <hr className={styles.drawerDivider} />
+
+          {/* Sign out */}
+          <button type="button" className={styles.signOutBtn} onClick={signOut}>
             {isEn ? 'Sign Out' : '退出登录'}
           </button>
         </div>

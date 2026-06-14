@@ -97,6 +97,7 @@ const config = {
 
   plugins: [
     require.resolve('./src/plugins/blogGlobalDataPlugin'),
+    require.resolve('./plugins/posts-meta-plugin'),
   ],
 
   themes: [
