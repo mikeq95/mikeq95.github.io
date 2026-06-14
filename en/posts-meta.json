@@ -1,0 +1,58 @@
+{
+  "2026/04/29/coding-english-vocabulary": {
+    "title": "编程英语单词短语收集",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/ProgrammingEnglish.png"
+  },
+  "2026/04/29/general-english-vocabulary": {
+    "title": "通用英语单词短语收集",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/GeneralEnglish.png"
+  },
+  "about": {
+    "title": "关于这个博客",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/%E5%85%B3%E4%BA%8E%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2.png"
+  },
+  "about-the-logo": {
+    "title": "关于这个博客的 logo",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/%E8%BF%99%E4%B8%AA%E7%BD%91%E7%AB%99%E5%B0%81%E9%9D%A2%E7%9A%84%E7%94%B1%E6%9D%A5.png"
+  },
+  "2025/05/16/quick-reference-for-macOS network-reset-commands": {
+    "title": "🌐 macOS 网络重置命令速查",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/%E8%8B%B9%E6%9E%9C%E7%94%B5%E8%84%91%E7%BD%91%E7%BB%9C%E9%87%8D%E5%88%B6%E5%91%BD%E4%BB%A4.png"
+  },
+  "2026/05/16/recommended-commonly-used-search-engines": {
+    "title": "常用的搜索引擎推荐",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/%E5%B8%B8%E7%94%A8%E7%9A%84%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8E%A8%E8%8D%90.png"
+  },
+  "2026/05/16/kokoro-tts-tutorial": {
+    "title": "用 Kokoro 把文章变成播客音频",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/kokoro-coverimage.png"
+  },
+  "2026/05/28/homebrew-tutorials": {
+    "title": "介绍 Homebrew",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/Homebrew-coverimage.png"
+  },
+  "2026/05/28/marker-github-project-tutorial": {
+    "title": "Marker 使用教程",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/maker-coverimage.png"
+  },
+  "2026/05/29/download-youtube-videos-using-a-python-script": {
+    "title": "用 Python 脚本下载 YouTube 视频",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/%E7%94%A8%E4%B8%80%E6%AE%B5python%E8%84%9A%E6%9C%AC%E4%B8%8B%E8%BD%BDyoutube%E8%A7%86%E9%A2%91.png"
+  },
+  "2026/06/01/open-codesign-review": {
+    "title": "Claude Design 平替，Open CoDesign 实际体验",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/open-codesign-coverImage.png"
+  },
+  "2026/06/02/gsap-claude-code-web-animation": {
+    "title": "GSAP + Claude Code，为你的网页加上炫酷动画",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/GSAP-Skills-CoverImage.png"
+  },
+  "2026/06/03/codegraph-claude-code-knowledge-graph": {
+    "title": "CodeGraph：让 Claude Code 少走弯路，token 省一半",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/codegraphCowerImage.png"
+  },
+  "2026/05/24/my-favorite-songs": {
+    "title": "我最喜欢的歌（周杰伦）",
+    "image": "https://cdn.mikeq95blog.uk/coverimage/%E6%88%91%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%AD%8C.png"
+  }
+}

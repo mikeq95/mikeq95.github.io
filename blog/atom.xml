@@ -2,11 +2,41 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mikeq95blog.uk/blog</id>
     <title>mikeq95's blog Blog</title>
-    <updated>2026-06-04T00:00:00.000Z</updated>
+    <updated>2026-06-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mikeq95blog.uk/blog"/>
     <subtitle>mikeq95's blog Blog</subtitle>
     <icon>https://mikeq95blog.uk/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[关于这个博客的 logo]]></title>
+        <id>https://mikeq95blog.uk/blog/about-the-logo</id>
+        <link href="https://mikeq95blog.uk/blog/about-the-logo"/>
+        <updated>2026-06-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[这个 logo 是怎么来的]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="这个-logo-是怎么来的">这个 logo 是怎么来的<a href="https://mikeq95blog.uk/blog/about-the-logo#%E8%BF%99%E4%B8%AA-logo-%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84" class="hash-link" aria-label="这个 logo 是怎么来的的直接链接" title="这个 logo 是怎么来的的直接链接" translate="no">​</a></h2>
+<p>这个网站的 logo 是我女朋友帮我做的。原型是英雄联盟里的 Poro——那只圆滚滚、白白的小东西。</p>
+<p><img decoding="async" loading="lazy" src="https://cdn.mikeq95blog.uk/coverimage/poluobaby.jpg" alt="英雄联盟里的 Poro 原型" class="img_ev3q"></p>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="视频电话">视频电话<a href="https://mikeq95blog.uk/blog/about-the-logo#%E8%A7%86%E9%A2%91%E7%94%B5%E8%AF%9D" class="hash-link" aria-label="视频电话的直接链接" title="视频电话的直接链接" translate="no">​</a></h2>
+<p>事情其实很简单。</p>
+<p>有一次视频电话，我随口问她：</p>
+<blockquote>
+<p>Do you know pixel art?</p>
+</blockquote>
+<p>她说：</p>
+<blockquote>
+<p>Yes, and I'm actually really good at it.</p>
+</blockquote>
+<p>她是艺术生，所以画画是她的特长。然后我问了一句，能不能帮我画一个像素风格的 Poro，当这个博客的 logo。</p>
+<p>然后她就真的画出来了。</p>
+<p><img decoding="async" loading="lazy" src="https://cdn.mikeq95blog.uk/coverimage/pixel-logo.png" alt="女朋友画的像素风 Poro logo" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="我的感受">我的感受<a href="https://mikeq95blog.uk/blog/about-the-logo#%E6%88%91%E7%9A%84%E6%84%9F%E5%8F%97" class="hash-link" aria-label="我的感受的直接链接" title="我的感受的直接链接" translate="no">​</a></h2>
+<p>我盯着那个 logo 看了很久。</p>
+<p>像素风的东西，看着简单，其实每一格都得自己排，差一格味道就不对。她画出来的那只 Poro，比例、配色、神态，全都在。然后还用了我最喜欢的紫色，一看就知道是用了心的。</p>
+<p>这个博客我自己和AI写代码,自己折腾体验，我做了一个评论功能结果只有我一个人在评论😂。唯独这个 logo，是我的女朋友送我的。所以它对我来说有点特别——它不只是个图标，是有人愿意为我花时间做的东西。</p>
+<p>谢谢你，亲爱的！❤️You are the best!</p>]]></content>
+        <category label="关于" term="关于"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[关于这个博客]]></title>
         <id>https://mikeq95blog.uk/blog/about</id>

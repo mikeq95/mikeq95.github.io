@@ -4,10 +4,40 @@
         <title>mikeq95's blog Blog</title>
         <link>https://mikeq95blog.uk/en/blog</link>
         <description>mikeq95's blog Blog</description>
-        <lastBuildDate>Thu, 04 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[About This Blog's Logo]]></title>
+            <link>https://mikeq95blog.uk/en/blog/about-the-logo</link>
+            <guid>https://mikeq95blog.uk/en/blog/about-the-logo</guid>
+            <pubDate>Sun, 14 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Where the Logo Came From]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="where-the-logo-came-from">Where the Logo Came From<a href="https://mikeq95blog.uk/en/blog/about-the-logo#where-the-logo-came-from" class="hash-link" aria-label="Direct link to Where the Logo Came From" title="Direct link to Where the Logo Came From" translate="no">​</a></h2>
+<p>The logo of this site was made by my girlfriend. It's based on the Poro from League of Legends — that round, fluffy little white thing.</p>
+<p><img decoding="async" loading="lazy" src="https://cdn.mikeq95blog.uk/coverimage/poluobaby.jpg" alt="The Poro from League of Legends" class="img_ev3q"></p>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-video-call">A Video Call<a href="https://mikeq95blog.uk/en/blog/about-the-logo#a-video-call" class="hash-link" aria-label="Direct link to A Video Call" title="Direct link to A Video Call" translate="no">​</a></h2>
+<p>It actually happened pretty simply.</p>
+<p>One time on a video call, I asked her offhand:</p>
+<blockquote>
+<p>Do you know pixel art?</p>
+</blockquote>
+<p>She said:</p>
+<blockquote>
+<p>Yes, and I'm actually really good at it.</p>
+</blockquote>
+<p>She's an art student, so drawing is her thing. So I asked: could you draw me a pixel-art Poro to use as the logo for this blog?</p>
+<p>And she actually did it.</p>
+<p><img decoding="async" loading="lazy" src="https://cdn.mikeq95blog.uk/coverimage/pixel-logo.png" alt="The pixel-art Poro logo my girlfriend drew" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-i-feel-about-it">How I Feel About It<a href="https://mikeq95blog.uk/en/blog/about-the-logo#how-i-feel-about-it" class="hash-link" aria-label="Direct link to How I Feel About It" title="Direct link to How I Feel About It" translate="no">​</a></h2>
+<p>I stared at that logo for a long time.</p>
+<p>Pixel art looks simple, but every single square has to be placed by hand — one square off and the whole feel is wrong. The Poro she drew has it all: the proportions, the colors, the expression. She even used my favorite color, purple. You can tell at a glance that she put her heart into it.</p>
+<p>For this blog I write the code myself (with AI), and obsess over the experience myself. I even built a comment feature, and it turned out I'm the only one commenting on it 😂. The one thing I didn't make is this logo — it was a gift from my girlfriend. So it means a little more to me. It's not just an icon; it's something someone was willing to spend their time making for me.</p>
+<p>Thank you, my dear! ❤️ You are the best!</p>]]></content:encoded>
+            <category>About</category>
+        </item>
         <item>
             <title><![CDATA[About This Blog]]></title>
             <link>https://mikeq95blog.uk/en/blog/about</link>
