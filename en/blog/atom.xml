@@ -18,7 +18,6 @@
 <p><img decoding="async" loading="lazy" src="https://cdn.mikeq95blog.uk/coverimage/poluobaby.jpg" alt="The Poro from League of Legends" class="img_ev3q"></p>
 <!-- -->
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-video-call">A Video Call<a href="https://mikeq95blog.uk/en/blog/about-the-logo#a-video-call" class="hash-link" aria-label="Direct link to A Video Call" title="Direct link to A Video Call" translate="no">​</a></h2>
-<p>It actually happened pretty simply.</p>
 <p>One time on a video call, I asked her offhand:</p>
 <blockquote>
 <p>Do you know pixel art?</p>
@@ -45,19 +44,23 @@
         <summary type="html"><![CDATA[About Me]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="about-me">About Me<a href="https://mikeq95blog.uk/en/blog/about#about-me" class="hash-link" aria-label="Direct link to About Me" title="Direct link to About Me" translate="no">​</a></h2>
 <p>Born after 2005, Gen Z, sophomore majoring in Electronic Information Engineering. I play basketball, game (LoL, CS2), and I'm learning English on the side — not great at it yet, but working on it.</p>
-<p>Science student. My writing has always been pretty plain. But I think a good article has only one standard: the reader can understand it. That, I can manage.</p>
+<p>I'm a science student, so I'm probably not great at writing articles. I think you should make a sentence, a complex concept, simpler — not obscure and hard to follow. So I keep my articles simple and concise (which doesn't mean low on information).</p>
 <!-- -->
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-this-blog-is-for">What This Blog Is For<a href="https://mikeq95blog.uk/en/blog/about#what-this-blog-is-for" class="hash-link" aria-label="Direct link to What This Blog Is For" title="Direct link to What This Blog Is For" translate="no">​</a></h2>
 <p>Written for myself. To record things I've figured out, and to verify whether I've actually figured them out. If you can follow along too, great.</p>
-<p>The content is mostly technical: AI tools, Mac development, things I've used and found worth writing down. You know the feeling — a lot of GitHub projects hit you with "set up your environment" right at step one. I don't want to write like that.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="about-this-site">About This Site<a href="https://mikeq95blog.uk/en/blog/about#about-this-site" class="hash-link" aria-label="Direct link to About This Site" title="Direct link to About This Site" translate="no">​</a></h2>
 <p>No ads, and there won't be. I can guarantee that. I hate ads, and I don't want anyone here to be interrupted — including me, because I'm a reader here too.</p>
-<p>I care about the experience. The site should be fast, pages should be clean, open it and you don't have to think — just find what you want to read.</p>
-<p>As for making money, I'll figure that out later. But only one condition: it won't come at the cost of the experience.</p>
-<p>I don't really care how many people read this. I care about how well I write.</p>
+<p>I care a lot about the experience. The site should be fast, the pages should be clean, and once you open it you shouldn't have to think much — just find what you want to read.</p>
+<p>As for making money, I'll figure that out later. But there's only one condition: not at the cost of the experience.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-this-site-was-built">How This Site Was Built<a href="https://mikeq95blog.uk/en/blog/about#how-this-site-was-built" class="hash-link" aria-label="Direct link to How This Site Was Built" title="Direct link to How This Site Was Built" translate="no">​</a></h2>
+<p>I'll go into the tech stack in detail in another article. The short version: I write a little of the code myself, but most of it I hand off to Claude Code to build this site for me. Claude Code is really awesome — apart from the fact that Anthropic, the company, is a tiny bit anti-China (though Claude is currently the foreign large model with the best Chinese support), it has basically no downsides. <strong>A note:</strong> I don't care where this company sits politically. I only care about one thing — is the product good to use? If it's good, I use it. If it's not, then even if your political stance leaned toward China, I still wouldn't use your product.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-ill-post">What I'll Post<a href="https://mikeq95blog.uk/en/blog/about#what-ill-post" class="hash-link" aria-label="Direct link to What I'll Post" title="Direct link to What I'll Post" translate="no">​</a></h2>
+<p>I'll post a lot of things down the road. I noticed Claude Code sorted my articles into music, tech, life, and english. There's actually more than that — others will come too.</p>
+<p><strong>What I won't post?</strong></p>
+<p>Porn, gambling, drugs, politics.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary">Summary<a href="https://mikeq95blog.uk/en/blog/about#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
 <p>okay, that's everything I want this site to be.</p>
-<p>There's a Chinese saying: "知行合一" — to unify knowing and doing. I'll hold myself to that: turn what I think, and what I demand of myself, into reality.</p>]]></content>
+<p>There's a Chinese idiom: "知行合一" — the unity of knowing and doing. I'll hold to that too: keep doing what I think and what I ask of myself, and in the end turn it into reality.</p>]]></content>
         <category label="About" term="About"/>
     </entry>
     <entry>
