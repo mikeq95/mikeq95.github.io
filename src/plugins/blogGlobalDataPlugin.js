@@ -78,11 +78,14 @@ module.exports = function blogGlobalDataPlugin(context) {
           const i18nFm = loadI18nOverride(filePath, blogDir, i18nBlogDir);
           if (!isDefaultLocale && !i18nFm) continue;
 
-          // i18n override wins for title / tags / slug — but NOT image.
-          // i18n files use local /coverimage/ paths which can fail in the EN locale;
-          // always use the original CDN URL from the default-locale frontmatter.
+          // i18n override wins for title / tags / slug / image. Prefer the
+          // locale-specific cover image; fall back to the default-locale CDN
+          // image only when the i18n image is missing or a non-absolute
+          // (legacy local /coverimage/) path that won't resolve in this locale.
           const effectiveFm = i18nFm ? { ...fm, ...i18nFm } : fm;
-          if (fm.image) effectiveFm.image = fm.image;
+          if (!effectiveFm.image || !/^https?:\/\//.test(effectiveFm.image)) {
+            effectiveFm.image = fm.image;
+          }
 
           const base = path.basename(filePath, path.extname(filePath));
           let permalink;

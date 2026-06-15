@@ -2,7 +2,7 @@
 slug: 2026/06/01/open-codesign-review
 title: Open-Source Alternative to Claude Design — My Hands-On with Open CoDesign
 date: 2026-06-01
-image: /coverimage/open-codesign-coverImage.png
+image: https://cdn.mikeq95blog.uk/coverimage/open-codesign-coverImage.png
 tags:
   - github
   - macos

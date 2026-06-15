@@ -17,8 +17,6 @@ tags:
 
 ## 视频电话
 
-事情其实很简单。
-
 有一次视频电话，我随口问她：
 
 > Do you know pixel art?

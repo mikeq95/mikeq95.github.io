@@ -2,7 +2,7 @@
 slug: 2025/05/16/quick-reference-for-macOS network-reset-commands
 title: "🌐 macOS Network Reset Commands — Quick Reference"
 date: 2026-05-16
-image: /coverimage/macosNetworkResetCommandCoverImage.png
+image: https://cdn.mikeq95blog.uk/coverimage/macosNetworkResetCommandCoverImage.png
 tags:
   - macos
 ---

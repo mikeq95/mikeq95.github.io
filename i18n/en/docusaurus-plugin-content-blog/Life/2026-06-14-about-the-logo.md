@@ -17,8 +17,6 @@ The logo of this site was made by my girlfriend. It's based on the Poro from Lea
 
 ## A Video Call
 
-It actually happened pretty simply.
-
 One time on a video call, I asked her offhand:
 
 > Do you know pixel art?
