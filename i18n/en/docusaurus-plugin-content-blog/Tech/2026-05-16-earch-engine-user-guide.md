@@ -5,6 +5,7 @@ date: 2026-05-16
 image: https://cdn.mikeq95blog.uk/coverimage/Recommended%20commonly%20used%20search%20engines.png
 tags:
   - collection
+description: "A guide to choosing the right search engine for different tasks — break the habit of relying on just one."
 ---
 
 ### 1. Choosing a Search Engine

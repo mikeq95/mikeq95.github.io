@@ -6,6 +6,7 @@ image: https://cdn.mikeq95blog.uk/coverimage/maker-coverimage.png
 tags:
   - github
   - macos
+description: "Marker is an open-source tool that converts PDF, Word, and PPT files to Markdown — this post walks through running it locally."
 ---
 
 [Marker](https://github.com/datalab-to/marker) is an open-source tool that converts PDF, Word, PPT, and other file formats into Markdown. It's fast, and accuracy is pretty solid. This post documents how to get it running.

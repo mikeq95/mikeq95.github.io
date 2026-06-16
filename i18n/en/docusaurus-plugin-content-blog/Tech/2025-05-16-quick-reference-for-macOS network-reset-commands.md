@@ -5,6 +5,7 @@ date: 2026-05-16
 image: https://cdn.mikeq95blog.uk/coverimage/macosNetworkResetCommandCoverImage.png
 tags:
   - macos
+description: "A quick-reference card for macOS network troubleshooting commands — DNS flush, DHCP reset, and more."
 ---
 
 > In most cases, running **DNS flush + DHCP reset** is enough to fix the majority of network issues.

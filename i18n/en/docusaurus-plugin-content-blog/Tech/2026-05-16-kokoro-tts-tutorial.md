@@ -6,6 +6,7 @@ image: https://cdn.mikeq95blog.uk/coverimage/kokoro-coverimage.png
 tags:
   - github
   - macos
+description: "Convert your English articles into high-quality audio using Kokoro, a free and locally-run open-source TTS tool."
 ---
 
 I wanted to convert my English articles into audio so I could listen while walking. After looking around, the only option that's free, sounds good, and runs locally is [Kokoro](https://github.com/hexgrad/kokoro).

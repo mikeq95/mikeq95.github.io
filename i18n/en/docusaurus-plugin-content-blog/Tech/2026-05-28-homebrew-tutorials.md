@@ -5,6 +5,7 @@ date: 2026-05-28
 image: https://cdn.mikeq95blog.uk/coverimage/Homebrew-coverimage.png
 tags:
   - macos
+description: "A beginner's guide to Homebrew, the essential Mac package manager — install, update, and remove software with a single command."
 ---
 
 > "The most popular command-line package manager for macOS."

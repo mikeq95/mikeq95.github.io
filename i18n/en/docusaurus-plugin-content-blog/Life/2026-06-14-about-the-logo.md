@@ -5,6 +5,7 @@ date: 2026-06-14
 image: https://cdn.mikeq95blog.uk/coverimage/AboutTheLogo.png
 tags:
   - about
+description: "The blog logo is based on the Poro from League of Legends, hand-drawn by my girlfriend — here's how it came to be."
 ---
 
 ## Where the Logo Came From

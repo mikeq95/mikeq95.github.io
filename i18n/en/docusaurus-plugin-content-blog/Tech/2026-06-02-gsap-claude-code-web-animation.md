@@ -6,6 +6,7 @@ image: https://cdn.mikeq95blog.uk/coverimage/GSAP-Skills-CoverImage.png
 tags:
   - github
   - macos
+description: "GSAP's official Claude Code Skills package teaches the AI how to use the GSAP API correctly — add smooth animations to your site in minutes."
 ---
 
 I recently came across an interesting GitHub project — [gsap-skills](https://github.com/greensock/gsap-skills), an official GSAP AI Skills package designed to "teach" Claude Code how to use the GSAP animation library correctly.

@@ -7,6 +7,7 @@ tags:
   - "English"
   - Swift
   - "collection"
+description: "Common English vocabulary from programming docs, tutorials, and issues — with examples and translations to help you read technical content."
 ---
 1. **demonstrate**
 

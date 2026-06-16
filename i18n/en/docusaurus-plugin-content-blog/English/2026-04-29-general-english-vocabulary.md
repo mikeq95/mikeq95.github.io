@@ -6,6 +6,7 @@ image: https://cdn.mikeq95blog.uk/coverimage/GeneralEnglish.png
 tags:
   - English
   - collection
+description: "A running collection of useful English phrases for everyday and academic use, each with example sentences and Chinese explanations."
 ---
 1. **Based on the principle of voluntariness**
 

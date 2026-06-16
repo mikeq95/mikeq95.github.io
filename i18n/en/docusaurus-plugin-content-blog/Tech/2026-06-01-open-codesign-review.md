@@ -7,6 +7,7 @@ tags:
   - github
   - macos
   - AI
+description: "Open CoDesign is an open-source alternative to Claude Design — runs locally, MIT license, bring your own API key."
 ---
 
 Claude Design has been getting a lot of attention lately — you give it a prompt and it generates a page prototype instantly, which looks impressive. The problem is it requires a separate subscription, costs money, only works with Claude, and your data lives in the cloud. I started wondering if there's an open-source alternative. There is: [Open CoDesign](https://github.com/OpenCoworkAI/open-codesign) — MIT licensed, runs locally, supports your own API keys. Here's my experience with it.
