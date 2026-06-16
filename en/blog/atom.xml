@@ -2,11 +2,52 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mikeq95blog.uk/en/blog</id>
     <title>mikeq95's blog Blog</title>
-    <updated>2026-06-14T00:00:00.000Z</updated>
+    <updated>2026-06-16T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mikeq95blog.uk/en/blog"/>
     <subtitle>mikeq95's blog Blog</subtitle>
     <icon>https://mikeq95blog.uk/en/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[给 Docusaurus 博客接入 Umami 访客统计]]></title>
+        <id>https://mikeq95blog.uk/en/blog/2026/06/16/umami-analytics-docusaurus</id>
+        <link href="https://mikeq95blog.uk/en/blog/2026/06/16/umami-analytics-docusaurus"/>
+        <updated>2026-06-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Umami 是隐私友好的开源访客统计工具，不需要 Cookie 弹窗。文章记录了从注册到接入 Docusaurus 博客的完整过程。]]></summary>
+        <content type="html"><![CDATA[<p><a href="https://umami.is/" target="_blank" rel="noopener noreferrer" class="">Umami</a> 是开源的访客统计工具，不追踪用户行为、不需要 Cookie 弹窗，有免费的云托管版本，每月 10 万次事件额度，个人博客完全够用。</p>
+<!-- -->
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第一步注册账号并创建网站">第一步：注册账号并创建网站<a href="https://mikeq95blog.uk/en/blog/2026/06/16/umami-analytics-docusaurus#%E7%AC%AC%E4%B8%80%E6%AD%A5%E6%B3%A8%E5%86%8C%E8%B4%A6%E5%8F%B7%E5%B9%B6%E5%88%9B%E5%BB%BA%E7%BD%91%E7%AB%99" class="hash-link" aria-label="Direct link to 第一步：注册账号并创建网站" title="Direct link to 第一步：注册账号并创建网站" translate="no">​</a></h2>
+<p>Umami 有云托管版（免费，推荐新手）：</p>
+<ol>
+<li class="">访问 <a href="https://umami.is/" target="_blank" rel="noopener noreferrer" class="">umami.is</a> → <strong>Get started for free</strong></li>
+<li class="">注册账号</li>
+<li class="">登录后点 <strong>Add website</strong>，填入：<!-- -->
+<ul>
+<li class="">Name：你的博客名称</li>
+<li class="">Domain：你的博客域名，比如 <code>mikeq95blog.uk</code></li>
+</ul>
+</li>
+<li class="">点击 <strong>Save</strong>，然后点 <strong>Edit</strong> → <strong>Tracking code</strong>，复制你的 <code>data-website-id</code>（是一串 UUID）</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第二步在-docusaurus-注入追踪脚本">第二步：在 Docusaurus 注入追踪脚本<a href="https://mikeq95blog.uk/en/blog/2026/06/16/umami-analytics-docusaurus#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E5%9C%A8-docusaurus-%E6%B3%A8%E5%85%A5%E8%BF%BD%E8%B8%AA%E8%84%9A%E6%9C%AC" class="hash-link" aria-label="Direct link to 第二步：在 Docusaurus 注入追踪脚本" title="Direct link to 第二步：在 Docusaurus 注入追踪脚本" translate="no">​</a></h2>
+<p>在 <code>docusaurus.config.js</code> 里加入 <code>scripts</code> 字段（加在 <code>plugins</code> 之前即可）：</p>
+<div class="language-js codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-js codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token literal-property property" style="color:#36acaa">scripts</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">[</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token spread operator" style="color:#393A34">...</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">process</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">env</span><span class="token punctuation" style="color:#393A34">.</span><span class="token constant" style="color:#36acaa">NODE_ENV</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">===</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">'production'</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">?</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">[</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token literal-property property" style="color:#36acaa">src</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">'https://cloud.umami.is/script.js'</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token literal-property property" style="color:#36acaa">async</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean" style="color:#36acaa">true</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token literal-property property" style="color:#36acaa">defer</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean" style="color:#36acaa">true</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token string-property property" style="color:#36acaa">'data-website-id'</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">'你的-website-id'</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// 替换成第一步拿到的 UUID</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">[</span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">,</span><br></div></code></pre></div></div>
+<p><code>NODE_ENV === 'production'</code> 的判断让本地开发时不发统计请求，不会把自己的浏览记录混进数据里。</p>
+<p>Website ID 直接写死在这里就行——它本来就会被嵌进公开的 HTML 源码里，任何人都能看到，没有加密保护的必要。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第三步推送等待部署">第三步：推送，等待部署<a href="https://mikeq95blog.uk/en/blog/2026/06/16/umami-analytics-docusaurus#%E7%AC%AC%E4%B8%89%E6%AD%A5%E6%8E%A8%E9%80%81%E7%AD%89%E5%BE%85%E9%83%A8%E7%BD%B2" class="hash-link" aria-label="Direct link to 第三步：推送，等待部署" title="Direct link to 第三步：推送，等待部署" translate="no">​</a></h2>
+<p>提交并推送：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">git add docusaurus.config.js</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">git commit -m "Add Umami analytics tracking script"</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">git push origin main</span><br></div></code></pre></div></div>
+<p>GitHub Actions 会自动触发构建和部署，等两三分钟。可以去仓库的 <strong>Actions</strong> 标签页确认——看到绿色的 <code>completed success</code> 就行。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第四步验证脚本是否注入成功">第四步：验证脚本是否注入成功<a href="https://mikeq95blog.uk/en/blog/2026/06/16/umami-analytics-docusaurus#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E9%AA%8C%E8%AF%81%E8%84%9A%E6%9C%AC%E6%98%AF%E5%90%A6%E6%B3%A8%E5%85%A5%E6%88%90%E5%8A%9F" class="hash-link" aria-label="Direct link to 第四步：验证脚本是否注入成功" title="Direct link to 第四步：验证脚本是否注入成功" translate="no">​</a></h2>
+<p>部署完之后，用 <code>curl</code> 检查线上页面有没有 Umami 的脚本：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">curl -s https://你的博客域名 | grep 'umami'</span><br></div></code></pre></div></div>
+<p>如果看到带完整 UUID 的 <code>&lt;script&gt;</code> 标签说明配置成功了。</p>
+<p>之后访问博客，刷新 <a href="https://cloud.umami.is/" target="_blank" rel="noopener noreferrer" class="">cloud.umami.is</a> 控制台，就能看到实时访客、页面浏览量、来源国家等数据了。</p>]]></content>
+        <category label="GitHub" term="GitHub"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[About This Blog's Logo]]></title>
         <id>https://mikeq95blog.uk/en/blog/about-the-logo</id>
