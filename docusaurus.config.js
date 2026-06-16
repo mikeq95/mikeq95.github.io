@@ -16,7 +16,7 @@ _require('dotenv').config({ path: '.env.local' });
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'mikeq95\'s blog',
-  tagline: 'It\'s our world, we just live in it.',
+  tagline: 'I am a university student from China. Welcome to my blog.',
   favicon: 'img/favicon.ico',
   deploymentBranch: 'gh-pages',
   customFields: {
@@ -95,6 +95,17 @@ const config = {
     ],
   ],
 
+  scripts: [
+    ...(process.env.NODE_ENV === 'production' ? [
+      {
+        src: 'https://cloud.umami.is/script.js',
+        async: true,
+        defer: true,
+        'data-website-id': process.env.UMAMI_WEBSITE_ID ?? '',
+      },
+    ] : []),
+  ],
+
   plugins: [
     require.resolve('./src/plugins/blogGlobalDataPlugin'),
     require.resolve('./plugins/posts-meta-plugin'),
@@ -129,9 +140,9 @@ const config = {
       },
       navbar: {
         logo: {
-          alt: 'pixel logo',
-          src: 'img/pixel-logo.png',
-          style: { height: '42px', width: '42px', objectFit: 'contain', imageRendering: 'pixelated' },
+          alt: 'site logo',
+          src: 'img/favicon.ico',
+          style: { height: '42px', width: '42px', objectFit: 'contain' },
         },
         title: "mikeq95's blog",
         items: [
