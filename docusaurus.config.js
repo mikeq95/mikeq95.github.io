@@ -101,7 +101,7 @@ const config = {
         src: 'https://cloud.umami.is/script.js',
         async: true,
         defer: true,
-        'data-website-id': process.env.UMAMI_WEBSITE_ID ?? '',
+        'data-website-id': '1185b572-1d7e-424c-9923-f025288db6eb',
       },
     ] : []),
   ],
