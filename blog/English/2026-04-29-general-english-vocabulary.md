@@ -6,6 +6,7 @@ image: https://cdn.mikeq95blog.uk/coverimage/GeneralEnglish.png
 tags:
   - English
   - collection
+description: "持续收录日常和学术场景中的实用英语短语，每条附例句与中文释义，适合非母语学习者积累表达。"
 ---
 1. **Based on the principle of voluntariness**
     

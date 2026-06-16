@@ -6,6 +6,7 @@ image: https://cdn.mikeq95blog.uk/coverimage/maker-coverimage.png
 tags:
   - github
   - macos
+description: "Marker 是一款开源工具，可将 PDF、Word、PPT 快速转换为 Markdown，记录本地运行 Marker 的完整流程。"
 ---
 
 [Marker](https://github.com/datalab-to/marker) 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdown 格式，速度快，识别准确率也不错。这篇文章记录一下怎么把它跑起来。

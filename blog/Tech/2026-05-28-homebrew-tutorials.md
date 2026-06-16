@@ -5,6 +5,7 @@ date: 2026-05-28
 image: https://cdn.mikeq95blog.uk/coverimage/Homebrew-coverimage.png
 tags:
   - macos
+description: "Mac 用户必备包管理工具 Homebrew 入门指南：一条命令安装、更新、卸载软件，告别手动下载。"
 ---
 
 > "macOS 上最流行的命令行软件安装器。"

@@ -65,7 +65,7 @@ const config = {
           routeBasePath: 'docs',
         },
         blog: {
-          blogSidebarCount: 'ALL',
+          blogSidebarCount: 20,
           blogSidebarTitle: 'All posts',
           showReadingTime: true,
           feedOptions: {

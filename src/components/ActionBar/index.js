@@ -55,6 +55,7 @@ function ActionBarInner({ postId, title, url }) {
   const likeIconRef     = useRef(null);
   const bookmarkIconRef = useRef(null);
   const gsapRef         = useRef(null);
+  const pendingRef      = useRef(new Set());
 
   useEffect(() => {
     import('gsap').then(({ gsap }) => { gsapRef.current = gsap; });
@@ -124,34 +125,46 @@ function ActionBarInner({ postId, title, url }) {
 
   const toggleLike = async () => {
     if (!user) { triggerLogin(); return; }
+    if (pendingRef.current.has('like')) return;
+    pendingRef.current.add('like');
     const wasLiked = liked;
     triggerLikeAnim(!wasLiked);
-    if (wasLiked) {
-      const { error } = await supabase.from('likes').delete().eq('post_id', postId).eq('user_id', user.id);
-      if (error) { console.error('Failed to remove like:', error); return; }
-      setLiked(false);
-      setLikeCount(c => c - 1);
-    } else {
-      const { error } = await supabase.from('likes').insert({ post_id: postId, user_id: user.id });
-      if (error) { console.error('Failed to add like:', error); return; }
-      setLiked(true);
-      setLikeCount(c => c + 1);
+    try {
+      if (wasLiked) {
+        const { error } = await supabase.from('likes').delete().eq('post_id', postId).eq('user_id', user.id);
+        if (error) { console.error('Failed to remove like:', error); return; }
+        setLiked(false);
+        setLikeCount(c => c - 1);
+      } else {
+        const { error } = await supabase.from('likes').insert({ post_id: postId, user_id: user.id });
+        if (error) { console.error('Failed to add like:', error); return; }
+        setLiked(true);
+        setLikeCount(c => c + 1);
+      }
+    } finally {
+      pendingRef.current.delete('like');
     }
   };
 
   const toggleBookmark = async () => {
     if (!user) { triggerLogin(); return; }
+    if (pendingRef.current.has('bookmark')) return;
+    pendingRef.current.add('bookmark');
     triggerBookmarkAnim();
-    if (bookmarked) {
-      const { error } = await supabase.from('bookmarks').delete().eq('post_id', postId).eq('user_id', user.id);
-      if (error) { console.error('Failed to remove bookmark:', error); return; }
-      setBookmarked(false);
-      setBookmarkCount(c => c - 1);
-    } else {
-      const { error } = await supabase.from('bookmarks').insert({ post_id: postId, user_id: user.id });
-      if (error) { console.error('Failed to add bookmark:', error); return; }
-      setBookmarked(true);
-      setBookmarkCount(c => c + 1);
+    try {
+      if (bookmarked) {
+        const { error } = await supabase.from('bookmarks').delete().eq('post_id', postId).eq('user_id', user.id);
+        if (error) { console.error('Failed to remove bookmark:', error); return; }
+        setBookmarked(false);
+        setBookmarkCount(c => c - 1);
+      } else {
+        const { error } = await supabase.from('bookmarks').insert({ post_id: postId, user_id: user.id });
+        if (error) { console.error('Failed to add bookmark:', error); return; }
+        setBookmarked(true);
+        setBookmarkCount(c => c + 1);
+      }
+    } finally {
+      pendingRef.current.delete('bookmark');
     }
   };
 

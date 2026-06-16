@@ -7,7 +7,6 @@ import React, {
 } from 'react';
 import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
-import { gsap } from 'gsap';
 import { Icon } from '@iconify/react';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
@@ -81,6 +80,7 @@ export default function RecentPosts({ posts = [] }) {
   const rightBtnRef  = useRef(null);
   const isFirstRender = useRef(true);
   const reducedMotion = useRef(false);
+  const gsapRef      = useRef(null);
 
   const [activeIdx, setActiveIdx] = useState(0);
   const [activeTab, setActiveTab] = useState('all');
@@ -89,14 +89,18 @@ export default function RecentPosts({ posts = [] }) {
   const [likeCounts, setLikeCounts] = useState({});
   const [bookmarkCounts, setBookmarkCounts] = useState({});
 
-  // Respect prefers-reduced-motion
+  // Respect prefers-reduced-motion (native, no GSAP dependency)
   useEffect(() => {
-    const mm = gsap.matchMedia();
-    mm.add('(prefers-reduced-motion: reduce)', () => {
-      reducedMotion.current = true;
-      return () => { reducedMotion.current = false; };
-    });
-    return () => mm.revert();
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    reducedMotion.current = mq.matches;
+    const onChange = (e) => { reducedMotion.current = e.matches; };
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  // Load GSAP dynamically — only needed for animations, not initial render
+  useEffect(() => {
+    import('gsap').then(({ gsap }) => { gsapRef.current = gsap; });
   }, []);
 
   // GSAP scale hover on glass scroll buttons
@@ -105,8 +109,8 @@ export default function RecentPosts({ posts = [] }) {
     if (!buttons.length) return;
     const cleanups = [];
     buttons.forEach(btn => {
-      const enter = () => gsap.to(btn, { scale: 1.1, duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
-      const leave = () => gsap.to(btn, { scale: 1,   duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
+      const enter = () => gsapRef.current?.to(btn, { scale: 1.1, duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
+      const leave = () => gsapRef.current?.to(btn, { scale: 1,   duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
       btn.addEventListener('mouseenter', enter);
       btn.addEventListener('mouseleave', leave);
       cleanups.push(() => {
@@ -168,12 +172,18 @@ export default function RecentPosts({ posts = [] }) {
     const targetW = btnRect.width;
 
     if (isFirstRender.current) {
-      gsap.set(pill, { x: targetX, width: targetW });
       isFirstRender.current = false;
+      if (gsapRef.current) {
+        gsapRef.current.set(pill, { x: targetX, width: targetW });
+      } else {
+        // GSAP not yet loaded on first render — set position directly
+        pill.style.transform = `translateX(${targetX}px)`;
+        pill.style.width = `${targetW}px`;
+      }
       return;
     }
 
-    gsap.to(pill, {
+    gsapRef.current?.to(pill, {
       x: targetX,
       width: targetW,
       duration: reducedMotion.current ? 0 : 0.15,
@@ -188,7 +198,7 @@ export default function RecentPosts({ posts = [] }) {
     if (!track) return;
     setActiveIdx(0);
     track.scrollLeft = 0;
-    gsap.fromTo(
+    gsapRef.current?.fromTo(
       track,
       { opacity: 0, y: 8 },
       {

@@ -7,6 +7,7 @@ tags:
   - github
   - macos
   - AI
+description: "Open CoDesign 是 Claude Design 的开源平替，本地运行、MIT 协议、支持自带 API Key，记录实际安装与使用体验。"
 ---
 
 最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，要moeny的，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——[Open CoDesign](https://github.com/OpenCoworkAI/open-codesign)，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。

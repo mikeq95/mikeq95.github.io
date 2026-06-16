@@ -5,6 +5,7 @@ date: 2026-06-14
 image: https://cdn.mikeq95blog.uk/coverimage/%E8%BF%99%E4%B8%AA%E7%BD%91%E7%AB%99%E5%B0%81%E9%9D%A2%E7%9A%84%E7%94%B1%E6%9D%A5.png
 tags:
   - 关于
+description: "博客 logo 的原型是英雄联盟里的 Poro，由我女朋友手绘设计，记录了这个 logo 背后的故事。"
 ---
 
 ## 这个 logo 是怎么来的

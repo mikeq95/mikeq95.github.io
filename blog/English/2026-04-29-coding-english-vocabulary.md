@@ -7,6 +7,7 @@ tags:
   - "English"
   - Swift
   - "collection"
+description: "整理编程文档、教程和 issue 中常见的英文词汇与表达，附例句与中文释义，帮助读懂英文技术资料。"
 ---
 1.  **demonstrate**
     

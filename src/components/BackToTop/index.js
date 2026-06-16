@@ -29,7 +29,7 @@ export default function BackToTop() {
       type="button"
       className={`${styles.btn} ${visible ? styles.visible : ''}`}
       onClick={scrollToTop}
-      aria-label="返回顶部"
+      aria-label={currentLocale === 'en' ? 'Back to top' : '返回顶部'}
     >
       <Icon icon="mdi:arrow-up" width={22} height={22} />
     </button>

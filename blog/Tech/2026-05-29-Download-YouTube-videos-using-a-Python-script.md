@@ -5,6 +5,7 @@ date: 2026-05-29
 image: https://cdn.mikeq95blog.uk/coverimage/%E7%94%A8%E4%B8%80%E6%AE%B5python%E8%84%9A%E6%9C%AC%E4%B8%8B%E8%BD%BDyoutube%E8%A7%86%E9%A2%91.png
 tags:
   - macos
+description: "用一段 Python 脚本配合 yt-dlp，在 Mac 上本地下载 YouTube 视频，配置一次，换链接直接用。"
 ---
 
 想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。

@@ -6,6 +6,7 @@ image: https://cdn.mikeq95blog.uk/coverimage/kokoro-coverimage.png
 tags:
   - github
   - macos
+description: "用开源 TTS 工具 Kokoro 把英文文章转成高质量音频，免费、本地运行、效果出色，边走路边听自己写的内容。"
 ---
 
 我想把自己写的英文文章转成音频，方便边走路边听。调研了一圈，免费、效果好、本地跑——这三个条件同时满足的，只有 [Kokoro](https://github.com/hexgrad/kokoro)。

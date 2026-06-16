@@ -6,6 +6,7 @@ image: https://cdn.mikeq95blog.uk/coverimage/codegraphCowerImage.png
 tags:
   - github
   - AI
+description: "CodeGraph 把代码库预建成知识图谱供 Claude Code 直接查询，实测减少 58% 工具调用次数、节省约 16% token 费用。"
 ---
 
 今天看到一个 GitHub 项目——[CodeGraph](https://github.com/colbymchenry/codegraph)，⭐ 三万八千多，MIT 开源。核心思路：**把代码库预先建成知识图谱，让 Claude Code 直接查，而不是每次都 grep 扫文件**。装来试了试，平均省 16% 费用、减少 58% 工具调用次数。
