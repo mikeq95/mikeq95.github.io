@@ -13,7 +13,7 @@
             <link>https://mikeq95blog.uk/blog/about-the-logo</link>
             <guid>https://mikeq95blog.uk/blog/about-the-logo</guid>
             <pubDate>Sun, 14 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[这个 logo 是怎么来的]]></description>
+            <description><![CDATA[博客 logo 的原型是英雄联盟里的 Poro，由我女朋友手绘设计，记录了这个 logo 背后的故事。]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="这个-logo-是怎么来的">这个 logo 是怎么来的<a href="https://mikeq95blog.uk/blog/about-the-logo#%E8%BF%99%E4%B8%AA-logo-%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84" class="hash-link" aria-label="这个 logo 是怎么来的的直接链接" title="这个 logo 是怎么来的的直接链接" translate="no">​</a></h2>
 <p>这个网站的 logo 是我女朋友帮我做的。原型是英雄联盟里的 Poro——那只圆滚滚、白白的小东西。</p>
 <p><img decoding="async" loading="lazy" src="https://cdn.mikeq95blog.uk/coverimage/poluobaby.jpg" alt="英雄联盟里的 Poro 原型" class="img_ev3q"></p>
@@ -42,7 +42,7 @@
             <link>https://mikeq95blog.uk/blog/about</link>
             <guid>https://mikeq95blog.uk/blog/about</guid>
             <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[介绍一下自己]]></description>
+            <description><![CDATA[05后电子信息工程大二生，写给自己看的博客——记录搞懂的东西，顺带验证自己是不是真的搞懂了。]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="介绍一下自己">介绍一下自己<a href="https://mikeq95blog.uk/blog/about#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E8%87%AA%E5%B7%B1" class="hash-link" aria-label="介绍一下自己的直接链接" title="介绍一下自己的直接链接" translate="no">​</a></h2>
 <p>05后，Gen Z，大二在读，电子信息工程专业。打篮球，玩游戏（LOL、CS2），顺带在学英语——英语不好，但在努力。</p>
 <p>我是理科生，我可能不太擅长写文章吧。我觉得应该把一句话，一个复杂的概念说的简单一些，而不是说的晦涩难懂，所以我的文章我都会让它变得简单，简洁（但这不代表信息密度低）。</p>
@@ -69,7 +69,7 @@
             <link>https://mikeq95blog.uk/blog/2026/06/03/codegraph-claude-code-knowledge-graph</link>
             <guid>https://mikeq95blog.uk/blog/2026/06/03/codegraph-claude-code-knowledge-graph</guid>
             <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[今天看到一个 GitHub 项目——CodeGraph，⭐ 三万八千多，MIT 开源。核心思路：把代码库预先建成知识图谱，让 Claude Code 直接查，而不是每次都 grep 扫文件。装来试了试，平均省 16% 费用、减少 58% 工具调用次数。]]></description>
+            <description><![CDATA[CodeGraph 把代码库预建成知识图谱供 Claude Code 直接查询，实测减少 58% 工具调用次数、节省约 16% token 费用。]]></description>
             <content:encoded><![CDATA[<p>今天看到一个 GitHub 项目——<a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener noreferrer" class="">CodeGraph</a>，⭐ 三万八千多，MIT 开源。核心思路：<strong>把代码库预先建成知识图谱，让 Claude Code 直接查，而不是每次都 grep 扫文件</strong>。装来试了试，平均省 16% 费用、减少 58% 工具调用次数。</p>
 <!-- -->
 <hr>
@@ -98,7 +98,7 @@
             <link>https://mikeq95blog.uk/blog/2026/06/02/gsap-claude-code-web-animation</link>
             <guid>https://mikeq95blog.uk/blog/2026/06/02/gsap-claude-code-web-animation</guid>
             <pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[最近发现一个有意思的 GitHub 项目——gsap-skills，是 GSAP 官方出的 AI Skills 包，专门用来"教" Claude Code 正确使用 GSAP 动画库。]]></description>
+            <description><![CDATA[介绍 GSAP 官方出的 Claude Code Skills 包，让 AI 正确理解 GSAP API，几分钟为网页加上流畅动画效果。]]></description>
             <content:encoded><![CDATA[<p>最近发现一个有意思的 GitHub 项目——<a href="https://github.com/greensock/gsap-skills" target="_blank" rel="noopener noreferrer" class="">gsap-skills</a>，是 GSAP 官方出的 AI Skills 包，专门用来"教" Claude Code 正确使用 GSAP 动画库。</p>
 <p>顺带一提，我一开始以为 GSAP 是做视频的，类似 HeyGen 那种——其实完全不一样。<strong>GSAP 是做网页动画的</strong>，就是你在浏览器里看到的那种元素飞入、滚动视差、数字滚动这些效果，实时渲染在网页上，不是视频文件。搞清楚这个之后，我决定把它装进 Claude Code 试试。</p>
 <!-- -->
@@ -172,7 +172,7 @@
             <link>https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review</link>
             <guid>https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review</guid>
             <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，要moeny的，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——Open CoDesign，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。]]></description>
+            <description><![CDATA[Open CoDesign 是 Claude Design 的开源平替，本地运行、MIT 协议、支持自带 API Key，记录实际安装与使用体验。]]></description>
             <content:encoded><![CDATA[<p>最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，要moeny的，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——<a href="https://github.com/OpenCoworkAI/open-codesign" target="_blank" rel="noopener noreferrer" class="">Open CoDesign</a>，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。</p>
 <!-- -->
 <hr>
@@ -224,7 +224,7 @@
             <link>https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script</link>
             <guid>https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script</guid>
             <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。]]></description>
+            <description><![CDATA[用一段 Python 脚本配合 yt-dlp，在 Mac 上本地下载 YouTube 视频，配置一次，换链接直接用。]]></description>
             <content:encoded><![CDATA[<p>想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。
 放心，这很简单，真的。</p>
 <!-- -->
@@ -318,7 +318,7 @@
             <link>https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials</link>
             <guid>https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials</guid>
             <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA["macOS 上最流行的命令行软件安装器。"]]></description>
+            <description><![CDATA[Mac 用户必备包管理工具 Homebrew 入门指南：一条命令安装、更新、卸载软件，告别手动下载。]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p>"macOS 上最流行的命令行软件安装器。"</p>
 </blockquote>
@@ -389,7 +389,7 @@
             <link>https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial</link>
             <guid>https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial</guid>
             <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Marker 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdown 格式，速度快，识别准确率也不错。这篇文章记录一下怎么把它跑起来。]]></description>
+            <description><![CDATA[Marker 是一款开源工具，可将 PDF、Word、PPT 快速转换为 Markdown，记录本地运行 Marker 的完整流程。]]></description>
             <content:encoded><![CDATA[<p><a href="https://github.com/datalab-to/marker" target="_blank" rel="noopener noreferrer" class="">Marker</a> 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdown 格式，速度快，识别准确率也不错。这篇文章记录一下怎么把它跑起来。</p>
 <!-- -->
 <hr>
@@ -471,7 +471,7 @@
             <link>https://mikeq95blog.uk/blog/2026/05/24/my-favorite-songs</link>
             <guid>https://mikeq95blog.uk/blog/2026/05/24/my-favorite-songs</guid>
             <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[我最喜欢的歌手就是周杰伦，周杰伦的歌真的陪伴我的全部青春。]]></description>
+            <description><![CDATA[周杰伦的歌陪伴了我整个青春，这里整理了我最喜欢的几首，每一首背后都有故事。]]></description>
             <content:encoded><![CDATA[<p>我最喜欢的歌手就是周杰伦，周杰伦的歌真的陪伴我的全部青春。</p>
 <!-- -->
 <p>下面介绍一下我最喜欢的歌：</p>
@@ -507,7 +507,7 @@
             <link>https://mikeq95blog.uk/blog/2025/05/16/quick-reference-for-macOS network-reset-commands</link>
             <guid>https://mikeq95blog.uk/blog/2025/05/16/quick-reference-for-macOS network-reset-commands</guid>
             <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[一般情况下，只需运行 DNS 刷新 + DHCP 重置 即可解决大多数网络问题。]]></description>
+            <description><![CDATA[一张速查卡：macOS 常见网络故障的终端修复命令，包含 DNS 刷新、DHCP 重置等，遇到断网问题直接查。]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p>一般情况下，只需运行 <strong>DNS 刷新 + DHCP 重置</strong> 即可解决大多数网络问题。</p>
 </blockquote>
@@ -525,7 +525,7 @@
             <link>https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines</link>
             <guid>https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines</guid>
             <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[一、搜索引擎选择]]></description>
+            <description><![CDATA[介绍日常可用的搜索引擎及其适用场景，告别单一依赖，找到适合自己的搜索工具组合。]]></description>
             <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="一搜索引擎选择">一、搜索引擎选择<a href="https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines#%E4%B8%80%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E9%80%89%E6%8B%A9" class="hash-link" aria-label="一、搜索引擎选择的直接链接" title="一、搜索引擎选择的直接链接" translate="no">​</a></h3>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="推荐排序">推荐排序<a href="https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines#%E6%8E%A8%E8%8D%90%E6%8E%92%E5%BA%8F" class="hash-link" aria-label="推荐排序的直接链接" title="推荐排序的直接链接" translate="no">​</a></h4>
 <p>Google适合日常搜索，DuckDuckGo和Brave适合注重隐私的人用，yandex适合搜索那种不正经的内容，Bing国内版，如果无法上外网，这个也能凑活用。</p>
@@ -574,7 +574,7 @@
             <link>https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial</link>
             <guid>https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial</guid>
             <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[我想把自己写的英文文章转成音频，方便边走路边听。调研了一圈，免费、效果好、本地跑——这三个条件同时满足的，只有 Kokoro。]]></description>
+            <description><![CDATA[用开源 TTS 工具 Kokoro 把英文文章转成高质量音频，免费、本地运行、效果出色，边走路边听自己写的内容。]]></description>
             <content:encoded><![CDATA[<p>我想把自己写的英文文章转成音频，方便边走路边听。调研了一圈，免费、效果好、本地跑——这三个条件同时满足的，只有 <a href="https://github.com/hexgrad/kokoro" target="_blank" rel="noopener noreferrer" class="">Kokoro</a>。</p>
 <!-- -->
 <hr>
@@ -661,7 +661,7 @@
             <link>https://mikeq95blog.uk/blog/2026/04/29/coding-english-vocabulary</link>
             <guid>https://mikeq95blog.uk/blog/2026/04/29/coding-english-vocabulary</guid>
             <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[1.  demonstrate]]></description>
+            <description><![CDATA[整理编程文档、教程和 issue 中常见的英文词汇与表达，附例句与中文释义，帮助读懂英文技术资料。]]></description>
             <content:encoded><![CDATA[<ol>
 <li class="">
 <p><strong>demonstrate</strong></p>
@@ -767,7 +767,7 @@
             <link>https://mikeq95blog.uk/blog/2026/04/29/general-english-vocabulary</link>
             <guid>https://mikeq95blog.uk/blog/2026/04/29/general-english-vocabulary</guid>
             <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[1. Based on the principle of voluntariness]]></description>
+            <description><![CDATA[持续收录日常和学术场景中的实用英语短语，每条附例句与中文释义，适合非母语学习者积累表达。]]></description>
             <content:encoded><![CDATA[<ol>
 <li class="">
 <p><strong>Based on the principle of voluntariness</strong></p>
