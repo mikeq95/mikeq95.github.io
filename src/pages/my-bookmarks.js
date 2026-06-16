@@ -82,7 +82,11 @@ function MyBookmarksInner() {
       .select('post_id, created_at')
       .eq('user_id', user.id)
       .order('created_at', { ascending: false })
-      .then(({ data }) => { setPosts(data ?? []); setFetching(false); });
+      .then(({ data, error }) => {
+        if (error) console.error('Failed to load bookmarks:', error);
+        setPosts(data ?? []);
+        setFetching(false);
+      });
   }, [user]);
 
   const grouped = useMemo(() => {

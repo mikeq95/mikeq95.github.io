@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import { gsap } from 'gsap';
 import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
@@ -55,6 +54,11 @@ function ActionBarInner({ postId, title, url }) {
 
   const likeIconRef     = useRef(null);
   const bookmarkIconRef = useRef(null);
+  const gsapRef         = useRef(null);
+
+  useEffect(() => {
+    import('gsap').then(({ gsap }) => { gsapRef.current = gsap; });
+  }, []);
 
   const encodedUrl   = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
@@ -88,8 +92,9 @@ function ActionBarInner({ postId, title, url }) {
   // ── GSAP icon animations ──────────────────────────────────────────────────
   function triggerLikeAnim(isNowLiked) {
     const el = likeIconRef.current;
-    if (!el) return;
-    const tl = gsap.timeline();
+    const g = gsapRef.current;
+    if (!el || !g) return;
+    const tl = g.timeline();
     tl.to(el, { scale: 1.4, duration: 0.15, ease: 'back.out(3)' })
       .to(el, { scale: 1,   duration: 0.1,  ease: 'power2.in'   });
     if (isNowLiked) {
@@ -100,15 +105,16 @@ function ActionBarInner({ postId, title, url }) {
 
   function triggerBookmarkAnim() {
     const el = bookmarkIconRef.current;
-    if (!el) return;
-    gsap.fromTo(el,
+    const g = gsapRef.current;
+    if (!el || !g) return;
+    g.fromTo(el,
       { rotationY: 0 },
       {
         rotationY: 360,
         transformPerspective: 600,
         duration: 0.4,
         ease: 'power2.inOut',
-        onComplete: () => gsap.set(el, { rotationY: 0 }),
+        onComplete: () => g.set(el, { rotationY: 0 }),
       }
     );
   }
@@ -118,14 +124,16 @@ function ActionBarInner({ postId, title, url }) {
 
   const toggleLike = async () => {
     if (!user) { triggerLogin(); return; }
-    const willLike = !liked;
-    triggerLikeAnim(willLike);
-    if (liked) {
-      await supabase.from('likes').delete().eq('post_id', postId).eq('user_id', user.id);
+    const wasLiked = liked;
+    triggerLikeAnim(!wasLiked);
+    if (wasLiked) {
+      const { error } = await supabase.from('likes').delete().eq('post_id', postId).eq('user_id', user.id);
+      if (error) { console.error('Failed to remove like:', error); return; }
       setLiked(false);
       setLikeCount(c => c - 1);
     } else {
-      await supabase.from('likes').insert({ post_id: postId, user_id: user.id });
+      const { error } = await supabase.from('likes').insert({ post_id: postId, user_id: user.id });
+      if (error) { console.error('Failed to add like:', error); return; }
       setLiked(true);
       setLikeCount(c => c + 1);
     }
@@ -135,11 +143,13 @@ function ActionBarInner({ postId, title, url }) {
     if (!user) { triggerLogin(); return; }
     triggerBookmarkAnim();
     if (bookmarked) {
-      await supabase.from('bookmarks').delete().eq('post_id', postId).eq('user_id', user.id);
+      const { error } = await supabase.from('bookmarks').delete().eq('post_id', postId).eq('user_id', user.id);
+      if (error) { console.error('Failed to remove bookmark:', error); return; }
       setBookmarked(false);
       setBookmarkCount(c => c - 1);
     } else {
-      await supabase.from('bookmarks').insert({ post_id: postId, user_id: user.id });
+      const { error } = await supabase.from('bookmarks').insert({ post_id: postId, user_id: user.id });
+      if (error) { console.error('Failed to add bookmark:', error); return; }
       setBookmarked(true);
       setBookmarkCount(c => c + 1);
     }

@@ -4,43 +4,17 @@ import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
+import { hashAvatarColor } from '@site/src/utils/avatarUtils';
+import { timeAgo } from '@site/src/utils/dateUtils';
 import styles from './styles.module.css';
 
-const AVATAR_COLORS = [
-  '#f97316', '#8b5cf6', '#06b6d4', '#10b981',
-  '#f59e0b', '#ef4444', '#3b82f6', '#ec4899',
-];
-
-function hashAvatarColor(str) {
-  let h = 0;
-  for (let i = 0; i < (str?.length ?? 0); i++) {
-    h = str.charCodeAt(i) + ((h << 5) - h);
-  }
-  return AVATAR_COLORS[Math.abs(h) % AVATAR_COLORS.length];
-}
-
 const MAX_LEN = 2000;
-
-function timeAgo(dateStr, isEn) {
-  const diff = (Date.now() - new Date(dateStr)) / 1000;
-  if (diff < 60) return isEn ? 'just now' : '刚刚';
-  if (diff < 3600) {
-    const m = Math.floor(diff / 60);
-    return isEn ? `${m}m ago` : `${m}分钟前`;
-  }
-  if (diff < 86400) {
-    const h = Math.floor(diff / 3600);
-    return isEn ? `${h}h ago` : `${h}小时前`;
-  }
-  const d = Math.floor(diff / 86400);
-  return isEn ? `${d}d ago` : `${d}天前`;
-}
 
 function Avatar({ user, size = 36 }) {
   const url = user?.user_metadata?.avatar_url;
   const name = user?.user_metadata?.full_name || user?.user_metadata?.name || user?.email || '?';
   if (url) {
-    return <img src={url} alt={name} className={styles.avatar} style={{ width: size, height: size }} />;
+    return <img src={url} alt={name} className={styles.avatar} style={{ width: size, height: size }} loading="lazy" />;
   }
   const bg = hashAvatarColor(user?.id || name);
   return (
@@ -121,7 +95,7 @@ function CommentSectionInner({ postId }) {
       } else {
         setContent('');
       }
-      await fetchComments();
+      fetchComments();
     }
     if (parentId) setReplySubmitting(false); else setSubmitting(false);
   };

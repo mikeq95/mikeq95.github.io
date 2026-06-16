@@ -144,13 +144,13 @@ function AuthButtonsInner() {
         try {
           const [likesRes, bmRes] = await Promise.all([
             supabase
-              .from('post_likes')
+              .from('likes')
               .select('post_id', { count: 'exact' })
               .eq('user_id', user.id)
               .order('created_at', { ascending: false })
               .limit(3),
             supabase
-              .from('post_bookmarks')
+              .from('bookmarks')
               .select('*', { count: 'exact', head: true })
               .eq('user_id', user.id),
           ]);

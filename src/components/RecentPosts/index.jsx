@@ -51,6 +51,9 @@ function CardCover({ image, permalink, title }) {
           className={`${styles.cardCoverImg} ${loaded ? styles.cardCoverImgLoaded : ''}`}
           src={image}
           alt={title}
+          width={280}
+          height={152}
+          loading="lazy"
           onLoad={() => setLoaded(true)}
           onError={() => setImgError(true)}
         />
@@ -117,8 +120,10 @@ export default function RecentPosts({ posts = [] }) {
   // Load all Supabase-backed state. Wait for auth so the correct JWT is attached.
   useEffect(() => {
     if (!supabase || authLoading) return;
-    // Load global like/bookmark counts for all posts
-    supabase.from('likes').select('post_id').then(({ data, error }) => {
+    const postIds = posts.map(p => p.permalink);
+    if (!postIds.length) return;
+    // Load like/bookmark counts for the current post set only
+    supabase.from('likes').select('post_id').in('post_id', postIds).then(({ data, error }) => {
       if (error) { console.error('Failed to load like counts:', error); return; }
       if (data) {
         const counts = {};
@@ -126,7 +131,7 @@ export default function RecentPosts({ posts = [] }) {
         setLikeCounts(counts);
       }
     });
-    supabase.from('bookmarks').select('post_id').then(({ data, error }) => {
+    supabase.from('bookmarks').select('post_id').in('post_id', postIds).then(({ data, error }) => {
       if (error) { console.error('Failed to load bookmark counts:', error); return; }
       if (data) {
         const counts = {};

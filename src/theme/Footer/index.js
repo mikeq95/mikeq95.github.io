@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
 import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
@@ -15,11 +14,16 @@ function SocialIcon({ href, icon, label, title }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const enter = () => gsap.to(el, { y: -4, scale: 1.1, duration: 0.2, ease: 'power2.out', overwrite: 'auto' });
-    const leave = () => gsap.to(el, { y: 0,  scale: 1,   duration: 0.2, ease: 'power2.out', overwrite: 'auto' });
-    el.addEventListener('mouseenter', enter);
-    el.addEventListener('mouseleave', leave);
-    return () => { el.removeEventListener('mouseenter', enter); el.removeEventListener('mouseleave', leave); };
+    let cleanup = () => {};
+    import('gsap').then(({ gsap }) => {
+      if (!ref.current) return;
+      const enter = () => gsap.to(el, { y: -4, scale: 1.1, duration: 0.2, ease: 'power2.out', overwrite: 'auto' });
+      const leave = () => gsap.to(el, { y: 0,  scale: 1,   duration: 0.2, ease: 'power2.out', overwrite: 'auto' });
+      el.addEventListener('mouseenter', enter);
+      el.addEventListener('mouseleave', leave);
+      cleanup = () => { el.removeEventListener('mouseenter', enter); el.removeEventListener('mouseleave', leave); };
+    });
+    return () => cleanup();
   }, []);
 
   return (
