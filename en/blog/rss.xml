@@ -13,7 +13,7 @@
             <link>https://mikeq95blog.uk/en/blog/about-the-logo</link>
             <guid>https://mikeq95blog.uk/en/blog/about-the-logo</guid>
             <pubDate>Sun, 14 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Where the Logo Came From]]></description>
+            <description><![CDATA[The blog logo is based on the Poro from League of Legends, hand-drawn by my girlfriend — here's how it came to be.]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="where-the-logo-came-from">Where the Logo Came From<a href="https://mikeq95blog.uk/en/blog/about-the-logo#where-the-logo-came-from" class="hash-link" aria-label="Direct link to Where the Logo Came From" title="Direct link to Where the Logo Came From" translate="no">​</a></h2>
 <p>The logo of this site was made by my girlfriend. It's based on the Poro from League of Legends — that round, fluffy little white thing.</p>
 <p><img decoding="async" loading="lazy" src="https://cdn.mikeq95blog.uk/coverimage/poluobaby.jpg" alt="The Poro from League of Legends" class="img_ev3q"></p>
@@ -42,7 +42,7 @@
             <link>https://mikeq95blog.uk/en/blog/about</link>
             <guid>https://mikeq95blog.uk/en/blog/about</guid>
             <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[About Me]]></description>
+            <description><![CDATA[A Gen Z EE student writing for himself — documenting what he's figured out, and verifying that he actually understands it.]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="about-me">About Me<a href="https://mikeq95blog.uk/en/blog/about#about-me" class="hash-link" aria-label="Direct link to About Me" title="Direct link to About Me" translate="no">​</a></h2>
 <p>Born after 2005, Gen Z, sophomore majoring in Electronic Information Engineering. I play basketball, game (LoL, CS2), and I'm learning English on the side — not great at it yet, but working on it.</p>
 <p>I'm a science student, so I'm probably not great at writing articles. I think you should make a sentence, a complex concept, simpler — not obscure and hard to follow. So I keep my articles simple and concise (which doesn't mean low on information).</p>
@@ -69,7 +69,7 @@
             <link>https://mikeq95blog.uk/en/blog/2026/06/03/codegraph-claude-code-knowledge-graph</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/06/03/codegraph-claude-code-knowledge-graph</guid>
             <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[I came across a GitHub project today — CodeGraph, 38k+ stars, MIT licensed. The core idea: pre-build your codebase into a knowledge graph so Claude Code can query it directly, instead of grep-scanning files every time. I installed it and tried it out — on average, 16% cost savings and 58% fewer tool calls.]]></description>
+            <description><![CDATA[CodeGraph pre-builds your codebase into a knowledge graph for Claude Code to query directly, cutting tool calls by 58% and saving ~16% on tokens.]]></description>
             <content:encoded><![CDATA[<p>I came across a GitHub project today — <a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener noreferrer" class="">CodeGraph</a>, 38k+ stars, MIT licensed. The core idea: <strong>pre-build your codebase into a knowledge graph so Claude Code can query it directly, instead of grep-scanning files every time</strong>. I installed it and tried it out — on average, 16% cost savings and 58% fewer tool calls.</p>
 <!-- -->
 <hr>
@@ -98,7 +98,7 @@
             <link>https://mikeq95blog.uk/en/blog/2026/06/02/gsap-claude-code-web-animation</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/06/02/gsap-claude-code-web-animation</guid>
             <pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[I recently came across an interesting GitHub project — gsap-skills, an official GSAP AI Skills package designed to "teach" Claude Code how to use the GSAP animation library correctly.]]></description>
+            <description><![CDATA[GSAP's official Claude Code Skills package teaches the AI how to use the GSAP API correctly — add smooth animations to your site in minutes.]]></description>
             <content:encoded><![CDATA[<p>I recently came across an interesting GitHub project — <a href="https://github.com/greensock/gsap-skills" target="_blank" rel="noopener noreferrer" class="">gsap-skills</a>, an official GSAP AI Skills package designed to "teach" Claude Code how to use the GSAP animation library correctly.</p>
 <p>Quick note: I initially thought GSAP was for video editing, like HeyGen — turns out it's completely different. <strong>GSAP is for web animations</strong> — the kind you see in a browser: elements flying in, scroll parallax, number counters rolling up, all rendered live on the page, not as video files. Once I got that straight, I decided to install it in Claude Code and give it a shot.</p>
 <!-- -->
@@ -172,7 +172,7 @@
             <link>https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review</guid>
             <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Claude Design has been getting a lot of attention lately — you give it a prompt and it generates a page prototype instantly, which looks impressive. The problem is it requires a separate subscription, costs money, only works with Claude, and your data lives in the cloud. I started wondering if there's an open-source alternative. There is: Open CoDesign — MIT licensed, runs locally, supports your own API keys. Here's my experience with it.]]></description>
+            <description><![CDATA[Open CoDesign is an open-source alternative to Claude Design — runs locally, MIT license, bring your own API key.]]></description>
             <content:encoded><![CDATA[<p>Claude Design has been getting a lot of attention lately — you give it a prompt and it generates a page prototype instantly, which looks impressive. The problem is it requires a separate subscription, costs money, only works with Claude, and your data lives in the cloud. I started wondering if there's an open-source alternative. There is: <a href="https://github.com/OpenCoworkAI/open-codesign" target="_blank" rel="noopener noreferrer" class="">Open CoDesign</a> — MIT licensed, runs locally, supports your own API keys. Here's my experience with it.</p>
 <!-- -->
 <hr>
@@ -223,7 +223,7 @@
             <link>https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script</guid>
             <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Want to save YouTube videos locally? This post walks through a Python script that handles everything for you — set it up once, then just swap the URL each time.]]></description>
+            <description><![CDATA[Download YouTube videos locally on Mac using a Python script with yt-dlp — set it up once, swap the link each time.]]></description>
             <content:encoded><![CDATA[<p>Want to save YouTube videos locally? This post walks through a Python script that handles everything for you — set it up once, then just swap the URL each time.</p>
 <!-- -->
 <hr>
@@ -311,7 +311,7 @@
             <link>https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials</guid>
             <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA["The most popular command-line package manager for macOS."]]></description>
+            <description><![CDATA[A beginner's guide to Homebrew, the essential Mac package manager — install, update, and remove software with a single command.]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p>"The most popular command-line package manager for macOS."</p>
 </blockquote>
@@ -379,7 +379,7 @@
             <link>https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial</guid>
             <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Marker is an open-source tool that converts PDF, Word, PPT, and other file formats into Markdown. It's fast, and accuracy is pretty solid. This post documents how to get it running.]]></description>
+            <description><![CDATA[Marker is an open-source tool that converts PDF, Word, and PPT files to Markdown — this post walks through running it locally.]]></description>
             <content:encoded><![CDATA[<p><a href="https://github.com/datalab-to/marker" target="_blank" rel="noopener noreferrer" class="">Marker</a> is an open-source tool that converts PDF, Word, PPT, and other file formats into Markdown. It's fast, and accuracy is pretty solid. This post documents how to get it running.</p>
 <!-- -->
 <hr>
@@ -468,7 +468,7 @@
             <link>https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs</guid>
             <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Jay Chou's classic songs have accompanied me throughout my youth. Here are some of my favorites:]]></description>
+            <description><![CDATA[Jay Chou's music has been with me through my entire youth — here are my favorite songs and what they mean to me.]]></description>
             <content:encoded><![CDATA[<p>Jay Chou's classic songs have accompanied me throughout my youth. Here are some of my favorites:</p>
 <!-- -->
 <ol>
@@ -490,7 +490,7 @@
             <link>https://mikeq95blog.uk/en/blog/2025/05/16/quick-reference-for-macOS network-reset-commands</link>
             <guid>https://mikeq95blog.uk/en/blog/2025/05/16/quick-reference-for-macOS network-reset-commands</guid>
             <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[In most cases, running DNS flush + DHCP reset is enough to fix the majority of network issues.]]></description>
+            <description><![CDATA[A quick-reference card for macOS network troubleshooting commands — DNS flush, DHCP reset, and more.]]></description>
             <content:encoded><![CDATA[<blockquote>
 <p>In most cases, running <strong>DNS flush + DHCP reset</strong> is enough to fix the majority of network issues.</p>
 </blockquote>
@@ -508,7 +508,7 @@
             <link>https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines</guid>
             <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[1. Choosing a Search Engine]]></description>
+            <description><![CDATA[A guide to choosing the right search engine for different tasks — break the habit of relying on just one.]]></description>
             <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-choosing-a-search-engine">1. Choosing a Search Engine<a href="https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines#1-choosing-a-search-engine" class="hash-link" aria-label="Direct link to 1. Choosing a Search Engine" title="Direct link to 1. Choosing a Search Engine" translate="no">​</a></h3>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="recommended-order">Recommended Order<a href="https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines#recommended-order" class="hash-link" aria-label="Direct link to Recommended Order" title="Direct link to Recommended Order" translate="no">​</a></h4>
 <p>Google is great for everyday searches. DuckDuckGo and Brave are better for privacy-conscious users. Yandex is good for finding edgier content. Bing (Chinese version) works as a fallback if you can't access international sites.</p>
@@ -557,7 +557,7 @@ Search engines use safe mode by default. Go to Settings and turn it off — look
             <link>https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial</guid>
             <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[I wanted to convert my English articles into audio so I could listen while walking. After looking around, the only option that's free, sounds good, and runs locally is Kokoro.]]></description>
+            <description><![CDATA[Convert your English articles into high-quality audio using Kokoro, a free and locally-run open-source TTS tool.]]></description>
             <content:encoded><![CDATA[<p>I wanted to convert my English articles into audio so I could listen while walking. After looking around, the only option that's free, sounds good, and runs locally is <a href="https://github.com/hexgrad/kokoro" target="_blank" rel="noopener noreferrer" class="">Kokoro</a>.</p>
 <!-- -->
 <hr>
@@ -641,7 +641,7 @@ Search engines use safe mode by default. Go to Settings and turn it off — look
             <link>https://mikeq95blog.uk/en/blog/2026/04/29/coding-english-vocabulary</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/04/29/coding-english-vocabulary</guid>
             <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[1. demonstrate]]></description>
+            <description><![CDATA[Common English vocabulary from programming docs, tutorials, and issues — with examples and translations to help you read technical content.]]></description>
             <content:encoded><![CDATA[<ol>
 <li class="">
 <p><strong>demonstrate</strong></p>
@@ -736,7 +736,7 @@ Search engines use safe mode by default. Go to Settings and turn it off — look
             <link>https://mikeq95blog.uk/en/blog/2026/04/29/general-english-vocabulary</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/04/29/general-english-vocabulary</guid>
             <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[1. Based on the principle of voluntariness]]></description>
+            <description><![CDATA[A running collection of useful English phrases for everyday and academic use, each with example sentences and Chinese explanations.]]></description>
             <content:encoded><![CDATA[<ol>
 <li class="">
 <p><strong>Based on the principle of voluntariness</strong></p>
