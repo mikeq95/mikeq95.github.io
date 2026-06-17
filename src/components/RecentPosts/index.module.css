@@ -174,7 +174,6 @@
   overflow: hidden;
   /* 0.3s ease for active/inactive state switch */
   transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
-  will-change: transform, opacity;
 }
 
 .card:hover {
@@ -192,6 +191,11 @@
   transform: scale(1);
   opacity: 1;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.cardActive:active {
+  transform: scale(0.97);
+  transition: transform 0.08s ease;
 }
 
 [data-theme='dark'] .cardActive {
@@ -368,6 +372,11 @@
 
 .actionCount {
   font-variant-numeric: tabular-nums;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
 }
 
 /* Not logged in — greyed out */

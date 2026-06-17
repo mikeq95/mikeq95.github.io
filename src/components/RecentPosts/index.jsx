@@ -81,6 +81,7 @@ export default function RecentPosts({ posts = [] }) {
   const isFirstRender = useRef(true);
   const reducedMotion = useRef(false);
   const gsapRef      = useRef(null);
+  const isButtonScrolling = useRef(false);
 
   const [activeIdx, setActiveIdx] = useState(0);
   const [activeTab, setActiveTab] = useState('all');
@@ -217,6 +218,7 @@ export default function RecentPosts({ posts = [] }) {
     if (!container) return;
     let rafId;
     const onScroll = () => {
+      if (isButtonScrolling.current) return;
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
         const center = container.scrollLeft + container.clientWidth / 2;
@@ -259,7 +261,86 @@ export default function RecentPosts({ posts = [] }) {
     const card = track.children[0];
     if (!card) return;
     const gap = parseFloat(getComputedStyle(track).columnGap || '0');
+    const targetIdx = Math.max(0, Math.min(filteredPosts.length - 1, activeIdx + direction));
+    isButtonScrolling.current = true;
+    setActiveIdx(targetIdx);
     track.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: 'smooth' });
+    const onScrollEnd = () => { isButtonScrolling.current = false; };
+    if ('onscrollend' in window) {
+      track.addEventListener('scrollend', onScrollEnd, { once: true });
+    } else {
+      setTimeout(onScrollEnd, 350);
+    }
+  };
+
+  const triggerLikeAnim = (btnEl, isNowLiked) => {
+    const g = gsapRef.current;
+    if (!g || reducedMotion.current) return;
+    const iconWrap = btnEl.querySelector('[data-icon-wrap]');
+    if (!iconWrap) return;
+    const rect = iconWrap.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const tl = g.timeline();
+    // Phase 1: compress
+    tl.to(iconWrap, { scale: 0.8, duration: 0.08, ease: 'power2.in' });
+    if (isNowLiked) {
+      // Phase 2: ring burst
+      const ring = document.createElement('div');
+      Object.assign(ring.style, {
+        position: 'fixed', left: cx + 'px', top: cy + 'px',
+        width: '18px', height: '18px', marginLeft: '-9px', marginTop: '-9px',
+        borderRadius: '50%', border: '2px solid #ff6b8a',
+        pointerEvents: 'none', zIndex: '9999', opacity: '0.7',
+      });
+      document.body.appendChild(ring);
+      tl.to(ring, { scale: 2.8, opacity: 0, duration: 0.35, ease: 'power2.out', onComplete: () => ring.remove() }, '<0.05');
+      // Phase 3: particles
+      const COLORS = ['#ff6b8a', '#ffb347'];
+      const COUNT = 7;
+      const angleStep = (Math.PI * 2) / COUNT;
+      const particles = Array.from({ length: COUNT }, (_, i) => {
+        const p = document.createElement('div');
+        Object.assign(p.style, {
+          position: 'fixed', left: cx + 'px', top: cy + 'px',
+          width: '5px', height: '5px', marginLeft: '-2.5px', marginTop: '-2.5px',
+          borderRadius: '50%', background: COLORS[i % COLORS.length],
+          pointerEvents: 'none', zIndex: '9999',
+        });
+        document.body.appendChild(p);
+        return p;
+      });
+      tl.fromTo(particles,
+        { scale: 0, opacity: 1, x: 0, y: 0 },
+        {
+          scale: 1, opacity: 0,
+          x: (i) => Math.cos(i * angleStep - Math.PI / 2) * (16 + (i % 3) * 4),
+          y: (i) => Math.sin(i * angleStep - Math.PI / 2) * (16 + (i % 3) * 4),
+          duration: 0.45, ease: 'power2.out', stagger: 0.02,
+          onComplete: () => particles.forEach(p => p.remove()),
+        },
+        '<0.05'
+      );
+    }
+    // Phase 4: bounce back with overshoot
+    tl.to(iconWrap, {
+      scale: isNowLiked ? 1.25 : 1,
+      duration: isNowLiked ? 0.18 : 0.12,
+      ease: 'back.out(3)',
+    }, isNowLiked ? '>-0.3' : '<0.05');
+    if (isNowLiked) {
+      tl.to(iconWrap, { scale: 1, duration: 0.1, ease: 'power2.in' });
+    }
+  };
+
+  const triggerBookmarkAnim = (btnEl) => {
+    const g = gsapRef.current;
+    if (!g || reducedMotion.current) return;
+    const iconWrap = btnEl.querySelector('[data-icon-wrap]');
+    if (!iconWrap) return;
+    const tl = g.timeline();
+    tl.to(iconWrap, { scale: 1.15, duration: 0.12, ease: 'back.out(2)' });
+    tl.to(iconWrap, { scale: 1, duration: 0.1, ease: 'power2.in' });
   };
 
   const pendingActions = useRef(new Set());
@@ -271,6 +352,7 @@ export default function RecentPosts({ posts = [] }) {
     if (!supabase) return;
     const key = `like:${permalink}`;
     if (pendingActions.current.has(key)) return;
+    triggerLikeAnim(e.currentTarget, !likedIds.has(permalink));
     pendingActions.current.add(key);
     try {
       if (likedIds.has(permalink)) {
@@ -302,6 +384,7 @@ export default function RecentPosts({ posts = [] }) {
     if (!supabase) return;
     const key = `bookmark:${permalink}`;
     if (pendingActions.current.has(key)) return;
+    triggerBookmarkAnim(e.currentTarget);
     pendingActions.current.add(key);
     try {
       if (bookmarkedIds.has(permalink)) {
@@ -411,7 +494,7 @@ export default function RecentPosts({ posts = [] }) {
                   onClick={e => handleLike(e, post.permalink)}
                   aria-label={likedIds.has(post.permalink) ? translate({id: 'recentPosts.unlike', message: '取消点赞'}) : translate({id: 'recentPosts.like', message: '点赞'})}
                 >
-                  <Icon icon={likedIds.has(post.permalink) ? 'tabler:thumb-up-filled' : 'tabler:thumb-up'} width={16} />
+                  <span className={styles.iconWrap} data-icon-wrap><Icon icon={likedIds.has(post.permalink) ? 'tabler:thumb-up-filled' : 'tabler:thumb-up'} width={16} /></span>
                   <span className={styles.actionLabel}>{translate({id: 'recentPosts.like', message: '点赞'})}</span>
                   <span className={styles.actionCount}>{likeCounts[post.permalink] ?? 0}</span>
                 </button>
@@ -420,7 +503,7 @@ export default function RecentPosts({ posts = [] }) {
                   onClick={e => handleBookmark(e, post.permalink)}
                   aria-label={bookmarkedIds.has(post.permalink) ? translate({id: 'recentPosts.unbookmark', message: '取消收藏'}) : translate({id: 'recentPosts.bookmark', message: '收藏'})}
                 >
-                  <Icon icon={bookmarkedIds.has(post.permalink) ? 'tabler:bookmark-filled' : 'tabler:bookmark'} width={16} />
+                  <span className={styles.iconWrap} data-icon-wrap><Icon icon={bookmarkedIds.has(post.permalink) ? 'tabler:bookmark-filled' : 'tabler:bookmark'} width={16} /></span>
                   <span className={styles.actionLabel}>{translate({id: 'recentPosts.bookmark', message: '收藏'})}</span>
                   <span className={styles.actionCount}>{bookmarkCounts[post.permalink] ?? 0}</span>
                 </button>

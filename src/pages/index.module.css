@@ -9,8 +9,19 @@
   display: flex;
   align-items: center;
   background-color: var(--ifm-background-color);
+  background-image:
+    radial-gradient(ellipse 70% 60% at 15% 35%, color-mix(in srgb, var(--ifm-color-primary) 5%, transparent) 0%, transparent 100%),
+    radial-gradient(ellipse 55% 50% at 80% 65%, color-mix(in srgb, var(--ifm-color-primary) 4%, transparent) 0%, transparent 100%),
+    radial-gradient(ellipse 40% 40% at 50% 20%, color-mix(in srgb, var(--ifm-color-primary) 3%, transparent) 0%, transparent 100%);
   color: var(--ifm-color-content);
   overflow: hidden;
+}
+
+[data-theme='dark'] .heroBanner {
+  background-image:
+    radial-gradient(ellipse 70% 60% at 15% 35%, color-mix(in srgb, var(--ifm-color-primary) 10%, transparent) 0%, transparent 100%),
+    radial-gradient(ellipse 55% 50% at 80% 65%, color-mix(in srgb, var(--ifm-color-primary)  9%, transparent) 0%, transparent 100%),
+    radial-gradient(ellipse 40% 40% at 50% 20%, color-mix(in srgb, var(--ifm-color-primary)  7%, transparent) 0%, transparent 100%);
 }
 
 /* ── Two-column flex row ── */

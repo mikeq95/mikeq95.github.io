@@ -4,11 +4,11 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
 const SOCIAL = [
-  { href: 'imessage://giffgaffuk78459@icloud.com', icon: 'mdi:message-outline',  labelZh: 'iMessage',  labelEn: 'iMessage', titleZh: '给我发 iMessage', titleEn: 'iMessage me' },
-  { href: 'mailto:giffgaffuk78459@icloud.com',     icon: 'mdi:email-outline',    labelZh: '邮箱',       labelEn: 'Email',    titleZh: '给我发邮件',    titleEn: 'Email me'   },
+  { href: 'imessage://giffgaffuk78459@icloud.com', img: '/img/message-light.png', labelZh: 'iMessage', labelEn: 'iMessage', titleZh: '给我发 iMessage', titleEn: 'iMessage me' },
+  { href: 'mailto:giffgaffuk78459@icloud.com',     img: '/img/email.png',         labelZh: '邮箱',      labelEn: 'Email',    titleZh: '给我发邮件',   titleEn: 'Email me'   },
 ];
 
-function SocialIcon({ href, icon, label, title }) {
+function SocialIcon({ href, img, label, title }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function SocialIcon({ href, icon, label, title }) {
 
   return (
     <a ref={ref} href={href} className={styles.socialLink} title={title} aria-label={label}>
-      <Icon icon={icon} className={styles.socialIcon} />
+      <img src={img} alt={label} className={styles.socialIcon} />
       <span>{label}</span>
     </a>
   );
@@ -63,7 +63,7 @@ export default function Footer() {
               <SocialIcon
                 key={s.href}
                 href={s.href}
-                icon={s.icon}
+                img={s.img}
                 label={isZh ? s.labelZh : s.labelEn}
                 title={isZh ? s.titleZh : s.titleEn}
               />
