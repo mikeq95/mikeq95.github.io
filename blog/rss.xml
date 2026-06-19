@@ -4,10 +4,72 @@
         <title>mikeq95's blog Blog</title>
         <link>https://mikeq95blog.uk/blog</link>
         <description>mikeq95's blog Blog</description>
-        <lastBuildDate>Tue, 16 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 19 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hans</language>
+        <item>
+            <title><![CDATA[📄 macOS 终端新建文件命令速查]]></title>
+            <link>https://mikeq95blog.uk/blog/2026/06/19/macos-terminal-create-file</link>
+            <guid>https://mikeq95blog.uk/blog/2026/06/19/macos-terminal-create-file</guid>
+            <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[一张速查卡：touch、mkdir -p、code、heredoc、cat 拼命令操作文件，比 Finder 右键快不少，批量建文件时效率提升明显。]]></description>
+            <content:encoded><![CDATA[<p>在 Mac 电脑上常用的几个命令：<code>touch</code>、<code>mkdir</code>、<code>code</code>、<code>cat</code>，外加一个用 <code>cat</code> 拼出来的写法——<code>heredoc</code>。</p>
+<!-- -->
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="touch">touch<a href="https://mikeq95blog.uk/blog/2026/06/19/macos-terminal-create-file#touch" class="hash-link" aria-label="touch的直接链接" title="touch的直接链接" translate="no">​</a></h2>
+<p><code>touch</code> 可以新建文件</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">touch index.html</span><br></div></code></pre></div></div>
+<blockquote>
+<p>个人感觉这个命令很好用，比如你想写一个 md 文档，直接 <code>touch strawberry.md</code> 就行。</p>
+</blockquote>
+<blockquote>
+<p>StrawBerry!!!🍓</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mkdir">mkdir<a href="https://mikeq95blog.uk/blog/2026/06/19/macos-terminal-create-file#mkdir" class="hash-link" aria-label="mkdir的直接链接" title="mkdir的直接链接" translate="no">​</a></h2>
+<p><code>mkdir</code> 是 "make directory" 的缩写，顾名思义就是建文件夹的命令：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir components</span><br></div></code></pre></div></div>
+<blockquote>
+<p>等同你在finder上cmd + shift + N或者鼠标右键新建文件夹</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="加上--p">加上 <code>-p</code><a href="https://mikeq95blog.uk/blog/2026/06/19/macos-terminal-create-file#%E5%8A%A0%E4%B8%8A--p" class="hash-link" aria-label="加上--p的直接链接" title="加上--p的直接链接" translate="no">​</a></h3>
+<p><code>-p</code> 是 <code>--parents</code> 的缩写，意思是"连同父级目录一起处理"。一般用在两种情况：</p>
+<p><strong>情况一：中间路径还不存在</strong>，帮你自动补全。比如 <code>src</code> 还没建，直接跑 <code>mkdir src/pages/about</code> 会报错：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir src/pages/about</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># mkdir: src/pages: No such file or directory</span><br></div></code></pre></div></div>
+<p>加上 <code>-p</code>，缺的中间层会一并自动建出来：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir -p src/pages/about</span><br></div></code></pre></div></div>
+<p><strong>情况二：文件夹已经存在，不会报错中断</strong>。不带 <code>-p</code> 时，重复跑同一条命令会报错：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir components   # 第一次跑，正常建好</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">mkdir components   # 再跑一次</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># mkdir: components: File exists</span><br></div></code></pre></div></div>
+<p>如果这条命令写在脚本里，跑到这一步就会中断，影响后面的步骤。加上 <code>-p</code> 就不会有这个问题：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir -p components   # 第一次跑，正常建好</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">mkdir -p components   # 再跑一次也不会报错，什么都不会发生</span><br></div></code></pre></div></div>
+<p>一句话总结：<code>-p</code> 让 <code>mkdir</code> 变得"傻瓜式安全"——不用管路径深不深、文件夹建过没建过，直接敲一条命令就完事。</p>
+<blockquote>
+<p>实际写脚本、敲命令的时候基本都是 <code>mkdir -p</code> 连着打，很少有人单独用不带参数的 <code>mkdir</code>。</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="code">code<a href="https://mikeq95blog.uk/blog/2026/06/19/macos-terminal-create-file#code" class="hash-link" aria-label="code的直接链接" title="code的直接链接" translate="no">​</a></h2>
+<p><code>code</code> 是 VS Code 提供的命令行入口，不是 macOS 自带的命令，需要先在 VS Code 里 <code>Cmd+Shift+P</code> 搜 <code>Shell Command: Install 'code' command in PATH</code> 装一次。</p>
+<p>跑完下面这行，VS Code 会直接弹出来，文件不存在的话顺手帮你建好并打开——光标就停在空文件里，直接开始写代码：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">code components/GradientText.jsx</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="heredoc">heredoc<a href="https://mikeq95blog.uk/blog/2026/06/19/macos-terminal-create-file#heredoc" class="hash-link" aria-label="heredoc的直接链接" title="heredoc的直接链接" translate="no">​</a></h2>
+<p>"heredoc" 是 "here document" 的缩写——这一段就是文档内容，直接写在命令里，不用单独开文件。</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cat &gt; components/GradientText.jsx &lt;&lt; 'EOF'</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">export default function GradientText() {</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  return &lt;span className="gradient-text"&gt;Hello&lt;/span&gt;;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">}</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></div></code></pre></div></div>
+<ul>
+<li class=""><code>&lt;&lt; 'EOF'</code>：开始标记，意思是"往下读到下一个单独出现的 <code>EOF</code> 为止，都算内容"；带单引号能防止 <code>$变量</code> 之类被终端提前解析，写代码时基本都这么用</li>
+<li class="">结束的 <code>EOF</code> 必须顶格单独一行，否则终端会一直等你输入</li>
+</ul>
+<p>已有文件想追加而不是覆盖，把 <code>&gt;</code> 换成 <code>&gt;&gt;</code> 即可。</p>
+<p><strong>有啥用？</strong></p>
+<p>你可以直接让 AI 用 heredoc 的命令帮你写一个文档，拿到命令之后直接粘贴到 terminal 回车运行。这可比鼠标点点点省事多了对吧。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cat">cat<a href="https://mikeq95blog.uk/blog/2026/06/19/macos-terminal-create-file#cat" class="hash-link" aria-label="cat的直接链接" title="cat的直接链接" translate="no">​</a></h2>
+<p><code>cat</code> 是 "concatenate"（连接、拼接）的缩写，最基础的用法是把文件内容打印到终端上：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cat test.txt</span><br></div></code></pre></div></div>
+<p><strong>有啥用？</strong></p>
+<p>我觉得问 AI 的时候有点用吧，比如你可以开个终端，然后 <code>cat</code> 你看不懂的多个文档，它会打印到 terminal 上，然后 <code>Cmd + A</code> 丢给 AI。我认为这比直接把文件丢给 AI 省事、更快。（尤其开 VPN 用 Claude、ChatGPT，上传一个文档的那个速度，简直不忍直视，令人咋舌😂）</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95blog.uk/blog/2026/06/19/macos-terminal-create-file#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="总结的直接链接" title="总结的直接链接" translate="no">​</a></h2>
+<p>这些都是我常用的，就这些。我有个 Linux 课程，这些命令都讲了，Mac 电脑是类 Unix 的，所以命令都大差不差。</p>
+<p>只需要懂最基本的就行了，没必要懂很复杂的。</p>]]></content:encoded>
+            <category>macOS</category>
+        </item>
         <item>
             <title><![CDATA[给 Docusaurus 博客接入 Umami 访客统计]]></title>
             <link>https://mikeq95blog.uk/blog/2026/06/16/umami-analytics-docusaurus</link>
