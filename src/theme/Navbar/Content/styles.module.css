@@ -1,3 +1,21 @@
+.glassNav {
+  width: 100%;
+  height: 100%;
+  /* The language switcher / profile dropdowns are descendants that need to render
+     below the 64px-tall bar — GlassSurface defaults to overflow:hidden (to clip its
+     own rounded-rect backdrop), which clips those dropdowns into invisibility. The
+     rounded corners still clip fine via border-radius alone, so this is safe to relax. */
+  overflow: visible !important;
+  /* Progressive enhancement: smoother superellipse corners on the box's own
+     border/shadow in supporting browsers; ignored elsewhere. Doesn't affect the
+     glass backdrop itself, which is a separately-drawn SVG mask with plain arcs. */
+  corner-shape: squircle;
+}
+
+.glassNav :global(.glass-surface__content) {
+  padding: 0 16px;
+}
+
 .authItem {
   display: flex;
   align-items: center;

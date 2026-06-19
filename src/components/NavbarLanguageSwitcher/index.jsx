@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useLocation } from '@docusaurus/router';
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import GlassSurface from '@site/src/components/GlassSurface';
 import styles from './index.module.css';
 
 function GlobeIcon() {
@@ -60,12 +61,32 @@ function LanguageSwitcherButton() {
   const ref = useRef(null);
   const closeTimer = useRef(null);
 
+  // Pointer type: desktop (fine) opens on hover, mobile (coarse) opens on click —
+  // same pattern as AuthButtons, since touch devices never fire hover events.
+  const [isFine, setIsFine] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches,
+  );
+
+  useEffect(() => {
+    setIsFine(window.matchMedia('(pointer: fine)').matches);
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const openMenu = () => {
+    if (!isFine) return;
     clearTimeout(closeTimer.current);
     setOpen(true);
   };
 
   const scheduleClose = () => {
+    if (!isFine) return;
     closeTimer.current = setTimeout(() => setOpen(false), 150);
   };
 
@@ -82,6 +103,7 @@ function LanguageSwitcherButton() {
     >
       <button
         className={styles.pill}
+        onClick={() => { if (!isFine) setOpen(o => !o); }}
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={`Switch language, current: ${label}`}
@@ -94,24 +116,37 @@ function LanguageSwitcherButton() {
       </button>
 
       {open && (
-        <ul className={styles.dropdown} role="listbox">
-          {locales.map(locale => {
-            const localeLabel = localeConfigs[locale]?.label ?? locale;
-            const href = getLocalePath(locale, defaultLocale, currentLocale, pathname);
-            const isCurrent = locale === currentLocale;
-            return (
-              <li key={locale} role="option" aria-selected={isCurrent}>
-                <a
-                  href={href}
-                  rel={isCurrent ? undefined : 'prefetch'}
-                  className={`${styles.option} ${isCurrent ? styles.optionActive : ''}`}
-                >
-                  {localeLabel}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        <GlassSurface
+          className={styles.dropdown}
+          width="auto"
+          height="auto"
+          borderRadius={10}
+          brightness={50}
+          opacity={0.9}
+          blur={11}
+          displace={0.5}
+          backgroundOpacity={0.45}
+          distortionScale={-60}
+        >
+          <ul className={styles.dropdownList} role="listbox">
+            {locales.map(locale => {
+              const localeLabel = localeConfigs[locale]?.label ?? locale;
+              const href = getLocalePath(locale, defaultLocale, currentLocale, pathname);
+              const isCurrent = locale === currentLocale;
+              return (
+                <li key={locale} role="option" aria-selected={isCurrent}>
+                  <a
+                    href={href}
+                    rel={isCurrent ? undefined : 'prefetch'}
+                    className={`${styles.option} ${isCurrent ? styles.optionActive : ''}`}
+                  >
+                    {localeLabel}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </GlassSurface>
       )}
     </div>
   );

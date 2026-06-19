@@ -6,14 +6,13 @@ import { useEffect, useRef } from 'react';
 import Heading from '@theme/Heading';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import RecentPosts from '@site/src/components/RecentPosts';
-import HeroAuthCard from '@site/src/components/HeroAuthCard';
+import RotatingText from '@site/src/components/RotatingText';
 import styles from './index.module.css';
 
 function HomepageHeader() {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const isZh = currentLocale.startsWith('zh');
   const heroTextRef = useRef(null);
-  const cardRef = useRef(null);
 
   useEffect(() => {
     let ctx;
@@ -29,12 +28,6 @@ function HomepageHeader() {
             ease: 'power2.out',
           });
         }
-        gsap.from(cardRef.current, {
-          opacity: 0,
-          scale: 0.9,
-          duration: 0.8,
-          ease: 'power2.out',
-        });
       });
     });
     return () => ctx?.revert();
@@ -45,7 +38,21 @@ function HomepageHeader() {
       <div className={styles.heroContainer}>
         <div className={styles.heroText} ref={heroTextRef}>
           <Heading as="h1" className={styles.title}>
-            你好, <span className={styles.gradientText}>こんにちは, 안녕하세요, Hello</span>
+            {isZh ? '欢迎' : 'Welcome'}{' '}
+            <RotatingText
+              texts={['你好～', 'こんにちは～', '안녕하세요～', 'Hello～', 'Hallo～', 'Bonjour～']}
+              mainClassName={styles.rotatingTextRoot}
+              staggerFrom="last"
+              initial={{ y: '100%', opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: '-120%', opacity: 0 }}
+              staggerDuration={0.025}
+              transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+              splitBy="characters"
+              auto
+              loop
+            />
           </Heading>
           <p className={styles.description}>
             {isZh
@@ -57,9 +64,6 @@ function HomepageHeader() {
               {isZh ? '阅读我的博客' : 'Read my blog'}
             </Link>
           </div>
-        </div>
-        <div className={styles.heroCardContainer} ref={cardRef}>
-          <HeroAuthCard />
         </div>
       </div>
     </header>

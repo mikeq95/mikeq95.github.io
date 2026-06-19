@@ -6,6 +6,7 @@ import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
 import ThemeColorButton from '@site/src/components/ThemeColorButton';
 import ColorModeToggle from '@site/src/theme/ColorModeToggle';
+import GlassSurface from '@site/src/components/GlassSurface';
 import styles from './styles.module.css';
 
 const PROVIDERS = [
@@ -196,15 +197,27 @@ function AuthButtonsInner() {
       <div className={styles.auth} ref={loginRef}>
         <button
           type="button"
-          className={styles.iconBtn}
+          className={styles.loginPillBtn}
           data-auth-trigger
           onClick={() => setLoginOpen(o => !o)}
           aria-label={isEn ? 'Login' : '登录'}
         >
           <LoginIcon />
+          <span>{isEn ? 'Login' : '登录'}</span>
         </button>
         {loginOpen && (
-          <div className={styles.dropdown}>
+          <GlassSurface
+            className={styles.dropdown}
+            width="auto"
+            height="auto"
+            borderRadius={10}
+            brightness={50}
+            opacity={0.9}
+            blur={11}
+            displace={0.5}
+            backgroundOpacity={0.45}
+            distortionScale={-60}
+          >
             <CustomizeSection isEn={isEn} />
             <hr className={styles.divider} />
             {PROVIDERS.map(({ id, label, icon }) => (
@@ -218,7 +231,7 @@ function AuthButtonsInner() {
                 <span>{label} {isEn ? 'Login' : '登录'}</span>
               </button>
             ))}
-          </div>
+          </GlassSurface>
         )}
       </div>
     );
@@ -249,7 +262,18 @@ function AuthButtonsInner() {
         )}
       </button>
       {userOpen && (
-        <div className={styles.drawer}>
+        <GlassSurface
+          className={styles.drawer}
+          width="min(280px, calc(100vw - 24px))"
+          height="auto"
+          borderRadius={14}
+          brightness={50}
+          opacity={0.9}
+          blur={11}
+          displace={0.5}
+          backgroundOpacity={0.45}
+          distortionScale={-60}
+        >
           {/* User info */}
           <div className={styles.drawerHeader}>
             {avatarUrl ? (
@@ -306,7 +330,7 @@ function AuthButtonsInner() {
           <button type="button" className={styles.signOutBtn} onClick={signOut}>
             {isEn ? 'Sign Out' : '退出登录'}
           </button>
-        </div>
+        </GlassSurface>
       )}
     </div>
   );
