@@ -146,6 +146,7 @@ const config = {
         },
         title: "mikeq95's blog",
         items: [
+          { type: 'custom-NavbarSettingsButton', position: 'right' },
           { type: 'custom-NavbarLanguageSwitcher', position: 'right' },
         ],
       },

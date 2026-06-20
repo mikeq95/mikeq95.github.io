@@ -4,8 +4,6 @@ import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
-import ThemeColorButton from '@site/src/components/ThemeColorButton';
-import ColorModeToggle from '@site/src/theme/ColorModeToggle';
 import GlassSurface from '@site/src/components/GlassSurface';
 import styles from './styles.module.css';
 
@@ -30,28 +28,6 @@ function LoginIcon() {
       <circle cx="12" cy="8" r="4" />
       <path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" />
     </svg>
-  );
-}
-
-function DarkModeRow({ isEn }) {
-  return (
-    <div className={styles.darkModeRow}>
-      <span className={styles.darkModeLabel}>{isEn ? 'Dark Mode:' : '夜间模式：'}</span>
-      <ColorModeToggle />
-    </div>
-  );
-}
-
-function CustomizeSection({ isEn }) {
-  return (
-    <div className={styles.customizeSection}>
-      <ThemeColorButton
-        label={isEn ? 'Customize' : '个性化'}
-        colorLabel={isEn ? 'Theme Colors' : '主题颜色'}
-      >
-        <DarkModeRow isEn={isEn} />
-      </ThemeColorButton>
-    </div>
   );
 }
 
@@ -218,8 +194,6 @@ function AuthButtonsInner() {
             backgroundOpacity={0.45}
             distortionScale={-60}
           >
-            <CustomizeSection isEn={isEn} />
-            <hr className={styles.divider} />
             {PROVIDERS.map(({ id, label, icon }) => (
               <button
                 key={id}
@@ -318,11 +292,6 @@ function AuthButtonsInner() {
               </span>
             </a>
           </div>
-
-          <hr className={styles.drawerDivider} />
-
-          {/* Personalization (theme color + dark mode) */}
-          <CustomizeSection isEn={isEn} />
 
           <hr className={styles.drawerDivider} />
 

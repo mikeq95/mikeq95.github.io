@@ -146,11 +146,15 @@
   color: transparent !important;
   cursor: pointer;
   transition: width 0.25s ease, padding 0.25s ease, color 0.25s ease, background-color 0.2s !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.08) !important;
 }
 
 [data-theme='dark'] .navbar__search-input {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.35) !important;
 }
 
 .navbar__search-input::placeholder {

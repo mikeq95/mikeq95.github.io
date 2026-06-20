@@ -1,0 +1,82 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background-color: rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  transition: background-color 0.2s, color 0.2s;
+  user-select: none;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.pill:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+[data-theme='dark'] .pill {
+  background-color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme='dark'] .pill:hover {
+  background-color: rgba(255, 255, 255, 0.32);
+  color: #fff;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 220px;
+  z-index: 9999;
+  color: var(--ifm-color-content);
+}
+
+.dropdown :global(.glass-surface__content) {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 4px;
+}
+
+.section {
+  padding: 6px 14px 4px;
+}
+
+.darkModeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.darkModeLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ifm-color-content);
+}
+
+@media (max-width: 768px) {
+  .dropdown {
+    right: 0;
+    min-width: 190px;
+    max-width: calc(100vw - 1.5rem);
+  }
+}
