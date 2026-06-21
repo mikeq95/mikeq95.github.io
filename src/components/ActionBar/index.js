@@ -4,6 +4,8 @@ import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
+import { usePostViews } from '@site/src/hooks/usePostViews';
+import { Popover, PopoverButton, PopoverPanel } from '@/components/animate-ui/components/headless/popover';
 import styles from './styles.module.css';
 
 function htmlToMarkdown(el) {
@@ -51,6 +53,7 @@ function ActionBarInner({ postId, title, url }) {
   const [likeCount, setLikeCount] = useState(0);
   const [bookmarkCount, setBookmarkCount] = useState(0);
   const [copied, setCopied] = useState(null);
+  const counts = usePostViews(postId);
 
   const likeIconRef     = useRef(null);
   const bookmarkIconRef = useRef(null);
@@ -219,43 +222,75 @@ function ActionBarInner({ postId, title, url }) {
 
       <div className={styles.divider} />
 
-      <div className={styles.share}>
-        <a
-          href={twitterUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${styles.pillBtn} ${styles.pillX}`}
-        >
-          <Icon icon="simple-icons:x" className={styles.pillIcon} />
-          <span>{isEn ? 'Share on X' : '分享到 X'}</span>
-        </a>
-
-        <button
-          type="button"
-          className={`${styles.pillBtn} ${styles.pillDiscord} ${copied === 'discord' ? styles.pillCopied : ''}`}
-          onClick={shareToDiscord}
-        >
-          <Icon icon="simple-icons:discord" className={styles.pillIcon} />
-          <span>
-            {copied === 'discord'
-              ? (isEn ? 'Link Copied!' : '链接已复制!')
-              : (isEn ? 'Share to Discord' : '分享到 Discord')}
-          </span>
-        </button>
-
-        <button
-          type="button"
-          className={`${styles.pillBtn} ${styles.pillMd} ${copied === 'markdown' ? styles.pillCopied : ''}`}
-          onClick={copyMarkdown}
-        >
-          <Icon icon="mdi:language-markdown" className={styles.pillIcon} />
-          <span>
-            {copied === 'markdown'
-              ? (isEn ? 'Copied!' : '已复制!')
-              : (isEn ? 'Copy Markdown' : '复制为 Markdown')}
-          </span>
-        </button>
+      <div className={styles.stats}>
+        {counts === null ? (
+          <>
+            <span className={styles.skeleton} />
+            <span className={styles.skeletonSep} />
+            <span className={styles.skeleton} />
+          </>
+        ) : (
+          <>
+            <Icon icon="mdi:eye-outline" className={styles.statsIcon} />
+            <span className={styles.statsNum}>{counts.total.toLocaleString()}</span>
+            <span className={styles.statsLabel}>{isEn ? ' views' : ' 次浏览'}</span>
+            <span className={styles.statsDot}>·</span>
+            <Icon icon="mdi:account-outline" className={styles.statsIcon} />
+            <span className={styles.statsNum}>{counts.unique.toLocaleString()}</span>
+            <span className={styles.statsLabel}>{isEn ? ' readers' : ' 位读者'}</span>
+          </>
+        )}
       </div>
+
+      <Popover className={styles.shareWrapper}>
+        <PopoverButton as="button" className={styles.shareTrigger}>
+          <Icon icon="mdi:share-variant-outline" className={styles.pillIcon} />
+          <span>{isEn ? 'Share' : '分享'}</span>
+        </PopoverButton>
+
+        <PopoverPanel
+          anchor={{ to: 'bottom end', gap: 8 }}
+          className="w-auto rounded-none border-0 bg-transparent p-0 shadow-none"
+        >
+          <div className={styles.shareMenu}>
+            <a
+              href={twitterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.pillBtn} ${styles.pillX}`}
+            >
+              <Icon icon="simple-icons:x" className={styles.pillIcon} />
+              <span>{isEn ? 'Share on X' : '分享到 X'}</span>
+            </a>
+
+            <button
+              type="button"
+              className={`${styles.pillBtn} ${styles.pillDiscord} ${copied === 'discord' ? styles.pillCopied : ''}`}
+              onClick={shareToDiscord}
+            >
+              <Icon icon="simple-icons:discord" className={styles.pillIcon} />
+              <span>
+                {copied === 'discord'
+                  ? (isEn ? 'Link Copied!' : '链接已复制!')
+                  : (isEn ? 'Share to Discord' : '分享到 Discord')}
+              </span>
+            </button>
+
+            <button
+              type="button"
+              className={`${styles.pillBtn} ${styles.pillMd} ${copied === 'markdown' ? styles.pillCopied : ''}`}
+              onClick={copyMarkdown}
+            >
+              <Icon icon="mdi:language-markdown" className={styles.pillIcon} />
+              <span>
+                {copied === 'markdown'
+                  ? (isEn ? 'Copied!' : '已复制!')
+                  : (isEn ? 'Copy Markdown' : '复制为 Markdown')}
+              </span>
+            </button>
+          </div>
+        </PopoverPanel>
+      </Popover>
     </div>
   );
 }

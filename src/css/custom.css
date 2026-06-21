@@ -113,10 +113,11 @@
   }
 }
 
-/* Individual blog post pages (not the /blog list page) hide the floating navbar —
-   Docusaurus tags <html> with this class only on the post-detail route. */
+/* Individual blog post pages (not the /blog list page) keep the navbar visible
+   but drop the floating/sticky behavior — it should scroll away with the
+   content instead of staying pinned near the top. */
 html.blog-post-page .navbar {
-  display: none;
+  position: static;
 }
 
 /* On narrow screens, show just the logo — title text gets cramped next to the

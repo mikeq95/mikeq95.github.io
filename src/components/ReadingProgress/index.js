@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import styles from './styles.module.css';
 
 export default function ReadingProgress() {
-  const [progress, setProgress] = useState(0);
+  const rawProgress = useMotionValue(0);
+  const smoothProgress = useSpring(rawProgress, { stiffness: 200, damping: 30 });
+  const width = useTransform(smoothProgress, (v) => `${v}%`);
   const [completed, setCompleted] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [progress, setProgress] = useState(0);
   const timerRef = useRef(null);
 
   useEffect(() => {
@@ -13,11 +17,13 @@ export default function ReadingProgress() {
       const docHeight =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
-      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+      const value = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      rawProgress.set(value);
+      setProgress(value);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [rawProgress]);
 
   useEffect(() => {
     if (progress >= 98 && !completed) {
@@ -38,5 +44,5 @@ export default function ReadingProgress() {
     hidden    ? styles.hidden    : '',
   ].filter(Boolean).join(' ');
 
-  return <div className={cls} style={{ width: `${progress}%` }} />;
+  return <motion.div className={cls} style={{ width }} />;
 }

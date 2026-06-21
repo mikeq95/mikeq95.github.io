@@ -7,7 +7,7 @@
   pointer-events: none;
   background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
   box-shadow: 0 0 8px var(--ifm-color-primary);
-  transition: width 0.1s linear, background 0.4s ease, box-shadow 0.4s ease, opacity 0.5s ease;
+  transition: background 0.4s ease, box-shadow 0.4s ease, opacity 0.5s ease;
 }
 
 /* >98%: turn green */

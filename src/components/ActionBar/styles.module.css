@@ -100,23 +100,119 @@
   opacity: 0.12;
 }
 
-/* ── Share group ── */
-.share {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  flex: 1;
-}
-
-/* Pill button base — fixed min-width prevents jitter on text swap */
-.pillBtn {
+/* ── Stats pill (views/readers) — read-only, no hover interaction ── */
+.stats {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.3rem;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  font-size: 13px;
+  color: var(--ifm-color-content-secondary);
+  flex-shrink: 0;
+  min-height: 24px;
+}
+
+.statsIcon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.statsNum {
+  font-weight: 600;
+  color: var(--ifm-color-content);
+}
+
+.statsLabel {
+  color: var(--ifm-color-content-secondary);
+}
+
+.statsDot {
+  margin: 0 0.1rem;
+  color: var(--ifm-color-emphasis-400);
+}
+
+/* ── Skeleton loading (stats) ── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+.skeleton {
+  display: inline-block;
+  width: 48px;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-200);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.skeletonSep {
+  display: inline-block;
+  width: 4px;
+  height: 12px;
+  border-radius: 2px;
+  background: var(--ifm-color-emphasis-200);
+  animation: pulse 1.4s ease-in-out infinite;
+  animation-delay: 0.2s;
+  margin: 0 0.15rem;
+}
+
+/* ── Share trigger button — pinned to the right edge ── */
+.shareWrapper {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.shareTrigger {
+  display: inline-flex;
+  align-items: center;
   gap: 6px;
-  padding: 5px 14px;
-  min-width: 160px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: transparent;
+  color: var(--ifm-color-content-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.shareTrigger:hover {
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+/* ── Share menu (inside PopoverPanel) ── */
+.shareMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  min-width: 220px;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-100);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme='dark'] .shareMenu {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Pill button base (now full-width rows inside the share menu) */
+.pillBtn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 14px;
   border-radius: 999px;
   border: 1px solid var(--ifm-color-emphasis-300);
   background: transparent;
@@ -169,35 +265,37 @@
   color: #00a064 !important;
 }
 
-/* ── Mobile (< 640px): two-row layout ── */
-@media (max-width: 640px) {
+/* ── Mobile (< 480px): collapse labels to fit a single row ── */
+@media (max-width: 480px) {
   .bar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
+    gap: 8px;
+    padding: 10px 12px;
   }
 
-  /* Horizontal divider replaces the vertical one */
-  .divider {
-    width: 100%;
-    height: 1px;
-    opacity: 0.15;
+  .stats {
+    gap: 0.15rem;
+    padding: 5px 8px;
   }
 
-  .share {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
+  .statsLabel,
+  .statsDot {
+    display: none;
   }
 
-  /* Markdown (last button) spans full width */
-  .share .pillBtn:last-child {
-    grid-column: 1 / -1;
+  .shareTrigger {
+    padding: 6px 10px;
+  }
+
+  .shareTrigger span {
+    display: none;
+  }
+
+  .shareMenu {
+    min-width: 200px;
   }
 
   .pillBtn {
-    min-width: unset;
     font-size: 12px;
-    padding: 6px 10px;
+    padding: 7px 12px;
   }
 }
