@@ -113,6 +113,12 @@
   }
 }
 
+/* Individual blog post pages (not the /blog list page) hide the floating navbar —
+   Docusaurus tags <html> with this class only on the post-detail route. */
+html.blog-post-page .navbar {
+  display: none;
+}
+
 /* On narrow screens, show just the logo — title text gets cramped next to the
    hamburger toggle and the right-side icon cluster, so drop it like Apple's
    mobile nav does. */

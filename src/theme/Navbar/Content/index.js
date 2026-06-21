@@ -19,15 +19,23 @@ import GlassSurface from '@site/src/components/GlassSurface';
 
 import styles from './styles.module.css';
 
+// Half of the navbar's own rendered height, so the pill's ends are always a true
+// semicircle — measured directly off the DOM instead of duplicating the height
+// values from custom.css's `.navbar` rule (64px desktop / 56px mobile), which
+// would silently drift out of sync if either one changes.
 function useNavbarBorderRadius() {
-  const [borderRadius, setBorderRadius] = useState(16);
+  const [borderRadius, setBorderRadius] = useState(32);
 
   useEffect(() => {
-    const mql = window.matchMedia('(max-width: 768px)');
-    const update = () => setBorderRadius(mql.matches ? 14 : 16);
+    const navEl = document.querySelector('.navbar');
+    if (!navEl) return undefined;
+
+    const update = () => setBorderRadius(navEl.getBoundingClientRect().height / 2);
     update();
-    mql.addEventListener('change', update);
-    return () => mql.removeEventListener('change', update);
+
+    const resizeObserver = new ResizeObserver(update);
+    resizeObserver.observe(navEl);
+    return () => resizeObserver.disconnect();
   }, []);
 
   return borderRadius;

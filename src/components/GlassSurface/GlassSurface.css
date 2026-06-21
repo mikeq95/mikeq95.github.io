@@ -7,16 +7,6 @@
   transition: opacity 0.26s ease-out;
 }
 
-.glass-surface__filter {
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  z-index: -1;
-}
-
 .glass-surface__content {
   width: 100%;
   height: 100%;
@@ -27,33 +17,6 @@
   border-radius: inherit;
   position: relative;
   z-index: 1;
-}
-
-.glass-surface--svg {
-  background: hsl(0 0% 100% / var(--glass-frost, 0));
-  backdrop-filter: var(--filter-id, url(#glass-filter)) saturate(var(--glass-saturation, 1));
-  box-shadow:
-    0 0 2px 1px rgba(0, 0, 0, 0.15) inset,
-    0 0 10px 4px rgba(0, 0, 0, 0.1) inset,
-    0px 4px 16px rgba(17, 17, 26, 0.05),
-    0px 8px 24px rgba(17, 17, 26, 0.05),
-    0px 16px 56px rgba(17, 17, 26, 0.05),
-    0px 4px 16px rgba(17, 17, 26, 0.05) inset,
-    0px 8px 24px rgba(17, 17, 26, 0.05) inset,
-    0px 16px 56px rgba(17, 17, 26, 0.05) inset;
-}
-
-[data-theme='dark'] .glass-surface--svg {
-  background: hsl(0 0% 0% / var(--glass-frost, 0));
-  box-shadow:
-    0 0 2px 1px rgba(255, 255, 255, 0.35) inset,
-    0 0 10px 4px rgba(255, 255, 255, 0.15) inset,
-    0px 4px 16px rgba(17, 17, 26, 0.05),
-    0px 8px 24px rgba(17, 17, 26, 0.05),
-    0px 16px 56px rgba(17, 17, 26, 0.05),
-    0px 4px 16px rgba(17, 17, 26, 0.05) inset,
-    0px 8px 24px rgba(17, 17, 26, 0.05) inset,
-    0px 16px 56px rgba(17, 17, 26, 0.05) inset;
 }
 
 .glass-surface--fallback {
