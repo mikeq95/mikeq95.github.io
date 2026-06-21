@@ -5,12 +5,19 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
 import GlassSurface from '@site/src/components/GlassSurface';
+import {
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+} from '@/components/animate-ui/components/headless/popover';
 import styles from './styles.module.css';
 
 const PROVIDERS = [
   { id: 'github', label: 'GitHub', icon: 'mdi:github' },
   { id: 'discord', label: 'Discord', icon: 'logos:discord-icon' },
 ];
+
+const PANEL_RESET_CLASS = 'w-auto rounded-none border-0 bg-transparent p-0 shadow-none';
 
 function LoginIcon() {
   return (
@@ -47,24 +54,28 @@ function CoverThumb({ src }) {
   );
 }
 
+// Keeps the page from scrolling behind the drawer on mobile while it's open.
+// Rendered as a permanent sibling of PopoverButton/PopoverPanel (not inside
+// the panel itself) so it stays mounted across open/close and can react to
+// `open` toggling either way.
+function MobileScrollLock({ open }) {
+  useEffect(() => {
+    const isFine = typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches;
+    if (isFine || !open) return;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+  return null;
+}
+
 function AuthButtonsInner() {
   const { user, loading } = useAuth();
-  const { siteConfig, i18n: { currentLocale, defaultLocale } } = useDocusaurusContext();
+  const { i18n: { currentLocale, defaultLocale } } = useDocusaurusContext();
   const isEn = currentLocale === 'en';
   const lp = currentLocale === defaultLocale ? '' : `/${currentLocale}`;
-  const [loginOpen, setLoginOpen] = useState(false);
-  const [userOpen, setUserOpen] = useState(false);
-  const loginRef = useRef(null);
-  const userRef = useRef(null);
-
-  // Pointer type: desktop (fine) uses hover, mobile (coarse) uses click.
-  const [isFine, setIsFine] = useState(() =>
-    typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches,
-  );
-  const openTimer = useRef(null);
-  const closeTimer = useRef(null);
 
   // Drawer data: posts-meta.json (cover images) + Supabase like/bookmark stats.
+  // Loaded once as soon as a user is known, not gated on the drawer being open.
   const [postsMeta, setPostsMeta] = useState(null);
   const metaStarted = useRef(false);
   const dataStarted = useRef(false);
@@ -73,39 +84,7 @@ function AuthButtonsInner() {
   const [bookmarkCount, setBookmarkCount] = useState(null);
 
   useEffect(() => {
-    function handleClickOutside(e) {
-      if (loginRef.current && !loginRef.current.contains(e.target)) setLoginOpen(false);
-      if (userRef.current && !userRef.current.contains(e.target)) setUserOpen(false);
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  useEffect(() => {
-    setIsFine(window.matchMedia('(pointer: fine)').matches);
-  }, []);
-
-  // Clean up any pending hover timers on unmount.
-  useEffect(() => () => {
-    clearTimeout(openTimer.current);
-    clearTimeout(closeTimer.current);
-  }, []);
-
-  // Hover-to-open with delays (desktop only).
-  const handleDrawerEnter = () => {
-    if (!isFine) return;
-    clearTimeout(closeTimer.current);
-    openTimer.current = setTimeout(() => setUserOpen(true), 200);
-  };
-  const handleDrawerLeave = () => {
-    if (!isFine) return;
-    clearTimeout(openTimer.current);
-    closeTimer.current = setTimeout(() => setUserOpen(false), 300);
-  };
-
-  // Load drawer data the first time it opens (once per mount).
-  useEffect(() => {
-    if (!userOpen || !user) return;
+    if (!user) return;
 
     if (!metaStarted.current) {
       metaStarted.current = true;
@@ -144,17 +123,9 @@ function AuthButtonsInner() {
         }
       })();
     }
-  }, [userOpen, user]);
-
-  // Lock body scroll while the drawer is open (mobile only).
-  useEffect(() => {
-    if (isFine || !userOpen) return;
-    document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = ''; };
-  }, [userOpen, isFine]);
+  }, [user]);
 
   const signIn = async (provider) => {
-    setLoginOpen(false);
     await supabase.auth.signInWithOAuth({
       provider,
       options: { redirectTo: window.location.origin },
@@ -162,7 +133,6 @@ function AuthButtonsInner() {
   };
 
   const signOut = async () => {
-    setUserOpen(false);
     await supabase.auth.signOut();
   };
 
@@ -170,44 +140,52 @@ function AuthButtonsInner() {
 
   if (!user) {
     return (
-      <div className={styles.auth} ref={loginRef}>
-        <button
-          type="button"
-          className={styles.loginPillBtn}
-          data-auth-trigger
-          onClick={() => setLoginOpen(o => !o)}
-          aria-label={isEn ? 'Login' : '登录'}
-        >
-          <LoginIcon />
-          <span>{isEn ? 'Login' : '登录'}</span>
-        </button>
-        {loginOpen && (
-          <GlassSurface
-            className={styles.dropdown}
-            width="auto"
-            height="auto"
-            borderRadius={10}
-            brightness={50}
-            opacity={0.9}
-            blur={11}
-            displace={0.5}
-            backgroundOpacity={0.45}
-            distortionScale={-60}
-          >
-            {PROVIDERS.map(({ id, label, icon }) => (
-              <button
-                key={id}
-                type="button"
-                className={styles.providerBtn}
-                onClick={() => signIn(id)}
+      <Popover className={styles.auth}>
+        {({ close }) => (
+          <>
+            <PopoverButton
+              as="button"
+              type="button"
+              className={styles.loginPillBtn}
+              data-auth-trigger
+              aria-label={isEn ? 'Login' : '登录'}
+            >
+              <LoginIcon />
+              <span>{isEn ? 'Login' : '登录'}</span>
+            </PopoverButton>
+
+            <PopoverPanel
+              anchor={{ to: 'bottom end', gap: 6 }}
+              className={PANEL_RESET_CLASS}
+            >
+              <GlassSurface
+                className={styles.dropdown}
+                width="auto"
+                height="auto"
+                borderRadius={10}
+                brightness={50}
+                opacity={0.9}
+                blur={11}
+                displace={0.5}
+                backgroundOpacity={0.45}
+                distortionScale={-60}
               >
-                <Icon icon={icon} width={18} />
-                <span>{label} {isEn ? 'Login' : '登录'}</span>
-              </button>
-            ))}
-          </GlassSurface>
+                {PROVIDERS.map(({ id, label, icon }) => (
+                  <button
+                    key={id}
+                    type="button"
+                    className={styles.providerBtn}
+                    onClick={() => { close(); signIn(id); }}
+                  >
+                    <Icon icon={icon} width={18} />
+                    <span>{label} {isEn ? 'Login' : '登录'}</span>
+                  </button>
+                ))}
+              </GlassSurface>
+            </PopoverPanel>
+          </>
         )}
-      </div>
+      </Popover>
     );
   }
 
@@ -215,93 +193,101 @@ function AuthButtonsInner() {
   const name = user.user_metadata?.full_name || user.user_metadata?.name || user.email;
 
   return (
-    <div
-      className={styles.auth}
-      ref={userRef}
-      onMouseEnter={handleDrawerEnter}
-      onMouseLeave={handleDrawerLeave}
-    >
-      <button
-        type="button"
-        className={styles.avatarBtn}
-        onClick={() => { if (!isFine) setUserOpen(o => !o); }}
-        aria-label={name}
-        aria-expanded={userOpen}
-        aria-haspopup="menu"
-      >
-        {avatarUrl ? (
-          <img src={avatarUrl} alt={name} className={styles.avatar} />
-        ) : (
-          <div className={styles.avatarFallback}>{name?.[0]?.toUpperCase()}</div>
-        )}
-      </button>
-      {userOpen && (
-        <GlassSurface
-          className={styles.drawer}
-          width="min(280px, calc(100vw - 24px))"
-          height="auto"
-          borderRadius={14}
-          brightness={50}
-          opacity={0.9}
-          blur={11}
-          displace={0.5}
-          backgroundOpacity={0.45}
-          distortionScale={-60}
-        >
-          {/* User info */}
-          <div className={styles.drawerHeader}>
+    <Popover className={styles.auth}>
+      {({ open, close }) => (
+        <>
+          <PopoverButton
+            as="button"
+            type="button"
+            className={styles.avatarBtn}
+            aria-label={name}
+            aria-haspopup="menu"
+          >
             {avatarUrl ? (
-              <img src={avatarUrl} alt={name} className={styles.drawerAvatar} />
+              <img src={avatarUrl} alt={name} className={styles.avatar} />
             ) : (
-              <div className={styles.drawerAvatarFallback}>{name?.[0]?.toUpperCase()}</div>
+              <div className={styles.avatarFallback}>{name?.[0]?.toUpperCase()}</div>
             )}
-            <span className={styles.drawerName}>{name}</span>
-          </div>
+          </PopoverButton>
 
-          <hr className={styles.drawerDivider} />
+          <MobileScrollLock open={open} />
 
-          {/* My Likes */}
-          <div className={styles.section}>
-            <a href={`${lp}/my-likes`} className={styles.sectionRow}>
-              <span className={styles.sectionLabel}>{isEn ? '❤️ My Likes' : '❤️ 我的喜欢'}</span>
-              <span className={styles.sectionMeta}>
-                <span className={styles.count}>{likeCount === null ? '—' : likeCount}</span>
-                <span className={styles.arrow}>›</span>
-              </span>
-            </a>
-            {(likeCount === null || likeCount > 0) && (
-              <div className={styles.covers}>
-                {likeCount === null
-                  ? [0, 1, 2].map(i => <div key={i} className={styles.coverPlaceholder} />)
-                  : likeSlugs.slice(0, 3).map((slug, i) => (
-                      <CoverThumb key={`${slug}-${i}`} src={postsMeta?.[slug]?.image} />
-                    ))}
+          <PopoverPanel
+            anchor={{ to: 'bottom end', gap: 8 }}
+            className={PANEL_RESET_CLASS}
+          >
+            <GlassSurface
+              className={styles.drawer}
+              width="min(280px, calc(100vw - 24px))"
+              height="auto"
+              borderRadius={14}
+              brightness={50}
+              opacity={0.9}
+              blur={11}
+              displace={0.5}
+              backgroundOpacity={0.45}
+              distortionScale={-60}
+            >
+              {/* User info */}
+              <div className={styles.drawerHeader}>
+                {avatarUrl ? (
+                  <img src={avatarUrl} alt={name} className={styles.drawerAvatar} />
+                ) : (
+                  <div className={styles.drawerAvatarFallback}>{name?.[0]?.toUpperCase()}</div>
+                )}
+                <span className={styles.drawerName}>{name}</span>
               </div>
-            )}
-          </div>
 
-          <hr className={styles.drawerDivider} />
+              <hr className={styles.drawerDivider} />
 
-          {/* My Bookmarks */}
-          <div className={styles.section}>
-            <a href={`${lp}/my-bookmarks`} className={styles.sectionRow}>
-              <span className={styles.sectionLabel}>{isEn ? '⭐ My Bookmarks' : '⭐ 我的收藏'}</span>
-              <span className={styles.sectionMeta}>
-                <span className={styles.count}>{bookmarkCount === null ? '—' : bookmarkCount}</span>
-                <span className={styles.arrow}>›</span>
-              </span>
-            </a>
-          </div>
+              {/* My Likes */}
+              <div className={styles.section}>
+                <a href={`${lp}/my-likes`} className={styles.sectionRow}>
+                  <span className={styles.sectionLabel}>{isEn ? '❤️ My Likes' : '❤️ 我的喜欢'}</span>
+                  <span className={styles.sectionMeta}>
+                    <span className={styles.count}>{likeCount === null ? '—' : likeCount}</span>
+                    <span className={styles.arrow}>›</span>
+                  </span>
+                </a>
+                {(likeCount === null || likeCount > 0) && (
+                  <div className={styles.covers}>
+                    {likeCount === null
+                      ? [0, 1, 2].map(i => <div key={i} className={styles.coverPlaceholder} />)
+                      : likeSlugs.slice(0, 3).map((slug, i) => (
+                          <CoverThumb key={`${slug}-${i}`} src={postsMeta?.[slug]?.image} />
+                        ))}
+                  </div>
+                )}
+              </div>
 
-          <hr className={styles.drawerDivider} />
+              <hr className={styles.drawerDivider} />
 
-          {/* Sign out */}
-          <button type="button" className={styles.signOutBtn} onClick={signOut}>
-            {isEn ? 'Sign Out' : '退出登录'}
-          </button>
-        </GlassSurface>
+              {/* My Bookmarks */}
+              <div className={styles.section}>
+                <a href={`${lp}/my-bookmarks`} className={styles.sectionRow}>
+                  <span className={styles.sectionLabel}>{isEn ? '⭐ My Bookmarks' : '⭐ 我的收藏'}</span>
+                  <span className={styles.sectionMeta}>
+                    <span className={styles.count}>{bookmarkCount === null ? '—' : bookmarkCount}</span>
+                    <span className={styles.arrow}>›</span>
+                  </span>
+                </a>
+              </div>
+
+              <hr className={styles.drawerDivider} />
+
+              {/* Sign out */}
+              <button
+                type="button"
+                className={styles.signOutBtn}
+                onClick={() => { close(); signOut(); }}
+              >
+                {isEn ? 'Sign Out' : '退出登录'}
+              </button>
+            </GlassSurface>
+          </PopoverPanel>
+        </>
       )}
-    </div>
+    </Popover>
   );
 }
 

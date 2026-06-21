@@ -13,6 +13,9 @@ function HomepageHeader() {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const isZh = currentLocale.startsWith('zh');
   const heroTextRef = useRef(null);
+  const greetingWords = isZh
+    ? ['你好～', 'こんにちは～', '안녕하세요～', 'Hello～', 'Hallo～', 'Bonjour～', 'Ciallo～(∠・ω< )⌒☆']
+    : ['Hello～', '你好～', 'こんにちは～', '안녕하세요～', 'Hallo～', 'Bonjour～', 'Ciallo～(∠・ω< )⌒☆'];
 
   useEffect(() => {
     let ctx;
@@ -40,7 +43,7 @@ function HomepageHeader() {
           <Heading as="h1" className={styles.title}>
             {isZh ? '欢迎' : 'Welcome'}{' '}
             <RotatingText
-              texts={['你好～', 'こんにちは～', '안녕하세요～', 'Hello～', 'Hallo～', 'Bonjour～']}
+              texts={greetingWords}
               mainClassName={styles.rotatingTextRoot}
               staggerFrom="last"
               initial={{ y: '100%', opacity: 0 }}

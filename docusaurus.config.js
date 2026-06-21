@@ -6,10 +6,37 @@
 
 import { themes as prismThemes } from 'prism-react-renderer';
 import { createRequire } from 'module';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Load .env.local for local dev (Docusaurus doesn't load this automatically)
 const _require = createRequire(import.meta.url);
 _require('dotenv').config({ path: '.env.local' });
+
+// Tailwind CSS (utilities-only, no preflight) + a `@` -> `src/` alias for the
+// shadcn/animate-ui components ported into src/components/ui and
+// src/components/animate-ui, which all import via `@/...`.
+function tailwindPlugin() {
+  return {
+    name: 'tailwind-plugin',
+    /** @param {{ plugins: unknown[] }} postcssOptions */
+    configurePostCss(postcssOptions) {
+      postcssOptions.plugins.push(_require('@tailwindcss/postcss'));
+      return postcssOptions;
+    },
+    configureWebpack() {
+      return {
+        resolve: {
+          alias: {
+            '@': path.resolve(__dirname, 'src'),
+          },
+        },
+      };
+    },
+  };
+}
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -78,7 +105,7 @@ const config = {
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: ['./src/css/custom.css', './src/css/tailwind.css'],
         },
         // 自动生成 sitemap.xml，让搜索引擎收录你的页面
         sitemap: {
@@ -109,6 +136,7 @@ const config = {
   plugins: [
     require.resolve('./src/plugins/blogGlobalDataPlugin'),
     require.resolve('./plugins/posts-meta-plugin'),
+    tailwindPlugin,
   ],
 
   themes: [

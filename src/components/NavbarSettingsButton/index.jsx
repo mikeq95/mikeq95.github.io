@@ -1,9 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import GlassSurface from '@site/src/components/GlassSurface';
 import ThemeColorButton from '@site/src/components/ThemeColorButton';
 import ColorModeToggle from '@site/src/theme/ColorModeToggle';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import {
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+} from '@/components/animate-ui/components/headless/popover';
 import styles from './index.module.css';
 
 function SettingsIcon() {
@@ -18,61 +23,23 @@ function SettingsIcon() {
 function SettingsButtonInner() {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const isEn = currentLocale === 'en';
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
-  const closeTimer = useRef(null);
-
-  // Pointer type: desktop (fine) opens on hover, mobile (coarse) opens on click —
-  // same pattern as AuthButtons / NavbarLanguageSwitcher.
-  const [isFine, setIsFine] = useState(() =>
-    typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches,
-  );
-
-  useEffect(() => {
-    setIsFine(window.matchMedia('(pointer: fine)').matches);
-  }, []);
-
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const openMenu = () => {
-    if (!isFine) return;
-    clearTimeout(closeTimer.current);
-    setOpen(true);
-  };
-
-  const scheduleClose = () => {
-    if (!isFine) return;
-    closeTimer.current = setTimeout(() => setOpen(false), 150);
-  };
-
-  useEffect(() => () => clearTimeout(closeTimer.current), []);
 
   return (
-    <div
-      ref={ref}
-      className={styles.wrapper}
-      onMouseEnter={openMenu}
-      onMouseLeave={scheduleClose}
-    >
-      <button
+    <Popover className={styles.wrapper}>
+      <PopoverButton
+        as="button"
         className={styles.pill}
-        onClick={() => { if (!isFine) setOpen(o => !o); }}
-        aria-haspopup="menu"
-        aria-expanded={open}
         aria-label={isEn ? 'Settings' : '设置'}
       >
         <SettingsIcon />
-      </button>
+      </PopoverButton>
 
-      {open && (
+      <PopoverPanel
+        anchor={{ to: 'bottom end', gap: 6 }}
+        className="w-auto rounded-none border-0 bg-transparent p-0 shadow-none"
+      >
         <GlassSurface
-          className={styles.dropdown}
+          className={styles.glass}
           width="auto"
           height="auto"
           borderRadius={10}
@@ -95,8 +62,8 @@ function SettingsButtonInner() {
             </ThemeColorButton>
           </div>
         </GlassSurface>
-      )}
-    </div>
+      </PopoverPanel>
+    </Popover>
   );
 }
 

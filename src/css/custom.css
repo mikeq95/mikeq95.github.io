@@ -32,6 +32,10 @@
   padding: 0;
   background-color: transparent;
   box-shadow: none;
+  /* Forces its own GPU compositing layer — works around a Safari/WebKit bug where
+     backdrop-filter inside a position:sticky ancestor can fail to repaint correctly
+     (showing stale/blank content) until the next forced reflow. */
+  transform: translateZ(0);
 }
 
 [data-theme='dark'] .navbar {
