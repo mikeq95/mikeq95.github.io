@@ -26,7 +26,7 @@ description: "claude.ai 和 Claude Code 的 skill 是两套独立系统，分别
 
 如果你的 skill 是通过 Claude Code 的 skill creator 创造出来的，或者别的方式做的，不管来源是什么，只要来自 Claude，文件应该长这样：
 
-![claude 生成的 skill 文件图标](/Users/a1234/Pictures/截屏2026-06-22 16.31.35.png)
+![claude 生成的 skill 文件图标](https://cdn.mikeq95blog.uk/coverimage/claude-skill-file-icon.png)
 
 一个橙色的"SKILL"图标，Finder 里还带一个"通过 Claude 打开"的按钮——这是因为电脑上装的 Claude 桌面 App 给 `.skill` 后缀注册了专属样式，**不代表文件本身的格式变了**。不必担心，它骨子里还是一个标准的 zip 包，后缀名和图标只是显示层面的东西。
 
