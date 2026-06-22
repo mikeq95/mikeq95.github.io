@@ -77,3 +77,8 @@ AI:
   label: AI
   permalink: /ai
   description: AI related posts
+
+Claude:
+  label: Claude
+  permalink: /claude
+  description: Claude related posts
