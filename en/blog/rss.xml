@@ -4,70 +4,145 @@
         <title>mikeq95's blog Blog</title>
         <link>https://mikeq95blog.uk/en/blog</link>
         <description>mikeq95's blog Blog</description>
-        <lastBuildDate>Fri, 19 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 22 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[📄 macOS 终端新建文件命令速查]]></title>
+            <title><![CDATA[🧩 在 Claude Code 和 Claude 上用 skill]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code</guid>
+            <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[claude.ai 和 Claude Code 的 skill 是两套独立系统，分别怎么装、怎么用、容易踩哪些坑，整理在这一篇。]]></description>
+            <content:encoded><![CDATA[<p>什么是 skill？如何在 Claude 和 Claude Code 中安装和使用 skill？</p>
+<!-- -->
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="skill-是什么"><a href="https://clearlove7-ai.vercel.app/?word=skill&amp;postId=2026-06-22-using-skill-in-claude-and-claude-code" target="_blank" rel="noopener noreferrer" class="">skill</a> 是什么<a href="https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code#skill-%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="Direct link to skill-是什么" title="Direct link to skill-是什么" translate="no">​</a></h2>
+<p>简单说，skill 就是一个文件夹，里面至少有一个 <code>SKILL.md</code>，写清楚"什么时候该用这个能力"和"具体怎么做"。这篇用到的例子是我让 Claude 用 skill-creator 写的一个 skill，叫 blog-markdown-formatter，接下来就是怎么装、怎么用。</p>
+<blockquote>
+<p>个人感觉也有点像是单机游戏的 MOD，但是这个 MOD 是专门为了增强游戏体验的。</p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="在-claude-code-里装">在 Claude Code 里装<a href="https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E5%9C%A8-claude-code-%E9%87%8C%E8%A3%85" class="hash-link" aria-label="Direct link to 在 Claude Code 里装" title="Direct link to 在 Claude Code 里装" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="第一步下载-skill-文件到底是什么">第一步：下载 <code>.skill</code> 文件到底是什么<a href="https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E7%AC%AC%E4%B8%80%E6%AD%A5%E4%B8%8B%E8%BD%BD-skill-%E6%96%87%E4%BB%B6%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="Direct link to 第一步下载-skill-文件到底是什么" title="Direct link to 第一步下载-skill-文件到底是什么" translate="no">​</a></h3>
+<p>如果你的 skill 是通过 Claude Code 的 skill creator 创造出来的，或者别的方式做的，不管来源是什么，只要来自 Claude，文件应该长这样：</p>
+<p>![claude 生成的 skill 文件图标](/Users/a1234/Pictures/截屏2026-06-22 16.31.35.png)</p>
+<p>一个橙色的"SKILL"图标，Finder 里还带一个"通过 Claude 打开"的按钮——这是因为电脑上装的 Claude 桌面 App 给 <code>.skill</code> 后缀注册了专属样式，<strong>不代表文件本身的格式变了</strong>。不必担心，它骨子里还是一个标准的 zip 包，后缀名和图标只是显示层面的东西。</p>
+<p>如果你还是不信，打开终端，输入：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">file ~/Downloads/blog-markdown-formatter.skill</span><br></div></code></pre></div></div>
+<p>✅ 正常：输出里带 <code>Zip archive data</code>，证明它确实是 zip</p>
+<p>❌ 异常：如果输出是别的内容，说明下载过程文件损坏了，重新下载一次</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="第二步解压到-claude-code-能读到的位置">第二步：解压到 Claude Code 能读到的位置<a href="https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E8%A7%A3%E5%8E%8B%E5%88%B0-claude-code-%E8%83%BD%E8%AF%BB%E5%88%B0%E7%9A%84%E4%BD%8D%E7%BD%AE" class="hash-link" aria-label="Direct link to 第二步：解压到 Claude Code 能读到的位置" title="Direct link to 第二步：解压到 Claude Code 能读到的位置" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cd ~/Downloads</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">unzip blog-markdown-formatter.skill -d ~/.claude/skills/</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="第三步验证目录结构">第三步：验证目录结构<a href="https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E7%AC%AC%E4%B8%89%E6%AD%A5%E9%AA%8C%E8%AF%81%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" class="hash-link" aria-label="Direct link to 第三步：验证目录结构" title="Direct link to 第三步：验证目录结构" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">ls ~/.claude/skills/blog-markdown-formatter</span><br></div></code></pre></div></div>
+<p>✅ 正常：看到 <code>SKILL.md</code> 和 <code>references/</code> 两项，直接躺在这个文件夹下面</p>
+<p>❌ 异常：如果看到的是一个 <code>.skill</code> 文件躺在里面（说明只是把 zip 挪了位置，没解压），回到第二步重新执行 <code>unzip</code></p>
+<p>解压对了之后，目录结构应该是这样：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">~/.claude/skills/blog-markdown-formatter/</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">├── SKILL.md</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">└── references/</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    ├── blog-style-guide.md</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    └── syntax-checklist.md</span><br></div></code></pre></div></div>
+<p>至此，在 Claude Code 上安装 skill 已经完成。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="在-claude-里装">在 Claude 里装<a href="https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E5%9C%A8-claude-%E9%87%8C%E8%A3%85" class="hash-link" aria-label="Direct link to 在 Claude 里装" title="Direct link to 在 Claude 里装" translate="no">​</a></h2>
+<ol>
+<li class="">网页或 App 里找到 Settings → Customize → Skills</li>
+<li class="">点 "+" → "Create skill" → "Upload a skill"</li>
+<li class="">直接上传下载下来的 <code>.skill</code> 文件（不用解压，网页会自己解析里面的内容）</li>
+<li class="">上传完成后，在列表里把开关打开</li>
+</ol>
+<p>至此，Claude 上安装 skill 已经完成。</p>
+<p>注意，在 Claude 上装了 skill，不代表 Claude Code 也能用——两边要分别装一次，不是一回事。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="更新已经装好的-skill">更新已经装好的 skill<a href="https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E6%9B%B4%E6%96%B0%E5%B7%B2%E7%BB%8F%E8%A3%85%E5%A5%BD%E7%9A%84-skill" class="hash-link" aria-label="Direct link to 更新已经装好的 skill" title="Direct link to 更新已经装好的 skill" translate="no">​</a></h2>
+<p>skill 内容改过之后（比如规则调整、加新功能），不会自动同步到本地已经装好的版本，两边都要手动覆盖一次。</p>
+<p><strong>Claude Code 的做法</strong>：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cd ~/Downloads</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">rm -rf ~/.claude/skills/blog-markdown-formatter</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">unzip blog-markdown-formatter.skill -d ~/.claude/skills/</span><br></div></code></pre></div></div>
+<p><strong>Claude 的做法</strong>：去 Settings → Customize → Skills，找到这个 skill，删掉旧的，重新上传新文件。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="怎么触发这个-skill">怎么触发这个 skill<a href="https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E6%80%8E%E4%B9%88%E8%A7%A6%E5%8F%91%E8%BF%99%E4%B8%AA-skill" class="hash-link" aria-label="Direct link to 怎么触发这个 skill" title="Direct link to 怎么触发这个 skill" translate="no">​</a></h2>
+<p>想要触发 skill 很简单，以这个 skill 为例：<code>SKILL.md</code> 里写了类似这样的描述——"当用户说'帮我优化一下这篇 markdown 的排版'、'帮我整理这篇文档格式'、'美化一下这篇博客文章'、'这篇文章排版有点乱帮我改一下'、'按照我博客的风格重新排版/重写'……"</p>
+<blockquote>
+<p>这段话就在 <code>SKILL.md</code> 的 description 字段里，想知道一个 skill 会在什么时候被触发，直接打开看一眼就行。</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="自动触发">自动触发<a href="https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E8%87%AA%E5%8A%A8%E8%A7%A6%E5%8F%91" class="hash-link" aria-label="Direct link to 自动触发" title="Direct link to 自动触发" translate="no">​</a></h3>
+<p>直接跟 Claude 或 Claude Code 说：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">帮我把 /document/strawberry.txt 这篇文章的 markdown 排版优化一下，按我博客的风格整理</span><br></div></code></pre></div></div>
+<p>Claude 或 Claude Code 会根据 skill 的 description 自己判断要不要调用它。</p>
+<blockquote>
+<p>想验证它有没有真的用上这个 skill，看它的 thinking 过程——里面会显示它有没有去读 <code>SKILL.md</code>。</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="手动指定只有-claude-code-支持斜杠命令">手动指定（只有 Claude Code 支持斜杠命令）<a href="https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E6%89%8B%E5%8A%A8%E6%8C%87%E5%AE%9A%E5%8F%AA%E6%9C%89-claude-code-%E6%94%AF%E6%8C%81%E6%96%9C%E6%9D%A0%E5%91%BD%E4%BB%A4" class="hash-link" aria-label="Direct link to 手动指定（只有 Claude Code 支持斜杠命令）" title="Direct link to 手动指定（只有 Claude Code 支持斜杠命令）" translate="no">​</a></h3>
+<p><code>.claude/skills/&lt;名字&gt;/SKILL.md</code> 这种目录结构，会自动对应一个同名斜杠命令。这个 skill 对应的是：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/blog-markdown-formatter /document/strawberry.txt</span><br></div></code></pre></div></div>
+<p>不需要写一整段提示词，但斜杠命令后面<strong>至少要接一个目标</strong>（比如文件路径），不能什么都不接：</p>
+<ul>
+<li class="">接了内容：在 <code>SKILL.md</code> 没有定义 <code>$ARGUMENTS</code> 占位符的情况下，Claude Code 会自动把打的内容追加成 <code>ARGUMENTS: 你打的内容</code>，接在 skill 规则末尾，让 Claude 知道具体要处理什么</li>
+<li class="">什么都不接：只会把排版规则加载进上下文，但不知道要处理哪个文件，大概率会反问你</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95blog.uk/en/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="Direct link to 总结" title="Direct link to 总结" translate="no">​</a></h2>
+<p>不知道有啥好总结的，看到这里，你应该知道怎么用 skill 了。</p>
+<p>那么恭喜你，你被窝恭喜到了。</p>]]></content:encoded>
+            <category>AI</category>
+        </item>
+        <item>
+            <title><![CDATA[📄 macOS Terminal Cheat Sheet: Creating Files]]></title>
             <link>https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file</guid>
             <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[一张速查卡：touch、mkdir -p、code、heredoc、cat 拼命令操作文件，比 Finder 右键快不少，批量建文件时效率提升明显。]]></description>
-            <content:encoded><![CDATA[<p>在 Mac 电脑上常用的几个命令：<code>touch</code>、<code>mkdir</code>、<code>code</code>、<code>cat</code>，外加一个用 <code>cat</code> 拼出来的写法——<code>heredoc</code>。</p>
+            <description><![CDATA[A cheat sheet for touch, mkdir -p, code, heredoc, and cat — these terminal commands beat right-clicking in Finder, especially when creating files in bulk.]]></description>
+            <content:encoded><![CDATA[<p>A handful of commands I use all the time on my Mac: <code>touch</code>, <code>mkdir</code>, <code>code</code>, <code>cat</code>, plus a <code>cat</code>-based trick called <code>heredoc</code>.</p>
 <!-- -->
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="touch">touch<a href="https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file#touch" class="hash-link" aria-label="Direct link to touch" title="Direct link to touch" translate="no">​</a></h2>
-<p><code>touch</code> 可以新建文件</p>
+<p><code>touch</code> creates a new file:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">touch index.html</span><br></div></code></pre></div></div>
 <blockquote>
-<p>个人感觉这个命令很好用，比如你想写一个 md 文档，直接 <code>touch strawberry.md</code> 就行。</p>
+<p>I find this one genuinely useful — say you want to write a markdown doc, just run <code>touch strawberry.md</code> and you're done.</p>
 </blockquote>
 <blockquote>
 <p>StrawBerry!!!🍓</p>
 </blockquote>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mkdir">mkdir<a href="https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file#mkdir" class="hash-link" aria-label="Direct link to mkdir" title="Direct link to mkdir" translate="no">​</a></h2>
-<p><code>mkdir</code> 是 "make directory" 的缩写，顾名思义就是建文件夹的命令：</p>
+<p><code>mkdir</code> is short for "make directory" — it does exactly what it sounds like, creates a folder:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir components</span><br></div></code></pre></div></div>
 <blockquote>
-<p>等同你在finder上cmd + shift + N或者鼠标右键新建文件夹</p>
+<p>This is the terminal equivalent of <code>Cmd + Shift + N</code> in Finder, or right-click → New Folder.</p>
 </blockquote>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="加上--p">加上 <code>-p</code><a href="https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file#%E5%8A%A0%E4%B8%8A--p" class="hash-link" aria-label="Direct link to 加上--p" title="Direct link to 加上--p" translate="no">​</a></h3>
-<p><code>-p</code> 是 <code>--parents</code> 的缩写，意思是"连同父级目录一起处理"。一般用在两种情况：</p>
-<p><strong>情况一：中间路径还不存在</strong>，帮你自动补全。比如 <code>src</code> 还没建，直接跑 <code>mkdir src/pages/about</code> 会报错：</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="adding--p">Adding <code>-p</code><a href="https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file#adding--p" class="hash-link" aria-label="Direct link to adding--p" title="Direct link to adding--p" translate="no">​</a></h3>
+<p><code>-p</code> is short for <code>--parents</code>, meaning "handle the parent directories too." It's used in two situations.</p>
+<p><strong>Case 1: an intermediate path doesn't exist yet</strong>, and you want it created automatically. If <code>src</code> hasn't been created, running <code>mkdir src/pages/about</code> directly fails:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir src/pages/about</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># mkdir: src/pages: No such file or directory</span><br></div></code></pre></div></div>
-<p>加上 <code>-p</code>，缺的中间层会一并自动建出来：</p>
+<p>Add <code>-p</code>, and any missing intermediate folders get created automatically:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir -p src/pages/about</span><br></div></code></pre></div></div>
-<p><strong>情况二：文件夹已经存在，不会报错中断</strong>。不带 <code>-p</code> 时，重复跑同一条命令会报错：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir components   # 第一次跑，正常建好</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">mkdir components   # 再跑一次</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># mkdir: components: File exists</span><br></div></code></pre></div></div>
-<p>如果这条命令写在脚本里，跑到这一步就会中断，影响后面的步骤。加上 <code>-p</code> 就不会有这个问题：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir -p components   # 第一次跑，正常建好</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">mkdir -p components   # 再跑一次也不会报错，什么都不会发生</span><br></div></code></pre></div></div>
-<p>一句话总结：<code>-p</code> 让 <code>mkdir</code> 变得"傻瓜式安全"——不用管路径深不深、文件夹建过没建过，直接敲一条命令就完事。</p>
+<p><strong>Case 2: the folder already exists, and you don't want an error.</strong> Without <code>-p</code>, running the same command twice throws an error:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir components   # first run, creates it fine</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">mkdir components   # run it again</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># mkdir: components: File exists</span><br></div></code></pre></div></div>
+<p>If this line is in a script, hitting this error breaks the rest of the run. With <code>-p</code>, that's not a problem:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir -p components   # first run, creates it fine</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">mkdir -p components   # run it again, no error, nothing happens</span><br></div></code></pre></div></div>
+<p>The short version: <code>-p</code> makes <code>mkdir</code> "foolproof" — you don't need to worry about whether the path is nested or whether the folder already exists, just run the command.</p>
 <blockquote>
-<p>实际写脚本、敲命令的时候基本都是 <code>mkdir -p</code> 连着打，很少有人单独用不带参数的 <code>mkdir</code>。</p>
+<p>In practice, when writing scripts or typing commands, it's basically always <code>mkdir -p</code>. Hardly anyone uses bare <code>mkdir</code> without the flag.</p>
 </blockquote>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="code">code<a href="https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file#code" class="hash-link" aria-label="Direct link to code" title="Direct link to code" translate="no">​</a></h2>
-<p><code>code</code> 是 VS Code 提供的命令行入口，不是 macOS 自带的命令，需要先在 VS Code 里 <code>Cmd+Shift+P</code> 搜 <code>Shell Command: Install 'code' command in PATH</code> 装一次。</p>
-<p>跑完下面这行，VS Code 会直接弹出来，文件不存在的话顺手帮你建好并打开——光标就停在空文件里，直接开始写代码：</p>
+<p><code>code</code> is the command-line entry point that VS Code provides — it's not a built-in macOS command. You need to set it up once from VS Code: <code>Cmd+Shift+P</code> → search <code>Shell Command: Install 'code' command in PATH</code>.</p>
+<p>Run the line below, and VS Code pops open immediately. If the file doesn't exist, it gets created and opened for you — cursor sitting in an empty file, ready to write:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">code components/GradientText.jsx</span><br></div></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="heredoc">heredoc<a href="https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file#heredoc" class="hash-link" aria-label="Direct link to heredoc" title="Direct link to heredoc" translate="no">​</a></h2>
-<p>"heredoc" 是 "here document" 的缩写——这一段就是文档内容，直接写在命令里，不用单独开文件。</p>
+<p>"heredoc" is short for "here document" — the document content is written directly inline in the command, no need to open a separate file.</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cat &gt; components/GradientText.jsx &lt;&lt; 'EOF'</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">export default function GradientText() {</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  return &lt;span className="gradient-text"&gt;Hello&lt;/span&gt;;</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">}</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></div></code></pre></div></div>
 <ul>
-<li class=""><code>&lt;&lt; 'EOF'</code>：开始标记，意思是"往下读到下一个单独出现的 <code>EOF</code> 为止，都算内容"；带单引号能防止 <code>$变量</code> 之类被终端提前解析，写代码时基本都这么用</li>
-<li class="">结束的 <code>EOF</code> 必须顶格单独一行，否则终端会一直等你输入</li>
+<li class=""><code>&lt;&lt; 'EOF'</code>: the start marker, meaning "keep reading until the next line that's just <code>EOF</code> by itself — everything in between is content." The single quotes prevent things like <code>$variable</code> from being expanded early by the shell; this is the standard way to write it when the content includes code</li>
+<li class="">The closing <code>EOF</code> must be on its own line, starting at column 0 — otherwise the terminal just keeps waiting for input</li>
 </ul>
-<p>已有文件想追加而不是覆盖，把 <code>&gt;</code> 换成 <code>&gt;&gt;</code> 即可。</p>
-<p><strong>有啥用？</strong></p>
-<p>你可以直接让 AI 用 heredoc 的命令帮你写一个文档，拿到命令之后直接粘贴到 terminal 回车运行。这可比鼠标点点点省事多了对吧。</p>
+<p>To append to an existing file instead of overwriting it, swap <code>&gt;</code> for <code>&gt;&gt;</code>.</p>
+<p><strong>What's it good for?</strong></p>
+<p>You can have an AI write a heredoc command for you, then paste it straight into the terminal and hit enter. Much less clicking around than doing it by hand.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cat">cat<a href="https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file#cat" class="hash-link" aria-label="Direct link to cat" title="Direct link to cat" translate="no">​</a></h2>
-<p><code>cat</code> 是 "concatenate"（连接、拼接）的缩写，最基础的用法是把文件内容打印到终端上：</p>
+<p><code>cat</code> is short for "concatenate" — its most basic use is printing a file's contents to the terminal:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cat test.txt</span><br></div></code></pre></div></div>
-<p><strong>有啥用？</strong></p>
-<p>我觉得问 AI 的时候有点用吧，比如你可以开个终端，然后 <code>cat</code> 你看不懂的多个文档，它会打印到 terminal 上，然后 <code>Cmd + A</code> 丢给 AI。我认为这比直接把文件丢给 AI 省事、更快。（尤其开 VPN 用 Claude、ChatGPT，上传一个文档的那个速度，简直不忍直视，令人咋舌😂）</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="Direct link to 总结" title="Direct link to 总结" translate="no">​</a></h2>
-<p>这些都是我常用的，就这些。我有个 Linux 课程，这些命令都讲了，Mac 电脑是类 Unix 的，所以命令都大差不差。</p>
-<p>只需要懂最基本的就行了，没必要懂很复杂的。</p>]]></content:encoded>
+<p><strong>What's it good for?</strong></p>
+<p>I find it handy when talking to an AI — open a terminal, <code>cat</code> a bunch of files you don't understand, they get printed to the terminal, then <code>Cmd + A</code> and hand it all to the AI. I think this is faster and less hassle than uploading files directly. (Especially with a VPN running and uploading a file to Claude or ChatGPT — the upload speed is genuinely painful to watch 😂)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary">Summary<a href="https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
+<p>These are just the ones I use regularly, nothing more. I took a Linux course that covered all of these — macOS is Unix-like, so the commands carry over almost exactly.</p>
+<p>You only need to know the basics. No need to go deep on the complicated stuff.</p>]]></content:encoded>
             <category>macOS</category>
         </item>
         <item>

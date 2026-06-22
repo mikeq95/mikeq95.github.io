@@ -2,11 +2,86 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mikeq95blog.uk/blog</id>
     <title>mikeq95's blog Blog</title>
-    <updated>2026-06-19T00:00:00.000Z</updated>
+    <updated>2026-06-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mikeq95blog.uk/blog"/>
     <subtitle>mikeq95's blog Blog</subtitle>
     <icon>https://mikeq95blog.uk/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[🧩 在 Claude Code 和 Claude 上用 skill]]></title>
+        <id>https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code</id>
+        <link href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code"/>
+        <updated>2026-06-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[claude.ai 和 Claude Code 的 skill 是两套独立系统，分别怎么装、怎么用、容易踩哪些坑，整理在这一篇。]]></summary>
+        <content type="html"><![CDATA[<p>什么是 skill？如何在 Claude 和 Claude Code 中安装和使用 skill？</p>
+<!-- -->
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="skill-是什么"><a href="https://clearlove7-ai.vercel.app/?word=skill&amp;postId=2026-06-22-using-skill-in-claude-and-claude-code" target="_blank" rel="noopener noreferrer" class="">skill</a> 是什么<a href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code#skill-%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="skill-是什么的直接链接" title="skill-是什么的直接链接" translate="no">​</a></h2>
+<p>简单说，skill 就是一个文件夹，里面至少有一个 <code>SKILL.md</code>，写清楚"什么时候该用这个能力"和"具体怎么做"。这篇用到的例子是我让 Claude 用 skill-creator 写的一个 skill，叫 blog-markdown-formatter，接下来就是怎么装、怎么用。</p>
+<blockquote>
+<p>个人感觉也有点像是单机游戏的 MOD，但是这个 MOD 是专门为了增强游戏体验的。</p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="在-claude-code-里装">在 Claude Code 里装<a href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E5%9C%A8-claude-code-%E9%87%8C%E8%A3%85" class="hash-link" aria-label="在 Claude Code 里装的直接链接" title="在 Claude Code 里装的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="第一步下载-skill-文件到底是什么">第一步：下载 <code>.skill</code> 文件到底是什么<a href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E7%AC%AC%E4%B8%80%E6%AD%A5%E4%B8%8B%E8%BD%BD-skill-%E6%96%87%E4%BB%B6%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="第一步下载-skill-文件到底是什么的直接链接" title="第一步下载-skill-文件到底是什么的直接链接" translate="no">​</a></h3>
+<p>如果你的 skill 是通过 Claude Code 的 skill creator 创造出来的，或者别的方式做的，不管来源是什么，只要来自 Claude，文件应该长这样：</p>
+<p>![claude 生成的 skill 文件图标](/Users/a1234/Pictures/截屏2026-06-22 16.31.35.png)</p>
+<p>一个橙色的"SKILL"图标，Finder 里还带一个"通过 Claude 打开"的按钮——这是因为电脑上装的 Claude 桌面 App 给 <code>.skill</code> 后缀注册了专属样式，<strong>不代表文件本身的格式变了</strong>。不必担心，它骨子里还是一个标准的 zip 包，后缀名和图标只是显示层面的东西。</p>
+<p>如果你还是不信，打开终端，输入：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">file ~/Downloads/blog-markdown-formatter.skill</span><br></div></code></pre></div></div>
+<p>✅ 正常：输出里带 <code>Zip archive data</code>，证明它确实是 zip</p>
+<p>❌ 异常：如果输出是别的内容，说明下载过程文件损坏了，重新下载一次</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="第二步解压到-claude-code-能读到的位置">第二步：解压到 Claude Code 能读到的位置<a href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E8%A7%A3%E5%8E%8B%E5%88%B0-claude-code-%E8%83%BD%E8%AF%BB%E5%88%B0%E7%9A%84%E4%BD%8D%E7%BD%AE" class="hash-link" aria-label="第二步：解压到 Claude Code 能读到的位置的直接链接" title="第二步：解压到 Claude Code 能读到的位置的直接链接" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cd ~/Downloads</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">unzip blog-markdown-formatter.skill -d ~/.claude/skills/</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="第三步验证目录结构">第三步：验证目录结构<a href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E7%AC%AC%E4%B8%89%E6%AD%A5%E9%AA%8C%E8%AF%81%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" class="hash-link" aria-label="第三步：验证目录结构的直接链接" title="第三步：验证目录结构的直接链接" translate="no">​</a></h3>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">ls ~/.claude/skills/blog-markdown-formatter</span><br></div></code></pre></div></div>
+<p>✅ 正常：看到 <code>SKILL.md</code> 和 <code>references/</code> 两项，直接躺在这个文件夹下面</p>
+<p>❌ 异常：如果看到的是一个 <code>.skill</code> 文件躺在里面（说明只是把 zip 挪了位置，没解压），回到第二步重新执行 <code>unzip</code></p>
+<p>解压对了之后，目录结构应该是这样：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">~/.claude/skills/blog-markdown-formatter/</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">├── SKILL.md</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">└── references/</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    ├── blog-style-guide.md</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    └── syntax-checklist.md</span><br></div></code></pre></div></div>
+<p>至此，在 Claude Code 上安装 skill 已经完成。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="在-claude-里装">在 Claude 里装<a href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E5%9C%A8-claude-%E9%87%8C%E8%A3%85" class="hash-link" aria-label="在 Claude 里装的直接链接" title="在 Claude 里装的直接链接" translate="no">​</a></h2>
+<ol>
+<li class="">网页或 App 里找到 Settings → Customize → Skills</li>
+<li class="">点 "+" → "Create skill" → "Upload a skill"</li>
+<li class="">直接上传下载下来的 <code>.skill</code> 文件（不用解压，网页会自己解析里面的内容）</li>
+<li class="">上传完成后，在列表里把开关打开</li>
+</ol>
+<p>至此，Claude 上安装 skill 已经完成。</p>
+<p>注意，在 Claude 上装了 skill，不代表 Claude Code 也能用——两边要分别装一次，不是一回事。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="更新已经装好的-skill">更新已经装好的 skill<a href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E6%9B%B4%E6%96%B0%E5%B7%B2%E7%BB%8F%E8%A3%85%E5%A5%BD%E7%9A%84-skill" class="hash-link" aria-label="更新已经装好的 skill的直接链接" title="更新已经装好的 skill的直接链接" translate="no">​</a></h2>
+<p>skill 内容改过之后（比如规则调整、加新功能），不会自动同步到本地已经装好的版本，两边都要手动覆盖一次。</p>
+<p><strong>Claude Code 的做法</strong>：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cd ~/Downloads</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">rm -rf ~/.claude/skills/blog-markdown-formatter</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">unzip blog-markdown-formatter.skill -d ~/.claude/skills/</span><br></div></code></pre></div></div>
+<p><strong>Claude 的做法</strong>：去 Settings → Customize → Skills，找到这个 skill，删掉旧的，重新上传新文件。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="怎么触发这个-skill">怎么触发这个 skill<a href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E6%80%8E%E4%B9%88%E8%A7%A6%E5%8F%91%E8%BF%99%E4%B8%AA-skill" class="hash-link" aria-label="怎么触发这个 skill的直接链接" title="怎么触发这个 skill的直接链接" translate="no">​</a></h2>
+<p>想要触发 skill 很简单，以这个 skill 为例：<code>SKILL.md</code> 里写了类似这样的描述——"当用户说'帮我优化一下这篇 markdown 的排版'、'帮我整理这篇文档格式'、'美化一下这篇博客文章'、'这篇文章排版有点乱帮我改一下'、'按照我博客的风格重新排版/重写'……"</p>
+<blockquote>
+<p>这段话就在 <code>SKILL.md</code> 的 description 字段里，想知道一个 skill 会在什么时候被触发，直接打开看一眼就行。</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="自动触发">自动触发<a href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E8%87%AA%E5%8A%A8%E8%A7%A6%E5%8F%91" class="hash-link" aria-label="自动触发的直接链接" title="自动触发的直接链接" translate="no">​</a></h3>
+<p>直接跟 Claude 或 Claude Code 说：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">帮我把 /document/strawberry.txt 这篇文章的 markdown 排版优化一下，按我博客的风格整理</span><br></div></code></pre></div></div>
+<p>Claude 或 Claude Code 会根据 skill 的 description 自己判断要不要调用它。</p>
+<blockquote>
+<p>想验证它有没有真的用上这个 skill，看它的 thinking 过程——里面会显示它有没有去读 <code>SKILL.md</code>。</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="手动指定只有-claude-code-支持斜杠命令">手动指定（只有 Claude Code 支持斜杠命令）<a href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E6%89%8B%E5%8A%A8%E6%8C%87%E5%AE%9A%E5%8F%AA%E6%9C%89-claude-code-%E6%94%AF%E6%8C%81%E6%96%9C%E6%9D%A0%E5%91%BD%E4%BB%A4" class="hash-link" aria-label="手动指定（只有 Claude Code 支持斜杠命令）的直接链接" title="手动指定（只有 Claude Code 支持斜杠命令）的直接链接" translate="no">​</a></h3>
+<p><code>.claude/skills/&lt;名字&gt;/SKILL.md</code> 这种目录结构，会自动对应一个同名斜杠命令。这个 skill 对应的是：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/blog-markdown-formatter /document/strawberry.txt</span><br></div></code></pre></div></div>
+<p>不需要写一整段提示词，但斜杠命令后面<strong>至少要接一个目标</strong>（比如文件路径），不能什么都不接：</p>
+<ul>
+<li class="">接了内容：在 <code>SKILL.md</code> 没有定义 <code>$ARGUMENTS</code> 占位符的情况下，Claude Code 会自动把打的内容追加成 <code>ARGUMENTS: 你打的内容</code>，接在 skill 规则末尾，让 Claude 知道具体要处理什么</li>
+<li class="">什么都不接：只会把排版规则加载进上下文，但不知道要处理哪个文件，大概率会反问你</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95blog.uk/blog/2026/06/22/using-skill-in-claude-and-claude-code#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="总结的直接链接" title="总结的直接链接" translate="no">​</a></h2>
+<p>不知道有啥好总结的，看到这里，你应该知道怎么用 skill 了。</p>
+<p>那么恭喜你，你被窝恭喜到了。</p>]]></content>
+        <category label="AI" term="AI"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[📄 macOS 终端新建文件命令速查]]></title>
         <id>https://mikeq95blog.uk/blog/2026/06/19/macos-terminal-create-file</id>
