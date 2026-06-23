@@ -15,15 +15,10 @@
 import { readFileSync } from 'node:fs';
 import { basename, extname } from 'node:path';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import dotenv from 'dotenv';
 
-// Load .env.local (simple KEY=value parser; ignores comments/blank lines)
-try {
-  const env = readFileSync(new URL('../.env.local', import.meta.url), 'utf8');
-  for (const line of env.split('\n')) {
-    const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/);
-    if (m && !(m[1] in process.env)) process.env[m[1]] = m[2];
-  }
-} catch { /* .env.local optional if vars already in environment */ }
+// .env.local is optional if vars are already in the environment
+dotenv.config({ path: new URL('../.env.local', import.meta.url) });
 
 const {
   CLOUDFLARE_ACCOUNT_ID,

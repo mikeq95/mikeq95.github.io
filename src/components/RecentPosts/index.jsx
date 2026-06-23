@@ -10,26 +10,13 @@ import {translate} from '@docusaurus/Translate';
 import { Icon } from '@iconify/react';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
+import { triggerLogin } from '@site/src/utils/authTrigger';
+import { getGradient } from '@site/src/utils/gradients';
 import styles from './index.module.css';
 
 // Safe on SSR (Docusaurus pre-renders without window)
 const useLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffectBase : useEffect;
-
-const GRADIENTS = [
-  'linear-gradient(135deg, #667eea, #764ba2)',
-  'linear-gradient(135deg, #f093fb, #f5576c)',
-  'linear-gradient(135deg, #4facfe, #00f2fe)',
-  'linear-gradient(135deg, #43e97b, #38f9d7)',
-  'linear-gradient(135deg, #fa709a, #fee140)',
-  'linear-gradient(135deg, #a18cd1, #fbc2eb)',
-  'linear-gradient(135deg, #fda085, #f6d365)',
-  'linear-gradient(135deg, #89f7fe, #66a6ff)',
-];
-
-function getGradient(permalink) {
-  return GRADIENTS[permalink.length % GRADIENTS.length];
-}
 
 function CardCover({ image, permalink, title }) {
   const [loaded, setLoaded] = useState(false);
@@ -82,6 +69,8 @@ export default function RecentPosts({ posts = [] }) {
   const reducedMotion = useRef(false);
   const gsapRef      = useRef(null);
   const isButtonScrolling = useRef(false);
+  const pendingFxRef = useRef([]);
+  const isMountedRef = useRef(true);
 
   const [activeIdx, setActiveIdx] = useState(0);
   const [activeTab, setActiveTab] = useState('all');
@@ -102,6 +91,17 @@ export default function RecentPosts({ posts = [] }) {
   // Load GSAP dynamically — only needed for animations, not initial render
   useEffect(() => {
     import('gsap').then(({ gsap }) => { gsapRef.current = gsap; });
+  }, []);
+
+  // On unmount: stop late setState calls and remove any like-animation
+  // elements left over from a tween that got interrupted mid-flight.
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+      pendingFxRef.current.forEach(el => el.remove());
+      pendingFxRef.current = [];
+    };
   }, []);
 
   // GSAP scale hover on glass scroll buttons
@@ -129,6 +129,7 @@ export default function RecentPosts({ posts = [] }) {
     if (!postIds.length) return;
     // Load like/bookmark counts for the current post set only
     supabase.from('likes').select('post_id').in('post_id', postIds).then(({ data, error }) => {
+      if (!isMountedRef.current) return;
       if (error) { console.error('Failed to load like counts:', error); return; }
       if (data) {
         const counts = {};
@@ -137,6 +138,7 @@ export default function RecentPosts({ posts = [] }) {
       }
     });
     supabase.from('bookmarks').select('post_id').in('post_id', postIds).then(({ data, error }) => {
+      if (!isMountedRef.current) return;
       if (error) { console.error('Failed to load bookmark counts:', error); return; }
       if (data) {
         const counts = {};
@@ -146,10 +148,12 @@ export default function RecentPosts({ posts = [] }) {
     });
     if (user) {
       supabase.from('likes').select('post_id').eq('user_id', user.id).then(({ data, error }) => {
+        if (!isMountedRef.current) return;
         if (error) { console.error('Failed to load liked posts:', error); return; }
         if (data) setLikedIds(new Set(data.map(r => r.post_id)));
       });
       supabase.from('bookmarks').select('post_id').eq('user_id', user.id).then(({ data, error }) => {
+        if (!isMountedRef.current) return;
         if (error) { console.error('Failed to load bookmarked posts:', error); return; }
         if (data) setBookmarkedIds(new Set(data.map(r => r.post_id)));
       });
@@ -250,10 +254,7 @@ export default function RecentPosts({ posts = [] }) {
     }
   }, [activeTab, posts, likeCounts, bookmarkCounts]);
 
-  const promptLogin = () => {
-    const btn = document.querySelector('[data-auth-trigger]');
-    if (btn) btn.click();
-  };
+  const promptLogin = triggerLogin;
 
   const scrollTrack = (direction) => {
     const track = scrollRef.current;
@@ -294,7 +295,14 @@ export default function RecentPosts({ posts = [] }) {
         pointerEvents: 'none', zIndex: '9999', opacity: '0.7',
       });
       document.body.appendChild(ring);
-      tl.to(ring, { scale: 2.8, opacity: 0, duration: 0.35, ease: 'power2.out', onComplete: () => ring.remove() }, '<0.05');
+      pendingFxRef.current.push(ring);
+      tl.to(ring, {
+        scale: 2.8, opacity: 0, duration: 0.35, ease: 'power2.out',
+        onComplete: () => {
+          ring.remove();
+          pendingFxRef.current = pendingFxRef.current.filter(el => el !== ring);
+        },
+      }, '<0.05');
       // Phase 3: particles
       const COLORS = ['#ff6b8a', '#ffb347'];
       const COUNT = 7;
@@ -308,6 +316,7 @@ export default function RecentPosts({ posts = [] }) {
           pointerEvents: 'none', zIndex: '9999',
         });
         document.body.appendChild(p);
+        pendingFxRef.current.push(p);
         return p;
       });
       tl.fromTo(particles,
@@ -317,7 +326,10 @@ export default function RecentPosts({ posts = [] }) {
           x: (i) => Math.cos(i * angleStep - Math.PI / 2) * (16 + (i % 3) * 4),
           y: (i) => Math.sin(i * angleStep - Math.PI / 2) * (16 + (i % 3) * 4),
           duration: 0.45, ease: 'power2.out', stagger: 0.02,
-          onComplete: () => particles.forEach(p => p.remove()),
+          onComplete: () => {
+            particles.forEach(p => p.remove());
+            pendingFxRef.current = pendingFxRef.current.filter(el => !particles.includes(el));
+          },
         },
         '<0.05'
       );

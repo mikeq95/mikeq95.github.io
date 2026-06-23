@@ -101,7 +101,8 @@ function CommentSectionInner({ postId }) {
   };
 
   const deleteComment = async (id) => {
-    await supabase.from('comments').delete().eq('id', id).eq('user_id', user.id);
+    const { error } = await supabase.from('comments').delete().eq('id', id).eq('user_id', user.id);
+    if (error) { console.error('Failed to delete comment:', error); return; }
     setTree(prev =>
       prev
         .filter(c => c.id !== id)
