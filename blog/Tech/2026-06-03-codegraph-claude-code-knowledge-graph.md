@@ -23,7 +23,7 @@ CodeGraph 的思路是：把这些探索工作提前做好，索引成本地 SQL
 
 ---
 
-## 安装
+## 安装 CodeGraph
 
 **安装 CLI**（macOS/Linux，不需要 Node.js）：
 

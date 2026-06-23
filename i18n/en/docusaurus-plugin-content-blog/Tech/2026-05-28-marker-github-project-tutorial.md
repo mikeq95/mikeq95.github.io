@@ -131,8 +131,6 @@ The first run downloads the AI models (~1 GB) — be patient. Afterwards, math f
 
 ---
 
----
-
 ## Let AI Tools Handle the Deployment
 
 If the steps above feel tedious, paste this prompt into Claude Code, Cursor, or a similar AI tool and let it set up the environment automatically.

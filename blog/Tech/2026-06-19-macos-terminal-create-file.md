@@ -73,7 +73,7 @@ mkdir -p components   # 再跑一次也不会报错，什么都不会发生
 
 ## code
 
-`code` 是 VS Code 提供的命令行入口，不是 macOS 自带的命令，需要先在 VS Code 里 `Cmd+Shift+P` 搜 `Shell Command: Install 'code' command in PATH` 装一次。
+`code` 是 [VS Code](https://clearlove7-ai.vercel.app?word=VS%20Code&postId=2026-06-19-macos-terminal-create-file) 提供的命令行入口，不是 macOS 自带的命令，需要先在 VS Code 里 `Cmd+Shift+P` 搜 `Shell Command: Install 'code' command in PATH` 装一次。
 
 跑完下面这行，VS Code 会直接弹出来，文件不存在的话顺手帮你建好并打开——光标就停在空文件里，直接开始写代码：
 

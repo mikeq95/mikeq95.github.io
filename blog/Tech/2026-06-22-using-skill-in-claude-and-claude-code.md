@@ -2,6 +2,7 @@
 slug: 2026/06/22/using-skill-in-claude-and-claude-code
 title: "🧩 在 Claude Code 和 Claude 上用 skill"
 date: 2026-06-22
+image: https://cdn.mikeq95blog.uk/coverimage/claude-skill-file-icon.png
 tags:
   - AI
 description: "claude.ai 和 Claude Code 的 skill 是两套独立系统，分别怎么装、怎么用、容易踩哪些坑，整理在这一篇。"
@@ -22,7 +23,7 @@ description: "claude.ai 和 Claude Code 的 skill 是两套独立系统，分别
 
 ## 在 Claude Code 里装
 
-### 第一步：下载 `.skill` 文件到底是什么
+### 第一步：下载 `.skill`
 
 如果你的 skill 是通过 Claude Code 的 skill creator 创造出来的，或者别的方式做的，不管来源是什么，只要来自 Claude，文件应该长这样：
 
@@ -40,7 +41,7 @@ file ~/Downloads/blog-markdown-formatter.skill
 
 ❌ 异常：如果输出是别的内容，说明下载过程文件损坏了，重新下载一次
 
-### 第二步：解压到 Claude Code 能读到的位置
+### 第二步：解压
 
 ```bash
 cd ~/Downloads
@@ -84,7 +85,7 @@ ls ~/.claude/skills/blog-markdown-formatter
 
 ---
 
-## 更新已经装好的 skill
+## 更新 skill
 
 skill 内容改过之后（比如规则调整、加新功能），不会自动同步到本地已经装好的版本，两边都要手动覆盖一次。
 
@@ -100,7 +101,7 @@ unzip blog-markdown-formatter.skill -d ~/.claude/skills/
 
 ---
 
-## 怎么触发这个 skill
+## skill用法
 
 想要触发 skill 很简单，以这个 skill 为例：`SKILL.md` 里写了类似这样的描述——"当用户说'帮我优化一下这篇 markdown 的排版'、'帮我整理这篇文档格式'、'美化一下这篇博客文章'、'这篇文章排版有点乱帮我改一下'、'按照我博客的风格重新排版/重写'……"
 > 这段话就在 `SKILL.md` 的 description 字段里，想知道一个 skill 会在什么时候被触发，直接打开看一眼就行。
@@ -114,7 +115,7 @@ unzip blog-markdown-formatter.skill -d ~/.claude/skills/
 Claude 或 Claude Code 会根据 skill 的 description 自己判断要不要调用它。
 > 想验证它有没有真的用上这个 skill，看它的 thinking 过程——里面会显示它有没有去读 `SKILL.md`。
 
-### 手动指定（只有 Claude Code 支持斜杠命令）
+### 手动指定
 
 `.claude/skills/<名字>/SKILL.md` 这种目录结构，会自动对应一个同名斜杠命令。这个 skill 对应的是：
 ```

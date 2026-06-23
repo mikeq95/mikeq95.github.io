@@ -128,7 +128,7 @@ marker_single ~/Downloads/paper.pdf \
 
 ---
 
-## 用 AI 工具帮你自动部署
+## 用 AI 工具帮你
 
 如果觉得上面的步骤麻烦，可以把下面这段提示词丢给 Claude Code、Cursor 这类 AI 工具，让它帮你自动把环境跑通。
 
@@ -188,9 +188,32 @@ conda env remove -n marker
 
 ---
 
+## FAQ
+
+**终端卡住不动？** 第一次运行会下载模型，有些网络下会很慢，可以给终端配个代理：
+
+```bash
+export https_proxy=http://127.0.0.1:你的端口
+```
+
+**Mac 上报 `libtorch_cpu.dylib` 错误？** 重装一下 PyTorch：
+
+```bash
+pip uninstall torch torchvision torchaudio -y
+pip install torch torchvision torchaudio
+```
+
+**中文识别效果差？** 加上 `--langs zh`。如果是扫描件，再加上 `--force_ocr`。
+
+**提示 `command not found`？** 环境没激活，先跑一下 `conda activate marker`。
+
+---
+
 ## 总结
 
 本地跑，不用 API Key，格式保留得还不错。有大量 PDF 要整理的话挺好用的。
 
 ---
+
+_基于 [datalab-to/marker](https://github.com/datalab-to/marker)，兼容 marker v1.x_
 

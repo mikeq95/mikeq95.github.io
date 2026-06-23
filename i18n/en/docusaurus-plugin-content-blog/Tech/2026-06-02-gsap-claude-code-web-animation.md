@@ -11,7 +11,7 @@ description: "GSAP's official Claude Code Skills package teaches the AI how to u
 
 I recently came across an interesting GitHub project — [gsap-skills](https://github.com/greensock/gsap-skills), an official GSAP AI Skills package designed to "teach" Claude Code how to use the GSAP animation library correctly.
 
-Quick note: I initially thought GSAP was for video editing, like HeyGen — turns out it's completely different. **GSAP is for web animations** — the kind you see in a browser: elements flying in, scroll parallax, number counters rolling up, all rendered live on the page, not as video files. Once I got that straight, I decided to install it in Claude Code and give it a shot.
+Looked interesting, so I gave it a try.
 
 {/* truncate */}
 
@@ -21,28 +21,19 @@ Quick note: I initially thought GSAP was for video editing, like HeyGen — turn
 
 [GSAP](https://gsap.com) (GreenSock Animation Platform) is currently the most popular JavaScript web animation library. Its core strengths:
 
-- **Fine-grained control**: pause, reverse, and precisely time every animation
-- **ScrollTrigger**: handles scroll-linked animations — parallax, scroll-triggered effects, pinned elements, all straightforward
-- **Timeline**: sequence multiple elements' animations in just a few lines
-- **Performance**: operates on transforms under the hood, on par with CSS animations
-
-Compared to CSS animations:
-
-| | CSS Animations | GSAP |
-|---|---|---|
-| Language | CSS | JavaScript |
-| Control | Limited | Extremely powerful |
-| Scroll-linked | Hard to do | ScrollTrigger handles it |
-| Complex sequences | Painful to write | Timeline, a few lines |
-| Performance | Good | Equally good |
-
-Good news: **GSAP is now completely free** — including previously paid-only plugins like SplitText and MorphSVG. Everything is open to everyone, including commercial use.
+- GSAP itself = a JavaScript animation library (an npm package). To animate with it you `npm install gsap` in your project and write code that runs in the browser. It doesn't depend on Claude Code at all — it's a real frontend technology.
+- The gsap-core/gsap-timeline skills = "instruction manuals" installed inside Claude Code, teaching the AI how to call GSAP's API correctly, what pitfalls to avoid, and what the best practices are. The skills themselves don't write or run code in the browser — they just help the AI write more accurate GSAP code for you.
+- Cross-browser consistency: CSS animation/transition can behave differently across browsers and property combinations. GSAP smooths over all of that, so the result is predictable.
+- Can animate almost anything: not just CSS properties — canvas, SVG, scroll position, even arbitrary values on a custom JS object. CSS animation can't match that range.
+- Timeline orchestration: when multiple animations need to be precisely synced or chained (B starts 0.2s after A finishes, and the timing needs to stay easy to tweak), pure CSS gets painful fast. GSAP's timeline makes this much more pleasant.
+- Performance: heavily optimized under the hood (uses transforms instead of layout-triggering properties), so animating lots of elements at once stays smooth.
+- ScrollTrigger plugin: scroll-linked animation (play/pause/pin based on scroll position) is basically the industry standard here, and it's a lot less work than hand-rolling IntersectionObserver and computing progress yourself.
 
 ---
 
 ## What Is gsap-skills
 
-AI models' knowledge of GSAP may be outdated — for example, how ScrollTrigger is written today, or how to clean up in React. With `gsap-skills` installed, Claude Code can write code using the correct APIs, knows how each plugin works, and follows React best practices.
+AI models' knowledge of GSAP can be outdated — for example, how ScrollTrigger is written today, or how to clean things up in React. With `gsap-skills` installed, Claude Code can write code using the correct APIs, knows how each plugin works, and follows React best practices.
 
 It includes 8 skills:
 
@@ -84,79 +75,57 @@ For the remaining prompts:
 
 After installation, the skills are saved to `~/.claude/skills/`.
 
-> **Can't find the `.claude` folder?** It's hidden. In Finder, press **⌘ + Shift + . (period)** to show all hidden files. Press again to hide them.
-
 ---
 
 ## How to Use It
 
 No special commands needed after installation. **Just describe the animation you want in Claude Code**, and Claude will automatically use the relevant skill to write correct code.
 
-For example:
+For example, describe:
 
-> "Add an entrance animation to the title on my blog homepage using GSAP"
-
-> "Use ScrollTrigger to make an animation trigger when the user scrolls to a certain section"
+1. What moves — which element/section (a title, a card, the whole banner...)
+2. What triggers it — page load? mouse hover? scrolling into view? a click?
+3. How it changes — from where to where (position/opacity/scale/rotation), e.g. "slide up from below while fading in" or "scale up to 1.05x"
+4. The pacing — fast or slow, any bounce/elasticity, do multiple elements appear one after another (stagger) instead of all at once
 
 ---
 
-## Real Example: Scroll-In Animation for Blog Post Cards
+## Real Example
 
-Say your blog has a post list page where each card flies in from below when the user scrolls to it — a very common effect.
+In this blog's homepage [RecentPosts](src/components/RecentPosts/index.jsx) component, both the sliding pill in the tab bar and the hover scale on the left/right scroll buttons are written with GSAP.
 
-First, install GSAP:
-
-```bash
-npm install gsap
-```
-
-Then in your React component:
+The button hover scale is simple: scale up to 1.1x on mouse enter, back to 1 on leave. `overwrite: 'auto'` interrupts any tween still in flight, so rapid mouse-in/mouse-out doesn't stack animations and stutter:
 
 ```jsx
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-export default function BlogCard({ title, date, description }) {
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(cardRef.current, {
-        y: 60,           // flies in from 60px below
-        opacity: 0,      // fades in from transparent
-        duration: 0.7,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: "top 85%",  // triggers when element top enters 85% of viewport
-        },
-      });
-    }, cardRef);
-
-    return () => ctx.revert(); // cleanup on unmount — prevents memory leaks
-  }, []);
-
-  return (
-    <div ref={cardRef} className="blog-card">
-      <h2>{title}</h2>
-      <span>{date}</span>
-      <p>{description}</p>
-    </div>
-  );
-}
+const enter = () => gsap.to(btn, { scale: 1.1, duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
+const leave = () => gsap.to(btn, { scale: 1,   duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
+btn.addEventListener('mouseenter', enter);
+btn.addEventListener('mouseleave', leave);
 ```
 
-The result: as the user scrolls down, each card flies in from below one by one, creating a layered entrance effect. Change `start: "top 85%"` to `"top 70%"` to trigger later — experiment until it feels right.
+The pill slide is a bit more involved: every time the active tab changes, `getBoundingClientRect` computes the newly selected tab's position and width relative to the tab bar, then GSAP animates the pill there instead of using a CSS transition:
+
+```jsx
+const barRect = bar.getBoundingClientRect();
+const btnRect = activeEl.getBoundingClientRect();
+const targetX = btnRect.left - barRect.left;
+const targetW = btnRect.width;
+
+gsap.to(pill, {
+  x: targetX,
+  width: targetW,
+  duration: 0.15,
+  ease: 'power3.out',
+  overwrite: true,
+});
+```
+
+GSAP is used here instead of plain CSS because `x` and `width` need to change together, and the target values are computed at runtime (different tabs have different text lengths, so the pill width differs each time) — that's awkward to maintain as a CSS transition, while a single GSAP `to()` call just handles it. Both animations are loaded via dynamic `import('gsap')`, so the initial page load isn't carrying the weight of an animation library just for this bit of interaction.
 
 ---
 
 ## Summary
 
-GSAP is for **web animations** — not video. That's the important thing to get right first 😂.
+GSAP is for **web animation**.
 
-The value of `gsap-skills` is that it lets Claude Code truly understand GSAP — not just write code, but write *correct* code: no outdated APIs, no missing cleanup in React. Setup takes five minutes. After that, just describe what you want and let Claude write it — no need to memorize any API.
-
-If your blog or project needs scroll animations, page transitions, or element entrances, GSAP is the best open-source option out there right now.
+I think you just need to know how to describe what you want clearly to the AI, and it'll get it done. You don't need to install every skill, and you don't need to worry about which skill the AI uses — it picks the right one on its own.

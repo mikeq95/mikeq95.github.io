@@ -11,7 +11,7 @@ description: "介绍 GSAP 官方出的 Claude Code Skills 包，让 AI 正确理
 
 最近发现一个有意思的 GitHub 项目——[gsap-skills](https://github.com/greensock/gsap-skills)，是 GSAP 官方出的 AI Skills 包，专门用来"教" Claude Code 正确使用 GSAP 动画库。
 
-顺带一提，我一开始以为 GSAP 是做视频的，类似 HeyGen 那种——其实完全不一样。**GSAP 是做网页动画的**，就是你在浏览器里看到的那种元素飞入、滚动视差、数字滚动这些效果，实时渲染在网页上，不是视频文件。搞清楚这个之后，我决定把它装进 Claude Code 试试。
+有点意思，试试。
 
 {/* truncate */}
 
@@ -20,23 +20,13 @@ description: "介绍 GSAP 官方出的 Claude Code Skills 包，让 AI 正确理
 ## GSAP 是什么
 
 [GSAP](https://gsap.com)（GreenSock Animation Platform）是目前最流行的 JavaScript 网页动画库，核心优势是：
-
-- **控制能力强**：可以暂停、倒放、精确控制每个动画的时序
-- **ScrollTrigger**：专门处理滚动联动动画，视差效果、滚动触发、固定元素都很简单
-- **Timeline**：多个元素的动画序列，几行代码搞定
-- **性能好**：底层操作 transform，和 CSS 动画性能相当
-
-和 CSS 动画对比一下：
-
-| | CSS 动画 | GSAP |
-|---|---|---|
-| 语言 | CSS | JavaScript |
-| 控制能力 | 有限 | 极强 |
-| 滚动联动 | 很难做 | ScrollTrigger 专门处理 |
-| 复杂序列 | 写起来很痛苦 | timeline 几行搞定 |
-| 性能 | 好 | 同样好 |
-
-还有一个好消息：**GSAP 现在完全免费**，包括之前需要付费会员才能用的 SplitText、MorphSVG 等高级插件，全部对所有人开放，含商业用途。
+- GSAP 本身 = 一个 JavaScript 动画库（npm 包），要用它做动画，得在项目里 npm install gsap，写到代码里跑在浏览器上。它不依赖 Claude Code，是真实的前端技术。
+- gsap-core/gsap-timeline 等技能 = 装在 Claude Code 里的"使用说明书"，教我怎么正确调用 GSAP 的 API、踩过哪些坑、最佳实践是什么。技能本身不写代码、不在浏览器跑，只是帮（AI）更准确地帮你写 GSAP 代码。
+- 跨浏览器一致性：CSS animation/transition 在不同浏览器、不同 CSS 属性组合下表现会有差异，GSAP 把这些坑都处理掉了，效果可预测。
+- 可以动画几乎任何东西：不只是 CSS 属性，canvas、SVG、滚动位置、甚至自定义 JS 对象的数值都能动，CSS 动画做不到这个广度。
+- 时间线编排（Timeline）：多个动画要精确同步/接续（A 做完 0.2 秒后 B 才开始，且要跟着调整很方便），纯 CSS 写起来很痛苦，GSAP 的 timeline 这块体验好很多。
+- 性能：底层做了大量优化（用 transform 而不是触发重排的属性），大量元素同时动画也不卡。
+- ScrollTrigger 插件：滚动联动动画（滚到哪儿播放/暂停/pin 住）这块基本是行业标准，做起来比手写 IntersectionObserver + 手动算进度轻松很多。
 
 ---
 
@@ -84,8 +74,6 @@ npx skills add https://github.com/greensock/gsap-skills
 
 安装完成后，skill 会保存到 `~/.claude/skills/` 目录下。
 
-> **找不到 `.claude` 文件夹？** 它是隐藏文件夹。在 Finder 里按 **⌘ + Shift + .（句号）** 就能显示所有隐藏文件，再按一次隐藏回去。
-
 ---
 
 ## 如何使用
@@ -93,71 +81,48 @@ npx skills add https://github.com/greensock/gsap-skills
 安装完不需要任何特殊命令，**直接在 Claude Code 里描述你要做的动画就行**，Claude 会自动调用对应的 skill 来写出正确的代码。
 
 比如：
-
-> "帮我给博客首页的标题加一个进场动画，用 GSAP"
-
-> "用 ScrollTrigger 做一个滚动到某个区域时触发的动画"
+1. 谁动——哪个元素/区域（标题、卡片、整个 banner...）
+2. 什么时机触发——页面加载时？鼠标 hover？滚动到这个区域时？点击时？
+3. 怎么变化——从哪到哪（位置/透明度/缩放/旋转），比如"从下往上滑入同时淡入"、"放大 1.05 倍"
+4. 节奏感——快慢、是否有弹性/回弹、多个元素是不是依次出现（stagger）而不是同时
 
 ---
 
-## 实际例子：给博客文章卡片加滚动进场动画
+## 应用实例
 
-假设你的博客有一个文章列表页，每张卡片在用户滚动到它时从下方飞入，这是非常常见的效果。
+这个博客首页的 [RecentPosts](src/components/RecentPosts/index.jsx) 组件里，标签栏的滑动小药丸（pill）和左右滚动按钮的 hover 缩放，都是用 GSAP 写的。
 
-首先安装 GSAP：
-
-```bash
-npm install gsap
-```
-
-然后在你的 React 组件里这样写：
+按钮 hover 缩放比较简单，鼠标进入时放大到 1.1 倍，离开时缩回 1，`overwrite: 'auto'` 用来打断上一次还没播完的动画，避免快速划入划出时动画叠加卡顿：
 
 ```jsx
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-export default function BlogCard({ title, date, description }) {
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(cardRef.current, {
-        y: 60,           // 从下方 60px 的位置飞入
-        opacity: 0,      // 从透明到不透明
-        duration: 0.7,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: "top 85%",  // 元素顶部进入视口 85% 时触发
-        },
-      });
-    }, cardRef);
-
-    return () => ctx.revert(); // 组件卸载时清理，防止内存泄漏
-  }, []);
-
-  return (
-    <div ref={cardRef} className="blog-card">
-      <h2>{title}</h2>
-      <span>{date}</span>
-      <p>{description}</p>
-    </div>
-  );
-}
+const enter = () => gsap.to(btn, { scale: 1.1, duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
+const leave = () => gsap.to(btn, { scale: 1,   duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
+btn.addEventListener('mouseenter', enter);
+btn.addEventListener('mouseleave', leave);
 ```
 
-效果就是：用户往下滚动，每张文章卡片依次从下方飞入，有一种层次感很强的进场效果。把 `start: "top 85%"` 改成 `"top 70%"` 可以让触发时机更晚一点，自己调着试就行。
+pill 滑动稍微复杂一点：每次切换 tab，先用 `getBoundingClientRect` 算出新选中标签相对标签栏的位置和宽度，再让 pill 用 GSAP 动画过去，而不是直接用 CSS transition：
+
+```jsx
+const barRect = bar.getBoundingClientRect();
+const btnRect = activeEl.getBoundingClientRect();
+const targetX = btnRect.left - barRect.left;
+const targetW = btnRect.width;
+
+gsap.to(pill, {
+  x: targetX,
+  width: targetW,
+  duration: 0.15,
+  ease: 'power3.out',
+  overwrite: true,
+});
+```
+
+之所以用 GSAP 而不是纯 CSS，是因为 `x` 和 `width` 要同时变化，且目标值是运行时算出来的（不同 tab 文字长度不同，pill 宽度也不一样），写成 CSS transition 不好维护，GSAP 一行 `to()` 就解决了。另外这两处动画都是动态 `import('gsap')` 加载的，首屏不会因为这点交互效果多背一个动画库的体积。
 
 ---
 
 ## 总结
 
-GSAP 是做**网页动画**的，不是视频，这点一定要搞清楚😂。
-
-`gsap-skills` 的价值在于让 Claude Code 真正懂 GSAP——不只是能写代码，而是能写出正确的代码，不会用过时的 API，React 里的 cleanup 也不会漏。安装过程五分钟搞定，之后直接描述需求让 Claude 写就行，不需要自己记任何 API。
-
-如果你的博客或者项目需要滚动动画、页面过渡、元素进场这类效果，GSAP 是目前开源方案里最值得用的一个。
-
+GSAP 是做**网页动画**的。
+我觉得只需要懂得如何给 AI 详细清晰描述你的需求，AI 会帮你做到的。Skill 不用每个都装，也不用在意让 AI 用哪个 skill，它会直接选择的。
