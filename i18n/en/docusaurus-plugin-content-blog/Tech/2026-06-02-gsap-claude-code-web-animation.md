@@ -92,7 +92,7 @@ For example, describe:
 
 ## Real Example
 
-In this blog's homepage [RecentPosts](src/components/RecentPosts/index.jsx) component, both the sliding pill in the tab bar and the hover scale on the left/right scroll buttons are written with GSAP.
+In this blog's homepage `RecentPosts` component, both the sliding pill in the tab bar and the hover scale on the left/right scroll buttons are written with GSAP.
 
 The button hover scale is simple: scale up to 1.1x on mouse enter, back to 1 on leave. `overwrite: 'auto'` interrupts any tween still in flight, so rapid mouse-in/mouse-out doesn't stack animations and stutter:
 

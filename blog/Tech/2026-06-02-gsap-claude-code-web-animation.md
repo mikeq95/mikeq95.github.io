@@ -90,7 +90,7 @@ npx skills add https://github.com/greensock/gsap-skills
 
 ## 应用实例
 
-这个博客首页的 [RecentPosts](src/components/RecentPosts/index.jsx) 组件里，标签栏的滑动小药丸（pill）和左右滚动按钮的 hover 缩放，都是用 GSAP 写的。
+这个博客首页的 `RecentPosts` 组件里，标签栏的滑动小药丸（pill）和左右滚动按钮的 hover 缩放，都是用 GSAP 写的。
 
 按钮 hover 缩放比较简单，鼠标进入时放大到 1.1 倍，离开时缩回 1，`overwrite: 'auto'` 用来打断上一次还没播完的动画，避免快速划入划出时动画叠加卡顿：
 
