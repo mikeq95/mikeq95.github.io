@@ -131,7 +131,7 @@ The first run downloads the AI models (~1 GB) — be patient. Afterwards, math f
 
 ---
 
-## Let AI Tools Handle the Deployment
+## Let AI Tools Handle the Setup
 
 If the steps above feel tedious, paste this prompt into Claude Code, Cursor, or a similar AI tool and let it set up the environment automatically.
 
@@ -194,7 +194,7 @@ pip install torch torchvision torchaudio
 
 ## Summary
 
-Marker is essentially a **locally-running document parsing engine**, powered by AI models specifically trained on document layouts — not a general-purpose LLM. This makes it fast, offline-capable, and effective without any API key. It excels at complex academic PDFs: converting math formulas to LaTeX, preserving table structure, and extracting images separately. If you need to organize large volumes of documents into a knowledge base, or want to feed PDF content into an LLM for further processing, Marker is one of the best open-source options available.
+Runs locally, no API key needed, and formatting holds up reasonably well. Worth using if you have a lot of PDFs to organize.
 
 ---
 
