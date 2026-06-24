@@ -36,7 +36,7 @@ Homebrew 是一个用于 macOS 和 Linux 的[包管理器](https://clearlove7-ai
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
->"中国有他自己的世界，嗯"
+>"中国有他自己的世界，嗯🤔"
 
 ---
 
