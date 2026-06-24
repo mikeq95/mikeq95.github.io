@@ -88,13 +88,21 @@ For example, describe:
 3. How it changes — from where to where (position/opacity/scale/rotation), e.g. "slide up from below while fading in" or "scale up to 1.05x"
 4. The pacing — fast or slow, any bounce/elasticity, do multiple elements appear one after another (stagger) instead of all at once
 
+For example, describing an animation along these four points might look like this:
+
+"The homepage banner title, triggered once the page finishes loading: slide up from 30px below while fading in to its normal position, slightly fast (0.6s), with a bit of elastic bounce. If the title has multiple words/cards, stagger them by 0.1s each instead of having them all pop in at once."
+
+> What's a "banner"? It's that big horizontal showcase block near the top of a page — the thing you see first.
+
 ---
 
 ## Real Example
 
 In this blog's homepage `RecentPosts` component, both the sliding pill in the tab bar and the hover scale on the left/right scroll buttons are written with GSAP.
 
-The button hover scale is simple: scale up to 1.1x on mouse enter, back to 1 on leave. `overwrite: 'auto'` interrupts any tween still in flight, so rapid mouse-in/mouse-out doesn't stack animations and stutter:
+> Inspired by [Apple's site](https://www.apple.com/mac/) — "Explore the lineup."
+
+The hover scale on the scroll buttons on either side of the tab bar is simple: scale up to 1.1x on mouse enter, back to 1 on leave. `overwrite: 'auto'` interrupts any tween still in flight, so rapid mouse-in/mouse-out doesn't stack animations and stutter:
 
 ```jsx
 const enter = () => gsap.to(btn, { scale: 1.1, duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
@@ -115,17 +123,8 @@ gsap.to(pill, {
   x: targetX,
   width: targetW,
   duration: 0.15,
+  // you can tweak the duration here — bump it to 0.30 if it feels too fast
   ease: 'power3.out',
   overwrite: true,
 });
 ```
-
-GSAP is used here instead of plain CSS because `x` and `width` need to change together, and the target values are computed at runtime (different tabs have different text lengths, so the pill width differs each time) — that's awkward to maintain as a CSS transition, while a single GSAP `to()` call just handles it. Both animations are loaded via dynamic `import('gsap')`, so the initial page load isn't carrying the weight of an animation library just for this bit of interaction.
-
----
-
-## Summary
-
-GSAP is for **web animation**.
-
-I think you just need to know how to describe what you want clearly to the AI, and it'll get it done. You don't need to install every skill, and you don't need to worry about which skill the AI uses — it picks the right one on its own.

@@ -16,9 +16,9 @@ Want to save YouTube videos locally? This post walks through a Python script tha
 
 ## Setting Up the Environment
 
-Your Mac needs the following four tools. Install them in order.
+Your Mac needs the following four tools.
 
-### Homebrew
+### [Homebrew](/en/2026/05/28/homebrew-tutorials)
 
 macOS package manager — the foundation for installing everything else.
 
@@ -31,8 +31,6 @@ Verify:
 ```bash
 brew --version
 ```
-
-✅ Success: shows `Homebrew 4.x.x` ❌ Failure: shows `command not found`
 
 ---
 
@@ -50,8 +48,6 @@ Verify:
 ffmpeg -version
 ```
 
-✅ Success: shows `ffmpeg version 7.x.x` ❌ Failure: shows `command not found`
-
 ---
 
 ### Node.js
@@ -67,8 +63,6 @@ Verify:
 ```bash
 node --version
 ```
-
-✅ Success: shows `v26.x.x` ❌ Failure: shows `command not found`
 
 ---
 
@@ -86,8 +80,6 @@ Verify:
 yt-dlp --version
 ```
 
-✅ Success: shows `2026.x.xx` ❌ Failure: shows `command not found`
-
 ---
 
 ### Two Extra Configuration Steps
@@ -97,8 +89,6 @@ yt-dlp --version
 System Settings → Privacy & Security → Full Disk Access → Add "Terminal"
 
 **Enable a proxy** (required to access YouTube outside China)
-
-> I'm definitely not going to teach you that one!
 
 ---
 
@@ -242,19 +232,7 @@ Press Enter and wait — the video will appear on your **Desktop** when done.
 
 ---
 
-**Two things to check before each use:**
-
-① Your proxy is active (e.g. Shadowrocket is connected)
-
-② You're using a freshly opened Terminal window (not one that's been open for days)
-
-You only need to set up the environment once. After that, any YouTube URL works.
-
----
-
 ## FAQ
-
-**What is Homebrew?** I wrote a separate post about it — check that out.
 
 **What video quality will I get?** The highest available by default. This line in the script controls the resolution selection logic:
 
@@ -270,4 +248,4 @@ It selects the highest-quality stream among all H.264-encoded video tracks.
 
 **`permission denied` or cookie read failure?** Terminal doesn't have Full Disk Access. Go to System Settings → Privacy & Security → Full Disk Access → Add "Terminal", then open a new Terminal window and try again.
 
-**Download failed and you can't read the error?** Check in order: ① Is your proxy on? ② Is yt-dlp up to date? (`pip3 install -U yt-dlp --break-system-packages`) ③ Is the URL complete and wrapped in quotes?
+**Download failed and you can't read the error?** Ask Claude Code.
