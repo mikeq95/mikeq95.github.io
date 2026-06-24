@@ -18,7 +18,7 @@ Want to save YouTube videos locally? This post walks through a Python script tha
 
 Your Mac needs the following four tools.
 
-### [Homebrew](/en/2026/05/28/homebrew-tutorials)
+### [Homebrew](/en/blog/2026/05/28/homebrew-tutorials)
 
 macOS package manager — the foundation for installing everything else.
 
