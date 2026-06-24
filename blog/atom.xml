@@ -541,7 +541,7 @@
 <p>使用官方脚本：<a href="https://brew.sh/" target="_blank" rel="noopener noreferrer" class="">来源</a></p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span><br></div></code></pre></div></div>
 <blockquote>
-<p>"中国有他自己的世界，嗯"</p>
+<p>"中国有他自己的世界，嗯🤔"</p>
 </blockquote>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="核心概念formula-和-cask">核心概念：formula 和 cask<a href="https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5formula-%E5%92%8C-cask" class="hash-link" aria-label="核心概念：formula 和 cask的直接链接" title="核心概念：formula 和 cask的直接链接" translate="no">​</a></h2>
