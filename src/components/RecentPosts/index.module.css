@@ -271,13 +271,14 @@
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 0.4rem;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .tag {
-  font-size: 0.7rem;
-  padding: 2px 9px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 4px 13px;
   border-radius: 999px;
   background-color: var(--ifm-color-emphasis-100);
   color: var(--ifm-color-content-secondary);
