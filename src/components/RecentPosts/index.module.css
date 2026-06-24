@@ -257,7 +257,7 @@
   margin: 0 0 0.5rem;
   color: var(--ifm-color-content);
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
