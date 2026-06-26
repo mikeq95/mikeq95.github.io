@@ -2,7 +2,7 @@
 slug: about-the-logo
 title: About This Blog's Logo
 date: 2026-06-14
-image: https://cdn.mikeq95blog.uk/coverimage/AboutTheLogo.png
+image: https://cdn.mikeq95blog.uk/coverimage/about-blog-logo-en-cn.png
 tags:
   - about
 description: "The blog logo is based on the Poro from League of Legends, hand-drawn by my girlfriend — here's how it came to be."

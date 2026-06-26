@@ -2,7 +2,7 @@
 slug: 2026/06/01/open-codesign-review
 title: Claude Design 平替，Open CoDesign 实际体验
 date: 2026-06-01
-image: https://cdn.mikeq95blog.uk/coverimage/open-codesign-coverImage.png
+image: https://cdn.mikeq95blog.uk/coverimage/opencodesign-en-cn.png
 tags:
   - github
   - macos

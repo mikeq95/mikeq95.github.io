@@ -1,14 +1,14 @@
 ---
 slug: 2026/06/19/macos-terminal-create-file
-title: "📄 macOS 终端新建文件命令速查"
+title: "📄 macOS 终端常用命令"
 date: 2026-06-19
-image: https://cdn.mikeq95blog.uk/coverimage/%E8%8B%B9%E6%9E%9C%E7%94%B5%E8%84%91%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%91%BD%E4%BB%A4.png
+image: https://cdn.mikeq95blog.uk/coverimage/macos-terminal-commands-en-cn.png
 tags:
   - macos
 description: "一张速查卡：touch、mkdir -p、code、heredoc、cat 拼命令操作文件，比 Finder 右键快不少，批量建文件时效率提升明显。"
 ---
 
-在 Mac 电脑上常用的几个命令：`touch`、`mkdir`、`code`、`cat`，外加一个用 `cat` 拼出来的写法——`heredoc`。
+在 Mac 电脑上常用的几个命令：`touch`、`mkdir`、`code`、`cat`，`heredoc`(个人推荐)
 
 {/* truncate */}
 
@@ -112,11 +112,11 @@ cat test.txt
 
 **有啥用？**
 
-我觉得问 AI 的时候有点用吧，比如你可以开个终端，然后 `cat` 你看不懂的多个文档，它会打印到 terminal 上，然后 `Cmd + A` 丢给 AI。我认为这比直接把文件丢给 AI 省事、更快。（尤其开 VPN 用 Claude、ChatGPT，上传一个文档的那个速度，简直不忍直视，令人咋舌😂）
+我觉得问 AI 的时候有点用吧，比如你可以开个终端，然后 `cat` 你看不懂的多个文档，它会输出到 terminal 上，然后 `Cmd + A` 丢给 AI。我认为这比直接把文件丢给 AI 省事、更快。
 
 ## 总结
 
-这些都是我常用的，就这些。我有个 Linux 课程，这些命令都讲了，Mac 电脑是类 Unix 的，所以命令都大差不差。
+这些都是我常用的，就这些。
 
 只需要懂最基本的就行了，没必要懂很复杂的。
 

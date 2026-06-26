@@ -1,8 +1,8 @@
 ---
 slug: 2026/05/16/kokoro-tts-tutorial
-title: "用 Kokoro 把文章变成播客音频"
+title: "开源 TTS 工具 Kokoro"
 date: 2026-05-16
-image: https://cdn.mikeq95blog.uk/coverimage/kokoro-coverimage.png
+image: https://cdn.mikeq95blog.uk/coverimage/kokoro-en-cn.png
 tags:
   - github
   - macos
@@ -187,4 +187,3 @@ docker compose pull       # 更新到最新版本
 
 ---
 
-_运行环境：MacBook Pro M1 Pro · macOS · Docker Desktop 29.4.3_

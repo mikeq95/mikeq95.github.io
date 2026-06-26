@@ -2,7 +2,7 @@
 slug: 2026/06/19/macos-terminal-create-file
 title: "📄 macOS Terminal Cheat Sheet: Creating Files"
 date: 2026-06-19
-image: https://cdn.mikeq95blog.uk/coverimage/%E8%8B%B9%E6%9E%9C%E7%94%B5%E8%84%91%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%91%BD%E4%BB%A4.png
+image: https://cdn.mikeq95blog.uk/coverimage/macos-terminal-commands-en-cn.png
 tags:
   - macos
 description: "A cheat sheet for touch, mkdir -p, code, heredoc, and cat — these terminal commands beat right-clicking in Finder, especially when creating files in bulk."
@@ -117,6 +117,6 @@ I find it handy when talking to an AI — open a terminal, `cat` a bunch of file
 
 ## Summary
 
-These are just the ones I use regularly, nothing more. I took a Linux course that covered all of these — macOS is Unix-like, so the commands carry over almost exactly.
+These are just the ones I use regularly, nothing more.
 
 You only need to know the basics. No need to go deep on the complicated stuff.

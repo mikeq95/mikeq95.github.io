@@ -1,8 +1,8 @@
 ---
 slug: 2026/06/02/gsap-claude-code-web-animation
-title: GSAP + Claude Code，为你的网页加上炫酷动画
+title: GSAP 为你的网页加上炫酷动画
 date: 2026-06-02
-image: https://cdn.mikeq95blog.uk/coverimage/GSAP-Skills-CoverImage.png
+image: https://cdn.mikeq95blog.uk/coverimage/gsap-skill-en-cn.png
 tags:
   - github
   - macos
@@ -86,13 +86,22 @@ npx skills add https://github.com/greensock/gsap-skills
 3. 怎么变化——从哪到哪（位置/透明度/缩放/旋转），比如"从下往上滑入同时淡入"、"放大 1.05 倍"
 4. 节奏感——快慢、是否有弹性/回弹、多个元素是不是依次出现（stagger）而不是同时
 
+举例子：
+
+举个例子，按这四点描述一个动画需求可以这样写：
+
+"首页 Banner 标题，页面加载完成后触发：从下方 30px 处向上滑入并淡入到正常位置，速度稍快（0.6 秒），带一点回弹效果（elastic）。如果标题里有多个单词/卡片，让它们依次错开 0.1 秒出现，而不是同时弹出。"
+
+>Banner是啥？Banner就是页顶部那种大幅横向展示区块，你第一眼就看到的就是。
+
 ---
 
 ## 应用实例
 
 这个博客首页的 `RecentPosts` 组件里，标签栏的滑动小药丸（pill）和左右滚动按钮的 hover 缩放，都是用 GSAP 写的。
 
-按钮 hover 缩放比较简单，鼠标进入时放大到 1.1 倍，离开时缩回 1，`overwrite: 'auto'` 用来打断上一次还没播完的动画，避免快速划入划出时动画叠加卡顿：
+> 灵感来源于[苹果官网](https://www.apple.com/mac/)的Explore the lineup.
+标签栏（Tab bar）两侧的左右滚动按钮hover 缩放比较简单，鼠标进入时放大到 1.1 倍，离开时缩回 1，`overwrite: 'auto'` 用来打断上一次还没播完的动画，避免快速划入划出时动画叠加卡顿：
 
 ```jsx
 const enter = () => gsap.to(btn, { scale: 1.1, duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
@@ -113,16 +122,10 @@ gsap.to(pill, {
   x: targetX,
   width: targetW,
   duration: 0.15,
+  //这个可以改持续时间，如果你觉得快可以改成0.30
   ease: 'power3.out',
   overwrite: true,
 });
 ```
 
-之所以用 GSAP 而不是纯 CSS，是因为 `x` 和 `width` 要同时变化，且目标值是运行时算出来的（不同 tab 文字长度不同，pill 宽度也不一样），写成 CSS transition 不好维护，GSAP 一行 `to()` 就解决了。另外这两处动画都是动态 `import('gsap')` 加载的，首屏不会因为这点交互效果多背一个动画库的体积。
 
----
-
-## 总结
-
-GSAP 是做**网页动画**的。
-我觉得只需要懂得如何给 AI 详细清晰描述你的需求，AI 会帮你做到的。Skill 不用每个都装，也不用在意让 AI 用哪个 skill，它会直接选择的。

@@ -2,7 +2,7 @@
 slug: 2025/05/16/quick-reference-for-macOS network-reset-commands
 title: "🌐 macOS Network Reset Commands — Quick Reference"
 date: 2026-05-16
-image: https://cdn.mikeq95blog.uk/coverimage/macosNetworkResetCommandCoverImage.png
+image: https://cdn.mikeq95blog.uk/coverimage/macos-network-reset-command-en-cn.png
 tags:
   - macos
 description: "A quick-reference card for macOS network troubleshooting commands — DNS flush, DHCP reset, and more."

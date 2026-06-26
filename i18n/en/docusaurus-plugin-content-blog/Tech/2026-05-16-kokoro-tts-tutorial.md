@@ -2,7 +2,7 @@
 slug: 2026/05/16/kokoro-tts-tutorial
 title: "Convert Articles to Podcast Audio with Kokoro"
 date: 2026-05-16
-image: https://cdn.mikeq95blog.uk/coverimage/kokoro-coverimage.png
+image: https://cdn.mikeq95blog.uk/coverimage/kokoro-en-cn.png
 tags:
   - github
   - macos
@@ -185,5 +185,3 @@ docker compose pull       # update to the latest version
 ```
 
 ---
-
-_Environment: MacBook Pro M1 Pro · macOS · Docker Desktop 29.4.3_

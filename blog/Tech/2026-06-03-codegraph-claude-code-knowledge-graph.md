@@ -1,8 +1,8 @@
 ---
 slug: 2026/06/03/codegraph-claude-code-knowledge-graph
-title: CodeGraph：让 Claude Code 少走弯路，token 省一半
+title: CodeGraph：让 Claude Code 节省许多token
 date: 2026-06-03
-image: https://cdn.mikeq95blog.uk/coverimage/codegraphCowerImage.png
+image: https://cdn.mikeq95blog.uk/coverimage/codegraph-en-cn.png
 tags:
   - github
   - AI
