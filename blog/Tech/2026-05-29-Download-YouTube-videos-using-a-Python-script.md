@@ -2,23 +2,22 @@
 slug: 2026/05/29/download-youtube-videos-using-a-python-script
 title: 用 Python 脚本下载 YouTube 视频
 date: 2026-05-29
-image: https://cdn.mikeq95blog.uk/coverimage/%E7%94%A8%E4%B8%80%E6%AE%B5python%E8%84%9A%E6%9C%AC%E4%B8%8B%E8%BD%BDyoutube%E8%A7%86%E9%A2%91.png
+image: https://cdn.mikeq95blog.uk/coverimage/download-youtube-videos-en-cn.png
 tags:
   - macos
 description: "用一段 Python 脚本配合 yt-dlp，在 Mac 上本地下载 YouTube 视频，配置一次，换链接直接用。"
 ---
 
 想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。
-放心，这很简单，真的。
 {/* truncate */}
 
 ---
 
 ## 配置运行环境
 
-你的 Mac 上需要以下四个工具，按顺序装好就行。
+你的 Mac 上需要以下四个工具
 
-### Homebrew
+### [Homebrew](/blog/2026/05/28/homebrew-tutorials)
 
 macOS 包管理器，装其他工具的基础。
 
@@ -32,14 +31,8 @@ macOS 包管理器，装其他工具的基础。
 brew --version
 ```
 
-✅ 正常：显示 `Homebrew 4.x.x` ❌ 异常：显示 `command not found`
-
-> 如果不知道 Homebrew，请看[这篇文章](/blog/2026/05/28/homebrew-tutorials)
----
-
 ### [ffmpeg](https://clearlove7-ai.vercel.app?word=ffmpeg&postId=2026-05-29-Download-YouTube-videos-using-a-Python-script)
-
-合并音视频流，缺它就只能下到没声音的视频。
+。
 
 ```bash
 brew install ffmpeg
@@ -50,8 +43,6 @@ brew install ffmpeg
 ```bash
 ffmpeg -version
 ```
-
-✅ 正常：显示 `ffmpeg version 7.x.x` ❌ 异常：显示 `command not found`
 
 ---
 
@@ -69,8 +60,6 @@ brew install node
 node --version
 ```
 
-✅ 正常：显示 `v26.x.x` ❌ 异常：显示 `command not found`
-
 ---
 
 ### [yt-dlp](https://clearlove7-ai.vercel.app?word=yt-dlp&postId=2026-05-29-Download-YouTube-videos-using-a-Python-script)
@@ -87,8 +76,6 @@ pip3 install yt-dlp --break-system-packages
 yt-dlp --version
 ```
 
-✅ 正常：显示 `2026.x.xx` ❌ 异常：显示 `command not found`
-
 ---
 
 ### 两项额外配置
@@ -98,8 +85,6 @@ yt-dlp --version
 系统设置 → 隐私与安全性 → 完全磁盘访问权限 → 添加「终端」
 
 **开启代理**（在国内访问 YouTube 必须）
-
-> 我不可能教你这个的！
 
 ---
 
@@ -251,19 +236,7 @@ python3 ~/Downloads/main.py "https://www.youtube.com/watch?v=5wvq8w7YBXU"
 
 ---
 
-**每次使用前确认两件事：**
-
-① 代理已开启（Shadowrocket 处于连接状态）
-
-② 终端窗口是新开的（不是几天前没关的那个）
-
-环境只需要搭建一次，之后换任何 YouTube 链接都可以直接用。
-
----
-
 ## FAQ
-
-**什么是 Homebrew？** 我的另一篇文章写过，可以去看一下。
 
 **下载之后的视频画质是多少？** 默认最高画质，脚本里这行代码决定了分辨率选择逻辑：
 
@@ -279,4 +252,4 @@ python3 ~/Downloads/main.py "https://www.youtube.com/watch?v=5wvq8w7YBXU"
 
 **提示 `permission denied` 或 Cookie 读取失败？** 终端没有完全磁盘访问权限。去系统设置 → 隐私与安全性 → 完全磁盘访问权限 → 添加「终端」，然后重新开一个终端窗口再试。
 
-**下载失败，看不懂报错？** 按顺序排查：① 代理是否开启 ② yt-dlp 是否是最新版（`pip3 install -U yt-dlp --break-system-packages`）③ 链接是否完整、有没有被引号包裹。
+**下载失败，看不懂报错？** 问Claude code

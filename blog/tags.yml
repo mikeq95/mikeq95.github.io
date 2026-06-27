@@ -82,3 +82,8 @@ Claude:
   label: Claude
   permalink: /claude
   description: Claude related posts
+
+"Claude Code":
+  label: Claude Code
+  permalink: /claude-code
+  description: Claude Code related posts

@@ -2,7 +2,7 @@
 slug: 2026/05/28/marker-github-project-tutorial
 title: Marker Tutorial
 date: 2026-05-28
-image: https://cdn.mikeq95blog.uk/coverimage/maker-coverimage.png
+image: https://cdn.mikeq95blog.uk/coverimage/marker-en-cn.png
 tags:
   - github
   - macos

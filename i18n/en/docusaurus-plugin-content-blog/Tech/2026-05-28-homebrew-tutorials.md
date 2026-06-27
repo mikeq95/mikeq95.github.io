@@ -2,7 +2,7 @@
 slug: 2026/05/28/homebrew-tutorials
 title: Introduction to Homebrew
 date: 2026-05-28
-image: https://cdn.mikeq95blog.uk/coverimage/Homebrew-coverimage.png
+image: https://cdn.mikeq95blog.uk/coverimage/homebrew-en-cn.png
 tags:
   - macos
 description: "A beginner's guide to Homebrew, the essential Mac package manager — install, update, and remove software with a single command."
@@ -35,6 +35,8 @@ Use the official script: [source](https://brew.sh/)
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+> "China has its own world, huh 🤔"
 
 ---
 

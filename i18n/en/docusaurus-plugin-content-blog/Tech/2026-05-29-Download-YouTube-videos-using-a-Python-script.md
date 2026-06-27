@@ -2,7 +2,7 @@
 slug: 2026/05/29/download-youtube-videos-using-a-python-script
 title: Download YouTube Videos Using a Python Script
 date: 2026-05-29
-image: https://cdn.mikeq95blog.uk/coverimage/Download%20YouTube%20videos%20using%20a%20Python%20script..png
+image: https://cdn.mikeq95blog.uk/coverimage/download-youtube-videos-en-cn.png
 tags:
   - macos
 description: "Download YouTube videos locally on Mac using a Python script with yt-dlp — set it up once, swap the link each time."

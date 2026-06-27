@@ -2,9 +2,9 @@
 slug: 2026/06/22/using-skill-in-claude-and-claude-code
 title: "🧩 在 Claude Code 和 Claude 上用 skill"
 date: 2026-06-22
-image: https://cdn.mikeq95blog.uk/coverimage/claude-skill-file-icon.png
+image: https://cdn.mikeq95blog.uk/coverimage/claude-skills-en-cn.png
 tags:
-  - AI
+  - Claude Code
 description: "claude.ai 和 Claude Code 的 skill 是两套独立系统，分别怎么装、怎么用、容易踩哪些坑，整理在这一篇。"
 ---
 
@@ -16,7 +16,7 @@ description: "claude.ai 和 Claude Code 的 skill 是两套独立系统，分别
 
 ## [skill](https://clearlove7-ai.vercel.app?word=skill&postId=2026-06-22-using-skill-in-claude-and-claude-code) 是什么
 
-简单说，skill 就是一个文件夹，里面至少有一个 `SKILL.md`，写清楚"什么时候该用这个能力"和"具体怎么做"。这篇用到的例子是我让 Claude 用 skill-creator 写的一个 skill，叫 blog-markdown-formatter，接下来就是怎么装、怎么用。
+简单说，skill 就是一个文件夹，里面至少有一个 `SKILL.md`，写清楚"什么时候该用这个能力"和"具体怎么做"。
 > 个人感觉也有点像是单机游戏的 MOD，但是这个 MOD 是专门为了增强游戏体验的。
 
 ---
@@ -25,11 +25,11 @@ description: "claude.ai 和 Claude Code 的 skill 是两套独立系统，分别
 
 ### 第一步：下载 `.skill`
 
-如果你的 skill 是通过 Claude Code 的 skill creator 创造出来的，或者别的方式做的，不管来源是什么，只要来自 Claude，文件应该长这样：
+如果你的 skill 是通过 Claude Code 的 skill creator 文件应该长这样：
 
 ![claude 生成的 skill 文件图标](https://cdn.mikeq95blog.uk/coverimage/claude-skill-file-icon.png)
 
-一个橙色的"SKILL"图标，Finder 里还带一个"通过 Claude 打开"的按钮——这是因为电脑上装的 Claude 桌面 App 给 `.skill` 后缀注册了专属样式，**不代表文件本身的格式变了**。不必担心，它骨子里还是一个标准的 zip 包，后缀名和图标只是显示层面的东西。
+一个橙色的"SKILL"图标，后缀名是`.skill`,但他还是一个zip包，后缀名和图标只是显示层面的东西。
 
 如果你还是不信，打开终端，输入：
 
@@ -87,7 +87,8 @@ ls ~/.claude/skills/blog-markdown-formatter
 
 ## 更新 skill
 
-skill 内容改过之后（比如规则调整、加新功能），不会自动同步到本地已经装好的版本，两边都要手动覆盖一次。
+你第一次用claud做出的skill，可能你不太满意，你打开vscode编辑了一下这个md文件，这时候你需要更新skill。
+
 
 **Claude Code 的做法**：
 
@@ -103,30 +104,27 @@ unzip blog-markdown-formatter.skill -d ~/.claude/skills/
 
 ## skill用法
 
-想要触发 skill 很简单，以这个 skill 为例：`SKILL.md` 里写了类似这样的描述——"当用户说'帮我优化一下这篇 markdown 的排版'、'帮我整理这篇文档格式'、'美化一下这篇博客文章'、'这篇文章排版有点乱帮我改一下'、'按照我博客的风格重新排版/重写'……"
-> 这段话就在 `SKILL.md` 的 description 字段里，想知道一个 skill 会在什么时候被触发，直接打开看一眼就行。
+打开skill.md，看description.
 
 ### 自动触发
 
 直接跟 Claude 或 Claude Code 说：
 ```
-帮我把 /document/strawberry.txt 这篇文章的 markdown 排版优化一下，按我博客的风格整理
+> 假如这是一个优化博客文章的skill:
+
+帮我把 /document/test.txt 这篇文章的 markdown 排版优化一下，按我博客的风格整理
 ```
-Claude 或 Claude Code 会根据 skill 的 description 自己判断要不要调用它。
-> 想验证它有没有真的用上这个 skill，看它的 thinking 过程——里面会显示它有没有去读 `SKILL.md`。
 
 ### 手动指定
 
-`.claude/skills/<名字>/SKILL.md` 这种目录结构，会自动对应一个同名斜杠命令。这个 skill 对应的是：
 ```
-/blog-markdown-formatter /document/strawberry.txt
+/blog-markdown-formatter /document/test.txt
 ```
-不需要写一整段提示词，但斜杠命令后面**至少要接一个目标**（比如文件路径），不能什么都不接：
-- 接了内容：在 `SKILL.md` 没有定义 `$ARGUMENTS` 占位符的情况下，Claude Code 会自动把打的内容追加成 `ARGUMENTS: 你打的内容`，接在 skill 规则末尾，让 Claude 知道具体要处理什么
-- 什么都不接：只会把排版规则加载进上下文，但不知道要处理哪个文件，大概率会反问你
+
+> 只在Claude code中有效
 
 ## 总结
 
-不知道有啥好总结的，看到这里，你应该知道怎么用 skill 了。
+看到这你应该会用了
 
-那么恭喜你，你被窝恭喜到了。
+那么恭喜你，你被我恭喜到了。

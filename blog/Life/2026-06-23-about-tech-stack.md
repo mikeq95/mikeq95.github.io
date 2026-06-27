@@ -2,6 +2,7 @@
 slug: about-tech-stack
 title: 介绍这个网页的技术栈
 date: 2026-06-23
+image: https://cdn.mikeq95blog.uk/coverimage/about-tech-stack-en-cn.png
 tags:
   - 关于
 description: "这个博客是怎么搭起来的：Docusaurus + Supabase + Cloudflare，外加 Claude Code 帮我写了大部分代码。"

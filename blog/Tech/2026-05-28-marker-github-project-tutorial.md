@@ -2,7 +2,7 @@
 slug: 2026/05/28/marker-github-project-tutorial
 title: Marker 使用教程
 date: 2026-05-28
-image: https://cdn.mikeq95blog.uk/coverimage/maker-coverimage.png
+image: https://cdn.mikeq95blog.uk/coverimage/marker-en-cn.png
 tags:
   - github
   - macos
@@ -150,23 +150,6 @@ marker_single ~/Downloads/paper.pdf \
 每步执行前先告诉我你要做什么，不要修改系统级配置。完成后输出已安装的 Python、PyTorch、marker-pdf 版本号。
 ```
 
-**English version:**
-
-```
-You are a professional Python environment setup engineer. Please help me fully deploy the marker-pdf runtime environment on this machine.
-
-My setup: macOS Apple Silicon (M1 Pro), shell is zsh, Conda is installed at ~/miniforge3.
-
-Complete the following steps in order. After each step, verify the result and immediately diagnose and fix any errors:
-
-1. Check if conda is available (conda --version). If not, run ~/miniforge3/bin/conda init zsh and ask me to reopen the terminal.
-2. Create and activate a virtual environment: conda create -n marker python=3.11 -y && conda activate marker
-3. Install marker: pip install marker-pdf
-4. Verify PyTorch: python -c "import torch; print(torch.__version__)". If you see a libtorch_cpu.dylib error, reinstall immediately: pip uninstall torch torchvision torchaudio -y && pip install torch torchvision torchaudio
-5. Verify marker: run marker_single --help, wait about 20 seconds — a list of parameters means success.
-
-Before each step, tell me what you are about to do. Do not modify any system-level configuration. When finished, print the installed versions of Python, PyTorch, and marker-pdf.
-```
 
 ---
 
@@ -188,32 +171,4 @@ conda env remove -n marker
 
 ---
 
-## FAQ
-
-**终端卡住不动？** 第一次运行会下载模型，有些网络下会很慢，可以给终端配个代理：
-
-```bash
-export https_proxy=http://127.0.0.1:你的端口
-```
-
-**Mac 上报 `libtorch_cpu.dylib` 错误？** 重装一下 PyTorch：
-
-```bash
-pip uninstall torch torchvision torchaudio -y
-pip install torch torchvision torchaudio
-```
-
-**中文识别效果差？** 加上 `--langs zh`。如果是扫描件，再加上 `--force_ocr`。
-
-**提示 `command not found`？** 环境没激活，先跑一下 `conda activate marker`。
-
----
-
-## 总结
-
-本地跑，不用 API Key，格式保留得还不错。有大量 PDF 要整理的话挺好用的。
-
----
-
-_基于 [datalab-to/marker](https://github.com/datalab-to/marker)，兼容 marker v1.x_
 

@@ -2,7 +2,7 @@
 slug: 2026/06/16/umami-analytics-docusaurus
 title: 给 Docusaurus 博客接入 Umami 访客统计
 date: 2026-06-16
-image: https://cdn.mikeq95blog.uk/coverimage/%E7%BB%99%20Docusaurus%20%E5%8D%9A%E5%AE%A2%E6%8E%A5%E5%85%A5Umami%20%E8%AE%BF%E5%AE%A2%E7%BB%9F%E8%AE%A1.png
+image: https://cdn.mikeq95blog.uk/coverimage/umami-en-cn.png
 tags:
   - github
 description: "Umami 是隐私友好的开源访客统计工具，不需要 Cookie 弹窗。文章记录了从注册到接入 Docusaurus 博客的完整过程。"

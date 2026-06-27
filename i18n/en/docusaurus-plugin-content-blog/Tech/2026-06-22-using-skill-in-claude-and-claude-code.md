@@ -2,7 +2,7 @@
 slug: 2026/06/22/using-skill-in-claude-and-claude-code
 title: "🧩 Using Skills in Claude Code and Claude"
 date: 2026-06-22
-image: https://cdn.mikeq95blog.uk/coverimage/claude-skill-file-icon.png
+image: https://cdn.mikeq95blog.uk/coverimage/claude-skills-en-cn.png
 tags:
   - Claude Code
 description: "Claude (claude.ai) and Claude Code run two separate skill systems. Here's how to install and use skills on each side, and the pitfalls I ran into."

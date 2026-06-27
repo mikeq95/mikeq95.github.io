@@ -2,7 +2,7 @@
 slug: 2026/06/16/umami-analytics-docusaurus
 title: Adding Umami Visitor Analytics to a Docusaurus Blog
 date: 2026-06-16
-image: https://cdn.mikeq95blog.uk/coverimage/Integrate%20Umami%20visitor%20statistics%20into%20your%20Docusaurus%20blog.png
+image: https://cdn.mikeq95blog.uk/coverimage/umami-en-cn.png
 tags:
   - github
 description: "Umami is a privacy-friendly open-source analytics tool that skips the cookie banner. This walks through the full setup, from signup to wiring it into a Docusaurus blog."

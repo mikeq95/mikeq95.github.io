@@ -2,6 +2,7 @@
 slug: about-tech-stack
 title: The Tech Stack Behind This Site
 date: 2026-06-23
+image: https://cdn.mikeq95blog.uk/coverimage/about-tech-stack-en-cn.png
 tags:
   - about
 description: "How this blog is actually built: Docusaurus + Supabase + Cloudflare, with Claude Code writing most of the code."
