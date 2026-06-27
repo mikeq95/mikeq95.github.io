@@ -175,7 +175,7 @@
 <p><strong>What's it good for?</strong></p>
 <p>I find it handy when talking to an AI — open a terminal, <code>cat</code> a bunch of files you don't understand, they get printed to the terminal, then <code>Cmd + A</code> and hand it all to the AI. I think this is faster and less hassle than uploading files directly. (Especially with a VPN running and uploading a file to Claude or ChatGPT — the upload speed is genuinely painful to watch 😂)</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary">Summary<a href="https://mikeq95blog.uk/en/blog/2026/06/19/macos-terminal-create-file#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
-<p>These are just the ones I use regularly, nothing more. I took a Linux course that covered all of these — macOS is Unix-like, so the commands carry over almost exactly.</p>
+<p>These are just the ones I use regularly, nothing more.</p>
 <p>You only need to know the basics. No need to go deep on the complicated stuff.</p>]]></content:encoded>
             <category>macOS</category>
         </item>
@@ -524,6 +524,9 @@
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="outside-china">Outside China<a href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials#outside-china" class="hash-link" aria-label="Direct link to Outside China" title="Direct link to Outside China" translate="no">​</a></h3>
 <p>Use the official script: <a href="https://brew.sh/" target="_blank" rel="noopener noreferrer" class="">source</a></p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span><br></div></code></pre></div></div>
+<blockquote>
+<p>"China has its own world, huh 🤔"</p>
+</blockquote>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="core-concepts-formula-and-cask">Core Concepts: formula and cask<a href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials#core-concepts-formula-and-cask" class="hash-link" aria-label="Direct link to Core Concepts: formula and cask" title="Direct link to Core Concepts: formula and cask" translate="no">​</a></h2>
 <p>Before using Homebrew, understand two key concepts:</p>
@@ -836,8 +839,7 @@ Search engines use safe mode by default. Go to Settings and turn it off — look
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="useful-commands">Useful Commands<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#useful-commands" class="hash-link" aria-label="Direct link to Useful Commands" title="Direct link to Useful Commands" translate="no">​</a></h2>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose logs -f    # view live logs</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose stop       # stop the service</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose start      # start the service</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose pull       # update to the latest version</span><br></div></code></pre></div></div>
-<hr>
-<p><em>Environment: MacBook Pro M1 Pro · macOS · Docker Desktop 29.4.3</em></p>]]></content:encoded>
+<hr>]]></content:encoded>
             <category>GitHub</category>
             <category>macOS</category>
         </item>
