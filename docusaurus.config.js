@@ -70,6 +70,16 @@ const config = {
     adminUserIds: (process.env.DOCUSAURUS_ADMIN_USER_ID ?? '').split(',').filter(Boolean),
   },
 
+  // Apply saved theme-accent-color before any CSS renders to prevent a flash
+  // of the CSS-default pink (#f40795) during full-page navigations (e.g. language switch).
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `(function(){try{var c=localStorage.getItem('theme-accent-color');if(c){var s=document.getElementById('custom-theme-color-style');if(!s){s=document.createElement('style');s.id='custom-theme-color-style';document.head.appendChild(s);}s.innerHTML=':root{--ifm-color-primary:'+c+' !important;--ifm-color-primary-dark:'+c+' !important;--ifm-color-primary-darker:'+c+' !important;--ifm-color-primary-darkest:'+c+' !important;--ifm-color-primary-light:'+c+' !important;--ifm-color-primary-lighter:'+c+' !important;--ifm-color-primary-lightest:'+c+' !important;--ifm-link-color:'+c+' !important;}';}}catch(e){}})();`,
+    },
+  ],
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
