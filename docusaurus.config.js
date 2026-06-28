@@ -38,6 +38,25 @@ function tailwindPlugin() {
   };
 }
 
+// Exposes SUPABASE_URL and SUPABASE_ANON_KEY (already in .env.local) to browser bundles
+// via rspack DefinePlugin so they stay out of source code.
+function defineEnvPlugin() {
+  const { DefinePlugin } = _require('@rspack/core');
+  return {
+    name: 'define-env-plugin',
+    configureWebpack() {
+      return {
+        plugins: [
+          new DefinePlugin({
+            'process.env.SUPABASE_URL': JSON.stringify(process.env.SUPABASE_URL || ''),
+            'process.env.SUPABASE_ANON_KEY': JSON.stringify(process.env.SUPABASE_ANON_KEY || ''),
+          }),
+        ],
+      };
+    },
+  };
+}
+
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
@@ -137,6 +156,7 @@ const config = {
     require.resolve('./src/plugins/blogGlobalDataPlugin'),
     require.resolve('./plugins/posts-meta-plugin'),
     tailwindPlugin,
+    defineEnvPlugin,
   ],
 
   themes: [

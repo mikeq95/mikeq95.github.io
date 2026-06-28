@@ -1,3 +1,18 @@
+@keyframes countPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.countSkeleton {
+  display: inline-block;
+  width: 18px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--ifm-color-emphasis-300);
+  animation: countPulse 1.4s ease-in-out infinite;
+  vertical-align: middle;
+}
+
 /* ── Section ── */
 .section {
   padding: 4rem 0 5rem;

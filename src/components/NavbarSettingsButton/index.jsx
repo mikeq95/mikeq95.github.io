@@ -43,12 +43,6 @@ function SettingsButtonInner() {
           width="auto"
           height="auto"
           borderRadius={10}
-          brightness={50}
-          opacity={0.9}
-          blur={11}
-          displace={0.5}
-          backgroundOpacity={0.45}
-          distortionScale={-60}
         >
           <div className={styles.section}>
             <ThemeColorButton

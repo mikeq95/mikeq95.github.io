@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
+import { triggerLogin } from '@site/src/utils/authTrigger';
 import { hashAvatarColor } from '@site/src/utils/avatarUtils';
 import { timeAgo } from '@site/src/utils/dateUtils';
 import styles from './styles.module.css';
@@ -108,10 +109,6 @@ function CommentSectionInner({ postId }) {
         .filter(c => c.id !== id)
         .map(c => ({ ...c, replies: c.replies.filter(r => r.id !== id) }))
     );
-  };
-
-  const triggerLogin = () => {
-    document.querySelector('[data-auth-trigger]')?.click();
   };
 
   const totalCount = tree.reduce((sum, c) => sum + 1 + c.replies.length, 0);

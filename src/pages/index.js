@@ -1,8 +1,7 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect, useRef } from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import { useEffect, useRef } from 'react';
 import Heading from '@theme/Heading';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import RecentPosts from '@site/src/components/RecentPosts';

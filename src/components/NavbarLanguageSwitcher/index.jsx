@@ -88,12 +88,6 @@ function LanguageSwitcherButton() {
               width="auto"
               height="auto"
               borderRadius={10}
-              brightness={50}
-              opacity={0.9}
-              blur={11}
-              displace={0.5}
-              backgroundOpacity={0.45}
-              distortionScale={-60}
             >
               <ul className={styles.dropdownList} role="listbox">
                 {locales.map(locale => {

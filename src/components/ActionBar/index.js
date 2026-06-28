@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
+import { triggerLogin } from '@site/src/utils/authTrigger';
 import { usePostViews } from '@site/src/hooks/usePostViews';
 import { Popover, PopoverButton, PopoverPanel } from '@/components/animate-ui/components/headless/popover';
 import styles from './styles.module.css';
@@ -124,8 +125,6 @@ function ActionBarInner({ postId, title, url }) {
   }
 
   // ── Interactions ──────────────────────────────────────────────────────────
-  const triggerLogin = () => document.querySelector('[data-auth-trigger]')?.click();
-
   const toggleLike = async () => {
     if (!user) { triggerLogin(); return; }
     if (pendingRef.current.has('like')) return;

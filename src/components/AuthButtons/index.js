@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -75,10 +75,8 @@ function AuthButtonsInner() {
   const lp = currentLocale === defaultLocale ? '' : `/${currentLocale}`;
 
   // Drawer data: posts-meta.json (cover images) + Supabase like/bookmark stats.
-  // Loaded once as soon as a user is known, not gated on the drawer being open.
+  // Loaded on mount and whenever the logged-in user changes.
   const [postsMeta, setPostsMeta] = useState(null);
-  const metaStarted = useRef(false);
-  const dataStarted = useRef(false);
   const [likeCount, setLikeCount] = useState(null);
   const [likeSlugs, setLikeSlugs] = useState([]);
   const [bookmarkCount, setBookmarkCount] = useState(null);
@@ -86,44 +84,37 @@ function AuthButtonsInner() {
   useEffect(() => {
     if (!user) return;
 
-    if (!metaStarted.current) {
-      metaStarted.current = true;
-      fetch('/posts-meta.json')
-        .then(r => r.json())
-        .then(setPostsMeta)
-        .catch(() => setPostsMeta({}));
-    }
+    fetch('/posts-meta.json')
+      .then(r => r.json())
+      .then(setPostsMeta)
+      .catch(() => setPostsMeta({}));
 
-    if (!dataStarted.current) {
-      dataStarted.current = true;
-      (async () => {
-        try {
-          const [likesRes, bmRes] = await Promise.all([
-            supabase
-              .from('likes')
-              .select('post_id', { count: 'exact' })
-              .eq('user_id', user.id)
-              .order('created_at', { ascending: false })
-              .limit(3),
-            supabase
-              .from('bookmarks')
-              .select('*', { count: 'exact', head: true })
-              .eq('user_id', user.id),
-          ]);
-          if (likesRes.error) throw likesRes.error;
-          if (bmRes.error) throw bmRes.error;
-          setLikeSlugs((likesRes.data || []).map(r => r.post_id));
-          setLikeCount(likesRes.count ?? 0);
-          setBookmarkCount(bmRes.count ?? 0);
-        } catch {
-          // Silent failure: show zero counts and no covers.
-          setLikeSlugs([]);
-          setLikeCount(0);
-          setBookmarkCount(0);
-        }
-      })();
-    }
-  }, [user]);
+    (async () => {
+      try {
+        const [likesRes, bmRes] = await Promise.all([
+          supabase
+            .from('likes')
+            .select('post_id', { count: 'exact' })
+            .eq('user_id', user.id)
+            .order('created_at', { ascending: false })
+            .limit(3),
+          supabase
+            .from('bookmarks')
+            .select('*', { count: 'exact', head: true })
+            .eq('user_id', user.id),
+        ]);
+        if (likesRes.error) throw likesRes.error;
+        if (bmRes.error) throw bmRes.error;
+        setLikeSlugs((likesRes.data || []).map(r => r.post_id));
+        setLikeCount(likesRes.count ?? 0);
+        setBookmarkCount(bmRes.count ?? 0);
+      } catch {
+        setLikeSlugs([]);
+        setLikeCount(0);
+        setBookmarkCount(0);
+      }
+    })();
+  }, [user?.id]);
 
   const signIn = async (provider) => {
     await supabase.auth.signInWithOAuth({
@@ -163,12 +154,6 @@ function AuthButtonsInner() {
                 width="auto"
                 height="auto"
                 borderRadius={10}
-                brightness={50}
-                opacity={0.9}
-                blur={11}
-                displace={0.5}
-                backgroundOpacity={0.45}
-                distortionScale={-60}
               >
                 {PROVIDERS.map(({ id, label, icon }) => (
                   <button
@@ -221,12 +206,6 @@ function AuthButtonsInner() {
               width="min(280px, calc(100vw - 24px))"
               height="auto"
               borderRadius={14}
-              brightness={50}
-              opacity={0.9}
-              blur={11}
-              displace={0.5}
-              backgroundOpacity={0.45}
-              distortionScale={-60}
             >
               {/* User info */}
               <div className={styles.drawerHeader}>

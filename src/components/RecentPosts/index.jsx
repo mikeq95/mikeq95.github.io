@@ -7,12 +7,34 @@ import React, {
 } from 'react';
 import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { Icon } from '@iconify/react';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
 import { triggerLogin } from '@site/src/utils/authTrigger';
 import { getGradient } from '@site/src/utils/gradients';
 import styles from './index.module.css';
+
+const COUNTS_CACHE_TTL = 3 * 60 * 1000; // 3 minutes
+
+function loadCountsCache(locale) {
+  try {
+    const raw = sessionStorage.getItem(`blog_counts_${locale}`);
+    if (!raw) return null;
+    const { data, ts } = JSON.parse(raw);
+    if (Date.now() - ts > COUNTS_CACHE_TTL) return null;
+    return data;
+  } catch { return null; }
+}
+
+function saveCountsCache(locale, likeCounts, bookmarkCounts) {
+  try {
+    sessionStorage.setItem(`blog_counts_${locale}`, JSON.stringify({
+      data: { likeCounts, bookmarkCounts },
+      ts: Date.now(),
+    }));
+  } catch {}
+}
 
 // Safe on SSR (Docusaurus pre-renders without window)
 const useLayoutEffect =
@@ -58,6 +80,7 @@ const TABS = [
 
 export default function RecentPosts({ posts = [] }) {
   const { user, loading: authLoading } = useAuth();
+  const { i18n: { currentLocale } } = useDocusaurusContext();
 
   const scrollRef    = useRef(null);
   const tabBarRef    = useRef(null);
@@ -78,6 +101,7 @@ export default function RecentPosts({ posts = [] }) {
   const [bookmarkedIds, setBookmarkedIds] = useState(new Set());
   const [likeCounts, setLikeCounts] = useState({});
   const [bookmarkCounts, setBookmarkCounts] = useState({});
+  const [countsLoading, setCountsLoading] = useState(true);
 
   // Respect prefers-reduced-motion (native, no GSAP dependency)
   useEffect(() => {
@@ -122,29 +146,37 @@ export default function RecentPosts({ posts = [] }) {
     return () => cleanups.forEach(fn => fn());
   }, []);
 
+  // Restore counts from sessionStorage cache before first paint to avoid skeleton flash on repeat visits.
+  useLayoutEffect(() => {
+    const cached = loadCountsCache(currentLocale);
+    if (cached) {
+      setLikeCounts(cached.likeCounts);
+      setBookmarkCounts(cached.bookmarkCounts);
+      setCountsLoading(false);
+    }
+  }, [currentLocale]);
+
   // Load all Supabase-backed state. Wait for auth so the correct JWT is attached.
   useEffect(() => {
     if (!supabase || authLoading) return;
     const postIds = posts.map(p => p.permalink);
     if (!postIds.length) return;
-    // Load like/bookmark counts for the current post set only
-    supabase.from('likes').select('post_id').in('post_id', postIds).then(({ data, error }) => {
+    // Fetch like and bookmark counts together so we can cache them atomically
+    Promise.all([
+      supabase.from('likes').select('post_id').in('post_id', postIds),
+      supabase.from('bookmarks').select('post_id').in('post_id', postIds),
+    ]).then(([likesRes, bookmarksRes]) => {
       if (!isMountedRef.current) return;
-      if (error) { console.error('Failed to load like counts:', error); return; }
-      if (data) {
-        const counts = {};
-        data.forEach(r => { counts[r.post_id] = (counts[r.post_id] ?? 0) + 1; });
-        setLikeCounts(counts);
-      }
-    });
-    supabase.from('bookmarks').select('post_id').in('post_id', postIds).then(({ data, error }) => {
-      if (!isMountedRef.current) return;
-      if (error) { console.error('Failed to load bookmark counts:', error); return; }
-      if (data) {
-        const counts = {};
-        data.forEach(r => { counts[r.post_id] = (counts[r.post_id] ?? 0) + 1; });
-        setBookmarkCounts(counts);
-      }
+      if (likesRes.error) console.error('Failed to load like counts:', likesRes.error);
+      if (bookmarksRes.error) console.error('Failed to load bookmark counts:', bookmarksRes.error);
+      const newLikeCounts = {};
+      (likesRes.data ?? []).forEach(r => { newLikeCounts[r.post_id] = (newLikeCounts[r.post_id] ?? 0) + 1; });
+      const newBookmarkCounts = {};
+      (bookmarksRes.data ?? []).forEach(r => { newBookmarkCounts[r.post_id] = (newBookmarkCounts[r.post_id] ?? 0) + 1; });
+      setLikeCounts(newLikeCounts);
+      setBookmarkCounts(newBookmarkCounts);
+      setCountsLoading(false);
+      saveCountsCache(currentLocale, newLikeCounts, newBookmarkCounts);
     });
     if (user) {
       supabase.from('likes').select('post_id').eq('user_id', user.id).then(({ data, error }) => {
@@ -254,7 +286,6 @@ export default function RecentPosts({ posts = [] }) {
     }
   }, [activeTab, posts, likeCounts, bookmarkCounts]);
 
-  const promptLogin = triggerLogin;
 
   const scrollTrack = (direction) => {
     const track = scrollRef.current;
@@ -360,7 +391,7 @@ export default function RecentPosts({ posts = [] }) {
   const handleLike = async (e, permalink) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!user) { promptLogin(); return; }
+    if (!user) { triggerLogin(); return; }
     if (!supabase) return;
     const key = `like:${permalink}`;
     if (pendingActions.current.has(key)) return;
@@ -392,7 +423,7 @@ export default function RecentPosts({ posts = [] }) {
   const handleBookmark = async (e, permalink) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!user) { promptLogin(); return; }
+    if (!user) { triggerLogin(); return; }
     if (!supabase) return;
     const key = `bookmark:${permalink}`;
     if (pendingActions.current.has(key)) return;
@@ -508,7 +539,7 @@ export default function RecentPosts({ posts = [] }) {
                 >
                   <span className={styles.iconWrap} data-icon-wrap><Icon icon={likedIds.has(post.permalink) ? 'tabler:thumb-up-filled' : 'tabler:thumb-up'} width={16} /></span>
                   <span className={styles.actionLabel}>{translate({id: 'recentPosts.like', message: '点赞'})}</span>
-                  <span className={styles.actionCount}>{likeCounts[post.permalink] ?? 0}</span>
+                  <span className={styles.actionCount}>{countsLoading ? <span className={styles.countSkeleton} /> : (likeCounts[post.permalink] ?? 0)}</span>
                 </button>
                 <button
                   className={[styles.actionBtn, styles.actionBtnBookmark, bookmarkedIds.has(post.permalink) ? styles.actionBtnBookmarkActive : !user ? styles.actionBtnGuest : ''].join(' ')}
@@ -517,7 +548,7 @@ export default function RecentPosts({ posts = [] }) {
                 >
                   <span className={styles.iconWrap} data-icon-wrap><Icon icon={bookmarkedIds.has(post.permalink) ? 'tabler:bookmark-filled' : 'tabler:bookmark'} width={16} /></span>
                   <span className={styles.actionLabel}>{translate({id: 'recentPosts.bookmark', message: '收藏'})}</span>
-                  <span className={styles.actionCount}>{bookmarkCounts[post.permalink] ?? 0}</span>
+                  <span className={styles.actionCount}>{countsLoading ? <span className={styles.countSkeleton} /> : (bookmarkCounts[post.permalink] ?? 0)}</span>
                 </button>
               </div>
             </div>

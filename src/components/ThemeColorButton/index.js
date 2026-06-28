@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { applyAccentColor } from '@site/src/utils/themeColor';
 import styles from './styles.module.css';
 
 const PRESET_COLORS = [
@@ -24,37 +25,7 @@ export default function ThemeColorButton({ label = '外观', colorLabel = '主�
 
   useEffect(() => {
     try { localStorage.setItem(STORAGE_KEY, color); } catch {}
-
-    const styleId = 'custom-theme-color-style';
-    let styleEl = document.getElementById(styleId);
-
-    if (!styleEl) {
-      styleEl = document.createElement('style');
-      styleEl.id = styleId;
-      document.head.appendChild(styleEl);
-    }
-
-    styleEl.innerHTML = `
-      :root {
-        --ifm-color-primary: ${color} !important;
-        --ifm-color-primary-dark: ${color} !important;
-        --ifm-color-primary-darker: ${color} !important;
-        --ifm-color-primary-darkest: ${color} !important;
-        --ifm-color-primary-light: ${color} !important;
-        --ifm-color-primary-lighter: ${color} !important;
-        --ifm-color-primary-lightest: ${color} !important;
-        --ifm-link-color: ${color} !important;
-      }
-      
-      ::selection {
-        background-color: ${color} !important;
-        color: #fff !important;
-      }
-      ::-moz-selection {
-        background-color: ${color} !important;
-        color: #fff !important;
-      }
-    `;
+    applyAccentColor(color);
   }, [color]);
 
   return (

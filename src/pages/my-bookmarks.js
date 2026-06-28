@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -7,44 +7,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
 import { useBlogTitleMap } from '@site/src/hooks/useBlogTitleMap';
+import CardCover from '@site/src/components/CardCover';
 import styles from './my-collection.module.css';
-
-const GRADIENTS = [
-  'linear-gradient(135deg,#667eea,#764ba2)',
-  'linear-gradient(135deg,#f093fb,#f5576c)',
-  'linear-gradient(135deg,#4facfe,#00f2fe)',
-  'linear-gradient(135deg,#43e97b,#38f9d7)',
-  'linear-gradient(135deg,#fa709a,#fee140)',
-  'linear-gradient(135deg,#a18cd1,#fbc2eb)',
-  'linear-gradient(135deg,#fda085,#f6d365)',
-  'linear-gradient(135deg,#89f7fe,#66a6ff)',
-];
-function getGradient(s) { return GRADIENTS[s.length % GRADIENTS.length]; }
-
-function CardCover({ image, permalink }) {
-  const [loaded, setLoaded] = useState(false);
-  const [err, setErr] = useState(false);
-  const imgRef = useRef(null);
-
-  useEffect(() => {
-    if (imgRef.current?.complete) setLoaded(true);
-  }, []);
-
-  return (
-    <div className={styles.cardCoverWrap}>
-      <div className={styles.cardCoverGradient} style={{ background: getGradient(permalink) }} />
-      {image && !err && (
-        <img
-          ref={imgRef}
-          className={`${styles.cardCoverImg} ${loaded ? styles.cardCoverImgLoaded : ''}`}
-          src={image} alt=""
-          onLoad={() => setLoaded(true)}
-          onError={() => setErr(true)}
-        />
-      )}
-    </div>
-  );
-}
 
 function PostCard({ post_id, created_at, titleMap, isEn }) {
   const info = titleMap.get(post_id);

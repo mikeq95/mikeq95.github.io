@@ -65,37 +65,6 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Cover: matches the 1200×630 cover-image ratio so the full image shows
-   without cropping (object-fit: cover fills exactly at this aspect ratio). */
-.cardCoverWrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1200 / 630;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.cardCoverGradient {
-  position: absolute;
-  inset: 0;
-}
-
-.cardCoverImg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  display: block;
-}
-
-.cardCoverImgLoaded {
-  opacity: 1;
-}
-
 /* Body */
 .cardBody {
   flex: 1;

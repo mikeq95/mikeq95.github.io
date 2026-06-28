@@ -1,0 +1,28 @@
+.cardCoverWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1200 / 630;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.cardCoverGradient {
+  position: absolute;
+  inset: 0;
+}
+
+.cardCoverImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: block;
+}
+
+.cardCoverImgLoaded {
+  opacity: 1;
+}
