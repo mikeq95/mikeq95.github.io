@@ -4,10 +4,59 @@
         <title>mikeq95's blog Blog</title>
         <link>https://mikeq95blog.uk/en/blog</link>
         <description>mikeq95's blog Blog</description>
-        <lastBuildDate>Tue, 23 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 28 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[MarkEdit，Mac 上一个 4MB 的 Markdown 编辑器]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project</guid>
+            <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[MarkEdit 是一款开源免费的 macOS 原生 Markdown 编辑器，安装包只有 4MB，主打轻量、原生、能扛大文件，记录一下它的特点和安装方法。]]></description>
+            <content:encoded><![CDATA[<p>一直在找一个纯粹一点的 Markdown 编辑器，不想要那种又大又卡、还要联网的 Electron 应用。最近发现了 <a href="https://github.com/MarkEdit-app/MarkEdit" target="_blank" rel="noopener noreferrer" class="">MarkEdit</a>，开源免费，专门给 macOS 做的，定位就是"Mac 上的 TextEdit，但专门用来写 Markdown"。这篇文章记录一下它的特点和安装方法。</p>
+<!-- -->
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="它是什么">它是什么<a href="https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project#%E5%AE%83%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="Direct link to 它是什么" title="Direct link to 它是什么" translate="no">​</a></h2>
+<p>MarkEdit 是一个 macOS 原生的 Markdown 编辑器，几个关键点：</p>
+<ul>
+<li class=""><strong>免费开源</strong>，MIT 协议</li>
+<li class=""><strong>体积小</strong>，安装包大概 4MB，比 Electron 应用小很多</li>
+<li class=""><strong>能扛大文件</strong>，处理 10MB 的文件依然很流畅</li>
+<li class=""><strong>不收集任何用户数据</strong>，纯本地编辑</li>
+<li class=""><strong>严格遵循 <a href="https://github.github.com/gfm/" target="_blank" rel="noopener noreferrer" class="">GFM 规范</a></strong>，没有自创语法，编辑内核基于 <a href="https://codemirror.net/" target="_blank" rel="noopener noreferrer" class="">CodeMirror 6</a></li>
+</ul>
+<p>作者的说法是，他们不追求在某一个维度上做到最好，而是在<strong>体积、速度、原生体验、正确性</strong>这几个维度上找平衡——纯 Rust 写的编辑器性能强但缺原生功能，基于 TextKit 的编辑器原生但扛不住大文件，靠正则解析 Markdown 的编辑器又谈不上正确性。MarkEdit 想把这几头都兼顾到。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="安装">安装<a href="https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project#%E5%AE%89%E8%A3%85" class="hash-link" aria-label="Direct link to 安装" title="Direct link to 安装" translate="no">​</a></h2>
+<p>最低系统要求是 macOS 15.0。两种方式：</p>
+<p>去 <a href="https://github.com/MarkEdit-app/MarkEdit/releases/latest" target="_blank" rel="noopener noreferrer" class="">release 页面</a>下载 <code>MarkEdit.dmg</code>，打开后把 <code>MarkEdit.app</code> 拖进 <code>Applications</code> 即可。</p>
+<p>或者用 Homebrew：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew install --cask markedit</span><br></div></code></pre></div></div>
+<p>装完之后会自动检查更新，不用手动操心版本。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="实际使用感受">实际使用感受<a href="https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project#%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E6%84%9F%E5%8F%97" class="hash-link" aria-label="Direct link to 实际使用感受" title="Direct link to 实际使用感受" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="界面和交互">界面和交互<a href="https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project#%E7%95%8C%E9%9D%A2%E5%92%8C%E4%BA%A4%E4%BA%92" class="hash-link" aria-label="Direct link to 界面和交互" title="Direct link to 界面和交互" translate="no">​</a></h3>
+<p>整体就是 macOS 原生控件那一套，没有自定义皮肤的违和感，力触控查词、输入预测、Writing Tools 这些系统级功能都能直接用，跟用 TextEdit、备忘录的感觉是一致的。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="扩展性">扩展性<a href="https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project#%E6%89%A9%E5%B1%95%E6%80%A7" class="hash-link" aria-label="Direct link to 扩展性" title="Direct link to 扩展性" translate="no">​</a></h3>
+<p>自定义是通过 CSS、JavaScript 和 <a href="https://github.com/MarkEdit-app/MarkEdit-api" target="_blank" rel="noopener noreferrer" class="">CodeMirror 插件</a>来做的，官方维护了几个扩展：</p>
+<ul>
+<li class=""><a href="https://github.com/MarkEdit-app/MarkEdit-preview" target="_blank" rel="noopener noreferrer" class="">MarkEdit-preview</a>：预览面板</li>
+<li class=""><a href="https://github.com/MarkEdit-app/MarkEdit-theming" target="_blank" rel="noopener noreferrer" class="">MarkEdit-theming</a>：自定义主题</li>
+<li class=""><a href="https://github.com/MarkEdit-app/MarkEdit-ai-writer" target="_blank" rel="noopener noreferrer" class="">MarkEdit-ai-writer</a>：macOS Tahoe 上接入 Apple Intelligence</li>
+</ul>
+<p>还支持 Shortcuts 和 AppleScript，可以接到自动化流程里。如果想让 AI agent 来管理 MarkEdit，官方还专门做了一个 <a href="https://github.com/MarkEdit-app/MarkEdit-skill" target="_blank" rel="noopener noreferrer" class="">MarkEdit-skill</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="克制的功能取向">克制的功能取向<a href="https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project#%E5%85%8B%E5%88%B6%E7%9A%84%E5%8A%9F%E8%83%BD%E5%8F%96%E5%90%91" class="hash-link" aria-label="Direct link to 克制的功能取向" title="Direct link to 克制的功能取向" translate="no">​</a></h3>
+<p>作者在 <a href="https://github.com/MarkEdit-app/MarkEdit/wiki/Why-MarkEdit" target="_blank" rel="noopener noreferrer" class="">Why MarkEdit</a> 里提到，这个项目是刻意"功能贫乏"的——能用扩展解决的就不往主程序里塞，core 保持精简。提需求要先讨论行为变化是否合理，不是无脑加功能。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="和其他编辑器比">和其他编辑器比<a href="https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project#%E5%92%8C%E5%85%B6%E4%BB%96%E7%BC%96%E8%BE%91%E5%99%A8%E6%AF%94" class="hash-link" aria-label="Direct link to 和其他编辑器比" title="Direct link to 和其他编辑器比" translate="no">​</a></h2>
+<table><thead><tr><th></th><th style="text-align:center">MarkEdit</th><th style="text-align:center">Typora</th><th style="text-align:center">iA Writer</th></tr></thead><tbody><tr><td>价格</td><td style="text-align:center">✅ 免费</td><td style="text-align:center">💳 一次性付费</td><td style="text-align:center">💳 一次性付费</td></tr><tr><td>开源</td><td style="text-align:center">✅ MIT</td><td style="text-align:center">❌</td><td style="text-align:center">❌</td></tr><tr><td>体积</td><td style="text-align:center">✅ ~4MB</td><td style="text-align:center">中等</td><td style="text-align:center">中等</td></tr><tr><td>大文件性能</td><td style="text-align:center">✅ 10MB 流畅</td><td style="text-align:center">一般</td><td style="text-align:center">一般</td></tr><tr><td>数据隐私</td><td style="text-align:center">✅ 纯本地</td><td style="text-align:center">本地</td><td style="text-align:center">本地</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="Direct link to 总结" title="Direct link to 总结" translate="no">​</a></h2>
+<p>如果只是想要一个干净、原生、不卡顿的 Markdown 编辑器，不需要花里胡哨的功能，MarkEdit 是个挺合适的选择，而且免费。</p>]]></content:encoded>
+            <category>GitHub</category>
+            <category>macOS</category>
+        </item>
         <item>
             <title><![CDATA[The Tech Stack Behind This Site]]></title>
             <link>https://mikeq95blog.uk/en/blog/about-tech-stack</link>
@@ -652,44 +701,38 @@
             <category>macOS</category>
         </item>
         <item>
-            <title><![CDATA[My Favorite Songs (Jay Chou)]]></title>
+            <title><![CDATA[我最喜欢的歌（周杰伦）]]></title>
             <link>https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs</guid>
             <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Jay Chou's songs have been with me through my entire youth — these are a few of my favorites, each with its own story behind it.]]></description>
-            <content:encoded><![CDATA[<p>My favorite singer is Jay Chou. His songs have truly been with me through my entire youth.</p>
+            <description><![CDATA[周杰伦的歌陪伴了我整个青春，这里整理了我最喜欢的几首，每一首背后都有故事。]]></description>
+            <content:encoded><![CDATA[<p>我最喜欢的歌手就是周杰伦，周杰伦的歌真的陪伴我的全部青春。</p>
 <!-- -->
-<p>Here are a few of my favorite songs of his:</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="song-1-blue-and-white-porcelain">Song 1: "Blue and White Porcelain"<a href="https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs#song-1-blue-and-white-porcelain" class="hash-link" aria-label="Direct link to Song 1: &quot;Blue and White Porcelain&quot;" title="Direct link to Song 1: &quot;Blue and White Porcelain&quot;" translate="no">​</a></h2>
-<p>A few lines of the lyrics:</p>
-<blockquote>
-<p>Sky blue waiting for misty rain, while I wait for you
-Cooking smoke rises and curls, a thousand miles across the river
-At the base of the vase, clerical script imitates the elegance of dynasties past
-As if it were all foreshadowing for the moment I'd meet you</p>
-</blockquote>
+<p>下面介绍一下我最喜欢的歌：</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第一首青花瓷">第一首：“青花瓷”<a href="https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs#%E7%AC%AC%E4%B8%80%E9%A6%96%E9%9D%92%E8%8A%B1%E7%93%B7" class="hash-link" aria-label="Direct link to 第一首：“青花瓷”" title="Direct link to 第一首：“青花瓷”" translate="no">​</a></h2>
+<p>部分歌词：
+天青色等烟雨 而我在等你
+炊烟袅袅升起 隔江千万里
+在瓶底书汉隶仿前朝的飘逸
+就当我为遇见你伏笔</p>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="song-2-peninsula-iron-box">Song 2: "Peninsula Iron Box"<a href="https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs#song-2-peninsula-iron-box" class="hash-link" aria-label="Direct link to Song 2: &quot;Peninsula Iron Box&quot;" title="Direct link to Song 2: &quot;Peninsula Iron Box&quot;" translate="no">​</a></h2>
-<p>A few lines of the lyrics:</p>
-<blockquote>
-<p>The hallway light goes off, schoolbag set down
-I walk to the window and look out from my room
-Thinking back on the book I just bought
-One called the Peninsula Iron Box
-Stacked up by the side of my bed
-Page one, page six, page seven's preface
-I never could have guessed
-That the you who read this book with me would leave</p>
-</blockquote>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="song-3-waiting-for-you-after-class">Song 3: "Waiting for You After Class"<a href="https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs#song-3-waiting-for-you-after-class" class="hash-link" aria-label="Direct link to Song 3: &quot;Waiting for You After Class&quot;" title="Direct link to Song 3: &quot;Waiting for You After Class&quot;" translate="no">​</a></h2>
-<blockquote>
-<p>In the alley where you live, I rented an apartment
-Just hoping to run into you by chance
-Three years of high school, why
-Why didn't I study harder
-I never got into the same university as you</p>
-</blockquote>
-<p>These are songs I've kept listening to all this time. I never expected they'd hold up so well — I've been listening to them since elementary school, and I still never get tired of them.</p>]]></content:encoded>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第二首-半岛铁盒">第二首： “半岛铁盒”<a href="https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs#%E7%AC%AC%E4%BA%8C%E9%A6%96-%E5%8D%8A%E5%B2%9B%E9%93%81%E7%9B%92" class="hash-link" aria-label="Direct link to 第二首： “半岛铁盒”" title="Direct link to 第二首： “半岛铁盒”" translate="no">​</a></h2>
+<p>部分歌词：
+走廊灯关上 书包放
+走到房间窗外望
+回想刚买的书
+一本名叫半岛铁盒
+放在床边堆好多
+第一页第六页第七页序
+我永远都想不到
+陪我看这书的你会要走</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第三首-等你下课">第三首： ”等你下课“<a href="https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs#%E7%AC%AC%E4%B8%89%E9%A6%96-%E7%AD%89%E4%BD%A0%E4%B8%8B%E8%AF%BE" class="hash-link" aria-label="Direct link to 第三首： ”等你下课“" title="Direct link to 第三首： ”等你下课“" translate="no">​</a></h2>
+<p>你住的巷子里 我租了一间公寓
+为了想与你不期而遇
+高中三年 我为什么
+为什么不好好读书
+没考上跟你一样的大学</p>
+<p>这也是我一直在听的歌，真没想道这些歌这么耐听，我从上小学听到现在，还是觉得听不腻。</p>]]></content:encoded>
             <category>Music</category>
             <category>Jay Chou</category>
         </item>

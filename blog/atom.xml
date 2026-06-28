@@ -2,11 +2,60 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mikeq95blog.uk/blog</id>
     <title>mikeq95's blog Blog</title>
-    <updated>2026-06-23T00:00:00.000Z</updated>
+    <updated>2026-06-28T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mikeq95blog.uk/blog"/>
     <subtitle>mikeq95's blog Blog</subtitle>
     <icon>https://mikeq95blog.uk/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[MarkEdit，Mac 上一个 4MB 的 Markdown 编辑器]]></title>
+        <id>https://mikeq95blog.uk/blog/2026/06/28/markedit-github-project</id>
+        <link href="https://mikeq95blog.uk/blog/2026/06/28/markedit-github-project"/>
+        <updated>2026-06-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[MarkEdit 是一款开源免费的 macOS 原生 Markdown 编辑器，安装包只有 4MB，主打轻量、原生、能扛大文件，记录一下它的特点和安装方法。]]></summary>
+        <content type="html"><![CDATA[<p>一直在找一个纯粹一点的 Markdown 编辑器，不想要那种又大又卡、还要联网的 Electron 应用。最近发现了 <a href="https://github.com/MarkEdit-app/MarkEdit" target="_blank" rel="noopener noreferrer" class="">MarkEdit</a>，开源免费，专门给 macOS 做的，定位就是"Mac 上的 TextEdit，但专门用来写 Markdown"。这篇文章记录一下它的特点和安装方法。</p>
+<!-- -->
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="它是什么">它是什么<a href="https://mikeq95blog.uk/blog/2026/06/28/markedit-github-project#%E5%AE%83%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="它是什么的直接链接" title="它是什么的直接链接" translate="no">​</a></h2>
+<p>MarkEdit 是一个 macOS 原生的 Markdown 编辑器，几个关键点：</p>
+<ul>
+<li class=""><strong>免费开源</strong>，MIT 协议</li>
+<li class=""><strong>体积小</strong>，安装包大概 4MB，比 Electron 应用小很多</li>
+<li class=""><strong>能扛大文件</strong>，处理 10MB 的文件依然很流畅</li>
+<li class=""><strong>不收集任何用户数据</strong>，纯本地编辑</li>
+<li class=""><strong>严格遵循 <a href="https://github.github.com/gfm/" target="_blank" rel="noopener noreferrer" class="">GFM 规范</a></strong>，没有自创语法，编辑内核基于 <a href="https://codemirror.net/" target="_blank" rel="noopener noreferrer" class="">CodeMirror 6</a></li>
+</ul>
+<p>作者的说法是，他们不追求在某一个维度上做到最好，而是在<strong>体积、速度、原生体验、正确性</strong>这几个维度上找平衡——纯 Rust 写的编辑器性能强但缺原生功能，基于 TextKit 的编辑器原生但扛不住大文件，靠正则解析 Markdown 的编辑器又谈不上正确性。MarkEdit 想把这几头都兼顾到。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="安装">安装<a href="https://mikeq95blog.uk/blog/2026/06/28/markedit-github-project#%E5%AE%89%E8%A3%85" class="hash-link" aria-label="安装的直接链接" title="安装的直接链接" translate="no">​</a></h2>
+<p>最低系统要求是 macOS 15.0。两种方式：</p>
+<p>去 <a href="https://github.com/MarkEdit-app/MarkEdit/releases/latest" target="_blank" rel="noopener noreferrer" class="">release 页面</a>下载 <code>MarkEdit.dmg</code>，打开后把 <code>MarkEdit.app</code> 拖进 <code>Applications</code> 即可。</p>
+<p>或者用 Homebrew：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew install --cask markedit</span><br></div></code></pre></div></div>
+<p>装完之后会自动检查更新，不用手动操心版本。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="实际使用感受">实际使用感受<a href="https://mikeq95blog.uk/blog/2026/06/28/markedit-github-project#%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E6%84%9F%E5%8F%97" class="hash-link" aria-label="实际使用感受的直接链接" title="实际使用感受的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="界面和交互">界面和交互<a href="https://mikeq95blog.uk/blog/2026/06/28/markedit-github-project#%E7%95%8C%E9%9D%A2%E5%92%8C%E4%BA%A4%E4%BA%92" class="hash-link" aria-label="界面和交互的直接链接" title="界面和交互的直接链接" translate="no">​</a></h3>
+<p>整体就是 macOS 原生控件那一套，没有自定义皮肤的违和感，力触控查词、输入预测、Writing Tools 这些系统级功能都能直接用，跟用 TextEdit、备忘录的感觉是一致的。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="扩展性">扩展性<a href="https://mikeq95blog.uk/blog/2026/06/28/markedit-github-project#%E6%89%A9%E5%B1%95%E6%80%A7" class="hash-link" aria-label="扩展性的直接链接" title="扩展性的直接链接" translate="no">​</a></h3>
+<p>自定义是通过 CSS、JavaScript 和 <a href="https://github.com/MarkEdit-app/MarkEdit-api" target="_blank" rel="noopener noreferrer" class="">CodeMirror 插件</a>来做的，官方维护了几个扩展：</p>
+<ul>
+<li class=""><a href="https://github.com/MarkEdit-app/MarkEdit-preview" target="_blank" rel="noopener noreferrer" class="">MarkEdit-preview</a>：预览面板</li>
+<li class=""><a href="https://github.com/MarkEdit-app/MarkEdit-theming" target="_blank" rel="noopener noreferrer" class="">MarkEdit-theming</a>：自定义主题</li>
+<li class=""><a href="https://github.com/MarkEdit-app/MarkEdit-ai-writer" target="_blank" rel="noopener noreferrer" class="">MarkEdit-ai-writer</a>：macOS Tahoe 上接入 Apple Intelligence</li>
+</ul>
+<p>还支持 Shortcuts 和 AppleScript，可以接到自动化流程里。如果想让 AI agent 来管理 MarkEdit，官方还专门做了一个 <a href="https://github.com/MarkEdit-app/MarkEdit-skill" target="_blank" rel="noopener noreferrer" class="">MarkEdit-skill</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="克制的功能取向">克制的功能取向<a href="https://mikeq95blog.uk/blog/2026/06/28/markedit-github-project#%E5%85%8B%E5%88%B6%E7%9A%84%E5%8A%9F%E8%83%BD%E5%8F%96%E5%90%91" class="hash-link" aria-label="克制的功能取向的直接链接" title="克制的功能取向的直接链接" translate="no">​</a></h3>
+<p>作者在 <a href="https://github.com/MarkEdit-app/MarkEdit/wiki/Why-MarkEdit" target="_blank" rel="noopener noreferrer" class="">Why MarkEdit</a> 里提到，这个项目是刻意"功能贫乏"的——能用扩展解决的就不往主程序里塞，core 保持精简。提需求要先讨论行为变化是否合理，不是无脑加功能。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="和其他编辑器比">和其他编辑器比<a href="https://mikeq95blog.uk/blog/2026/06/28/markedit-github-project#%E5%92%8C%E5%85%B6%E4%BB%96%E7%BC%96%E8%BE%91%E5%99%A8%E6%AF%94" class="hash-link" aria-label="和其他编辑器比的直接链接" title="和其他编辑器比的直接链接" translate="no">​</a></h2>
+<table><thead><tr><th></th><th style="text-align:center">MarkEdit</th><th style="text-align:center">Typora</th><th style="text-align:center">iA Writer</th></tr></thead><tbody><tr><td>价格</td><td style="text-align:center">✅ 免费</td><td style="text-align:center">💳 一次性付费</td><td style="text-align:center">💳 一次性付费</td></tr><tr><td>开源</td><td style="text-align:center">✅ MIT</td><td style="text-align:center">❌</td><td style="text-align:center">❌</td></tr><tr><td>体积</td><td style="text-align:center">✅ ~4MB</td><td style="text-align:center">中等</td><td style="text-align:center">中等</td></tr><tr><td>大文件性能</td><td style="text-align:center">✅ 10MB 流畅</td><td style="text-align:center">一般</td><td style="text-align:center">一般</td></tr><tr><td>数据隐私</td><td style="text-align:center">✅ 纯本地</td><td style="text-align:center">本地</td><td style="text-align:center">本地</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95blog.uk/blog/2026/06/28/markedit-github-project#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="总结的直接链接" title="总结的直接链接" translate="no">​</a></h2>
+<p>如果只是想要一个干净、原生、不卡顿的 Markdown 编辑器，不需要花里胡哨的功能，MarkEdit 是个挺合适的选择，而且免费。</p>]]></content>
+        <category label="GitHub" term="GitHub"/>
+        <category label="macOS" term="macOS"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[介绍这个网页的技术栈]]></title>
         <id>https://mikeq95blog.uk/blog/about-tech-stack</id>
