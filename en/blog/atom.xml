@@ -2,11 +2,41 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mikeq95blog.uk/en/blog</id>
     <title>mikeq95's blog Blog</title>
-    <updated>2026-07-04T00:00:00.000Z</updated>
+    <updated>2026-07-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mikeq95blog.uk/en/blog"/>
     <subtitle>mikeq95's blog Blog</subtitle>
     <icon>https://mikeq95blog.uk/en/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Claude 的 slash command 个人总结]]></title>
+        <id>https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes</id>
+        <link href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes"/>
+        <updated>2026-07-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[记录自己在实际使用 Claude Code 过程中逐个搞懂的 slash command 用法和容易搞混的地方，陆续更新，目前整理了 /add-dir、/agents。]]></summary>
+        <content type="html"><![CDATA[<p>Claude Code 里的 slash command 有 60 多个，很多平时压根没细究过具体怎么用。边用边记录一下每个命令的用法和容易踩的坑，方便自己以后查，这篇会陆续更新。</p>
+<!-- -->
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="add-dir-path"><code>/add-dir &lt;path&gt;</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#add-dir-path" class="hash-link" aria-label="Direct link to add-dir-path" title="Direct link to add-dir-path" translate="no">​</a></h2>
+<p>官方解释： Add a new working directory</p>
+<p>我举个例子好了： 你有两个文件，一个是后缀为.md的文档，在'documents'里面，另外一个是图片，在'pictures'里面。
+你现在想法是：我想写一个markdown格式的文档，用来写“我的攒钱计划”，图片上的是我在iPad上用手写笔写的一个大概计划。
+你现在要参考这个图片来写你的名为“我的攒钱计划”的文档，但是这两个不在同一个directory里面，这时候你可以用<code>/add-dir &lt;path&gt;</code>来写提示词。
+提示词大概是这样：（假设目前你当前目录是你要写的markdown文档里面）</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">/add-dir /User/xxx/Pictures/ My-handwritten-savings-plan。png 参考这个，帮我写好我的攒钱计划，要求：详细，跟图片内容基本一致。</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cd-path"><code>/cd &lt;path&gt;</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#cd-path" class="hash-link" aria-label="Direct link to cd-path" title="Direct link to cd-path" translate="no">​</a></h2>
+<p>官方解释： Move this session to a new working directory</p>
+<p>把整个会话的主工作目录换掉，同时不破坏 prompt cache。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="chrome-与-claude-in-chrome-"><code>/chrome</code> 与 <code>/claude-in-chrome</code> ——<a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#chrome-%E4%B8%8E-claude-in-chrome-" class="hash-link" aria-label="Direct link to chrome-与-claude-in-chrome-" title="Direct link to chrome-与-claude-in-chrome-" translate="no">​</a></h2>
+<ul>
+<li class=""><strong><code>/chrome</code></strong> —— 配置 Chrome</li>
+<li class=""><strong><code>/claude-in-chrome</code></strong> ——  操作Chrome 浏览器</li>
+</ul>
+<hr>
+<p>后续会陆续补充其他 slash command 的使用记录。</p>]]></content>
+        <category label="Claude Code" term="Claude Code"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[claude-howto：一个周末学完 Claude Code 的教程项目]]></title>
         <id>https://mikeq95blog.uk/en/blog/2026/07/04/claude-howto-github-project</id>
