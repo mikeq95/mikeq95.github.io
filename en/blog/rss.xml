@@ -4,10 +4,56 @@
         <title>mikeq95's blog Blog</title>
         <link>https://mikeq95blog.uk/en/blog</link>
         <description>mikeq95's blog Blog</description>
-        <lastBuildDate>Sun, 28 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 04 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[claude-howto：一个周末学完 Claude Code 的教程项目]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/07/04/claude-howto-github-project</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/07/04/claude-howto-github-project</guid>
+            <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[claude-howto 用 10 个模块 + 自带的自测 Skill，把 Slash Commands、Memory、Skills、Hooks、MCP、Subagents 等 Claude Code 功能串成一条学习路径，记录一下怎么上手。]]></description>
+            <content:encoded><![CDATA[<p><a href="https://github.com/luongnv89/claude-howto" target="_blank" rel="noopener noreferrer" class="">claude-howto</a>，一个面向 Claude Code 学习者的结构化教程 + 配置模板库，包含 10 个学习模块，从基础的 Slash Commands 到高级的 Subagents、MCP、Hooks 逐层深入（⭐ 39.2k，MIT 开源）。</p>
+<!-- -->
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="它是什么">它是什么<a href="https://mikeq95blog.uk/en/blog/2026/07/04/claude-howto-github-project#%E5%AE%83%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="Direct link to 它是什么" title="Direct link to 它是什么" translate="no">​</a></h2>
+<p>不是一个要"运行"的程序，就是一套纯 Markdown 教程 + 模板库。核心是 <strong>10 个模块</strong>，从入门（Slash Commands、Memory、CLI 基础）到进阶（Checkpoints、Skills、Hooks、MCP、Subagents），再到高阶（Advanced Features、Plugins），每个模块都配教程和现成模板。官方预估全部学完 <strong>11-13 小时</strong>，也可以按自己的水平跳着学。文档中英双语。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="怎么跑起来">怎么跑起来<a href="https://mikeq95blog.uk/en/blog/2026/07/04/claude-howto-github-project#%E6%80%8E%E4%B9%88%E8%B7%91%E8%B5%B7%E6%9D%A5" class="hash-link" aria-label="Direct link to 怎么跑起来" title="Direct link to 怎么跑起来" translate="no">​</a></h2>
+<p>不需要装依赖，先进到 <code>~/Documents</code>（或者你习惯放代码的任何目录），clone 下来看：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cd ~/Documents</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">git clone https://github.com/luongnv89/claude-howto.git</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">cd claude-howto</span><br></div></code></pre></div></div>
+<p>仓库自带中文翻译（<code>zh/</code> 目录），不用啃英文原版。接下来这样做：</p>
+<p><strong>第一步：看文档</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">open ~/Documents/claude-howto/zh/README.md</span><br></div></code></pre></div></div>
+<p>想看英文原版：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">open ~/Documents/claude-howto/README.md</span><br></div></code></pre></div></div>
+<p>如果你更喜欢图形化界面操作，可以这样：打开 Finder，<code>command + shift + G</code> 唤出路径输入框，粘贴 <code>~/Documents/claude-howto</code>，回车定位过去，双击 <code>README.md</code> 打开。</p>
+<p><strong>第二步：体验仓库自带的 skill</strong></p>
+<p><code>.claude/skills/</code> 下带了 <code>lesson-quiz</code> 和 <code>self-assessment</code> 两个 skill，但它们是项目级的，只有 <code>claude</code> 的工作目录是这个仓库时才能触发：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cd ~/Documents/claude-howto</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">claude</span><br></div></code></pre></div></div>
+<p>进入交互界面后输入 <code>/self-assessment</code>，它会问几个问题，帮你判断当前水平，给出个性化学习路线——这是官方推荐的第一步。</p>
+<p><strong>第三步：把第一个 slash command 搬到自己的项目里试效果</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir -p ~/Documents/MyBlog/my-blog/.claude/commands</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">cp ~/Documents/claude-howto/01-slash-commands/optimize.md ~/Documents/MyBlog/my-blog/.claude/commands/</span><br></div></code></pre></div></div>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">ls ~/Documents/MyBlog/my-blog/.claude/commands/</span><br></div></code></pre></div></div>
+<p>✅ 正常：能看到 <code>optimize.md</code></p>
+<p>❌ 异常：提示 <code>No such file or directory</code>，先确认上一步 <code>claude-howto</code> 是否 clone 成功</p>
+<p>然后在博客项目里跑 <code>claude</code>，输入 <code>/optimize</code> 试试效果。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="实际学习节奏">实际学习节奏<a href="https://mikeq95blog.uk/en/blog/2026/07/04/claude-howto-github-project#%E5%AE%9E%E9%99%85%E5%AD%A6%E4%B9%A0%E8%8A%82%E5%A5%8F" class="hash-link" aria-label="Direct link to 实际学习节奏" title="Direct link to 实际学习节奏" translate="no">​</a></h2>
+<p>跟着 <code>LEARNING-ROADMAP.md</code>（或中文版）给出的顺序学——注意官方推荐的学习顺序不完全等于目录编号 01→10，比如 <code>08-checkpoints</code> 实际排在 <code>03-skills</code> 前面，具体顺序看文档里的表格。跑了几个模块下来，比较顺的节奏是这三步循环：</p>
+<ol>
+<li class=""><strong>读教程</strong> —— 对应模块的 <code>README.md</code>（有中文版看 <code>zh/</code> 下同名文件）</li>
+<li class=""><strong>动手做</strong> —— 把模板复制到自己的真实项目里跑一遍，而不是在教程仓库里空转</li>
+<li class=""><strong>自测</strong> —— 回 <code>claude-howto</code> 目录跑 <code>/lesson-quiz &lt;模块名&gt;</code>，查漏补缺</li>
+</ol>
+<p>比起对着文档纯看，这样过一遍模块，记忆会深很多。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95blog.uk/en/blog/2026/07/04/claude-howto-github-project#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="Direct link to 总结" title="Direct link to 总结" translate="no">​</a></h2>
+<p>如果已经用过 Claude Code 但只停留在"打字提问"层面，想系统了解 Slash Commands、Skills、Hooks、Subagents、MCP 这些功能怎么组合成实际工作流，claude-howto 是个挺合适的起点——不用装任何环境，克隆下来跟着 10 个模块过一遍就行。</p>]]></content:encoded>
+            <category>GitHub</category>
+            <category>Claude Code</category>
+        </item>
         <item>
             <title><![CDATA[MarkEdit，Mac 上一个 4MB 的 Markdown 编辑器]]></title>
             <link>https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project</link>
@@ -15,6 +61,7 @@
             <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[MarkEdit 是一款开源免费的 macOS 原生 Markdown 编辑器，安装包只有 4MB，主打轻量、原生、能扛大文件，记录一下它的特点和安装方法。]]></description>
             <content:encoded><![CDATA[<p>一直在找一个纯粹一点的 Markdown 编辑器，不想要那种又大又卡、还要联网的 Electron 应用。最近发现了 <a href="https://github.com/MarkEdit-app/MarkEdit" target="_blank" rel="noopener noreferrer" class="">MarkEdit</a>，开源免费，专门给 macOS 做的，定位就是"Mac 上的 TextEdit，但专门用来写 Markdown"。这篇文章记录一下它的特点和安装方法。</p>
+<p>![markedit]('/Users/a1234/Documents/MyBlog/my-blog/static/img/markedit image.png')</p>
 <!-- -->
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="它是什么">它是什么<a href="https://mikeq95blog.uk/en/blog/2026/06/28/markedit-github-project#%E5%AE%83%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="Direct link to 它是什么" title="Direct link to 它是什么" translate="no">​</a></h2>
@@ -699,42 +746,6 @@
 <hr>]]></content:encoded>
             <category>GitHub</category>
             <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[我最喜欢的歌（周杰伦）]]></title>
-            <link>https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs</link>
-            <guid>https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs</guid>
-            <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[周杰伦的歌陪伴了我整个青春，这里整理了我最喜欢的几首，每一首背后都有故事。]]></description>
-            <content:encoded><![CDATA[<p>我最喜欢的歌手就是周杰伦，周杰伦的歌真的陪伴我的全部青春。</p>
-<!-- -->
-<p>下面介绍一下我最喜欢的歌：</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第一首青花瓷">第一首：“青花瓷”<a href="https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs#%E7%AC%AC%E4%B8%80%E9%A6%96%E9%9D%92%E8%8A%B1%E7%93%B7" class="hash-link" aria-label="Direct link to 第一首：“青花瓷”" title="Direct link to 第一首：“青花瓷”" translate="no">​</a></h2>
-<p>部分歌词：
-天青色等烟雨 而我在等你
-炊烟袅袅升起 隔江千万里
-在瓶底书汉隶仿前朝的飘逸
-就当我为遇见你伏笔</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第二首-半岛铁盒">第二首： “半岛铁盒”<a href="https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs#%E7%AC%AC%E4%BA%8C%E9%A6%96-%E5%8D%8A%E5%B2%9B%E9%93%81%E7%9B%92" class="hash-link" aria-label="Direct link to 第二首： “半岛铁盒”" title="Direct link to 第二首： “半岛铁盒”" translate="no">​</a></h2>
-<p>部分歌词：
-走廊灯关上 书包放
-走到房间窗外望
-回想刚买的书
-一本名叫半岛铁盒
-放在床边堆好多
-第一页第六页第七页序
-我永远都想不到
-陪我看这书的你会要走</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="第三首-等你下课">第三首： ”等你下课“<a href="https://mikeq95blog.uk/en/blog/2026/05/24/my-favorite-songs#%E7%AC%AC%E4%B8%89%E9%A6%96-%E7%AD%89%E4%BD%A0%E4%B8%8B%E8%AF%BE" class="hash-link" aria-label="Direct link to 第三首： ”等你下课“" title="Direct link to 第三首： ”等你下课“" translate="no">​</a></h2>
-<p>你住的巷子里 我租了一间公寓
-为了想与你不期而遇
-高中三年 我为什么
-为什么不好好读书
-没考上跟你一样的大学</p>
-<p>这也是我一直在听的歌，真没想道这些歌这么耐听，我从上小学听到现在，还是觉得听不腻。</p>]]></content:encoded>
-            <category>Music</category>
-            <category>Jay Chou</category>
         </item>
         <item>
             <title><![CDATA[🌐 macOS Network Reset Commands — Quick Reference]]></title>
