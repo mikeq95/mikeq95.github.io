@@ -524,7 +524,7 @@ export default function RecentPosts({ posts = [] }) {
                   <h3 className={styles.cardTitle}>{post.title}</h3>
                   <time className={styles.cardDate}>
                     {new Date(post.date).toLocaleDateString(
-                      undefined,
+                      currentLocale,
                       { year: 'numeric', month: 'short', day: 'numeric' },
                     )}
                   </time>
