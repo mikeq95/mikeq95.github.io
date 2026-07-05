@@ -27,7 +27,7 @@
   top: 16px;
   z-index: var(--ifm-z-index-fixed);
   max-width: 720px;
-  height: 64px;
+  height: 48px;
   margin: 16px auto 0;
   padding: 0;
   background-color: transparent;
@@ -46,40 +46,6 @@
   position: relative;
   z-index: 1;
   height: 100%;
-}
-
-/* Logo container defaults to 2rem (32px) but the logo img has an inline
-   height of 42px (docusaurus.config.js) — the mismatch left the image
-   overflowing its own box with no centering reference, sitting visually
-   lower than the title next to it. */
-.navbar__logo {
-  height: 42px;
-}
-
-/* NavBar brand title — SF Pro, dark ink on light theme / white on dark theme */
-.navbar__brand {
-  align-items: center;
-}
-
-.navbar__brand,
-.navbar__brand:hover {
-  color: rgba(0, 0, 0, 0.85);
-}
-
-[data-theme='dark'] .navbar__brand,
-[data-theme='dark'] .navbar__brand:hover {
-  color: #fff;
-}
-
-.navbar__brand .navbar__title {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  margin-top: 0;
-  vertical-align: middle;
-  color: inherit;
 }
 
 /* Nav links (middle/right) */
@@ -116,14 +82,7 @@ html.blog-post-page .navbar {
   position: static;
 }
 
-/* On narrow screens, show just the logo — title text gets cramped next to the
-   hamburger toggle and the right-side icon cluster, so drop it like Apple's
-   mobile nav does. */
 @media (max-width: 996px) {
-  .navbar__brand .navbar__title {
-    display: none;
-  }
-
   /* Settings / language-switcher: below this width Docusaurus already renders
      a second copy of every navbar item inside the hamburger sidebar (see
      theme-classic's NavbarMobilePrimaryMenu), so the top-bar copy — marked

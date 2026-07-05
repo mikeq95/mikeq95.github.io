@@ -197,12 +197,6 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        logo: {
-          alt: 'site logo',
-          src: 'img/favicon.ico',
-          style: { height: '42px', width: '42px', objectFit: 'contain' },
-        },
-        title: "mikeq95's blog",
         items: [
           { type: 'custom-NavbarSettingsButton', position: 'right' },
           { type: 'custom-NavbarLanguageSwitcher', position: 'right' },

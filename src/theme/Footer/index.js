@@ -46,9 +46,7 @@ export default function Footer() {
         {/* Left: brand + tagline + RSS */}
         <div className={styles.col}>
           <div className={styles.brand}>{siteConfig.title}</div>
-          <p className={styles.tagline}>
-            {isZh ? '记录想法，分享技术，留住青春。' : 'Tech, tools, and personal notes.'}
-          </p>
+          <img src="/img/favicon.ico" alt={siteConfig.title} className={styles.logo} />
           <a href="/blog/rss.xml" className={styles.rssLink} target="_blank" rel="noopener noreferrer">
             <Icon icon="mdi:rss" className={styles.rssIcon} />
             RSS
