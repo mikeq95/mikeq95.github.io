@@ -123,6 +123,16 @@ html.blog-post-page .navbar {
   .navbar__brand .navbar__title {
     display: none;
   }
+
+  /* Settings / language-switcher: below this width Docusaurus already renders
+     a second copy of every navbar item inside the hamburger sidebar (see
+     theme-classic's NavbarMobilePrimaryMenu), so the top-bar copy — marked
+     with this class by the two components themselves via their `mobile` prop
+     — is redundant and just crowds the pill next to the toggle. Hide it and
+     let the sidebar copy be the only one. */
+  .navbar-desktop-only {
+    display: none;
+  }
 }
 
 /* Search container — drop default Infima padding so the icon button

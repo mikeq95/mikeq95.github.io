@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useLocation } from '@docusaurus/router';
 import useIsBrowser from '@docusaurus/useIsBrowser';
@@ -59,13 +60,13 @@ function getLocalePath(targetLocale, defaultLocale, currentLocale, pathname) {
   return `/${targetLocale}${basePath === '/' ? '' : basePath}`;
 }
 
-function LanguageSwitcherButton() {
+function LanguageSwitcherButton({ mobile }) {
   const { i18n: { currentLocale, defaultLocale, locales, localeConfigs } } = useDocusaurusContext();
   const { pathname } = useLocation();
   const label = localeConfigs[currentLocale]?.label ?? currentLocale;
 
   return (
-    <Popover className={styles.wrapper}>
+    <Popover className={clsx(styles.wrapper, !mobile && 'navbar-desktop-only')}>
       {({ open }) => (
         <>
           <PopoverButton
@@ -115,8 +116,8 @@ function LanguageSwitcherButton() {
   );
 }
 
-export default function NavbarLanguageSwitcher() {
+export default function NavbarLanguageSwitcher({ mobile }) {
   const isBrowser = useIsBrowser();
   if (!isBrowser) return null;
-  return <LanguageSwitcherButton />;
+  return <LanguageSwitcherButton mobile={mobile} />;
 }

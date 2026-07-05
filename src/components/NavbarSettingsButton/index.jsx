@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import GlassSurface from '@site/src/components/GlassSurface';
@@ -20,12 +21,12 @@ function SettingsIcon() {
   );
 }
 
-function SettingsButtonInner() {
+function SettingsButtonInner({ mobile }) {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const isEn = currentLocale === 'en';
 
   return (
-    <Popover className={styles.wrapper}>
+    <Popover className={clsx(styles.wrapper, !mobile && 'navbar-desktop-only')}>
       <PopoverButton
         as="button"
         className={styles.pill}
@@ -61,8 +62,8 @@ function SettingsButtonInner() {
   );
 }
 
-export default function NavbarSettingsButton() {
+export default function NavbarSettingsButton({ mobile }) {
   const isBrowser = useIsBrowser();
   if (!isBrowser) return null;
-  return <SettingsButtonInner />;
+  return <SettingsButtonInner mobile={mobile} />;
 }
