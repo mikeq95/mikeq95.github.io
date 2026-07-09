@@ -114,5 +114,13 @@
   "2026/07/05/claude-tutorial-10-cli": {
     "title": "Claude教程10-CLI",
     "image": null
+  },
+  "2026/07/09/docmd-deploy-cloudflare-pages": {
+    "title": "把 docmd 笔记站部署到 Cloudflare Pages，挂上自己的子域名",
+    "image": null
+  },
+  "2026/07/09/docmd-reconfigure-from-auto-mode": {
+    "title": "docmd 项目重新配置记录",
+    "image": null
   }
 }
