@@ -1,25 +1,3 @@
-.glassNav {
-  width: 100%;
-  height: 100%;
-  /* The language switcher / profile dropdowns are descendants that need to render
-     below the 64px-tall bar — GlassSurface defaults to overflow:hidden (to clip its
-     own rounded-rect backdrop), which clips those dropdowns into invisibility. The
-     rounded corners still clip fine via border-radius alone, so this is safe to relax. */
-  overflow: visible !important;
-  /* Forces its own GPU compositing layer — works around a Safari/WebKit bug where
-     backdrop-filter inside a position:sticky ancestor can fail to repaint correctly
-     (showing stale/blank content) until the next forced reflow. Scoped to this element
-     (rather than .navbar) specifically so it doesn't become the containing block for
-     the mobile sidebar/backdrop, which are siblings of this element under <nav>, not
-     descendants — putting the transform on .navbar clipped that fixed-position drawer
-     into the header bar instead of letting it cover the viewport. */
-  transform: translateZ(0);
-}
-
-.glassNav :global(.glass-surface__content) {
-  padding: 0 16px;
-}
-
 .authItem {
   display: flex;
   align-items: center;

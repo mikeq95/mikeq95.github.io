@@ -120,11 +120,16 @@
   text-decoration: none;
 }
 
-/* ── Mobile ── */
+/* ── Mobile ──
+   Keep the hero at full viewport height like desktop, so Recent Posts stays
+   below the fold and the two sections read as distinct screens instead of
+   bleeding into each other. `dvh` (falls back to `vh` where unsupported)
+   avoids the height jumping when the mobile browser's address bar
+   collapses/expands on scroll. */
 @media screen and (max-width: 768px) {
   .heroBanner {
-    min-height: unset;
-    padding: 3rem 0;
+    min-height: calc(100vh - 60px);
+    min-height: calc(100dvh - 60px);
   }
 
   .heroContainer {

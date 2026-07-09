@@ -6,80 +6,10 @@
 
 :root {
   --ifm-color-primary: #f40795;
-  --ifm-navbar-shadow: none;
 }
 
 [data-theme='dark'] {
   --ifm-color-primary: #06d6fb;
-}
-
-/* ── NavBar: floating rounded-rectangle glass capsule (background rendered by GlassSurface) ──
-   The glass background is nearly transparent, so text/icon colors must adapt to whatever
-   page background shows through it — light theme needs dark ink, dark theme needs the
-   original white-on-glass treatment. */
-.navbar {
-  --ifm-navbar-link-color: rgba(0, 0, 0, 0.65);
-  --ifm-navbar-link-hover-color: #000;
-  --ifm-navbar-search-input-background-color: rgba(0, 0, 0, 0.06);
-  --ifm-navbar-search-input-color: rgba(0, 0, 0, 0.85);
-  --ifm-navbar-search-input-placeholder-color: rgba(0, 0, 0, 0.45);
-  position: sticky;
-  top: 16px;
-  z-index: var(--ifm-z-index-fixed);
-  max-width: 720px;
-  height: 48px;
-  margin: 16px auto 0;
-  padding: 0;
-  background-color: transparent;
-  box-shadow: none;
-}
-
-[data-theme='dark'] .navbar {
-  --ifm-navbar-link-color: rgba(255, 255, 255, 0.75);
-  --ifm-navbar-link-hover-color: #fff;
-  --ifm-navbar-search-input-background-color: rgba(255, 255, 255, 0.22);
-  --ifm-navbar-search-input-color: #fff;
-  --ifm-navbar-search-input-placeholder-color: rgba(255, 255, 255, 0.7);
-}
-
-.navbar__inner {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-}
-
-/* Nav links (middle/right) */
-.navbar__items {
-  gap: 32px;
-}
-
-.navbar__link {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-/* Mobile sidebar toggle icon — dark on light theme, white on dark theme */
-.navbar__toggle {
-  color: rgba(0, 0, 0, 0.85);
-}
-
-[data-theme='dark'] .navbar__toggle {
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    width: calc(100% - 32px);
-    max-width: calc(100% - 32px);
-    height: 56px;
-  }
-}
-
-/* Individual blog post pages (not the /blog list page) keep the navbar visible
-   but drop the floating/sticky behavior — it should scroll away with the
-   content instead of staying pinned near the top. */
-html.blog-post-page .navbar {
-  position: static;
 }
 
 @media (max-width: 996px) {
@@ -88,66 +18,26 @@ html.blog-post-page .navbar {
      theme-classic's NavbarMobilePrimaryMenu), so the top-bar copy — marked
      with this class by the two components themselves via their `mobile` prop
      — is redundant and just crowds the pill next to the toggle. Hide it and
-     let the sidebar copy be the only one. */
+     let the sidebar copy be the only one.
+     !important: this class has the exact same specificity as the component's
+     own `.wrapper` class that sets `display: inline-flex`, so which one wins
+     the cascade depends on unpredictable bundle ordering — without !important
+     the top-bar copy can silently stay visible and peek out from behind the
+     sidebar drawer. */
   .navbar-desktop-only {
-    display: none;
+    display: none !important;
   }
 }
 
-/* Search container — drop default Infima padding so the icon button
-   sits flush, like the other navbar buttons (uniform gap handles spacing).
-   Docusaurus pins this container to the navbar's right edge with
+/* Docusaurus pins the search container to the navbar's right edge with
    `position: absolute` below 996px, which assumes search is the only
    right-side icon on mobile — here it would float on top of and hide
    the language switcher / profile buttons that sit next to it, so keep
    it in normal flex flow alongside them instead. */
-[class*="navbarSearchContainer"] {
-  padding: 0 !important;
-}
-
 @media (max-width: 996px) {
   [class*="navbarSearchContainer"] {
     position: static !important;
   }
-}
-
-/* Search bar — icon-only by default, expand on focus */
-.navbar__search-input {
-  width: 38px !important;
-  height: 38px !important;
-  border-radius: 999px !important;
-  background-color: var(--ifm-navbar-search-input-background-color) !important;
-  border: none !important;
-  padding: 0 0 0 36px !important;
-  color: transparent !important;
-  cursor: pointer;
-  transition: width 0.25s ease, padding 0.25s ease, color 0.25s ease, background-color 0.2s !important;
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.5),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.08) !important;
-}
-
-[data-theme='dark'] .navbar__search-input {
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.1),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.35) !important;
-}
-
-.navbar__search-input::placeholder {
-  color: transparent !important;
-  transition: color 0.2s;
-}
-
-.navbar__search-input:focus {
-  width: 200px !important;
-  padding: 0 12px 0 36px !important;
-  color: var(--ifm-color-content) !important;
-  background-color: var(--ifm-navbar-search-input-background-color) !important;
-  outline: none !important;
-}
-
-.navbar__search-input:focus::placeholder {
-  color: var(--ifm-color-content-secondary) !important;
 }
 
 /* Search results dropdown — this is third-party plugin DOM (not a React

@@ -17,24 +17,21 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 24px;
-  border-radius: 9999px;
+  padding: 0 var(--ifm-navbar-item-padding-horizontal);
+  height: 100%;
   border: none;
-  background-color: #fff;
-  color: #000;
-  font-weight: 700;
-  font-size: 0.9rem;
+  background: none;
+  color: var(--ifm-navbar-link-color);
+  font-weight: 500;
+  font-size: 16px;
   cursor: pointer;
-  transition: opacity 0.2s, transform 0.15s;
+  transition: color 0.2s;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.8),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.08);
 }
 
 .loginPillBtn:hover {
-  opacity: 0.85;
+  color: var(--ifm-navbar-link-hover-color);
 }
 
 .dropdown {
