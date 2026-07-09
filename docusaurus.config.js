@@ -209,6 +209,7 @@ const config = {
       },
       navbar: {
         items: [
+          { type: 'custom-NavbarContactButton', position: 'right' },
           { type: 'custom-NavbarSettingsButton', position: 'right' },
           { type: 'custom-NavbarLanguageSwitcher', position: 'right' },
         ],

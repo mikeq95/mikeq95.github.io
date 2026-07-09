@@ -1,0 +1,75 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--ifm-navbar-item-padding-horizontal);
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ifm-navbar-link-color);
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.pill:hover {
+  color: var(--ifm-navbar-link-hover-color);
+}
+
+.glass {
+  min-width: 180px;
+  color: var(--ifm-color-content);
+}
+
+.glass :global(.glass-surface__content) {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 4px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: var(--ifm-color-content);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+
+.socialLink:hover {
+  background-color: var(--ifm-hover-overlay, rgba(0, 0, 0, 0.05));
+  color: var(--ifm-color-content);
+  text-decoration: none;
+}
+
+.socialIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .glass {
+    min-width: 160px;
+    max-width: calc(100vw - 1.5rem);
+  }
+}

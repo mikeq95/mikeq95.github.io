@@ -1,13 +1,17 @@
 .pill {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   padding: 0 var(--ifm-navbar-item-padding-horizontal);
   height: 100%;
   color: var(--ifm-navbar-link-color);
+  font-weight: 700;
+  font-size: 16px;
+  white-space: nowrap;
+  text-decoration: none;
   transition: color 0.2s;
 }
 
 .pill:hover {
   color: var(--ifm-navbar-link-hover-color);
+  text-decoration: none;
 }

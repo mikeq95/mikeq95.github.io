@@ -1,131 +1,16 @@
 .footer {
   background: var(--ifm-color-emphasis-100);
   border-top: 1px solid var(--ifm-color-emphasis-200);
-  padding: 3rem 0 1.5rem;
-}
-
-/* ── Two-column grid ── */
-.grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 3rem;
-}
-
-.col {
+  padding: 2rem 2.5rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  justify-content: center;
 }
 
-/* Left column */
-.brand {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--ifm-color-content);
-}
-
-.logo {
-  height: 36px;
-  width: 36px;
-  object-fit: contain;
-}
-
-.rssLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.82rem;
+.tagline {
+  margin: 0;
+  max-width: 1100px;
+  text-align: center;
+  font-size: 1.05rem;
   font-weight: 500;
-  color: var(--ifm-color-primary);
-  text-decoration: none;
-  width: fit-content;
-  transition: opacity 0.15s;
-}
-
-.rssLink:hover {
-  opacity: 0.75;
-  text-decoration: none;
-}
-
-.rssIcon {
-  width: 14px;
-  height: 14px;
-}
-
-/* Right column heading */
-.colTitle {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
   color: var(--ifm-color-content-secondary);
-  margin-bottom: 0.25rem;
-}
-
-/* Social icons */
-.socialLinks {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-/* GSAP targets the <a> element directly */
-.socialLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--ifm-color-content-secondary);
-  font-size: 0.85rem;
-  text-decoration: none;
-  width: fit-content;
-  transition: color 0.2s;
-  will-change: transform;
-}
-
-.socialLink:hover {
-  color: var(--ifm-color-content);
-  text-decoration: none;
-}
-
-.socialIcon {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  object-fit: contain;
-}
-
-/* ── Bottom bar ── */
-.bottom {
-  max-width: 1100px;
-  margin: 2rem auto 0;
-  padding: 1.25rem 2.5rem 0;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 12px;
-  color: var(--ifm-color-emphasis-600);
-}
-
-.bottomDot {
-  color: var(--ifm-color-emphasis-400);
-}
-
-/* ── Mobile: single column ── */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 1.5rem;
-  }
-
-  .bottom {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
 }
