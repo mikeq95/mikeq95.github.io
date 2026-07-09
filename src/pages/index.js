@@ -1,20 +1,16 @@
-import { useMemo, useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import RecentPosts from '@site/src/components/RecentPosts';
-import RotatingText from '@site/src/components/RotatingText';
 import styles from './index.module.css';
 
 function HomepageHeader() {
   const { i18n: { currentLocale } } = useDocusaurusContext();
   const isZh = currentLocale.startsWith('zh');
   const heroTextRef = useRef(null);
-  const greetingWords = isZh
-    ? ['你好～', 'こんにちは～', '안녕하세요～', 'Hello～', 'Hallo～', 'Bonjour～', 'Ciallo～(∠・ω< )⌒☆']
-    : ['Hello～', '你好～', 'こんにちは～', '안녕하세요～', 'Hallo～', 'Bonjour～', 'Ciallo～(∠・ω< )⌒☆'];
 
   useEffect(() => {
     let ctx;
@@ -40,26 +36,14 @@ function HomepageHeader() {
       <div className={styles.heroContainer}>
         <div className={styles.heroText} ref={heroTextRef}>
           <Heading as="h1" className={styles.title}>
-            {isZh ? '欢迎' : 'Welcome'}{' '}
-            <RotatingText
-              texts={greetingWords}
-              mainClassName={styles.rotatingTextRoot}
-              staggerFrom="last"
-              initial={{ y: '100%', opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: '-120%', opacity: 0 }}
-              staggerDuration={0.025}
-              transition={{ type: 'spring', damping: 30, stiffness: 400 }}
-              rotationInterval={2000}
-              splitBy="characters"
-              auto
-              loop
-            />
+            {isZh
+              ? '写给自己看的技术笔记，顺便也分享给你。'
+              : 'Notes I wrote for myself — happy to share with you too.'}
           </Heading>
           <p className={styles.description}>
             {isZh
-              ? '我是一名来自中国的大学生，欢迎来到我的博客。'
-              : 'I am a university student from China. Welcome to my blog.'}
+              ? '记录了从零搭博客、驯服 Claude Code、到和各种命令行工具死磕的过程——理工科的严谨，速查卡的简洁。'
+              : 'Documenting the process of building this blog from scratch, taming Claude Code, and wrestling with command-line tools — engineering rigor, cheat-sheet brevity.'}
           </p>
           <div className={styles.buttons}>
             <Link className={styles.blogButton} to="/blog">
