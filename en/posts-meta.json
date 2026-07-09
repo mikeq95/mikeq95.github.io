@@ -115,6 +115,10 @@
     "title": "Claude教程10-CLI",
     "image": null
   },
+  "2026/07/09/docmd-connect-github-auto-deploy": {
+    "title": "把 docmd 从直传模式切换成 GitHub 自动部署",
+    "image": null
+  },
   "2026/07/09/docmd-deploy-cloudflare-pages": {
     "title": "把 docmd 笔记站部署到 Cloudflare Pages，挂上自己的子域名",
     "image": null

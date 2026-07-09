@@ -36,5 +36,6 @@ This file contains links to documentation sections following the llmstxt.org sta
 - [Claude教程08-Checkpoints](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-08-checkpoints.md): 内容整理中，后续补充。
 - [Claude教程09-Advanced Features](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-09-advanced-features.md): 内容整理中，后续补充。
 - [Claude教程10-CLI](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-10-cli.md): 内容整理中，后续补充。
+- [把 docmd 从直传模式切换成 GitHub 自动部署](https://mikeq95blog.uk/blog/Tech/2026-07-09-docmd-connect-github-auto-deploy.md): docmd 笔记站最初用 wrangler 直传部署到 Cloudflare Pages，每次更新都要手动跑构建 + 上传两条命令。这次把它接上 GitHub，改成 git push 自动触发构建部署。
 - [把 docmd 笔记站部署到 Cloudflare Pages，挂上自己的子域名](https://mikeq95blog.uk/blog/Tech/2026-07-09-docmd-deploy-cloudflare-pages.md): 记录一下怎么把本地用 docmd 写的笔记站，通过 wrangler CLI 部署成 Cloudflare Pages 项目，再挂上 notes.mikeq95blog.uk 这样的自定义子域名。
 - [docmd 项目重新配置记录](https://mikeq95blog.uk/blog/Tech/2026-07-09-docmd-reconfigure-from-auto-mode.md): 记录 docmd 项目从零配置(auto)模式导致首页 404，到用 docmd init 生成正式 docmd.config.json 配置、规范目录结构的完整排查和迁移过程。
