@@ -167,7 +167,18 @@ const config = {
     require.resolve('./plugins/posts-meta-plugin'),
     tailwindPlugin,
     defineEnvPlugin,
+    [
+      'docusaurus-plugin-llms',
+      {
+        title: "mikeq95's blog",
+        description: 'I am a university student from China. Welcome to my blog.',
+        includeBlog: true,
+        excludeImports: true,
+        removeDuplicateHeadings: true,
+      },
+    ],
   ],
+
 
   themes: [
     [
