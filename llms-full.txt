@@ -1,0 +1,2079 @@
+# mikeq95's blog
+
+> I am a university student from China. Welcome to my blog.
+
+This file contains all documentation content in a single document following the llmstxt.org standard.
+
+## Intro
+
+---
+
+## 编程英语单词短语收集
+
+1.  **demonstrate**
+    
+    - 例句: This tutorial no longer ==demonstrates== current [SwiftUI](https://clearlove7-ai.vercel.app?word=SwiftUI&postId=2026-04-29-coding-english-vocabulary) or Xcode practices.
+    - 译文: 本教程不再演示当前的 SwiftUI 或 Xcode 实践。
+    - 释义: 演示
+
+2. **prevent**  
+     
+    - 例句: This option will ==prevent== Shadowrocket from being set as the default route.
+    - 译文: 此选项将阻止 Shadowrocket 被设置为默认路由。
+    - 释义: 阻止
+
+3. **modifier**
+    
+    - 例句: A new ==modifier== creates a new view based on the original one.
+    - 译文: 一个新的修饰符基于原始的样子，会创建一个新的视图。
+    - 释义: 修饰符
+
+4. **components**
+    
+    - 例句: One of the most common and recognizable user interface ==components== is the combination of an icon and a label.
+    - 译文: 最常见、最容易识别的用户界面组件之一，就是图标+文字的组合。
+    - 释义: 零件，组件
+
+5. **idiom**
+    
+    - 例句: This ==idiom== appears across many kinds of apps and shows up in collections, lists, menus of action items, and disclosable lists, just to name a few.
+    - 译文: 这种惯用组合出现在许多类型的应用程序中，也出现在集合视图、列表、操作菜单以及可展开列表里——仅举几例而已。
+    - 释义: 惯用模式，惯用组合
+
+6. **just to name a few**
+    
+    - 例句: This idiom appears across many kinds of apps and shows up in collections, lists, menus of action items, and disclosable lists, ==just to name a few==.
+    - 译文: 这种惯用组合出现在许多类型的应用程序中，也出现在集合视图、列表、操作菜单以及可展开列表里——仅举几例而已。
+    - 释义: 仅举几例 / 只是列举这么多
+
+7. **interface**
+    
+    - 例句: You create the user ==interface==, or UI, for your app inside the body, the entire contents of your app are in the code below.
+    - 译文: 你在 body 属性中创建应用的用户界面（UI），应用程序的全部内容都在下面的代码中。
+    - 释义: 界面
+
+```swift
+// NOTE: - 演示代码
+
+struct ContentView: View {
+    var body: some View {
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundColor(.tint)
+            
+            Text("Hello World")
+        }
+    }
+}
+
+#Preview {
+    ContentView()
+}
+```
+
+8. **instance**
+    
+    - 例句: To construct your narrative, the app needs an ==instance== of Story, which takes an array of StoryPage instances.
+    - 译文: 要构建你的叙事，该应用需要一个 Story 实例，该实例接受一个 StoryPage 实例数组。
+    - 释义: 实例
+
+9. **hold**
+    
+    - 例句: The text property ==holds== a String that describes the choice readers can make.
+    - 译文: 文本属性保存一个字符串，用于描述读者可以做出的选择。
+    - 释义: 保存，持有
+
+10. **present**
+    
+    - 例句: Use a [navigation stack](https://clearlove7-ai.vercel.app?word=NavigationStack&postId=2026-04-29-coding-english-vocabulary) to ==present= a stack of views over a root view.
+    - 译文: 使用导航堆栈在根视图上呈现一系列视图。
+    - 释义: 显示，呈现
+
+11. **indicates**
+    
+    - 例句: A value-destination ==indicates== that you are pushing a value onto the path.
+    - 译文: "Value destination"这种用法表明/意味着你正在将一个值推送到导航路径（Navigation path）上。
+    - 释义: 表明，意味着
+
+---
+
+## 通用英语单词短语收集
+
+1. **Based on the principle of voluntariness**
+    
+    - 例句: Membership in the union is ==based on the principle of voluntariness==—no employee is forced to join.
+    - 译文: 加入工会遵循自愿原则，没有任何员工被强迫参加。
+    - 释义: 根据自愿的原则
+
+2. **One for all, all for one**
+    
+    - 例句: The three friends made a pact: ==one for all, all for one==. They promised to stand by each other no matter what challenges lay ahead.
+    - 译文: 三位朋友立下誓言：人人为我，我为人人。他们承诺无论未来面临何种挑战，都会相互扶持。
+    - 释义: 人人为我，我为人人
+
+3. **Be careful, though**
+    
+    - 例句: The restaurant is amazing and cheap. ==Be careful==, though: it gets really crowded on weekends.
+    - 译文: 那家餐厅很棒，还很便宜。不过要注意：周末人会特别多。
+    - 释义: 不过要注意（用于补充警示信息）
+
+4. **embedded in**
+    
+    - 例句: These attitudes are ==embedded in== our society.
+    - 译文: 这些观念根植于我们的社会之中。
+    - 释义: 根植于，深深嵌入
+
+5. **enthusiasts**
+    
+    - 例句: She is one of the most dedicated fitness ==enthusiasts== I have ever met.
+    - 译文: 她是我见过的最投入的健身爱好者之一。
+    - 释义: 爱好者，发烧友
+
+---
+
+## 关于这个博客
+
+## 介绍一下自己
+
+05后，Gen Z，大二在读，电子信息工程专业。打篮球，玩游戏（LOL、CS2），顺带在学英语——英语不好，但在努力。
+
+我是理科生，我可能不太擅长写文章吧。我觉得应该把一句话，一个复杂的概念说的简单一些，而不是说的晦涩难懂，所以我的文章我都会让它变得简单，简洁（但这不代表信息密度低）。
+
+## 这个博客是干什么的
+
+写给自己的。记录我搞懂的东西，顺带验证一下我是不是真的搞懂了。如果你也能看懂，那挺好。
+
+## 关于这个网站
+
+没有广告，以后也不会有，这个可以保证。我讨厌广告，我不想让任何人在这里被打扰——包括我自己，因为我也是这个网站的读者。
+
+我很在意体验。网站要快，页面要干净，打开之后不用想太多，找到想看的就行。
+
+至于赚不赚钱，以后再说。但前提只有一个：不以牺牲体验为代价。
+
+## 怎么做的这个网站？
+
+技术栈我会放在另外一个文章详细说说。简单的说，我会写一点代码，大部分我还是交给claude Code来帮我做这个网站。Claude code真的太夯了，除了anthropic这个公司有亿点点反华以外（但是Claude目前又是国外大模型里面对中文支持最好的），没什么缺点。**补充**： 我不在意这个公司政治坐标是什么，我只在乎这个这个产品好不好用？好用，我就用，不好用，就算你的政治坐标偏向中国，我也不会用你的产品。 
+
+## 博客的内容
+
+以后会发很多东西，我看claude code把我的文章分成了music,tech,life,english。其实不止这些，还会有其他的。
+
+**不会发什么**？
+
+黄，赌，毒，政治。
+
+## 总结
+
+okay,这就是我的的这个网站的所有想法。
+
+中国有个成语叫“知行合一”，我也会按照知行合一，把这些我所想的，所要求的，继续做下去，最后变成现实。
+
+---
+
+## 关于这个博客的 logo
+
+## 这个 logo 是怎么来的
+
+这个网站的 logo 是我女朋友帮我做的。原型是英雄联盟里的 Poro——那只圆滚滚、白白的小东西。
+
+![英雄联盟里的 Poro 原型](https://cdn.mikeq95blog.uk/coverimage/poluobaby.jpg)
+
+## 视频电话
+
+有一次视频电话，我随口问她：
+
+> Do you know pixel art?
+
+她说：
+
+> Yes, and I'm actually really good at it.
+
+她是艺术生，所以画画是她的特长。然后我问了一句，能不能帮我画一个像素风格的 Poro，当这个博客的 logo。
+
+然后她就真的画出来了。
+
+![女朋友画的像素风 Poro logo](https://cdn.mikeq95blog.uk/coverimage/pixel-logo.png)
+
+## 我的感受
+
+我盯着那个 logo 看了很久。
+
+像素风的东西，看着简单，其实每一格都得自己排，差一格味道就不对。她画出来的那只 Poro，比例、配色、神态，全都在。然后还用了我最喜欢的紫色，一看就知道是用了心的。
+
+这个博客我自己和AI写代码,自己折腾体验，我做了一个评论功能结果只有我一个人在评论😂。唯独这个 logo，是我的女朋友送我的。所以它对我来说有点特别——它不只是个图标，是有人愿意为我花时间做的东西。
+
+谢谢你，亲爱的！❤️You are the best!
+
+---
+
+## 介绍这个网页的技术栈
+
+之前在[关于这个博客](/blog/about)里说过，技术栈会单独写一篇文章详细说说。这就是那篇。
+
+## 网站本体：Docusaurus
+
+这个博客是用 [Docusaurus](https://docusaurus.io) 搭的，本质上是一个 React 框架，专门用来做文档站和博客——写 Markdown，它帮你编译成静态网页。好像是 Meta 旗下的项目。
+
+页面里需要交互的部分（比如导航栏、评论区、点赞按钮），就用 React 组件写，嵌进 Docusaurus 的主题里。
+
+**为什么选它**：我要的是一个写博客的工具，不是一个从零搭网站的框架。Docusaurus 把"写文章"和"做页面"这两件事分开了——我只管写 Markdown，导航栏、搜索、分类、暗色模式这些它都默认给好了。而且它本质还是 React，真要自定义组件、加交互，随时能下沉到代码层面，不会被框架限制住。
+
+## 样式：Tailwind CSS
+
+页面样式用的是 [Tailwind CSS](https://tailwindcss.com)（v4），直接在组件上写 class，不用单独维护一堆 CSS 文件。
+
+**为什么选它**：Tailwind 直接把样式写在组件标签上，改哪个看哪个，AI 改代码的时候也不容易改错文件、漏改某个地方。
+
+## 动画：GSAP + Motion
+
+动效用了两个库：[GSAP](https://gsap.com) 和 [Motion](https://motion.dev)。比如首页标签栏切换时那个会滑动的小药丸、按钮 hover 时的缩放，是 GSAP 写的；顶部的阅读进度条用的是 Motion。这两个库都是按需动态加载的，不需要动画的页面不会多背这部分体积。
+
+**为什么选它们**：纯 CSS transition 能做的动画有限，遇到"目标值要运行时计算"（比如 pill 滑到哪个位置）这种场景就不好维护了，GSAP 处理这类需求很省心。Motion 则是因为它和 React 的状态结合得更自然，做阅读进度条这种跟着滚动状态实时变化的小组件比较顺手。
+
+## 后端：Supabase
+
+登录、评论、点赞、收藏这些需要存数据的功能，都是接的 [Supabase](https://supabase.com)。它本质上是一个托管的 Postgres 数据库，外加现成的用户认证和实时 API，不用我自己搭后端服务器。
+
+**为什么选它**：我不是后端出身，自己搭服务器、管数据库、写认证这套东西成本太高，还容易出安全问题。Supabase 把这些都打包好了，我只要在前端调用它的 SDK 就行，省下来的时间用在写文章和打磨体验上。而且它底层是标准的 Postgres，不是什么封闭的私有格式，以后真要换平台，数据也不会被锁死。
+
+## 图床：Cloudflare R2
+
+文章里的图片不是放在仓库里的，是先传到 [Cloudflare R2](https://www.cloudflare.com/products/r2/) 对象存储，再通过自己的域名 `cdn.mikeq95blog.uk` 访问。传图这一步我写了个小脚本，本地存图片会自动上传并替换成 CDN 链接。
+
+**为什么选它**：图片放进 Git 仓库会让仓库越来越大，每次构建也会被拖慢。R2 跟 S3 接口兼容但没有出口流量费用，对一个不靠这个网站赚钱的个人博客来说，长期看更省钱，也更轻量。
+
+## 部署：GitHub Pages + Cloudflare
+
+网站源码托管在 GitHub，每次推到 `main` 分支会自动跑 GitHub Actions，把 Docusaurus 构建出来的静态文件发布到 GitHub Pages。域名 `mikeq95blog.uk` 接在 Cloudflare 上，顺带用了它的 CDN 加速和 SSL。
+
+**为什么选它**：这个博客本质是纯静态站点，不需要服务器常驻运行，GitHub Pages 免费、和仓库无缝绑定，推一次代码就自动发布，不用额外维护部署流程。Cloudflare 接在前面是为了 CDN 加速和免费 SSL，这两样对"网站要快"这个我很在意的点直接相关。
+
+## 写代码这件事
+
+大部分是 Claude Code 写的，很少部分是我写的。
+
+## 总结
+
+好了，这些就是所有我用到的技术，希望对你有所帮助。
+
+| 模块 | 用的什么 |
+|------|----------|
+| 网站框架 | Docusaurus（React） |
+| 样式 | Tailwind CSS |
+| 动画 | GSAP、Motion |
+| 后端/数据库 | Supabase |
+| 图床 | Cloudflare R2 |
+| 部署 | GitHub Pages + Cloudflare |
+
+---
+
+## 🌐 macOS 网络重置命令速查
+
+> 一般情况下，只需运行 **DNS 刷新 + DHCP 重置** 即可解决大多数网络问题。
+
+---
+
+## 常用命令（按推荐顺序）
+
+### 1. 刷新 [DNS 缓存](https://clearlove7-ai.vercel.app?word=DNS缓存&postId=2025-05-16-quick-reference-for-macOS%20network-reset-commands)
+
+```bash
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+```
+
+### 2. 释放并重新获取 IP（[DHCP](https://clearlove7-ai.vercel.app?word=DHCP&postId=2025-05-16-quick-reference-for-macOS%20network-reset-commands)）
+
+```bash
+sudo ipconfig set en0 DHCP
+```
+
+---
+
+## 常用的搜索引擎推荐
+
+### 一、搜索引擎选择
+
+#### 推荐排序
+
+Google适合日常搜索，DuckDuckGo和Brave适合注重隐私的人用，yandex适合搜索那种不正经的内容，Bing国内版，如果无法上外网，这个也能凑活用。
+
+#### 各引擎特点
+
+- **Google**：搜争议内容时结果偏 PC，反方观点少且力度弱，不够尖锐。
+- **DuckDuckGo**：比 Google 中立，但是每次用这个搜索结果的时候没有高亮，需要加一个脚本，我在文末会写到。（这个脚本用AI写就行）
+- **Yandex**：完全不理会西方政治正确那套，适合搜一些敏感，比较劲爆的内容。
+    - 例：搜「爱泼斯坦名单」，只有 Yandex 将名单置顶
+    - 例：搜「好莱坞丑闻」，只有 Yandex 显示激烈结果
+- **[政治正确](https://clearlove7-ai.vercel.app?word=政治正确&postId=2026-05-16-earch-engine-user-guide)程度**：`Google > Brave > DuckDuckGo > Yandex`
+
+---
+
+### 二、实用搜索技巧
+
+#### 软件资源，免费音乐下载
+
+用 **Yandex** 搜索：
+
+```
+软件名 + cracked / premium / unlocked / Скачать
+```
+结果中找带俄语的链接，一般可直接下载。
+安卓、PC、Mac 均适用。
+
+#### 搜电子书（[Anna's Archive](https://annas-archive.gl/) / [Z-Library](https://z-lib.fm/)）
+
+> 我要补充一下，如果你在用Google 搜索引擎去搜索Anna's Archive/Z-library,大概率会出现一堆不相关的东西，直接用yandex搜索引擎搜索，大概率第一个搜索结果就是你要找的（yandex还是太夯了！）
+```
+关键词 + edition      
+关键词 + 译           \
+```
+
+### 三、DuckDuckGo 搜索词高亮脚本
+
+> 需安装 [Tampermonkey](https://clearlove7-ai.vercel.app?word=Tampermonkey&postId=2026-05-16-earch-engine-user-guide) 浏览器插件后使用。
+
+javascript
+
+```javascript
+// ==UserScript==
+// @name         DuckDuckGo 搜索词高亮
+// @namespace    http://tampermonkey.net/
+// @version      2025-08-05
+// @description  为 DuckDuckGo 搜索结果中的关键词添加高亮颜色
+// @author       You
+// @match        https://duckduckgo.com/?*
+// @grant        GM_addStyle
+// ==/UserScript==
+(function() {
+    'use strict';
+    GM_addStyle(`
+        .kY2IgmnCmOGjharHErah span b {
+            color: #ff897e !important;
+        }
+    `);
+})();
+```
+
+---
+
+### 四，FAQ
+1. 为什么我按照你说的去搜索，但是我搜索不到？
+答： 因为搜索引擎默认是安全模式，你要在setting里面把安全模式关掉，一般来讲找到“No fliter”选择就行，fliter好像就是滤镜的意思，no fliter就是不会过滤敏感内容，选这个就对了。
+2.
+
+---
+
+## 开源 TTS 工具 Kokoro
+
+我想把自己写的英文文章转成音频，方便边走路边听。调研了一圈，免费、效果好、本地跑——这三个条件同时满足的，只有 [Kokoro](https://github.com/hexgrad/kokoro)。
+
+---
+
+## Kokoro 是什么
+
+Kokoro 是一个开源 [TTS](https://clearlove7-ai.vercel.app?word=TTS&postId=2026-05-16-kokoro-tts-tutorial)（文字转语音）模型，82M 参数，轻量但效果出奇地好。英文效果接近 ElevenLabs 商业级别，88 种声音可选，Apache 2.0 协议，免费商用。
+
+我们要用的是 [kokoro-web](https://github.com/eduardolat/kokoro-web)——一个把 Kokoro 包成本地服务的项目，用 [Docker](https://clearlove7-ai.vercel.app?word=Docker&postId=2026-05-16-kokoro-tts-tutorial) 一键启动，带网页界面，开箱即用。
+
+---
+
+## 声音怎么选
+
+Kokoro 的声音按质量分 A~D 级，A 最高。英文推荐直接从这几个里挑：
+
+| 声音 | 级别 | 风格 |
+|---|---|---|
+| Heart | A | 温暖女声，首选 |
+| Bella | A- | 高质量女声 |
+| Michael | C+ | 成熟男声 |
+| Emma | B- | 英式女声 |
+
+> 每个声音第一次用会下载对应的模型文件，之后自动缓存，不用重复下载。
+
+---
+
+## 安装 Docker
+
+如果还没装 Docker，先装。
+
+**国际网络**，直接去官网下：[docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop/)
+
+**国内网络**，官网访问慢，用阿里云镜像：
+
+```
+https://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/
+```
+
+下载 `.dmg`，双击安装，打开 Docker Desktop，等菜单栏出现 🐳 图标。
+
+然后配置一下命令行路径（让终端能找到 docker 命令）：
+
+```bash
+echo 'export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+验证安装成功：
+
+```bash
+docker --version && docker compose version
+```
+
+---
+
+## 部署 kokoro-web
+
+### 1. 创建项目目录
+
+```bash
+mkdir kokoro-web && cd kokoro-web
+```
+
+> **一定要 `cd` 进去再操作**，后面的 `docker compose` 命令必须在这个目录里跑，否则会报 `no configuration file provided`。
+
+### 2. 创建配置文件
+
+```bash
+cat > compose.yaml << 'EOF'
+services:
+  kokoro-web:
+    image: ghcr.io/eduardolat/kokoro-web:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - KW_SECRET_API_KEY=my-secret-key
+    volumes:
+      - ./kokoro-cache:/kokoro/cache
+    restart: unless-stopped
+EOF
+```
+
+`KW_SECRET_API_KEY` 是访问本地服务的密码，本地用随便填，记住这个值就行。
+> 我建议不用改，默认就行。
+
+### 3. 启动服务
+
+```bash
+docker compose up -d
+```
+
+第一次启动会拉取镜像，国内访问 `ghcr.io` 较慢，耐心等几分钟。
+
+看到这行就说明成功了：
+
+```bash
+docker compose logs -f
+# 看到 Listening on http://0.0.0.0:3000 即为成功
+```
+
+---
+
+## 使用 WebUI
+
+打开浏览器访问 `http://localhost:3000`，界面就出来了。
+
+### 配置 API（重要）
+
+右上角点 **API Settings**，弹出配置框：
+
+- **Base URL** 填：`http://localhost:3000/api/v1`（默认就是这个，不用改）
+- **API Key** 填：`my-secret-key`
+
+> **坑**：API Key 只填值本身，不要带 `- KW_SECRET_API_KEY=` 前缀，那是配置文件里的格式，不是 key 的内容。
+
+填完点 **OK**。
+
+### 生成设置
+
+回到主界面，几个关键选项：
+
+| 选项 | 推荐值 | 说明 |
+|---|---|---|
+| **Execution place** | `API (Self-hosted)` | 用本地 Docker，不要选 Browser |
+| **Model quantization** | `q8f16` | 速度和音质最平衡 |
+| **Language accent** | `English (US)` | 英文选这个 |
+| **Voice** | `Heart` | 推荐首选 |
+
+**Execution place 一定要选 `API (Self-hosted)`**，选 Browser 会在浏览器里跑模型，速度很慢，而且每次都要重新下载。
+
+在 **Text to process** 里粘贴文章内容，点 **Generate** 就行了。
+
+### 效果示例
+
+输入这段文字：
+
+> Google is renowned for its innovative and employee-centric work environment. The company's campuses, often called "Googleplexes," feature vibrant designs with open spaces, recreational facilities, free gourmet meals, and wellness centers. Employees enjoy flexible work hours, remote options, and a strong emphasis on collaboration through team projects and hackathons.
+>
+> A culture of creativity thrives with "20% time," encouraging personal passion projects that have led to major products like Gmail. Diversity, inclusion, and continuous learning are prioritized through training programs and supportive leadership. This unique blend of fun, freedom, and purpose fosters high productivity and job satisfaction, making Google a top destination for tech talent worldwide.
+
+用 Heart 声音生成的效果（约 150 词，本地生成耗时约 30 秒）：
+
+<audio controls>
+  <source src="/assets/kokoro-demo-google.mp3" type="audio/mpeg" />
+</audio>
+
+---
+
+## 处理 Markdown 文件
+
+Kokoro 只认纯文本，直接粘 `.md` 文件的话，`##`、`**bold**` 这些语法标记也会被读出来，很奇怪。
+
+用 `pandoc` 先转成纯文本再粘：
+
+```bash
+# 安装 pandoc
+brew install pandoc
+
+# 把 md 转成纯文本，输出到终端，然后复制粘贴
+pandoc article.md -t plain
+```
+
+---
+
+## 常用命令
+
+```bash
+docker compose logs -f    # 查看实时日志
+docker compose stop       # 停止服务
+docker compose start      # 启动服务
+docker compose pull       # 更新到最新版本
+```
+
+---
+
+---
+
+## 介绍 Homebrew
+
+> "macOS 上最流行的命令行软件安装器。"
+
+在 Mac 上装软件，你是不是还在官网一个个找安装包？有了 Homebrew，一条命令搞定一切——安装、更新、卸载，全部统一管理，告别手动下载的烦恼。
+
+Homebrew 是一个用于 macOS 和 Linux 的[包管理器](https://clearlove7-ai.vercel.app?word=包管理器&postId=2026-05-28-homebrew-tutorials)，它的核心价值就一句话：**用命令行统一管理你电脑上的所有软件**。
+
+---
+
+## 安装 Homebrew
+
+### 在中国
+
+由于网络原因，推荐使用国内镜像脚本：[来源](https://github.com/ineo6/homebrew-install)
+
+```bash
+/bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)"
+```
+
+### 在中国以外
+
+使用官方脚本：[来源](https://brew.sh/)
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+>"中国有他自己的世界，嗯🤔"
+
+---
+
+## 核心概念：formula 和 cask
+
+在用 Homebrew 之前，先搞清楚两个概念：
+
+- **[formula](https://clearlove7-ai.vercel.app?word=formula&postId=2026-05-28-homebrew-tutorials)（配方）**：用来安装**命令行工具**，比如 `git`、`python`，没有图形界面
+- **[cask](https://clearlove7-ai.vercel.app?word=cask&postId=2026-05-28-homebrew-tutorials)（酒桶）**：用来安装**有图形界面的 App**，比如 Firefox、VS Code
+
+> 我说的不是英雄联盟的那个酒桶😂
+
+简单记忆：**有图标的 App → cask，纯命令行工具 → formula**。
+
+---
+
+## 安装软件
+
+安装命令行工具（formula），比如 git：
+
+```bash
+brew install git  # 安装 git
+```
+
+安装图形界面 App（cask），比如 Firefox：
+
+```bash
+brew install --cask firefox  # 安装 Firefox
+```
+
+---
+
+## 更新软件
+
+在升级之前，先刷新一下 Homebrew 的软件列表，确保拿到最新版本：
+
+```bash
+brew update  # 刷新软件列表（类似刷新 App Store）
+```
+
+然后再升级指定软件，比如 Python：
+
+```bash
+brew upgrade python  # 升级 Python 到最新版
+```
+
+> **注意**：`brew update` 是更新 Homebrew 自己的清单，`brew upgrade` 才是真正升级软件，两者不一样哦。
+
+---
+
+## 锁定版本
+
+有时候你不想让某个软件自动升级——比如你的项目依赖特定版本的 Python，升级了反而会出问题。这时候可以用 `pin` 锁定版本：
+
+```bash
+brew pin python  # 锁定 python，阻止自动升级
+```
+
+查看已经锁定的软件：
+
+```bash
+brew list --pinned
+```
+
+想解锁了，允许升级：
+
+```bash
+brew unpin python  # 解锁 python
+```
+
+---
+
+## 卸载软件
+
+卸载命令行工具：
+
+```bash
+brew uninstall node  # 卸载 node
+```
+
+卸载图形界面 App：
+
+```bash
+brew uninstall --cask firefox  # 卸载 Firefox
+```
+
+卸载 Homebrew 本身：
+
+```bash
+/bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/uninstall.sh)"
+```
+
+---
+
+## 总结
+
+|操作|命令|
+|---|---|
+|安装命令行工具|`brew install <名称>`|
+|安装图形 App|`brew install --cask <名称>`|
+|刷新软件列表|`brew update`|
+|升级软件|`brew upgrade <名称>`|
+|锁定版本|`brew pin <名称>`|
+|查看已锁定|`brew list --pinned`|
+|解锁版本|`brew unpin <名称>`|
+|卸载软件|`brew uninstall <名称>`|
+
+以上这些命令，已经覆盖了日常使用 Homebrew 的绝大多数场景。在我看来，Homebrew 是 Mac 上必装的工具，实在是太方便了。
+
+---
+
+## Marker 使用教程
+
+[Marker](https://github.com/datalab-to/marker) 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdown 格式，速度快，识别准确率也不错。这篇文章记录一下怎么把它跑起来。
+
+---
+### 前言：
+我个人很喜欢浏览[instructables](https://www.instructables.com)这个网站，网站很贴心的在右上角给了你”将文章导出为PDF”的选项，但是没有”导出为markdown”的选项。我很希望格式是md，因为在AI更喜欢读md而不是PDF的文件。我在网上搜索，最终找到这个github项目。
+## 部署环境
+
+### 前置条件
+
+- Python 3.10 或以上
+- 推荐用 [Conda](https://clearlove7-ai.vercel.app?word=Conda&postId=2026-05-28-marker-github-project-tutorial) 管理环境（下面会说为什么）
+
+如果你用的是 Mac M1/M2/M3，不需要额外配置，PyTorch 已经原生支持。
+
+---
+
+### 安装 Conda
+
+推荐装 Miniforge，体积小，对 Apple Silicon 支持好。
+
+```bash
+# macOS Apple Silicon
+curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
+bash Miniforge3-MacOSX-arm64.sh
+```
+
+装完之后运行这条命令，让终端认识 conda：
+
+```bash
+~/miniforge3/bin/conda init zsh
+```
+
+然后关掉终端，重新打开。你会看到命令行前面多了一个 `(base)`，说明 conda 好了。
+
+---
+
+### 创建虚拟环境
+
+简单理解：[虚拟环境](https://clearlove7-ai.vercel.app?word=虚拟环境&postId=2026-05-28-marker-github-project-tutorial)就是给这个项目单独开一个"房间"，里面装的东西不会影响你电脑上别的项目。
+
+```bash
+conda create -n marker python=3.11 -y
+conda activate marker
+```
+
+进入环境后，命令行前面会从 `(base)` 变成 `(marker)`。
+
+---
+
+### 安装 Marker
+
+```bash
+pip install marker-pdf
+```
+
+如果还需要转 Word、PPT、EPUB 这些格式：
+
+```bash
+pip install marker-pdf[full]
+```
+
+---
+
+### 验证一下
+
+```bash
+marker_single --help
+```
+
+等个十几秒，输出一堆参数说明就是成功了。
+
+---
+
+### 以后每次用之前
+
+每次打开终端，记得先进环境：
+
+```bash
+conda activate marker
+```
+
+---
+
+## 怎么用
+
+基本格式就一行：
+
+```bash
+marker_single 你的文件路径 --output_dir 输出目录
+```
+
+几个常用参数：
+
+- `--output_dir`：指定输出到哪个文件夹
+- `--output_format`：输出格式，可以选 markdown、json、html
+- `--page_range`：只转某几页，比如 `"0,5-10"`（页码从 0 开始）
+- `--force_ocr`：强制 [OCR](https://clearlove7-ai.vercel.app?word=OCR&postId=2026-05-28-marker-github-project-tutorial)，PDF 里文字是图片时用这个
+- `--langs zh`：告诉它文档是中文，识别更准
+- `--use_llm`：用大模型辅助，精度更高，需要配 API Key
+
+转换完成后，输出目录里会有一个 `.md` 文件和提取出来的图片，用 Typora 或 Obsidian 打开就能正常显示。
+
+---
+
+## 实际使用示例
+
+### 转一篇论文
+
+```bash
+marker_single ~/Downloads/paper.pdf \
+  --output_dir ~/Documents/notes
+```
+
+第一次跑会下载 AI 模型，大概 1GB 左右，耐心等一下。跑完之后数学公式会变成 [LaTeX](https://clearlove7-ai.vercel.app?word=LaTeX&postId=2026-05-28-marker-github-project-tutorial)，表格和标题格式都会保留，效果还不错。
+
+---
+
+## 用 AI 工具帮你
+
+如果觉得上面的步骤麻烦，可以把下面这段提示词丢给 Claude Code、Cursor 这类 AI 工具，让它帮你自动把环境跑通。
+
+**中文版：**
+
+```
+你是一个专业的 Python 环境配置工程师。请帮我在这台电脑上完整部署 marker-pdf 的运行环境。
+
+我的环境：macOS Apple Silicon（M1 Pro），Shell 为 zsh，Conda 安装在 ~/miniforge3。
+
+请依次完成以下步骤，每步执行完检查结果，遇到报错立即分析并修复：
+
+1. 检查 conda 是否可用（conda --version），不可用则运行 ~/miniforge3/bin/conda init zsh 并提示我重开终端
+2. 创建并激活虚拟环境：conda create -n marker python=3.11 -y && conda activate marker
+3. 安装 marker：pip install marker-pdf
+4. 验证 PyTorch：python -c "import torch; print(torch.__version__)"，若报 libtorch_cpu.dylib 错误，立即重装：pip uninstall torch torchvision torchaudio -y && pip install torch torchvision torchaudio
+5. 验证 marker：运行 marker_single --help，等待约 20 秒，输出参数列表即为成功
+
+每步执行前先告诉我你要做什么，不要修改系统级配置。完成后输出已安装的 Python、PyTorch、marker-pdf 版本号。
+```
+
+---
+
+## 卸载
+
+只卸载 marker 包，保留环境：
+
+```bash
+conda activate marker
+pip uninstall marker-pdf
+```
+
+直接删掉整个环境（更彻底）：
+
+```bash
+conda deactivate
+conda env remove -n marker
+```
+
+---
+
+---
+
+## 用 Python 脚本下载 YouTube 视频
+
+想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。
+
+---
+
+## 配置运行环境
+
+你的 Mac 上需要以下四个工具
+
+### [Homebrew](/blog/2026/05/28/homebrew-tutorials)
+
+macOS 包管理器，装其他工具的基础。
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+验证：
+
+```bash
+brew --version
+```
+
+### [ffmpeg](https://clearlove7-ai.vercel.app?word=ffmpeg&postId=2026-05-29-Download-YouTube-videos-using-a-Python-script)
+。
+
+```bash
+brew install ffmpeg
+```
+
+验证：
+
+```bash
+ffmpeg -version
+```
+
+---
+
+### Node.js
+
+破解 YouTube 的 JS 加密挑战，缺它格式全部丢失。
+
+```bash
+brew install node
+```
+
+验证：
+
+```bash
+node --version
+```
+
+---
+
+### [yt-dlp](https://clearlove7-ai.vercel.app?word=yt-dlp&postId=2026-05-29-Download-YouTube-videos-using-a-Python-script)
+
+核心下载库。
+
+```bash
+pip3 install yt-dlp --break-system-packages
+```
+
+验证：
+
+```bash
+yt-dlp --version
+```
+
+---
+
+### 两项额外配置
+
+**终端获得完全磁盘访问权限**（读取 Safari [Cookie](https://clearlove7-ai.vercel.app?word=Cookie&postId=2026-05-29-Download-YouTube-videos-using-a-Python-script) 需要）
+
+系统设置 → 隐私与安全性 → 完全磁盘访问权限 → 添加「终端」
+
+**开启代理**（在国内访问 YouTube 必须）
+
+---
+
+## 获取代码
+
+你可以直接下载我写好的脚本，也可以自己写（或者让 AI 写，见下一节）。
+
+[点击下载 main.py](https://drive.google.com/file/d/14lFupv6bSw-cicSJ2KxoWYJgkII1uHeZ/view?usp=share_link)
+
+代码内容如下：
+
+```python
+
+# ── 配置区 ──────────────────────────────────────────────
+VIDEO_URL  = "XXXX"                           # 替换为真实的 YouTube 链接
+OUTPUT_DIR = os.path.expanduser("~/Desktop")  # 输出到桌面
+NODE_PATH  = "/opt/homebrew/bin/node"         # Homebrew 安装的 Node.js 路径
+# ────────────────────────────────────────────────────────
+
+def download_video(url: str, output_dir: str) -> None:
+    """
+    调用 yt-dlp 命令行下载 YouTube 视频，输出 H.264 MP4 格式。
+    """
+    output_template = os.path.join(output_dir, "%(title)s.%(ext)s")
+
+    cmd = [
+        "yt-dlp",
+        # 优先 H.264 视频流 + 最佳音频
+        "--format", "bestvideo[vcodec^=avc1]+bestaudio/bestvideo[ext=mp4]+bestaudio/best",
+        # 强制输出 mp4 容器
+        "--merge-output-format", "mp4",
+        # 明确指定 Node.js 路径，用于解开 YouTube JS 加密
+        "--js-runtimes", f"node:{NODE_PATH}",
+        # 从 GitHub 下载 JS 挑战解密脚本（首次运行需要联网）
+        "--remote-components", "ejs:github",
+        # 读取 Safari Cookie，绕过机器人检测
+        "--cookies-from-browser", "safari",
+        # 输出文件路径模板
+        "--output", output_template,
+        url,
+    ]
+
+    print(f"[INFO] 开始下载：{url}")
+    print(f"[INFO] 输出目录：{output_dir}\n")
+
+    result = subprocess.run(cmd)
+
+    if result.returncode == 0:
+        print("\n[✓] 下载完成！视频已保存到桌面。")
+    else:
+        print("\n[✗] 下载失败，请查看上方错误信息。", file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    # 支持从命令行传入链接：python3 main.py <url>
+    url = sys.argv[1] if len(sys.argv) > 1 else VIDEO_URL
+
+    if url == "XXXX":
+        print("[✗] 请将 VIDEO_URL 替换为真实链接，或通过命令行参数传入。",
+              file=sys.stderr)
+        print("    用法：python3 main.py \"YouTube链接\"", file=sys.stderr)
+        sys.exit(1)
+
+    download_video(url, OUTPUT_DIR)
+```
+
+---
+
+## 懒人做法：让 AI 帮你写代码
+
+不想手动写代码？直接把下面的提示词丢给 ChatGPT、DeepSeek 或 Claude，它们都能给你输出一个可用的脚本。
+
+**中文版提示词：**
+
+```
+请使用 Python 写一个下载 YouTube 视频的脚本，代码写在 main.py 文件里，
+这是需要下载的视频链接：XXXX，最终获得的视频格式要为 H.264 的 MP4，
+并输出到桌面。
+```
+
+**英文版提示词（更推荐，输出更稳定）：**
+
+```
+I need you to help me set up a YouTube video download environment on macOS and write a complete Python script.
+
+## My Environment
+- Device: MacBook (Apple Silicon, M-series chip)
+- OS: macOS
+
+## What I Need You To Do
+
+### Step 1 — Check and Install Dependencies
+Check whether the following tools are installed one by one. If not, provide the install command:
+1. Homebrew: via https://brew.sh/
+2. ffmpeg: via brew install ffmpeg
+3. Node.js: via brew install node
+4. yt-dlp: via pip3 install yt-dlp --break-system-packages
+
+### Step 2 — Write the Python Script
+Filename: youtube_downloader.py
+Requirements:
+- Use subprocess to call the yt-dlp CLI (do NOT use the yt_dlp Python API)
+- Video format: H.264 codec, MP4 container
+- Quality: automatically select the highest available quality
+- Cookies: read from Safari (--cookies-from-browser safari)
+- Node.js path: /opt/homebrew/bin/node
+- Include --remote-components ejs:github to solve JS challenges
+- Output directory: Desktop (~/Desktop)
+- Accept video URL as a command-line argument: python3 youtube_downloader.py "YouTube URL"
+- Add comments in English
+
+### Step 3 — Tell Me How To Use It
+Explain how to run the script in one sentence.
+
+## Important Notes
+- macOS root directory / is read-only — do NOT output files there
+- Terminal needs Full Disk Access enabled in System Settings to read Safari cookies — please remind me to do this
+- Do NOT use "ios" as the player_client — it does not support cookies
+```
+
+> AI 能帮你写好代码，但**环境还是要自己配置**（就是上面那四个工具）。如果你连这个也不想手动做，可以用 Claude Code / Codex 帮你自动执行安装命令，一路点 yes 就行。
+
+---
+
+## 使用步骤
+
+配置好环境之后，每次使用只需要一条命令。
+
+打开终端，输入：
+
+```bash
+python3 ~/Downloads/main.py "在这里粘贴YouTube链接"
+```
+
+> 如果你把 `main.py` 放在了其他位置，把 `~/Downloads/main.py` 替换成实际路径即可。`~/Downloads` 代表你的下载文件夹，不需要改成自己的用户名。
+
+例如：
+
+```bash
+python3 ~/Downloads/main.py "https://www.youtube.com/watch?v=5wvq8w7YBXU"
+```
+
+回车之后等待下载完成，视频会自动出现在**桌面**上。
+
+---
+
+## FAQ
+
+**下载之后的视频画质是多少？** 默认最高画质，脚本里这行代码决定了分辨率选择逻辑：
+
+```python
+"bestvideo[vcodec^=avc1]+bestaudio/bestvideo[ext=mp4]+bestaudio/best"
+```
+
+意思是：在所有 H.264 编码的视频流里，选画质最高的那个。
+
+**终端卡住不动？** 首次运行会从网上下载解密脚本，国内网络可能较慢，耐心等一下。确认代理已开启，或者等个 1～2 分钟再看。
+
+**提示 `command not found`？** 某个依赖没装好。按照"配置运行环境"一节逐一验证，找到没安装的那个重新装一遍。
+
+**提示 `permission denied` 或 Cookie 读取失败？** 终端没有完全磁盘访问权限。去系统设置 → 隐私与安全性 → 完全磁盘访问权限 → 添加「终端」，然后重新开一个终端窗口再试。
+
+**下载失败，看不懂报错？** 问Claude code
+
+---
+
+## Claude Design 平替，Open CoDesign 实际体验
+
+最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，要moeny的，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——[Open CoDesign](https://github.com/OpenCoworkAI/open-codesign)，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。
+
+---
+
+## 它是什么
+
+Open CoDesign 是一个桌面端的 AI 设计工具，核心逻辑就一句话：**你输入 prompt，它帮你生成可以直接看的 HTML 原型页面**。
+
+它的定位是 Claude Design、v0、Lovable 这类工具的开源替代品。几个关键点：
+
+- **本地运行**，数据不出你的电脑
+- **BYOK**（Bring Your Own Key），Claude、GPT、Gemini、Ollama 都支持
+- **MIT 开源**，免费用，只需要付你自己模型的 API 费用
+- **导出真实文件**，HTML、PDF、PPTX、ZIP 都行
+
+---
+
+## 部署过程
+
+### 环境要求
+
+- Node.js v22+
+- pnpm 10.x
+
+```bash
+# 检查 Node 版本
+node -v
+
+# 安装 pnpm
+npm install -g pnpm@10.33.4
+```
+
+### 克隆 & 安装
+
+```bash
+git clone https://github.com/OpenCoworkAI/open-codesign.git
+cd open-codesign
+pnpm install
+```
+
+`pnpm install` 会跑一两分钟，等它装完。
+
+### 启动
+
+```bash
+pnpm dev
+```
+
+稍等片刻，Electron 窗口会弹出来。第一次会让你配置 Provider，把你的 Claude API Key（`sk-ant-...`）粘进去，测试一下连接，就可以开始用了。
+
+---
+
+## 实际使用感受
+
+### 生成速度
+
+用 Claude API 的话，生成一个中等复杂度的页面大概需要 20-40 秒。页面生成过程中左边有个 Agent 面板，可以实时看到 AI 在做什么——写了哪些文件、调用了哪些工具，不是黑盒，看着还挺有意思的。
+
+### 生成质量
+
+内置了 15 个 Demo 模板（Landing Page、Dashboard、定价页、聊天 UI 等），直接选一个改 prompt 就能用，起点不低。它还内置了 12 个设计技能模块，会自动根据你的 prompt 选合适的模块，所以输出的页面不会是那种毫无设计感的"AI 味"风格。
+
+### Comment 模式
+
+这个功能挺实用的——点击预览页面上的任意元素，可以直接留一个批注，让 AI 只重写那个区域，不用重新描述整个页面。比直接改 prompt 精准多了。
+
+### AI Sliders
+
+生成完之后，AI 会自动识别出"值得调的参数"，比如主题色、字体大小、间距，用滑块的方式让你调，不用再写 prompt 说"把按钮颜色改成蓝色"之类的。
+
+---
+
+## 和 Claude Design 比
+
+| | Open CoDesign | Claude Design |
+|---|:---:|:---:|
+| 开源 | ✅ MIT | ❌ |
+| 本地运行 | ✅ | ❌ 云端 |
+| 支持多模型 | ✅ 20+ | ❌ 仅 Claude |
+| 价格 | ✅ 免费（自付 API 费用） | 💳 订阅制 |
+| 数据隐私 | ✅ 本地 | ❌ 云端处理 |
+
+---
+
+## 总结
+
+已经有 Claude API Key 的话，装起来成本很低，值得试试。
+
+---
+
+## GSAP 为你的网页加上炫酷动画
+
+最近发现一个有意思的 GitHub 项目——[gsap-skills](https://github.com/greensock/gsap-skills)，是 GSAP 官方出的 AI Skills 包，专门用来"教" Claude Code 正确使用 GSAP 动画库。
+
+有点意思，试试。
+
+---
+
+## GSAP 是什么
+
+[GSAP](https://gsap.com)（GreenSock Animation Platform）是目前最流行的 JavaScript 网页动画库，核心优势是：
+- GSAP 本身 = 一个 JavaScript 动画库（npm 包），要用它做动画，得在项目里 npm install gsap，写到代码里跑在浏览器上。它不依赖 Claude Code，是真实的前端技术。
+- gsap-core/gsap-timeline 等技能 = 装在 Claude Code 里的"使用说明书"，教我怎么正确调用 GSAP 的 API、踩过哪些坑、最佳实践是什么。技能本身不写代码、不在浏览器跑，只是帮（AI）更准确地帮你写 GSAP 代码。
+- 跨浏览器一致性：CSS animation/transition 在不同浏览器、不同 CSS 属性组合下表现会有差异，GSAP 把这些坑都处理掉了，效果可预测。
+- 可以动画几乎任何东西：不只是 CSS 属性，canvas、SVG、滚动位置、甚至自定义 JS 对象的数值都能动，CSS 动画做不到这个广度。
+- 时间线编排（Timeline）：多个动画要精确同步/接续（A 做完 0.2 秒后 B 才开始，且要跟着调整很方便），纯 CSS 写起来很痛苦，GSAP 的 timeline 这块体验好很多。
+- 性能：底层做了大量优化（用 transform 而不是触发重排的属性），大量元素同时动画也不卡。
+- ScrollTrigger 插件：滚动联动动画（滚到哪儿播放/暂停/pin 住）这块基本是行业标准，做起来比手写 IntersectionObserver + 手动算进度轻松很多。
+
+---
+
+## gsap-skills 是什么
+
+AI 对 GSAP 的了解可能是过时的——比如 ScrollTrigger 的写法、React 里的清理方式。装了 `gsap-skills` 之后，Claude Code 就能用正确的 API 写代码，知道各种插件怎么用，以及 React 里的最佳实践。
+
+它一共包含 8 个 skill：
+
+| Skill | 内容 |
+|-------|------|
+| gsap-core | 基础 API：to / from / fromTo、缓动、stagger |
+| gsap-timeline | 时间轴、sequencing、标签 |
+| gsap-scrolltrigger | 滚动动画、pinning、scrub |
+| gsap-plugins | SplitText、Flip、Draggable 等所有插件 |
+| gsap-react | useGSAP hook、cleanup、SSR |
+| gsap-performance | 性能优化技巧 |
+| gsap-frameworks | Vue、Svelte 等框架用法 |
+| gsap-utils | gsap.utils 工具函数 |
+
+---
+
+## 安装 gsap-skills
+
+在终端运行：
+
+```bash
+npx skills add https://github.com/greensock/gsap-skills
+```
+
+第一次运行会提示安装 `skills@1.5.9`，输入 `y` 确认。
+
+然后会让你选择要安装哪些 skill，**用空格键勾选，回车确认**。博客项目（Docusaurus / React）建议选这四个就够用了：
+
+- ✅ gsap-core
+- ✅ gsap-scrolltrigger
+- ✅ gsap-timeline
+- ✅ gsap-react
+
+接下来的选项：
+
+- **Agent**：选 `Claude Code`
+- **Installation scope**：选 `Global`（全局安装，所有项目都能用，不用每次重装）
+- **Installation method**：选 `Symlink`（推荐，skill 更新后自动同步）
+
+安装完成后，skill 会保存到 `~/.claude/skills/` 目录下。
+
+---
+
+## 如何使用
+
+安装完不需要任何特殊命令，**直接在 Claude Code 里描述你要做的动画就行**，Claude 会自动调用对应的 skill 来写出正确的代码。
+
+比如：
+1. 谁动——哪个元素/区域（标题、卡片、整个 banner...）
+2. 什么时机触发——页面加载时？鼠标 hover？滚动到这个区域时？点击时？
+3. 怎么变化——从哪到哪（位置/透明度/缩放/旋转），比如"从下往上滑入同时淡入"、"放大 1.05 倍"
+4. 节奏感——快慢、是否有弹性/回弹、多个元素是不是依次出现（stagger）而不是同时
+
+举例子：
+
+举个例子，按这四点描述一个动画需求可以这样写：
+
+"首页 Banner 标题，页面加载完成后触发：从下方 30px 处向上滑入并淡入到正常位置，速度稍快（0.6 秒），带一点回弹效果（elastic）。如果标题里有多个单词/卡片，让它们依次错开 0.1 秒出现，而不是同时弹出。"
+
+>Banner是啥？Banner就是页顶部那种大幅横向展示区块，你第一眼就看到的就是。
+
+---
+
+## 应用实例
+
+这个博客首页的 `RecentPosts` 组件里，标签栏的滑动小药丸（pill）和左右滚动按钮的 hover 缩放，都是用 GSAP 写的。
+
+> 灵感来源于[苹果官网](https://www.apple.com/mac/)的Explore the lineup.
+标签栏（Tab bar）两侧的左右滚动按钮hover 缩放比较简单，鼠标进入时放大到 1.1 倍，离开时缩回 1，`overwrite: 'auto'` 用来打断上一次还没播完的动画，避免快速划入划出时动画叠加卡顿：
+
+```jsx
+const enter = () => gsap.to(btn, { scale: 1.1, duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
+const leave = () => gsap.to(btn, { scale: 1,   duration: 0.18, ease: 'power2.out', overwrite: 'auto' });
+btn.addEventListener('mouseenter', enter);
+btn.addEventListener('mouseleave', leave);
+```
+
+pill 滑动稍微复杂一点：每次切换 tab，先用 `getBoundingClientRect` 算出新选中标签相对标签栏的位置和宽度，再让 pill 用 GSAP 动画过去，而不是直接用 CSS transition：
+
+```jsx
+const barRect = bar.getBoundingClientRect();
+const btnRect = activeEl.getBoundingClientRect();
+const targetX = btnRect.left - barRect.left;
+const targetW = btnRect.width;
+
+gsap.to(pill, {
+  x: targetX,
+  width: targetW,
+  duration: 0.15,
+  //这个可以改持续时间，如果你觉得快可以改成0.30
+  ease: 'power3.out',
+  overwrite: true,
+});
+```
+
+---
+
+## CodeGraph：让 Claude Code 节省许多token
+
+今天看到一个 GitHub 项目——[CodeGraph](https://github.com/colbymchenry/codegraph)，⭐ 三万八千多，MIT 开源。核心思路：**把代码库预先建成知识图谱，让 Claude Code 直接查，而不是每次都 grep 扫文件**。装来试了试，平均省 16% 费用、减少 58% 工具调用次数。
+
+---
+
+## 为什么 Claude Code 会"浪费" token
+
+用 Claude Code 问一个架构问题，比如"这个请求是怎么到数据库的"，它会先开 Explore 子代理，跑一堆 grep/ls/Read 去找文件，找完才开始分析。**整个探索过程本身就在消耗 token**，而且很多时候读了一堆不相关的文件。
+
+CodeGraph 的思路是：把这些探索工作提前做好，索引成本地 SQLite 数据库，Claude Code 直接查——一次工具调用返回相关符号的源码、调用图、依赖关系，不用再扫文件。
+
+---
+
+## 安装 CodeGraph
+
+**安装 CLI**（macOS/Linux，不需要 Node.js）：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/colbymchenry/codegraph/main/install.sh | sh
+```
+
+安装完记得**开新终端**，不然 `codegraph` 命令找不到。
+
+**接入 Claude Code**：
+
+```bash
+codegraph install
+```
+
+它会自动检测你装了哪些 AI 工具（Claude Code、Cursor、Gemini CLI 等），选 Claude Code 就行，其他的不用勾。
+
+**初始化项目**：
+
+```bash
+cd your-project
+codegraph init -i
+```
+
+`-i` 是 `--index`，创建目录的同时顺手把代码建索引，省一步。以后代码有改动，文件监听会自动增量同步，不用手动管。
+
+**怎么判断这个项目需不需要初始化？
+
+```bash
+ls your-project/.codegraph
+```
+
+有就是建过了，没有就跑一次 `codegraph init -i`。
+
+---
+
+## 给 Docusaurus 博客接入 Umami 访客统计
+
+[Umami](https://umami.is) 是开源的访客统计工具，不追踪用户行为、不需要 Cookie 弹窗，有免费的云托管版本，每月 10 万次事件额度，个人博客完全够用。
+
+---
+
+## 第一步：注册账号并创建网站
+
+Umami 有云托管版（免费，推荐新手）：
+
+1. 访问 [umami.is](https://umami.is) → **Get started for free**
+2. 注册账号
+3. 登录后点 **Add website**，填入：
+   - Name：你的博客名称
+   - Domain：你的博客域名，比如 `mikeq95blog.uk`
+4. 点击 **Save**，然后点 **Edit** → **Tracking code**，复制你的 `data-website-id`（是一串 UUID）
+
+---
+
+## 第二步：在 [Docusaurus](https://clearlove7-ai.vercel.app?word=Docusaurus&postId=2026-06-16-umami-analytics-docusaurus) 注入追踪脚本
+
+在 `docusaurus.config.js` 里加入 `scripts` 字段（加在 `plugins` 之前即可）：
+
+```js
+scripts: [
+  ...(process.env.NODE_ENV === 'production' ? [
+    {
+      src: 'https://cloud.umami.is/script.js',
+      async: true,
+      defer: true,
+      'data-website-id': '你的-website-id',  // 替换成第一步拿到的 UUID
+    },
+  ] : []),
+],
+```
+
+`NODE_ENV === 'production'` 的判断让本地开发时不发统计请求，不会把自己的浏览记录混进数据里。
+
+Website ID 直接写死在这里就行——它本来就会被嵌进公开的 HTML 源码里，任何人都能看到，没有加密保护的必要。
+
+---
+
+## 第三步：推送，等待部署
+
+提交并推送：
+
+```bash
+git add docusaurus.config.js
+git commit -m "Add Umami analytics tracking script"
+git push origin main
+```
+
+GitHub Actions 会自动触发构建和部署，等两三分钟。可以去仓库的 **Actions** 标签页确认——看到绿色的 `completed success` 就行。
+
+---
+
+## 第四步：验证
+
+部署完之后，用 `curl` 检查线上页面有没有 Umami 的脚本：
+
+```bash
+curl -s https://你的博客域名 | grep 'umami'
+```
+
+如果看到带完整 UUID 的 `<script>` 标签说明配置成功了。
+
+之后访问博客，刷新 [cloud.umami.is](https://cloud.umami.is) 控制台，就能看到实时访客、页面浏览量、来源国家等数据了。
+
+---
+
+## 📄 macOS 终端常用命令
+
+在 Mac 电脑上常用的几个命令：`touch`、`mkdir`、`code`、`cat`，`heredoc`(个人推荐)
+
+---
+
+## touch
+
+`touch` 可以新建文件
+
+```bash
+touch index.html
+```
+
+> 个人感觉这个命令很好用，比如你想写一个 md 文档，直接 `touch strawberry.md` 就行。
+
+> StrawBerry!!!🍓
+
+## mkdir
+
+`mkdir` 是 "make directory" 的缩写，顾名思义就是建文件夹的命令：
+
+```bash
+mkdir components
+```
+
+> 等同你在finder上cmd + shift + N或者鼠标右键新建文件夹
+
+### 加上 `-p`
+
+`-p` 是 `--parents` 的缩写，意思是"连同父级目录一起处理"。一般用在两种情况：
+
+**情况一：中间路径还不存在**，帮你自动补全。比如 `src` 还没建，直接跑 `mkdir src/pages/about` 会报错：
+
+```bash
+mkdir src/pages/about
+# mkdir: src/pages: No such file or directory
+```
+
+加上 `-p`，缺的中间层会一并自动建出来：
+
+```bash
+mkdir -p src/pages/about
+```
+
+**情况二：文件夹已经存在，不会报错中断**。不带 `-p` 时，重复跑同一条命令会报错：
+
+```bash
+mkdir components   # 第一次跑，正常建好
+mkdir components   # 再跑一次
+# mkdir: components: File exists
+```
+
+如果这条命令写在脚本里，跑到这一步就会中断，影响后面的步骤。加上 `-p` 就不会有这个问题：
+
+```bash
+mkdir -p components   # 第一次跑，正常建好
+mkdir -p components   # 再跑一次也不会报错，什么都不会发生
+```
+
+一句话总结：`-p` 让 `mkdir` 变得"傻瓜式安全"——不用管路径深不深、文件夹建过没建过，直接敲一条命令就完事。
+> 实际写脚本、敲命令的时候基本都是 `mkdir -p` 连着打，很少有人单独用不带参数的 `mkdir`。
+
+## code
+
+`code` 是 [VS Code](https://clearlove7-ai.vercel.app?word=VS%20Code&postId=2026-06-19-macos-terminal-create-file) 提供的命令行入口，不是 macOS 自带的命令，需要先在 VS Code 里 `Cmd+Shift+P` 搜 `Shell Command: Install 'code' command in PATH` 装一次。
+
+跑完下面这行，VS Code 会直接弹出来，文件不存在的话顺手帮你建好并打开——光标就停在空文件里，直接开始写代码：
+
+```bash
+code components/GradientText.jsx
+```
+
+## heredoc
+
+"heredoc" 是 "here document" 的缩写——这一段就是文档内容，直接写在命令里，不用单独开文件。
+
+```bash
+cat > components/GradientText.jsx << 'EOF'
+export default function GradientText() {
+  return Hello;
+}
+EOF
+```
+
+- `<< 'EOF'`：开始标记，意思是"往下读到下一个单独出现的 `EOF` 为止，都算内容"；带单引号能防止 `$变量` 之类被终端提前解析，写代码时基本都这么用
+- 结束的 `EOF` 必须顶格单独一行，否则终端会一直等你输入
+
+已有文件想追加而不是覆盖，把 `>` 换成 `>>` 即可。
+
+**有啥用？**
+
+你可以直接让 AI 用 heredoc 的命令帮你写一个文档，拿到命令之后直接粘贴到 terminal 回车运行。这可比鼠标点点点省事多了对吧。
+
+## cat
+
+`cat` 是 "concatenate"（连接、拼接）的缩写，最基础的用法是把文件内容打印到终端上：
+
+```bash
+cat test.txt
+```
+
+**有啥用？**
+
+我觉得问 AI 的时候有点用吧，比如你可以开个终端，然后 `cat` 你看不懂的多个文档，它会输出到 terminal 上，然后 `Cmd + A` 丢给 AI。我认为这比直接把文件丢给 AI 省事、更快。
+
+## 总结
+
+这些都是我常用的，就这些。
+
+只需要懂最基本的就行了，没必要懂很复杂的。
+
+---
+
+## 🧩 在 Claude Code 和 Claude 上用 skill
+
+什么是 skill？如何在 Claude 和 Claude Code 中安装和使用 skill？
+
+---
+
+## [skill](https://clearlove7-ai.vercel.app?word=skill&postId=2026-06-22-using-skill-in-claude-and-claude-code) 是什么
+
+简单说，skill 就是一个文件夹，里面至少有一个 `SKILL.md`，写清楚"什么时候该用这个能力"和"具体怎么做"。
+> 个人感觉也有点像是单机游戏的 MOD，但是这个 MOD 是专门为了增强游戏体验的。
+
+---
+
+## 在 Claude Code 里装
+
+### 第一步：下载 `.skill`
+
+如果你的 skill 是通过 Claude Code 的 skill creator 文件应该长这样：
+
+![claude 生成的 skill 文件图标](https://cdn.mikeq95blog.uk/coverimage/claude-skill-file-icon.png)
+
+一个橙色的"SKILL"图标，后缀名是`.skill`,但他还是一个zip包，后缀名和图标只是显示层面的东西。
+
+如果你还是不信，打开终端，输入：
+
+```bash
+file ~/Downloads/blog-markdown-formatter.skill
+```
+
+✅ 正常：输出里带 `Zip archive data`，证明它确实是 zip
+
+❌ 异常：如果输出是别的内容，说明下载过程文件损坏了，重新下载一次
+
+### 第二步：解压
+
+```bash
+cd ~/Downloads
+unzip blog-markdown-formatter.skill -d ~/.claude/skills/
+```
+
+### 第三步：验证目录结构
+
+```bash
+ls ~/.claude/skills/blog-markdown-formatter
+```
+
+✅ 正常：看到 `SKILL.md` 和 `references/` 两项，直接躺在这个文件夹下面
+
+❌ 异常：如果看到的是一个 `.skill` 文件躺在里面（说明只是把 zip 挪了位置，没解压），回到第二步重新执行 `unzip`
+
+解压对了之后，目录结构应该是这样：
+
+```
+~/.claude/skills/blog-markdown-formatter/
+├── SKILL.md
+└── references/
+    ├── blog-style-guide.md
+    └── syntax-checklist.md
+```
+
+至此，在 Claude Code 上安装 skill 已经完成。
+
+---
+
+## 在 Claude 里装
+
+1. 网页或 App 里找到 Settings → Customize → Skills
+2. 点 "+" → "Create skill" → "Upload a skill"
+3. 直接上传下载下来的 `.skill` 文件（不用解压，网页会自己解析里面的内容）
+4. 上传完成后，在列表里把开关打开
+
+至此，Claude 上安装 skill 已经完成。
+
+注意，在 Claude 上装了 skill，不代表 Claude Code 也能用——两边要分别装一次，不是一回事。
+
+---
+
+## 更新 skill
+
+你第一次用claud做出的skill，可能你不太满意，你打开vscode编辑了一下这个md文件，这时候你需要更新skill。
+
+**Claude Code 的做法**：
+
+```bash
+cd ~/Downloads
+rm -rf ~/.claude/skills/blog-markdown-formatter
+unzip blog-markdown-formatter.skill -d ~/.claude/skills/
+```
+
+**Claude 的做法**：去 Settings → Customize → Skills，找到这个 skill，删掉旧的，重新上传新文件。
+
+---
+
+## skill用法
+
+打开skill.md，看description.
+
+### 自动触发
+
+直接跟 Claude 或 Claude Code 说：
+```
+> 假如这是一个优化博客文章的skill:
+
+帮我把 /document/test.txt 这篇文章的 markdown 排版优化一下，按我博客的风格整理
+```
+
+### 手动指定
+
+```
+/blog-markdown-formatter /document/test.txt
+```
+
+> 只在Claude code中有效
+
+## 总结
+
+看到这你应该会用了
+
+那么恭喜你，你被我恭喜到了。
+
+---
+
+## MarkEdit，Mac 上一个 4MB 的 Markdown 编辑器
+
+一直在找一个纯粹一点的 Markdown 编辑器，不想要那种又大又卡、还要联网的 Electron 应用。最近发现了 [MarkEdit](https://github.com/MarkEdit-app/MarkEdit)，开源免费，专门给 macOS 做的，定位就是"Mac 上的 TextEdit，但专门用来写 Markdown"。这篇文章记录一下它的特点和安装方法。
+
+![markedit]('/Users/a1234/Documents/MyBlog/my-blog/static/img/markedit image.png')
+
+---
+
+## 它是什么
+
+MarkEdit 是一个 macOS 原生的 Markdown 编辑器，几个关键点：
+
+- **免费开源**，MIT 协议
+- **体积小**，安装包大概 4MB，比 Electron 应用小很多
+- **能扛大文件**，处理 10MB 的文件依然很流畅
+- **不收集任何用户数据**，纯本地编辑
+- **严格遵循 [GFM 规范](https://github.github.com/gfm/)**，没有自创语法，编辑内核基于 [CodeMirror 6](https://codemirror.net/)
+
+作者的说法是，他们不追求在某一个维度上做到最好，而是在**体积、速度、原生体验、正确性**这几个维度上找平衡——纯 Rust 写的编辑器性能强但缺原生功能，基于 TextKit 的编辑器原生但扛不住大文件，靠正则解析 Markdown 的编辑器又谈不上正确性。MarkEdit 想把这几头都兼顾到。
+
+---
+
+## 安装
+
+最低系统要求是 macOS 15.0。两种方式：
+
+去 [release 页面](https://github.com/MarkEdit-app/MarkEdit/releases/latest)下载 `MarkEdit.dmg`，打开后把 `MarkEdit.app` 拖进 `Applications` 即可。
+
+或者用 Homebrew：
+
+```bash
+brew install --cask markedit
+```
+
+装完之后会自动检查更新，不用手动操心版本。
+
+---
+
+## 实际使用感受
+
+### 界面和交互
+
+整体就是 macOS 原生控件那一套，没有自定义皮肤的违和感，力触控查词、输入预测、Writing Tools 这些系统级功能都能直接用，跟用 TextEdit、备忘录的感觉是一致的。
+
+### 扩展性
+
+自定义是通过 CSS、JavaScript 和 [CodeMirror 插件](https://github.com/MarkEdit-app/MarkEdit-api)来做的，官方维护了几个扩展：
+
+- [MarkEdit-preview](https://github.com/MarkEdit-app/MarkEdit-preview)：预览面板
+- [MarkEdit-theming](https://github.com/MarkEdit-app/MarkEdit-theming)：自定义主题
+- [MarkEdit-ai-writer](https://github.com/MarkEdit-app/MarkEdit-ai-writer)：macOS Tahoe 上接入 Apple Intelligence
+
+还支持 Shortcuts 和 AppleScript，可以接到自动化流程里。如果想让 AI agent 来管理 MarkEdit，官方还专门做了一个 [MarkEdit-skill](https://github.com/MarkEdit-app/MarkEdit-skill)。
+
+### 克制的功能取向
+
+作者在 [Why MarkEdit](https://github.com/MarkEdit-app/MarkEdit/wiki/Why-MarkEdit) 里提到，这个项目是刻意"功能贫乏"的——能用扩展解决的就不往主程序里塞，core 保持精简。提需求要先讨论行为变化是否合理，不是无脑加功能。
+
+---
+
+## 和其他编辑器比
+
+| | MarkEdit | Typora | iA Writer |
+|---|:---:|:---:|:---:|
+| 价格 | ✅ 免费 | 💳 一次性付费 | 💳 一次性付费 |
+| 开源 | ✅ MIT | ❌ | ❌ |
+| 体积 | ✅ ~4MB | 中等 | 中等 |
+| 大文件性能 | ✅ 10MB 流畅 | 一般 | 一般 |
+| 数据隐私 | ✅ 纯本地 | 本地 | 本地 |
+
+---
+
+## 总结
+
+如果只是想要一个干净、原生、不卡顿的 Markdown 编辑器，不需要花里胡哨的功能，MarkEdit 是个挺合适的选择，而且免费。
+
+---
+
+## claude-howto：一个周末学完 Claude Code 的教程项目
+
+[claude-howto](https://github.com/luongnv89/claude-howto)，一个面向 Claude Code 学习者的结构化教程 + 配置模板库，包含 10 个学习模块，从基础的 Slash Commands 到高级的 Subagents、MCP、Hooks 逐层深入（⭐ 39.2k，MIT 开源）。
+
+---
+
+## 它是什么
+
+不是一个要"运行"的程序，就是一套纯 Markdown 教程 + 模板库。核心是 **10 个模块**，从入门（Slash Commands、Memory、CLI 基础）到进阶（Checkpoints、Skills、Hooks、MCP、Subagents），再到高阶（Advanced Features、Plugins），每个模块都配教程和现成模板。官方预估全部学完 **11-13 小时**，也可以按自己的水平跳着学。文档中英双语。
+
+---
+
+## 怎么跑起来
+
+不需要装依赖，先进到 `~/Documents`（或者你习惯放代码的任何目录），clone 下来看：
+
+```bash
+cd ~/Documents
+git clone https://github.com/luongnv89/claude-howto.git
+cd claude-howto
+```
+
+仓库自带中文翻译（`zh/` 目录），不用啃英文原版。接下来这样做：
+
+**第一步：看文档**
+
+```bash
+open ~/Documents/claude-howto/zh/README.md
+```
+
+想看英文原版：
+
+```bash
+open ~/Documents/claude-howto/README.md
+```
+
+如果你更喜欢图形化界面操作，可以这样：打开 Finder，`command + shift + G` 唤出路径输入框，粘贴 `~/Documents/claude-howto`，回车定位过去，双击 `README.md` 打开。
+
+**第二步：体验仓库自带的 skill**
+
+`.claude/skills/` 下带了 `lesson-quiz` 和 `self-assessment` 两个 skill，但它们是项目级的，只有 `claude` 的工作目录是这个仓库时才能触发：
+
+```bash
+cd ~/Documents/claude-howto
+claude
+```
+
+进入交互界面后输入 `/self-assessment`，它会问几个问题，帮你判断当前水平，给出个性化学习路线——这是官方推荐的第一步。
+
+**第三步：把第一个 slash command 搬到自己的项目里试效果**
+
+```bash
+mkdir -p ~/Documents/MyBlog/my-blog/.claude/commands
+cp ~/Documents/claude-howto/01-slash-commands/optimize.md ~/Documents/MyBlog/my-blog/.claude/commands/
+```
+
+```bash
+ls ~/Documents/MyBlog/my-blog/.claude/commands/
+```
+
+✅ 正常：能看到 `optimize.md`
+
+❌ 异常：提示 `No such file or directory`，先确认上一步 `claude-howto` 是否 clone 成功
+
+然后在博客项目里跑 `claude`，输入 `/optimize` 试试效果。
+
+---
+
+## 实际学习节奏
+
+跟着 `LEARNING-ROADMAP.md`（或中文版）给出的顺序学——注意官方推荐的学习顺序不完全等于目录编号 01→10，比如 `08-checkpoints` 实际排在 `03-skills` 前面，具体顺序看文档里的表格。跑了几个模块下来，比较顺的节奏是这三步循环：
+
+1. **读教程** —— 对应模块的 `README.md`（有中文版看 `zh/` 下同名文件）
+2. **动手做** —— 把模板复制到自己的真实项目里跑一遍，而不是在教程仓库里空转
+3. **自测** —— 回 `claude-howto` 目录跑 `/lesson-quiz <模块名>`，查漏补缺
+
+比起对着文档纯看，这样过一遍模块，记忆会深很多。
+
+---
+
+## 总结
+
+如果已经用过 Claude Code 但只停留在"打字提问"层面，想系统了解 Slash Commands、Skills、Hooks、Subagents、MCP 这些功能怎么组合成实际工作流，claude-howto 是个挺合适的起点——不用装任何环境，克隆下来跟着 10 个模块过一遍就行。
+
+---
+
+## Claude教程01-Slash command
+
+Claude Code 里的 slash command 有 60 多个，很多平时压根没细究过具体怎么用。边用边记录一下每个命令的用法和容易踩的坑，方便自己以后查，这篇会陆续更新。
+
+---
+
+## `/add-dir <path>` 
+
+官方解释： Add a new working directory
+
+我举个例子好了： 你有两个文件，一个是后缀为.md的文档，在'documents'里面，另外一个是图片，在'pictures'里面。
+你现在想法是：我想写一个markdown格式的文档，用来写“我的攒钱计划”，图片上的是我在iPad上用手写笔写的一个大概计划。
+你现在要参考这个图片来写你的名为“我的攒钱计划”的文档，但是这两个不在同一个directory里面，这时候你可以用`/add-dir <path>`来写提示词。
+提示词大概是这样：（假设目前你当前目录是你要写的markdown文档里面）
+
+```bash
+
+/add-dir /User/xxx/Pictures/ My-handwritten-savings-plan。png 参考这个，帮我写好我的攒钱计划，要求：详细，跟图片内容基本一致。
+
+```
+
+---
+
+## `/cd <path>` 
+
+官方解释： Move this session to a new working directory
+
+把整个会话的主工作目录换掉，同时不破坏 prompt cache。
+
+---
+
+## `/chrome` 与 `/claude-in-chrome` ——
+
+- **`/chrome`** —— 配置 Chrome 
+- **`/claude-in-chrome`** ——  操作Chrome 浏览器 
+
+---
+## `/1btw <question>`
+
+官方解释： Ask a quick side question without interrupting the main conversation、
+
+btw 就是bu the way（顺便问一下）的意思，当Claude code在对话时候，你可以·/btw 目前我们进展到哪里了？·问一下他。
+note: 无论你问什么内容，都不会污染到主聊天，所以随便问。
+
+---
+
+## `/clear`
+
+官方解释： Start a new session with empty context;
+previous session stays on disk (resumable ..
+
+我觉得日常中比较常用的情况是： 比如你有任务一和任务二，当你做完任务一，把代码commit + push了，这时候可以运行`/clear`来清空上下文窗口，这样Claude code会保持专注于下一个任务上，不会被搞混。
+
+如果你要任务一，任务二一起做，有些时候，Claude code就会改不改改的代码，写出哪些看似正确，实则漏洞一大堆的方案。
+
+即便是Claude code，也会存在幻觉，所以我觉得把/clear用的频繁一点比较好。
+
+如果你想在`/clear`之前保留这次对话内容怎么办？
+
+具体操作： 
+```bash
+mkdir -p .claude/docs
+```
+然后跟Claude code说： "把我们刚才关于 XXX 的架构决策/调试结论,写一份 markdown 文件到 .claude/docs/xxx.md"
+
+写完之后你就可以 /clear,下次需要时再让 Claude 读那个文件(比如 "读一下 .claude/docs/xxx.md 里的内容"),就能把关键结论重新带回上下文,而不用把整个旧对话都保留着。
+
+---
+
+## `/compact`
+
+官方解释： Free up context by summarizing the conversation so far
+
+/clear = 直接清空,零 token,但什么都不留
+/compact = 有损压缩,把长对话总结成短摘要,继续用,但会丢细节和推理链条
+
+最好还是带上instrucitons,就是在compact 后面写一点话，比如
+/compact 保留关于数据库设计的所有决策
+
+---
+
+## `/color`
+
+改变Claude code cli终端里的颜色用的，
+
+比如
+```bash
+/color pink
+```
+emmmmm有啥用？我觉得要开多个窗口coding的话，这个可以帮你更好的区分吧呵呵呵😂。
+---
+
+## `/config`
+
+官方解释： open setting
+
+---
+
+## `/comtext`
+
+官方解释：
+
+`contexr`：用来查看当前会话的上下文窗口使用情况,是一个诊断/监控工具。
+
+输入`/context`,你会在终端看到类似的可视化输出
+
+```bash
+101k/200k tokens (51%)
+⛁ System prompt: 3.1k (1.6%)
+⛁ System tools: 19.8k (9.9%)
+⛁ MCP tools: 26.5k (13.3%)
+⛁ Memory files: 4.0k (2.0%)
+⛁ Free space: 99k (49.4%)
+```
+**有啥用？**
+1， 长会话进行到一半,感觉 Claude 表现变差
+如果 Claude 开始:
+
+跳过步骤、给出敷衍的回答
+忘记你前面说过的某个细节
+逻辑突然变得不连贯
+
+这时候先跑一下 /context 看看是不是已经接近上限了,而不是直接怀疑模型"变笨"了——很多时候只是上下文快满,信息互相挤占导致的。
+
+2，接了很多 MCP server,想知道谁在"偷"你的 token
+之前提到过,一个 MCP server(比如 playwright-mcp)可能光是把工具挂上,不用都要占掉 7% 以上的窗口。如果你接了三四个 MCP,想知道哪个最占空间、值不值得关掉,/context 配合 /mcp 一起看很直接。
+
+3， 开始一个大任务之前,先摸个底
+比如你准备让 Claude 处理一个大改动(比如重构 CheapChina 的订单状态机),开始前先看一眼 /context,确认还有多少自由空间,心里有数——快满了就先 /clear 或 /compact 再开始,免得干到一半被打断
+4， 怀疑 CLAUDE.md / 记忆文件写得太臃肿
+如果你感觉每次开场就已经"损耗"了不少空间,/context 能直接看到 Memory files 那一项占了多少百分比,方便你回头精简 CLAUDE.md。
+5. 决定该用 /compact 还是 /clear 的判断依据
+
+如果 /context 显示自由空间掉到 30% 以下,但当前任务还没做完 → /compact(带上聚焦指令保留关键信息)
+如果任务已经做完、准备切到新任务 → 直接 /clear
+
+**不常用的场景:**短会话、单文件小改动这种,基本不需要看,任务做完直接 /clear 就行,没必要专门查一次。
+总结一句:它更像是个"仪表盘",在你怀疑上下文出问题、或者想优化配置(MCP、记忆文件)的时候拿出来看,而不是日常必查项。日常监控其实靠状态栏(status line)上实时显示的百分比就够了。
+---
+
+## `/copy`
+
+官方解释： Copy Claude's last response to clipboard (or /copy N for the Nth-latest)
+
+---
+
+---
+
+## `/cost` 
+
+官方解释： Show session cost, plan usage, and activity stats
+
+---
+
+## `/doctor`
+
+官方解释： Diagnose and verify your Claude Code installation and settings 
+
+## `/effort`
+
+官方解释： Set effort level for model usage
+
+## `/export`
+
+官方解释： Export the current conversation to a file or clipboard
+
+/export 用来把当前会话的完整对话记录导出成文本文件,方便存档、写文档或者分享。
+
+**基本用法**:
+···bash
+/export
+```
+不带参数的话,会弹出一个对话框,让你选择"复制到剪贴板"或"保存为文件"。
+如果直接指定文件名:
+
+···bash
+/export session-notes.md
+```
+会直接把完整对话写成文件保存到当前位置,不弹窗、不确认。
+
+## `/focus`
+
+官方解释： Toggle focus view: just your prompt, summary, and response
+
+## `/ide`
+
+官方解释： Manage IDE integrations
+
+连接后能获得的功能:
+
+实时看到你在编辑器里的操作——你在 VS Code 里打开哪个文件、选中了哪段代码,Claude Code 能感知到,不用你手动复制粘贴代码片段告诉它"我在看这个"
+diff 直接在 VS Code 里显示——Claude 改代码时,不再是终端里输出一堆文本 diff,而是像正常 Git diff 一样在 VS Code 里高亮显示改动的地方,审查起来更直观
+文件同步更及时——Claude 在终端里改了文件,VS Code 里打开的对应文件会自动刷新,不用你手动重新加载
+选中代码直接当上下文——比如你在 VS Code 里选中一段有问题的函数,回到 Claude Code 直接问"这段有什么问题",它就知道你指的是哪段,不用你重新粘贴。
+什么时候值得连:
+如果你平时开发是"VS Code 开着项目,终端开着 Claude Code 来回切"这种工作流,连上 IDE 能省掉不少来回复制粘贴、手动刷新文件的动作。如果你更习惯纯终端里跟 Claude 对话、看 diff,不连也完全没问题,不影响核心功能。
+
+---
+
+## Claude教程02-Memory
+
+内容整理中，后续补充。
+
+---
+
+## Claude教程03-Skills
+
+内容整理中，后续补充。
+
+---
+
+## Claude教程04-Subagents
+
+内容整理中，后续补充。
+
+---
+
+## Claude教程05-MCP
+
+内容整理中，后续补充。
+
+---
+
+## Claude教程06-Hooks
+
+内容整理中，后续补充。
+
+---
+
+## Claude教程07-Plugins
+
+内容整理中，后续补充。
+
+---
+
+## Claude教程08-Checkpoints
+
+内容整理中，后续补充。
+
+---
+
+## Claude教程09-Advanced Features
+
+内容整理中，后续补充。
+
+---
+
+## Claude教程10-CLI
+
+内容整理中，后续补充。
+

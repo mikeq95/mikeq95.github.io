@@ -1,0 +1,38 @@
+# mikeq95's blog
+
+> I am a university student from China. Welcome to my blog.
+
+This file contains links to documentation sections following the llmstxt.org standard.
+
+## Table of Contents
+
+- [Intro](https://mikeq95blog.uk/en/docs/intro.md)
+- [编程英语单词短语收集](https://mikeq95blog.uk/blog/English/2026-04-29-coding-english-vocabulary.md): 整理编程文档、教程和 issue 中常见的英文词汇与表达，附例句与中文释义，帮助读懂英文技术资料。
+- [通用英语单词短语收集](https://mikeq95blog.uk/blog/English/2026-04-29-general-english-vocabulary.md): 持续收录日常和学术场景中的实用英语短语，每条附例句与中文释义，适合非母语学习者积累表达。
+- [关于这个博客](https://mikeq95blog.uk/blog/Life/2026-06-04-about.md): 05后电子信息工程大二生，写给自己看的博客——记录搞懂的东西，顺带验证自己是不是真的搞懂了。
+- [关于这个博客的 logo](https://mikeq95blog.uk/blog/Life/2026-06-14-about-the-logo.md): 博客 logo 的原型是英雄联盟里的 Poro，由我女朋友手绘设计，记录了这个 logo 背后的故事。
+- [介绍这个网页的技术栈](https://mikeq95blog.uk/blog/Life/2026-06-23-about-tech-stack.md): 这个博客是怎么搭起来的：Docusaurus + Supabase + Cloudflare，外加 Claude Code 帮我写了大部分代码。
+- [🌐 macOS 网络重置命令速查](https://mikeq95blog.uk/blog/Tech/2025-05-16-quick-reference-for-macOS%20network-reset-commands.md): 一张速查卡：macOS 常见网络故障的终端修复命令，包含 DNS 刷新、DHCP 重置等，遇到断网问题直接查。
+- [常用的搜索引擎推荐](https://mikeq95blog.uk/blog/Tech/2026-05-16-earch-engine-user-guide.md): 介绍日常可用的搜索引擎及其适用场景，告别单一依赖，找到适合自己的搜索工具组合。
+- [开源 TTS 工具 Kokoro](https://mikeq95blog.uk/blog/Tech/2026-05-16-kokoro-tts-tutorial.md): 用开源 TTS 工具 Kokoro 把英文文章转成高质量音频，免费、本地运行、效果出色，边走路边听自己写的内容。
+- [介绍 Homebrew](https://mikeq95blog.uk/blog/Tech/2026-05-28-homebrew-tutorials.md): Mac 用户必备包管理工具 Homebrew 入门指南：一条命令安装、更新、卸载软件，告别手动下载。
+- [Marker 使用教程](https://mikeq95blog.uk/blog/Tech/2026-05-28-marker-github-project-tutorial.md): Marker 是一款开源工具，可将 PDF、Word、PPT 快速转换为 Markdown，记录本地运行 Marker 的完整流程。
+- [用 Python 脚本下载 YouTube 视频](https://mikeq95blog.uk/blog/Tech/2026-05-29-Download-YouTube-videos-using-a-Python-script.md): 用一段 Python 脚本配合 yt-dlp，在 Mac 上本地下载 YouTube 视频，配置一次，换链接直接用。
+- [Claude Design 平替，Open CoDesign 实际体验](https://mikeq95blog.uk/blog/Tech/2026-06-01-open-codesign-review.md): Open CoDesign 是 Claude Design 的开源平替，本地运行、MIT 协议、支持自带 API Key，记录实际安装与使用体验。
+- [GSAP 为你的网页加上炫酷动画](https://mikeq95blog.uk/blog/Tech/2026-06-02-gsap-claude-code-web-animation.md): 介绍 GSAP 官方出的 Claude Code Skills 包，让 AI 正确理解 GSAP API，几分钟为网页加上流畅动画效果。
+- [CodeGraph：让 Claude Code 节省许多token](https://mikeq95blog.uk/blog/Tech/2026-06-03-codegraph-claude-code-knowledge-graph.md): CodeGraph 把代码库预建成知识图谱供 Claude Code 直接查询，实测减少 58% 工具调用次数、节省约 16% token 费用。
+- [给 Docusaurus 博客接入 Umami 访客统计](https://mikeq95blog.uk/blog/Tech/2026-06-16-umami-analytics-docusaurus.md): Umami 是隐私友好的开源访客统计工具，不需要 Cookie 弹窗。文章记录了从注册到接入 Docusaurus 博客的完整过程。
+- [📄 macOS 终端常用命令](https://mikeq95blog.uk/blog/Tech/2026-06-19-macos-terminal-create-file.md): 一张速查卡：touch、mkdir -p、code、heredoc、cat 拼命令操作文件，比 Finder 右键快不少，批量建文件时效率提升明显。
+- [🧩 在 Claude Code 和 Claude 上用 skill](https://mikeq95blog.uk/blog/Tech/2026-06-22-using-skill-in-claude-and-claude-code.md): claude.ai 和 Claude Code 的 skill 是两套独立系统，分别怎么装、怎么用、容易踩哪些坑，整理在这一篇。
+- [MarkEdit，Mac 上一个 4MB 的 Markdown 编辑器](https://mikeq95blog.uk/blog/Tech/2026-06-28-markedit-github-project.md): MarkEdit 是一款开源免费的 macOS 原生 Markdown 编辑器，安装包只有 4MB，主打轻量、原生、能扛大文件，记录一下它的特点和安装方法。
+- [claude-howto：一个周末学完 Claude Code 的教程项目](https://mikeq95blog.uk/blog/Tech/2026-07-04-claude-howto-github-project.md): claude-howto 用 10 个模块 + 自带的自测 Skill，把 Slash Commands、Memory、Skills、Hooks、MCP、Subagents 等 Claude Code 功能串成一条学习路径，记录一下怎么上手。
+- [Claude教程01-Slash command](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-slash-command-notes.md): 记录自己在实际使用 Claude Code 过程中逐个搞懂的 slash command 用法和容易搞混的地方，陆续更新，目前整理了 /add-dir、/agents。
+- [Claude教程02-Memory](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-02-memory.md): 内容整理中，后续补充。
+- [Claude教程03-Skills](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-03-skills.md): 内容整理中，后续补充。
+- [Claude教程04-Subagents](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-04-subagents.md): 内容整理中，后续补充。
+- [Claude教程05-MCP](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-05-mcp.md): 内容整理中，后续补充。
+- [Claude教程06-Hooks](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-06-hooks.md): 内容整理中，后续补充。
+- [Claude教程07-Plugins](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-07-plugins.md): 内容整理中，后续补充。
+- [Claude教程08-Checkpoints](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-08-checkpoints.md): 内容整理中，后续补充。
+- [Claude教程09-Advanced Features](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-09-advanced-features.md): 内容整理中，后续补充。
+- [Claude教程10-CLI](https://mikeq95blog.uk/blog/Tech/2026-07-05-claude-tutorial-10-cli.md): 内容整理中，后续补充。

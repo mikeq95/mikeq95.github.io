@@ -76,7 +76,43 @@
     "image": null
   },
   "2026/07/05/claude-slash-command-notes": {
-    "title": "Claude 的 slash command 个人总结",
+    "title": "Claude教程01-Slash command",
+    "image": null
+  },
+  "2026/07/05/claude-tutorial-02-memory": {
+    "title": "Claude教程02-Memory",
+    "image": null
+  },
+  "2026/07/05/claude-tutorial-03-skills": {
+    "title": "Claude教程03-Skills",
+    "image": null
+  },
+  "2026/07/05/claude-tutorial-04-subagents": {
+    "title": "Claude教程04-Subagents",
+    "image": null
+  },
+  "2026/07/05/claude-tutorial-05-mcp": {
+    "title": "Claude教程05-MCP",
+    "image": null
+  },
+  "2026/07/05/claude-tutorial-06-hooks": {
+    "title": "Claude教程06-Hooks",
+    "image": null
+  },
+  "2026/07/05/claude-tutorial-07-plugins": {
+    "title": "Claude教程07-Plugins",
+    "image": null
+  },
+  "2026/07/05/claude-tutorial-08-checkpoints": {
+    "title": "Claude教程08-Checkpoints",
+    "image": null
+  },
+  "2026/07/05/claude-tutorial-09-advanced-features": {
+    "title": "Claude教程09-Advanced Features",
+    "image": null
+  },
+  "2026/07/05/claude-tutorial-10-cli": {
+    "title": "Claude教程10-CLI",
     "image": null
   }
 }

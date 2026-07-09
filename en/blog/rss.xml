@@ -9,7 +9,7 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[Claude 的 slash command 个人总结]]></title>
+            <title><![CDATA[Claude教程01-Slash command]]></title>
             <link>https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes</link>
             <guid>https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes</guid>
             <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
@@ -35,8 +35,184 @@
 <li class=""><strong><code>/claude-in-chrome</code></strong> ——  操作Chrome 浏览器</li>
 </ul>
 <hr>
-<p>后续会陆续补充其他 slash command 的使用记录。</p>]]></content:encoded>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1btw-question"><code>/1btw &lt;question&gt;</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#1btw-question" class="hash-link" aria-label="Direct link to 1btw-question" title="Direct link to 1btw-question" translate="no">​</a></h2>
+<p>官方解释： Ask a quick side question without interrupting the main conversation、</p>
+<p>btw 就是bu the way（顺便问一下）的意思，当Claude code在对话时候，你可以·/btw 目前我们进展到哪里了？·问一下他。
+note: 无论你问什么内容，都不会污染到主聊天，所以随便问。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="clear"><code>/clear</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#clear" class="hash-link" aria-label="Direct link to clear" title="Direct link to clear" translate="no">​</a></h2>
+<p>官方解释： Start a new session with empty context;
+previous session stays on disk (resumable ..</p>
+<p>我觉得日常中比较常用的情况是： 比如你有任务一和任务二，当你做完任务一，把代码commit + push了，这时候可以运行<code>/clear</code>来清空上下文窗口，这样Claude code会保持专注于下一个任务上，不会被搞混。</p>
+<p>如果你要任务一，任务二一起做，有些时候，Claude code就会改不改改的代码，写出哪些看似正确，实则漏洞一大堆的方案。</p>
+<p>即便是Claude code，也会存在幻觉，所以我觉得把/clear用的频繁一点比较好。</p>
+<p>如果你想在<code>/clear</code>之前保留这次对话内容怎么办？</p>
+<p>具体操作：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir -p .claude/docs</span><br></div></code></pre></div></div>
+<p>然后跟Claude code说： "把我们刚才关于 XXX 的架构决策/调试结论,写一份 markdown 文件到 .claude/docs/xxx.md"</p>
+<p>写完之后你就可以 /clear,下次需要时再让 Claude 读那个文件(比如 "读一下 .claude/docs/xxx.md 里的内容"),就能把关键结论重新带回上下文,而不用把整个旧对话都保留着。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="compact"><code>/compact</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#compact" class="hash-link" aria-label="Direct link to compact" title="Direct link to compact" translate="no">​</a></h2>
+<p>官方解释： Free up context by summarizing the conversation so far</p>
+<p>/clear = 直接清空,零 token,但什么都不留
+/compact = 有损压缩,把长对话总结成短摘要,继续用,但会丢细节和推理链条</p>
+<p>最好还是带上instrucitons,就是在compact 后面写一点话，比如
+/compact 保留关于数据库设计的所有决策</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="color"><code>/color</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#color" class="hash-link" aria-label="Direct link to color" title="Direct link to color" translate="no">​</a></h2>
+<p>改变Claude code cli终端里的颜色用的，</p>
+<p>比如</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/color pink</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="emmmmm有啥用我觉得要开多个窗口coding的话这个可以帮你更好的区分吧呵呵呵">emmmmm有啥用？我觉得要开多个窗口coding的话，这个可以帮你更好的区分吧呵呵呵😂。<a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#emmmmm%E6%9C%89%E5%95%A5%E7%94%A8%E6%88%91%E8%A7%89%E5%BE%97%E8%A6%81%E5%BC%80%E5%A4%9A%E4%B8%AA%E7%AA%97%E5%8F%A3coding%E7%9A%84%E8%AF%9D%E8%BF%99%E4%B8%AA%E5%8F%AF%E4%BB%A5%E5%B8%AE%E4%BD%A0%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%8C%BA%E5%88%86%E5%90%A7%E5%91%B5%E5%91%B5%E5%91%B5" class="hash-link" aria-label="Direct link to emmmmm有啥用？我觉得要开多个窗口coding的话，这个可以帮你更好的区分吧呵呵呵😂。" title="Direct link to emmmmm有啥用？我觉得要开多个窗口coding的话，这个可以帮你更好的区分吧呵呵呵😂。" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="config"><code>/config</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#config" class="hash-link" aria-label="Direct link to config" title="Direct link to config" translate="no">​</a></h2>
+<p>官方解释： open setting</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="comtext"><code>/comtext</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#comtext" class="hash-link" aria-label="Direct link to comtext" title="Direct link to comtext" translate="no">​</a></h2>
+<p>官方解释：</p>
+<p><code>contexr</code>：用来查看当前会话的上下文窗口使用情况,是一个诊断/监控工具。</p>
+<p>输入<code>/context</code>,你会在终端看到类似的可视化输出</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">101k/200k tokens (51%)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">⛁ System prompt: 3.1k (1.6%)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">⛁ System tools: 19.8k (9.9%)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">⛁ MCP tools: 26.5k (13.3%)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">⛁ Memory files: 4.0k (2.0%)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">⛁ Free space: 99k (49.4%)</span><br></div></code></pre></div></div>
+<p><strong>有啥用？</strong>
+1， 长会话进行到一半,感觉 Claude 表现变差
+如果 Claude 开始:</p>
+<p>跳过步骤、给出敷衍的回答
+忘记你前面说过的某个细节
+逻辑突然变得不连贯</p>
+<p>这时候先跑一下 /context 看看是不是已经接近上限了,而不是直接怀疑模型"变笨"了——很多时候只是上下文快满,信息互相挤占导致的。</p>
+<p>2，接了很多 MCP server,想知道谁在"偷"你的 token
+之前提到过,一个 MCP server(比如 playwright-mcp)可能光是把工具挂上,不用都要占掉 7% 以上的窗口。如果你接了三四个 MCP,想知道哪个最占空间、值不值得关掉,/context 配合 /mcp 一起看很直接。</p>
+<p>3， 开始一个大任务之前,先摸个底
+比如你准备让 Claude 处理一个大改动(比如重构 CheapChina 的订单状态机),开始前先看一眼 /context,确认还有多少自由空间,心里有数——快满了就先 /clear 或 /compact 再开始,免得干到一半被打断
+4， 怀疑 CLAUDE.md / 记忆文件写得太臃肿
+如果你感觉每次开场就已经"损耗"了不少空间,/context 能直接看到 Memory files 那一项占了多少百分比,方便你回头精简 CLAUDE.md。
+5. 决定该用 /compact 还是 /clear 的判断依据</p>
+<p>如果 /context 显示自由空间掉到 30% 以下,但当前任务还没做完 → /compact(带上聚焦指令保留关键信息)
+如果任务已经做完、准备切到新任务 → 直接 /clear</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="不常用的场景短会话单文件小改动这种基本不需要看任务做完直接-clear-就行没必要专门查一次总结一句它更像是个仪表盘在你怀疑上下文出问题或者想优化配置mcp记忆文件的时候拿出来看而不是日常必查项日常监控其实靠状态栏status-line上实时显示的百分比就够了">**不常用的场景:**短会话、单文件小改动这种,基本不需要看,任务做完直接 /clear 就行,没必要专门查一次。
+总结一句:它更像是个"仪表盘",在你怀疑上下文出问题、或者想优化配置(MCP、记忆文件)的时候拿出来看,而不是日常必查项。日常监控其实靠状态栏(status line)上实时显示的百分比就够了。<a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#%E4%B8%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E7%9F%AD%E4%BC%9A%E8%AF%9D%E5%8D%95%E6%96%87%E4%BB%B6%E5%B0%8F%E6%94%B9%E5%8A%A8%E8%BF%99%E7%A7%8D%E5%9F%BA%E6%9C%AC%E4%B8%8D%E9%9C%80%E8%A6%81%E7%9C%8B%E4%BB%BB%E5%8A%A1%E5%81%9A%E5%AE%8C%E7%9B%B4%E6%8E%A5-clear-%E5%B0%B1%E8%A1%8C%E6%B2%A1%E5%BF%85%E8%A6%81%E4%B8%93%E9%97%A8%E6%9F%A5%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93%E4%B8%80%E5%8F%A5%E5%AE%83%E6%9B%B4%E5%83%8F%E6%98%AF%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98%E5%9C%A8%E4%BD%A0%E6%80%80%E7%96%91%E4%B8%8A%E4%B8%8B%E6%96%87%E5%87%BA%E9%97%AE%E9%A2%98%E6%88%96%E8%80%85%E6%83%B3%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AEmcp%E8%AE%B0%E5%BF%86%E6%96%87%E4%BB%B6%E7%9A%84%E6%97%B6%E5%80%99%E6%8B%BF%E5%87%BA%E6%9D%A5%E7%9C%8B%E8%80%8C%E4%B8%8D%E6%98%AF%E6%97%A5%E5%B8%B8%E5%BF%85%E6%9F%A5%E9%A1%B9%E6%97%A5%E5%B8%B8%E7%9B%91%E6%8E%A7%E5%85%B6%E5%AE%9E%E9%9D%A0%E7%8A%B6%E6%80%81%E6%A0%8Fstatus-line%E4%B8%8A%E5%AE%9E%E6%97%B6%E6%98%BE%E7%A4%BA%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94%E5%B0%B1%E5%A4%9F%E4%BA%86" class="hash-link" aria-label="Direct link to **不常用的场景:**短会话、单文件小改动这种,基本不需要看,任务做完直接 /clear 就行,没必要专门查一次。
+总结一句:它更像是个&quot;仪表盘&quot;,在你怀疑上下文出问题、或者想优化配置(MCP、记忆文件)的时候拿出来看,而不是日常必查项。日常监控其实靠状态栏(status line)上实时显示的百分比就够了。" title="Direct link to **不常用的场景:**短会话、单文件小改动这种,基本不需要看,任务做完直接 /clear 就行,没必要专门查一次。
+总结一句:它更像是个&quot;仪表盘&quot;,在你怀疑上下文出问题、或者想优化配置(MCP、记忆文件)的时候拿出来看,而不是日常必查项。日常监控其实靠状态栏(status line)上实时显示的百分比就够了。" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="copy"><code>/copy</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#copy" class="hash-link" aria-label="Direct link to copy" title="Direct link to copy" translate="no">​</a></h2>
+<p>官方解释： Copy Claude's last response to clipboard (or /copy N for the Nth-latest)</p>
+<hr>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cost"><code>/cost</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#cost" class="hash-link" aria-label="Direct link to cost" title="Direct link to cost" translate="no">​</a></h2>
+<p>官方解释： Show session cost, plan usage, and activity stats</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="doctor"><code>/doctor</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#doctor" class="hash-link" aria-label="Direct link to doctor" title="Direct link to doctor" translate="no">​</a></h2>
+<p>官方解释： Diagnose and verify your Claude Code installation and settings</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="effort"><code>/effort</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#effort" class="hash-link" aria-label="Direct link to effort" title="Direct link to effort" translate="no">​</a></h2>
+<p>官方解释： Set effort level for model usage</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="export"><code>/export</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#export" class="hash-link" aria-label="Direct link to export" title="Direct link to export" translate="no">​</a></h2>
+<p>官方解释： Export the current conversation to a file or clipboard</p>
+<p>/export 用来把当前会话的完整对话记录导出成文本文件,方便存档、写文档或者分享。</p>
+<p><strong>基本用法</strong>:
+···bash
+/export</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">不带参数的话,会弹出一个对话框,让你选择"复制到剪贴板"或"保存为文件"。</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">如果直接指定文件名:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">···bash</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">/export session-notes.md</span><br></div></code></pre></div></div>
+<p>会直接把完整对话写成文件保存到当前位置,不弹窗、不确认。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="focus"><code>/focus</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#focus" class="hash-link" aria-label="Direct link to focus" title="Direct link to focus" translate="no">​</a></h2>
+<p>官方解释： Toggle focus view: just your prompt, summary, and response</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ide"><code>/ide</code><a href="https://mikeq95blog.uk/en/blog/2026/07/05/claude-slash-command-notes#ide" class="hash-link" aria-label="Direct link to ide" title="Direct link to ide" translate="no">​</a></h2>
+<p>官方解释： Manage IDE integrations</p>
+<p>连接后能获得的功能:</p>
+<p>实时看到你在编辑器里的操作——你在 VS Code 里打开哪个文件、选中了哪段代码,Claude Code 能感知到,不用你手动复制粘贴代码片段告诉它"我在看这个"
+diff 直接在 VS Code 里显示——Claude 改代码时,不再是终端里输出一堆文本 diff,而是像正常 Git diff 一样在 VS Code 里高亮显示改动的地方,审查起来更直观
+文件同步更及时——Claude 在终端里改了文件,VS Code 里打开的对应文件会自动刷新,不用你手动重新加载
+选中代码直接当上下文——比如你在 VS Code 里选中一段有问题的函数,回到 Claude Code 直接问"这段有什么问题",它就知道你指的是哪段,不用你重新粘贴。
+什么时候值得连:
+如果你平时开发是"VS Code 开着项目,终端开着 Claude Code 来回切"这种工作流,连上 IDE 能省掉不少来回复制粘贴、手动刷新文件的动作。如果你更习惯纯终端里跟 Claude 对话、看 diff,不连也完全没问题,不影响核心功能。</p>]]></content:encoded>
             <category>Claude Code</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程02-Memory]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-02-memory</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-02-memory</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[内容整理中，后续补充。]]></description>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程03-Skills]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-03-skills</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-03-skills</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[内容整理中，后续补充。]]></description>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程04-Subagents]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-04-subagents</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-04-subagents</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[内容整理中，后续补充。]]></description>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程05-MCP]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-05-mcp</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-05-mcp</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[内容整理中，后续补充。]]></description>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程06-Hooks]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-06-hooks</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-06-hooks</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[内容整理中，后续补充。]]></description>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程07-Plugins]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-07-plugins</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-07-plugins</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[内容整理中，后续补充。]]></description>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程08-Checkpoints]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-08-checkpoints</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-08-checkpoints</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[内容整理中，后续补充。]]></description>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程09-Advanced Features]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-09-advanced-features</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-09-advanced-features</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[内容整理中，后续补充。]]></description>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程10-CLI]]></title>
+            <link>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-10-cli</link>
+            <guid>https://mikeq95blog.uk/en/blog/2026/07/05/claude-tutorial-10-cli</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[内容整理中，后续补充。]]></description>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
         </item>
         <item>
             <title><![CDATA[claude-howto：一个周末学完 Claude Code 的教程项目]]></title>
@@ -503,573 +679,6 @@
 <div class="language-jsx codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-jsx codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> barRect </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> bar</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">getBoundingClientRect</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> btnRect </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> activeEl</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">getBoundingClientRect</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> targetX </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> btnRect</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">left</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">-</span><span class="token plain"> barRect</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">left</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> targetW </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> btnRect</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">width</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">gsap</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">to</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">pill</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token literal-property property" style="color:#36acaa">x</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> targetX</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token literal-property property" style="color:#36acaa">width</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> targetW</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token literal-property property" style="color:#36acaa">duration</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">0.15</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// you can tweak the duration here — bump it to 0.30 if it feels too fast</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token literal-property property" style="color:#36acaa">ease</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">'power3.out'</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token literal-property property" style="color:#36acaa">overwrite</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean" style="color:#36acaa">true</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></div></code></pre></div></div>]]></content:encoded>
             <category>GitHub</category>
             <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[Open-Source Alternative to Claude Design — My Hands-On with Open CoDesign]]></title>
-            <link>https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review</link>
-            <guid>https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review</guid>
-            <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Open CoDesign is an open-source alternative to Claude Design — runs locally, MIT license, bring your own API key.]]></description>
-            <content:encoded><![CDATA[<p>Claude Design has been getting a lot of attention lately — you give it a prompt and it generates a page prototype instantly, which looks impressive. The problem is it requires a separate subscription, costs money, only works with Claude, and your data lives in the cloud. I started wondering if there's an open-source alternative. There is: <a href="https://github.com/OpenCoworkAI/open-codesign" target="_blank" rel="noopener noreferrer" class="">Open CoDesign</a> — MIT licensed, runs locally, supports your own API keys. Here's my experience with it.</p>
-<!-- -->
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-it-is">What It Is<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#what-it-is" class="hash-link" aria-label="Direct link to What It Is" title="Direct link to What It Is" translate="no">​</a></h2>
-<p>Open CoDesign is a desktop AI design tool. The core idea is simple: <strong>you enter a prompt, it generates a viewable HTML prototype page</strong>. It's positioned as an open-source alternative to Claude Design, v0, and Lovable. Key points:</p>
-<ul>
-<li class=""><strong>Runs locally</strong> — your data stays on your machine</li>
-<li class=""><strong>BYOK</strong> (Bring Your Own Key) — supports Claude, GPT, Gemini, and Ollama</li>
-<li class=""><strong>MIT open-source</strong> — free to use; you only pay for your own model's API costs</li>
-<li class=""><strong>Exports real files</strong> — HTML, PDF, PPTX, ZIP, all supported</li>
-</ul>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="deployment">Deployment<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#deployment" class="hash-link" aria-label="Direct link to Deployment" title="Direct link to Deployment" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="requirements">Requirements<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#requirements" class="hash-link" aria-label="Direct link to Requirements" title="Direct link to Requirements" translate="no">​</a></h3>
-<ul>
-<li class="">Node.js v22+</li>
-<li class="">pnpm 10.x</li>
-</ul>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain"># Check Node version</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">node -v</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># Install pnpm</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">npm install -g pnpm@10.33.4</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="clone--install">Clone &amp; Install<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#clone--install" class="hash-link" aria-label="Direct link to Clone &amp; Install" title="Direct link to Clone &amp; Install" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">git clone https://github.com/OpenCoworkAI/open-codesign.git</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">cd open-codesign</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pnpm install</span><br></div></code></pre></div></div>
-<p><code>pnpm install</code> takes a minute or two — wait for it to finish.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="start">Start<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#start" class="hash-link" aria-label="Direct link to Start" title="Direct link to Start" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pnpm dev</span><br></div></code></pre></div></div>
-<p>After a moment, an Electron window will appear. The first time, it asks you to configure a provider — paste in your Claude API key (<code>sk-ant-...</code>), test the connection, and you're ready to go.</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-it-feels-in-practice">How It Feels in Practice<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#how-it-feels-in-practice" class="hash-link" aria-label="Direct link to How It Feels in Practice" title="Direct link to How It Feels in Practice" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="generation-speed">Generation Speed<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#generation-speed" class="hash-link" aria-label="Direct link to Generation Speed" title="Direct link to Generation Speed" translate="no">​</a></h3>
-<p>With the Claude API, a medium-complexity page takes about 20–40 seconds to generate. During generation, there's an Agent panel on the left showing what the AI is doing in real time — which files it wrote, which tools it called. It's not a black box, and it's kind of interesting to watch.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="output-quality">Output Quality<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#output-quality" class="hash-link" aria-label="Direct link to Output Quality" title="Direct link to Output Quality" translate="no">​</a></h3>
-<p>There are 15 built-in demo templates (landing pages, dashboards, pricing pages, chat UIs, etc.) — pick one and tweak the prompt, and you have a solid starting point. It also comes with 12 design skill modules that are automatically selected based on your prompt, so the output doesn't look like that typical generic "AI aesthetic."</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="comment-mode">Comment Mode<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#comment-mode" class="hash-link" aria-label="Direct link to Comment Mode" title="Direct link to Comment Mode" translate="no">​</a></h3>
-<p>A genuinely useful feature: click any element in the preview and leave a comment, then let the AI rewrite just that section without having to re-describe the whole page. Much more precise than modifying the prompt from scratch.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ai-sliders">AI Sliders<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#ai-sliders" class="hash-link" aria-label="Direct link to AI Sliders" title="Direct link to AI Sliders" translate="no">​</a></h3>
-<p>After generation, the AI automatically identifies "tunable parameters" — like primary color, font size, spacing — and presents them as sliders. No need to write "change the button color to blue" in a new prompt.</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="vs-claude-design">vs. Claude Design<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#vs-claude-design" class="hash-link" aria-label="Direct link to vs. Claude Design" title="Direct link to vs. Claude Design" translate="no">​</a></h2>
-<table><thead><tr><th></th><th style="text-align:center">Open CoDesign</th><th style="text-align:center">Claude Design</th></tr></thead><tbody><tr><td>Open-source</td><td style="text-align:center">✅ MIT</td><td style="text-align:center">❌</td></tr><tr><td>Runs locally</td><td style="text-align:center">✅</td><td style="text-align:center">❌ Cloud</td></tr><tr><td>Multi-model support</td><td style="text-align:center">✅ 20+</td><td style="text-align:center">❌ Claude only</td></tr><tr><td>Price</td><td style="text-align:center">✅ Free (pay your own API)</td><td style="text-align:center">💳 Subscription</td></tr><tr><td>Data privacy</td><td style="text-align:center">✅ Local</td><td style="text-align:center">❌ Cloud-processed</td></tr></tbody></table>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary">Summary<a href="https://mikeq95blog.uk/en/blog/2026/06/01/open-codesign-review#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
-<p>If you already have a Claude API key, the setup cost is low — worth trying.</p>]]></content:encoded>
-            <category>GitHub</category>
-            <category>macOS</category>
-            <category>AI</category>
-        </item>
-        <item>
-            <title><![CDATA[Download YouTube Videos Using a Python Script]]></title>
-            <link>https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script</link>
-            <guid>https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script</guid>
-            <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Download YouTube videos locally on Mac using a Python script with yt-dlp — set it up once, swap the link each time.]]></description>
-            <content:encoded><![CDATA[<p>Want to save YouTube videos locally? This post walks through a Python script that handles everything for you — set it up once, then just swap the URL each time.</p>
-<!-- -->
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="setting-up-the-environment">Setting Up the Environment<a href="https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script#setting-up-the-environment" class="hash-link" aria-label="Direct link to Setting Up the Environment" title="Direct link to Setting Up the Environment" translate="no">​</a></h2>
-<p>Your Mac needs the following four tools.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="homebrew"><a class="" href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials">Homebrew</a><a href="https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script#homebrew" class="hash-link" aria-label="Direct link to homebrew" title="Direct link to homebrew" translate="no">​</a></h3>
-<p>macOS package manager — the foundation for installing everything else.</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span><br></div></code></pre></div></div>
-<p>Verify:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew --version</span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ffmpeg">ffmpeg<a href="https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script#ffmpeg" class="hash-link" aria-label="Direct link to ffmpeg" title="Direct link to ffmpeg" translate="no">​</a></h3>
-<p>Merges audio and video streams — without it you'll only get a silent video.</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew install ffmpeg</span><br></div></code></pre></div></div>
-<p>Verify:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">ffmpeg -version</span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="nodejs">Node.js<a href="https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script#nodejs" class="hash-link" aria-label="Direct link to Node.js" title="Direct link to Node.js" translate="no">​</a></h3>
-<p>Solves YouTube's JS encryption challenge — without it all format options are lost.</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew install node</span><br></div></code></pre></div></div>
-<p>Verify:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">node --version</span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="yt-dlp">yt-dlp<a href="https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script#yt-dlp" class="hash-link" aria-label="Direct link to yt-dlp" title="Direct link to yt-dlp" translate="no">​</a></h3>
-<p>The core download library.</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pip3 install yt-dlp --break-system-packages</span><br></div></code></pre></div></div>
-<p>Verify:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">yt-dlp --version</span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="two-extra-configuration-steps">Two Extra Configuration Steps<a href="https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script#two-extra-configuration-steps" class="hash-link" aria-label="Direct link to Two Extra Configuration Steps" title="Direct link to Two Extra Configuration Steps" translate="no">​</a></h3>
-<p><strong>Grant Terminal Full Disk Access</strong> (needed to read Safari cookies)</p>
-<p>System Settings → Privacy &amp; Security → Full Disk Access → Add "Terminal"</p>
-<p><strong>Enable a proxy</strong> (required to access YouTube outside China)</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="get-the-code">Get the Code<a href="https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script#get-the-code" class="hash-link" aria-label="Direct link to Get the Code" title="Direct link to Get the Code" translate="no">​</a></h2>
-<p>You can download the script I wrote, or write it yourself (or have AI write it — see the next section).</p>
-<p><a href="https://drive.google.com/file/d/14lFupv6bSw-cicSJ2KxoWYJgkII1uHeZ/view?usp=share_link" target="_blank" rel="noopener noreferrer" class="">Download main.py</a></p>
-<p>Script contents:</p>
-<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> subprocess</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> sys</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> os</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># ── Configuration ────────────────────────────────────────────────────────────</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">VIDEO_URL  </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"XXXX"</span><span class="token plain">                           </span><span class="token comment" style="color:#999988;font-style:italic"># Replace with a real YouTube URL</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">OUTPUT_DIR </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> os</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">path</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">expanduser</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"~/Desktop"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic"># Output to Desktop</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">NODE_PATH  </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"/opt/homebrew/bin/node"</span><span class="token plain">         </span><span class="token comment" style="color:#999988;font-style:italic"># Node.js path (installed via Homebrew)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># ─────────────────────────────────────────────────────────────────────────────</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">def</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">download_video</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">url</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token builtin">str</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> output_dir</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token builtin">str</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">-</span><span class="token operator" style="color:#393A34">&gt;</span><span class="token plain"> </span><span class="token boolean" style="color:#36acaa">None</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token triple-quoted-string string" style="color:#e3116c">"""</span><br></div><div class="token-line" style="color:#393A34"><span class="token triple-quoted-string string" style="color:#e3116c">    Calls the yt-dlp CLI to download a YouTube video in H.264 MP4 format.</span><br></div><div class="token-line" style="color:#393A34"><span class="token triple-quoted-string string" style="color:#e3116c">    """</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    output_template </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> os</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">path</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">join</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">output_dir</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"%(title)s.%(ext)s"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    cmd </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">[</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"yt-dlp"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># Prefer H.264 video stream + best audio</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--format"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"bestvideo[vcodec^=avc1]+bestaudio/bestvideo[ext=mp4]+bestaudio/best"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># Force MP4 container</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--merge-output-format"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"mp4"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># Specify Node.js path for solving YouTube's JS encryption</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--js-runtimes"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string-interpolation string" style="color:#e3116c">f"node:</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">{</span><span class="token string-interpolation interpolation">NODE_PATH</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">}</span><span class="token string-interpolation string" style="color:#e3116c">"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># Download JS challenge decryption script from GitHub (requires internet on first run)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--remote-components"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"ejs:github"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># Read Safari cookies to bypass bot detection</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--cookies-from-browser"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"safari"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># Output file path template</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--output"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> output_template</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        url</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string-interpolation string" style="color:#e3116c">f"[INFO] Starting download: </span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">{</span><span class="token string-interpolation interpolation">url</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">}</span><span class="token string-interpolation string" style="color:#e3116c">"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string-interpolation string" style="color:#e3116c">f"[INFO] Output directory: </span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">{</span><span class="token string-interpolation interpolation">output_dir</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">}</span><span class="token string-interpolation string" style="color:#e3116c">\n"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    result </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> subprocess</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">run</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">cmd</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">if</span><span class="token plain"> result</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">returncode </span><span class="token operator" style="color:#393A34">==</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">0</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"\n[✓] Download complete! Video saved to Desktop."</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">else</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"\n[✗] Download failed. Check the error output above."</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token builtin">file</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">stderr</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">exit</span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">if</span><span class="token plain"> __name__ </span><span class="token operator" style="color:#393A34">==</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"__main__"</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token comment" style="color:#999988;font-style:italic"># Supports passing a URL as a command-line argument: python3 main.py &lt;url&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    url </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">argv</span><span class="token punctuation" style="color:#393A34">[</span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">if</span><span class="token plain"> </span><span class="token builtin">len</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">argv</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">&gt;</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">else</span><span class="token plain"> VIDEO_URL</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">if</span><span class="token plain"> url </span><span class="token operator" style="color:#393A34">==</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"XXXX"</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"[✗] Please replace VIDEO_URL with a real URL, or pass it as a command-line argument."</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">              </span><span class="token builtin">file</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">stderr</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"    Usage: python3 main.py \"YouTube URL\""</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token builtin">file</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">stderr</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">exit</span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    download_video</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">url</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> OUTPUT_DIR</span><span class="token punctuation" style="color:#393A34">)</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-lazy-approach-let-ai-write-the-code">The Lazy Approach: Let AI Write the Code<a href="https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script#the-lazy-approach-let-ai-write-the-code" class="hash-link" aria-label="Direct link to The Lazy Approach: Let AI Write the Code" title="Direct link to The Lazy Approach: Let AI Write the Code" translate="no">​</a></h2>
-<p>Don't want to write the code yourself? Just paste one of these prompts into ChatGPT, DeepSeek, or Claude and they'll output a working script.</p>
-<p><strong>English prompt (recommended — more stable output):</strong></p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">I need you to help me set up a YouTube video download environment on macOS and write a complete Python script.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">## My Environment</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Device: MacBook (Apple Silicon, M-series chip)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- OS: macOS</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">## What I Need You To Do</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">### Step 1 — Check and Install Dependencies</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Check whether the following tools are installed one by one. If not, provide the install command:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">1. Homebrew: via https://brew.sh/</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">2. ffmpeg: via brew install ffmpeg</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">3. Node.js: via brew install node</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">4. yt-dlp: via pip3 install yt-dlp --break-system-packages</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">### Step 2 — Write the Python Script</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Filename: youtube_downloader.py</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Requirements:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Use subprocess to call the yt-dlp CLI (do NOT use the yt_dlp Python API)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Video format: H.264 codec, MP4 container</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Quality: automatically select the highest available quality</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Cookies: read from Safari (--cookies-from-browser safari)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Node.js path: /opt/homebrew/bin/node</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Include --remote-components ejs:github to solve JS challenges</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Output directory: Desktop (~/Desktop)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Accept video URL as a command-line argument: python3 youtube_downloader.py "YouTube URL"</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Add comments in English</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">### Step 3 — Tell Me How To Use It</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Explain how to run the script in one sentence.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">## Important Notes</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- macOS root directory / is read-only — do NOT output files there</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Terminal needs Full Disk Access enabled in System Settings to read Safari cookies — please remind me to do this</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Do NOT use "ios" as the player_client — it does not support cookies</span><br></div></code></pre></div></div>
-<blockquote>
-<p>AI can write the code for you, but <strong>you still need to set up the environment yourself</strong> (the four tools above). If you don't want to do that manually either, use Claude Code or Codex to run the install commands automatically — just keep clicking yes.</p>
-</blockquote>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="usage">Usage<a href="https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script#usage" class="hash-link" aria-label="Direct link to Usage" title="Direct link to Usage" translate="no">​</a></h2>
-<p>Once the environment is set up, every download only takes one command.</p>
-<p>Open Terminal and run:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">python3 ~/Downloads/main.py "paste your YouTube URL here"</span><br></div></code></pre></div></div>
-<blockquote>
-<p>If you saved <code>main.py</code> somewhere else, replace <code>~/Downloads/main.py</code> with the actual path. <code>~/Downloads</code> refers to your Downloads folder — no need to substitute your username.</p>
-</blockquote>
-<p>Example:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">python3 ~/Downloads/main.py "https://www.youtube.com/watch?v=5wvq8w7YBXU"</span><br></div></code></pre></div></div>
-<p>Press Enter and wait — the video will appear on your <strong>Desktop</strong> when done.</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="faq">FAQ<a href="https://mikeq95blog.uk/en/blog/2026/05/29/download-youtube-videos-using-a-python-script#faq" class="hash-link" aria-label="Direct link to FAQ" title="Direct link to FAQ" translate="no">​</a></h2>
-<p><strong>What video quality will I get?</strong> The highest available by default. This line in the script controls the resolution selection logic:</p>
-<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token string" style="color:#e3116c">"bestvideo[vcodec^=avc1]+bestaudio/bestvideo[ext=mp4]+bestaudio/best"</span><br></div></code></pre></div></div>
-<p>It selects the highest-quality stream among all H.264-encoded video tracks.</p>
-<p><strong>Terminal is stuck and nothing's happening?</strong> The first run downloads a decryption script from the internet, which can be slow on some networks. Make sure your proxy is active, or wait 1–2 minutes.</p>
-<p><strong><code>command not found</code> error?</strong> A dependency didn't install correctly. Go back to the "Setting Up the Environment" section and verify each tool one by one.</p>
-<p><strong><code>permission denied</code> or cookie read failure?</strong> Terminal doesn't have Full Disk Access. Go to System Settings → Privacy &amp; Security → Full Disk Access → Add "Terminal", then open a new Terminal window and try again.</p>
-<p><strong>Download failed and you can't read the error?</strong> Ask Claude Code.</p>]]></content:encoded>
-            <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[Introduction to Homebrew]]></title>
-            <link>https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials</link>
-            <guid>https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials</guid>
-            <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[A beginner's guide to Homebrew, the essential Mac package manager — install, update, and remove software with a single command.]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<p>"The most popular command-line package manager for macOS."</p>
-</blockquote>
-<p>Still hunting down installers one by one on official websites? With Homebrew, one command handles everything — install, update, uninstall — all managed in one place. Say goodbye to manual downloads.</p>
-<p>Homebrew is a package manager for macOS and Linux. Its core value in one sentence: <strong>manage all your software from the command line, unified.</strong></p>
-<!-- -->
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-homebrew">Installing Homebrew<a href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials#installing-homebrew" class="hash-link" aria-label="Direct link to Installing Homebrew" title="Direct link to Installing Homebrew" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-china">In China<a href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials#in-china" class="hash-link" aria-label="Direct link to In China" title="Direct link to In China" translate="no">​</a></h3>
-<p>Due to network restrictions, using a domestic mirror is recommended: <a href="https://github.com/ineo6/homebrew-install" target="_blank" rel="noopener noreferrer" class="">source</a></p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)"</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="outside-china">Outside China<a href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials#outside-china" class="hash-link" aria-label="Direct link to Outside China" title="Direct link to Outside China" translate="no">​</a></h3>
-<p>Use the official script: <a href="https://brew.sh/" target="_blank" rel="noopener noreferrer" class="">source</a></p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span><br></div></code></pre></div></div>
-<blockquote>
-<p>"China has its own world, huh 🤔"</p>
-</blockquote>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="core-concepts-formula-and-cask">Core Concepts: formula and cask<a href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials#core-concepts-formula-and-cask" class="hash-link" aria-label="Direct link to Core Concepts: formula and cask" title="Direct link to Core Concepts: formula and cask" translate="no">​</a></h2>
-<p>Before using Homebrew, understand two key concepts:</p>
-<ul>
-<li class=""><strong>formula</strong>: installs <strong>command-line tools</strong> like <code>git</code> or <code>python</code> — no graphical interface</li>
-<li class=""><strong>cask</strong>: installs <strong>GUI apps</strong> like Firefox or VS Code</li>
-</ul>
-<p>Simple rule: <strong>App with an icon → cask; command-line only → formula</strong>.</p>
-<blockquote>
-<p>Not talking about Gragas from League of Legends 😂</p>
-</blockquote>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-software">Installing Software<a href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials#installing-software" class="hash-link" aria-label="Direct link to Installing Software" title="Direct link to Installing Software" translate="no">​</a></h2>
-<p>Install a command-line tool (formula), e.g. git:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew install git</span><br></div></code></pre></div></div>
-<p>Install a GUI app (cask), e.g. Firefox:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew install --cask firefox</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updating-software">Updating Software<a href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials#updating-software" class="hash-link" aria-label="Direct link to Updating Software" title="Direct link to Updating Software" translate="no">​</a></h2>
-<p>Before upgrading, refresh Homebrew's package list to get the latest versions:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew update  # refresh the package list (like refreshing the App Store)</span><br></div></code></pre></div></div>
-<p>Then upgrade a specific package, e.g. Python:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew upgrade python</span><br></div></code></pre></div></div>
-<blockquote>
-<p><strong>Note:</strong> <code>brew update</code> updates Homebrew's own package index; <code>brew upgrade</code> actually upgrades the software. They are different.</p>
-</blockquote>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="pinning-a-version">Pinning a Version<a href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials#pinning-a-version" class="hash-link" aria-label="Direct link to Pinning a Version" title="Direct link to Pinning a Version" translate="no">​</a></h2>
-<p>Sometimes you don't want a package to be auto-upgraded — for example, your project depends on a specific version of Python and upgrading would break things. Use <code>pin</code> to lock the version:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew pin python  # lock python, prevent auto-upgrade</span><br></div></code></pre></div></div>
-<p>List pinned packages:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew list --pinned</span><br></div></code></pre></div></div>
-<p>Unpin to allow upgrades again:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew unpin python</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="uninstalling-software">Uninstalling Software<a href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials#uninstalling-software" class="hash-link" aria-label="Direct link to Uninstalling Software" title="Direct link to Uninstalling Software" translate="no">​</a></h2>
-<p>Uninstall a command-line tool:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew uninstall node</span><br></div></code></pre></div></div>
-<p>Uninstall a GUI app:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew uninstall --cask firefox</span><br></div></code></pre></div></div>
-<p>Uninstall Homebrew itself:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/uninstall.sh)"</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary">Summary<a href="https://mikeq95blog.uk/en/blog/2026/05/28/homebrew-tutorials#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
-<table><thead><tr><th>Operation</th><th>Command</th></tr></thead><tbody><tr><td>Install CLI tool</td><td><code>brew install &lt;name&gt;</code></td></tr><tr><td>Install GUI app</td><td><code>brew install --cask &lt;name&gt;</code></td></tr><tr><td>Refresh package list</td><td><code>brew update</code></td></tr><tr><td>Upgrade software</td><td><code>brew upgrade &lt;name&gt;</code></td></tr><tr><td>Pin version</td><td><code>brew pin &lt;name&gt;</code></td></tr><tr><td>List pinned</td><td><code>brew list --pinned</code></td></tr><tr><td>Unpin version</td><td><code>brew unpin &lt;name&gt;</code></td></tr><tr><td>Uninstall</td><td><code>brew uninstall &lt;name&gt;</code></td></tr></tbody></table>
-<p>These commands cover the vast majority of everyday Homebrew usage. In my opinion, Homebrew is an essential tool for every Mac — it's simply too convenient to go without.</p>]]></content:encoded>
-            <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[Marker Tutorial]]></title>
-            <link>https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial</link>
-            <guid>https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial</guid>
-            <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Marker is an open-source tool that converts PDF, Word, and PPT files to Markdown — this post walks through running it locally.]]></description>
-            <content:encoded><![CDATA[<p><a href="https://github.com/datalab-to/marker" target="_blank" rel="noopener noreferrer" class="">Marker</a> is an open-source tool that converts PDF, Word, PPT, and other file formats into Markdown. It's fast, and accuracy is pretty solid. This post documents how to get it running.</p>
-<!-- -->
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="preface">Preface:<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#preface" class="hash-link" aria-label="Direct link to Preface:" title="Direct link to Preface:" translate="no">​</a></h3>
-<p>I personally enjoy browsing <a href="https://www.instructables.com/" target="_blank" rel="noopener noreferrer" class="">instructables</a> — the site helpfully provides an "Export article as PDF" button in the top right, but no "Export as Markdown" option. I really wanted Markdown format, since AI tools prefer reading <code>.md</code> over PDF. After searching online, I found this GitHub project.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="setting-up-the-environment">Setting Up the Environment<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#setting-up-the-environment" class="hash-link" aria-label="Direct link to Setting Up the Environment" title="Direct link to Setting Up the Environment" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="prerequisites">Prerequisites<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#prerequisites" class="hash-link" aria-label="Direct link to Prerequisites" title="Direct link to Prerequisites" translate="no">​</a></h3>
-<ul>
-<li class="">Python 3.10 or higher</li>
-<li class="">Conda is recommended for environment management (explained below)</li>
-</ul>
-<p>If you're on a Mac M1/M2/M3, no extra configuration is needed — PyTorch natively supports Apple Silicon.</p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-conda">Install Conda<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#install-conda" class="hash-link" aria-label="Direct link to Install Conda" title="Direct link to Install Conda" translate="no">​</a></h3>
-<p>Miniforge is recommended: lightweight and well-supported on Apple Silicon.</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain"># macOS Apple Silicon</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">bash Miniforge3-MacOSX-arm64.sh</span><br></div></code></pre></div></div>
-<p>After installation, run this command so Terminal recognizes conda:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">~/miniforge3/bin/conda init zsh</span><br></div></code></pre></div></div>
-<p>Then close and reopen Terminal. You'll see <code>(base)</code> at the start of your prompt — conda is ready.</p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="create-a-virtual-environment">Create a Virtual Environment<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#create-a-virtual-environment" class="hash-link" aria-label="Direct link to Create a Virtual Environment" title="Direct link to Create a Virtual Environment" translate="no">​</a></h3>
-<p>Think of a virtual environment as a separate "room" for this project — packages installed here won't affect anything else on your system.</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">conda create -n marker python=3.11 -y</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">conda activate marker</span><br></div></code></pre></div></div>
-<p>Once activated, your prompt changes from <code>(base)</code> to <code>(marker)</code>.</p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-marker">Install Marker<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#install-marker" class="hash-link" aria-label="Direct link to Install Marker" title="Direct link to Install Marker" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pip install marker-pdf</span><br></div></code></pre></div></div>
-<p>If you also need to convert Word, PPT, or EPUB files:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pip install marker-pdf[full]</span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="verify-installation">Verify Installation<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#verify-installation" class="hash-link" aria-label="Direct link to Verify Installation" title="Direct link to Verify Installation" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">marker_single --help</span><br></div></code></pre></div></div>
-<p>Wait about 10–15 seconds. If a list of parameters is printed, you're good to go.</p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="activating-the-environment-each-session">Activating the Environment Each Session<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#activating-the-environment-each-session" class="hash-link" aria-label="Direct link to Activating the Environment Each Session" title="Direct link to Activating the Environment Each Session" translate="no">​</a></h3>
-<p>Every time you open a new Terminal, remember to activate the environment first:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">conda activate marker</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-to-use">How to Use<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#how-to-use" class="hash-link" aria-label="Direct link to How to Use" title="Direct link to How to Use" translate="no">​</a></h2>
-<p>The basic format is a single line:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">marker_single /path/to/your/file --output_dir /output/directory</span><br></div></code></pre></div></div>
-<p>Useful options:</p>
-<ul>
-<li class=""><code>--output_dir</code>: specify the output folder</li>
-<li class=""><code>--output_format</code>: output format — <code>markdown</code>, <code>json</code>, or <code>html</code></li>
-<li class=""><code>--page_range</code>: convert specific pages, e.g. <code>"0,5-10"</code> (pages are 0-indexed)</li>
-<li class=""><code>--force_ocr</code>: force OCR — use this when text in the PDF is actually an image</li>
-<li class=""><code>--langs zh</code>: tells Marker the document is in Chinese for better accuracy</li>
-<li class=""><code>--use_llm</code>: use an LLM for assistance — higher accuracy, requires an API key</li>
-</ul>
-<p>After conversion, the output folder will contain a <code>.md</code> file and extracted images. Open with Typora or Obsidian for proper rendering.</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="practical-examples">Practical Examples<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#practical-examples" class="hash-link" aria-label="Direct link to Practical Examples" title="Direct link to Practical Examples" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="convert-a-research-paper">Convert a Research Paper<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#convert-a-research-paper" class="hash-link" aria-label="Direct link to Convert a Research Paper" title="Direct link to Convert a Research Paper" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">marker_single ~/Downloads/paper.pdf \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --output_dir ~/Documents/notes</span><br></div></code></pre></div></div>
-<p>The first run downloads the AI models (~1 GB) — be patient. Afterwards, math formulas are converted to LaTeX, tables and headings are preserved. Results are quite good.</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="let-ai-tools-handle-the-setup">Let AI Tools Handle the Setup<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#let-ai-tools-handle-the-setup" class="hash-link" aria-label="Direct link to Let AI Tools Handle the Setup" title="Direct link to Let AI Tools Handle the Setup" translate="no">​</a></h2>
-<p>If the steps above feel tedious, paste this prompt into Claude Code, Cursor, or a similar AI tool and let it set up the environment automatically.</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">You are a professional Python environment configuration engineer. Please fully deploy the marker-pdf runtime environment on this machine.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">My setup: macOS Apple Silicon (M1 Pro), shell is zsh, Conda is installed at ~/miniforge3.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Please complete the following steps in order, check the result after each step, and immediately diagnose and fix any errors:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">1. Check if conda is available (conda --version). If not, run ~/miniforge3/bin/conda init zsh and remind me to reopen Terminal.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">2. Create and activate a virtual environment: conda create -n marker python=3.11 -y &amp;&amp; conda activate marker</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">3. Install marker: pip install marker-pdf</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">4. Verify PyTorch: python -c "import torch; print(torch.__version__)". If you see a libtorch_cpu.dylib error, reinstall immediately: pip uninstall torch torchvision torchaudio -y &amp;&amp; pip install torch torchvision torchaudio</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">5. Verify marker: run marker_single --help, wait ~20 seconds. A list of parameters means success.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Tell me what you're doing before each step. Do not modify system-level configuration. When done, output the installed versions of Python, PyTorch, and marker-pdf.</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="uninstalling">Uninstalling<a href="https://mikeq95blog.uk/en/blog/2026/05/28/marker-github-project-tutorial#uninstalling" class="hash-link" aria-label="Direct link to Uninstalling" title="Direct link to Uninstalling" translate="no">​</a></h2>
-<p>Uninstall only the marker package, keep the environment:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">conda activate marker</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pip uninstall marker-pdf</span><br></div></code></pre></div></div>
-<p>Delete the entire environment (more thorough):</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">conda deactivate</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">conda env remove -n marker</span><br></div></code></pre></div></div>
-<hr>]]></content:encoded>
-            <category>GitHub</category>
-            <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[🌐 macOS Network Reset Commands — Quick Reference]]></title>
-            <link>https://mikeq95blog.uk/en/blog/2025/05/16/quick-reference-for-macOS network-reset-commands</link>
-            <guid>https://mikeq95blog.uk/en/blog/2025/05/16/quick-reference-for-macOS network-reset-commands</guid>
-            <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[A quick-reference card for macOS network troubleshooting commands — DNS flush, DHCP reset, and more.]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<p>In most cases, running <strong>DNS flush + DHCP reset</strong> is enough to fix the majority of network issues.</p>
-</blockquote>
-<!-- -->
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="common-commands-in-recommended-order">Common Commands (in recommended order)<a href="https://mikeq95blog.uk/en/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#common-commands-in-recommended-order" class="hash-link" aria-label="Direct link to Common Commands (in recommended order)" title="Direct link to Common Commands (in recommended order)" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-flush-dns-cache">1. Flush DNS Cache<a href="https://mikeq95blog.uk/en/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#1-flush-dns-cache" class="hash-link" aria-label="Direct link to 1. Flush DNS Cache" title="Direct link to 1. Flush DNS Cache" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-release-and-renew-ip-address-dhcp">2. Release and Renew IP Address (DHCP)<a href="https://mikeq95blog.uk/en/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#2-release-and-renew-ip-address-dhcp" class="hash-link" aria-label="Direct link to 2. Release and Renew IP Address (DHCP)" title="Direct link to 2. Release and Renew IP Address (DHCP)" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sudo ipconfig set en0 DHCP</span><br></div></code></pre></div></div>]]></content:encoded>
-            <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[Search Engine User Guide]]></title>
-            <link>https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines</link>
-            <guid>https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines</guid>
-            <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[A guide to choosing the right search engine for different tasks — break the habit of relying on just one.]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-choosing-a-search-engine">1. Choosing a Search Engine<a href="https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines#1-choosing-a-search-engine" class="hash-link" aria-label="Direct link to 1. Choosing a Search Engine" title="Direct link to 1. Choosing a Search Engine" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="recommended-order">Recommended Order<a href="https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines#recommended-order" class="hash-link" aria-label="Direct link to Recommended Order" title="Direct link to Recommended Order" translate="no">​</a></h4>
-<p>Google is great for everyday searches. DuckDuckGo and Brave are better for privacy-conscious users. Yandex is good for finding edgier content. Bing (Chinese version) works as a fallback if you can't access international sites.</p>
-<!-- -->
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="engine-characteristics">Engine Characteristics<a href="https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines#engine-characteristics" class="hash-link" aria-label="Direct link to Engine Characteristics" title="Direct link to Engine Characteristics" translate="no">​</a></h4>
-<ul>
-<li class=""><strong>Google</strong>: Results for controversial content lean toward mainstream PC viewpoints; opposing views are sparse and weak.</li>
-<li class=""><strong>DuckDuckGo</strong>: More neutral than Google, but search keywords aren't highlighted in results — you'll need a userscript to fix that (see end of post). (Any AI can write the script for you.)</li>
-<li class=""><strong>Yandex</strong>: Completely ignores Western political correctness; good for sensitive or edgy content.<!-- -->
-<ul>
-<li class="">e.g. Search "Epstein list" — only Yandex puts the actual list at the top</li>
-<li class="">e.g. Search "Hollywood scandals" — only Yandex shows hard-hitting results</li>
-</ul>
-</li>
-<li class=""><strong>Political correctness level</strong>: <code>Google &gt; Brave &gt; DuckDuckGo &gt; Yandex</code></li>
-</ul>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-practical-search-tips">2. Practical Search Tips<a href="https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines#2-practical-search-tips" class="hash-link" aria-label="Direct link to 2. Practical Search Tips" title="Direct link to 2. Practical Search Tips" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="software-resources--free-music-downloads">Software Resources &amp; Free Music Downloads<a href="https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines#software-resources--free-music-downloads" class="hash-link" aria-label="Direct link to Software Resources &amp; Free Music Downloads" title="Direct link to Software Resources &amp; Free Music Downloads" translate="no">​</a></h4>
-<p>Use <strong>Yandex</strong> and search:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">software name + cracked / premium / unlocked / Скачать</span><br></div></code></pre></div></div>
-<p>Look for results with Russian-language links — they usually allow direct download.
-Works for Android, PC, and Mac.</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="finding-e-books-annas-archive--z-library">Finding E-books (Anna's Archive / Z-Library)<a href="https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines#finding-e-books-annas-archive--z-library" class="hash-link" aria-label="Direct link to Finding E-books (Anna's Archive / Z-Library)" title="Direct link to Finding E-books (Anna's Archive / Z-Library)" translate="no">​</a></h4>
-<blockquote>
-<p>Quick tip: if you Google "Anna's Archive" or "Z-Library", you'll likely get a bunch of unrelated results. Try Yandex instead — the first result is almost always what you're looking for. (Yandex is genuinely underrated!)</p>
-</blockquote>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">keyword + edition      </span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">keyword + translation  </span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-duckduckgo-keyword-highlight-userscript">3. DuckDuckGo Keyword Highlight Userscript<a href="https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines#3-duckduckgo-keyword-highlight-userscript" class="hash-link" aria-label="Direct link to 3. DuckDuckGo Keyword Highlight Userscript" title="Direct link to 3. DuckDuckGo Keyword Highlight Userscript" translate="no">​</a></h3>
-<blockquote>
-<p>Requires the <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener noreferrer" class="">Tampermonkey</a> browser extension.</p>
-</blockquote>
-<p>javascript</p>
-<div class="language-javascript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-javascript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// ==UserScript==</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @name         DuckDuckGo Search Keyword Highlight</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @namespace    http://tampermonkey.net/</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @version      2025-08-05</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @description  Highlights search keywords in DuckDuckGo results</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @author       You</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @match        https://duckduckgo.com/?*</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @grant        GM_addStyle</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// ==/UserScript==</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">function</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">'use strict'</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function maybe-class-name" style="color:#d73a49">GM_addStyle</span><span class="token punctuation" style="color:#393A34">(</span><span class="token template-string template-punctuation string" style="color:#e3116c">`</span><span class="token template-string string" style="color:#e3116c"></span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">        .kY2IgmnCmOGjharHErah span b {</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">            color: #ff897e !important;</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">        }</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">    </span><span class="token template-string template-punctuation string" style="color:#e3116c">`</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-faq">4. FAQ<a href="https://mikeq95blog.uk/en/blog/2026/05/16/recommended-commonly-used-search-engines#4-faq" class="hash-link" aria-label="Direct link to 4. FAQ" title="Direct link to 4. FAQ" translate="no">​</a></h3>
-<ol>
-<li class=""><strong>I searched the way you described but got no results — why?</strong>
-Search engines use safe mode by default. Go to Settings and turn it off — look for "No filter" (filter = content filtering; no filter = uncensored results). That's the one you want.</li>
-</ol>]]></content:encoded>
-            <category>Collection</category>
-        </item>
-        <item>
-            <title><![CDATA[Convert Articles to Podcast Audio with Kokoro]]></title>
-            <link>https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial</link>
-            <guid>https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial</guid>
-            <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Convert your English articles into high-quality audio using Kokoro, a free and locally-run open-source TTS tool.]]></description>
-            <content:encoded><![CDATA[<p>I wanted to convert my English articles into audio so I could listen while walking. After looking around, the only option that's free, sounds good, and runs locally is <a href="https://github.com/hexgrad/kokoro" target="_blank" rel="noopener noreferrer" class="">Kokoro</a>.</p>
-<!-- -->
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-is-kokoro">What Is Kokoro<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#what-is-kokoro" class="hash-link" aria-label="Direct link to What Is Kokoro" title="Direct link to What Is Kokoro" translate="no">​</a></h2>
-<p>Kokoro is an open-source TTS (text-to-speech) model with 82M parameters — lightweight but surprisingly good. English quality approaches ElevenLabs commercial level, with 88 voices to choose from and an Apache 2.0 license, free for commercial use.</p>
-<p>We'll use <a href="https://github.com/eduardolat/kokoro-web" target="_blank" rel="noopener noreferrer" class="">kokoro-web</a> — a project that wraps Kokoro into a local service, launched with a single Docker command, with a web UI included, ready to use out of the box.</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="choosing-a-voice">Choosing a Voice<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#choosing-a-voice" class="hash-link" aria-label="Direct link to Choosing a Voice" title="Direct link to Choosing a Voice" translate="no">​</a></h2>
-<p>Kokoro voices are graded A–D by quality, A being highest. For English, just pick from these:</p>
-<table><thead><tr><th>Voice</th><th>Grade</th><th>Style</th></tr></thead><tbody><tr><td>Heart</td><td>A</td><td>Warm female voice, top pick</td></tr><tr><td>Bella</td><td>A-</td><td>High-quality female voice</td></tr><tr><td>Michael</td><td>C+</td><td>Mature male voice</td></tr><tr><td>Emma</td><td>B-</td><td>British female voice</td></tr></tbody></table>
-<blockquote>
-<p>The first time you use a voice, its model file is downloaded automatically and cached — no need to re-download.</p>
-</blockquote>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-docker">Installing Docker<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#installing-docker" class="hash-link" aria-label="Direct link to Installing Docker" title="Direct link to Installing Docker" translate="no">​</a></h2>
-<p>If you don't have Docker yet, install it first.</p>
-<p><strong>International network</strong>: download from the official site: <a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener noreferrer" class="">docker.com/products/docker-desktop</a></p>
-<p><strong>Chinese network</strong>: the official site can be slow, use Aliyun's mirror:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">https://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/</span><br></div></code></pre></div></div>
-<p>Download the <code>.dmg</code>, double-click to install, open Docker Desktop, and wait for the 🐳 icon to appear in the menu bar.</p>
-<p>Then configure the command-line path so Terminal can find the docker command:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">echo 'export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin"' &gt;&gt; ~/.zshrc</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">source ~/.zshrc</span><br></div></code></pre></div></div>
-<p>Verify the installation:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker --version &amp;&amp; docker compose version</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="deploying-kokoro-web">Deploying kokoro-web<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#deploying-kokoro-web" class="hash-link" aria-label="Direct link to Deploying kokoro-web" title="Direct link to Deploying kokoro-web" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-create-a-project-directory">1. Create a project directory<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#1-create-a-project-directory" class="hash-link" aria-label="Direct link to 1. Create a project directory" title="Direct link to 1. Create a project directory" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir kokoro-web &amp;&amp; cd kokoro-web</span><br></div></code></pre></div></div>
-<blockquote>
-<p><strong>Make sure you <code>cd</code> into the folder before doing anything else.</strong> The <code>docker compose</code> commands must run inside this directory, otherwise you'll get <code>no configuration file provided</code>.</p>
-</blockquote>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-create-the-config-file">2. Create the config file<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#2-create-the-config-file" class="hash-link" aria-label="Direct link to 2. Create the config file" title="Direct link to 2. Create the config file" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cat &gt; compose.yaml &lt;&lt; 'EOF'</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">services:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  kokoro-web:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    image: ghcr.io/eduardolat/kokoro-web:latest</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    ports:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - "3000:3000"</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    environment:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - KW_SECRET_API_KEY=my-secret-key</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    volumes:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - ./kokoro-cache:/kokoro/cache</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    restart: unless-stopped</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></div></code></pre></div></div>
-<p><code>KW_SECRET_API_KEY</code> is the access password for the local service — for local use, anything works, just remember what you set. I'd suggest leaving it as the default.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-start-the-service">3. Start the service<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#3-start-the-service" class="hash-link" aria-label="Direct link to 3. Start the service" title="Direct link to 3. Start the service" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose up -d</span><br></div></code></pre></div></div>
-<p>The first start pulls the image, which can be slow on some networks — be patient.</p>
-<p>Once you see this, it's up:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose logs -f</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># Success: Listening on http://0.0.0.0:3000</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="using-the-web-ui">Using the Web UI<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#using-the-web-ui" class="hash-link" aria-label="Direct link to Using the Web UI" title="Direct link to Using the Web UI" translate="no">​</a></h2>
-<p>Open your browser and go to <code>http://localhost:3000</code>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="configure-the-api-important">Configure the API (important)<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#configure-the-api-important" class="hash-link" aria-label="Direct link to Configure the API (important)" title="Direct link to Configure the API (important)" translate="no">​</a></h3>
-<p>Click <strong>API Settings</strong> in the top right corner:</p>
-<ul>
-<li class=""><strong>Base URL</strong>: <code>http://localhost:3000/api/v1</code> (default, no change needed)</li>
-<li class=""><strong>API Key</strong>: <code>my-secret-key</code></li>
-</ul>
-<blockquote>
-<p><strong>Gotcha</strong>: the API Key is just the value itself — don't include the <code>- KW_SECRET_API_KEY=</code> prefix from the compose file.</p>
-</blockquote>
-<p>Click <strong>OK</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="generation-settings">Generation Settings<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#generation-settings" class="hash-link" aria-label="Direct link to Generation Settings" title="Direct link to Generation Settings" translate="no">​</a></h3>
-<p>Back on the main screen, a few key options:</p>
-<table><thead><tr><th>Option</th><th>Recommended</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Execution place</strong></td><td><code>API (Self-hosted)</code></td><td>Use local Docker, not Browser</td></tr><tr><td><strong>Model quantization</strong></td><td><code>q8f16</code></td><td>Best balance of speed and quality</td></tr><tr><td><strong>Language accent</strong></td><td><code>English (US)</code></td><td>For English content</td></tr><tr><td><strong>Voice</strong></td><td><code>Heart</code></td><td>Top recommendation</td></tr></tbody></table>
-<p><strong>Always set Execution place to <code>API (Self-hosted)</code>.</strong> Running in the browser runs the model in your browser — much slower and re-downloads every time.</p>
-<p>Paste your article into <strong>Text to process</strong>, then click <strong>Generate</strong>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="demo">Demo<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#demo" class="hash-link" aria-label="Direct link to Demo" title="Direct link to Demo" translate="no">​</a></h3>
-<p>Input text:</p>
-<blockquote>
-<p>Google is renowned for its innovative and employee-centric work environment. The company's campuses, often called "Googleplexes," feature vibrant designs with open spaces, recreational facilities, free gourmet meals, and wellness centers. Employees enjoy flexible work hours, remote options, and a strong emphasis on collaboration through team projects and hackathons.</p>
-<p>A culture of creativity thrives with "20% time," encouraging personal passion projects that have led to major products like Gmail. Diversity, inclusion, and continuous learning are prioritized through training programs and supportive leadership. This unique blend of fun, freedom, and purpose fosters high productivity and job satisfaction, making Google a top destination for tech talent worldwide.</p>
-</blockquote>
-<p>Generated with the Heart voice (~150 words, ~30 seconds on local CPU):</p>
-<audio controls=""><source src="/assets/kokoro-demo-google.mp3" type="audio/mpeg"></audio>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="processing-markdown-files">Processing Markdown Files<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#processing-markdown-files" class="hash-link" aria-label="Direct link to Processing Markdown Files" title="Direct link to Processing Markdown Files" translate="no">​</a></h2>
-<p>Kokoro only accepts plain text. Pasting a <code>.md</code> file directly will cause it to read out <code>##</code>, <code>**bold**</code>, and other Markdown syntax aloud.</p>
-<p>Use <code>pandoc</code> to convert first:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain"># Install pandoc</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">brew install pandoc</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># Convert md to plain text, then copy-paste the output</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pandoc article.md -t plain</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="useful-commands">Useful Commands<a href="https://mikeq95blog.uk/en/blog/2026/05/16/kokoro-tts-tutorial#useful-commands" class="hash-link" aria-label="Direct link to Useful Commands" title="Direct link to Useful Commands" translate="no">​</a></h2>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose logs -f    # view live logs</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose stop       # stop the service</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose start      # start the service</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose pull       # update to the latest version</span><br></div></code></pre></div></div>
-<hr>]]></content:encoded>
-            <category>GitHub</category>
-            <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[Programming English Vocabulary Collection]]></title>
-            <link>https://mikeq95blog.uk/en/blog/2026/04/29/coding-english-vocabulary</link>
-            <guid>https://mikeq95blog.uk/en/blog/2026/04/29/coding-english-vocabulary</guid>
-            <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Common English vocabulary from programming docs, tutorials, and issues — with examples and translations to help you read technical content.]]></description>
-            <content:encoded><![CDATA[<ol>
-<li class="">
-<p><strong>demonstrate</strong></p>
-<ul>
-<li class="">Example: This tutorial no longer ==demonstrates== current SwiftUI or Xcode practices.</li>
-<li class="">Meaning: to show or illustrate something; to demonstrate</li>
-</ul>
-</li>
-</ol>
-<!-- -->
-<ol start="2">
-<li class="">
-<p><strong>prevent</strong></p>
-<ul>
-<li class="">Example: This option will ==prevent== Shadowrocket from being set as the default route.</li>
-<li class="">Meaning: to stop something from happening; to block</li>
-</ul>
-</li>
-<li class="">
-<p><strong>modifier</strong></p>
-<ul>
-<li class="">Example: A new ==modifier== creates a new view based on the original one.</li>
-<li class="">Meaning: (in SwiftUI) a method that transforms or configures a view</li>
-</ul>
-</li>
-<li class="">
-<p><strong>components</strong></p>
-<ul>
-<li class="">Example: One of the most common and recognizable user interface ==components== is the combination of an icon and a label.</li>
-<li class="">Meaning: individual parts or elements that make up a larger system; components</li>
-</ul>
-</li>
-<li class="">
-<p><strong>idiom</strong></p>
-<ul>
-<li class="">Example: This ==idiom== appears across many kinds of apps and shows up in collections, lists, menus of action items, and disclosable lists, just to name a few.</li>
-<li class="">Meaning: a common pattern or convention in UI/programming; an established way of doing something</li>
-</ul>
-</li>
-<li class="">
-<p><strong>just to name a few</strong></p>
-<ul>
-<li class="">Example: This idiom appears across many kinds of apps and shows up in collections, lists, menus of action items, and disclosable lists, ==just to name a few==.</li>
-<li class="">Meaning: used to indicate that only a small number of examples are being given; "among others"</li>
-</ul>
-</li>
-<li class="">
-<p><strong>interface</strong></p>
-<ul>
-<li class="">Example: You create the user ==interface==, or UI, for your app inside the body; the entire contents of your app are in the code below.</li>
-<li class="">Meaning: the visual layer of an application that users interact with; user interface (UI)</li>
-</ul>
-</li>
-</ol>
-<div class="language-swift codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-swift codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// NOTE: - Demo code</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token class-name">SwiftUI</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">struct</span><span class="token plain"> </span><span class="token class-name">ContentView</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token class-name">View</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">var</span><span class="token plain"> body</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">some</span><span class="token plain"> </span><span class="token class-name">View</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token class-name">VStack</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">            </span><span class="token class-name">Image</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">systemName</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string-literal string" style="color:#e3116c">"globe"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">                </span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">imageScale</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">large</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">                </span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">foregroundColor</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">tint</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">            </span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">            </span><span class="token class-name">Text</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string-literal string" style="color:#e3116c">"Hello World"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token other-directive property" style="color:#36acaa">#Preview</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token class-name">ContentView</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></div></code></pre></div></div>
-<ol start="8">
-<li class="">
-<p><strong>instance</strong></p>
-<ul>
-<li class="">Example: To construct your narrative, the app needs an ==instance== of Story, which takes an array of StoryPage instances.</li>
-<li class="">Meaning: a specific occurrence of an object created from a class or struct</li>
-</ul>
-</li>
-<li class="">
-<p><strong>hold</strong></p>
-<ul>
-<li class="">Example: The text property ==holds== a String that describes the choice readers can make.</li>
-<li class="">Meaning: to store or contain a value; to hold</li>
-</ul>
-</li>
-<li class="">
-<p><strong>present</strong></p>
-<ul>
-<li class="">Example: Use a navigation stack to ==present== a stack of views over a root view.</li>
-<li class="">Meaning: to display or show a view on screen</li>
-</ul>
-</li>
-<li class="">
-<p><strong>indicates</strong></p>
-<ul>
-<li class="">Example: A value-destination ==indicates== that you are pushing a value onto the path.</li>
-<li class="">Meaning: to signal or show that something is the case; to indicate</li>
-</ul>
-</li>
-</ol>]]></content:encoded>
-            <category>English</category>
-            <category>Swift</category>
-            <category>Collection</category>
-        </item>
-        <item>
-            <title><![CDATA[General English Vocabulary Collection]]></title>
-            <link>https://mikeq95blog.uk/en/blog/2026/04/29/general-english-vocabulary</link>
-            <guid>https://mikeq95blog.uk/en/blog/2026/04/29/general-english-vocabulary</guid>
-            <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[A running collection of useful English phrases for everyday and academic use, each with example sentences and Chinese explanations.]]></description>
-            <content:encoded><![CDATA[<ol>
-<li class="">
-<p><strong>Based on the principle of voluntariness</strong></p>
-<ul>
-<li class="">Example: Membership in the union is ==based on the principle of voluntariness==—no employee is forced to join.</li>
-<li class="">Meaning: following the principle that participation is entirely a personal choice; voluntary basis</li>
-</ul>
-</li>
-</ol>
-<!-- -->
-<ol start="2">
-<li class="">
-<p><strong>One for all, all for one</strong></p>
-<ul>
-<li class="">Example: The three friends made a pact: ==one for all, all for one==. They promised to stand by each other no matter what challenges lay ahead.</li>
-<li class="">Meaning: a phrase expressing mutual support and solidarity within a group</li>
-</ul>
-</li>
-<li class="">
-<p><strong>Be careful, though</strong></p>
-<ul>
-<li class="">Example: The restaurant is amazing and cheap. ==Be careful==, though: it gets really crowded on weekends.</li>
-<li class="">Meaning: used to add a warning or caveat after a positive statement; "that said, watch out for..."</li>
-</ul>
-</li>
-<li class="">
-<p><strong>embedded in</strong></p>
-<ul>
-<li class="">Example: These attitudes are ==embedded in== our society.</li>
-<li class="">Meaning: deeply ingrained or firmly fixed within something; deeply rooted in</li>
-</ul>
-</li>
-<li class="">
-<p><strong>enthusiasts</strong></p>
-<ul>
-<li class="">Example: She is one of the most dedicated fitness ==enthusiasts== I have ever met.</li>
-<li class="">Meaning: people who are highly interested in and passionate about a particular activity or subject</li>
-</ul>
-</li>
-</ol>]]></content:encoded>
-            <category>English</category>
-            <category>Collection</category>
         </item>
     </channel>
 </rss>

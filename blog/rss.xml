@@ -9,7 +9,7 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hans</language>
         <item>
-            <title><![CDATA[Claude 的 slash command 个人总结]]></title>
+            <title><![CDATA[Claude教程01-Slash command]]></title>
             <link>https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes</link>
             <guid>https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes</guid>
             <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
@@ -35,8 +35,175 @@
 <li class=""><strong><code>/claude-in-chrome</code></strong> ——  操作Chrome 浏览器</li>
 </ul>
 <hr>
-<p>后续会陆续补充其他 slash command 的使用记录。</p>]]></content:encoded>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1btw-question"><code>/1btw &lt;question&gt;</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#1btw-question" class="hash-link" aria-label="1btw-question的直接链接" title="1btw-question的直接链接" translate="no">​</a></h2>
+<p>官方解释： Ask a quick side question without interrupting the main conversation、</p>
+<p>btw 就是bu the way（顺便问一下）的意思，当Claude code在对话时候，你可以·/btw 目前我们进展到哪里了？·问一下他。
+note: 无论你问什么内容，都不会污染到主聊天，所以随便问。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="clear"><code>/clear</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#clear" class="hash-link" aria-label="clear的直接链接" title="clear的直接链接" translate="no">​</a></h2>
+<p>官方解释： Start a new session with empty context;
+previous session stays on disk (resumable ..</p>
+<p>我觉得日常中比较常用的情况是： 比如你有任务一和任务二，当你做完任务一，把代码commit + push了，这时候可以运行<code>/clear</code>来清空上下文窗口，这样Claude code会保持专注于下一个任务上，不会被搞混。</p>
+<p>如果你要任务一，任务二一起做，有些时候，Claude code就会改不改改的代码，写出哪些看似正确，实则漏洞一大堆的方案。</p>
+<p>即便是Claude code，也会存在幻觉，所以我觉得把/clear用的频繁一点比较好。</p>
+<p>如果你想在<code>/clear</code>之前保留这次对话内容怎么办？</p>
+<p>具体操作：</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir -p .claude/docs</span><br></div></code></pre></div></div>
+<p>然后跟Claude code说： "把我们刚才关于 XXX 的架构决策/调试结论,写一份 markdown 文件到 .claude/docs/xxx.md"</p>
+<p>写完之后你就可以 /clear,下次需要时再让 Claude 读那个文件(比如 "读一下 .claude/docs/xxx.md 里的内容"),就能把关键结论重新带回上下文,而不用把整个旧对话都保留着。</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="compact"><code>/compact</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#compact" class="hash-link" aria-label="compact的直接链接" title="compact的直接链接" translate="no">​</a></h2>
+<p>官方解释： Free up context by summarizing the conversation so far</p>
+<p>/clear = 直接清空,零 token,但什么都不留
+/compact = 有损压缩,把长对话总结成短摘要,继续用,但会丢细节和推理链条</p>
+<p>最好还是带上instrucitons,就是在compact 后面写一点话，比如
+/compact 保留关于数据库设计的所有决策</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="color"><code>/color</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#color" class="hash-link" aria-label="color的直接链接" title="color的直接链接" translate="no">​</a></h2>
+<p>改变Claude code cli终端里的颜色用的，</p>
+<p>比如</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/color pink</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="emmmmm有啥用我觉得要开多个窗口coding的话这个可以帮你更好的区分吧呵呵呵">emmmmm有啥用？我觉得要开多个窗口coding的话，这个可以帮你更好的区分吧呵呵呵😂。<a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#emmmmm%E6%9C%89%E5%95%A5%E7%94%A8%E6%88%91%E8%A7%89%E5%BE%97%E8%A6%81%E5%BC%80%E5%A4%9A%E4%B8%AA%E7%AA%97%E5%8F%A3coding%E7%9A%84%E8%AF%9D%E8%BF%99%E4%B8%AA%E5%8F%AF%E4%BB%A5%E5%B8%AE%E4%BD%A0%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%8C%BA%E5%88%86%E5%90%A7%E5%91%B5%E5%91%B5%E5%91%B5" class="hash-link" aria-label="emmmmm有啥用？我觉得要开多个窗口coding的话，这个可以帮你更好的区分吧呵呵呵😂。的直接链接" title="emmmmm有啥用？我觉得要开多个窗口coding的话，这个可以帮你更好的区分吧呵呵呵😂。的直接链接" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="config"><code>/config</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#config" class="hash-link" aria-label="config的直接链接" title="config的直接链接" translate="no">​</a></h2>
+<p>官方解释： open setting</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="comtext"><code>/comtext</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#comtext" class="hash-link" aria-label="comtext的直接链接" title="comtext的直接链接" translate="no">​</a></h2>
+<p>官方解释：</p>
+<p><code>contexr</code>：用来查看当前会话的上下文窗口使用情况,是一个诊断/监控工具。</p>
+<p>输入<code>/context</code>,你会在终端看到类似的可视化输出</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">101k/200k tokens (51%)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">⛁ System prompt: 3.1k (1.6%)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">⛁ System tools: 19.8k (9.9%)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">⛁ MCP tools: 26.5k (13.3%)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">⛁ Memory files: 4.0k (2.0%)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">⛁ Free space: 99k (49.4%)</span><br></div></code></pre></div></div>
+<p><strong>有啥用？</strong>
+1， 长会话进行到一半,感觉 Claude 表现变差
+如果 Claude 开始:</p>
+<p>跳过步骤、给出敷衍的回答
+忘记你前面说过的某个细节
+逻辑突然变得不连贯</p>
+<p>这时候先跑一下 /context 看看是不是已经接近上限了,而不是直接怀疑模型"变笨"了——很多时候只是上下文快满,信息互相挤占导致的。</p>
+<p>2，接了很多 MCP server,想知道谁在"偷"你的 token
+之前提到过,一个 MCP server(比如 playwright-mcp)可能光是把工具挂上,不用都要占掉 7% 以上的窗口。如果你接了三四个 MCP,想知道哪个最占空间、值不值得关掉,/context 配合 /mcp 一起看很直接。</p>
+<p>3， 开始一个大任务之前,先摸个底
+比如你准备让 Claude 处理一个大改动(比如重构 CheapChina 的订单状态机),开始前先看一眼 /context,确认还有多少自由空间,心里有数——快满了就先 /clear 或 /compact 再开始,免得干到一半被打断
+4， 怀疑 CLAUDE.md / 记忆文件写得太臃肿
+如果你感觉每次开场就已经"损耗"了不少空间,/context 能直接看到 Memory files 那一项占了多少百分比,方便你回头精简 CLAUDE.md。
+5. 决定该用 /compact 还是 /clear 的判断依据</p>
+<p>如果 /context 显示自由空间掉到 30% 以下,但当前任务还没做完 → /compact(带上聚焦指令保留关键信息)
+如果任务已经做完、准备切到新任务 → 直接 /clear</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="不常用的场景短会话单文件小改动这种基本不需要看任务做完直接-clear-就行没必要专门查一次总结一句它更像是个仪表盘在你怀疑上下文出问题或者想优化配置mcp记忆文件的时候拿出来看而不是日常必查项日常监控其实靠状态栏status-line上实时显示的百分比就够了">**不常用的场景:**短会话、单文件小改动这种,基本不需要看,任务做完直接 /clear 就行,没必要专门查一次。
+总结一句:它更像是个"仪表盘",在你怀疑上下文出问题、或者想优化配置(MCP、记忆文件)的时候拿出来看,而不是日常必查项。日常监控其实靠状态栏(status line)上实时显示的百分比就够了。<a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#%E4%B8%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E5%9C%BA%E6%99%AF%E7%9F%AD%E4%BC%9A%E8%AF%9D%E5%8D%95%E6%96%87%E4%BB%B6%E5%B0%8F%E6%94%B9%E5%8A%A8%E8%BF%99%E7%A7%8D%E5%9F%BA%E6%9C%AC%E4%B8%8D%E9%9C%80%E8%A6%81%E7%9C%8B%E4%BB%BB%E5%8A%A1%E5%81%9A%E5%AE%8C%E7%9B%B4%E6%8E%A5-clear-%E5%B0%B1%E8%A1%8C%E6%B2%A1%E5%BF%85%E8%A6%81%E4%B8%93%E9%97%A8%E6%9F%A5%E4%B8%80%E6%AC%A1%E6%80%BB%E7%BB%93%E4%B8%80%E5%8F%A5%E5%AE%83%E6%9B%B4%E5%83%8F%E6%98%AF%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98%E5%9C%A8%E4%BD%A0%E6%80%80%E7%96%91%E4%B8%8A%E4%B8%8B%E6%96%87%E5%87%BA%E9%97%AE%E9%A2%98%E6%88%96%E8%80%85%E6%83%B3%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AEmcp%E8%AE%B0%E5%BF%86%E6%96%87%E4%BB%B6%E7%9A%84%E6%97%B6%E5%80%99%E6%8B%BF%E5%87%BA%E6%9D%A5%E7%9C%8B%E8%80%8C%E4%B8%8D%E6%98%AF%E6%97%A5%E5%B8%B8%E5%BF%85%E6%9F%A5%E9%A1%B9%E6%97%A5%E5%B8%B8%E7%9B%91%E6%8E%A7%E5%85%B6%E5%AE%9E%E9%9D%A0%E7%8A%B6%E6%80%81%E6%A0%8Fstatus-line%E4%B8%8A%E5%AE%9E%E6%97%B6%E6%98%BE%E7%A4%BA%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94%E5%B0%B1%E5%A4%9F%E4%BA%86" class="hash-link" aria-label="**不常用的场景:**短会话、单文件小改动这种,基本不需要看,任务做完直接 /clear 就行,没必要专门查一次。
+总结一句:它更像是个&quot;仪表盘&quot;,在你怀疑上下文出问题、或者想优化配置(MCP、记忆文件)的时候拿出来看,而不是日常必查项。日常监控其实靠状态栏(status line)上实时显示的百分比就够了。的直接链接" title="**不常用的场景:**短会话、单文件小改动这种,基本不需要看,任务做完直接 /clear 就行,没必要专门查一次。
+总结一句:它更像是个&quot;仪表盘&quot;,在你怀疑上下文出问题、或者想优化配置(MCP、记忆文件)的时候拿出来看,而不是日常必查项。日常监控其实靠状态栏(status line)上实时显示的百分比就够了。的直接链接" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="copy"><code>/copy</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#copy" class="hash-link" aria-label="copy的直接链接" title="copy的直接链接" translate="no">​</a></h2>
+<p>官方解释： Copy Claude's last response to clipboard (or /copy N for the Nth-latest)</p>
+<hr>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cost"><code>/cost</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#cost" class="hash-link" aria-label="cost的直接链接" title="cost的直接链接" translate="no">​</a></h2>
+<p>官方解释： Show session cost, plan usage, and activity stats</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="doctor"><code>/doctor</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#doctor" class="hash-link" aria-label="doctor的直接链接" title="doctor的直接链接" translate="no">​</a></h2>
+<p>官方解释： Diagnose and verify your Claude Code installation and settings</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="effort"><code>/effort</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#effort" class="hash-link" aria-label="effort的直接链接" title="effort的直接链接" translate="no">​</a></h2>
+<p>官方解释： Set effort level for model usage</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="export"><code>/export</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#export" class="hash-link" aria-label="export的直接链接" title="export的直接链接" translate="no">​</a></h2>
+<p>官方解释： Export the current conversation to a file or clipboard</p>
+<p>/export 用来把当前会话的完整对话记录导出成文本文件,方便存档、写文档或者分享。</p>
+<p><strong>基本用法</strong>:
+···bash
+/export</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">不带参数的话,会弹出一个对话框,让你选择"复制到剪贴板"或"保存为文件"。</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">如果直接指定文件名:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">···bash</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">/export session-notes.md</span><br></div></code></pre></div></div>
+<p>会直接把完整对话写成文件保存到当前位置,不弹窗、不确认。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="focus"><code>/focus</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#focus" class="hash-link" aria-label="focus的直接链接" title="focus的直接链接" translate="no">​</a></h2>
+<p>官方解释： Toggle focus view: just your prompt, summary, and response</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ide"><code>/ide</code><a href="https://mikeq95blog.uk/blog/2026/07/05/claude-slash-command-notes#ide" class="hash-link" aria-label="ide的直接链接" title="ide的直接链接" translate="no">​</a></h2>
+<p>官方解释： Manage IDE integrations</p>
+<p>连接后能获得的功能:</p>
+<p>实时看到你在编辑器里的操作——你在 VS Code 里打开哪个文件、选中了哪段代码,Claude Code 能感知到,不用你手动复制粘贴代码片段告诉它"我在看这个"
+diff 直接在 VS Code 里显示——Claude 改代码时,不再是终端里输出一堆文本 diff,而是像正常 Git diff 一样在 VS Code 里高亮显示改动的地方,审查起来更直观
+文件同步更及时——Claude 在终端里改了文件,VS Code 里打开的对应文件会自动刷新,不用你手动重新加载
+选中代码直接当上下文——比如你在 VS Code 里选中一段有问题的函数,回到 Claude Code 直接问"这段有什么问题",它就知道你指的是哪段,不用你重新粘贴。
+什么时候值得连:
+如果你平时开发是"VS Code 开着项目,终端开着 Claude Code 来回切"这种工作流,连上 IDE 能省掉不少来回复制粘贴、手动刷新文件的动作。如果你更习惯纯终端里跟 Claude 对话、看 diff,不连也完全没问题,不影响核心功能。</p>]]></content:encoded>
             <category>Claude Code</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程02-Memory]]></title>
+            <link>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-02-memory</link>
+            <guid>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-02-memory</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程03-Skills]]></title>
+            <link>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-03-skills</link>
+            <guid>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-03-skills</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程04-Subagents]]></title>
+            <link>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-04-subagents</link>
+            <guid>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-04-subagents</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程05-MCP]]></title>
+            <link>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-05-mcp</link>
+            <guid>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-05-mcp</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程06-Hooks]]></title>
+            <link>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-06-hooks</link>
+            <guid>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-06-hooks</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程07-Plugins]]></title>
+            <link>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-07-plugins</link>
+            <guid>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-07-plugins</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程08-Checkpoints]]></title>
+            <link>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-08-checkpoints</link>
+            <guid>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-08-checkpoints</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程09-Advanced Features]]></title>
+            <link>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-09-advanced-features</link>
+            <guid>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-09-advanced-features</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
+        </item>
+        <item>
+            <title><![CDATA[Claude教程10-CLI]]></title>
+            <link>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-10-cli</link>
+            <guid>https://mikeq95blog.uk/blog/2026/07/05/claude-tutorial-10-cli</guid>
+            <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<p>内容整理中，后续补充。</p>
+]]></content:encoded>
+            <category>Claude</category>
         </item>
         <item>
             <title><![CDATA[claude-howto：一个周末学完 Claude Code 的教程项目]]></title>
@@ -494,595 +661,6 @@
 <div class="language-jsx codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-jsx codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> barRect </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> bar</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">getBoundingClientRect</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> btnRect </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> activeEl</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">getBoundingClientRect</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> targetX </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> btnRect</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">left</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">-</span><span class="token plain"> barRect</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">left</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> targetW </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> btnRect</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">width</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">gsap</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">to</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">pill</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token literal-property property" style="color:#36acaa">x</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> targetX</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token literal-property property" style="color:#36acaa">width</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> targetW</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token literal-property property" style="color:#36acaa">duration</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">0.15</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">//这个可以改持续时间，如果你觉得快可以改成0.30</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token literal-property property" style="color:#36acaa">ease</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">'power3.out'</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token literal-property property" style="color:#36acaa">overwrite</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean" style="color:#36acaa">true</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></div></code></pre></div></div>]]></content:encoded>
             <category>GitHub</category>
             <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[Claude Design 平替，Open CoDesign 实际体验]]></title>
-            <link>https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review</link>
-            <guid>https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review</guid>
-            <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Open CoDesign 是 Claude Design 的开源平替，本地运行、MIT 协议、支持自带 API Key，记录实际安装与使用体验。]]></description>
-            <content:encoded><![CDATA[<p>最近 Claude Design 挺火的，用 prompt 直接生成页面原型，效果看着很爽。但问题是，它要单独订阅，要moeny的，而且只能用 Claude 一个模型，数据全在云端。我就在想，有没有开源平替？搜了一下，还真有——<a href="https://github.com/OpenCoworkAI/open-codesign" target="_blank" rel="noopener noreferrer" class="">Open CoDesign</a>，MIT 开源，本地运行，支持带自己的 API Key。这篇文章记录一下我的实际体验。</p>
-<!-- -->
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="它是什么">它是什么<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#%E5%AE%83%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="它是什么的直接链接" title="它是什么的直接链接" translate="no">​</a></h2>
-<p>Open CoDesign 是一个桌面端的 AI 设计工具，核心逻辑就一句话：<strong>你输入 prompt，它帮你生成可以直接看的 HTML 原型页面</strong>。</p>
-<p>它的定位是 Claude Design、v0、Lovable 这类工具的开源替代品。几个关键点：</p>
-<ul>
-<li class=""><strong>本地运行</strong>，数据不出你的电脑</li>
-<li class=""><strong>BYOK</strong>（Bring Your Own Key），Claude、GPT、Gemini、Ollama 都支持</li>
-<li class=""><strong>MIT 开源</strong>，免费用，只需要付你自己模型的 API 费用</li>
-<li class=""><strong>导出真实文件</strong>，HTML、PDF、PPTX、ZIP 都行</li>
-</ul>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="部署过程">部署过程<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B" class="hash-link" aria-label="部署过程的直接链接" title="部署过程的直接链接" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="环境要求">环境要求<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82" class="hash-link" aria-label="环境要求的直接链接" title="环境要求的直接链接" translate="no">​</a></h3>
-<ul>
-<li class="">Node.js v22+</li>
-<li class="">pnpm 10.x</li>
-</ul>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain"># 检查 Node 版本</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">node -v</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># 安装 pnpm</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">npm install -g pnpm@10.33.4</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="克隆--安装">克隆 &amp; 安装<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#%E5%85%8B%E9%9A%86--%E5%AE%89%E8%A3%85" class="hash-link" aria-label="克隆 &amp; 安装的直接链接" title="克隆 &amp; 安装的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">git clone https://github.com/OpenCoworkAI/open-codesign.git</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">cd open-codesign</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pnpm install</span><br></div></code></pre></div></div>
-<p><code>pnpm install</code> 会跑一两分钟，等它装完。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="启动">启动<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#%E5%90%AF%E5%8A%A8" class="hash-link" aria-label="启动的直接链接" title="启动的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pnpm dev</span><br></div></code></pre></div></div>
-<p>稍等片刻，Electron 窗口会弹出来。第一次会让你配置 Provider，把你的 Claude API Key（<code>sk-ant-...</code>）粘进去，测试一下连接，就可以开始用了。</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="实际使用感受">实际使用感受<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E6%84%9F%E5%8F%97" class="hash-link" aria-label="实际使用感受的直接链接" title="实际使用感受的直接链接" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="生成速度">生成速度<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#%E7%94%9F%E6%88%90%E9%80%9F%E5%BA%A6" class="hash-link" aria-label="生成速度的直接链接" title="生成速度的直接链接" translate="no">​</a></h3>
-<p>用 Claude API 的话，生成一个中等复杂度的页面大概需要 20-40 秒。页面生成过程中左边有个 Agent 面板，可以实时看到 AI 在做什么——写了哪些文件、调用了哪些工具，不是黑盒，看着还挺有意思的。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="生成质量">生成质量<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#%E7%94%9F%E6%88%90%E8%B4%A8%E9%87%8F" class="hash-link" aria-label="生成质量的直接链接" title="生成质量的直接链接" translate="no">​</a></h3>
-<p>内置了 15 个 Demo 模板（Landing Page、Dashboard、定价页、聊天 UI 等），直接选一个改 prompt 就能用，起点不低。它还内置了 12 个设计技能模块，会自动根据你的 prompt 选合适的模块，所以输出的页面不会是那种毫无设计感的"AI 味"风格。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="comment-模式">Comment 模式<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#comment-%E6%A8%A1%E5%BC%8F" class="hash-link" aria-label="Comment 模式的直接链接" title="Comment 模式的直接链接" translate="no">​</a></h3>
-<p>这个功能挺实用的——点击预览页面上的任意元素，可以直接留一个批注，让 AI 只重写那个区域，不用重新描述整个页面。比直接改 prompt 精准多了。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ai-sliders">AI Sliders<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#ai-sliders" class="hash-link" aria-label="AI Sliders的直接链接" title="AI Sliders的直接链接" translate="no">​</a></h3>
-<p>生成完之后，AI 会自动识别出"值得调的参数"，比如主题色、字体大小、间距，用滑块的方式让你调，不用再写 prompt 说"把按钮颜色改成蓝色"之类的。</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="和-claude-design-比">和 Claude Design 比<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#%E5%92%8C-claude-design-%E6%AF%94" class="hash-link" aria-label="和 Claude Design 比的直接链接" title="和 Claude Design 比的直接链接" translate="no">​</a></h2>
-<table><thead><tr><th></th><th style="text-align:center">Open CoDesign</th><th style="text-align:center">Claude Design</th></tr></thead><tbody><tr><td>开源</td><td style="text-align:center">✅ MIT</td><td style="text-align:center">❌</td></tr><tr><td>本地运行</td><td style="text-align:center">✅</td><td style="text-align:center">❌ 云端</td></tr><tr><td>支持多模型</td><td style="text-align:center">✅ 20+</td><td style="text-align:center">❌ 仅 Claude</td></tr><tr><td>价格</td><td style="text-align:center">✅ 免费（自付 API 费用）</td><td style="text-align:center">💳 订阅制</td></tr><tr><td>数据隐私</td><td style="text-align:center">✅ 本地</td><td style="text-align:center">❌ 云端处理</td></tr></tbody></table>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95blog.uk/blog/2026/06/01/open-codesign-review#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="总结的直接链接" title="总结的直接链接" translate="no">​</a></h2>
-<p>已经有 Claude API Key 的话，装起来成本很低，值得试试。</p>]]></content:encoded>
-            <category>GitHub</category>
-            <category>macOS</category>
-            <category>AI</category>
-        </item>
-        <item>
-            <title><![CDATA[用 Python 脚本下载 YouTube 视频]]></title>
-            <link>https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script</link>
-            <guid>https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script</guid>
-            <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[用一段 Python 脚本配合 yt-dlp，在 Mac 上本地下载 YouTube 视频，配置一次，换链接直接用。]]></description>
-            <content:encoded><![CDATA[<p>想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。</p>
-<!-- -->
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="配置运行环境">配置运行环境<a href="https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script#%E9%85%8D%E7%BD%AE%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83" class="hash-link" aria-label="配置运行环境的直接链接" title="配置运行环境的直接链接" translate="no">​</a></h2>
-<p>你的 Mac 上需要以下四个工具</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="homebrew"><a class="" href="https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials">Homebrew</a><a href="https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script#homebrew" class="hash-link" aria-label="homebrew的直接链接" title="homebrew的直接链接" translate="no">​</a></h3>
-<p>macOS 包管理器，装其他工具的基础。</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span><br></div></code></pre></div></div>
-<p>验证：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew --version</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ffmpeg"><a href="https://clearlove7-ai.vercel.app/?word=ffmpeg&amp;postId=2026-05-29-Download-YouTube-videos-using-a-Python-script" target="_blank" rel="noopener noreferrer" class="">ffmpeg</a><a href="https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script#ffmpeg" class="hash-link" aria-label="ffmpeg的直接链接" title="ffmpeg的直接链接" translate="no">​</a></h3>
-<p>。</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew install ffmpeg</span><br></div></code></pre></div></div>
-<p>验证：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">ffmpeg -version</span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="nodejs">Node.js<a href="https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script#nodejs" class="hash-link" aria-label="Node.js的直接链接" title="Node.js的直接链接" translate="no">​</a></h3>
-<p>破解 YouTube 的 JS 加密挑战，缺它格式全部丢失。</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew install node</span><br></div></code></pre></div></div>
-<p>验证：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">node --version</span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="yt-dlp"><a href="https://clearlove7-ai.vercel.app/?word=yt-dlp&amp;postId=2026-05-29-Download-YouTube-videos-using-a-Python-script" target="_blank" rel="noopener noreferrer" class="">yt-dlp</a><a href="https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script#yt-dlp" class="hash-link" aria-label="yt-dlp的直接链接" title="yt-dlp的直接链接" translate="no">​</a></h3>
-<p>核心下载库。</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pip3 install yt-dlp --break-system-packages</span><br></div></code></pre></div></div>
-<p>验证：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">yt-dlp --version</span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="两项额外配置">两项额外配置<a href="https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script#%E4%B8%A4%E9%A1%B9%E9%A2%9D%E5%A4%96%E9%85%8D%E7%BD%AE" class="hash-link" aria-label="两项额外配置的直接链接" title="两项额外配置的直接链接" translate="no">​</a></h3>
-<p><strong>终端获得完全磁盘访问权限</strong>（读取 Safari <a href="https://clearlove7-ai.vercel.app/?word=Cookie&amp;postId=2026-05-29-Download-YouTube-videos-using-a-Python-script" target="_blank" rel="noopener noreferrer" class="">Cookie</a> 需要）</p>
-<p>系统设置 → 隐私与安全性 → 完全磁盘访问权限 → 添加「终端」</p>
-<p><strong>开启代理</strong>（在国内访问 YouTube 必须）</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="获取代码">获取代码<a href="https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script#%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81" class="hash-link" aria-label="获取代码的直接链接" title="获取代码的直接链接" translate="no">​</a></h2>
-<p>你可以直接下载我写好的脚本，也可以自己写（或者让 AI 写，见下一节）。</p>
-<p><a href="https://drive.google.com/file/d/14lFupv6bSw-cicSJ2KxoWYJgkII1uHeZ/view?usp=share_link" target="_blank" rel="noopener noreferrer" class="">点击下载 main.py</a></p>
-<p>代码内容如下：</p>
-<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> subprocess</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> sys</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> os</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># ── 配置区 ──────────────────────────────────────────────</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">VIDEO_URL  </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"XXXX"</span><span class="token plain">                           </span><span class="token comment" style="color:#999988;font-style:italic"># 替换为真实的 YouTube 链接</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">OUTPUT_DIR </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> os</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">path</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">expanduser</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"~/Desktop"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic"># 输出到桌面</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">NODE_PATH  </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"/opt/homebrew/bin/node"</span><span class="token plain">         </span><span class="token comment" style="color:#999988;font-style:italic"># Homebrew 安装的 Node.js 路径</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># ────────────────────────────────────────────────────────</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">def</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">download_video</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">url</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token builtin">str</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> output_dir</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token builtin">str</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">-</span><span class="token operator" style="color:#393A34">&gt;</span><span class="token plain"> </span><span class="token boolean" style="color:#36acaa">None</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token triple-quoted-string string" style="color:#e3116c">"""</span><br></div><div class="token-line" style="color:#393A34"><span class="token triple-quoted-string string" style="color:#e3116c">    调用 yt-dlp 命令行下载 YouTube 视频，输出 H.264 MP4 格式。</span><br></div><div class="token-line" style="color:#393A34"><span class="token triple-quoted-string string" style="color:#e3116c">    """</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    output_template </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> os</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">path</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">join</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">output_dir</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"%(title)s.%(ext)s"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    cmd </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">[</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"yt-dlp"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># 优先 H.264 视频流 + 最佳音频</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--format"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"bestvideo[vcodec^=avc1]+bestaudio/bestvideo[ext=mp4]+bestaudio/best"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># 强制输出 mp4 容器</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--merge-output-format"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"mp4"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># 明确指定 Node.js 路径，用于解开 YouTube JS 加密</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--js-runtimes"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string-interpolation string" style="color:#e3116c">f"node:</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">{</span><span class="token string-interpolation interpolation">NODE_PATH</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">}</span><span class="token string-interpolation string" style="color:#e3116c">"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># 从 GitHub 下载 JS 挑战解密脚本（首次运行需要联网）</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--remote-components"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"ejs:github"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># 读取 Safari Cookie，绕过机器人检测</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--cookies-from-browser"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"safari"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token comment" style="color:#999988;font-style:italic"># 输出文件路径模板</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token string" style="color:#e3116c">"--output"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> output_template</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        url</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string-interpolation string" style="color:#e3116c">f"[INFO] 开始下载：</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">{</span><span class="token string-interpolation interpolation">url</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">}</span><span class="token string-interpolation string" style="color:#e3116c">"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string-interpolation string" style="color:#e3116c">f"[INFO] 输出目录：</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">{</span><span class="token string-interpolation interpolation">output_dir</span><span class="token string-interpolation interpolation punctuation" style="color:#393A34">}</span><span class="token string-interpolation string" style="color:#e3116c">\n"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    result </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> subprocess</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">run</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">cmd</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">if</span><span class="token plain"> result</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">returncode </span><span class="token operator" style="color:#393A34">==</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">0</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"\n[✓] 下载完成！视频已保存到桌面。"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">else</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"\n[✗] 下载失败，请查看上方错误信息。"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token builtin">file</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">stderr</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">exit</span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">if</span><span class="token plain"> __name__ </span><span class="token operator" style="color:#393A34">==</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"__main__"</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token comment" style="color:#999988;font-style:italic"># 支持从命令行传入链接：python3 main.py &lt;url&gt;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    url </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">argv</span><span class="token punctuation" style="color:#393A34">[</span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">if</span><span class="token plain"> </span><span class="token builtin">len</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">argv</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">&gt;</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">else</span><span class="token plain"> VIDEO_URL</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">if</span><span class="token plain"> url </span><span class="token operator" style="color:#393A34">==</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"XXXX"</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"[✗] 请将 VIDEO_URL 替换为真实链接，或通过命令行参数传入。"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">              </span><span class="token builtin">file</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">stderr</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token keyword" style="color:#00009f">print</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">"    用法：python3 main.py \"YouTube链接\""</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token builtin">file</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">stderr</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        sys</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">exit</span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    download_video</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">url</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> OUTPUT_DIR</span><span class="token punctuation" style="color:#393A34">)</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="懒人做法让-ai-帮你写代码">懒人做法：让 AI 帮你写代码<a href="https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script#%E6%87%92%E4%BA%BA%E5%81%9A%E6%B3%95%E8%AE%A9-ai-%E5%B8%AE%E4%BD%A0%E5%86%99%E4%BB%A3%E7%A0%81" class="hash-link" aria-label="懒人做法：让 AI 帮你写代码的直接链接" title="懒人做法：让 AI 帮你写代码的直接链接" translate="no">​</a></h2>
-<p>不想手动写代码？直接把下面的提示词丢给 ChatGPT、DeepSeek 或 Claude，它们都能给你输出一个可用的脚本。</p>
-<p><strong>中文版提示词：</strong></p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">请使用 Python 写一个下载 YouTube 视频的脚本，代码写在 main.py 文件里，</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">这是需要下载的视频链接：XXXX，最终获得的视频格式要为 H.264 的 MP4，</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">并输出到桌面。</span><br></div></code></pre></div></div>
-<p><strong>英文版提示词（更推荐，输出更稳定）：</strong></p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">I need you to help me set up a YouTube video download environment on macOS and write a complete Python script.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">## My Environment</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Device: MacBook (Apple Silicon, M-series chip)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- OS: macOS</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">## What I Need You To Do</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">### Step 1 — Check and Install Dependencies</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Check whether the following tools are installed one by one. If not, provide the install command:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">1. Homebrew: via https://brew.sh/</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">2. ffmpeg: via brew install ffmpeg</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">3. Node.js: via brew install node</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">4. yt-dlp: via pip3 install yt-dlp --break-system-packages</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">### Step 2 — Write the Python Script</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Filename: youtube_downloader.py</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Requirements:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Use subprocess to call the yt-dlp CLI (do NOT use the yt_dlp Python API)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Video format: H.264 codec, MP4 container</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Quality: automatically select the highest available quality</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Cookies: read from Safari (--cookies-from-browser safari)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Node.js path: /opt/homebrew/bin/node</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Include --remote-components ejs:github to solve JS challenges</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Output directory: Desktop (~/Desktop)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Accept video URL as a command-line argument: python3 youtube_downloader.py "YouTube URL"</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Add comments in English</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">### Step 3 — Tell Me How To Use It</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">Explain how to run the script in one sentence.</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">## Important Notes</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- macOS root directory / is read-only — do NOT output files there</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Terminal needs Full Disk Access enabled in System Settings to read Safari cookies — please remind me to do this</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">- Do NOT use "ios" as the player_client — it does not support cookies</span><br></div></code></pre></div></div>
-<blockquote>
-<p>AI 能帮你写好代码，但<strong>环境还是要自己配置</strong>（就是上面那四个工具）。如果你连这个也不想手动做，可以用 Claude Code / Codex 帮你自动执行安装命令，一路点 yes 就行。</p>
-</blockquote>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="使用步骤">使用步骤<a href="https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4" class="hash-link" aria-label="使用步骤的直接链接" title="使用步骤的直接链接" translate="no">​</a></h2>
-<p>配置好环境之后，每次使用只需要一条命令。</p>
-<p>打开终端，输入：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">python3 ~/Downloads/main.py "在这里粘贴YouTube链接"</span><br></div></code></pre></div></div>
-<blockquote>
-<p>如果你把 <code>main.py</code> 放在了其他位置，把 <code>~/Downloads/main.py</code> 替换成实际路径即可。<code>~/Downloads</code> 代表你的下载文件夹，不需要改成自己的用户名。</p>
-</blockquote>
-<p>例如：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">python3 ~/Downloads/main.py "https://www.youtube.com/watch?v=5wvq8w7YBXU"</span><br></div></code></pre></div></div>
-<p>回车之后等待下载完成，视频会自动出现在<strong>桌面</strong>上。</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="faq">FAQ<a href="https://mikeq95blog.uk/blog/2026/05/29/download-youtube-videos-using-a-python-script#faq" class="hash-link" aria-label="FAQ的直接链接" title="FAQ的直接链接" translate="no">​</a></h2>
-<p><strong>下载之后的视频画质是多少？</strong> 默认最高画质，脚本里这行代码决定了分辨率选择逻辑：</p>
-<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-python codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token string" style="color:#e3116c">"bestvideo[vcodec^=avc1]+bestaudio/bestvideo[ext=mp4]+bestaudio/best"</span><br></div></code></pre></div></div>
-<p>意思是：在所有 H.264 编码的视频流里，选画质最高的那个。</p>
-<p><strong>终端卡住不动？</strong> 首次运行会从网上下载解密脚本，国内网络可能较慢，耐心等一下。确认代理已开启，或者等个 1～2 分钟再看。</p>
-<p><strong>提示 <code>command not found</code>？</strong> 某个依赖没装好。按照"配置运行环境"一节逐一验证，找到没安装的那个重新装一遍。</p>
-<p><strong>提示 <code>permission denied</code> 或 Cookie 读取失败？</strong> 终端没有完全磁盘访问权限。去系统设置 → 隐私与安全性 → 完全磁盘访问权限 → 添加「终端」，然后重新开一个终端窗口再试。</p>
-<p><strong>下载失败，看不懂报错？</strong> 问Claude code</p>]]></content:encoded>
-            <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[介绍 Homebrew]]></title>
-            <link>https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials</link>
-            <guid>https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials</guid>
-            <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Mac 用户必备包管理工具 Homebrew 入门指南：一条命令安装、更新、卸载软件，告别手动下载。]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<p>"macOS 上最流行的命令行软件安装器。"</p>
-</blockquote>
-<p>在 Mac 上装软件，你是不是还在官网一个个找安装包？有了 Homebrew，一条命令搞定一切——安装、更新、卸载，全部统一管理，告别手动下载的烦恼。</p>
-<p>Homebrew 是一个用于 macOS 和 Linux 的<a href="https://clearlove7-ai.vercel.app/?word=%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8&amp;postId=2026-05-28-homebrew-tutorials" target="_blank" rel="noopener noreferrer" class="">包管理器</a>，它的核心价值就一句话：<strong>用命令行统一管理你电脑上的所有软件</strong>。</p>
-<!-- -->
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="安装-homebrew">安装 Homebrew<a href="https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials#%E5%AE%89%E8%A3%85-homebrew" class="hash-link" aria-label="安装 Homebrew的直接链接" title="安装 Homebrew的直接链接" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="在中国">在中国<a href="https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials#%E5%9C%A8%E4%B8%AD%E5%9B%BD" class="hash-link" aria-label="在中国的直接链接" title="在中国的直接链接" translate="no">​</a></h3>
-<p>由于网络原因，推荐使用国内镜像脚本：<a href="https://github.com/ineo6/homebrew-install" target="_blank" rel="noopener noreferrer" class="">来源</a></p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)"</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="在中国以外">在中国以外<a href="https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials#%E5%9C%A8%E4%B8%AD%E5%9B%BD%E4%BB%A5%E5%A4%96" class="hash-link" aria-label="在中国以外的直接链接" title="在中国以外的直接链接" translate="no">​</a></h3>
-<p>使用官方脚本：<a href="https://brew.sh/" target="_blank" rel="noopener noreferrer" class="">来源</a></p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span><br></div></code></pre></div></div>
-<blockquote>
-<p>"中国有他自己的世界，嗯🤔"</p>
-</blockquote>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="核心概念formula-和-cask">核心概念：formula 和 cask<a href="https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5formula-%E5%92%8C-cask" class="hash-link" aria-label="核心概念：formula 和 cask的直接链接" title="核心概念：formula 和 cask的直接链接" translate="no">​</a></h2>
-<p>在用 Homebrew 之前，先搞清楚两个概念：</p>
-<ul>
-<li class=""><strong><a href="https://clearlove7-ai.vercel.app/?word=formula&amp;postId=2026-05-28-homebrew-tutorials" target="_blank" rel="noopener noreferrer" class="">formula</a>（配方）</strong>：用来安装<strong>命令行工具</strong>，比如 <code>git</code>、<code>python</code>，没有图形界面</li>
-<li class=""><strong><a href="https://clearlove7-ai.vercel.app/?word=cask&amp;postId=2026-05-28-homebrew-tutorials" target="_blank" rel="noopener noreferrer" class="">cask</a>（酒桶）</strong>：用来安装<strong>有图形界面的 App</strong>，比如 Firefox、VS Code</li>
-</ul>
-<blockquote>
-<p>我说的不是英雄联盟的那个酒桶😂</p>
-</blockquote>
-<p>简单记忆：<strong>有图标的 App → cask，纯命令行工具 → formula</strong>。</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="安装软件">安装软件<a href="https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6" class="hash-link" aria-label="安装软件的直接链接" title="安装软件的直接链接" translate="no">​</a></h2>
-<p>安装命令行工具（formula），比如 git：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew install git  # 安装 git</span><br></div></code></pre></div></div>
-<p>安装图形界面 App（cask），比如 Firefox：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew install --cask firefox  # 安装 Firefox</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="更新软件">更新软件<a href="https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials#%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6" class="hash-link" aria-label="更新软件的直接链接" title="更新软件的直接链接" translate="no">​</a></h2>
-<p>在升级之前，先刷新一下 Homebrew 的软件列表，确保拿到最新版本：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew update  # 刷新软件列表（类似刷新 App Store）</span><br></div></code></pre></div></div>
-<p>然后再升级指定软件，比如 Python：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew upgrade python  # 升级 Python 到最新版</span><br></div></code></pre></div></div>
-<blockquote>
-<p><strong>注意</strong>：<code>brew update</code> 是更新 Homebrew 自己的清单，<code>brew upgrade</code> 才是真正升级软件，两者不一样哦。</p>
-</blockquote>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="锁定版本">锁定版本<a href="https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials#%E9%94%81%E5%AE%9A%E7%89%88%E6%9C%AC" class="hash-link" aria-label="锁定版本的直接链接" title="锁定版本的直接链接" translate="no">​</a></h2>
-<p>有时候你不想让某个软件自动升级——比如你的项目依赖特定版本的 Python，升级了反而会出问题。这时候可以用 <code>pin</code> 锁定版本：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew pin python  # 锁定 python，阻止自动升级</span><br></div></code></pre></div></div>
-<p>查看已经锁定的软件：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew list --pinned</span><br></div></code></pre></div></div>
-<p>想解锁了，允许升级：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew unpin python  # 解锁 python</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="卸载软件">卸载软件<a href="https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials#%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6" class="hash-link" aria-label="卸载软件的直接链接" title="卸载软件的直接链接" translate="no">​</a></h2>
-<p>卸载命令行工具：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew uninstall node  # 卸载 node</span><br></div></code></pre></div></div>
-<p>卸载图形界面 App：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">brew uninstall --cask firefox  # 卸载 Firefox</span><br></div></code></pre></div></div>
-<p>卸载 Homebrew 本身：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">/bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/uninstall.sh)"</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="https://mikeq95blog.uk/blog/2026/05/28/homebrew-tutorials#%E6%80%BB%E7%BB%93" class="hash-link" aria-label="总结的直接链接" title="总结的直接链接" translate="no">​</a></h2>
-<table><thead><tr><th>操作</th><th>命令</th></tr></thead><tbody><tr><td>安装命令行工具</td><td><code>brew install &lt;名称&gt;</code></td></tr><tr><td>安装图形 App</td><td><code>brew install --cask &lt;名称&gt;</code></td></tr><tr><td>刷新软件列表</td><td><code>brew update</code></td></tr><tr><td>升级软件</td><td><code>brew upgrade &lt;名称&gt;</code></td></tr><tr><td>锁定版本</td><td><code>brew pin &lt;名称&gt;</code></td></tr><tr><td>查看已锁定</td><td><code>brew list --pinned</code></td></tr><tr><td>解锁版本</td><td><code>brew unpin &lt;名称&gt;</code></td></tr><tr><td>卸载软件</td><td><code>brew uninstall &lt;名称&gt;</code></td></tr></tbody></table>
-<p>以上这些命令，已经覆盖了日常使用 Homebrew 的绝大多数场景。在我看来，Homebrew 是 Mac 上必装的工具，实在是太方便了。</p>]]></content:encoded>
-            <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[Marker 使用教程]]></title>
-            <link>https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial</link>
-            <guid>https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial</guid>
-            <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Marker 是一款开源工具，可将 PDF、Word、PPT 快速转换为 Markdown，记录本地运行 Marker 的完整流程。]]></description>
-            <content:encoded><![CDATA[<p><a href="https://github.com/datalab-to/marker" target="_blank" rel="noopener noreferrer" class="">Marker</a> 是一个开源工具，可以把 PDF、Word、PPT 等文件转成 Markdown 格式，速度快，识别准确率也不错。这篇文章记录一下怎么把它跑起来。</p>
-<!-- -->
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="前言">前言：<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E5%89%8D%E8%A8%80" class="hash-link" aria-label="前言：的直接链接" title="前言：的直接链接" translate="no">​</a></h3>
-<p>我个人很喜欢浏览<a href="https://www.instructables.com/" target="_blank" rel="noopener noreferrer" class="">instructables</a>这个网站，网站很贴心的在右上角给了你”将文章导出为PDF”的选项，但是没有”导出为markdown”的选项。我很希望格式是md，因为在AI更喜欢读md而不是PDF的文件。我在网上搜索，最终找到这个github项目。</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="部署环境">部署环境<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83" class="hash-link" aria-label="部署环境的直接链接" title="部署环境的直接链接" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="前置条件">前置条件<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6" class="hash-link" aria-label="前置条件的直接链接" title="前置条件的直接链接" translate="no">​</a></h3>
-<ul>
-<li class="">Python 3.10 或以上</li>
-<li class="">推荐用 <a href="https://clearlove7-ai.vercel.app/?word=Conda&amp;postId=2026-05-28-marker-github-project-tutorial" target="_blank" rel="noopener noreferrer" class="">Conda</a> 管理环境（下面会说为什么）</li>
-</ul>
-<p>如果你用的是 Mac M1/M2/M3，不需要额外配置，PyTorch 已经原生支持。</p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="安装-conda">安装 Conda<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E5%AE%89%E8%A3%85-conda" class="hash-link" aria-label="安装 Conda的直接链接" title="安装 Conda的直接链接" translate="no">​</a></h3>
-<p>推荐装 Miniforge，体积小，对 Apple Silicon 支持好。</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain"># macOS Apple Silicon</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">bash Miniforge3-MacOSX-arm64.sh</span><br></div></code></pre></div></div>
-<p>装完之后运行这条命令，让终端认识 conda：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">~/miniforge3/bin/conda init zsh</span><br></div></code></pre></div></div>
-<p>然后关掉终端，重新打开。你会看到命令行前面多了一个 <code>(base)</code>，说明 conda 好了。</p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="创建虚拟环境">创建虚拟环境<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83" class="hash-link" aria-label="创建虚拟环境的直接链接" title="创建虚拟环境的直接链接" translate="no">​</a></h3>
-<p>简单理解：<a href="https://clearlove7-ai.vercel.app/?word=%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83&amp;postId=2026-05-28-marker-github-project-tutorial" target="_blank" rel="noopener noreferrer" class="">虚拟环境</a>就是给这个项目单独开一个"房间"，里面装的东西不会影响你电脑上别的项目。</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">conda create -n marker python=3.11 -y</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">conda activate marker</span><br></div></code></pre></div></div>
-<p>进入环境后，命令行前面会从 <code>(base)</code> 变成 <code>(marker)</code>。</p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="安装-marker">安装 Marker<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E5%AE%89%E8%A3%85-marker" class="hash-link" aria-label="安装 Marker的直接链接" title="安装 Marker的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pip install marker-pdf</span><br></div></code></pre></div></div>
-<p>如果还需要转 Word、PPT、EPUB 这些格式：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">pip install marker-pdf[full]</span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="验证一下">验证一下<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E9%AA%8C%E8%AF%81%E4%B8%80%E4%B8%8B" class="hash-link" aria-label="验证一下的直接链接" title="验证一下的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">marker_single --help</span><br></div></code></pre></div></div>
-<p>等个十几秒，输出一堆参数说明就是成功了。</p>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="以后每次用之前">以后每次用之前<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E4%BB%A5%E5%90%8E%E6%AF%8F%E6%AC%A1%E7%94%A8%E4%B9%8B%E5%89%8D" class="hash-link" aria-label="以后每次用之前的直接链接" title="以后每次用之前的直接链接" translate="no">​</a></h3>
-<p>每次打开终端，记得先进环境：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">conda activate marker</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="怎么用">怎么用<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E6%80%8E%E4%B9%88%E7%94%A8" class="hash-link" aria-label="怎么用的直接链接" title="怎么用的直接链接" translate="no">​</a></h2>
-<p>基本格式就一行：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">marker_single 你的文件路径 --output_dir 输出目录</span><br></div></code></pre></div></div>
-<p>几个常用参数：</p>
-<ul>
-<li class=""><code>--output_dir</code>：指定输出到哪个文件夹</li>
-<li class=""><code>--output_format</code>：输出格式，可以选 markdown、json、html</li>
-<li class=""><code>--page_range</code>：只转某几页，比如 <code>"0,5-10"</code>（页码从 0 开始）</li>
-<li class=""><code>--force_ocr</code>：强制 <a href="https://clearlove7-ai.vercel.app/?word=OCR&amp;postId=2026-05-28-marker-github-project-tutorial" target="_blank" rel="noopener noreferrer" class="">OCR</a>，PDF 里文字是图片时用这个</li>
-<li class=""><code>--langs zh</code>：告诉它文档是中文，识别更准</li>
-<li class=""><code>--use_llm</code>：用大模型辅助，精度更高，需要配 API Key</li>
-</ul>
-<p>转换完成后，输出目录里会有一个 <code>.md</code> 文件和提取出来的图片，用 Typora 或 Obsidian 打开就能正常显示。</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="实际使用示例">实际使用示例<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B" class="hash-link" aria-label="实际使用示例的直接链接" title="实际使用示例的直接链接" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="转一篇论文">转一篇论文<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E8%BD%AC%E4%B8%80%E7%AF%87%E8%AE%BA%E6%96%87" class="hash-link" aria-label="转一篇论文的直接链接" title="转一篇论文的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">marker_single ~/Downloads/paper.pdf \</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  --output_dir ~/Documents/notes</span><br></div></code></pre></div></div>
-<p>第一次跑会下载 AI 模型，大概 1GB 左右，耐心等一下。跑完之后数学公式会变成 <a href="https://clearlove7-ai.vercel.app/?word=LaTeX&amp;postId=2026-05-28-marker-github-project-tutorial" target="_blank" rel="noopener noreferrer" class="">LaTeX</a>，表格和标题格式都会保留，效果还不错。</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="用-ai-工具帮你">用 AI 工具帮你<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E7%94%A8-ai-%E5%B7%A5%E5%85%B7%E5%B8%AE%E4%BD%A0" class="hash-link" aria-label="用 AI 工具帮你的直接链接" title="用 AI 工具帮你的直接链接" translate="no">​</a></h2>
-<p>如果觉得上面的步骤麻烦，可以把下面这段提示词丢给 Claude Code、Cursor 这类 AI 工具，让它帮你自动把环境跑通。</p>
-<p><strong>中文版：</strong></p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">你是一个专业的 Python 环境配置工程师。请帮我在这台电脑上完整部署 marker-pdf 的运行环境。</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">我的环境：macOS Apple Silicon（M1 Pro），Shell 为 zsh，Conda 安装在 ~/miniforge3。</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">请依次完成以下步骤，每步执行完检查结果，遇到报错立即分析并修复：</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">1. 检查 conda 是否可用（conda --version），不可用则运行 ~/miniforge3/bin/conda init zsh 并提示我重开终端</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">2. 创建并激活虚拟环境：conda create -n marker python=3.11 -y &amp;&amp; conda activate marker</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">3. 安装 marker：pip install marker-pdf</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">4. 验证 PyTorch：python -c "import torch; print(torch.__version__)"，若报 libtorch_cpu.dylib 错误，立即重装：pip uninstall torch torchvision torchaudio -y &amp;&amp; pip install torch torchvision torchaudio</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">5. 验证 marker：运行 marker_single --help，等待约 20 秒，输出参数列表即为成功</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">每步执行前先告诉我你要做什么，不要修改系统级配置。完成后输出已安装的 Python、PyTorch、marker-pdf 版本号。</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="卸载">卸载<a href="https://mikeq95blog.uk/blog/2026/05/28/marker-github-project-tutorial#%E5%8D%B8%E8%BD%BD" class="hash-link" aria-label="卸载的直接链接" title="卸载的直接链接" translate="no">​</a></h2>
-<p>只卸载 marker 包，保留环境：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">conda activate marker</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pip uninstall marker-pdf</span><br></div></code></pre></div></div>
-<p>直接删掉整个环境（更彻底）：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">conda deactivate</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">conda env remove -n marker</span><br></div></code></pre></div></div>
-<hr>]]></content:encoded>
-            <category>GitHub</category>
-            <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[🌐 macOS 网络重置命令速查]]></title>
-            <link>https://mikeq95blog.uk/blog/2025/05/16/quick-reference-for-macOS network-reset-commands</link>
-            <guid>https://mikeq95blog.uk/blog/2025/05/16/quick-reference-for-macOS network-reset-commands</guid>
-            <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[一张速查卡：macOS 常见网络故障的终端修复命令，包含 DNS 刷新、DHCP 重置等，遇到断网问题直接查。]]></description>
-            <content:encoded><![CDATA[<blockquote>
-<p>一般情况下，只需运行 <strong>DNS 刷新 + DHCP 重置</strong> 即可解决大多数网络问题。</p>
-</blockquote>
-<!-- -->
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="常用命令按推荐顺序">常用命令（按推荐顺序）<a href="https://mikeq95blog.uk/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%8C%89%E6%8E%A8%E8%8D%90%E9%A1%BA%E5%BA%8F" class="hash-link" aria-label="常用命令（按推荐顺序）的直接链接" title="常用命令（按推荐顺序）的直接链接" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-刷新-dns-缓存">1. 刷新 <a href="https://clearlove7-ai.vercel.app/?word=DNS%E7%BC%93%E5%AD%98&amp;postId=2025-05-16-quick-reference-for-macOS%20network-reset-commands" target="_blank" rel="noopener noreferrer" class="">DNS 缓存</a><a href="https://mikeq95blog.uk/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#1-%E5%88%B7%E6%96%B0-dns-%E7%BC%93%E5%AD%98" class="hash-link" aria-label="1-刷新-dns-缓存的直接链接" title="1-刷新-dns-缓存的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-释放并重新获取-ipdhcp">2. 释放并重新获取 IP（<a href="https://clearlove7-ai.vercel.app/?word=DHCP&amp;postId=2025-05-16-quick-reference-for-macOS%20network-reset-commands" target="_blank" rel="noopener noreferrer" class="">DHCP</a>）<a href="https://mikeq95blog.uk/blog/2025/05/16/quick-reference-for-macOS%20network-reset-commands#2-%E9%87%8A%E6%94%BE%E5%B9%B6%E9%87%8D%E6%96%B0%E8%8E%B7%E5%8F%96-ipdhcp" class="hash-link" aria-label="2-释放并重新获取-ipdhcp的直接链接" title="2-释放并重新获取-ipdhcp的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">sudo ipconfig set en0 DHCP</span><br></div></code></pre></div></div>]]></content:encoded>
-            <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[常用的搜索引擎推荐]]></title>
-            <link>https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines</link>
-            <guid>https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines</guid>
-            <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[介绍日常可用的搜索引擎及其适用场景，告别单一依赖，找到适合自己的搜索工具组合。]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="一搜索引擎选择">一、搜索引擎选择<a href="https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines#%E4%B8%80%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E9%80%89%E6%8B%A9" class="hash-link" aria-label="一、搜索引擎选择的直接链接" title="一、搜索引擎选择的直接链接" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="推荐排序">推荐排序<a href="https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines#%E6%8E%A8%E8%8D%90%E6%8E%92%E5%BA%8F" class="hash-link" aria-label="推荐排序的直接链接" title="推荐排序的直接链接" translate="no">​</a></h4>
-<p>Google适合日常搜索，DuckDuckGo和Brave适合注重隐私的人用，yandex适合搜索那种不正经的内容，Bing国内版，如果无法上外网，这个也能凑活用。</p>
-<!-- -->
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="各引擎特点">各引擎特点<a href="https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines#%E5%90%84%E5%BC%95%E6%93%8E%E7%89%B9%E7%82%B9" class="hash-link" aria-label="各引擎特点的直接链接" title="各引擎特点的直接链接" translate="no">​</a></h4>
-<ul>
-<li class=""><strong>Google</strong>：搜争议内容时结果偏 PC，反方观点少且力度弱，不够尖锐。</li>
-<li class=""><strong>DuckDuckGo</strong>：比 Google 中立，但是每次用这个搜索结果的时候没有高亮，需要加一个脚本，我在文末会写到。（这个脚本用AI写就行）</li>
-<li class=""><strong>Yandex</strong>：完全不理会西方政治正确那套，适合搜一些敏感，比较劲爆的内容。<!-- -->
-<ul>
-<li class="">例：搜「爱泼斯坦名单」，只有 Yandex 将名单置顶</li>
-<li class="">例：搜「好莱坞丑闻」，只有 Yandex 显示激烈结果</li>
-</ul>
-</li>
-<li class=""><strong><a href="https://clearlove7-ai.vercel.app/?word=%E6%94%BF%E6%B2%BB%E6%AD%A3%E7%A1%AE&amp;postId=2026-05-16-earch-engine-user-guide" target="_blank" rel="noopener noreferrer" class="">政治正确</a>程度</strong>：<code>Google &gt; Brave &gt; DuckDuckGo &gt; Yandex</code></li>
-</ul>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="二实用搜索技巧">二、实用搜索技巧<a href="https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines#%E4%BA%8C%E5%AE%9E%E7%94%A8%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7" class="hash-link" aria-label="二、实用搜索技巧的直接链接" title="二、实用搜索技巧的直接链接" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="软件资源免费音乐下载">软件资源，免费音乐下载<a href="https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines#%E8%BD%AF%E4%BB%B6%E8%B5%84%E6%BA%90%E5%85%8D%E8%B4%B9%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD" class="hash-link" aria-label="软件资源，免费音乐下载的直接链接" title="软件资源，免费音乐下载的直接链接" translate="no">​</a></h4>
-<p>用 <strong>Yandex</strong> 搜索：</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">软件名 + cracked / premium / unlocked / Скачать</span><br></div></code></pre></div></div>
-<p>结果中找带俄语的链接，一般可直接下载。
-安卓、PC、Mac 均适用。</p>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="搜电子书annas-archive--z-library">搜电子书（<a href="https://annas-archive.gl/" target="_blank" rel="noopener noreferrer" class="">Anna's Archive</a> / <a href="https://z-lib.fm/" target="_blank" rel="noopener noreferrer" class="">Z-Library</a>）<a href="https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines#%E6%90%9C%E7%94%B5%E5%AD%90%E4%B9%A6annas-archive--z-library" class="hash-link" aria-label="搜电子书annas-archive--z-library的直接链接" title="搜电子书annas-archive--z-library的直接链接" translate="no">​</a></h4>
-<blockquote>
-<p>我要补充一下，如果你在用Google 搜索引擎去搜索Anna's Archive/Z-library,大概率会出现一堆不相关的东西，直接用yandex搜索引擎搜索，大概率第一个搜索结果就是你要找的（yandex还是太夯了！）</p>
-</blockquote>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">关键词 + edition      </span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">关键词 + 译           \</span><br></div></code></pre></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="三duckduckgo-搜索词高亮脚本">三、DuckDuckGo 搜索词高亮脚本<a href="https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines#%E4%B8%89duckduckgo-%E6%90%9C%E7%B4%A2%E8%AF%8D%E9%AB%98%E4%BA%AE%E8%84%9A%E6%9C%AC" class="hash-link" aria-label="三、DuckDuckGo 搜索词高亮脚本的直接链接" title="三、DuckDuckGo 搜索词高亮脚本的直接链接" translate="no">​</a></h3>
-<blockquote>
-<p>需安装 <a href="https://clearlove7-ai.vercel.app/?word=Tampermonkey&amp;postId=2026-05-16-earch-engine-user-guide" target="_blank" rel="noopener noreferrer" class="">Tampermonkey</a> 浏览器插件后使用。</p>
-</blockquote>
-<p>javascript</p>
-<div class="language-javascript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-javascript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// ==UserScript==</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @name         DuckDuckGo 搜索词高亮</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @namespace    http://tampermonkey.net/</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @version      2025-08-05</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @description  为 DuckDuckGo 搜索结果中的关键词添加高亮颜色</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @author       You</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @match        https://duckduckgo.com/?*</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// @grant        GM_addStyle</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// ==/UserScript==</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">function</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">'use strict'</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function maybe-class-name" style="color:#d73a49">GM_addStyle</span><span class="token punctuation" style="color:#393A34">(</span><span class="token template-string template-punctuation string" style="color:#e3116c">`</span><span class="token template-string string" style="color:#e3116c"></span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">        .kY2IgmnCmOGjharHErah span b {</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">            color: #ff897e !important;</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">        }</span><br></div><div class="token-line" style="color:#393A34"><span class="token template-string string" style="color:#e3116c">    </span><span class="token template-string template-punctuation string" style="color:#e3116c">`</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></div></code></pre></div></div>
-<hr>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="四faq">四，FAQ<a href="https://mikeq95blog.uk/blog/2026/05/16/recommended-commonly-used-search-engines#%E5%9B%9Bfaq" class="hash-link" aria-label="四，FAQ的直接链接" title="四，FAQ的直接链接" translate="no">​</a></h3>
-<ol>
-<li class="">为什么我按照你说的去搜索，但是我搜索不到？
-答： 因为搜索引擎默认是安全模式，你要在setting里面把安全模式关掉，一般来讲找到“No fliter”选择就行，fliter好像就是滤镜的意思，no fliter就是不会过滤敏感内容，选这个就对了。</li>
-<li class=""></li>
-</ol>]]></content:encoded>
-            <category>Collection</category>
-        </item>
-        <item>
-            <title><![CDATA[开源 TTS 工具 Kokoro]]></title>
-            <link>https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial</link>
-            <guid>https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial</guid>
-            <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[用开源 TTS 工具 Kokoro 把英文文章转成高质量音频，免费、本地运行、效果出色，边走路边听自己写的内容。]]></description>
-            <content:encoded><![CDATA[<p>我想把自己写的英文文章转成音频，方便边走路边听。调研了一圈，免费、效果好、本地跑——这三个条件同时满足的，只有 <a href="https://github.com/hexgrad/kokoro" target="_blank" rel="noopener noreferrer" class="">Kokoro</a>。</p>
-<!-- -->
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="kokoro-是什么">Kokoro 是什么<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#kokoro-%E6%98%AF%E4%BB%80%E4%B9%88" class="hash-link" aria-label="Kokoro 是什么的直接链接" title="Kokoro 是什么的直接链接" translate="no">​</a></h2>
-<p>Kokoro 是一个开源 <a href="https://clearlove7-ai.vercel.app/?word=TTS&amp;postId=2026-05-16-kokoro-tts-tutorial" target="_blank" rel="noopener noreferrer" class="">TTS</a>（文字转语音）模型，82M 参数，轻量但效果出奇地好。英文效果接近 ElevenLabs 商业级别，88 种声音可选，Apache 2.0 协议，免费商用。</p>
-<p>我们要用的是 <a href="https://github.com/eduardolat/kokoro-web" target="_blank" rel="noopener noreferrer" class="">kokoro-web</a>——一个把 Kokoro 包成本地服务的项目，用 <a href="https://clearlove7-ai.vercel.app/?word=Docker&amp;postId=2026-05-16-kokoro-tts-tutorial" target="_blank" rel="noopener noreferrer" class="">Docker</a> 一键启动，带网页界面，开箱即用。</p>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="声音怎么选">声音怎么选<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#%E5%A3%B0%E9%9F%B3%E6%80%8E%E4%B9%88%E9%80%89" class="hash-link" aria-label="声音怎么选的直接链接" title="声音怎么选的直接链接" translate="no">​</a></h2>
-<p>Kokoro 的声音按质量分 A~D 级，A 最高。英文推荐直接从这几个里挑：</p>
-<table><thead><tr><th>声音</th><th>级别</th><th>风格</th></tr></thead><tbody><tr><td>Heart</td><td>A</td><td>温暖女声，首选</td></tr><tr><td>Bella</td><td>A-</td><td>高质量女声</td></tr><tr><td>Michael</td><td>C+</td><td>成熟男声</td></tr><tr><td>Emma</td><td>B-</td><td>英式女声</td></tr></tbody></table>
-<blockquote>
-<p>每个声音第一次用会下载对应的模型文件，之后自动缓存，不用重复下载。</p>
-</blockquote>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="安装-docker">安装 Docker<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#%E5%AE%89%E8%A3%85-docker" class="hash-link" aria-label="安装 Docker的直接链接" title="安装 Docker的直接链接" translate="no">​</a></h2>
-<p>如果还没装 Docker，先装。</p>
-<p><strong>国际网络</strong>，直接去官网下：<a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener noreferrer" class="">docker.com/products/docker-desktop</a></p>
-<p><strong>国内网络</strong>，官网访问慢，用阿里云镜像：</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">https://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/</span><br></div></code></pre></div></div>
-<p>下载 <code>.dmg</code>，双击安装，打开 Docker Desktop，等菜单栏出现 🐳 图标。</p>
-<p>然后配置一下命令行路径（让终端能找到 docker 命令）：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">echo 'export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin"' &gt;&gt; ~/.zshrc</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">source ~/.zshrc</span><br></div></code></pre></div></div>
-<p>验证安装成功：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker --version &amp;&amp; docker compose version</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="部署-kokoro-web">部署 kokoro-web<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#%E9%83%A8%E7%BD%B2-kokoro-web" class="hash-link" aria-label="部署 kokoro-web的直接链接" title="部署 kokoro-web的直接链接" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-创建项目目录">1. 创建项目目录<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#1-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95" class="hash-link" aria-label="1. 创建项目目录的直接链接" title="1. 创建项目目录的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">mkdir kokoro-web &amp;&amp; cd kokoro-web</span><br></div></code></pre></div></div>
-<blockquote>
-<p><strong>一定要 <code>cd</code> 进去再操作</strong>，后面的 <code>docker compose</code> 命令必须在这个目录里跑，否则会报 <code>no configuration file provided</code>。</p>
-</blockquote>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-创建配置文件">2. 创建配置文件<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#2-%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" class="hash-link" aria-label="2. 创建配置文件的直接链接" title="2. 创建配置文件的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">cat &gt; compose.yaml &lt;&lt; 'EOF'</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">services:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  kokoro-web:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    image: ghcr.io/eduardolat/kokoro-web:latest</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    ports:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - "3000:3000"</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    environment:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - KW_SECRET_API_KEY=my-secret-key</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    volumes:</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">      - ./kokoro-cache:/kokoro/cache</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    restart: unless-stopped</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">EOF</span><br></div></code></pre></div></div>
-<p><code>KW_SECRET_API_KEY</code> 是访问本地服务的密码，本地用随便填，记住这个值就行。</p>
-<blockquote>
-<p>我建议不用改，默认就行。</p>
-</blockquote>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-启动服务">3. 启动服务<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#3-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1" class="hash-link" aria-label="3. 启动服务的直接链接" title="3. 启动服务的直接链接" translate="no">​</a></h3>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose up -d</span><br></div></code></pre></div></div>
-<p>第一次启动会拉取镜像，国内访问 <code>ghcr.io</code> 较慢，耐心等几分钟。</p>
-<p>看到这行就说明成功了：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose logs -f</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># 看到 Listening on http://0.0.0.0:3000 即为成功</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="使用-webui">使用 WebUI<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#%E4%BD%BF%E7%94%A8-webui" class="hash-link" aria-label="使用 WebUI的直接链接" title="使用 WebUI的直接链接" translate="no">​</a></h2>
-<p>打开浏览器访问 <code>http://localhost:3000</code>，界面就出来了。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="配置-api重要">配置 API（重要）<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#%E9%85%8D%E7%BD%AE-api%E9%87%8D%E8%A6%81" class="hash-link" aria-label="配置 API（重要）的直接链接" title="配置 API（重要）的直接链接" translate="no">​</a></h3>
-<p>右上角点 <strong>API Settings</strong>，弹出配置框：</p>
-<ul>
-<li class=""><strong>Base URL</strong> 填：<code>http://localhost:3000/api/v1</code>（默认就是这个，不用改）</li>
-<li class=""><strong>API Key</strong> 填：<code>my-secret-key</code></li>
-</ul>
-<blockquote>
-<p><strong>坑</strong>：API Key 只填值本身，不要带 <code>- KW_SECRET_API_KEY=</code> 前缀，那是配置文件里的格式，不是 key 的内容。</p>
-</blockquote>
-<p>填完点 <strong>OK</strong>。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="生成设置">生成设置<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#%E7%94%9F%E6%88%90%E8%AE%BE%E7%BD%AE" class="hash-link" aria-label="生成设置的直接链接" title="生成设置的直接链接" translate="no">​</a></h3>
-<p>回到主界面，几个关键选项：</p>
-<table><thead><tr><th>选项</th><th>推荐值</th><th>说明</th></tr></thead><tbody><tr><td><strong>Execution place</strong></td><td><code>API (Self-hosted)</code></td><td>用本地 Docker，不要选 Browser</td></tr><tr><td><strong>Model quantization</strong></td><td><code>q8f16</code></td><td>速度和音质最平衡</td></tr><tr><td><strong>Language accent</strong></td><td><code>English (US)</code></td><td>英文选这个</td></tr><tr><td><strong>Voice</strong></td><td><code>Heart</code></td><td>推荐首选</td></tr></tbody></table>
-<p><strong>Execution place 一定要选 <code>API (Self-hosted)</code></strong>，选 Browser 会在浏览器里跑模型，速度很慢，而且每次都要重新下载。</p>
-<p>在 <strong>Text to process</strong> 里粘贴文章内容，点 <strong>Generate</strong> 就行了。</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="效果示例">效果示例<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#%E6%95%88%E6%9E%9C%E7%A4%BA%E4%BE%8B" class="hash-link" aria-label="效果示例的直接链接" title="效果示例的直接链接" translate="no">​</a></h3>
-<p>输入这段文字：</p>
-<blockquote>
-<p>Google is renowned for its innovative and employee-centric work environment. The company's campuses, often called "Googleplexes," feature vibrant designs with open spaces, recreational facilities, free gourmet meals, and wellness centers. Employees enjoy flexible work hours, remote options, and a strong emphasis on collaboration through team projects and hackathons.</p>
-<p>A culture of creativity thrives with "20% time," encouraging personal passion projects that have led to major products like Gmail. Diversity, inclusion, and continuous learning are prioritized through training programs and supportive leadership. This unique blend of fun, freedom, and purpose fosters high productivity and job satisfaction, making Google a top destination for tech talent worldwide.</p>
-</blockquote>
-<p>用 Heart 声音生成的效果（约 150 词，本地生成耗时约 30 秒）：</p>
-<audio controls=""><source src="/assets/kokoro-demo-google.mp3" type="audio/mpeg"></audio>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="处理-markdown-文件">处理 Markdown 文件<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#%E5%A4%84%E7%90%86-markdown-%E6%96%87%E4%BB%B6" class="hash-link" aria-label="处理 Markdown 文件的直接链接" title="处理 Markdown 文件的直接链接" translate="no">​</a></h2>
-<p>Kokoro 只认纯文本，直接粘 <code>.md</code> 文件的话，<code>##</code>、<code>**bold**</code> 这些语法标记也会被读出来，很奇怪。</p>
-<p>用 <code>pandoc</code> 先转成纯文本再粘：</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain"># 安装 pandoc</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">brew install pandoc</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># 把 md 转成纯文本，输出到终端，然后复制粘贴</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">pandoc article.md -t plain</span><br></div></code></pre></div></div>
-<hr>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="常用命令">常用命令<a href="https://mikeq95blog.uk/blog/2026/05/16/kokoro-tts-tutorial#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4" class="hash-link" aria-label="常用命令的直接链接" title="常用命令的直接链接" translate="no">​</a></h2>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">docker compose logs -f    # 查看实时日志</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose stop       # 停止服务</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose start      # 启动服务</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">docker compose pull       # 更新到最新版本</span><br></div></code></pre></div></div>
-<hr>]]></content:encoded>
-            <category>GitHub</category>
-            <category>macOS</category>
-        </item>
-        <item>
-            <title><![CDATA[编程英语单词短语收集]]></title>
-            <link>https://mikeq95blog.uk/blog/2026/04/29/coding-english-vocabulary</link>
-            <guid>https://mikeq95blog.uk/blog/2026/04/29/coding-english-vocabulary</guid>
-            <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[整理编程文档、教程和 issue 中常见的英文词汇与表达，附例句与中文释义，帮助读懂英文技术资料。]]></description>
-            <content:encoded><![CDATA[<ol>
-<li class="">
-<p><strong>demonstrate</strong></p>
-<ul>
-<li class="">例句: This tutorial no longer ==demonstrates== current <a href="https://clearlove7-ai.vercel.app/?word=SwiftUI&amp;postId=2026-04-29-coding-english-vocabulary" target="_blank" rel="noopener noreferrer" class="">SwiftUI</a> or Xcode practices.</li>
-<li class="">译文: 本教程不再演示当前的 SwiftUI 或 Xcode 实践。</li>
-<li class="">释义: 演示</li>
-</ul>
-</li>
-</ol>
-<!-- -->
-<ol start="2">
-<li class="">
-<p><strong>prevent</strong></p>
-<ul>
-<li class="">例句: This option will ==prevent== Shadowrocket from being set as the default route.</li>
-<li class="">译文: 此选项将阻止 Shadowrocket 被设置为默认路由。</li>
-<li class="">释义: 阻止</li>
-</ul>
-</li>
-<li class="">
-<p><strong>modifier</strong></p>
-<ul>
-<li class="">例句: A new ==modifier== creates a new view based on the original one.</li>
-<li class="">译文: 一个新的修饰符基于原始的样子，会创建一个新的视图。</li>
-<li class="">释义: 修饰符</li>
-</ul>
-</li>
-<li class="">
-<p><strong>components</strong></p>
-<ul>
-<li class="">例句: One of the most common and recognizable user interface ==components== is the combination of an icon and a label.</li>
-<li class="">译文: 最常见、最容易识别的用户界面组件之一，就是图标+文字的组合。</li>
-<li class="">释义: 零件，组件</li>
-</ul>
-</li>
-<li class="">
-<p><strong>idiom</strong></p>
-<ul>
-<li class="">例句: This ==idiom== appears across many kinds of apps and shows up in collections, lists, menus of action items, and disclosable lists, just to name a few.</li>
-<li class="">译文: 这种惯用组合出现在许多类型的应用程序中，也出现在集合视图、列表、操作菜单以及可展开列表里——仅举几例而已。</li>
-<li class="">释义: 惯用模式，惯用组合</li>
-</ul>
-</li>
-<li class="">
-<p><strong>just to name a few</strong></p>
-<ul>
-<li class="">例句: This idiom appears across many kinds of apps and shows up in collections, lists, menus of action items, and disclosable lists, ==just to name a few==.</li>
-<li class="">译文: 这种惯用组合出现在许多类型的应用程序中，也出现在集合视图、列表、操作菜单以及可展开列表里——仅举几例而已。</li>
-<li class="">释义: 仅举几例 / 只是列举这么多</li>
-</ul>
-</li>
-<li class="">
-<p><strong>interface</strong></p>
-<ul>
-<li class="">例句: You create the user ==interface==, or UI, for your app inside the body, the entire contents of your app are in the code below.</li>
-<li class="">译文: 你在 body 属性中创建应用的用户界面（UI），应用程序的全部内容都在下面的代码中。</li>
-<li class="">释义: 界面</li>
-</ul>
-</li>
-</ol>
-<div class="language-swift codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-swift codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// NOTE: - 演示代码</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token class-name">SwiftUI</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">struct</span><span class="token plain"> </span><span class="token class-name">ContentView</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token class-name">View</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token keyword" style="color:#00009f">var</span><span class="token plain"> body</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">some</span><span class="token plain"> </span><span class="token class-name">View</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token class-name">VStack</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">            </span><span class="token class-name">Image</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">systemName</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string-literal string" style="color:#e3116c">"globe"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">                </span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">imageScale</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">large</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">                </span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">foregroundColor</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">tint</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">            </span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">            </span><span class="token class-name">Text</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string-literal string" style="color:#e3116c">"Hello World"</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token other-directive property" style="color:#36acaa">#Preview</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token class-name">ContentView</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></div></code></pre></div></div>
-<ol start="8">
-<li class="">
-<p><strong>instance</strong></p>
-<ul>
-<li class="">例句: To construct your narrative, the app needs an ==instance== of Story, which takes an array of StoryPage instances.</li>
-<li class="">译文: 要构建你的叙事，该应用需要一个 Story 实例，该实例接受一个 StoryPage 实例数组。</li>
-<li class="">释义: 实例</li>
-</ul>
-</li>
-<li class="">
-<p><strong>hold</strong></p>
-<ul>
-<li class="">例句: The text property ==holds== a String that describes the choice readers can make.</li>
-<li class="">译文: 文本属性保存一个字符串，用于描述读者可以做出的选择。</li>
-<li class="">释义: 保存，持有</li>
-</ul>
-</li>
-<li class="">
-<p><strong>present</strong></p>
-<ul>
-<li class="">例句: Use a <a href="https://clearlove7-ai.vercel.app/?word=NavigationStack&amp;postId=2026-04-29-coding-english-vocabulary" target="_blank" rel="noopener noreferrer" class="">navigation stack</a> to ==present= a stack of views over a root view.</li>
-<li class="">译文: 使用导航堆栈在根视图上呈现一系列视图。</li>
-<li class="">释义: 显示，呈现</li>
-</ul>
-</li>
-<li class="">
-<p><strong>indicates</strong></p>
-<ul>
-<li class="">例句: A value-destination ==indicates== that you are pushing a value onto the path.</li>
-<li class="">译文: "Value destination"这种用法表明/意味着你正在将一个值推送到导航路径（Navigation path）上。</li>
-<li class="">释义: 表明，意味着</li>
-</ul>
-</li>
-</ol>]]></content:encoded>
-            <category>English</category>
-            <category>Swift</category>
-            <category>Collection</category>
-        </item>
-        <item>
-            <title><![CDATA[通用英语单词短语收集]]></title>
-            <link>https://mikeq95blog.uk/blog/2026/04/29/general-english-vocabulary</link>
-            <guid>https://mikeq95blog.uk/blog/2026/04/29/general-english-vocabulary</guid>
-            <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[持续收录日常和学术场景中的实用英语短语，每条附例句与中文释义，适合非母语学习者积累表达。]]></description>
-            <content:encoded><![CDATA[<ol>
-<li class="">
-<p><strong>Based on the principle of voluntariness</strong></p>
-<ul>
-<li class="">例句: Membership in the union is ==based on the principle of voluntariness==—no employee is forced to join.</li>
-<li class="">译文: 加入工会遵循自愿原则，没有任何员工被强迫参加。</li>
-<li class="">释义: 根据自愿的原则</li>
-</ul>
-</li>
-</ol>
-<!-- -->
-<ol start="2">
-<li class="">
-<p><strong>One for all, all for one</strong></p>
-<ul>
-<li class="">例句: The three friends made a pact: ==one for all, all for one==. They promised to stand by each other no matter what challenges lay ahead.</li>
-<li class="">译文: 三位朋友立下誓言：人人为我，我为人人。他们承诺无论未来面临何种挑战，都会相互扶持。</li>
-<li class="">释义: 人人为我，我为人人</li>
-</ul>
-</li>
-<li class="">
-<p><strong>Be careful, though</strong></p>
-<ul>
-<li class="">例句: The restaurant is amazing and cheap. ==Be careful==, though: it gets really crowded on weekends.</li>
-<li class="">译文: 那家餐厅很棒，还很便宜。不过要注意：周末人会特别多。</li>
-<li class="">释义: 不过要注意（用于补充警示信息）</li>
-</ul>
-</li>
-<li class="">
-<p><strong>embedded in</strong></p>
-<ul>
-<li class="">例句: These attitudes are ==embedded in== our society.</li>
-<li class="">译文: 这些观念根植于我们的社会之中。</li>
-<li class="">释义: 根植于，深深嵌入</li>
-</ul>
-</li>
-<li class="">
-<p><strong>enthusiasts</strong></p>
-<ul>
-<li class="">例句: She is one of the most dedicated fitness ==enthusiasts== I have ever met.</li>
-<li class="">译文: 她是我见过的最投入的健身爱好者之一。</li>
-<li class="">释义: 爱好者，发烧友</li>
-</ul>
-</li>
-</ol>]]></content:encoded>
-            <category>English</category>
-            <category>Collection</category>
         </item>
     </channel>
 </rss>
