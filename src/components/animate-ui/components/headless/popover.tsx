@@ -44,7 +44,7 @@ function PopoverPanel<TTag extends React.ElementType = 'div'>({
     <PopoverPanelPrimitive
       anchor={anchor}
       className={cn(
-        'bg-popover text-popover-foreground z-50 w-72 rounded-md border p-4 shadow-md outline-hidden',
+        'bg-popover text-popover-foreground z-[1000] w-72 rounded-md border p-4 shadow-md outline-hidden',
         'data-[anchor=top_center]:origin-bottom data-[anchor=top_start]:origin-bottom-left data-[anchor=top_end]:origin-bottom-right',
         'data-[anchor=bottom_center]:origin-top data-[anchor=bottom_start]:origin-top-left data-[anchor=bottom_end]:origin-top-right',
         'data-[anchor=left_center]:origin-right data-[anchor=left_start]:origin-top-right data-[anchor=left_end]:origin-bottom-right',

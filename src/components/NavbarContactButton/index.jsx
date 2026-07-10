@@ -57,6 +57,7 @@ function ContactButtonInner({ mobile }) {
           width="auto"
           height="auto"
           borderRadius={10}
+          solid={mobile}
         >
           <div className={styles.section}>
             {SOCIAL.map((s) => (

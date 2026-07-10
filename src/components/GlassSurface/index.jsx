@@ -11,7 +11,8 @@ const GlassSurface = ({
   height = 80,
   borderRadius = 20,
   className = '',
-  style = {}
+  style = {},
+  solid = false
 }) => {
   const containerStyle = {
     ...style,
@@ -20,8 +21,10 @@ const GlassSurface = ({
     borderRadius: `${borderRadius}px`
   };
 
+  const variantClass = solid ? 'glass-surface--solid' : 'glass-surface--fallback';
+
   return (
-    <div className={`glass-surface glass-surface--fallback ${className}`} style={containerStyle}>
+    <div className={`glass-surface ${variantClass} ${className}`} style={containerStyle}>
       <div className="glass-surface__content">{children}</div>
     </div>
   );

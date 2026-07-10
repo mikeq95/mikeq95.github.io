@@ -44,6 +44,7 @@ function SettingsButtonInner({ mobile }) {
           width="auto"
           height="auto"
           borderRadius={10}
+          solid={mobile}
         >
           <div className={styles.section}>
             <ThemeColorButton

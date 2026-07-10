@@ -89,6 +89,7 @@ function LanguageSwitcherButton({ mobile }) {
               width="auto"
               height="auto"
               borderRadius={10}
+              solid={mobile}
             >
               <ul className={styles.dropdownList} role="listbox">
                 {locales.map(locale => {
