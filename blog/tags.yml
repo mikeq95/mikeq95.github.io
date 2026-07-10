@@ -87,3 +87,8 @@ Claude:
   label: Claude Code
   permalink: /claude-code
   description: Claude Code related posts
+
+aboutme:
+  label: About Me
+  permalink: /aboutme
+  description: Posts about me and this blog's design

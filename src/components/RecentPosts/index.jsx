@@ -52,7 +52,7 @@ function CardCover({ image, permalink, title }) {
 
   return (
     <div className={styles.cardCoverWrap}>
-      <div className={styles.cardCoverPlaceholder} style={{ background: getGradient(permalink) }} />
+      <div className={styles.cardCoverPlaceholder} style={{ '--card-gradient': getGradient(permalink) }} />
       {image && !imgError && (
         <img
           ref={imgRef}

@@ -233,10 +233,16 @@
   overflow: hidden;
 }
 
-/* Gradient placeholder — always present underneath */
+/* Gradient placeholder — always present underneath.
+   Sized up and center-cropped (like object-fit: cover for photos) so the
+   135deg diagonal doesn't stretch corner-to-corner in very wide/short cards. */
 .cardCoverPlaceholder {
   position: absolute;
   inset: 0;
+  background-image: var(--card-gradient);
+  background-size: 220% 220%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Image starts invisible, fades in once loaded */
