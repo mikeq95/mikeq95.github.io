@@ -45,7 +45,7 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 4px;
+  padding: 6px;
   background: var(--ifm-color-emphasis-100);
   border-radius: 980px;
 }
@@ -53,10 +53,10 @@
 /* GSAP drives x and width — never use left/right */
 .tabPill {
   position: absolute;
-  top: 4px;
+  top: 6px;
   left: 0;
-  height: calc(100% - 8px);
-  background: var(--ifm-color-primary);
+  height: calc(100% - 12px);
+  background: rgb(29, 29, 31);
   border-radius: 980px;
   z-index: 0;
   pointer-events: none;
@@ -69,19 +69,34 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px 18px;
+  padding: 10px 20px;
   border-radius: 980px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--ifm-color-content-secondary);
-  transition: color 0.25s ease;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ifm-color-content);
+  opacity: 0.75;
+  transition: color 0.16s ease-out, opacity 0.16s ease-out;
   white-space: nowrap;
   line-height: 1;
 }
 
-/* Active tab text is always white since pill is primary-colored */
+.tabBtn:hover {
+  opacity: 1;
+}
+
+/* Active tab text is always white since pill is near-black */
 .tabBtnActive {
   color: #fff;
+  opacity: 1;
+}
+
+[data-theme='dark'] .tabPill {
+  background: rgb(245, 245, 247);
+}
+
+[data-theme='dark'] .tabBtnActive {
+  color: rgb(29, 29, 31);
 }
 
 /* ── Track wrapper — anchors scroll buttons ── */

@@ -223,7 +223,7 @@ export default function RecentPosts({ posts = [] }) {
     gsapRef.current?.to(pill, {
       x: targetX,
       width: targetW,
-      duration: reducedMotion.current ? 0 : 0.15,
+      duration: reducedMotion.current ? 0 : 0.32,
       ease: 'power3.out',
       overwrite: true,
     });
