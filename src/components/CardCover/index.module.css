@@ -6,6 +6,12 @@
   overflow: hidden;
 }
 
+@media (max-width: 640px) {
+  .cardCoverWrap {
+    aspect-ratio: 3 / 2;
+  }
+}
+
 .cardCoverGradient {
   position: absolute;
   inset: 0;
