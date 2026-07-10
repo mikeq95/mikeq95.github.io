@@ -34,6 +34,15 @@
   color: var(--ifm-navbar-link-hover-color);
 }
 
+.loginPillBtn:focus {
+  outline: none;
+}
+
+.loginPillBtn:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -2px;
+}
+
 .dropdown {
   min-width: 220px;
   color: var(--ifm-color-content);
