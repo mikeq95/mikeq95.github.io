@@ -38,7 +38,7 @@ function HomepageHeader() {
           <Heading as="h1" className={styles.title}>
             {isZh ? (
               <>
-                Claude、GitHub，或者其他什么。
+                Claude、GitHub，或者其他。
                 <br />
                 我一直在写。
               </>
