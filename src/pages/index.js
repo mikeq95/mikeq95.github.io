@@ -36,14 +36,24 @@ function HomepageHeader() {
       <div className={styles.heroContainer}>
         <div className={styles.heroText} ref={heroTextRef}>
           <Heading as="h1" className={styles.title}>
-            {isZh
-              ? '写给自己看的技术笔记，顺便也分享给你。'
-              : 'Notes I wrote for myself — happy to share with you too.'}
+            {isZh ? (
+              <>
+                Claude、GitHub，或者其他什么。
+                <br />
+                我一直在写。
+              </>
+            ) : (
+              <>
+                Claude, GitHub, or others.
+                <br />
+                I keep writing.
+              </>
+            )}
           </Heading>
           <p className={styles.description}>
             {isZh
-              ? '记录了从零搭博客、驯服 Claude Code、到和各种命令行工具死磕的过程——理工科的严谨，速查卡的简洁。'
-              : 'Documenting the process of building this blog from scratch, taming Claude Code, and wrestling with command-line tools — engineering rigor, cheat-sheet brevity.'}
+              ? '读你想读的内容，用你喜欢的方式——这是一个为记录而生的博客。探索能直接照做的教程，读懂经过验证的方法，用清晰的排版找到你需要的答案。没有广告干扰，内容持续更新，你随时都能找到你需要的。'
+              : "Read what you want, the way you like — a blog built for exactly that. Explore tutorials you can follow step by step, methods that have been put to the test, and a layout clear enough to find what you need. No ads in the way, content updated regularly, so what you're looking for is always here."}
           </p>
           <div className={styles.buttons}>
             <Link className={styles.blogButton} to="/blog">

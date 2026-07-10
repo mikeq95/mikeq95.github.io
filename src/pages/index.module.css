@@ -87,7 +87,8 @@
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.15rem;
   line-height: 1.7;
-  margin: 0 0 1.8rem 0;
+  max-width: 640px;
+  margin: 0 auto 1.8rem;
   color: var(--ifm-color-content-secondary);
 }
 
