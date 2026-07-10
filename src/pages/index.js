@@ -35,6 +35,10 @@ function HomepageHeader() {
     <header className={styles.heroBanner}>
       <div className={styles.heroContainer}>
         <div className={styles.heroText} ref={heroTextRef}>
+          <div className={styles.logoLockup}>
+            <img src="/img/favicon.ico" alt="" className={styles.logoIcon} />
+            <span className={styles.logoWordmark}>mikeq95</span>
+          </div>
           <Heading as="h1" className={styles.title}>
             {isZh ? (
               <>
