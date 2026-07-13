@@ -44,7 +44,6 @@ Google适合日常搜索，DuckDuckGo和Brave适合注重隐私的人用，yande
 
 #### 搜电子书（[Anna's Archive](https://annas-archive.gl/) / [Z-Library](https://z-lib.fm/)）
 
-![z-library网站截图](https://cdn.mikeq95blog.uk/coverimage/Z-library.png)
 > 我要补充一下，如果你在用Google 搜索引擎去搜索Anna's Archive/Z-library,大概率会出现一堆不相关的东西，直接用yandex搜索引擎搜索，大概率第一个搜索结果就是你要找的（yandex还是太夯了！）
 ```
 关键词 + edition      

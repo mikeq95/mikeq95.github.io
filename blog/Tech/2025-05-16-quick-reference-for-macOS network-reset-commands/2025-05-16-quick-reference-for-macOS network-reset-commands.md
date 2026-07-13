@@ -1,7 +1,7 @@
 ---
 slug: 2025/05/16/quick-reference-for-macOS network-reset-commands
 title: "🌐 macOS 网络重置命令速查"
-date: 2026-05-16
+date: 2025-05-16
 image: https://cdn.mikeq95blog.uk/coverimage/macos-network-reset-command-en-cn.png
 tags:
   - macos
@@ -24,8 +24,12 @@ description: "一张速查卡：macOS 常见网络故障的终端修复命令，
 sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 ```
 
+![刷新DNS命令终端截图](https://cdn.mikeq95blog.uk/coverimage/刷新DNS命令终端截图.png)
+
 ### 2. 释放并重新获取 IP（[DHCP](https://clearlove7-ai.vercel.app?word=DHCP&postId=2025-05-16-quick-reference-for-macOS%20network-reset-commands)）
 
 ```bash
 sudo ipconfig set en0 DHCP
 ```
+
+![释放并重新获取IP](https://cdn.mikeq95blog.uk/coverimage/释放并重新获取IP.png)
