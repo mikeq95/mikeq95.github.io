@@ -34,13 +34,9 @@
   color: var(--ifm-navbar-link-hover-color);
 }
 
-.loginPillBtn:focus {
-  outline: none;
-}
-
+.loginPillBtn:focus,
 .loginPillBtn:focus-visible {
-  outline: 2px solid var(--ifm-color-primary);
-  outline-offset: -2px;
+  outline: none;
 }
 
 .dropdown {
@@ -90,13 +86,9 @@
   align-items: center;
 }
 
-.avatarBtn:focus {
-  outline: none;
-}
-
+.avatarBtn:focus,
 .avatarBtn:focus-visible {
-  outline: 2px solid var(--ifm-color-primary);
-  outline-offset: 2px;
+  outline: none;
 }
 
 .avatar {
