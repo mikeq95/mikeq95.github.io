@@ -92,3 +92,13 @@ aboutme:
   label: About Me
   permalink: /aboutme
   description: Posts about me and this blog's design
+
+docmd:
+  label: docmd
+  permalink: /docmd
+  description: docmd notes site related posts
+
+cloudflare:
+  label: Cloudflare
+  permalink: /cloudflare
+  description: Cloudflare related posts
