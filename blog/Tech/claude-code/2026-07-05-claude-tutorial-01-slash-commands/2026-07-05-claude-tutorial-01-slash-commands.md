@@ -1,5 +1,5 @@
 ---
-slug: 2026/07/05/claude-slash-command-notes
+slug: 2026/07/05/claude-tutorial-01-slash-commands
 title: Claude教程01-Slash command
 date: 2026-07-05
 tags:
