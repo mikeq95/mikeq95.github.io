@@ -127,6 +127,7 @@ const config = {
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
+            limit: false,
             // 生成 RSS 和 Atom 订阅源，方便用户订阅博客更新
           },
           onInlineTags: 'warn',
