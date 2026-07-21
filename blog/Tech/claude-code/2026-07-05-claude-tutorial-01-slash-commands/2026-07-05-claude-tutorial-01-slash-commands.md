@@ -2,7 +2,7 @@
 slug: 2026/07/05/claude-tutorial-01-slash-commands
 title: Claude教程01-Slash command
 image: 'https://cdn.mikeq95blog.uk/coverimage/01 Slash Commands.png'
-date: 2026-07-05
+date: 2026-07-05T23:59:00
 tags:
   - Claude Code
 description: "记录自己在实际使用 Claude Code 过程中逐个搞懂的 slash command 用法和容易搞混的地方，陆续更新，目前整理了 /add-dir、/agents。"

@@ -2,7 +2,7 @@
 slug: 2026/07/05/claude-tutorial-07-plugins
 title: Claude教程07-Plugins
 date: 2026-07-05
-# image: (封面图做好后填 CDN 链接，例如 https://cdn.mikeq95blog.uk/coverimage/xxx.png)
+image: 'https://cdn.mikeq95blog.uk/coverimage/07 Plugins.png'
 tags:
   - Claude Code
 description: ""
