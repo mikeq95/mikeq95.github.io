@@ -13,40 +13,12 @@ collection:
   permalink: /collection
   description: Collection of useful resources
 
-relationship:
-  label: Relationship
-  permalink: /relationship
-  description: Relationship related posts
-
-family-of-origin:
-  label: Family of Origin
-  permalink: /family-of-origin
-  description: Family of origin related posts
-
-personal-reflection:
-  label: Personal Reflection
-  permalink: /personal-reflection
-  description: Personal reflection posts
 
 macos:
   label: macOS
   permalink: /macos
   description: macOS related posts
 
-united-kingdom:
-  label: United Kingdom
-  permalink: /united-kingdom
-  description: United Kingdom related posts
-
-racial-discrimination:
-  label: Racial Discrimination
-  permalink: /racial-discrimination
-  description: Racial discrimination related posts
-
-overseas-observation:
-  label: Overseas Observation
-  permalink: /overseas-observation
-  description: Overseas observation posts
 
 github:
   label: GitHub
@@ -102,3 +74,13 @@ cloudflare:
   label: Cloudflare
   permalink: /cloudflare
   description: Cloudflare related posts
+
+Website:
+  label: Website
+  permalink: /website
+  description: Awesome websites worth sharing
+
+emoji:
+  label: Emoji
+  permalink: /emoji
+  description: Emoji and sticker collections
