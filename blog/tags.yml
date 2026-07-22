@@ -84,3 +84,8 @@ emoji:
   label: Emoji
   permalink: /emoji
   description: Emoji and sticker collections
+
+Ai-friendly:
+  label: Ai-friendly
+  permalink: /ai-friendly
+  description: Posts with a ready-to-use prompt for AI coding agents (Claude Code, Codex, etc.) to follow along
