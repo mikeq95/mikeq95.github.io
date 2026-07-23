@@ -5,8 +5,6 @@ date: 2026-06-01
 image: https://cdn.mikeq95blog.uk/coverimage/opencodesign-en-cn.png
 tags:
   - github
-  - macos
-  - AI
 description: "Open CoDesign 是 Claude Design 的开源平替，本地运行、MIT 协议、支持自带 API Key，记录实际安装与使用体验。"
 ---
 

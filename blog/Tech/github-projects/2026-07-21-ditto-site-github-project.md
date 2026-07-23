@@ -1,10 +1,9 @@
----
+ ---
 slug: 2026/07/21/ditto-site-github-project
 title: ditto.site，把任意公开网页"编译"成可运行 TypeScript 项目的工具
 date: 2026-07-21
 tags:
   - github
-  - AI
 description: "ditto.site 通过 Playwright 抓取网页真实渲染结果，走确定性的 capture-to-code 流水线生成 Next.js/Vite 项目，而不是靠 AI 现场瞎编页面。这篇记录一下它的原理、安装方式和使用场景。"
 ---
 

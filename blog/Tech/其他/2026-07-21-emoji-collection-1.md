@@ -2,9 +2,6 @@
 slug: 2026/07/21/emoji-collection-1
 title: "emoji收藏（1）"
 date: 2026-07-21
-tags:
-  - emoji
-  - collection
 description: "收集一些好玩的表情包，第一期先出一组耄耋。"
 ---
 

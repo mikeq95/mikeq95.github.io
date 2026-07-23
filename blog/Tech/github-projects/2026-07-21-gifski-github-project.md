@@ -4,7 +4,6 @@ title: Gifski，Sindre Sorhus 做的 macOS 视频转高质量 GIF 工具
 date: 2026-07-21
 tags:
   - github
-  - macos
 description: "Gifski 是高产开源作者 Sindre Sorhus 的 macOS App，用同名的 gifski Rust 编码器把视频转成体积小、质量高的 GIF。这篇记录一下它的原理、安装方式和实际用下来的体验。"
 ---
 

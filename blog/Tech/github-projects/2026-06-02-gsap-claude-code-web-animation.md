@@ -5,8 +5,6 @@ date: 2026-06-02
 image: https://cdn.mikeq95blog.uk/coverimage/gsap-skill-en-cn.png
 tags:
   - github
-  - macos
-  - Claude Code
 description: "介绍 GSAP 官方出的 Claude Code Skills 包，让 AI 正确理解 GSAP API，几分钟为网页加上流畅动画效果。"
 ---
 

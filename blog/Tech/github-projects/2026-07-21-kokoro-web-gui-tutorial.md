@@ -5,7 +5,6 @@ date: 2026-07-21
 image: https://cdn.mikeq95blog.uk/coverimage/kokoro-en-cn.png
 tags:
   - github
-  - macos
 description: "用 kokoro-web 把开源 TTS 模型 Kokoro 包成网页界面，Docker 一键启动，填文字点按钮就能生成配音，不用写一行 Python。"
 ---
 

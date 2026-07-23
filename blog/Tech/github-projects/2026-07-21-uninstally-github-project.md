@@ -4,7 +4,6 @@ title: Uninstally，一款干净卸载 macOS App 的原生小工具
 date: 2026-07-21
 tags:
   - github
-  - macos
 description: "Uninstally 是一款开源的 macOS 卸载器，靠 bundle identifier 检测清理 App 留下的偏好设置、缓存、容器等残留文件。这篇记录一下它的原理、安装方式和实际用下来的体验。"
 ---
 

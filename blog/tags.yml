@@ -3,10 +3,6 @@ English:
   permalink: /english
   description: English learning related posts
 
-Swift:
-  label: Swift
-  permalink: /swift
-  description: Swift programming language
 
 collection:
   label: Collection
@@ -30,25 +26,12 @@ Music:
   permalink: /music
   description: Music related posts
 
-"Jay Chou":
-  label: Jay Chou
-  permalink: /jay-chou
-  description: Jay Chou related posts
 
 about:
   label: About
   permalink: /about
   description: About this blog
 
-关于:
-  label: 关于
-  permalink: /guan-yu
-  description: 关于这个博客
-
-AI:
-  label: AI
-  permalink: /ai
-  description: AI related posts
 
 Claude:
   label: Claude
@@ -59,31 +42,6 @@ Claude:
   label: Claude Code
   permalink: /claude-code
   description: Claude Code related posts
-
-aboutme:
-  label: About Me
-  permalink: /aboutme
-  description: Posts about me and this blog's design
-
-docmd:
-  label: docmd
-  permalink: /docmd
-  description: docmd notes site related posts
-
-cloudflare:
-  label: Cloudflare
-  permalink: /cloudflare
-  description: Cloudflare related posts
-
-Website:
-  label: Website
-  permalink: /website
-  description: Awesome websites worth sharing
-
-emoji:
-  label: Emoji
-  permalink: /emoji
-  description: Emoji and sticker collections
 
 Ai-friendly:
   label: Ai-friendly

@@ -5,8 +5,6 @@ date: 2026-06-03
 image: https://cdn.mikeq95blog.uk/coverimage/codegraph-en-cn.png
 tags:
   - github
-  - AI
-  - Claude Code
 description: "CodeGraph 把代码库预建成知识图谱供 Claude Code 直接查询，实测减少 58% 工具调用次数、节省约 16% token 费用。"
 ---
 

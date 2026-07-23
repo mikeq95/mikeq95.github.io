@@ -4,7 +4,6 @@ title: NetNewsWire 进阶玩法，主题、iOS 小组件和隐藏偏好设置
 date: 2026-07-21
 tags:
   - github
-  - macos
 description: "接着上一篇 NetNewsWire 的来历和基础安装，这篇专门看它给深度用户留的自定义空间——.nnwtheme 主题包、iOS 小组件的数据来源，以及四个要靠 defaults write 才能开的隐藏偏好设置。"
 ---
 

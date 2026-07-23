@@ -4,7 +4,6 @@ title: Langflow，用可视化拖拽搭建 AI Agent 和工作流的开源平台
 date: 2026-07-21
 tags:
   - github
-  - AI
 description: "Langflow 是一个开源的可视化 AI 工作流构建平台，拖拽节点就能搭多 Agent 编排，也能随时切到 Python 源码自定义组件，支持导出成 API、JSON 或 MCP Server。这篇记录一下它的原理、安装方式和使用体验。"
 ---
 

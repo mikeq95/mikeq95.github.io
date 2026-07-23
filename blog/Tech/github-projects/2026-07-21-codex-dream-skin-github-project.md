@@ -4,7 +4,6 @@ title: Codex Dream Skin，给 Codex 桌面客户端换背景皮肤的小工具
 date: 2026-07-21
 tags:
   - github
-  - AI
 description: "Codex Dream Skin 通过本地 CDP 注入给 OpenAI Codex 桌面客户端加自定义背景皮肤，不改官方二进制和签名，原生控件照常可交互。这篇记录一下它的原理、安装方式和使用体验。"
 ---
 

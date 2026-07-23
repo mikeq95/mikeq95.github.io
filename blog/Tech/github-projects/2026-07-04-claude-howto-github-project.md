@@ -4,7 +4,6 @@ title: claude-howto：一个周末学完 Claude Code 的教程项目
 date: 2026-07-04
 tags:
   - github
-  - Claude Code
 description: "claude-howto 用 10 个模块 + 自带的自测 Skill，把 Slash Commands、Memory、Skills、Hooks、MCP、Subagents 等 Claude Code 功能串成一条学习路径，记录一下怎么上手。"
 ---
 

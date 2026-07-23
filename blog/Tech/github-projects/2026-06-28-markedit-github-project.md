@@ -5,7 +5,6 @@ date: 2026-06-28
 image: https://cdn.mikeq95blog.uk/coverimage/markedit.png
 tags:
   - github
-  - macos
 description: "MarkEdit 是一款开源免费的 macOS 原生 Markdown 编辑器，安装包只有 4MB，主打轻量、原生、能扛大文件，记录一下它的特点和安装方法。"
 ---
 
