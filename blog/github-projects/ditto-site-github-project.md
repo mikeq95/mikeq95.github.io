@@ -1,4 +1,4 @@
- ---
+---
 slug: 2026/07/21/ditto-site-github-project
 title: ditto.site，把任意公开网页"编译"成可运行 TypeScript 项目的工具
 date: 2026-07-21

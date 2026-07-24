@@ -2,7 +2,6 @@
 slug: 2026/07/23/secondhand-items-worth-buying
 title: 什么二手的动心最值得入手？
 date: 2026-07-23
-tags:
 description: "从玩具属性到吃灰率，梳理一遍最适合捡漏二手的 5 类商品，以及我不建议二手买手机、却强烈建议二手买 iPad Pro 的理由。"
 ---
 
