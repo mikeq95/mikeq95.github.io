@@ -210,6 +210,13 @@ const config = {
       },
       navbar: {
         items: [
+          { to: 'https://ai.mikeq95blog.uk', label: 'AI', position: 'left' },
+          { to: 'https://notes.mikeq95blog.uk', label: 'kris', position: 'left' },
+          {
+            to: 'https://second.mikeq95blog.uk/blog/English/2026-04-29-general-english-vocabulary',
+            label: 'Amy',
+            position: 'left',
+          },
           { type: 'custom-NavbarContactButton', position: 'right' },
           { type: 'custom-NavbarSettingsButton', position: 'right' },
           { type: 'custom-NavbarLanguageSwitcher', position: 'right' },
