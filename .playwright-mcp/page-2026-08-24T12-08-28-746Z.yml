@@ -1,0 +1,530 @@
+- generic [ref=f6e2]:
+  - region "跳到主要内容":
+    - link "跳到主要内容" [ref=f6e3] [cursor=pointer]:
+      - /url: "#__docusaurus_skipToContent_fallback"
+  - navigation "主导航" [ref=f6e4]:
+    - generic [ref=f6e5]:
+      - generic [ref=f6e6]:
+        - link "mikeq95's blog" [ref=f6e7] [cursor=pointer]:
+          - /url: /
+        - link "AI" [ref=f6e8] [cursor=pointer]:
+          - /url: https://ai.mikeq95blog.uk
+        - link "shop" [ref=f6e9] [cursor=pointer]:
+          - /url: https://www.cheapchina.uk
+        - link "kris" [ref=f6e10] [cursor=pointer]:
+          - /url: https://notes.mikeq95blog.uk
+        - link "Amy" [ref=f6e11] [cursor=pointer]:
+          - /url: https://second.mikeq95blog.uk/blog/English/2026-04-29-general-english-vocabulary
+      - textbox "Search" [ref=f6e15]:
+        - /placeholder: 搜索
+  - generic [ref=f6e16]:
+    - banner [ref=f6e17]:
+      - generic [ref=f6e19]:
+        - generic [ref=f6e20]: mikeq95
+        - heading "Claude、GitHub，或者其他。 我一直在写。" [level=1] [ref=f6e22]: Claude、GitHub，或者其他。我一直在写。
+        - paragraph [ref=f6e23]: 读你想读的内容，用你喜欢的方式——这是一个为记录而生的博客。探索能直接照做的教程，读懂经过验证的方法，用清晰的排版找到你需要的答案。没有广告干扰，内容持续更新，你随时都能找到你需要的。
+        - link "阅读我的博客" [ref=f6e25] [cursor=pointer]:
+          - /url: /blog
+    - main [ref=f6e26]:
+      - generic [ref=f6e27]:
+        - heading "最新文章" [level=2] [ref=f6e28]
+        - generic [ref=f6e30]:
+          - button "所有文章" [ref=f6e31] [cursor=pointer]
+          - button "点赞最多" [ref=f6e32] [cursor=pointer]
+          - button "收藏最多" [ref=f6e33] [cursor=pointer]
+          - button "关于这个博客" [ref=f6e34] [cursor=pointer]
+        - generic [ref=f6e35]:
+          - button "向左滚动" [ref=f6e36] [cursor=pointer]
+          - generic [ref=f6e37]:
+            - link "abogen：用 Kokoro 把 EPUB/PDF 转成有字幕的有声书 tts audiobook 2026年8月21日 阅读" [ref=f6e39] [cursor=pointer]:
+              - /url: /blog/2026/08/21/abogen-github-project
+              - generic [ref=f6e42]:
+                - heading "abogen：用 Kokoro 把 EPUB/PDF 转成有字幕的有声书" [level=3] [ref=f6e43]
+                - generic [ref=f6e44]:
+                  - generic [ref=f6e45]: tts
+                  - generic [ref=f6e46]: audiobook
+                  - time [ref=f6e47]: 2026年8月21日
+                - generic [ref=f6e48]: 阅读
+            - link "Atoll：把 MacBook 刘海屏变成控制中心 macOS swift 2026年8月21日 阅读" [ref=f6e50] [cursor=pointer]:
+              - /url: /blog/2026/08/21/atoll-dynamic-island-macos
+              - generic [ref=f6e53]:
+                - heading "Atoll：把 MacBook 刘海屏变成控制中心" [level=3] [ref=f6e54]
+                - generic [ref=f6e55]:
+                  - generic [ref=f6e56]: macOS
+                  - generic [ref=f6e57]: swift
+                  - time [ref=f6e58]: 2026年8月21日
+                - generic [ref=f6e59]: 阅读
+            - link "CrossPoint Reader：给 Xteink 电纸书刷一个开源固件 e-reader esp32 2026年8月21日 阅读" [ref=f6e61] [cursor=pointer]:
+              - /url: /blog/2026/08/21/crosspoint-reader-github-project
+              - generic [ref=f6e64]:
+                - heading "CrossPoint Reader：给 Xteink 电纸书刷一个开源固件" [level=3] [ref=f6e65]
+                - generic [ref=f6e66]:
+                  - generic [ref=f6e67]: e-reader
+                  - generic [ref=f6e68]: esp32
+                  - time [ref=f6e69]: 2026年8月21日
+                - generic [ref=f6e70]: 阅读
+            - link "Echo Loop，一款把英语听说练成闭环的开源 App GitHub English 2026年8月21日 阅读" [ref=f6e72] [cursor=pointer]:
+              - /url: /blog/2026/08/21/echo-loop-github-project
+              - generic [ref=f6e75]:
+                - heading "Echo Loop，一款把英语听说练成闭环的开源 App" [level=3] [ref=f6e76]
+                - generic [ref=f6e77]:
+                  - generic [ref=f6e78]: GitHub
+                  - generic [ref=f6e79]: English
+                  - time [ref=f6e80]: 2026年8月21日
+                - generic [ref=f6e81]: 阅读
+            - link "stop-slop：一个帮 AI 去掉 AI 腔的 Skill claude llm 2026年8月21日 阅读" [ref=f6e83] [cursor=pointer]:
+              - /url: /blog/2026/08/21/stop-slop-github-project
+              - generic [ref=f6e86]:
+                - heading "stop-slop：一个帮 AI 去掉 AI 腔的 Skill" [level=3] [ref=f6e87]
+                - generic [ref=f6e88]:
+                  - generic [ref=f6e89]: claude
+                  - generic [ref=f6e90]: llm
+                  - time [ref=f6e91]: 2026年8月21日
+                - generic [ref=f6e92]: 阅读
+            - link "Tolaria：用 Git 管 Markdown 知识库的桌面应用 markdown knowledge-base 2026年8月21日 阅读" [ref=f6e94] [cursor=pointer]:
+              - /url: /blog/2026/08/21/tolaria-github-project
+              - generic [ref=f6e97]:
+                - heading "Tolaria：用 Git 管 Markdown 知识库的桌面应用" [level=3] [ref=f6e98]
+                - generic [ref=f6e99]:
+                  - generic [ref=f6e100]: markdown
+                  - generic [ref=f6e101]: knowledge-base
+                  - time [ref=f6e102]: 2026年8月21日
+                - generic [ref=f6e103]: 阅读
+            - link "tty7，一个把 shell、SSH 和 coding agent 放在一起的终端工作台 GitHub Ai-friendly 2026年8月1日 阅读" [ref=f6e105] [cursor=pointer]:
+              - /url: /blog/2026/08/01/tty7-github-project
+              - generic [ref=f6e108]:
+                - heading "tty7，一个把 shell、SSH 和 coding agent 放在一起的终端工作台" [level=3] [ref=f6e109]
+                - generic [ref=f6e110]:
+                  - generic [ref=f6e111]: GitHub
+                  - generic [ref=f6e112]: Ai-friendly
+                  - time [ref=f6e113]: 2026年8月1日
+                - generic [ref=f6e114]: 阅读
+            - link "Buzz，一个让人和 AI 代理同处一室的自托管工作台 GitHub 2026年7月26日 阅读" [ref=f6e116] [cursor=pointer]:
+              - /url: /blog/2026/07/26/buzz-github-project
+              - generic [ref=f6e119]:
+                - heading "Buzz，一个让人和 AI 代理同处一室的自托管工作台" [level=3] [ref=f6e120]
+                - generic [ref=f6e121]:
+                  - generic [ref=f6e122]: GitHub
+                  - time [ref=f6e123]: 2026年7月26日
+                - generic [ref=f6e124]: 阅读
+            - link "Otty，一款为 AI 代码代理量身打造的原生终端 2026年7月24日 阅读" [ref=f6e126] [cursor=pointer]:
+              - /url: /blog/2026/07/24/otty-terminal-app
+              - generic [ref=f6e129]:
+                - heading "Otty，一款为 AI 代码代理量身打造的原生终端" [level=3] [ref=f6e130]
+                - time [ref=f6e132]: 2026年7月24日
+                - generic [ref=f6e133]: 阅读
+            - link "🐿️ macOS 装 Rime 输入法(鼠须管)+ 万象拼音，顺便调个好看的候选框 GitHub 2026年7月23日 阅读" [ref=f6e135] [cursor=pointer]:
+              - /url: /blog/2026/07/23/rime-squirrel-wanxiang-setup
+              - generic [ref=f6e138]:
+                - heading "🐿️ macOS 装 Rime 输入法(鼠须管)+ 万象拼音，顺便调个好看的候选框" [level=3] [ref=f6e139]
+                - generic [ref=f6e140]:
+                  - generic [ref=f6e141]: GitHub
+                  - time [ref=f6e142]: 2026年7月23日
+                - generic [ref=f6e143]: 阅读
+            - link "什么二手的动心最值得入手？ 2026年7月23日 阅读" [ref=f6e145] [cursor=pointer]:
+              - /url: /blog/2026/07/23/secondhand-items-worth-buying
+              - generic [ref=f6e148]:
+                - heading "什么二手的动心最值得入手？" [level=3] [ref=f6e149]
+                - time [ref=f6e151]: 2026年7月23日
+                - generic [ref=f6e152]: 阅读
+            - link "awesome-design-md，把大厂设计系统喂给 AI 编程助手的 DESIGN.md 合集 GitHub 2026年7月21日 阅读" [ref=f6e154] [cursor=pointer]:
+              - /url: /blog/2026/07/21/awesome-design-md-github-project
+              - generic [ref=f6e157]:
+                - heading "awesome-design-md，把大厂设计系统喂给 AI 编程助手的 DESIGN.md 合集" [level=3] [ref=f6e158]
+                - generic [ref=f6e159]:
+                  - generic [ref=f6e160]: GitHub
+                  - time [ref=f6e161]: 2026年7月21日
+                - generic [ref=f6e162]: 阅读
+            - link "better-douyin，一个抖音内容预览与本地归档的桌面工具 GitHub 2026年7月21日 阅读" [ref=f6e164] [cursor=pointer]:
+              - /url: /blog/2026/07/21/better-douyin-github-project
+              - generic [ref=f6e167]:
+                - heading "better-douyin，一个抖音内容预览与本地归档的桌面工具" [level=3] [ref=f6e168]
+                - generic [ref=f6e169]:
+                  - generic [ref=f6e170]: GitHub
+                  - time [ref=f6e171]: 2026年7月21日
+                - generic [ref=f6e172]: 阅读
+            - link "Codex Dream Skin，给 Codex 桌面客户端换背景皮肤的小工具 GitHub 2026年7月21日 阅读" [ref=f6e174] [cursor=pointer]:
+              - /url: /blog/2026/07/21/codex-dream-skin-github-project
+              - generic [ref=f6e177]:
+                - heading "Codex Dream Skin，给 Codex 桌面客户端换背景皮肤的小工具" [level=3] [ref=f6e178]
+                - generic [ref=f6e179]:
+                  - generic [ref=f6e180]: GitHub
+                  - time [ref=f6e181]: 2026年7月21日
+                - generic [ref=f6e182]: 阅读
+            - link "ditto.site，把任意公开网页\"编译\"成可运行 TypeScript 项目的工具 GitHub 2026年7月21日 阅读" [ref=f6e184] [cursor=pointer]:
+              - /url: /blog/2026/07/21/ditto-site-github-project
+              - generic [ref=f6e187]:
+                - heading "ditto.site，把任意公开网页\"编译\"成可运行 TypeScript 项目的工具" [level=3] [ref=f6e188]
+                - generic [ref=f6e189]:
+                  - generic [ref=f6e190]: GitHub
+                  - time [ref=f6e191]: 2026年7月21日
+                - generic [ref=f6e192]: 阅读
+            - link "Gifski，Sindre Sorhus 做的 macOS 视频转高质量 GIF 工具 GitHub 2026年7月21日 阅读" [ref=f6e194] [cursor=pointer]:
+              - /url: /blog/2026/07/21/gifski-github-project
+              - generic [ref=f6e197]:
+                - heading "Gifski，Sindre Sorhus 做的 macOS 视频转高质量 GIF 工具" [level=3] [ref=f6e198]
+                - generic [ref=f6e199]:
+                  - generic [ref=f6e200]: GitHub
+                  - time [ref=f6e201]: 2026年7月21日
+                - generic [ref=f6e202]: 阅读
+            - link "Kokoro Web：不用敲代码，网页界面本地生成 AI 配音 Kokoro Web：不用敲代码，网页界面本地生成 AI 配音 GitHub 2026年7月21日 阅读" [ref=f6e204] [cursor=pointer]:
+              - /url: /blog/2026/07/21/kokoro-web-gui-tutorial
+              - img "Kokoro Web：不用敲代码，网页界面本地生成 AI 配音" [ref=f6e207]
+              - generic [ref=f6e208]:
+                - heading "Kokoro Web：不用敲代码，网页界面本地生成 AI 配音" [level=3] [ref=f6e209]
+                - generic [ref=f6e210]:
+                  - generic [ref=f6e211]: GitHub
+                  - time [ref=f6e212]: 2026年7月21日
+                - generic [ref=f6e213]: 阅读
+            - link "Langflow，用可视化拖拽搭建 AI Agent 和工作流的开源平台 GitHub 2026年7月21日 阅读" [ref=f6e215] [cursor=pointer]:
+              - /url: /blog/2026/07/21/langflow-github-project
+              - generic [ref=f6e218]:
+                - heading "Langflow，用可视化拖拽搭建 AI Agent 和工作流的开源平台" [level=3] [ref=f6e219]
+                - generic [ref=f6e220]:
+                  - generic [ref=f6e221]: GitHub
+                  - time [ref=f6e222]: 2026年7月21日
+                - generic [ref=f6e223]: 阅读
+            - link "NetNewsWire，一款开源了 20 多年的 macOS/iOS RSS 阅读器 GitHub 2026年7月21日 阅读" [ref=f6e225] [cursor=pointer]:
+              - /url: /blog/2026/07/21/netnewswire-github-project
+              - generic [ref=f6e228]:
+                - heading "NetNewsWire，一款开源了 20 多年的 macOS/iOS RSS 阅读器" [level=3] [ref=f6e229]
+                - generic [ref=f6e230]:
+                  - generic [ref=f6e231]: GitHub
+                  - time [ref=f6e232]: 2026年7月21日
+                - generic [ref=f6e233]: 阅读
+            - link "NetNewsWire 进阶玩法，主题、iOS 小组件和隐藏偏好设置 GitHub 2026年7月21日 阅读" [ref=f6e235] [cursor=pointer]:
+              - /url: /blog/2026/07/21/netnewswire-themes-widgets-github-project
+              - generic [ref=f6e238]:
+                - heading "NetNewsWire 进阶玩法，主题、iOS 小组件和隐藏偏好设置" [level=3] [ref=f6e239]
+                - generic [ref=f6e240]:
+                  - generic [ref=f6e241]: GitHub
+                  - time [ref=f6e242]: 2026年7月21日
+                - generic [ref=f6e243]: 阅读
+            - link "Starship，一个能在任何 Shell 里用的极简高速命令行提示符 GitHub 2026年7月21日 阅读" [ref=f6e245] [cursor=pointer]:
+              - /url: /blog/2026/07/21/starship-github-project
+              - generic [ref=f6e248]:
+                - heading "Starship，一个能在任何 Shell 里用的极简高速命令行提示符" [level=3] [ref=f6e249]
+                - generic [ref=f6e250]:
+                  - generic [ref=f6e251]: GitHub
+                  - time [ref=f6e252]: 2026年7月21日
+                - generic [ref=f6e253]: 阅读
+            - link "Uninstally，一款干净卸载 macOS App 的原生小工具 GitHub 2026年7月21日 阅读" [ref=f6e255] [cursor=pointer]:
+              - /url: /blog/2026/07/21/uninstally-github-project
+              - generic [ref=f6e258]:
+                - heading "Uninstally，一款干净卸载 macOS App 的原生小工具" [level=3] [ref=f6e259]
+                - generic [ref=f6e260]:
+                  - generic [ref=f6e261]: GitHub
+                  - time [ref=f6e262]: 2026年7月21日
+                - generic [ref=f6e263]: 阅读
+            - link "订阅我的博客 aboutme 2026年7月21日 阅读" [ref=f6e265] [cursor=pointer]:
+              - /url: /blog/about-subscribe
+              - generic [ref=f6e268]:
+                - heading "订阅我的博客" [level=3] [ref=f6e269]
+                - generic [ref=f6e270]:
+                  - generic [ref=f6e271]: aboutme
+                  - time [ref=f6e272]: 2026年7月21日
+                - generic [ref=f6e273]: 阅读
+            - link "emoji收藏（1） 2026年7月21日 阅读" [ref=f6e275] [cursor=pointer]:
+              - /url: /blog/2026/07/21/emoji-collection-1
+              - generic [ref=f6e278]:
+                - heading "emoji收藏（1）" [level=3] [ref=f6e279]
+                - time [ref=f6e281]: 2026年7月21日
+                - generic [ref=f6e282]: 阅读
+            - link "网站合集（1） Website 2026年7月21日 阅读" [ref=f6e284] [cursor=pointer]:
+              - /url: /blog/2026/07/21/website-collection-1
+              - generic [ref=f6e287]:
+                - heading "网站合集（1）" [level=3] [ref=f6e288]
+                - generic [ref=f6e289]:
+                  - generic [ref=f6e290]: Website
+                  - time [ref=f6e291]: 2026年7月21日
+                - generic [ref=f6e292]: 阅读
+            - link "推荐安装的 Claude Code 插件 Claude Code 2026年7月19日 阅读" [ref=f6e294] [cursor=pointer]:
+              - /url: /blog/2026/07/19/claude-code-recommended-plugins
+              - generic [ref=f6e297]:
+                - heading "推荐安装的 Claude Code 插件" [level=3] [ref=f6e298]
+                - generic [ref=f6e299]:
+                  - generic [ref=f6e300]: Claude Code
+                  - time [ref=f6e301]: 2026年7月19日
+                - generic [ref=f6e302]: 阅读
+            - link "我的 homepage 主标题和副标题的完整设置 aboutme 2026年7月10日 阅读" [ref=f6e304] [cursor=pointer]:
+              - /url: /blog/about-homepage-hero-design
+              - generic [ref=f6e307]:
+                - heading "我的 homepage 主标题和副标题的完整设置" [level=3] [ref=f6e308]
+                - generic [ref=f6e309]:
+                  - generic [ref=f6e310]: aboutme
+                  - time [ref=f6e311]: 2026年7月10日
+                - generic [ref=f6e312]: 阅读
+            - link "docmd 笔记站从零配置到 GitHub 自动部署全记录 GitHub 2026年7月9日 阅读" [ref=f6e314] [cursor=pointer]:
+              - /url: /blog/2026/07/09/docmd-setup-to-github-auto-deploy
+              - generic [ref=f6e317]:
+                - heading "docmd 笔记站从零配置到 GitHub 自动部署全记录" [level=3] [ref=f6e318]
+                - generic [ref=f6e319]:
+                  - generic [ref=f6e320]: GitHub
+                  - time [ref=f6e321]: 2026年7月9日
+                - generic [ref=f6e322]: 阅读
+            - link "Claude教程01-Slash command Claude教程01-Slash command Claude Code 2026年7月6日 阅读" [ref=f6e324] [cursor=pointer]:
+              - /url: /blog/2026/07/05/claude-tutorial-01-slash-commands
+              - img "Claude教程01-Slash command" [ref=f6e327]
+              - generic [ref=f6e328]:
+                - heading "Claude教程01-Slash command" [level=3] [ref=f6e329]
+                - generic [ref=f6e330]:
+                  - generic [ref=f6e331]: Claude Code
+                  - time [ref=f6e332]: 2026年7月6日
+                - generic [ref=f6e333]: 阅读
+            - link "Claude教程02-Memory Claude教程02-Memory Claude Code 2026年7月5日 阅读" [ref=f6e335] [cursor=pointer]:
+              - /url: /blog/2026/07/05/claude-tutorial-02-memory
+              - img "Claude教程02-Memory" [ref=f6e338]
+              - generic [ref=f6e339]:
+                - heading "Claude教程02-Memory" [level=3] [ref=f6e340]
+                - generic [ref=f6e341]:
+                  - generic [ref=f6e342]: Claude Code
+                  - time [ref=f6e343]: 2026年7月5日
+                - generic [ref=f6e344]: 阅读
+            - link "Claude教程03-Skills Claude教程03-Skills Claude Code 2026年7月5日 阅读" [ref=f6e346] [cursor=pointer]:
+              - /url: /blog/2026/07/05/claude-tutorial-03-skills
+              - img "Claude教程03-Skills" [ref=f6e349]
+              - generic [ref=f6e350]:
+                - heading "Claude教程03-Skills" [level=3] [ref=f6e351]
+                - generic [ref=f6e352]:
+                  - generic [ref=f6e353]: Claude Code
+                  - time [ref=f6e354]: 2026年7月5日
+                - generic [ref=f6e355]: 阅读
+            - link "Claude教程04-Subagents Claude教程04-Subagents Claude Code 2026年7月5日 阅读" [ref=f6e357] [cursor=pointer]:
+              - /url: /blog/2026/07/05/claude-tutorial-04-subagents
+              - img "Claude教程04-Subagents" [ref=f6e360]
+              - generic [ref=f6e361]:
+                - heading "Claude教程04-Subagents" [level=3] [ref=f6e362]
+                - generic [ref=f6e363]:
+                  - generic [ref=f6e364]: Claude Code
+                  - time [ref=f6e365]: 2026年7月5日
+                - generic [ref=f6e366]: 阅读
+            - link "Claude教程05-MCP Claude教程05-MCP Claude Code 2026年7月5日 阅读" [ref=f6e368] [cursor=pointer]:
+              - /url: /blog/2026/07/05/claude-tutorial-05-mcp
+              - img "Claude教程05-MCP" [ref=f6e371]
+              - generic [ref=f6e372]:
+                - heading "Claude教程05-MCP" [level=3] [ref=f6e373]
+                - generic [ref=f6e374]:
+                  - generic [ref=f6e375]: Claude Code
+                  - time [ref=f6e376]: 2026年7月5日
+                - generic [ref=f6e377]: 阅读
+            - link "Claude教程06-Hooks Claude教程06-Hooks Claude Code 2026年7月5日 阅读" [ref=f6e379] [cursor=pointer]:
+              - /url: /blog/2026/07/05/claude-tutorial-06-hooks
+              - img "Claude教程06-Hooks" [ref=f6e382]
+              - generic [ref=f6e383]:
+                - heading "Claude教程06-Hooks" [level=3] [ref=f6e384]
+                - generic [ref=f6e385]:
+                  - generic [ref=f6e386]: Claude Code
+                  - time [ref=f6e387]: 2026年7月5日
+                - generic [ref=f6e388]: 阅读
+            - link "Claude教程07-Plugins Claude教程07-Plugins Claude Code 2026年7月5日 阅读" [ref=f6e390] [cursor=pointer]:
+              - /url: /blog/2026/07/05/claude-tutorial-07-plugins
+              - img "Claude教程07-Plugins" [ref=f6e393]
+              - generic [ref=f6e394]:
+                - heading "Claude教程07-Plugins" [level=3] [ref=f6e395]
+                - generic [ref=f6e396]:
+                  - generic [ref=f6e397]: Claude Code
+                  - time [ref=f6e398]: 2026年7月5日
+                - generic [ref=f6e399]: 阅读
+            - link "Claude教程08-Checkpoints Claude教程08-Checkpoints Claude Code 2026年7月5日 阅读" [ref=f6e401] [cursor=pointer]:
+              - /url: /blog/2026/07/05/claude-tutorial-08-checkpoints
+              - img "Claude教程08-Checkpoints" [ref=f6e404]
+              - generic [ref=f6e405]:
+                - heading "Claude教程08-Checkpoints" [level=3] [ref=f6e406]
+                - generic [ref=f6e407]:
+                  - generic [ref=f6e408]: Claude Code
+                  - time [ref=f6e409]: 2026年7月5日
+                - generic [ref=f6e410]: 阅读
+            - link "Claude教程09-Advanced Features Claude教程09-Advanced Features Claude Code 2026年7月5日 阅读" [ref=f6e412] [cursor=pointer]:
+              - /url: /blog/2026/07/05/claude-tutorial-09-advanced-features
+              - img "Claude教程09-Advanced Features" [ref=f6e415]
+              - generic [ref=f6e416]:
+                - heading "Claude教程09-Advanced Features" [level=3] [ref=f6e417]
+                - generic [ref=f6e418]:
+                  - generic [ref=f6e419]: Claude Code
+                  - time [ref=f6e420]: 2026年7月5日
+                - generic [ref=f6e421]: 阅读
+            - link "Claude教程10-CLI Claude教程10-CLI Claude Code 2026年7月5日 阅读" [ref=f6e423] [cursor=pointer]:
+              - /url: /blog/2026/07/05/claude-tutorial-10-cli
+              - img "Claude教程10-CLI" [ref=f6e426]
+              - generic [ref=f6e427]:
+                - heading "Claude教程10-CLI" [level=3] [ref=f6e428]
+                - generic [ref=f6e429]:
+                  - generic [ref=f6e430]: Claude Code
+                  - time [ref=f6e431]: 2026年7月5日
+                - generic [ref=f6e432]: 阅读
+            - link "claude-howto：一个周末学完 Claude Code 的教程项目 GitHub 2026年7月4日 阅读" [ref=f6e434] [cursor=pointer]:
+              - /url: /blog/2026/07/04/claude-howto-github-project
+              - generic [ref=f6e437]:
+                - heading "claude-howto：一个周末学完 Claude Code 的教程项目" [level=3] [ref=f6e438]
+                - generic [ref=f6e439]:
+                  - generic [ref=f6e440]: GitHub
+                  - time [ref=f6e441]: 2026年7月4日
+                - generic [ref=f6e442]: 阅读
+            - link "MarkEdit，Mac 上一个 4MB 的 Markdown 编辑器 MarkEdit，Mac 上一个 4MB 的 Markdown 编辑器 GitHub 2026年6月28日 阅读" [ref=f6e444] [cursor=pointer]:
+              - /url: /blog/2026/06/28/markedit-github-project
+              - img "MarkEdit，Mac 上一个 4MB 的 Markdown 编辑器" [ref=f6e447]
+              - generic [ref=f6e448]:
+                - heading "MarkEdit，Mac 上一个 4MB 的 Markdown 编辑器" [level=3] [ref=f6e449]
+                - generic [ref=f6e450]:
+                  - generic [ref=f6e451]: GitHub
+                  - time [ref=f6e452]: 2026年6月28日
+                - generic [ref=f6e453]: 阅读
+            - link "介绍这个网页的技术栈 介绍这个网页的技术栈 关于 2026年6月23日 阅读" [ref=f6e455] [cursor=pointer]:
+              - /url: /blog/about-tech-stack
+              - img "介绍这个网页的技术栈" [ref=f6e458]
+              - generic [ref=f6e459]:
+                - heading "介绍这个网页的技术栈" [level=3] [ref=f6e460]
+                - generic [ref=f6e461]:
+                  - generic [ref=f6e462]: 关于
+                  - time [ref=f6e463]: 2026年6月23日
+                - generic [ref=f6e464]: 阅读
+            - link "🧩 在 Claude Code 和 Claude 上用 skill 🧩 在 Claude Code 和 Claude 上用 skill Claude Code 2026年6月22日 阅读" [ref=f6e466] [cursor=pointer]:
+              - /url: /blog/2026/06/22/using-skill-in-claude-and-claude-code
+              - img "🧩 在 Claude Code 和 Claude 上用 skill" [ref=f6e469]
+              - generic [ref=f6e470]:
+                - heading "🧩 在 Claude Code 和 Claude 上用 skill" [level=3] [ref=f6e471]
+                - generic [ref=f6e472]:
+                  - generic [ref=f6e473]: Claude Code
+                  - time [ref=f6e474]: 2026年6月22日
+                - generic [ref=f6e475]: 阅读
+            - link "📄 macOS 终端常用命令 📄 macOS 终端常用命令 macOS 2026年6月19日 阅读" [ref=f6e477] [cursor=pointer]:
+              - /url: /blog/2026/06/19/macos-terminal-create-file
+              - img "📄 macOS 终端常用命令" [ref=f6e480]
+              - generic [ref=f6e481]:
+                - heading "📄 macOS 终端常用命令" [level=3] [ref=f6e482]
+                - generic [ref=f6e483]:
+                  - generic [ref=f6e484]: macOS
+                  - time [ref=f6e485]: 2026年6月19日
+                - generic [ref=f6e486]: 阅读
+            - link "给 Docusaurus 博客接入 Umami 访客统计 给 Docusaurus 博客接入 Umami 访客统计 GitHub 2026年6月16日 阅读" [ref=f6e488] [cursor=pointer]:
+              - /url: /blog/2026/06/16/umami-analytics-docusaurus
+              - img "给 Docusaurus 博客接入 Umami 访客统计" [ref=f6e491]
+              - generic [ref=f6e492]:
+                - heading "给 Docusaurus 博客接入 Umami 访客统计" [level=3] [ref=f6e493]
+                - generic [ref=f6e494]:
+                  - generic [ref=f6e495]: GitHub
+                  - time [ref=f6e496]: 2026年6月16日
+                - generic [ref=f6e497]: 阅读
+            - link "关于这个博客的 logo 关于这个博客的 logo 关于 2026年6月14日 阅读" [ref=f6e499] [cursor=pointer]:
+              - /url: /blog/about-the-logo
+              - img "关于这个博客的 logo" [ref=f6e502]
+              - generic [ref=f6e503]:
+                - heading "关于这个博客的 logo" [level=3] [ref=f6e504]
+                - generic [ref=f6e505]:
+                  - generic [ref=f6e506]: 关于
+                  - time [ref=f6e507]: 2026年6月14日
+                - generic [ref=f6e508]: 阅读
+            - link "关于这个博客 关于这个博客 关于 2026年6月4日 阅读" [ref=f6e510] [cursor=pointer]:
+              - /url: /blog/about
+              - img "关于这个博客" [ref=f6e513]
+              - generic [ref=f6e514]:
+                - heading "关于这个博客" [level=3] [ref=f6e515]
+                - generic [ref=f6e516]:
+                  - generic [ref=f6e517]: 关于
+                  - time [ref=f6e518]: 2026年6月4日
+                - generic [ref=f6e519]: 阅读
+            - link "CodeGraph：让 Claude Code 节省许多token CodeGraph：让 Claude Code 节省许多token GitHub 2026年6月3日 阅读" [ref=f6e521] [cursor=pointer]:
+              - /url: /blog/2026/06/03/codegraph-claude-code-knowledge-graph
+              - img "CodeGraph：让 Claude Code 节省许多token" [ref=f6e524]
+              - generic [ref=f6e525]:
+                - heading "CodeGraph：让 Claude Code 节省许多token" [level=3] [ref=f6e526]
+                - generic [ref=f6e527]:
+                  - generic [ref=f6e528]: GitHub
+                  - time [ref=f6e529]: 2026年6月3日
+                - generic [ref=f6e530]: 阅读
+            - link "GSAP 为你的网页加上炫酷动画 GSAP 为你的网页加上炫酷动画 GitHub 2026年6月2日 阅读" [ref=f6e532] [cursor=pointer]:
+              - /url: /blog/2026/06/02/gsap-claude-code-web-animation
+              - img "GSAP 为你的网页加上炫酷动画" [ref=f6e535]
+              - generic [ref=f6e536]:
+                - heading "GSAP 为你的网页加上炫酷动画" [level=3] [ref=f6e537]
+                - generic [ref=f6e538]:
+                  - generic [ref=f6e539]: GitHub
+                  - time [ref=f6e540]: 2026年6月2日
+                - generic [ref=f6e541]: 阅读
+            - link "Claude Design 平替，Open CoDesign 实际体验 Claude Design 平替，Open CoDesign 实际体验 GitHub 2026年6月1日 阅读" [ref=f6e543] [cursor=pointer]:
+              - /url: /blog/2026/06/01/open-codesign-review
+              - img "Claude Design 平替，Open CoDesign 实际体验" [ref=f6e546]
+              - generic [ref=f6e547]:
+                - heading "Claude Design 平替，Open CoDesign 实际体验" [level=3] [ref=f6e548]
+                - generic [ref=f6e549]:
+                  - generic [ref=f6e550]: GitHub
+                  - time [ref=f6e551]: 2026年6月1日
+                - generic [ref=f6e552]: 阅读
+            - link "用 Python 脚本下载 YouTube 视频 用 Python 脚本下载 YouTube 视频 macOS 2026年5月29日 阅读" [ref=f6e554] [cursor=pointer]:
+              - /url: /blog/2026/05/29/download-youtube-videos-using-a-python-script
+              - img "用 Python 脚本下载 YouTube 视频" [ref=f6e557]
+              - generic [ref=f6e558]:
+                - heading "用 Python 脚本下载 YouTube 视频" [level=3] [ref=f6e559]
+                - generic [ref=f6e560]:
+                  - generic [ref=f6e561]: macOS
+                  - time [ref=f6e562]: 2026年5月29日
+                - generic [ref=f6e563]: 阅读
+            - link "Marker 使用教程 Marker 使用教程 GitHub 2026年5月28日 阅读" [ref=f6e565] [cursor=pointer]:
+              - /url: /blog/2026/05/28/marker-github-project-tutorial
+              - img "Marker 使用教程" [ref=f6e568]
+              - generic [ref=f6e569]:
+                - heading "Marker 使用教程" [level=3] [ref=f6e570]
+                - generic [ref=f6e571]:
+                  - generic [ref=f6e572]: GitHub
+                  - time [ref=f6e573]: 2026年5月28日
+                - generic [ref=f6e574]: 阅读
+            - link "介绍 Homebrew 介绍 Homebrew macOS 2026年5月28日 阅读" [ref=f6e576] [cursor=pointer]:
+              - /url: /blog/2026/05/28/homebrew-tutorials
+              - img "介绍 Homebrew" [ref=f6e579]
+              - generic [ref=f6e580]:
+                - heading "介绍 Homebrew" [level=3] [ref=f6e581]
+                - generic [ref=f6e582]:
+                  - generic [ref=f6e583]: macOS
+                  - time [ref=f6e584]: 2026年5月28日
+                - generic [ref=f6e585]: 阅读
+            - link "开源 TTS 工具 Kokoro 开源 TTS 工具 Kokoro gitHub Ai-friendly 2026年5月16日 阅读" [ref=f6e587] [cursor=pointer]:
+              - /url: /blog/2026/05/16/kokoro-tts-tutorial
+              - img "开源 TTS 工具 Kokoro" [ref=f6e590]
+              - generic [ref=f6e591]:
+                - heading "开源 TTS 工具 Kokoro" [level=3] [ref=f6e592]
+                - generic [ref=f6e593]:
+                  - generic [ref=f6e594]: gitHub
+                  - generic [ref=f6e595]: Ai-friendly
+                  - time [ref=f6e596]: 2026年5月16日
+                - generic [ref=f6e597]: 阅读
+            - link "常用的搜索引擎推荐 常用的搜索引擎推荐 2026年5月16日 阅读" [ref=f6e599] [cursor=pointer]:
+              - /url: /blog/2026/05/16/recommended-commonly-used-search-engines
+              - img "常用的搜索引擎推荐" [ref=f6e602]
+              - generic [ref=f6e603]:
+                - heading "常用的搜索引擎推荐" [level=3] [ref=f6e604]
+                - time [ref=f6e606]: 2026年5月16日
+                - generic [ref=f6e607]: 阅读
+            - link "编程英语单词短语收集 编程英语单词短语收集 English Swift 2026年4月29日 阅读" [ref=f6e609] [cursor=pointer]:
+              - /url: /blog/2026/04/29/coding-english-vocabulary
+              - img "编程英语单词短语收集" [ref=f6e612]
+              - generic [ref=f6e613]:
+                - heading "编程英语单词短语收集" [level=3] [ref=f6e614]
+                - generic [ref=f6e615]:
+                  - generic [ref=f6e616]: English
+                  - generic [ref=f6e617]: Swift
+                  - time [ref=f6e618]: 2026年4月29日
+                - generic [ref=f6e619]: 阅读
+            - link "通用英语单词短语收集 通用英语单词短语收集 English Collection 2026年4月29日 阅读" [ref=f6e621] [cursor=pointer]:
+              - /url: /blog/2026/04/29/general-english-vocabulary
+              - img "通用英语单词短语收集" [ref=f6e624]
+              - generic [ref=f6e625]:
+                - heading "通用英语单词短语收集" [level=3] [ref=f6e626]
+                - generic [ref=f6e627]:
+                  - generic [ref=f6e628]: English
+                  - generic [ref=f6e629]: Collection
+                  - time [ref=f6e630]: 2026年4月29日
+                - generic [ref=f6e631]: 阅读
+            - link "🌐 macOS 网络重置命令速查 🌐 macOS 网络重置命令速查 macOS 2025年5月16日 阅读" [ref=f6e633] [cursor=pointer]:
+              - /url: /blog/2025/05/16/quick-reference-for-macOS network-reset-commands
+              - img "🌐 macOS 网络重置命令速查" [ref=f6e636]
+              - generic [ref=f6e637]:
+                - heading "🌐 macOS 网络重置命令速查" [level=3] [ref=f6e638]
+                - generic [ref=f6e639]:
+                  - generic [ref=f6e640]: macOS
+                  - time [ref=f6e641]: 2025年5月16日
+                - generic [ref=f6e642]: 阅读
+          - button "向右滚动" [ref=f6e643] [cursor=pointer]
+        - link "查看全部文章 →" [ref=f6e645] [cursor=pointer]:
+          - /url: /blog
+  - contentinfo [ref=f6e646]:
+    - paragraph [ref=f6e647]: Think independently, and distinguish right from wrong.

@@ -178,8 +178,12 @@
 /* ── Card ── */
 .card {
   width: 340px;
-  height: 380px;
-  border-radius: 20px;
+  height: 345px;
+  border-radius: 28px;
+  /* Continuous (squircle) curvature — plain circular border-radius reads
+     mechanical; this is what actually gives the iOS-icon corner feel.
+     Unsupported browsers silently ignore it and keep the circular radius above. */
+  corner-shape: squircle;
   background-color: var(--ifm-background-color);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   text-decoration: none;
@@ -235,7 +239,8 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   flex-shrink: 0;
-  border-radius: 20px 20px 0 0;
+  border-radius: 28px 28px 0 0;
+  corner-shape: squircle;
   overflow: hidden;
 }
 
@@ -282,7 +287,7 @@
   font-weight: 650;
   line-height: 1.25;
   letter-spacing: -0.01em;
-  margin: 0 0 0.4rem;
+  margin: 0;
   color: var(--ifm-color-content);
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -290,41 +295,30 @@
   overflow: hidden;
 }
 
-.cardDate {
-  font-size: 0.78rem;
-  color: var(--ifm-color-content-secondary);
-  margin-bottom: 0.75rem;
+/* ── Meta row: tags left, date right ── */
+.metaRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
 }
 
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+.cardDate {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--ifm-color-content-secondary);
+  white-space: nowrap;
 }
 
 .tag {
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  padding: 4px 13px;
+  padding: 3px 10px;
   border-radius: 999px;
   background-color: var(--ifm-color-emphasis-100);
   color: var(--ifm-color-content-secondary);
-}
-
-/* ── Read-more pill — visual affordance only; the whole card is the link ── */
-.readMore {
-  align-self: flex-start;
-  margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 1px;
-  padding: 6px 8px 6px 14px;
-  border-radius: 999px;
-  background: var(--ifm-color-primary);
-  color: #fff;
-  font-size: 0.78rem;
-  font-weight: 600;
+  white-space: nowrap;
 }
 
 /* ── Footer link ── */
@@ -379,7 +373,7 @@
   .card {
     width: 100%;
     height: auto;
-    min-height: 340px;
+    min-height: 300px;
   }
 
   .more {

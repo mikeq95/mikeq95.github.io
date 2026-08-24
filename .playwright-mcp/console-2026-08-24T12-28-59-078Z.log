@@ -1,0 +1,26 @@
+[     220ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///./node_modules/react-dom/cjs/react-dom-client.development.js:28003
+[     512ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[     711ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[     932ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    1175ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    1406ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    1654ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    1885ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    2118ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    2333ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    2565ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    2825ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    3059ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    3301ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    3544ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    3790ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    4021ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    4235ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    4467ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    4705ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    4938ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    5175ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    5375ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    5569ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    5790ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109
+[    6000ms] [LOG] [HMR] Reload all CSS @ webpack-internal:///./node_modules/@rspack/core/dist/cssExtractHmr.js:109

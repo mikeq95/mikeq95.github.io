@@ -337,24 +337,18 @@ export default function RecentPosts({ posts = [] }) {
                   title={post.title}
                 />
                 <div className={styles.cardBody}>
-                  {post.tags?.length > 0 && (
-                    <div className={styles.tags}>
-                      {post.tags.slice(0, 2).map(tag => (
-                        <span key={tag.label} className={styles.tag}>{tag.label}</span>
-                      ))}
-                    </div>
-                  )}
+                  <div className={styles.metaRow}>
+                    {post.tags?.slice(0, 2).map(tag => (
+                      <span key={tag.label} className={styles.tag}>{tag.label}</span>
+                    ))}
+                    <time className={styles.cardDate}>
+                      {new Date(post.date).toLocaleDateString(
+                        currentLocale,
+                        { year: 'numeric', month: 'short', day: 'numeric' },
+                      )}
+                    </time>
+                  </div>
                   <h3 className={styles.cardTitle}>{post.title}</h3>
-                  <time className={styles.cardDate}>
-                    {new Date(post.date).toLocaleDateString(
-                      currentLocale,
-                      { year: 'numeric', month: 'short', day: 'numeric' },
-                    )}
-                  </time>
-                  <span className={styles.readMore}>
-                    {translate({id: 'recentPosts.readMore', message: '阅读全文'})}
-                    <Icon icon="mdi:chevron-right" width={16} height={16} />
-                  </span>
                 </div>
               </Link>
             </div>

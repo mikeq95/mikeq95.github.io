@@ -397,10 +397,6 @@
     "message": "Scroll right",
     "description": "Aria label for the button that scrolls the card track right"
   },
-  "recentPosts.readMore": {
-    "message": "Read more",
-    "description": "Visual pill label on the card, hinting the whole card is a link to the post"
-  },
   "heroAuthCard.joinTitle": {
     "message": "Join the conversation",
     "description": "Hero auth card heading for signed-out visitors"

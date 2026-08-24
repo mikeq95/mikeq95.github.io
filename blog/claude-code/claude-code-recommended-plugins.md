@@ -74,13 +74,7 @@ Claude Code 的插件市场里插件不少，但不是每个都值得装——�
 /plugin install context7@claude-plugins-official
 ```
 
-### Superpowers
 
-约 75 万安装，GitHub 25 万星。一整套"头脑风暴 → 写计划 → 测试 → 系统化调试"的工作流，适合做比较大的功能开发时用。因为覆盖的流程比较长、权限范围也比较大，建议先看清楚它的 hooks 具体做了什么再装。
-
-> 社区插件的具体安装 slug 建议直接在 `/plugin` 的市场界面里搜索确认，命名会变，这里就不贴可能过期的命令了。
-
-注意，社区插件不是不能装，只是权限一般给得比官方插件宽，装之前多花两分钟看一眼仓库，比出问题之后再排查划算。
 
 ---
 
@@ -89,3 +83,54 @@ Claude Code 的插件市场里插件不少，但不是每个都值得装——�
 日常工作量最大的地方是博客 UI 调整和后端项目的支付/库存逻辑，所以我自己的排序是：**frontend-design + commit-commands + Supabase/Vercel 官方插件**优先装，这四个跟日常工作关联最直接，风险也最低，都是官方/合作方来源。Superpowers 这类社区大插件先观望，等真的有大 功能要开发时再考虑装。
 
 > 想确认自己装的插件有没有生效，可以在对话里问一句"你现在能用哪些插件"，Claude 会把当前会话加载到的插件列出来。
+
+---
+
+## 补充：插件安装和使用的几个细节
+
+装插件这件事本身有几个容易踩坑的点，单独补充一下。
+
+### 装插件时的三个 scope 怎么选
+
+`/plugin install` 装的时候会问装给谁用，三个选项分别写到不同文件里：
+
+| 选项 | 写入文件 | 影响范围 |
+|---|---|---|
+| Install for you (user scope) | `~/.claude/settings.json`，全局 | 只影响你自己，但所有项目通用 |
+| Install for all collaborators (project scope) | 仓库里的 `.claude/settings.json`，会提交进 git | 影响这个仓库的所有协作者 |
+| Install for you, in this repo only (local scope) | 仓库里的 `.claude/settings.local.json`，默认 gitignore | 只影响你自己，且只在这个仓库里生效 |
+
+个人博客这种没有协作者的项目，user scope 和 local scope 效果差不多，区别只在于换项目时这个插件还在不在。project scope 是留给团队协作用的。
+
+### 装完不会立刻生效
+
+安装成功后会提示：
+
+```
+Installed xxx. Run /reload-plugins to apply.
+```
+
+配置文件写好了，但当前会话还在用装之前的旧状态，得手动跑一次 `/reload-plugins` 才会真正加载进来（或者直接开个新会话）。
+
+### 插件不是只有一种"用法"，分四类
+
+装完发现"平常根本没感觉插件在起作用"，多半是没分清插件到底是哪一类：
+
+- **MCP 服务**——自动接入外部数据源，不用手动调，比如 `context7`（查最新库文档）、`github`（读写 issue/PR）、`playwright`（浏览器自动化）。
+- **Skill**——靠关键词自动触发，没有存在感，效果体现在生成结果的质量上而不是对话提示里，比如 `frontend-design`（做 UI 需求时自动套用设计原则）、`claude-code-setup`、`claude-md-improver`。
+- **Slash command**——要显式敲命令才会用，比如 `claude-md-management` 插件自带的 `/revise-claude-md`。
+- **Subagent**——需要主动请求才会跑，比如 `code-simplifier`，得说"帮我简化这段代码"才会触发。
+
+> 想查自己到底装了哪些、开没开，直接看 `~/.claude/settings.json` 里的 `enabledPlugins` 字段就行，或者在对话里问 Claude。
+
+### LSP 插件是什么
+
+LSP（Language Server Protocol）插件是给 Claude 接入某种编程语言的 language server，让它拿到编译器级别的精确代码信息（跳转定义、引用查找、类型检查），而不是靠读文本、grep 猜。官方市场按语言分了一堆，比如 `typescript-lsp`、`pyright-lsp`、`rust-analyzer-lsp`、`gopls-lsp`。
+
+这篇博客项目本身是 Docusaurus，主体是 Markdown 正文，配置和组件用 JS/TS 写的，所以对应装 `typescript-lsp` 就够：
+
+```bash
+/plugin install typescript-lsp@claude-plugins-official
+```
+
+Markdown 没有类型系统和符号引用这种结构化概念，LSP 用不上，纯文本理解就够了。
