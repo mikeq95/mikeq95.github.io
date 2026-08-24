@@ -9,9 +9,7 @@ import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { Icon } from '@iconify/react';
-import { useAuth } from '@site/src/context/AuthContext';
 import { supabase } from '@site/src/lib/supabase';
-import { triggerLogin } from '@site/src/utils/authTrigger';
 import { getGradient } from '@site/src/utils/gradients';
 import styles from './index.module.css';
 
@@ -59,8 +57,8 @@ function CardCover({ image, permalink, title }) {
           className={`${styles.cardCoverImg} ${loaded ? styles.cardCoverImgLoaded : ''}`}
           src={image}
           alt={title}
-          width={280}
-          height={152}
+          width={340}
+          height={191}
           loading="lazy"
           onLoad={() => setLoaded(true)}
           onError={() => setImgError(true)}
@@ -79,7 +77,6 @@ const TABS = [
 ];
 
 export default function RecentPosts({ posts = [] }) {
-  const { user, loading: authLoading } = useAuth();
   const { i18n: { currentLocale } } = useDocusaurusContext();
 
   const scrollRef    = useRef(null);
@@ -92,16 +89,12 @@ export default function RecentPosts({ posts = [] }) {
   const reducedMotion = useRef(false);
   const gsapRef      = useRef(null);
   const isButtonScrolling = useRef(false);
-  const pendingFxRef = useRef([]);
   const isMountedRef = useRef(true);
 
   const [activeIdx, setActiveIdx] = useState(0);
   const [activeTab, setActiveTab] = useState('all');
-  const [likedIds, setLikedIds] = useState(new Set());
-  const [bookmarkedIds, setBookmarkedIds] = useState(new Set());
   const [likeCounts, setLikeCounts] = useState({});
   const [bookmarkCounts, setBookmarkCounts] = useState({});
-  const [countsLoading, setCountsLoading] = useState(true);
 
   // Respect prefers-reduced-motion (native, no GSAP dependency)
   useEffect(() => {
@@ -117,15 +110,10 @@ export default function RecentPosts({ posts = [] }) {
     import('gsap').then(({ gsap }) => { gsapRef.current = gsap; });
   }, []);
 
-  // On unmount: stop late setState calls and remove any like-animation
-  // elements left over from a tween that got interrupted mid-flight.
+  // On unmount: stop late setState calls from in-flight async work.
   useEffect(() => {
     isMountedRef.current = true;
-    return () => {
-      isMountedRef.current = false;
-      pendingFxRef.current.forEach(el => el.remove());
-      pendingFxRef.current = [];
-    };
+    return () => { isMountedRef.current = false; };
   }, []);
 
   // GSAP scale hover on glass scroll buttons
@@ -146,22 +134,20 @@ export default function RecentPosts({ posts = [] }) {
     return () => cleanups.forEach(fn => fn());
   }, []);
 
-  // Restore counts from sessionStorage cache before first paint to avoid skeleton flash on repeat visits.
+  // Restore counts from sessionStorage cache before first paint so sort order is stable on repeat visits.
   useLayoutEffect(() => {
     const cached = loadCountsCache(currentLocale);
     if (cached) {
       setLikeCounts(cached.likeCounts);
       setBookmarkCounts(cached.bookmarkCounts);
-      setCountsLoading(false);
     }
   }, [currentLocale]);
 
-  // Load all Supabase-backed state. Wait for auth so the correct JWT is attached.
+  // Fetch like/bookmark counts — used only to power the "most liked" / "most bookmarked" tab sort.
   useEffect(() => {
-    if (!supabase || authLoading) return;
+    if (!supabase) return;
     const postIds = posts.map(p => p.permalink);
     if (!postIds.length) return;
-    // Fetch like and bookmark counts together so we can cache them atomically
     Promise.all([
       supabase.from('likes').select('post_id').in('post_id', postIds),
       supabase.from('bookmarks').select('post_id').in('post_id', postIds),
@@ -175,25 +161,9 @@ export default function RecentPosts({ posts = [] }) {
       (bookmarksRes.data ?? []).forEach(r => { newBookmarkCounts[r.post_id] = (newBookmarkCounts[r.post_id] ?? 0) + 1; });
       setLikeCounts(newLikeCounts);
       setBookmarkCounts(newBookmarkCounts);
-      setCountsLoading(false);
       saveCountsCache(currentLocale, newLikeCounts, newBookmarkCounts);
     });
-    if (user) {
-      supabase.from('likes').select('post_id').eq('user_id', user.id).then(({ data, error }) => {
-        if (!isMountedRef.current) return;
-        if (error) { console.error('Failed to load liked posts:', error); return; }
-        if (data) setLikedIds(new Set(data.map(r => r.post_id)));
-      });
-      supabase.from('bookmarks').select('post_id').eq('user_id', user.id).then(({ data, error }) => {
-        if (!isMountedRef.current) return;
-        if (error) { console.error('Failed to load bookmarked posts:', error); return; }
-        if (data) setBookmarkedIds(new Set(data.map(r => r.post_id)));
-      });
-    } else {
-      setLikedIds(new Set());
-      setBookmarkedIds(new Set());
-    }
-  }, [user, authLoading]);
+  }, [posts]);
 
   // GSAP pill slide — runs synchronously after every activeTab change
   useLayoutEffect(() => {
@@ -305,153 +275,6 @@ export default function RecentPosts({ posts = [] }) {
     }
   };
 
-  const triggerLikeAnim = (btnEl, isNowLiked) => {
-    const g = gsapRef.current;
-    if (!g || reducedMotion.current) return;
-    const iconWrap = btnEl.querySelector('[data-icon-wrap]');
-    if (!iconWrap) return;
-    const rect = iconWrap.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const tl = g.timeline();
-    // Phase 1: compress
-    tl.to(iconWrap, { scale: 0.8, duration: 0.08, ease: 'power2.in' });
-    if (isNowLiked) {
-      // Phase 2: ring burst
-      const ring = document.createElement('div');
-      Object.assign(ring.style, {
-        position: 'fixed', left: cx + 'px', top: cy + 'px',
-        width: '18px', height: '18px', marginLeft: '-9px', marginTop: '-9px',
-        borderRadius: '50%', border: '2px solid #ff6b8a',
-        pointerEvents: 'none', zIndex: '9999', opacity: '0.7',
-      });
-      document.body.appendChild(ring);
-      pendingFxRef.current.push(ring);
-      tl.to(ring, {
-        scale: 2.8, opacity: 0, duration: 0.35, ease: 'power2.out',
-        onComplete: () => {
-          ring.remove();
-          pendingFxRef.current = pendingFxRef.current.filter(el => el !== ring);
-        },
-      }, '<0.05');
-      // Phase 3: particles
-      const COLORS = ['#ff6b8a', '#ffb347'];
-      const COUNT = 7;
-      const angleStep = (Math.PI * 2) / COUNT;
-      const particles = Array.from({ length: COUNT }, (_, i) => {
-        const p = document.createElement('div');
-        Object.assign(p.style, {
-          position: 'fixed', left: cx + 'px', top: cy + 'px',
-          width: '5px', height: '5px', marginLeft: '-2.5px', marginTop: '-2.5px',
-          borderRadius: '50%', background: COLORS[i % COLORS.length],
-          pointerEvents: 'none', zIndex: '9999',
-        });
-        document.body.appendChild(p);
-        pendingFxRef.current.push(p);
-        return p;
-      });
-      tl.fromTo(particles,
-        { scale: 0, opacity: 1, x: 0, y: 0 },
-        {
-          scale: 1, opacity: 0,
-          x: (i) => Math.cos(i * angleStep - Math.PI / 2) * (16 + (i % 3) * 4),
-          y: (i) => Math.sin(i * angleStep - Math.PI / 2) * (16 + (i % 3) * 4),
-          duration: 0.45, ease: 'power2.out', stagger: 0.02,
-          onComplete: () => {
-            particles.forEach(p => p.remove());
-            pendingFxRef.current = pendingFxRef.current.filter(el => !particles.includes(el));
-          },
-        },
-        '<0.05'
-      );
-    }
-    // Phase 4: bounce back with overshoot
-    tl.to(iconWrap, {
-      scale: isNowLiked ? 1.25 : 1,
-      duration: isNowLiked ? 0.18 : 0.12,
-      ease: 'back.out(3)',
-    }, isNowLiked ? '>-0.3' : '<0.05');
-    if (isNowLiked) {
-      tl.to(iconWrap, { scale: 1, duration: 0.1, ease: 'power2.in' });
-    }
-  };
-
-  const triggerBookmarkAnim = (btnEl) => {
-    const g = gsapRef.current;
-    if (!g || reducedMotion.current) return;
-    const iconWrap = btnEl.querySelector('[data-icon-wrap]');
-    if (!iconWrap) return;
-    const tl = g.timeline();
-    tl.to(iconWrap, { scale: 1.15, duration: 0.12, ease: 'back.out(2)' });
-    tl.to(iconWrap, { scale: 1, duration: 0.1, ease: 'power2.in' });
-  };
-
-  const pendingActions = useRef(new Set());
-
-  const handleLike = async (e, permalink) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!user) { triggerLogin(); return; }
-    if (!supabase) return;
-    const key = `like:${permalink}`;
-    if (pendingActions.current.has(key)) return;
-    triggerLikeAnim(e.currentTarget, !likedIds.has(permalink));
-    pendingActions.current.add(key);
-    try {
-      if (likedIds.has(permalink)) {
-        const { error } = await supabase.from('likes').delete().eq('post_id', permalink).eq('user_id', user.id);
-        if (!error) {
-          setLikedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
-          setLikeCounts(prev => ({ ...prev, [permalink]: Math.max(0, (prev[permalink] ?? 0) - 1) }));
-        } else {
-          console.error('Failed to unlike post:', error);
-        }
-      } else {
-        const { error } = await supabase.from('likes').insert({ post_id: permalink, user_id: user.id });
-        if (!error) {
-          setLikedIds(prev => new Set([...prev, permalink]));
-          setLikeCounts(prev => ({ ...prev, [permalink]: (prev[permalink] ?? 0) + 1 }));
-        } else {
-          console.error('Failed to like post:', error);
-        }
-      }
-    } finally {
-      pendingActions.current.delete(key);
-    }
-  };
-
-  const handleBookmark = async (e, permalink) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!user) { triggerLogin(); return; }
-    if (!supabase) return;
-    const key = `bookmark:${permalink}`;
-    if (pendingActions.current.has(key)) return;
-    triggerBookmarkAnim(e.currentTarget);
-    pendingActions.current.add(key);
-    try {
-      if (bookmarkedIds.has(permalink)) {
-        const { error } = await supabase.from('bookmarks').delete().eq('post_id', permalink).eq('user_id', user.id);
-        if (!error) {
-          setBookmarkedIds(prev => { const s = new Set(prev); s.delete(permalink); return s; });
-          setBookmarkCounts(prev => ({ ...prev, [permalink]: Math.max(0, (prev[permalink] ?? 0) - 1) }));
-        } else {
-          console.error('Failed to remove bookmark:', error);
-        }
-      } else {
-        const { error } = await supabase.from('bookmarks').insert({ post_id: permalink, user_id: user.id });
-        if (!error) {
-          setBookmarkedIds(prev => new Set([...prev, permalink]));
-          setBookmarkCounts(prev => ({ ...prev, [permalink]: (prev[permalink] ?? 0) + 1 }));
-        } else {
-          console.error('Failed to bookmark post:', error);
-        }
-      }
-    } finally {
-      pendingActions.current.delete(key);
-    }
-  };
-
   if (!posts.length) return null;
 
   return (
@@ -528,29 +351,12 @@ export default function RecentPosts({ posts = [] }) {
                       { year: 'numeric', month: 'short', day: 'numeric' },
                     )}
                   </time>
+                  <span className={styles.readMore}>
+                    {translate({id: 'recentPosts.readMore', message: '阅读全文'})}
+                    <Icon icon="mdi:chevron-right" width={16} height={16} />
+                  </span>
                 </div>
               </Link>
-              {/* Action row — like + bookmark for all users (greyed if not logged in) */}
-              <div className={styles.actionRow}>
-                <button
-                  className={[styles.actionBtn, styles.actionBtnLike, likedIds.has(post.permalink) ? styles.actionBtnLikeActive : !user ? styles.actionBtnGuest : ''].join(' ')}
-                  onClick={e => handleLike(e, post.permalink)}
-                  aria-label={likedIds.has(post.permalink) ? translate({id: 'recentPosts.unlike', message: '取消点赞'}) : translate({id: 'recentPosts.like', message: '点赞'})}
-                >
-                  <span className={styles.iconWrap} data-icon-wrap><Icon icon={likedIds.has(post.permalink) ? 'tabler:thumb-up-filled' : 'tabler:thumb-up'} width={16} /></span>
-                  <span className={styles.actionLabel}>{translate({id: 'recentPosts.like', message: '点赞'})}</span>
-                  <span className={styles.actionCount}>{countsLoading ? <span className={styles.countSkeleton} /> : (likeCounts[post.permalink] ?? 0)}</span>
-                </button>
-                <button
-                  className={[styles.actionBtn, styles.actionBtnBookmark, bookmarkedIds.has(post.permalink) ? styles.actionBtnBookmarkActive : !user ? styles.actionBtnGuest : ''].join(' ')}
-                  onClick={e => handleBookmark(e, post.permalink)}
-                  aria-label={bookmarkedIds.has(post.permalink) ? translate({id: 'recentPosts.unbookmark', message: '取消收藏'}) : translate({id: 'recentPosts.bookmark', message: '收藏'})}
-                >
-                  <span className={styles.iconWrap} data-icon-wrap><Icon icon={bookmarkedIds.has(post.permalink) ? 'tabler:bookmark-filled' : 'tabler:bookmark'} width={16} /></span>
-                  <span className={styles.actionLabel}>{translate({id: 'recentPosts.bookmark', message: '收藏'})}</span>
-                  <span className={styles.actionCount}>{countsLoading ? <span className={styles.countSkeleton} /> : (bookmarkCounts[post.permalink] ?? 0)}</span>
-                </button>
-              </div>
             </div>
           ))}
           </div>

@@ -397,21 +397,9 @@
     "message": "Scroll right",
     "description": "Aria label for the button that scrolls the card track right"
   },
-  "recentPosts.like": {
-    "message": "Like",
-    "description": "Action button: like a post"
-  },
-  "recentPosts.unlike": {
-    "message": "Unlike",
-    "description": "Action button: remove like from a post"
-  },
-  "recentPosts.bookmark": {
-    "message": "Bookmark",
-    "description": "Action button: bookmark a post"
-  },
-  "recentPosts.unbookmark": {
-    "message": "Remove bookmark",
-    "description": "Action button: remove bookmark from a post"
+  "recentPosts.readMore": {
+    "message": "Read more",
+    "description": "Visual pill label on the card, hinting the whole card is a link to the post"
   },
   "heroAuthCard.joinTitle": {
     "message": "Join the conversation",

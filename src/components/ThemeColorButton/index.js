@@ -3,12 +3,14 @@ import { applyAccentColor } from '@site/src/utils/themeColor';
 import styles from './styles.module.css';
 
 const PRESET_COLORS = [
+  '#007AFF', // Blue
   '#32ADE6', // Cyan
   '#34C759', // Green
   '#FF2D55', // Magenta
   '#AF52DE', // Purple (Default)
 ];
 const COLOR_NAMES = {
+  '#007AFF': 'Blue',
   '#32ADE6': 'Cyan',
   '#34C759': 'Green',
   '#FF2D55': 'Magenta',

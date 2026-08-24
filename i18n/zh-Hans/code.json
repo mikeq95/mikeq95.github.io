@@ -397,21 +397,9 @@
     "message": "向右滚动",
     "description": "Aria label for the button that scrolls the card track right"
   },
-  "recentPosts.like": {
-    "message": "点赞",
-    "description": "Action button: like a post"
-  },
-  "recentPosts.unlike": {
-    "message": "取消点赞",
-    "description": "Action button: remove like from a post"
-  },
-  "recentPosts.bookmark": {
-    "message": "收藏",
-    "description": "Action button: bookmark a post"
-  },
-  "recentPosts.unbookmark": {
-    "message": "取消收藏",
-    "description": "Action button: remove bookmark from a post"
+  "recentPosts.readMore": {
+    "message": "阅读全文",
+    "description": "Visual pill label on the card, hinting the whole card is a link to the post"
   },
   "heroAuthCard.joinTitle": {
     "message": "加入讨论",
