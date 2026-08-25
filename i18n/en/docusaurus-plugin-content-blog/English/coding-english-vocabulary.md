@@ -5,7 +5,7 @@ date: 2026-04-29
 image: https://cdn.mikeq95blog.uk/coverimage/ProgrammingEnglish.png
 tags:
   - "English"
-  - Swift
+  - swift
   - "collection"
 description: "Common English vocabulary from programming docs, tutorials, and issues — with examples and translations to help you read technical content."
 ---

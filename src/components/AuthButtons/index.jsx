@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useAuth } from '@site/src/context/AuthContext';
@@ -80,6 +81,7 @@ function AuthButtonsInner() {
   const [likeCount, setLikeCount] = useState(null);
   const [likeSlugs, setLikeSlugs] = useState([]);
   const [bookmarkCount, setBookmarkCount] = useState(null);
+  const [authError, setAuthError] = useState(false);
 
   useEffect(() => {
     if (!user) return;
@@ -117,14 +119,24 @@ function AuthButtonsInner() {
   }, [user?.id]);
 
   const signIn = async (provider) => {
-    await supabase.auth.signInWithOAuth({
+    setAuthError(false);
+    const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: { redirectTo: window.location.origin },
     });
+    if (error) {
+      console.error('Sign-in failed:', error);
+      setAuthError(true);
+    }
   };
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    setAuthError(false);
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error('Sign-out failed:', error);
+      setAuthError(true);
+    }
   };
 
   if (loading) return null;
@@ -132,7 +144,7 @@ function AuthButtonsInner() {
   if (!user) {
     return (
       <Popover className={styles.auth}>
-        {({ close }) => (
+        {() => (
           <>
             <PopoverButton
               as="button"
@@ -160,12 +172,17 @@ function AuthButtonsInner() {
                     key={id}
                     type="button"
                     className={styles.providerBtn}
-                    onClick={() => { close(); signIn(id); }}
+                    onClick={() => signIn(id)}
                   >
                     <Icon icon={icon} width={18} />
                     <span>{label} {isEn ? 'Login' : '登录'}</span>
                   </button>
                 ))}
+                {authError && (
+                  <p className={styles.authError}>
+                    {isEn ? 'Login failed. Please try again.' : '登录失败，请重试。'}
+                  </p>
+                )}
               </GlassSurface>
             </PopoverPanel>
           </>
@@ -221,13 +238,13 @@ function AuthButtonsInner() {
 
               {/* My Likes */}
               <div className={styles.section}>
-                <a href={`${lp}/my-likes`} className={styles.sectionRow}>
+                <Link to={`${lp}/my-likes`} className={styles.sectionRow} onClick={close}>
                   <span className={styles.sectionLabel}>{isEn ? '❤️ My Likes' : '❤️ 我的喜欢'}</span>
                   <span className={styles.sectionMeta}>
                     <span className={styles.count}>{likeCount === null ? '—' : likeCount}</span>
                     <span className={styles.arrow}>›</span>
                   </span>
-                </a>
+                </Link>
                 {(likeCount === null || likeCount > 0) && (
                   <div className={styles.covers}>
                     {likeCount === null
@@ -243,13 +260,13 @@ function AuthButtonsInner() {
 
               {/* My Bookmarks */}
               <div className={styles.section}>
-                <a href={`${lp}/my-bookmarks`} className={styles.sectionRow}>
+                <Link to={`${lp}/my-bookmarks`} className={styles.sectionRow} onClick={close}>
                   <span className={styles.sectionLabel}>{isEn ? '⭐ My Bookmarks' : '⭐ 我的收藏'}</span>
                   <span className={styles.sectionMeta}>
                     <span className={styles.count}>{bookmarkCount === null ? '—' : bookmarkCount}</span>
                     <span className={styles.arrow}>›</span>
                   </span>
-                </a>
+                </Link>
               </div>
 
               <hr className={styles.drawerDivider} />
@@ -258,10 +275,15 @@ function AuthButtonsInner() {
               <button
                 type="button"
                 className={styles.signOutBtn}
-                onClick={() => { close(); signOut(); }}
+                onClick={signOut}
               >
                 {isEn ? 'Sign Out' : '退出登录'}
               </button>
+              {authError && (
+                <p className={styles.authError}>
+                  {isEn ? 'Sign-out failed. Please try again.' : '退出登录失败，请重试。'}
+                </p>
+              )}
             </GlassSurface>
           </PopoverPanel>
         </>

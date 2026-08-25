@@ -8,6 +8,7 @@
 .pageTitle {
   font-size: 28px;
   font-weight: 700;
+  letter-spacing: -0.02em;
   margin-bottom: 36px;
   color: var(--ifm-color-content);
 }
@@ -41,11 +42,16 @@
   gap: 1.1rem;
 }
 
-/* ── Card ── */
+/* ── Card ──
+   Elevation language matches RecentPosts: small resting shadow, larger soft
+   shadow on hover; dark mode swaps the resting shadow for a hairline border
+   since shadows don't read on dark backgrounds. */
 .card {
-  border-radius: 16px;
+  border-radius: var(--radius-panel);
+  corner-shape: squircle;
   border: 1px solid var(--ifm-color-emphasis-200);
   background: var(--ifm-background-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -56,13 +62,18 @@
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
   text-decoration: none;
   color: inherit;
 }
 
+[data-theme='dark'] .card {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
 [data-theme='dark'] .card:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
 }
 
 /* Body */
@@ -77,7 +88,7 @@
 .cardTag {
   font-size: 0.7rem;
   padding: 2px 9px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--ifm-color-emphasis-100);
   color: var(--ifm-color-content-secondary);
   width: fit-content;
@@ -137,7 +148,7 @@
 .emptyBtn {
   display: inline-block;
   padding: 10px 24px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 0.9rem;
   font-weight: 600;
   background-color: var(--ifm-color-primary);

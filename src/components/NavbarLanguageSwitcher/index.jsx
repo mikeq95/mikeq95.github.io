@@ -4,6 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useLocation } from '@docusaurus/router';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import GlassSurface from '@site/src/components/GlassSurface';
+import { stripLocalePrefix } from '@site/src/utils/locale';
 import {
   Popover,
   PopoverButton,
@@ -51,11 +52,7 @@ function ChevronIcon({ open }) {
 }
 
 function getLocalePath(targetLocale, defaultLocale, currentLocale, pathname) {
-  const basePath =
-    currentLocale === defaultLocale
-      ? pathname
-      : pathname.replace(new RegExp(`^/${currentLocale}`), '') || '/';
-
+  const basePath = stripLocalePrefix(pathname, currentLocale, defaultLocale);
   if (targetLocale === defaultLocale) return basePath || '/';
   return `/${targetLocale}${basePath === '/' ? '' : basePath}`;
 }
@@ -63,6 +60,7 @@ function getLocalePath(targetLocale, defaultLocale, currentLocale, pathname) {
 function LanguageSwitcherButton({ mobile }) {
   const { i18n: { currentLocale, defaultLocale, locales, localeConfigs } } = useDocusaurusContext();
   const { pathname } = useLocation();
+  const isEn = currentLocale === 'en';
   const label = localeConfigs[currentLocale]?.label ?? currentLocale;
 
   return (
@@ -71,7 +69,7 @@ function LanguageSwitcherButton({ mobile }) {
         <>
           <PopoverButton
             className={styles.pill}
-            aria-label={`Switch language, current: ${label}`}
+            aria-label={isEn ? `Switch language, current: ${label}` : `切换语言，当前：${label}`}
           >
             <GlobeIcon />
             <span className={styles.label}>{label}</span>

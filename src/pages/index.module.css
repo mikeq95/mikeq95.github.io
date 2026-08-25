@@ -41,36 +41,6 @@
   text-align: center;
 }
 
-/* ── RotatingText root: keep it inline (lib default is block-level flex),
-   match the title's font-size, and give it the demo's solid pill background.
-   font-size is set ONCE here — the nested selectors below only inherit it,
-   they must not re-apply "em" or it compounds. ── */
-.rotatingTextRoot {
-  display: inline-flex !important;
-  align-items: center;
-  font-size: 1em;
-  font-weight: inherit;
-  line-height: 1;
-  background-color: var(--ifm-color-primary);
-  border-radius: 0.3em;
-  padding: 0.1em 0.45em;
-  overflow: hidden;
-  transform: none !important;
-}
-
-.rotatingTextRoot :global(.text-rotate) {
-  display: inline-flex !important;
-  transform: none !important;
-}
-
-.rotatingTextRoot :global(.text-rotate-word),
-.rotatingTextRoot :global(.text-rotate-element) {
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  color: #fff;
-}
-
 /* ── Logo + wordmark lockup ──
    Sized to match apple.com/apple-podcasts' .hero-icon (30px tall, 20px on
    mobile) and its 10px gap to the headline below. ── */
@@ -159,7 +129,7 @@
 .blogButton {
   display: inline-block;
   padding: 12px 22px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.0625rem;
   font-weight: 400;

@@ -1,29 +1,27 @@
-.colorPickerWrapper {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.headerWrap {
+  margin-bottom: 12px;
 }
 
-.colorPickerPill {
-  height: 36px;
-  line-height: 1;
-  display: inline-flex;
+.headerBtn {
+  display: flex;
   align-items: center;
-  padding: 6px 16px;
-  border-radius: 999px;
-  font-family: inherit;
-  font-weight: 600;
-  font-size: 14px;
-  color: #fff;
+  justify-content: space-between;
   cursor: pointer;
+  width: 100%;
+  background: none;
   border: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: opacity 0.2s;
+  padding: 0;
 }
 
-.colorPickerPill:hover {
-  opacity: 0.9;
+.headerLabel {
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.headerChevron {
+  font-size: 16px;
+  color: var(--ifm-color-content-secondary);
 }
 
 .expanded {
@@ -62,6 +60,10 @@
   transition: transform 0.1s;
 }
 
+[data-theme='dark'] .colorSwatch {
+  border-color: rgba(255,255,255,0.25);
+}
+
 .colorSwatch:hover {
   transform: scale(1.15);
 }
@@ -69,4 +71,12 @@
 .colorSwatch:focus-visible {
   outline: 2px solid var(--ifm-color-primary);
   outline-offset: 2px;
+}
+
+/* Compound selector so this outweighs [data-theme='dark'] .colorSwatch's
+   border-color — a single .colorSwatchSelected class would tie on
+   specificity and lose the border-color battle in dark mode. */
+.colorSwatch.colorSwatchSelected {
+  border: 2px solid var(--ifm-color-content);
+  transform: scale(1.15);
 }

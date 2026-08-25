@@ -80,7 +80,11 @@ export default function Home() {
   );
   return (
     <Layout
-      description="mikeq95's personal blog — a university student from China sharing tech, tools, and personal notes.">
+      description={
+        isZh
+          ? 'mikeq95 的个人博客——一名中国大学生分享技术、工具和个人笔记。'
+          : "mikeq95's personal blog — a university student from China sharing tech, tools, and personal notes."
+      }>
       <HomepageHeader />
       <main>
         <RecentPosts posts={recentPosts} />

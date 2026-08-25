@@ -17,6 +17,7 @@ import CommentSection from '@site/src/components/CommentSection';
 import ActionBar from '@site/src/components/ActionBar';
 import ReadingProgress from '@site/src/components/ReadingProgress';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { stripLocalePrefix } from '@site/src/utils/locale';
 
 function BlogPostPageContent({sidebar, children}) {
   const {metadata, toc} = useBlogPost();
@@ -31,9 +32,7 @@ function BlogPostPageContent({sidebar, children}) {
   const postUrl = `${siteConfig.url}${metadata.permalink}`;
 
   // Strip locale prefix so likes/bookmarks/comments are shared across locales
-  const postId = currentLocale !== defaultLocale
-    ? metadata.permalink.replace(`/${currentLocale}`, '')
-    : metadata.permalink;
+  const postId = stripLocalePrefix(metadata.permalink, currentLocale, defaultLocale);
 
   return (
     <>

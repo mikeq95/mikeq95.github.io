@@ -84,7 +84,7 @@
   background: var(--ifm-color-primary);
   color: #fff;
   border: none;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   padding: 6px 18px;
   font-size: 14px;
   font-weight: 700;
@@ -132,7 +132,7 @@
   background: var(--ifm-color-primary);
   color: #fff;
   border: none;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   padding: 8px 26px;
   font-size: 15px;
   font-weight: 700;

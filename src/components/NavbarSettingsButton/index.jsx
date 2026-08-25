@@ -12,6 +12,14 @@ import {
 } from '@/components/animate-ui/components/headless/popover';
 import styles from './index.module.css';
 
+const COLOR_NAMES_ZH = {
+  '#007AFF': '蓝色',
+  '#32ADE6': '青色',
+  '#34C759': '绿色',
+  '#FF2D55': '品红',
+  '#AF52DE': '紫色',
+};
+
 function SettingsIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -50,6 +58,8 @@ function SettingsButtonInner({ mobile }) {
             <ThemeColorButton
               label={isEn ? 'Appearance' : '外观'}
               colorLabel={isEn ? 'Theme Colors' : '主题颜色'}
+              colorNames={isEn ? undefined : COLOR_NAMES_ZH}
+              selectedSuffix={isEn ? ' (selected)' : '（已选中）'}
             >
               <div className={styles.darkModeRow}>
                 <span className={styles.darkModeLabel}>{isEn ? 'Dark Mode:' : '夜间模式：'}</span>

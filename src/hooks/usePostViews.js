@@ -47,9 +47,15 @@ export function usePostViews(postId) {
     Promise.all([
       supabase.from('post_views').select('*', { count: 'exact', head: true }).eq('post_id', postId),
       supabase.from('post_views').select('viewer_key').eq('post_id', postId).limit(10000),
-    ]).then(([{ count: total }, { data }]) => {
+    ]).then(([{ count: total, error: totalError }, { data, error: dataError }]) => {
+      if (totalError) console.error('Failed to load view count:', totalError);
+      if (dataError) console.error('Failed to load unique viewers:', dataError);
+      if (totalError || dataError) {
+        setCounts({ total: total ?? 0, unique: 0, error: true });
+        return;
+      }
       const unique = data ? new Set(data.map(r => r.viewer_key)).size : 0;
-      setCounts({ total: total ?? 0, unique });
+      setCounts({ total: total ?? 0, unique, error: false });
     });
   }, [postId, user?.id]);
 

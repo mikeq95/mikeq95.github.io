@@ -3,7 +3,7 @@ slug: about-subscribe
 title: 订阅我的博客
 date: 2026-07-21
 tags:
-  - aboutme
+  - about
 description: "博客支持 RSS/Atom 订阅了，用阅读器加一下链接，有新文章会自动推给你，不用再手动回来看更新。"
 ---
 

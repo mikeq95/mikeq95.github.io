@@ -3,7 +3,7 @@ slug: about-homepage-hero-design
 title: The Full Setup Behind My Homepage's Headline and Subtitle
 date: 2026-07-10
 tags:
-  - aboutme
+  - about
 description: "How the homepage headline and subtitle went from copy to layout: pulling real CSS values off Apple's own site, writing the responsive font sizes and container widths, with the full code and a line-by-line walkthrough."
 ---
 

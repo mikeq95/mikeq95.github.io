@@ -36,6 +36,10 @@ function CommentSectionInner({ postId }) {
   const [replyingTo, setReplyingTo] = useState(null);
   const [replyContent, setReplyContent] = useState('');
   const [replySubmitting, setReplySubmitting] = useState(false);
+  const [confirmDeleteId, setConfirmDeleteId] = useState(null);
+  const [loadError, setLoadError] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const confirmDeleteTimerRef = useRef(null);
   const textareaRef = useRef(null);
 
   const t = {
@@ -48,7 +52,10 @@ function CommentSectionInner({ postId }) {
     loginPrompt: isEn ? 'Login to join the discussion' : '登录后参与评论',
     login: isEn ? 'Login' : '登录',
     noComments: isEn ? 'No comments yet. Be the first!' : '还没有评论，来第一个吧！',
+    loadError: isEn ? 'Failed to load comments. Please refresh and try again.' : '评论加载失败，请刷新页面重试。',
+    postError: isEn ? 'Failed to post. Please try again.' : '发布失败，请重试。',
     delete: isEn ? 'Delete' : '删除',
+    confirmDelete: isEn ? 'Confirm delete?' : '确认删除？',
     comments: isEn ? 'Comments' : '评论',
   };
 
@@ -59,11 +66,19 @@ function CommentSectionInner({ postId }) {
   const fetchComments = async () => {
     if (!supabase) return;
     setLoading(true);
-    const { data } = await supabase
+    setLoadError(false);
+    const { data, error } = await supabase
       .from('comments')
       .select('id, content, created_at, user_id, user_name, user_avatar, parent_id')
       .eq('post_id', postId)
       .order('created_at', { ascending: true });
+
+    if (error) {
+      console.error('Failed to load comments:', error);
+      setLoadError(true);
+      setLoading(false);
+      return;
+    }
 
     const all = data ?? [];
     const roots = all.filter(c => !c.parent_id);
@@ -79,6 +94,7 @@ function CommentSectionInner({ postId }) {
     const text = parentId ? replyText : content;
     if (!text?.trim() || !user) return;
     if (parentId) setReplySubmitting(true); else setSubmitting(true);
+    setSubmitError(false);
 
     const meta = user.user_metadata ?? {};
     const { error } = await supabase.from('comments').insert({
@@ -89,7 +105,10 @@ function CommentSectionInner({ postId }) {
       user_avatar: meta.avatar_url ?? null,
       parent_id: parentId ?? null,
     });
-    if (!error) {
+    if (error) {
+      console.error('Failed to post comment:', error);
+      setSubmitError(true);
+    } else {
       if (parentId) {
         setReplyContent('');
         setReplyingTo(null);
@@ -111,6 +130,20 @@ function CommentSectionInner({ postId }) {
     );
   };
 
+  const handleDeleteClick = (id) => {
+    if (confirmDeleteId === id) {
+      clearTimeout(confirmDeleteTimerRef.current);
+      setConfirmDeleteId(null);
+      deleteComment(id);
+      return;
+    }
+    clearTimeout(confirmDeleteTimerRef.current);
+    setConfirmDeleteId(id);
+    confirmDeleteTimerRef.current = setTimeout(() => setConfirmDeleteId(null), 3000);
+  };
+
+  useEffect(() => () => clearTimeout(confirmDeleteTimerRef.current), []);
+
   const totalCount = tree.reduce((sum, c) => sum + 1 + c.replies.length, 0);
 
   const renderComment = (c, isReply = false) => {
@@ -130,8 +163,8 @@ function CommentSectionInner({ postId }) {
             <span className={styles.commentName}>{name}</span>
             <span className={styles.commentTime}>{timeAgo(c.created_at, isEn)}</span>
             {isOwn && (
-              <button className={styles.deleteBtn} onClick={() => deleteComment(c.id)}>
-                {t.delete}
+              <button className={styles.deleteBtn} onClick={() => handleDeleteClick(c.id)}>
+                {confirmDeleteId === c.id ? t.confirmDelete : t.delete}
               </button>
             )}
           </div>
@@ -178,6 +211,7 @@ function CommentSectionInner({ postId }) {
             />
             {content.length > 0 && (
               <div className={styles.inputFooter}>
+                {submitError && <span className={styles.charWarn}>{t.postError}</span>}
                 <span className={`${styles.charCount} ${content.length > MAX_LEN * 0.9 ? styles.charWarn : ''}`}>
                   {MAX_LEN - content.length}
                 </span>
@@ -201,7 +235,9 @@ function CommentSectionInner({ postId }) {
       )}
 
       <div className={styles.list}>
-        {loading ? null : tree.length === 0 ? (
+        {loading ? null : loadError ? (
+          <p className={styles.empty}>{t.loadError}</p>
+        ) : tree.length === 0 ? (
           <p className={styles.empty}>{t.noComments}</p>
         ) : (
           tree.map(c => (
@@ -228,6 +264,7 @@ function CommentSectionInner({ postId }) {
                     />
                     {replyContent.length > 0 && (
                       <div className={styles.inputFooter}>
+                        {submitError && <span className={styles.charWarn}>{t.postError}</span>}
                         <span className={`${styles.charCount} ${replyContent.length > MAX_LEN * 0.9 ? styles.charWarn : ''}`}>
                           {MAX_LEN - replyContent.length}
                         </span>

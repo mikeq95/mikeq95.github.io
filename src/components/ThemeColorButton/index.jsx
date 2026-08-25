@@ -19,7 +19,7 @@ const COLOR_NAMES = {
 const STORAGE_KEY = 'theme-accent-color';
 const DEFAULT_COLOR = '#AF52DE';
 
-export default function ThemeColorButton({ label = '外观', colorLabel = '主题颜色', children }) {
+export default function ThemeColorButton({ label = '外观', colorLabel = '主题颜色', colorNames = COLOR_NAMES, selectedSuffix = ' (selected)', children }) {
   const [color, setColor] = useState(() => {
     try { return localStorage.getItem(STORAGE_KEY) || DEFAULT_COLOR; } catch { return DEFAULT_COLOR; }
   });
@@ -31,20 +31,20 @@ export default function ThemeColorButton({ label = '外观', colorLabel = '主�
   }, [color]);
 
   return (
-    <div style={{ marginBottom: '12px' }}>
+    <div className={styles.headerWrap}>
       <button
         type="button"
-        style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', width: '100%', background: 'none', border: 'none', padding: 0 }}
+        className={styles.headerBtn}
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
         aria-label={label}
       >
-        <span style={{ fontSize: '15px', fontWeight: '500', whiteSpace: 'nowrap' }}>{label}</span>
-        <span style={{ fontSize: '16px', color: 'var(--ifm-color-content-secondary)' }}>
+        <span className={styles.headerLabel}>{label}</span>
+        <span className={styles.headerChevron}>
           {isExpanded ? '˅' : '›'}
         </span>
       </button>
-      
+
       {isExpanded && (
         <div className={styles.expanded}>
           {children}
@@ -56,13 +56,12 @@ export default function ThemeColorButton({ label = '外观', colorLabel = '主�
                   key={c}
                   role="button"
                   tabIndex={0}
-                  className={styles.colorSwatch}
-                  style={{
-                    backgroundColor: c,
-                    border: color === c ? '2px solid var(--ifm-color-content)' : '1px solid rgba(0,0,0,0.15)',
-                    transform: color === c ? 'scale(1.15)' : 'scale(1)'
-                  }}
-                  aria-label={`${COLOR_NAMES[c] || c}${color === c ? ' (selected)' : ''}`}
+                  className={`${styles.colorSwatch} ${color === c ? styles.colorSwatchSelected : ''}`}
+                  // backgroundColor is the one genuinely data-driven value here
+                  // (a runtime hex from PRESET_COLORS) — selection state itself
+                  // is expressed via the CSS modifier class above.
+                  style={{ backgroundColor: c }}
+                  aria-label={`${colorNames[c] || c}${color === c ? selectedSuffix : ''}`}
                   aria-pressed={color === c}
                   onClick={() => setColor(c)}
                   onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setColor(c); } }}

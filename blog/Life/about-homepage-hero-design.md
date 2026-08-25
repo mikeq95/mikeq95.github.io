@@ -3,7 +3,7 @@ slug: about-homepage-hero-design
 title: 我的 homepage 主标题和副标题的完整设置
 date: 2026-07-10
 tags:
-  - aboutme
+  - about
 description: "记录首页主标题和副标题从文案到排版的完整过程：怎么参考苹果官网抓真实的 CSS 数值，怎么写响应式字号和容器宽度，附完整代码和逐段讲解。"
 ---
 

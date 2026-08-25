@@ -16,15 +16,16 @@ macos:
   description: macOS related posts
 
 
+AI:
+  label: AI
+  permalink: /ai
+  description: AI and LLM related posts
+
+
 github:
   label: GitHub
   permalink: /github
   description: GitHub related posts
-
-Music:
-  label: Music
-  permalink: /music
-  description: Music related posts
 
 
 about:
@@ -47,3 +48,93 @@ Ai-friendly:
   label: Ai-friendly
   permalink: /ai-friendly
   description: Posts with a ready-to-use prompt for AI coding agents (Claude Code, Codex, etc.) to follow along
+
+Website:
+  label: Website
+  permalink: /website
+  description: Notable websites worth bookmarking
+
+swift:
+  label: Swift
+  permalink: /swift
+  description: Apple's Swift programming language
+
+audiobook:
+  label: Audiobook
+  permalink: /audiobook
+  description: Turning text into listenable audio
+
+e-reader:
+  label: E-Reader
+  permalink: /e-reader
+  description: E-reader hardware and firmware
+
+epub:
+  label: EPUB
+  permalink: /epub
+  description: EPUB ebook format
+
+esp32:
+  label: ESP32
+  permalink: /esp32
+  description: ESP32 microcontroller projects
+
+firmware:
+  label: Firmware
+  permalink: /firmware
+  description: Custom firmware for hardware devices
+
+knowledge-base:
+  label: Knowledge Base
+  permalink: /knowledge-base
+  description: Personal knowledge management tools
+
+llm:
+  label: LLM
+  permalink: /llm
+  description: Large language model related posts
+
+markdown:
+  label: Markdown
+  permalink: /markdown
+  description: Markdown tools and workflows
+
+media:
+  label: Media
+  permalink: /media
+  description: Media playback and control
+
+notch:
+  label: Notch
+  permalink: /notch
+  description: MacBook notch / Dynamic Island related tools
+
+open-source:
+  label: Open Source
+  permalink: /open-source
+  description: Open-source projects
+
+prompt:
+  label: Prompt
+  permalink: /prompt
+  description: Prompt engineering and writing
+
+python:
+  label: Python
+  permalink: /python
+  description: Python scripts and tools
+
+tauri:
+  label: Tauri
+  permalink: /tauri
+  description: Tauri desktop app framework
+
+tts:
+  label: TTS
+  permalink: /tts
+  description: Text-to-speech tools
+
+writing:
+  label: Writing
+  permalink: /writing
+  description: Writing tools and techniques

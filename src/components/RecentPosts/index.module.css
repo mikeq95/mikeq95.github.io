@@ -9,6 +9,7 @@
 .sectionTitle {
   font-size: 1.75rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
   margin: 0 0 1.25rem;
   padding: 0 2.5rem;
   color: var(--ifm-color-content);
@@ -32,7 +33,7 @@
   align-items: center;
   padding: 6px;
   background: var(--ifm-color-emphasis-100);
-  border-radius: 980px;
+  border-radius: var(--radius-pill);
 }
 
 /* GSAP drives x and width — never use left/right */
@@ -42,7 +43,7 @@
   left: 0;
   height: calc(100% - 12px);
   background: rgb(29, 29, 31);
-  border-radius: 980px;
+  border-radius: var(--radius-pill);
   z-index: 0;
   pointer-events: none;
   will-change: transform, width;
@@ -55,7 +56,7 @@
   border: none;
   cursor: pointer;
   padding: 10px 20px;
-  border-radius: 980px;
+  border-radius: var(--radius-pill);
   font-size: 0.95rem;
   font-weight: 400;
   letter-spacing: -0.01em;
@@ -136,7 +137,7 @@
 .scrollBtnLeft  { left: 1rem; }
 .scrollBtnRight { right: 1rem; }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .scrollBtn { display: none; }
 }
 
@@ -179,7 +180,7 @@
 .card {
   width: 340px;
   height: 345px;
-  border-radius: 28px;
+  border-radius: var(--radius-card);
   /* Continuous (squircle) curvature — plain circular border-radius reads
      mechanical; this is what actually gives the iOS-icon corner feel.
      Unsupported browsers silently ignore it and keep the circular radius above. */
@@ -233,46 +234,6 @@
   opacity: 0.6;
 }
 
-/* ── Card cover: wrapper + placeholder + image ── */
-.cardCoverWrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  flex-shrink: 0;
-  border-radius: 28px 28px 0 0;
-  corner-shape: squircle;
-  overflow: hidden;
-}
-
-/* Gradient placeholder — always present underneath.
-   Sized up and center-cropped (like object-fit: cover for photos) so the
-   135deg diagonal doesn't stretch corner-to-corner in very wide/short cards. */
-.cardCoverPlaceholder {
-  position: absolute;
-  inset: 0;
-  background-image: var(--card-gradient);
-  background-size: 220% 220%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Image starts invisible, fades in once loaded */
-.cardCoverImg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  display: block;
-}
-
-.cardCoverImgLoaded {
-  opacity: 1;
-}
-
 /* ── Card body ── */
 .cardBody {
   flex: 1;
@@ -284,7 +245,7 @@
 
 .cardTitle {
   font-size: 1.125rem;
-  font-weight: 650;
+  font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.01em;
   margin: 0;
@@ -315,7 +276,7 @@
   font-size: 0.72rem;
   font-weight: 500;
   padding: 3px 10px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background-color: var(--ifm-color-emphasis-100);
   color: var(--ifm-color-content-secondary);
   white-space: nowrap;
@@ -347,7 +308,7 @@
 }
 
 /* ── Mobile ── */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .section {
     padding: 2.5rem 0 3rem;
   }

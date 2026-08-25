@@ -3,7 +3,7 @@
   align-items: center;
   background-color: var(--ifm-color-emphasis-200);
   border: none;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   padding: 5px;
   font: inherit;
   cursor: pointer;
@@ -31,4 +31,8 @@
   background-color: var(--ifm-background-surface-color, #fff);
   color: var(--ifm-color-content);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .active {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 1px 4px rgba(0, 0, 0, 0.4);
 }

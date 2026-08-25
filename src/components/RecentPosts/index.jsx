@@ -10,7 +10,7 @@ import {translate} from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { Icon } from '@iconify/react';
 import { supabase } from '@site/src/lib/supabase';
-import { getGradient } from '@site/src/utils/gradients';
+import CardCover from '@site/src/components/CardCover';
 import styles from './index.module.css';
 
 const COUNTS_CACHE_TTL = 3 * 60 * 1000; // 3 minutes
@@ -37,37 +37,6 @@ function saveCountsCache(locale, likeCounts, bookmarkCounts) {
 // Safe on SSR (Docusaurus pre-renders without window)
 const useLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffectBase : useEffect;
-
-function CardCover({ image, permalink, title }) {
-  const [loaded, setLoaded] = useState(false);
-  const [imgError, setImgError] = useState(false);
-  const imgRef = useRef(null);
-
-  // Cached images won't fire onLoad — check img.complete after mount
-  useEffect(() => {
-    if (imgRef.current?.complete) setLoaded(true);
-  }, []);
-
-  return (
-    <div className={styles.cardCoverWrap}>
-      <div className={styles.cardCoverPlaceholder} style={{ '--card-gradient': getGradient(permalink) }} />
-      {image && !imgError && (
-        <img
-          ref={imgRef}
-          className={`${styles.cardCoverImg} ${loaded ? styles.cardCoverImgLoaded : ''}`}
-          src={image}
-          alt={title}
-          width={340}
-          height={191}
-          loading="lazy"
-          onLoad={() => setLoaded(true)}
-          onError={() => setImgError(true)}
-        />
-      )}
-    </div>
-  );
-}
-
 
 const TABS = [
   { key: 'all',           labelId: 'recentPosts.tab.all',           defaultLabel: 'All Posts' },
@@ -334,7 +303,10 @@ export default function RecentPosts({ posts = [] }) {
                 <CardCover
                   image={post.frontMatter?.image}
                   permalink={post.permalink}
-                  title={post.title}
+                  width={340}
+                  height={191}
+                  aspectRatio="16 / 9"
+                  radius="var(--radius-card)"
                 />
                 <div className={styles.cardBody}>
                   <div className={styles.metaRow}>

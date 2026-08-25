@@ -3,6 +3,8 @@
   width: 100%;
   aspect-ratio: 1200 / 630;
   flex-shrink: 0;
+  border-radius: var(--cover-radius, var(--radius-panel)) var(--cover-radius, var(--radius-panel)) 0 0;
+  corner-shape: squircle;
   overflow: hidden;
 }
 
@@ -12,9 +14,14 @@
   }
 }
 
+/* Sized up and center-cropped (like object-fit: cover for photos) so the
+   135deg diagonal doesn't stretch corner-to-corner in wide/short cards. */
 .cardCoverGradient {
   position: absolute;
   inset: 0;
+  background-size: 220% 220%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .cardCoverImg {

@@ -61,7 +61,7 @@
   align-items: center;
   gap: 10px;
   width: 100%;
-  padding: 11px 14px;
+  padding: var(--space-sm) var(--space-md);
   background: transparent;
   border: none;
   border-radius: 6px;
@@ -74,6 +74,12 @@
 
 .providerBtn:hover {
   background: var(--ifm-color-emphasis-100);
+}
+
+.authError {
+  padding: var(--space-xs) var(--space-md);
+  font-size: 12px;
+  color: #e53e3e;
 }
 
 .avatarBtn {
@@ -99,6 +105,10 @@
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8), 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
+[data-theme='dark'] .avatar {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15), 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
 .avatarFallback {
   width: 32px;
   height: 32px;
@@ -111,6 +121,10 @@
   font-size: 14px;
   font-weight: 600;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8), 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .avatarFallback {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15), 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .userName {
@@ -133,7 +147,7 @@
 .dropdownItem {
   display: block;
   width: 100%;
-  padding: 10px 14px;
+  padding: var(--space-sm) var(--space-md);
   background: transparent;
   border: none;
   border-radius: 8px;

@@ -45,6 +45,20 @@ function htmlToMarkdown(el) {
   return walk(el).replace(/\n{3,}/g, '\n\n').trim();
 }
 
+// Flashes a keyed state (e.g. 'discord', 'markdown-failed') for `resetMs`,
+// then clears it. Used for the "copied!"/"failed" pill feedback below.
+function useCopiedState(resetMs = 2000) {
+  const [copied, setCopied] = useState(null);
+  const timerRef = useRef(null);
+  const flash = (key) => {
+    clearTimeout(timerRef.current);
+    setCopied(key);
+    timerRef.current = setTimeout(() => setCopied(null), resetMs);
+  };
+  useEffect(() => () => clearTimeout(timerRef.current), []);
+  return [copied, flash];
+}
+
 function ActionBarInner({ postId, title, url }) {
   const { user } = useAuth();
   const { i18n: { currentLocale } } = useDocusaurusContext();
@@ -53,7 +67,7 @@ function ActionBarInner({ postId, title, url }) {
   const [bookmarked, setBookmarked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const [bookmarkCount, setBookmarkCount] = useState(0);
-  const [copied, setCopied] = useState(null);
+  const [copied, flashCopied] = useCopiedState();
   const counts = usePostViews(postId);
 
   const likeIconRef     = useRef(null);
@@ -125,57 +139,52 @@ function ActionBarInner({ postId, title, url }) {
   }
 
   // ── Interactions ──────────────────────────────────────────────────────────
-  const toggleLike = async () => {
+  // Shared insert/delete/count logic for the like and bookmark toggles below —
+  // they only differ in which table they hit and which state setters they use.
+  const toggleFlag = async (table, { isActive, setIsActive, setCount, onTrigger }) => {
     if (!user) { triggerLogin(); return; }
-    if (pendingRef.current.has('like')) return;
-    pendingRef.current.add('like');
-    const wasLiked = liked;
-    triggerLikeAnim(!wasLiked);
+    if (pendingRef.current.has(table)) return;
+    pendingRef.current.add(table);
+    onTrigger?.();
     try {
-      if (wasLiked) {
-        const { error } = await supabase.from('likes').delete().eq('post_id', postId).eq('user_id', user.id);
-        if (error) { console.error('Failed to remove like:', error); return; }
-        setLiked(false);
-        setLikeCount(c => c - 1);
+      if (isActive) {
+        const { error } = await supabase.from(table).delete().eq('post_id', postId).eq('user_id', user.id);
+        if (error) { console.error(`Failed to remove ${table}:`, error); return; }
+        setIsActive(false);
+        setCount(c => c - 1);
       } else {
-        const { error } = await supabase.from('likes').insert({ post_id: postId, user_id: user.id });
-        if (error) { console.error('Failed to add like:', error); return; }
-        setLiked(true);
-        setLikeCount(c => c + 1);
+        const { error } = await supabase.from(table).insert({ post_id: postId, user_id: user.id });
+        if (error) { console.error(`Failed to add ${table}:`, error); return; }
+        setIsActive(true);
+        setCount(c => c + 1);
       }
     } finally {
-      pendingRef.current.delete('like');
+      pendingRef.current.delete(table);
     }
   };
 
-  const toggleBookmark = async () => {
-    if (!user) { triggerLogin(); return; }
-    if (pendingRef.current.has('bookmark')) return;
-    pendingRef.current.add('bookmark');
-    triggerBookmarkAnim();
-    try {
-      if (bookmarked) {
-        const { error } = await supabase.from('bookmarks').delete().eq('post_id', postId).eq('user_id', user.id);
-        if (error) { console.error('Failed to remove bookmark:', error); return; }
-        setBookmarked(false);
-        setBookmarkCount(c => c - 1);
-      } else {
-        const { error } = await supabase.from('bookmarks').insert({ post_id: postId, user_id: user.id });
-        if (error) { console.error('Failed to add bookmark:', error); return; }
-        setBookmarked(true);
-        setBookmarkCount(c => c + 1);
-      }
-    } finally {
-      pendingRef.current.delete('bookmark');
-    }
-  };
+  const toggleLike = () => toggleFlag('likes', {
+    isActive: liked,
+    setIsActive: setLiked,
+    setCount: setLikeCount,
+    onTrigger: () => triggerLikeAnim(!liked),
+  });
+
+  const toggleBookmark = () => toggleFlag('bookmarks', {
+    isActive: bookmarked,
+    setIsActive: setBookmarked,
+    setCount: setBookmarkCount,
+    onTrigger: triggerBookmarkAnim,
+  });
 
   const shareToDiscord = async () => {
     try {
       await navigator.clipboard.writeText(url);
-      setCopied('discord');
-      setTimeout(() => setCopied(null), 2000);
-    } catch {}
+      flashCopied('discord');
+    } catch (error) {
+      console.error('Failed to copy link:', error);
+      flashCopied('discord-failed');
+    }
   };
 
   const copyMarkdown = async () => {
@@ -185,9 +194,11 @@ function ActionBarInner({ postId, title, url }) {
         ? `# ${title}\n\n${htmlToMarkdown(contentEl)}`
         : `# ${title}\n\n${url}`;
       await navigator.clipboard.writeText(md);
-      setCopied('markdown');
-      setTimeout(() => setCopied(null), 2000);
-    } catch {}
+      flashCopied('markdown');
+    } catch (error) {
+      console.error('Failed to copy markdown:', error);
+      flashCopied('markdown-failed');
+    }
   };
 
   // ── Render ────────────────────────────────────────────────────────────────
@@ -228,6 +239,8 @@ function ActionBarInner({ postId, title, url }) {
             <span className={styles.skeletonSep} />
             <span className={styles.skeleton} />
           </>
+        ) : counts.error ? (
+          <span className={styles.statsLabel}>{isEn ? 'Views unavailable' : '浏览数加载失败'}</span>
         ) : (
           <>
             <Icon icon="mdi:eye-outline" className={styles.statsIcon} />
@@ -264,27 +277,31 @@ function ActionBarInner({ postId, title, url }) {
 
             <button
               type="button"
-              className={`${styles.pillBtn} ${styles.pillDiscord} ${copied === 'discord' ? styles.pillCopied : ''}`}
+              className={`${styles.pillBtn} ${styles.pillDiscord} ${copied === 'discord' ? styles.pillCopied : ''} ${copied === 'discord-failed' ? styles.pillFailed : ''}`}
               onClick={shareToDiscord}
             >
               <Icon icon="simple-icons:discord" className={styles.pillIcon} />
               <span>
                 {copied === 'discord'
                   ? (isEn ? 'Link Copied!' : '链接已复制!')
-                  : (isEn ? 'Share to Discord' : '分享到 Discord')}
+                  : copied === 'discord-failed'
+                    ? (isEn ? 'Copy failed' : '复制失败')
+                    : (isEn ? 'Copy Link for Discord' : '复制链接分享到 Discord')}
               </span>
             </button>
 
             <button
               type="button"
-              className={`${styles.pillBtn} ${styles.pillMd} ${copied === 'markdown' ? styles.pillCopied : ''}`}
+              className={`${styles.pillBtn} ${styles.pillMd} ${copied === 'markdown' ? styles.pillCopied : ''} ${copied === 'markdown-failed' ? styles.pillFailed : ''}`}
               onClick={copyMarkdown}
             >
               <Icon icon="mdi:language-markdown" className={styles.pillIcon} />
               <span>
                 {copied === 'markdown'
                   ? (isEn ? 'Copied!' : '已复制!')
-                  : (isEn ? 'Copy Markdown' : '复制为 Markdown')}
+                  : copied === 'markdown-failed'
+                    ? (isEn ? 'Copy failed' : '复制失败')
+                    : (isEn ? 'Copy Markdown' : '复制为 Markdown')}
               </span>
             </button>
           </div>

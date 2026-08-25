@@ -4,7 +4,7 @@ title: 关于这个博客
 date: 2026-06-04
 image: https://cdn.mikeq95blog.uk/coverimage/about-this-blog-en-cn.png
 tags:
-  - 关于
+  - about
 description: "05后电子信息工程大二生，写给自己看的博客——记录搞懂的东西，顺带验证自己是不是真的搞懂了。"
 ---
 

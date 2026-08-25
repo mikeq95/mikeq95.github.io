@@ -4,7 +4,7 @@ title: "开源 TTS 工具 Kokoro"
 date: 2026-05-16
 image: https://cdn.mikeq95blog.uk/coverimage/kokoro-en-cn.png
 tags:
-  - gitHub
+  - github
   - Ai-friendly
 description: "用开源 TTS 工具 Kokoro 把英文文章转成高质量音频，免费、本地运行、效果出色，边走路边听自己写的内容。"
 ---

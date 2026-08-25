@@ -9,7 +9,7 @@ const GlassSurface = ({
   children,
   width = 200,
   height = 80,
-  borderRadius = 20,
+  borderRadius = 14,
   className = '',
   style = {},
   solid = false

@@ -2,7 +2,7 @@
 slug: 2026/08/21/stop-slop-github-project
 title: stop-slop：一个帮 AI 去掉 AI 腔的 Skill
 date: 2026-08-21
-tags: [claude, llm, prompt, writing, open-source]
+tags: [Claude, llm, prompt, writing, open-source]
 description: stop-slop 是一个开源 skill 文件，教 Claude（或其他 LLM）识别并删掉 AI 写作里那些辨识度极高的套话、句式和结构。
 ---
 用 AI 写完一段话，读一遍，总觉得哪里不对——语法没问题，信息也对，但就是有股味。「这很重要」「让我来解释一下」「不仅如此，还……」。stop-slop 就是专门针对这股味的。

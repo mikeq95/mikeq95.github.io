@@ -4,7 +4,7 @@ title: 关于这个博客的 logo
 date: 2026-06-14
 image: https://cdn.mikeq95blog.uk/coverimage/about-blog-logo-en-cn.png
 tags:
-  - 关于
+  - about
 description: "博客 logo 的原型是英雄联盟里的 Poro，由我女朋友手绘设计，记录了这个 logo 背后的故事。"
 ---
 

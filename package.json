@@ -13,10 +13,10 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "upload-image": "node scripts/upload-image.mjs"
+    "upload-image": "node scripts/upload-image.mjs",
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@base-ui/react": "^1.6.0",
     "@docusaurus/core": "3.10.1",
     "@docusaurus/faster": "3.10.1",
     "@docusaurus/preset-classic": "3.10.1",
@@ -40,9 +40,16 @@
     "@aws-sdk/client-s3": "^3.1068.0",
     "@docusaurus/module-type-aliases": "3.10.1",
     "@docusaurus/types": "3.10.1",
+    "@eslint/js": "^9.39.5",
+    "@rspack/core": "1.7.11",
     "@tailwindcss/postcss": "^4.3.1",
     "docusaurus-plugin-llms": "^0.4.0",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.11.0",
     "tailwindcss": "^4.3.1",
+    "typescript-eslint": "^8.67.0",
     "wrangler": "^4.100.0"
   },
   "browserslist": {

@@ -1,17 +1,24 @@
 import React from 'react';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { useColorMode } from '@docusaurus/theme-common';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
 function PillToggle({ className }) {
   const { colorMode, setColorMode } = useColorMode();
+  const { i18n: { currentLocale } } = useDocusaurusContext();
+  const isEn = currentLocale === 'en';
   const isDark = colorMode === 'dark';
 
   return (
     <button
       type="button"
       className={`${styles.pill}${className ? ` ${className}` : ''}`}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={
+        isDark
+          ? (isEn ? 'Switch to light mode' : '切换到浅色模式')
+          : (isEn ? 'Switch to dark mode' : '切换到深色模式')
+      }
       onClick={() => setColorMode(isDark ? 'light' : 'dark')}
     >
       <div className={`${styles.option} ${!isDark ? styles.active : ''}`}>

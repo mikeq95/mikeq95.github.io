@@ -396,29 +396,5 @@
   "recentPosts.scrollRight": {
     "message": "向右滚动",
     "description": "Aria label for the button that scrolls the card track right"
-  },
-  "heroAuthCard.joinTitle": {
-    "message": "加入讨论",
-    "description": "Hero auth card heading for signed-out visitors"
-  },
-  "heroAuthCard.joinDesc": {
-    "message": "登录后即可点赞文章、收藏内容，参与评论讨论。",
-    "description": "Hero auth card description for signed-out visitors"
-  },
-  "heroAuthCard.continueWith": {
-    "message": "使用 {provider} 登录",
-    "description": "Hero auth card OAuth sign-in button label"
-  },
-  "heroAuthCard.welcomeBack": {
-    "message": "欢迎回来，{name}",
-    "description": "Hero auth card greeting for signed-in users"
-  },
-  "heroAuthCard.likes": {
-    "message": "点赞",
-    "description": "Hero auth card stat label for liked posts count"
-  },
-  "heroAuthCard.bookmarks": {
-    "message": "收藏",
-    "description": "Hero auth card stat label for bookmarked posts count"
   }
 }

@@ -6,10 +6,34 @@
 
 :root {
   --ifm-color-primary: #f40795;
+
+  /* Shared corner-radius scale — card-level surfaces use --radius-card (paired
+     with `corner-shape: squircle` for the continuous "Apple" curvature),
+     smaller panels/popovers use --radius-panel, fully-round chips/tabs use
+     --radius-pill. Established from src/components/RecentPosts. */
+  --radius-card: 28px;
+  --radius-panel: 16px;
+  --radius-pill: 999px;
+
+  /* Shared spacing scale, 4px/0.25rem grid */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  --color-success: #00a064;
 }
 
 [data-theme='dark'] {
   --ifm-color-primary: #06d6fb;
+}
+
+/* Apple-leaning font stack, site-wide (previously only applied to the
+   homepage hero) — excludes code/pre so monospace blocks are unaffected. */
+body {
+  font-family: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 @media (max-width: 996px) {
