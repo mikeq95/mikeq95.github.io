@@ -30,19 +30,11 @@ macOS（M 系列）先装 espeak-ng：
 brew install espeak-ng
 ```
 然后装 abogen：
+
 ```bash
 # Silicon Mac（M1/M2/M3/M4）
 uv tool install --python 3.13 abogen --with "kokoro @ git+https://github.com/hexgrad/kokoro.git,numpy<2"
 
-# Intel Mac
-uv tool install --python 3.12 abogen --with "kokoro @ git+https://github.com/hexgrad/kokoro.git,numpy<2"
-```
-我在这台 M 系列 Mac 上实际装过，上面的命令可以跑通，装完会看到：
-```
-Installed 4 executables: abogen, abogen-cli, abogen-pyqt, abogen-web
-```
-> ✅ 正常：出现上面那行，4 个命令都装好了
-> ❌ 异常：`No matching distribution found`——Python 版本不对，换 3.12 或者 3.13 重试；或者先 `brew install uv` 把 uv 装上
 
 至此，abogen 已经装好。
 

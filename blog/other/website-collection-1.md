@@ -60,3 +60,7 @@ https://dy.kukutool.com/zh-Hans-SG
 
 [fast](https://fast.com)一个测试网速的网站
 后续会陆续补充，凑够五个网站。
+
+## e-book
+
+[OceanofPDF](OceanofPDF）是一个下载电子书的网站
