@@ -37,70 +37,94 @@ Atoll 是一个 Swift/SwiftUI 写的 macOS 原生应用，用刘海屏那块区�
 - 日历（Calendar）——日历预览需要
 - 音乐（Music）——Apple Music 控制需要
 
-> ✅ 正常：顶栏出现 Atoll 的菜单图标，刘海屏区域有响应
-> ❌ 异常：刘海屏没反应——大概率是辅助功能权限还没给。去「系统设置 → 隐私与安全性 → 辅助功能」，手动加上 Atoll，然后完全退出重开
-
-注意，给了权限但没重启的话经常没用。权限变化之后务必完全退出（⌘Q，不是关窗口）再重开。
+>Accessbility是必须的，Screen Recording 和 Calendar 和 Muscic 看情况选择。（建议全选）
 
 ---
 
 ## 运行
 
-鼠标移到刘海屏区域，面板展开，顶部是几个标签：Media、Stats、Timers、Clipboard 等等，点对应标签切换。
+## 功能介绍：
 
-几个值得试的地方：
+Atoll让你的Mac的刘海变得有用了起来，变得更加好用，下面介绍软件功能
 
-- **Media**：Apple Music 和 Spotify 的播放控制、封面、歌词都在这里，Spotify 的「收藏当前歌曲」按钮也集成进来了（走 OAuth 2.0 PKCE，需要先在设置里授权）
-- **Stats**：CPU、GPU、内存、网络、磁盘使用率实时显示，数据来自 SMC 和 IOReport，和 Stats.app 同源
-- **Shelf**：从终端把文件扔进来：
+**在岛上可以做什么？**
 
-    ```bash
-    open -a Atoll /path/to/file
-    ```
+### HomePage
 
-    也可以直接从 Finder 拖进去，之后可以拖出来扔给其他应用
-- **LLM Usage**：如果你用 Claude Code、Codex 或者 Gemini CLI，Atoll 会读本地的会话日志，把近 7 天的用量汇总显示出来
+1. 媒体控制
 
-我没在带刘海屏的机器上亲自装跑，以上描述来自源码和 README 的交叉验证，具体细节以你实际跑到的为准。
+这个软件接入了spotify,Apple Music，或者其他任何小众的音乐软件，又或者是打开了网易云音乐Web版的Safar浏览器，他都支持，都可以上岛然后控制，下面这个视频展示Apple Music
 
----
 
-## 效果展示
+然后他还可以切换播放模式，比如随机播放，也有顺序播放（不开启随机播放那就是顺序播放，个人觉得这个思路还挺好），可以设置输出源，可以快捷控制音量，非常方便，基本涵盖日常常用的所有功能
 
-（此处插入展开面板截图：媒体控制界面）
+视频演示：
 
-（此处插入锁屏挂件截图：媒体 + 天气 + 定时器）
+<video controls width="100%">
+  <source src="https://cdn.mikeq95blog.uk/coverimage/apple-music-demo.mp4" type="video/mp4" />
+  你的浏览器不支持视频播放。
+</video>
 
----
+1. Schedule
 
-## 给 AI 编程助手的提示词
+可以导入你的日历上的日程设置，一切都会在HomePage的右边显示，所有重要的事情就变得不容易错过。
 
-懒得自己一步步照着装？把下面这段丢给 Claude Code 或者 Codex，它可以独立把 Atoll 装起来。
+<video controls width="100%">
+  <source src="https://cdn.mikeq95blog.uk/coverimage/calendar.mp4" type="video/mp4" />
+  你的浏览器不支持视频播放。
+</video>
 
-```text
-## 目标
-在一台带物理刘海屏的 MacBook 上从源码装好并跑起来 Atoll，能看到刘海屏区域展开出控制面板就算成功。
+### Atoll AirDrop panel
 
-## 步骤
-1. git clone https://github.com/Ebullioscopic/Atoll.git 并进入目录
-2. 用 Xcode 15+ 打开 DynamicIsland.xcodeproj，把 signing team 改成自己的 Apple Developer 账号（或 Personal Team）
-3. 选择 DynamicIsland scheme，在一台带物理刘海屏的 MacBook（14/16 寸 MBP，macOS 14+）上编译运行
-4. 首次启动会依次要 Accessibility、Screen Recording、Calendar、Music 权限，在系统设置里逐个授予，然后完全退出（⌘Q）再重新打开一次
+1， 快速Airdrop
 
-## 核查结果
-确认顶栏出现 Atoll 的菜单图标，鼠标移到刘海屏区域能展开出面板，把结果（是否成功、卡在哪一步）汇报给我。
+之前你需要做2步，1右键2分享，现在只需要一步，而且很简单——把需要Airdrop的文件拖到刘海里，他会切换到Airdrop选项，视频演示如下：
 
-具体细节可以参考这篇文章核实：https://mikeq95blog.uk/blog/2026/08/21/atoll-dynamic-island-macos
-```
+![Atoll AirDrop panel](https://cdn.mikeq95blog.uk/coverimage/AirDrop.png)
+
+2， 暂存文件
+
+你可以把需要时不时用到的文件快速存在刘海中，这样你可以方便快速粘贴。本人觉得这个功能非常好，比如我有一个文档A和图片B，提前存在刘海里，然后我可以很方便地把文档A发给小A，图片B发给小B，而不是Command + Tab切来切去。
+
+### timer
+
+1.自定义
+
+在左边，你可以自定义你想要的时间，比如20min,40min,1h等。
+
+2.根据模式
+
+在右边，你可以根据此时的需要来快速计时。
+
+视频展示：
+
+<video controls width="100%">
+  <source src="https://cdn.mikeq95blog.uk/coverimage/timer.mp4" type="video/mp4" />
+  你的浏览器不支持视频播放。
+</video>
+
+### 剪切板
+
+点击即可打开clipboard manager,然后可以快速复制粘贴一些内容进去，功能基本够用
+
+![Atoll Clipboard manager](https://cdn.mikeq95blog.uk/coverimage/Clipboard.png)
+
+### 锁屏
+
+当你`Control + Command + Q`锁屏时候，会油独特的显示效果。
+> 这还挺帅的，我觉得。
+
+![Atoll lock screen](https://cdn.mikeq95blog.uk/coverimage/Atoll-lock-screen.png)
 
 ---
 
 ## 卸载和下次运行
 
-卸载：从 Applications 把 Atoll 拖进废纸篓，然后在「系统设置 → 隐私与安全性」里把之前给的权限收回来。
+卸载：从 Applications 把 Atoll 拖进废纸篓
 
 下次直接启动：
 
 ```bash
 open -a Atoll
+# -a 参数告诉 open 按"应用名字"而不是"文件路径"去查找
 ```
