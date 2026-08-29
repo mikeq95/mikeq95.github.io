@@ -25,6 +25,11 @@ aside.sidebarCol {
   max-height: calc(100vh - var(--ifm-navbar-height) - 4rem);
   overflow-y: auto;
   padding-bottom: 2rem;
+  /* blume's NavTree.astro default (theme.fonts unset): the system-ui stack,
+     not this site's global "SF Pro Display"/Inter override — kept scoped to
+     the sidebar so it matches the reference exactly. */
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
 }
 
 .mobileWrap {
@@ -58,6 +63,7 @@ aside.sidebarCol {
   border-radius: 0.65rem;
   padding: 0.1875rem 0.5rem;
   font-size: 0.875rem;
+  line-height: 1.25rem;
   color: var(--ifm-color-emphasis-700);
   transition: background-color 150ms, color 150ms;
 }
@@ -106,6 +112,7 @@ aside.sidebarCol {
   border-radius: 0.65rem;
   padding: 0.1875rem 0.5rem;
   font-size: 0.875rem;
+  line-height: 1.25rem;
   color: var(--ifm-color-emphasis-700);
   text-decoration: none;
   transition: background-color 150ms, color 150ms, box-shadow 150ms;

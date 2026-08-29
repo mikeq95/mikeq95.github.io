@@ -42,6 +42,10 @@
   --blume-code-background: oklch(0.99 0 0);
   --blume-radius: 0.75rem;
   --blume-radius-nav: 0.65rem;
+  /* blume's real reading-column width (generated/app.css: --blume-content-width),
+     ported the same way as the sidebar's 17.5rem — a layout size, not a color,
+     so it applies regardless of which accent theme is active. */
+  --blume-content-width: 42rem;
 }
 
 /* blume accent selection: tint the same --ifm-color-primary family the
@@ -127,12 +131,36 @@ body {
   color: var(--ifm-color-emphasis-600);
 }
 
+/* blume's own three-column grid (RootLayout.astro) carries no max-width at
+   all — it's full-bleed, with only each column's own padding (aside's
+   `lg:px-4`, main's `px-6 lg:px-8 xl:px-10`) providing edge breathing room.
+   Infima's `.container` (which stock BlogLayout wraps the row in) caps at
+   1140/1320px and centers via `margin: 0 auto`, so on any screen wider than
+   that the whole three-column block floats mid-screen with big empty
+   margins — inconsistent with `.navbar`/`.navbar__inner`, which are already
+   full-bleed (Infima default.css has no `.container`/max-width on either).
+   Dropping the cap needs no padding change: `.container`'s own `padding: 0
+   1rem` is already canceled by `.row`'s `margin: 0 -1rem` (the standard
+   container/row/col gutter cancellation), so the only edge margin left is
+   each `.col`'s own 1rem — which is what should show, matching blume's own
+   ~16px column padding. */
+.container:has([aria-label="Blog categories navigation"]) {
+  max-width: none;
+}
+
 /* BlogSidebar's `aside.sidebarCol` (styles.module.css) fixes the sidebar at
    blume's own 17.5rem instead of Infima's 25% .col--3 — without a
    compensating change, <main> (stock BlogLayout, unswizzled, still a fixed
    .col--7/.col--9 percentage) would leave a gap where the narrowed sidebar
    used to be. :has() scopes this to rows that actually render the blog
-   category sidebar, so it doesn't affect .col--7/.col--9 used elsewhere. */
+   category sidebar, so it doesn't affect .col--7/.col--9 used elsewhere.
+
+   Two more blume gaps closed here: the TOC column (`.col--2`, also stock
+   BlogLayout) was still Infima's fluid ~16.6% column instead of blume's own
+   fixed 17.5rem rail, and <main> filling 100% of the freed-up space left the
+   article edge-to-edge with no reading-column width the way blume's
+   `<article class="prose mx-auto max-w-content">` centers a fixed-width
+   column inside its fluid grid track. */
 .row:has([aria-label="Blog categories navigation"]) > main.col--7,
 .row:has([aria-label="Blog categories navigation"]) > main.col--9 {
   /* flex-basis: 0% (not `auto`) — Infima's .row is `flex-wrap: wrap`, and an
@@ -143,7 +171,15 @@ body {
      avoids this. */
   flex: 1 1 0%;
   min-width: 0;
-  max-width: none;
+  /* Still fills the remaining track, but caps + centers the visible column
+     at blume's real content width instead of stretching full-bleed. */
+  max-width: var(--blume-content-width);
+  margin-inline: auto;
+}
+
+.row:has([aria-label="Blog categories navigation"]) > .col--2 {
+  flex: 0 0 17.5rem;
+  max-width: 17.5rem;
 }
 
 /* Search results dropdown — this is third-party plugin DOM (not a React
