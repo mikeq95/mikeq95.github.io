@@ -85,14 +85,12 @@
   font-weight: 600;
 }
 
-@media (max-width: 996px) {
-  .label,
-  .chevron {
-    display: none;
-  }
+.label,
+.chevron {
+  display: none;
+}
 
-  .pill {
-    justify-content: center;
-    gap: 0;
-  }
+.pill {
+  justify-content: center;
+  gap: 0;
 }

@@ -25,7 +25,7 @@ export default function ThemeColorButton({ label = '外观', colorLabel = '主�
   const [color, setColor] = useState(() => {
     try { return localStorage.getItem(STORAGE_KEY) || DEFAULT_COLOR; } catch { return DEFAULT_COLOR; }
   });
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   useEffect(() => {
     try { localStorage.setItem(STORAGE_KEY, color); } catch {}

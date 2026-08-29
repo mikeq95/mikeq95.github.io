@@ -33,6 +33,7 @@ const OTHER_LINKS = [
   { href: 'https://www.cheapchina.uk', labelZh: '小店', labelEn: 'Shop' },
   { href: 'https://notes.mikeq95blog.uk', labelZh: 'Kris 的笔记', labelEn: "Kris' Notes" },
   { href: 'https://second.mikeq95blog.uk/blog/English/2026-04-29-general-english-vocabulary', labelZh: 'Amy 的英语笔记', labelEn: "Amy's English Notes" },
+  { href: 'https://blumedemo.mikeq95blog.uk', labelZh: 'blumeDemo', labelEn: 'blumeDemo' },
 ];
 
 function SocialLink({ href, img, label, title }) {

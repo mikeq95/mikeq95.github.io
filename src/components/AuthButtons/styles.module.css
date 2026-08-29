@@ -16,7 +16,8 @@
 .loginPillBtn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 0;
   padding: 0 var(--ifm-navbar-item-padding-horizontal);
   height: 100%;
   border: none;
@@ -28,6 +29,10 @@
   transition: color 0.2s;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+.loginLabel {
+  display: none;
 }
 
 .loginPillBtn:hover {

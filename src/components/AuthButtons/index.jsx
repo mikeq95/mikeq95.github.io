@@ -154,7 +154,7 @@ function AuthButtonsInner() {
               aria-label={isEn ? 'Login' : '登录'}
             >
               <LoginIcon />
-              <span>{isEn ? 'Login' : '登录'}</span>
+              <span className={styles.loginLabel}>{isEn ? 'Login' : '登录'}</span>
             </PopoverButton>
 
             <PopoverPanel
