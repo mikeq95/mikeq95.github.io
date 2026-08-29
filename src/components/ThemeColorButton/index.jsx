@@ -3,13 +3,15 @@ import { applyAccentColor } from '@site/src/utils/themeColor';
 import styles from './styles.module.css';
 
 const PRESET_COLORS = [
+  'blume', // Blume (Default)
   '#007AFF', // Blue
   '#32ADE6', // Cyan
   '#34C759', // Green
   '#FF2D55', // Magenta
-  '#AF52DE', // Purple (Default)
+  '#AF52DE', // Purple
 ];
 const COLOR_NAMES = {
+  blume: 'Blume',
   '#007AFF': 'Blue',
   '#32ADE6': 'Cyan',
   '#34C759': 'Green',
@@ -17,7 +19,7 @@ const COLOR_NAMES = {
   '#AF52DE': 'Purple',
 };
 const STORAGE_KEY = 'theme-accent-color';
-const DEFAULT_COLOR = '#AF52DE';
+const DEFAULT_COLOR = 'blume';
 
 export default function ThemeColorButton({ label = '外观', colorLabel = '主题颜色', colorNames = COLOR_NAMES, selectedSuffix = ' (selected)', children }) {
   const [color, setColor] = useState(() => {
@@ -59,8 +61,14 @@ export default function ThemeColorButton({ label = '外观', colorLabel = '主�
                   className={`${styles.colorSwatch} ${color === c ? styles.colorSwatchSelected : ''}`}
                   // backgroundColor is the one genuinely data-driven value here
                   // (a runtime hex from PRESET_COLORS) — selection state itself
-                  // is expressed via the CSS modifier class above.
-                  style={{ backgroundColor: c }}
+                  // is expressed via the CSS modifier class above. "blume" isn't
+                  // a single hex (it's a full neutral palette), so its swatch is
+                  // a black/white split instead of a flat fill.
+                  style={
+                    c === 'blume'
+                      ? { background: 'linear-gradient(135deg, #0d0d0d 50%, #ffffff 50%)' }
+                      : { backgroundColor: c }
+                  }
                   aria-label={`${colorNames[c] || c}${color === c ? selectedSuffix : ''}`}
                   aria-pressed={color === c}
                   onClick={() => setColor(c)}

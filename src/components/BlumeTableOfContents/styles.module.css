@@ -1,0 +1,190 @@
+/* Ported from blume's TableOfContents.astro + PageActions.astro Tailwind
+   classes, translated to a CSS module for the same reason as BlogSidebar's
+   (this site's shared Tailwind theme tokens can't be safely repointed without
+   leaking into out-of-scope navbar components). Infima neutrals by default,
+   swapped for blume's oklch palette under the blume accent theme. */
+
+.tocWrap {
+  font-size: 0.875rem;
+  /* Stock @theme/TOC had this (theme-classic/TOC/styles.module.css) — lost
+     when this component replaced it. Without it the column scrolls away with
+     the page and the scrollspy highlight becomes invisible. */
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
+  max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+  overflow-y: auto;
+}
+
+.tocTitle {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--ifm-font-color-base);
+}
+
+.tocList {
+  display: block;
+}
+
+.tocUl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tocLink {
+  display: block;
+  padding: 0.375rem 0;
+  color: var(--ifm-color-emphasis-700);
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.tocLink:hover {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.tocLink[aria-current='location'] {
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+}
+
+.actions {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.actionRow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: start;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+  transition: color 150ms;
+}
+
+.actionRow:hover {
+  color: var(--ifm-font-color-base);
+}
+
+.menuDetails {
+  position: relative;
+}
+
+.menuSummary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.menuSummary::-webkit-details-marker {
+  display: none;
+}
+
+.menuChevron {
+  margin-inline-start: auto;
+  flex-shrink: 0;
+  transition: transform 150ms;
+}
+
+.menuDetails[open] > .menuSummary .menuChevron {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  right: 0.5rem;
+  z-index: 50;
+  margin-top: 0.25rem;
+  width: max-content;
+  min-width: 14rem;
+  max-width: 22rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  padding: 0.25rem;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.menu.menuFlipUp {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+
+.menuRow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.5rem;
+  text-align: start;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+  text-decoration: none;
+  transition: background-color 150ms, color 150ms;
+}
+
+.menuRow:hover {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.menuRowLabel {
+  flex: 1;
+}
+
+.menuSep {
+  margin: 0.25rem 0;
+  border: none;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+/* blume accent theme overrides */
+:global([data-accent-theme='blume']) .tocTitle {
+  color: var(--blume-foreground);
+}
+
+:global([data-accent-theme='blume']) .tocLink,
+:global([data-accent-theme='blume']) .actionRow,
+:global([data-accent-theme='blume']) .menuRow {
+  color: var(--blume-muted-foreground);
+}
+
+:global([data-accent-theme='blume']) .tocLink:hover,
+:global([data-accent-theme='blume']) .tocLink[aria-current='location'],
+:global([data-accent-theme='blume']) .actionRow:hover,
+:global([data-accent-theme='blume']) .menuRow:hover {
+  color: var(--blume-foreground);
+}
+
+:global([data-accent-theme='blume']) .menuRow:hover {
+  background: var(--blume-muted);
+}
+
+:global([data-accent-theme='blume']) .actions {
+  border-top-color: var(--blume-border);
+}
+
+:global([data-accent-theme='blume']) .menu {
+  border-color: var(--blume-border);
+  background: var(--blume-background);
+}
+
+:global([data-accent-theme='blume']) .menuSep {
+  border-top-color: var(--blume-border);
+}

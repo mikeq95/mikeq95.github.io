@@ -8,8 +8,8 @@ export default function NavbarLogo() {
   const { siteConfig } = useDocusaurusContext();
   const homeUrl = useBaseUrl('/');
   return (
-    <Link to={homeUrl} className={styles.pill}>
-      {siteConfig.title}
+    <Link to={homeUrl} className={styles.pill} title={siteConfig.title}>
+      mikeq95
     </Link>
   );
 }

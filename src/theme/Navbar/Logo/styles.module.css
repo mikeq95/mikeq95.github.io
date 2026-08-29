@@ -4,8 +4,8 @@
   padding: 0 var(--ifm-navbar-item-padding-horizontal);
   height: 100%;
   color: var(--ifm-navbar-link-color);
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 14px;
   white-space: nowrap;
   text-decoration: none;
   transition: color 0.2s;

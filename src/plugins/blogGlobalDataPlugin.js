@@ -99,12 +99,16 @@ module.exports = function blogGlobalDataPlugin(context) {
             return { label, permalink: tagPermalink };
           });
 
+          const id = path.relative(blogDir, filePath);
+          const categoryDir = path.dirname(id);
+
           posts.push({
-            id: path.relative(blogDir, filePath),
+            id,
             title: effectiveFm.title,
             date: new Date(effectiveFm.date ?? fm.date).toISOString(),
             permalink,
             tags,
+            category: categoryDir === '.' ? null : categoryDir.split(path.sep)[0],
             frontMatter: { image: effectiveFm.image },
           });
         } catch {

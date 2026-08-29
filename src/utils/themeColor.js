@@ -1,4 +1,12 @@
 export function applyAccentColor(color) {
+  if (color === 'blume') {
+    document.documentElement.setAttribute('data-accent-theme', 'blume');
+    const styleEl = document.getElementById('custom-theme-color-style');
+    if (styleEl) styleEl.innerHTML = '';
+    return;
+  }
+  document.documentElement.removeAttribute('data-accent-theme');
+
   let styleEl = document.getElementById('custom-theme-color-style');
   if (!styleEl) {
     styleEl = document.createElement('style');

@@ -1,0 +1,175 @@
+/* Ported from blume's NavTree.astro Tailwind classes (rounded-[0.65rem],
+   text-muted-foreground, hover:bg-muted, border-l border-border, etc.),
+   translated to a CSS module since this site's Tailwind theme tokens are
+   shared with out-of-scope navbar components (see plan notes) — expressed
+   here as plain CSS against the same semantic colors instead: Infima's
+   neutral grays by default, swapped for blume's own oklch palette only when
+   the blume accent theme is active. */
+
+/* aside.sidebarCol (element+class) rather than bare .sidebarCol: same
+   specificity trick as Infima's own .col--3 (a single class selector) would
+   tie on specificity and leave source order to decide the winner — this
+   guarantees it wins regardless of bundle order. blume's own sidebar width
+   (RootLayout.astro's `lg:grid-cols-[17.5rem_...]`), ported directly instead
+   of picking a value ourselves. Infima's .col--3 is a 25% flex-basis; this
+   overrides it with a fixed track width — compensated by the
+   .row:has(...) rule in custom.css that widens <main> to match. */
+aside.sidebarCol {
+  flex: 0 0 17.5rem;
+  max-width: 17.5rem;
+}
+
+.sidebar {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 2rem);
+  max-height: calc(100vh - var(--ifm-navbar-height) - 4rem);
+  overflow-y: auto;
+  padding-bottom: 2rem;
+}
+
+.mobileWrap {
+  padding: 0.5rem 0;
+}
+
+.tree {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.itemFirst {
+  margin-top: 0;
+}
+
+.item {
+  margin-top: 0;
+}
+
+.details {
+  width: 100%;
+}
+
+.summary {
+  display: flex;
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 0.65rem;
+  padding: 0.1875rem 0.5rem;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+  transition: background-color 150ms, color 150ms;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary:hover {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+}
+
+.summary:focus-visible {
+  outline: 2px solid var(--ifm-color-emphasis-600);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.summaryLabel {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 400;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--ifm-color-emphasis-600);
+  transition: transform 150ms;
+}
+
+.details[open] > .summary > .chevron {
+  transform: rotate(90deg);
+}
+
+.children {
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.pageLink {
+  display: block;
+  border-radius: 0.65rem;
+  padding: 0.1875rem 0.5rem;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+  text-decoration: none;
+  transition: background-color 150ms, color 150ms, box-shadow 150ms;
+}
+
+.pageLink:hover {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.pageLink:focus-visible {
+  outline: 2px solid var(--ifm-color-emphasis-600);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.pageLink[aria-current='page'] {
+  background: var(--ifm-color-emphasis-200);
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  /* inset box-shadow instead of a real border, so the active bar doesn't
+     shift the label's padding/alignment relative to inactive rows */
+  box-shadow: inset 2px 0 0 0 var(--ifm-color-emphasis-600);
+}
+
+.pageLinkLabel {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* blume accent theme: swap the neutral Infima grays above for blume's own
+   oklch tokens (defined in custom.css), matching the reference exactly. */
+:global([data-accent-theme='blume']) .summary,
+:global([data-accent-theme='blume']) .pageLink {
+  color: var(--blume-muted-foreground);
+}
+
+:global([data-accent-theme='blume']) .summary:hover,
+:global([data-accent-theme='blume']) .pageLink:hover,
+:global([data-accent-theme='blume']) .pageLink[aria-current='page'] {
+  background: var(--blume-muted);
+  color: var(--blume-foreground);
+}
+
+:global([data-accent-theme='blume']) .pageLink[aria-current='page'] {
+  box-shadow: inset 2px 0 0 0 var(--blume-foreground);
+}
+
+:global([data-accent-theme='blume']) .summaryLabel {
+  color: var(--blume-muted-foreground);
+}
+
+:global([data-accent-theme='blume']) .summary:focus-visible,
+:global([data-accent-theme='blume']) .pageLink:focus-visible {
+  outline-color: var(--blume-accent);
+}
+
+:global([data-accent-theme='blume']) .chevron {
+  color: var(--blume-muted-foreground);
+}
+
+:global([data-accent-theme='blume']) .children {
+  border-left-color: var(--blume-border);
+}

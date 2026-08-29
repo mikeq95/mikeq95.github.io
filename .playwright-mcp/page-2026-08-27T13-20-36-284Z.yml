@@ -1,0 +1,18 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e2]:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - button "Grok" [ref=f4e3] [cursor=pointer]
+            - button "Chat" [ref=f4e7] [cursor=pointer]
+        - generic [ref=f4e11]:
+          - button "Skip to home timeline" [ref=f4e12] [cursor=pointer]
+          - button "Skip to trending" [ref=f4e14] [cursor=pointer]
+          - banner [ref=f4e16]
+          - main [ref=f4e17]:
+            - generic "Home timeline" [ref=f4e22]:
+              - button "Back" [ref=f4e31] [cursor=pointer]
+              - progressbar "Loading timeline" [ref=f4e39]
+  - generic:
+    - region "Notifications alt+T"

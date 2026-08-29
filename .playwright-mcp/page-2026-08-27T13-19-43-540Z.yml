@@ -1,0 +1,421 @@
+- generic [ref=f2e1]:
+  - link "欢迎进入 小白如何优雅的搭建一个自动发卡网站【独角数卡】 - 知乎,盲人用户使用操作智能引导，请按快捷键Ctrl+Alt+R；阅读详细操作说明请按快捷键Ctrl+Alt+问号键。":
+    - /url: javascript:void(0)
+    - img [ref=f2e2] [cursor=pointer]
+  - generic [ref=f2e4]:
+    - banner [ref=f2e6]:
+      - generic [ref=f2e7]:
+        - link "知乎" [ref=f2e8] [cursor=pointer]:
+          - /url: https://www.zhihu.com
+        - generic [ref=f2e13]:
+          - generic [ref=f2e14]:
+            - navigation [ref=f2e15]:
+              - link "关注" [ref=f2e16] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Ffollow
+              - link "推荐" [ref=f2e18] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2F
+              - link "热榜" [ref=f2e20] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Fhot
+              - link "专栏" [ref=f2e22] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Fcolumn-square
+              - link "圈子" [ref=f2e24] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Fring-feeds
+              - link "AI Works Beta" [ref=f2e27] [cursor=pointer]:
+                - /url: https://www.zhihu.com/project-square
+                - generic [ref=f2e28]:
+                  - text: AI Works
+                  - generic: Beta
+              - link "故事" [ref=f2e30] [cursor=pointer]:
+                - /url: https://www.zhihu.com/fiore/h5/vip-web
+            - generic [ref=f2e32]:
+              - search [ref=f2e33]:
+                - generic [ref=f2e37]:
+                  - combobox "搜索" [ref=f2e38]
+                  - button "搜索" [ref=f2e39] [cursor=pointer]
+                - link "直答" [ref=f2e43] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/
+              - generic [ref=f2e47]:
+                - generic [ref=f2e48]: 切换模式
+                - button "登录/注册" [ref=f2e51] [cursor=pointer]
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: 小白如何优雅的搭建一个自动发卡网站【独角数卡】
+                        - generic:
+                          - generic:
+                            - generic: 切换模式
+                            - generic:
+                              - button
+    - main [ref=f2e53]:
+      - generic [ref=f2e54]:
+        - generic [ref=f2e55]:
+          - generic [ref=f2e57]:
+            - img "小白如何优雅的搭建一个自动发卡网站【独角数卡】" [ref=f2e61]
+            - article [ref=f2e62]:
+              - generic [ref=f2e63]:
+                - heading "小白如何优雅的搭建一个自动发卡网站【独角数卡】" [level=1] [ref=f2e64]
+                - generic [ref=f2e67]:
+                  - link [ref=f2e70] [cursor=pointer]:
+                    - /url: //www.zhihu.com/people/xuezhangye
+                    - img "叶学长" [ref=f2e71]
+                  - generic [ref=f2e72]:
+                    - link "叶学长" [ref=f2e76] [cursor=pointer]:
+                      - /url: //www.zhihu.com/people/xuezhangye
+                    - generic [ref=f2e77]: 世界上没有陌生人，只有还未结识的朋友
+                - generic [ref=f2e80]: 10 人赞同了该文章
+              - generic [ref=f2e87]:
+                - generic: 目录
+                - generic [ref=f2e94]:
+                  - paragraph [ref=f2e95]: 独角数卡是一个开源的在线自动售货系统，像这样的发卡大家也都见过，市面上也有很多种类似的系统。我这是使用的独角数卡，不管是界面还是功能都很完美，个人比较喜欢它的UI，设计的非常完整。
+                  - link [ref=f2e97] [cursor=pointer]:
+                    - /url: https://link.zhihu.com/?target=https%3A//yexuezhang.com/index.php/archives/170
+                  - heading "独角数卡：" [level=2] [ref=f2e102]
+                  - paragraph [ref=f2e103]:
+                    - link "Github" [ref=f2e105] [cursor=pointer]:
+                      - /url: https://zhida.zhihu.com/search?content_id=245350087&content_type=Article&match_order=1&q=Github&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1ODIsInEiOiJHaXRodWIiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDUzNTAwODcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.G8gZz3CUuBrix8w3u95Cf-CslaW9lZ8M0ZYKgxN1mY4&zhida_source=entity
+                    - text: 项目地址：
+                    - link "https://github.com/assimon/dujiaoka..." [ref=f2e108] [cursor=pointer]:
+                      - /url: https://link.zhihu.com/?target=https%3A//github.com/assimon/dujiaoka
+                      - text: https://github.com/assimon/dujiaoka
+                      - generic [ref=f2e109]: ...
+                  - paragraph [ref=f2e110]:
+                    - text: 官网Github指导：
+                    - link "2.x_bt_install" [ref=f2e111] [cursor=pointer]:
+                      - /url: https://link.zhihu.com/?target=https%3A//github.com/assimon/dujiaoka/wiki/2.x_bt_install
+                  - heading "搭建安装步骤" [level=2] [ref=f2e112]
+                  - heading "一、服务器的选择" [level=3] [ref=f2e113]
+                  - paragraph [ref=f2e114]:
+                    - text: 推荐使用香港服务器：之前我也用过其他服务器，但是出现了一些问题，数据和备份也全部都没了，服务器的选择一定要重视，这是我踩过的坑，给大家提醒一下，这里采用的是香港的
+                    - link "云服务器" [ref=f2e116] [cursor=pointer]:
+                      - /url: https://zhida.zhihu.com/search?content_id=245350087&content_type=Article&match_order=1&q=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1ODIsInEiOiLkupHmnI3liqHlmagiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDUzNTAwODcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.SDCfoKqnpyxXUbNH7s3To9iJ3en988RbXrTvgqtVlXA&zhida_source=entity
+                    - text: ，配置尽量选择2H4G。
+                  - figure [ref=f2e119]
+                  - heading "二、域名选择解析" [level=3] [ref=f2e122]
+                  - link [ref=f2e124] [cursor=pointer]:
+                    - /url: https://link.zhihu.com/?target=https%3A//yexuezhang.com/index.php/archives/171
+                  - heading [level=3] [ref=f2e129]:
+                    - text: 三、安装
+                    - link "aaPanel" [ref=f2e131] [cursor=pointer]:
+                      - /url: https://zhida.zhihu.com/search?content_id=245350087&content_type=Article&match_order=1&q=aaPanel&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1ODIsInEiOiJhYVBhbmVsIiwiemhpZGFfc291cmNlIjoiZW50aXR5IiwiY29udGVudF9pZCI6MjQ1MzUwMDg3LCJjb250ZW50X3R5cGUiOiJBcnRpY2xlIiwibWF0Y2hfb3JkZXIiOjEsInpkX3Rva2VuIjpudWxsfQ.gOSNc32VRRSrejmqdPjBQRE8tCMohvjQ-Ha0_cjQuAQ&zhida_source=entity
+                    - text: (宝塔)
+                  - paragraph [ref=f2e134]: 安装命令：
+                  - code [ref=f2e137]: 宝塔开心版：yum install -y wget && wget -O install.sh http://v7.hostcli.com/install/install_6.0.sh && sh install.sh
+                  - paragraph [ref=f2e138]: 连接服务器后输入命令安装宝塔，安装后把地址都记一下。
+                  - figure [ref=f2e139]
+                  - heading "四、打开宝塔面板" [level=3] [ref=f2e142]
+                  - figure [ref=f2e143]
+                  - heading "五、安装必要的环境" [level=3] [ref=f2e146]
+                  - figure [ref=f2e147]
+                  - figure [ref=f2e150]
+                  - paragraph [ref=f2e153]: 等待安装完成，安装速度取决于你的服务器，服务器好安装就快。
+                  - figure [ref=f2e154]
+                  - heading "六、PHP环境配置" [level=3] [ref=f2e157]
+                  - paragraph [ref=f2e158]: PHP会默认禁用一些函数，我们需要手动把这些函数删除，找到以下几个函数删除掉。
+                  - code [ref=f2e161]: putenv，proc_open，pcntl_signal，pcntl_alarm！！！记住是删四个函数！！！
+                  - figure [ref=f2e162]
+                  - figure [ref=f2e165]
+                  - heading "七、PHP扩展安装" [level=3] [ref=f2e168]
+                  - paragraph [ref=f2e169]: 找到以下三个扩展并安装。
+                  - code [ref=f2e172]: fileinfo、redis、opcache（安装这三个扩展）
+                  - figure [ref=f2e173]
+                  - heading "新建站点" [level=2] [ref=f2e176]
+                  - figure [ref=f2e177]
+                  - heading [level=3] [ref=f2e180]:
+                    - text: 一、上传独角数卡
+                    - link "源代码" [ref=f2e182] [cursor=pointer]:
+                      - /url: https://zhida.zhihu.com/search?content_id=245350087&content_type=Article&match_order=1&q=%E6%BA%90%E4%BB%A3%E7%A0%81&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1ODIsInEiOiLmupDku6PnoIEiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDUzNTAwODcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.wXbJktgwVrt4wE_-Iliqv00hnLVlXtFhIuqLc_7XCRk&zhida_source=entity
+                  - paragraph [ref=f2e185]:
+                    - link "https://github.com/assimon/dujiaoka/releases/download/2.0.6/2.0.6-antibody.tar.gz..." [ref=f2e186] [cursor=pointer]:
+                      - /url: https://link.zhihu.com/?target=https%3A//github.com/assimon/dujiaoka/releases/download/2.0.6/2.0.6-antibody.tar.gz
+                      - text: https://github.com/assimon/dujiaoka/releases/download/2.0.6/2.0.6-antibody.tar.gz
+                      - generic [ref=f2e187]: ...
+                  - figure [ref=f2e188]
+                  - figure [ref=f2e191]
+                  - figure [ref=f2e194]
+                  - figure [ref=f2e197]
+                  - figure [ref=f2e200]
+                  - figure [ref=f2e203]
+                  - heading "二、设置运行目录" [level=3] [ref=f2e206]
+                  - figure [ref=f2e207]
+                  - heading [level=3] [ref=f2e210]:
+                    - text: 三、设置
+                    - link "伪静态" [ref=f2e212] [cursor=pointer]:
+                      - /url: https://zhida.zhihu.com/search?content_id=245350087&content_type=Article&match_order=1&q=%E4%BC%AA%E9%9D%99%E6%80%81&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1ODIsInEiOiLkvKrpnZnmgIEiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDUzNTAwODcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.mzu-h8Z5lVrY5fs-i208teI6md02Lx2U5JZJcuDgvzI&zhida_source=entity
+                  - figure [ref=f2e215]
+                  - heading "四、配置SSL证书" [level=3] [ref=f2e218]
+                  - figure [ref=f2e219]
+                  - figure [ref=f2e222]
+                  - heading "五、修改文件配置" [level=3] [ref=f2e225]
+                  - paragraph [ref=f2e226]:
+                    - text: 打开.
+                    - link "env文件" [ref=f2e228] [cursor=pointer]:
+                      - /url: https://zhida.zhihu.com/search?content_id=245350087&content_type=Article&match_order=1&q=env%E6%96%87%E4%BB%B6&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1ODIsInEiOiJlbnbmlofku7YiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDUzNTAwODcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.0bWTXyBGatklGRDPbQ_u-mgkvPJdiafTvDeOpVlGs_g&zhida_source=entity
+                    - text: ，把最下面的修改为ADMIN_HTTPS=true
+                  - figure [ref=f2e231]
+                  - figure [ref=f2e234]
+                  - heading "安装独角数卡" [level=2] [ref=f2e237]
+                  - heading "一、访问你的域名" [level=3] [ref=f2e238]
+                  - list [ref=f2e239]:
+                    - listitem [ref=f2e240]: • Mysql数据库名：刚刚创建站点设置的，我示例是shop
+                    - listitem [ref=f2e241]: • Mysql用户名：刚刚创建站点设置的，我示例是shop
+                    - listitem [ref=f2e242]: • Mysql密码：刚刚创建站点设置的，我示例是shop
+                    - listitem [ref=f2e243]: • 网站名称：自己填 网站url：自己填
+                    - listitem [ref=f2e244]: • 后台登陆路径：随便改个
+                  - figure [ref=f2e245]
+                  - figure [ref=f2e248]
+                  - heading "登陆独角数卡" [level=2] [ref=f2e251]
+                  - heading "一、登陆后台" [level=3] [ref=f2e252]
+                  - paragraph [ref=f2e253]: 如果提示0err就看上面SLL证书的最后面一步
+                  - figure [ref=f2e254]
+                  - heading [level=2] [ref=f2e257]:
+                    - text: 配置
+                    - link "守护进程" [ref=f2e259] [cursor=pointer]:
+                      - /url: https://zhida.zhihu.com/search?content_id=245350087&content_type=Article&match_order=1&q=%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1ODIsInEiOiLlrojmiqTov5vnqIsiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDUzNTAwODcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.y09y8pBiDa-UEv8VVlyo9lIHYVrkqJBkHYhBts_t8cE&zhida_source=entity
+                    - text: （必须配置）
+                  - list [ref=f2e262]:
+                    - listitem [ref=f2e263]: • Name/名称：随意
+                    - listitem [ref=f2e264]: "• Run User/启动用户: 选择www"
+                    - listitem [ref=f2e265]: "• Run Dir/运行目录: 一般选网站根目录"
+                    - listitem [ref=f2e266]: "• Start Command/启动文件: /www/server/php/你php版本(我这里是php7.4，目录就是php74,根据自己实际来)/bin/php"
+                    - listitem [ref=f2e267]: • 网站根目录 + /artisan queue:work
+                    - listitem [ref=f2e268]: • Processes/进程：1
+                  - figure [ref=f2e269]
+                  - heading "支付配置" [level=2] [ref=f2e272]
+                  - paragraph [ref=f2e273]: 支付很多种，这里就不做推荐了，大家也可以用自己的当面付。
+                  - heading "总结" [level=2] [ref=f2e274]
+                  - paragraph [ref=f2e275]: 独角数卡是一个非常完美的自动发卡售货系统，官网更有很多技术解答，作者维护及时，可以说是目前最好用的自动发卡系统。好了，搭建完成了，其他配置自行研究吧。
+              - button "发布于 2024-07-07 13:43・河南" [ref=f2e276]
+              - generic [ref=f2e278]:
+                - link "自建网站" [ref=f2e281] [cursor=pointer]:
+                  - /url: //www.zhihu.com/topic/19836661
+                - link "网站" [ref=f2e285] [cursor=pointer]:
+                  - /url: //www.zhihu.com/topic/19556496
+                - link "网站建设" [ref=f2e289] [cursor=pointer]:
+                  - /url: //www.zhihu.com/topic/19589903
+              - generic [ref=f2e294]:
+                - generic [ref=f2e295]:
+                  - button "赞同 10" [ref=f2e297] [cursor=pointer]
+                  - button "反对" [ref=f2e301] [cursor=pointer]
+                - button [ref=f2e305] [cursor=pointer]
+                - button "收藏" [ref=f2e309] [cursor=pointer]: "22"
+                - button "喜欢" [ref=f2e313] [cursor=pointer]: "1"
+                - button [ref=f2e319] [cursor=pointer]
+                - button [ref=f2e323] [cursor=pointer]
+                - button [ref=f2e329] [cursor=pointer]
+                - button [ref=f2e337] [cursor=pointer]
+            - generic [ref=f2e343]:
+              - generic [ref=f2e344]: 未登录用户
+              - generic [ref=f2e358]:
+                - generic [ref=f2e359]:
+                  - generic [ref=f2e360]: 2 条评论
+                  - generic [ref=f2e362]:
+                    - generic [ref=f2e363] [cursor=pointer]: 默认
+                    - generic [ref=f2e364] [cursor=pointer]: 最新
+                - generic [ref=f2e366]:
+                  - generic [ref=f2e368]:
+                    - link [ref=f2e371] [cursor=pointer]:
+                      - /url: https://www.zhihu.com/people/f7a344804a0742d561c245b39724a86b
+                      - img "知趣的猫" [ref=f2e372]
+                    - generic [ref=f2e373]:
+                      - link "知趣的猫" [ref=f2e378] [cursor=pointer]:
+                        - /url: https://www.zhihu.com/people/f7a344804a0742d561c245b39724a86b
+                      - generic [ref=f2e379]: 最底下的独角开源地址怎么改
+                      - generic [ref=f2e380]:
+                        - generic [ref=f2e381]: 2024-09-11 · 河北
+                        - generic [ref=f2e383]:
+                          - button [ref=f2e384] [cursor=pointer]
+                          - button [ref=f2e388]
+                  - generic [ref=f2e393]:
+                    - link [ref=f2e396] [cursor=pointer]:
+                      - /url: https://www.zhihu.com/people/8619cea06f716e8d05a7f314d98a1802
+                      - img "树猫阅读" [ref=f2e397]
+                    - generic [ref=f2e398]:
+                      - link "树猫阅读" [ref=f2e403] [cursor=pointer]:
+                        - /url: https://www.zhihu.com/people/8619cea06f716e8d05a7f314d98a1802
+                      - paragraph [ref=f2e405]:
+                        - text: "出现The POST method is not supported for this route. Supported methods: GET, HEADz怎么弄呢，添加ADMIN HTTPS=true，网站都打不开"
+                        - img "[害羞]" [ref=f2e406]
+                      - generic [ref=f2e407]:
+                        - generic [ref=f2e408]: 2024-07-30 · 中国香港
+                        - generic [ref=f2e410]:
+                          - button [ref=f2e411] [cursor=pointer]
+                          - button [ref=f2e415]
+          - generic [ref=f2e419]:
+            - generic "边栏锚点"
+            - generic [ref=f2e420]:
+              - complementary "关于作者" [ref=f2e421]:
+                - generic [ref=f2e425]:
+                  - link [ref=f2e428] [cursor=pointer]:
+                    - /url: //www.zhihu.com/people/xuezhangye
+                    - img "叶学长" [ref=f2e429]
+                  - generic [ref=f2e430]:
+                    - link "叶学长" [ref=f2e433] [cursor=pointer]:
+                      - /url: //www.zhihu.com/people/xuezhangye
+                    - generic [ref=f2e434]: 世界上没有陌生人，只有还未结识的朋友
+                - generic [ref=f2e436]:
+                  - generic [ref=f2e438]:
+                    - link "回答 4" [ref=f2e439] [cursor=pointer]:
+                      - /url: //www.zhihu.com/people/xuezhangye/answers
+                      - generic [ref=f2e440]:
+                        - generic [ref=f2e441]: 回答
+                        - strong [ref=f2e442]: "4"
+                    - link "文章 5" [ref=f2e443] [cursor=pointer]:
+                      - /url: //www.zhihu.com/people/xuezhangye/posts
+                      - generic [ref=f2e444]:
+                        - generic [ref=f2e445]: 文章
+                        - strong [ref=f2e446]: "5"
+                    - link "关注者 25" [ref=f2e447] [cursor=pointer]:
+                      - /url: //www.zhihu.com/people/xuezhangye/followers
+                      - generic [ref=f2e448]:
+                        - generic [ref=f2e449]: 关注者
+                        - strong [ref=f2e450]: "25"
+                  - generic [ref=f2e451]:
+                    - button [ref=f2e452] [cursor=pointer]
+                    - button [ref=f2e456] [cursor=pointer]
+              - generic [ref=f2e461]:
+                - generic [ref=f2e462]:
+                  - generic [ref=f2e465]: 大家都在搜
+                  - button "换一换" [ref=f2e466] [cursor=pointer]
+                - generic [ref=f2e469]:
+                  - generic [ref=f2e470] [cursor=pointer]:
+                    - link "西藏日喀则吉隆口岸发生泥石流 471 万" [ref=f2e472]:
+                      - /url: https://www.zhihu.com/search?q=%E8%A5%BF%E8%97%8F%E6%97%A5%E5%96%80%E5%88%99%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E5%8F%91%E7%94%9F%E6%B3%A5%E7%9F%B3%E6%B5%81&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                      - generic "西藏日喀则吉隆口岸发生泥石流" [ref=f2e473]
+                      - generic [ref=f2e474]: 471 万
+                    - generic [ref=f2e475]: 热
+                  - generic [ref=f2e476] [cursor=pointer]:
+                    - link "刘翔向网友求助职场选择 401 万" [ref=f2e478]:
+                      - /url: https://www.zhihu.com/search?q=%E5%88%98%E7%BF%94%E5%90%91%E7%BD%91%E5%8F%8B%E6%B1%82%E5%8A%A9%E8%81%8C%E5%9C%BA%E9%80%89%E6%8B%A9&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                      - generic "刘翔向网友求助职场选择" [ref=f2e479]
+                      - generic [ref=f2e480]: 401 万
+                    - generic [ref=f2e481]: 热
+                  - link "孙宇晨起诉景甜 392 万" [ref=f2e484] [cursor=pointer]:
+                    - /url: https://www.zhihu.com/search?q=%E5%AD%99%E5%AE%87%E6%99%A8%E8%B5%B7%E8%AF%89%E6%99%AF%E7%94%9C&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                    - generic "孙宇晨起诉景甜" [ref=f2e485]
+                    - generic [ref=f2e486]: 392 万
+                  - generic [ref=f2e487] [cursor=pointer]:
+                    - link "Zhihu CLI 功能上新 388 万" [ref=f2e489]:
+                      - /url: https://www.zhihu.com/search?q=Zhihu+CLI+%E5%8A%9F%E8%83%BD%E4%B8%8A%E6%96%B0&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                      - generic "Zhihu CLI 功能上新" [ref=f2e490]
+                      - generic [ref=f2e491]: 388 万
+                    - generic [ref=f2e492]: 热
+                  - generic [ref=f2e493] [cursor=pointer]:
+                    - link "出发吧！看山 385 万" [ref=f2e495]:
+                      - /url: https://event.zhihu.com/travel-game/
+                      - generic "出发吧！看山" [ref=f2e496]
+                      - generic [ref=f2e497]: 385 万
+                    - generic [ref=f2e498]: 活动
+                  - generic [ref=f2e499] [cursor=pointer]:
+                    - link "中国女生在韩失联已遇害 383 万" [ref=f2e501]:
+                      - /url: https://www.zhihu.com/search?q=%E4%B8%AD%E5%9B%BD%E5%A5%B3%E7%94%9F%E5%9C%A8%E9%9F%A9%E5%A4%B1%E8%81%94%E5%B7%B2%E9%81%87%E5%AE%B3&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                      - generic "中国女生在韩失联已遇害" [ref=f2e502]
+                      - generic [ref=f2e503]: 383 万
+                    - generic [ref=f2e504]: 热
+                  - generic [ref=f2e505] [cursor=pointer]:
+                    - link "星宇股份劝退应届生补偿方案 377 万" [ref=f2e507]:
+                      - /url: https://www.zhihu.com/search?q=%E6%98%9F%E5%AE%87%E8%82%A1%E4%BB%BD%E5%8A%9D%E9%80%80%E5%BA%94%E5%B1%8A%E7%94%9F%E8%A1%A5%E5%81%BF%E6%96%B9%E6%A1%88&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                      - generic "星宇股份劝退应届生补偿方案" [ref=f2e508]
+                      - generic [ref=f2e509]: 377 万
+                    - generic [ref=f2e510]: 新
+                  - generic [ref=f2e511] [cursor=pointer]:
+                    - link "包贝尔被曝酒店出轨 370 万" [ref=f2e513]:
+                      - /url: https://www.zhihu.com/search?q=%E5%8C%85%E8%B4%9D%E5%B0%94%E8%A2%AB%E6%9B%9D%E9%85%92%E5%BA%97%E5%87%BA%E8%BD%A8&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                      - generic "包贝尔被曝酒店出轨" [ref=f2e514]
+                      - generic [ref=f2e515]: 370 万
+                    - generic [ref=f2e516]: 热
+                  - link "官方通报星宇股份批量劝退应届生 309 万" [ref=f2e519] [cursor=pointer]:
+                    - /url: https://www.zhihu.com/search?q=%E5%AE%98%E6%96%B9%E9%80%9A%E6%8A%A5%E6%98%9F%E5%AE%87%E8%82%A1%E4%BB%BD%E6%89%B9%E9%87%8F%E5%8A%9D%E9%80%80%E5%BA%94%E5%B1%8A%E7%94%9F&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                    - generic "官方通报星宇股份批量劝退应届生" [ref=f2e520]
+                    - generic [ref=f2e521]: 309 万
+                  - link "德芙七夕营销翻车 298 万" [ref=f2e524] [cursor=pointer]:
+                    - /url: https://www.zhihu.com/search?q=%E5%BE%B7%E8%8A%99%E4%B8%83%E5%A4%95%E8%90%A5%E9%94%80%E7%BF%BB%E8%BD%A6&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                    - generic "德芙七夕营销翻车" [ref=f2e525]
+                    - generic [ref=f2e526]: 298 万
+        - complementary "推荐阅读" [ref=f2e528]:
+          - heading "推荐阅读" [level=3] [ref=f2e529]
+          - list [ref=f2e530]:
+            - link "【来发卡】我是怎样通过自动发卡平台-自动发卡网增加我自己额外的收入的 今年自动发卡平台-自动发卡网依然非常得火爆，如果你去淘宝或者网络上搜索过这一类的产品，你就会发现虚拟货源项目可真是一个一本万利的好项目，做得好的人几乎都不需要耗费太多的时间，完… 坚葭" [ref=f2e531] [cursor=pointer]:
+              - /url: https://zhuanlan.zhihu.com/p/143670011
+              - generic [ref=f2e532]:
+                - heading "【来发卡】我是怎样通过自动发卡平台-自动发卡网增加我自己额外的收入的" [level=1] [ref=f2e533]
+                - paragraph [ref=f2e534]: 今年自动发卡平台-自动发卡网依然非常得火爆，如果你去淘宝或者网络上搜索过这一类的产品，你就会发现虚拟货源项目可真是一个一本万利的好项目，做得好的人几乎都不需要耗费太多的时间，完…
+                - generic [ref=f2e535]: 坚葭
+            - link "黑灰产中的多卡宝，3个月诈骗400万，一天能拔打3000个诈骗电话 黑灰产中的多卡宝，3个月诈骗400万，一天能拔打3000个诈骗电话 黑灰经" [ref=f2e537] [cursor=pointer]:
+              - /url: https://zhuanlan.zhihu.com/p/120743840
+              - generic [ref=f2e538]:
+                - img "黑灰产中的多卡宝，3个月诈骗400万，一天能拔打3000个诈骗电话" [ref=f2e539]
+                - heading "黑灰产中的多卡宝，3个月诈骗400万，一天能拔打3000个诈骗电话" [level=1] [ref=f2e540]
+                - generic [ref=f2e541]: 黑灰经
+            - link "如何避开阿里宝卡这个坑 误操作申请了阿里宝卡怎么办 先说下我的经历 本楼主昨晚双十一，看东西，购物，刷屏 以后真的是眼花缭乱，突然看到了阿里宝卡，我就在好奇下操作一番，结果第二天我就收到了这张卡，原来是… Amango" [ref=f2e543] [cursor=pointer]:
+              - /url: https://zhuanlan.zhihu.com/p/49279063
+              - generic [ref=f2e544]:
+                - heading "如何避开阿里宝卡这个坑" [level=1] [ref=f2e545]
+                - paragraph [ref=f2e546]: 误操作申请了阿里宝卡怎么办 先说下我的经历 本楼主昨晚双十一，看东西，购物，刷屏 以后真的是眼花缭乱，突然看到了阿里宝卡，我就在好奇下操作一番，结果第二天我就收到了这张卡，原来是…
+                - generic [ref=f2e547]: Amango
+            - link "这张卡片竟然能复制25张银行卡？ 这张卡片竟然能复制25张银行卡？ 小創 发表于創次方" [ref=f2e549] [cursor=pointer]:
+              - /url: https://zhuanlan.zhihu.com/p/25482252
+              - generic [ref=f2e550]:
+                - img "这张卡片竟然能复制25张银行卡？" [ref=f2e551]
+                - heading "这张卡片竟然能复制25张银行卡？" [level=1] [ref=f2e552]
+                - generic [ref=f2e553]:
+                  - generic [ref=f2e554]: 小創
+                  - generic [ref=f2e555]: 发表于創次方
+            - button [ref=f2e556] [cursor=pointer]
+    - complementary:
+      - generic [ref=f2e559]:
+        - button "回到顶部" [ref=f2e560] [cursor=pointer]
+        - button "看山" [ref=f2e564] [cursor=pointer]
+  - combobox [ref=f2e573] [cursor=pointer]
+  - generic [active] [ref=f2e578]:
+    - generic [ref=f2e582]:
+      - generic [ref=f2e583]:
+        - generic [ref=f2e584]:
+          - generic [ref=f2e585]:
+            - generic [ref=f2e586]: 打开知乎App
+            - generic [ref=f2e587]: 在「我的页」右上角打开扫一扫
+            - generic [ref=f2e588]: 其他扫码方式：微信
+          - generic [ref=f2e593]:
+            - button "下载知乎App" [ref=f2e595] [cursor=pointer]
+            - button "无障碍模式" [ref=f2e597] [cursor=pointer]
+        - generic [ref=f2e599]:
+          - generic [ref=f2e601]:
+            - generic [ref=f2e602]:
+              - generic [ref=f2e603]:
+                - button "验证码登录" [ref=f2e604] [cursor=pointer]
+                - button "密码登录" [ref=f2e605] [cursor=pointer]
+                - link "开通机构号" [ref=f2e606] [cursor=pointer]:
+                  - /url: /org/signup
+              - generic [ref=f2e607]:
+                - combobox [ref=f2e610] [cursor=pointer]:
+                  - generic [ref=f2e611]: 中国 +86
+                - textbox [ref=f2e617]:
+                  - /placeholder: 手机号
+              - generic [ref=f2e618]:
+                - textbox [ref=f2e621]:
+                  - /placeholder: 输入 6 位短信验证码
+                - button "获取短信验证码" [ref=f2e622] [cursor=pointer]
+              - generic [ref=f2e623]:
+                - button
+                - button "忘记密码" [ref=f2e624] [cursor=pointer]
+              - button "登录/注册" [ref=f2e626] [cursor=pointer]
+            - generic:
+              - log
+          - generic [ref=f2e627]: 其他方式登录
+          - generic [ref=f2e632]:
+            - button [ref=f2e633] [cursor=pointer]
+            - button [ref=f2e636] [cursor=pointer]
+            - button [ref=f2e639] [cursor=pointer]
+          - generic [ref=f2e642]:
+            - text: 未注册手机验证后自动登录，注册即代表同意
+            - link "《知乎协议》" [ref=f2e643] [cursor=pointer]:
+              - /url: https://www.zhihu.com/term/zhihu-terms
+            - link "《隐私保护指引》" [ref=f2e644] [cursor=pointer]:
+              - /url: https://www.zhihu.com/term/privacy
+      - generic:
+        - paragraph: 扫码下载知乎 App
+        - button "关闭二维码"
+    - button "关闭" [ref=f2e645] [cursor=pointer]

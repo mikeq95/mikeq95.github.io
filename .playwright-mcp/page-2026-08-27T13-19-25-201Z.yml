@@ -1,0 +1,309 @@
+- generic [active] [ref=f1e1]:
+  - link "欢迎进入 7k Star! 一个开源的发卡自助售货系统-独角数卡 - 知乎,盲人用户使用操作智能引导，请按快捷键Ctrl+Alt+R；阅读详细操作说明请按快捷键Ctrl+Alt+问号键。":
+    - /url: javascript:void(0)
+    - img [ref=f1e2] [cursor=pointer]
+  - generic [ref=f1e4]:
+    - banner [ref=f1e6]:
+      - generic [ref=f1e7]:
+        - link "知乎" [ref=f1e8] [cursor=pointer]:
+          - /url: https://www.zhihu.com
+        - generic [ref=f1e13]:
+          - generic [ref=f1e14]:
+            - navigation [ref=f1e15]:
+              - link "关注" [ref=f1e16] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Ffollow
+              - link "推荐" [ref=f1e18] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2F
+              - link "热榜" [ref=f1e20] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Fhot
+              - link "专栏" [ref=f1e22] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Fcolumn-square
+              - link "圈子" [ref=f1e24] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Fring-feeds
+              - link "AI Works Beta" [ref=f1e27] [cursor=pointer]:
+                - /url: https://www.zhihu.com/project-square
+                - generic [ref=f1e28]:
+                  - text: AI Works
+                  - generic: Beta
+              - link "故事" [ref=f1e30] [cursor=pointer]:
+                - /url: https://www.zhihu.com/fiore/h5/vip-web
+            - generic [ref=f1e32]:
+              - search [ref=f1e33]:
+                - generic [ref=f1e37]:
+                  - combobox "搜索" [ref=f1e38]
+                  - button "搜索" [ref=f1e39] [cursor=pointer]
+                - link "直答" [ref=f1e43] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/
+              - generic [ref=f1e47]:
+                - generic [ref=f1e48]: 切换模式
+                - button "登录/注册" [ref=f1e51] [cursor=pointer]
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: 7k Star! 一个开源的发卡自助售货系统-独角数卡
+                        - generic:
+                          - generic:
+                            - generic: 切换模式
+                            - generic:
+                              - button
+    - main [ref=f1e53]:
+      - generic [ref=f1e55]:
+        - generic [ref=f1e57]:
+          - img "7k Star! 一个开源的发卡自助售货系统-独角数卡" [ref=f1e61]
+          - article [ref=f1e62]:
+            - generic [ref=f1e63]:
+              - heading "7k Star! 一个开源的发卡自助售货系统-独角数卡" [level=1] [ref=f1e64]
+              - generic [ref=f1e67]:
+                - link [ref=f1e70] [cursor=pointer]:
+                  - /url: //www.zhihu.com/org/rainbond
+                  - img "Rainbond" [ref=f1e71]
+                - generic [ref=f1e72]:
+                  - link "Rainbond" [ref=f1e76] [cursor=pointer]:
+                    - /url: //www.zhihu.com/org/rainbond
+                  - generic [ref=f1e77]: 无需学习 Kubernetes 的容器平台
+            - generic [ref=f1e84]:
+              - blockquote [ref=f1e85]:
+                - text: 随着数字化时代的不断发展，虚拟产品，如
+                - link "游戏卡密" [ref=f1e87] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/search?content_id=236114417&content_type=Article&match_order=1&q=%E6%B8%B8%E6%88%8F%E5%8D%A1%E5%AF%86&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1NjMsInEiOiLmuLjmiI_ljaHlr4YiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzYxMTQ0MTcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.xn6EUBDgkVcVpR7HiS--N4II2VX6hqLGicD-LLJxLkw&zhida_source=entity
+                - text: 、软件许可、
+                - link "会员订阅" [ref=f1e91] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/search?content_id=236114417&content_type=Article&match_order=1&q=%E4%BC%9A%E5%91%98%E8%AE%A2%E9%98%85&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1NjMsInEiOiLkvJrlkZjorqLpmIUiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzYxMTQ0MTcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.63vmKBkR43_YgPjCSk3HY57-BmjFOWu06ajUpI5K6xM&zhida_source=entity
+                - text: 等，已经成为了市场上不可或缺的增值服务。在这种环境下，自助售货系统可以商家提供了更高效的销售途径，也为消费者提供了更加方便的消费体验。
+              - heading "应用简览" [level=3] [ref=f1e94]
+              - paragraph [ref=f1e95]:
+                - text: 独角数卡（dujiaoka）是一个开源的
+                - link "自动售货系统" [ref=f1e97] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/search?content_id=236114417&content_type=Article&match_order=1&q=%E8%87%AA%E5%8A%A8%E5%94%AE%E8%B4%A7%E7%B3%BB%E7%BB%9F&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1NjMsInEiOiLoh6rliqjllK7otKfns7vnu58iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzYxMTQ0MTcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.kDUfK9VsGBi82JB0nvjWFJ5kiV5HrOWOTZOjU_t7Vc0&zhida_source=entity
+                - text: ，为站长提供了一个自动化的售货解决方案。它旨在提供一个高效、稳定且快速的在线售货平台，适用于各类数字商品的销售。
+              - heading "主要功能" [level=3] [ref=f1e100]
+              - list [ref=f1e101]:
+                - listitem [ref=f1e102]: • 高效自动化：独角数卡通过自动化处理订单，减少人力需求，提高售货效率。
+                - listitem [ref=f1e103]:
+                  - text: • 数字商品管理：用户可以轻松上传和管理数字商品，如
+                  - link "软件许可证" [ref=f1e105] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=236114417&content_type=Article&match_order=1&q=%E8%BD%AF%E4%BB%B6%E8%AE%B8%E5%8F%AF%E8%AF%81&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1NjMsInEiOiLova_ku7borrjlj6_or4EiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzYxMTQ0MTcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.H4gGypWqVe6ympzBMMhSXNSMYaFWSx8JGnmNT5oW3jQ&zhida_source=entity
+                  - text: 、游戏时间卡等。
+                - listitem [ref=f1e108]: • 订单处理：系统支持即时订单处理，自动发货，提供顾客即时满意的购物体验。
+                - listitem [ref=f1e109]: • 支付集成：支持多种支付方式，包括但不限于支付宝、微信支付等，方便国内外顾客支付。
+                - listitem [ref=f1e110]:
+                  - text: •
+                  - link "响应式设计" [ref=f1e113] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=236114417&content_type=Article&match_order=1&q=%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1NjMsInEiOiLlk43lupTlvI_orr7orqEiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzYxMTQ0MTcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.hmCYzgU16eu0cAOtONgVATnui8qpqNMQH7v0FNPtHmk&zhida_source=entity
+                  - text: ：界面支持适配多种设备，无论顾客使用电脑还是手机均能流畅购物。
+                - listitem [ref=f1e116]: • 多语言支持：提供多语言界面，满足不同国家和地区用户的需求。
+              - heading "应用特色" [level=3] [ref=f1e117]
+              - heading "一、支持销售数据统计" [level=3] [ref=f1e118]
+              - paragraph [ref=f1e119]: 独角数卡提供详尽的数据统计功能，能够跟踪和显示总订单数、已完成订单、销售额以及支付方式分布等关键销售指标，能帮助站长更好的了解销售状况。
+              - paragraph [ref=f1e120]
+              - figure "image-20231109122958486" [ref=f1e121]
+              - paragraph [ref=f1e125]
+              - heading [level=3] [ref=f1e126]:
+                - text: 二、支持
+                - link "细粒度" [ref=f1e128] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/search?content_id=236114417&content_type=Article&match_order=1&q=%E7%BB%86%E7%B2%92%E5%BA%A6&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1NjMsInEiOiLnu4bnspLluqYiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzYxMTQ0MTcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.rmsRazwP9fVsvVHaswMz0kcNSZ8o-v3iTAoo9QOQ8nM&zhida_source=entity
+                - text: 的权限管理
+              - paragraph [ref=f1e131]:
+                - text: 通过实施基于角色的访问控制（
+                - link "RBAC" [ref=f1e133] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/search?content_id=236114417&content_type=Article&match_order=1&q=RBAC&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1NjMsInEiOiJSQkFDIiwiemhpZGFfc291cmNlIjoiZW50aXR5IiwiY29udGVudF9pZCI6MjM2MTE0NDE3LCJjb250ZW50X3R5cGUiOiJBcnRpY2xlIiwibWF0Y2hfb3JkZXIiOjEsInpkX3Rva2VuIjpudWxsfQ.ApJSRIc8I_jkNjW5uCWpsR2doELLdz9JQuufLVIpQts&zhida_source=entity
+                - text: ），独角数卡允许站长为不同的团队成员设定具体权限，确保每个员工只能访问其职责范围内的信息和操作，加强内部管理和数据安全。例如你可以为销售人员、财务人员或运营人员分配对应的权限，从而实现细粒度的权限控制。
+              - paragraph [ref=f1e136]
+              - figure "image-20231109123015433" [ref=f1e137]
+              - paragraph [ref=f1e141]
+              - heading "三、支持自动发送订单邮件" [level=3] [ref=f1e142]
+              - paragraph [ref=f1e143]: 独角数卡可以配置邮件模板，当顾客成功下单后，系统会自动发送含有产品卡密和详细信息的邮件，可以极大的提高发货效率。
+              - paragraph [ref=f1e144]
+              - figure "image-20231109123031144" [ref=f1e145]
+              - paragraph [ref=f1e149]
+              - heading "四、支持多种支付方式" [level=3] [ref=f1e150]
+              - paragraph [ref=f1e151]: 独角数卡支持对接多种支付方式、包括微信、支付宝、QQ支付、Paypal等等，无论是国内客户还是国外客户，都可以满足快速支付，扩大了潜在客户群。
+              - paragraph [ref=f1e152]
+              - figure "image-20231109123049150" [ref=f1e153]
+              - paragraph [ref=f1e157]
+              - heading "五、支持配置优惠码" [level=3] [ref=f1e158]
+              - paragraph [ref=f1e159]:
+                - text: 系统支持创建和管理优惠码，这些代码可以针对特定产品设置，并包括使用次数限制，可以更方便的进行
+                - link "市场营销" [ref=f1e161] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/search?content_id=236114417&content_type=Article&match_order=1&q=%E5%B8%82%E5%9C%BA%E8%90%A5%E9%94%80&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1NjMsInEiOiLluILlnLrokKXplIAiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzYxMTQ0MTcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.j5fnngiLDP_6nxVOdoLqUc6Mu9D2Fcf4AoOKq6u3VTA&zhida_source=entity
+                - text: 。
+              - paragraph [ref=f1e164]
+              - figure "image-20231109123115453" [ref=f1e165]
+              - paragraph [ref=f1e169]
+              - heading "安装指南" [level=3] [ref=f1e170]
+              - list [ref=f1e171]:
+                - listitem [ref=f1e172]:
+                  - text: 进入
+                  - link "云原生应用市场" [ref=f1e173] [cursor=pointer]:
+                    - /url: https://link.zhihu.com/?target=https%3A//hub.grapps.cn/
+                - listitem [ref=f1e174]:
+                  - text: 搜索
+                  - link "独角数卡" [ref=f1e175] [cursor=pointer]:
+                    - /url: https://link.zhihu.com/?target=https%3A//hub.grapps.cn/marketplace/apps/1336
+                - listitem [ref=f1e176]: 进入详情，选择包类型（本应用支持，docker安装，ram安装）
+                - listitem [ref=f1e177]:
+                  - text: 点击安装，执行相应命令即可。如有疑问可参阅
+                  - link "使用文档" [ref=f1e178] [cursor=pointer]:
+                    - /url: https://link.zhihu.com/?target=https%3A//hub.grapps.cn/docs/
+                  - text: 或加入社区
+              - heading "关于云原生应用市场" [level=3] [ref=f1e179]
+              - paragraph [ref=f1e180]:
+                - text: 云原生应用市场是一个汇聚了各类
+                - link "开源软件" [ref=f1e182] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/search?content_id=236114417&content_type=Article&match_order=1&q=%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODgwMDk1NjMsInEiOiLlvIDmupDova_ku7YiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzYxMTQ0MTcsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.2p46ctFLYJVN7gEZgNSOZrsKFSRWyP87rvwzVf1wrT0&zhida_source=entity
+                - text: 的应用市场，不仅可以作为你自己的 Helm Chart 仓库，提供丰富多样的Helm应用，还有 Docker 应用、Rainbond 应用模板、信创应用等多种选择。 官网：
+                - link "https://hub.grapps.cn/" [ref=f1e185] [cursor=pointer]:
+                  - /url: https://link.zhihu.com/?target=https%3A//hub.grapps.cn/
+                - text: 微信群：关注 云原生应用市场 公众号加入技术交流群
+            - button "发布于 2023-11-09 14:34・北京" [ref=f1e186]
+            - generic [ref=f1e188]:
+              - link "开源" [ref=f1e191] [cursor=pointer]:
+                - /url: //www.zhihu.com/topic/19562746
+              - link "自动贩售机" [ref=f1e195] [cursor=pointer]:
+                - /url: //www.zhihu.com/topic/19800631
+            - generic [ref=f1e200]:
+              - generic [ref=f1e201]:
+                - button "赞同 4" [ref=f1e203] [cursor=pointer]
+                - button "反对" [ref=f1e207] [cursor=pointer]
+              - button [ref=f1e211] [cursor=pointer]
+              - button "收藏" [ref=f1e215] [cursor=pointer]: "5"
+              - button "喜欢" [ref=f1e219] [cursor=pointer]: "2"
+              - button [ref=f1e225] [cursor=pointer]
+              - button [ref=f1e229] [cursor=pointer]
+              - button [ref=f1e235] [cursor=pointer]
+              - button [ref=f1e243] [cursor=pointer]
+          - generic [ref=f1e249]:
+            - textbox [ref=f1e260]
+            - generic [ref=f1e264]: 暂无评论
+        - generic [ref=f1e276]:
+          - generic "边栏锚点"
+          - complementary "关于作者" [ref=f1e278]:
+            - generic [ref=f1e282]:
+              - link [ref=f1e285] [cursor=pointer]:
+                - /url: //www.zhihu.com/org/rainbond
+                - img "Rainbond" [ref=f1e286]
+              - generic [ref=f1e287]:
+                - link "Rainbond" [ref=f1e290] [cursor=pointer]:
+                  - /url: //www.zhihu.com/org/rainbond
+                - generic [ref=f1e291]: 无需学习 Kubernetes 的容器平台
+            - generic [ref=f1e293]:
+              - generic [ref=f1e295]:
+                - link "回答" [ref=f1e296] [cursor=pointer]:
+                  - /url: //www.zhihu.com/org/rainbond/answers
+                  - generic [ref=f1e297]:
+                    - generic [ref=f1e298]: 回答
+                    - strong
+                - link "文章" [ref=f1e299] [cursor=pointer]:
+                  - /url: //www.zhihu.com/org/rainbond/posts
+                  - generic [ref=f1e300]:
+                    - generic [ref=f1e301]: 文章
+                    - strong
+                - link "关注者" [ref=f1e302] [cursor=pointer]:
+                  - /url: //www.zhihu.com/org/rainbond/followers
+                  - generic [ref=f1e303]:
+                    - generic [ref=f1e304]: 关注者
+                    - strong
+              - generic [ref=f1e305]:
+                - button [ref=f1e306] [cursor=pointer]
+                - button [ref=f1e310] [cursor=pointer]
+    - complementary:
+      - generic [ref=f1e314]:
+        - button "回到顶部" [ref=f1e315] [cursor=pointer]
+        - button "看山" [ref=f1e319] [cursor=pointer]
+  - combobox [ref=f1e328] [cursor=pointer]
+  - generic [ref=f1e333]:
+    - generic [ref=f1e337]:
+      - generic [ref=f1e338]:
+        - generic [ref=f1e339]:
+          - generic [ref=f1e340]:
+            - generic [ref=f1e341]: 打开知乎App
+            - generic [ref=f1e342]: 在「我的页」右上角打开扫一扫
+            - generic [ref=f1e343]: 其他扫码方式：微信
+          - generic [ref=f1e351]:
+            - button "下载知乎App" [ref=f1e353] [cursor=pointer]
+            - button "无障碍模式" [ref=f1e355] [cursor=pointer]
+        - generic [ref=f1e357]:
+          - generic [ref=f1e359]:
+            - generic [ref=f1e360]:
+              - generic [ref=f1e361]:
+                - button "验证码登录" [ref=f1e362] [cursor=pointer]
+                - button "密码登录" [ref=f1e363] [cursor=pointer]
+                - link "开通机构号" [ref=f1e364] [cursor=pointer]:
+                  - /url: /org/signup
+              - textbox [ref=f1e368]:
+                - /placeholder: 手机号
+              - generic [ref=f1e369]:
+                - textbox [ref=f1e372]:
+                  - /placeholder: 输入 6 位短信验证码
+                - button "获取短信验证码" [ref=f1e373] [cursor=pointer]
+              - generic [ref=f1e374]:
+                - button
+                - button "忘记密码" [ref=f1e375] [cursor=pointer]
+              - button "登录/注册" [ref=f1e377] [cursor=pointer]
+            - generic:
+              - log
+          - generic [ref=f1e378]: 其他方式登录
+          - generic [ref=f1e383]:
+            - button [ref=f1e384] [cursor=pointer]
+            - button [ref=f1e387] [cursor=pointer]
+            - button [ref=f1e390] [cursor=pointer]
+          - generic [ref=f1e393]:
+            - text: 未注册手机验证后自动登录，注册即代表同意
+            - link "《知乎协议》" [ref=f1e394] [cursor=pointer]:
+              - /url: https://www.zhihu.com/term/zhihu-terms
+            - link "《隐私保护指引》" [ref=f1e395] [cursor=pointer]:
+              - /url: https://www.zhihu.com/term/privacy
+      - generic:
+        - paragraph: 扫码下载知乎 App
+        - button "关闭二维码"
+    - button "关闭" [ref=f1e396] [cursor=pointer]
+  - generic [ref=f1e401]:
+    - generic [ref=f1e405]:
+      - generic [ref=f1e406]:
+        - generic [ref=f1e407]:
+          - generic [ref=f1e408]:
+            - generic [ref=f1e409]: 打开知乎App
+            - generic [ref=f1e410]: 在「我的页」右上角打开扫一扫
+            - generic [ref=f1e411]: 其他扫码方式：微信
+          - generic [ref=f1e419]:
+            - button "下载知乎App" [ref=f1e421] [cursor=pointer]
+            - button "无障碍模式" [ref=f1e423] [cursor=pointer]
+        - generic [ref=f1e425]:
+          - generic [ref=f1e427]:
+            - generic [ref=f1e428]:
+              - generic [ref=f1e429]:
+                - button "验证码登录" [ref=f1e430] [cursor=pointer]
+                - button "密码登录" [ref=f1e431] [cursor=pointer]
+                - link "开通机构号" [ref=f1e432] [cursor=pointer]:
+                  - /url: /org/signup
+              - textbox [ref=f1e436]:
+                - /placeholder: 手机号
+              - generic [ref=f1e437]:
+                - textbox [ref=f1e440]:
+                  - /placeholder: 输入 6 位短信验证码
+                - button "获取短信验证码" [ref=f1e441] [cursor=pointer]
+              - generic [ref=f1e442]:
+                - button
+                - button "忘记密码" [ref=f1e443] [cursor=pointer]
+              - button "登录/注册" [ref=f1e445] [cursor=pointer]
+            - generic:
+              - log
+          - generic [ref=f1e446]: 其他方式登录
+          - generic [ref=f1e451]:
+            - button [ref=f1e452] [cursor=pointer]
+            - button [ref=f1e455] [cursor=pointer]
+            - button [ref=f1e458] [cursor=pointer]
+          - generic [ref=f1e461]:
+            - text: 未注册手机验证后自动登录，注册即代表同意
+            - link "《知乎协议》" [ref=f1e462] [cursor=pointer]:
+              - /url: https://www.zhihu.com/term/zhihu-terms
+            - link "《隐私保护指引》" [ref=f1e463] [cursor=pointer]:
+              - /url: https://www.zhihu.com/term/privacy
+      - generic:
+        - paragraph: 扫码下载知乎 App
+        - button "关闭二维码"
+    - button "关闭" [ref=f1e464] [cursor=pointer]

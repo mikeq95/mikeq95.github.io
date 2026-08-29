@@ -70,13 +70,23 @@ const config = {
     adminUserIds: (process.env.DOCUSAURUS_ADMIN_USER_ID ?? '').split(',').filter(Boolean),
   },
 
-  // Apply saved theme-accent-color before any CSS renders to prevent a flash
-  // of the CSS-default pink (#f40795) during full-page navigations (e.g. language switch).
+  // Apply the saved theme-accent-color before any CSS renders, to prevent a
+  // flash of the wrong accent during full-page navigations (e.g. language
+  // switch). Defaults new visitors (no stored preference) to 'blume'; an
+  // existing visitor's stored hex color is preserved and still injected the
+  // same way as before.
   headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+      },
+    },
     {
       tagName: 'script',
       attributes: {},
-      innerHTML: `(function(){try{var c=localStorage.getItem('theme-accent-color');if(c){var s=document.getElementById('custom-theme-color-style');if(!s){s=document.createElement('style');s.id='custom-theme-color-style';document.head.appendChild(s);}s.innerHTML=':root{--ifm-color-primary:'+c+' !important;--ifm-color-primary-dark:'+c+' !important;--ifm-color-primary-darker:'+c+' !important;--ifm-color-primary-darkest:'+c+' !important;--ifm-color-primary-light:'+c+' !important;--ifm-color-primary-lighter:'+c+' !important;--ifm-color-primary-lightest:'+c+' !important;--ifm-link-color:'+c+' !important;}';}}catch(e){}})();`,
+      innerHTML: `(function(){try{var c=localStorage.getItem('theme-accent-color')||'blume';if(c==='blume'){document.documentElement.setAttribute('data-accent-theme','blume');}else{var s=document.getElementById('custom-theme-color-style');if(!s){s=document.createElement('style');s.id='custom-theme-color-style';document.head.appendChild(s);}s.innerHTML=':root{--ifm-color-primary:'+c+' !important;--ifm-color-primary-dark:'+c+' !important;--ifm-color-primary-darker:'+c+' !important;--ifm-color-primary-darkest:'+c+' !important;--ifm-color-primary-light:'+c+' !important;--ifm-color-primary-lighter:'+c+' !important;--ifm-color-primary-lightest:'+c+' !important;--ifm-link-color:'+c+' !important;}';}}catch(e){}})();`,
     },
   ],
 
@@ -176,6 +186,10 @@ const config = {
         includeBlog: true,
         excludeImports: true,
         removeDuplicateHeadings: true,
+        // Powers the blume-style "Copy as Markdown" / "Open in chat" post
+        // actions, which fetch a post's raw markdown from this plugin's
+        // per-page .md output (production build only — see BlumeTableOfContents).
+        generateMarkdownFiles: true,
       },
     ],
   ],
@@ -192,7 +206,7 @@ const config = {
         indexBlog: true,
         indexPages: true,
         docsRouteBasePath: [],
-        searchBarShortcutHint: false,
+        searchBarShortcutHint: true,
       }),
     ],
   ],
@@ -209,23 +223,20 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
+        // The 4 external links + contact now live inside the Settings
+        // popover (src/components/NavbarSettingsButton) instead of sitting
+        // inline here — keeps the bar down to logo / search / settings /
+        // language, closer to blume's minimal header.
         items: [
-          { to: 'https://ai.mikeq95blog.uk', label: 'AI Blog', position: 'left' },
-          { to: 'https://www.cheapchina.uk', label: 'Shop', position: 'left' },
-          { to: 'https://notes.mikeq95blog.uk', label: "Kris' Notes", position: 'left' },
-          {
-            to: 'https://second.mikeq95blog.uk/blog/English/2026-04-29-general-english-vocabulary',
-            label: "Amy's English Notes",
-            position: 'left',
-          },
-          { type: 'custom-NavbarContactButton', position: 'right' },
           { type: 'custom-NavbarSettingsButton', position: 'right' },
           { type: 'custom-NavbarLanguageSwitcher', position: 'right' },
         ],
       },
       prism: {
         theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        // vsDark: closest bundled equivalent to blume's github-dark Shiki
+        // theme (prism-react-renderer ships no github-dark of its own).
+        darkTheme: prismThemes.vsDark,
       },
     }),
 };

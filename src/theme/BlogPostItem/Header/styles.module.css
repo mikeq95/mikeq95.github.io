@@ -1,0 +1,19 @@
+.leadDescription {
+  margin: 0.25rem 0 0.875rem;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ifm-color-emphasis-700);
+}
+
+html.blog-post-page[data-accent-theme='blume'] .leadDescription {
+  color: var(--blume-muted-foreground);
+}
+
+.metaRow {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.85rem;
+}
+
+html.blog-post-page[data-accent-theme='blume'] .metaRow {
+  color: var(--blume-muted-foreground);
+}

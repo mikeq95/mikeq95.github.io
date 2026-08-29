@@ -11,7 +11,7 @@ import BlogPostItem from '@theme/BlogPostItem';
 import BlogPostPaginator from '@theme/BlogPostPaginator';
 import BlogPostPageMetadata from '@theme/BlogPostPage/Metadata';
 import BlogPostPageStructuredData from '@theme/BlogPostPage/StructuredData';
-import TOC from '@theme/TOC';
+import BlumeTableOfContents from '@site/src/components/BlumeTableOfContents';
 import ContentVisibility from '@theme/ContentVisibility';
 import CommentSection from '@site/src/components/CommentSection';
 import ActionBar from '@site/src/components/ActionBar';
@@ -40,8 +40,8 @@ function BlogPostPageContent({sidebar, children}) {
       <BlogLayout
         sidebar={sidebar}
         toc={
-          !hideTableOfContents && toc.length > 0 ? (
-            <TOC
+          !hideTableOfContents ? (
+            <BlumeTableOfContents
               toc={toc}
               minHeadingLevel={tocMinHeadingLevel}
               maxHeadingLevel={tocMaxHeadingLevel}
