@@ -1,0 +1,16 @@
+.columns {
+  display: grid;
+  grid-template-columns: repeat(var(--columns-count, 2), 1fr);
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
+.columns > * {
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}

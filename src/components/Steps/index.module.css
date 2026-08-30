@@ -1,0 +1,65 @@
+.steps {
+  list-style: none;
+  margin: var(--space-lg) 0;
+  padding-left: 0;
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  padding: 0 0 var(--space-lg) 2.5rem;
+  counter-increment: step;
+}
+
+.step:last-child {
+  padding-bottom: 0;
+}
+
+.step::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: var(--ifm-color-primary);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.step::after {
+  content: '';
+  position: absolute;
+  left: 0.875rem;
+  top: 1.75rem;
+  bottom: 0;
+  width: 1px;
+  background: var(--ifm-color-emphasis-300);
+}
+
+.step:last-child::after {
+  display: none;
+}
+
+.stepTitle {
+  font-weight: 600;
+  line-height: 1.75rem;
+}
+
+.stepBody {
+  color: var(--ifm-color-emphasis-700);
+  margin-top: var(--space-xs);
+}
+
+.stepBody p:first-child {
+  margin-top: 0;
+}
+
+.stepBody p:last-child {
+  margin-bottom: 0;
+}
