@@ -5,7 +5,7 @@
       "name": "docusaurus-dev",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "start", "--", "--port", "3000", "--no-open"],
-      "port": 3000
+      "port": 8888
     }
   ]
 }

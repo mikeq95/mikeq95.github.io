@@ -1,9 +1,0 @@
-[     669ms] [LOG] %c知乎 ฅ՞•ﻌ•՞ฅ color:#1772F6;font-weight:bold;font-size:6em;padding:10px 30px;text-shadow:0.7px -1px 0 rgb(255 255 255 / 100%),1.4px -2px 0 rgb(255 255 255 / 96%),2.0999999999999996px -3px 0 rgb(255 255 255 / 92%),2.8px -4px 0 rgb(255 255 255 / 88%),-1px 1px 2px rgb(0 0 0 / 70%),-2px 2px 4px rgb(0 0 0 / 70%),-3px 3px 6px rgb(0 0 0 / 70%);background: linear-gradient(to right top,oklab(58.2% -0.04 -0.21),oklab(58.2% -0.376 -0.21)); @ https://static.zhihu.com/heifetz/column.app.dc67031ca155a943ab35.js:0
-[     669ms] [LOG] 加入知乎 https://s.zhihu.com/BDXoD @ https://static.zhihu.com/heifetz/column.app.dc67031ca155a943ab35.js:0
-[     920ms] [LOG] [INFO] [Zhida: WebView] [Theme Web] pull theme from RN @ https://static.zhihu.com/amadeus-rn/web/shared-bee532d4985af18a.628f88df2eccd09a.js:0
-[     921ms] [WARNING] MMKV not available, fallback @ https://static.zhihu.com/amadeus-rn/web/shared-41ff11a98508fe30.0ebc68d4db374f05.js:0
-[     937ms] [WARNING] MMKV not available, fallback @ https://static.zhihu.com/amadeus-rn/web/shared-41ff11a98508fe30.0ebc68d4db374f05.js:0
-[    1073ms] [INFO] appid: 2285, userInfo:{"user_unique_id":"7678700444138391074","web_id":"7678700444138391074"} @ https://static.zhihu.com/heifetz/3049.app.221ec22caf2d64b1cbcc.js:20
-[    1073ms] [INFO] appid: 2285, sdk is ready, version is 0.0.3-lite, you can report now !!! @ https://static.zhihu.com/heifetz/3049.app.221ec22caf2d64b1cbcc.js:20
-[    1370ms] [ERROR] Access to XMLHttpRequest at 'https://118.89.204.198/resolv?host=www.zhihu.com&os_type=web' from origin 'https://zhuanlan.zhihu.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://zhuanlan.zhihu.com/p/707483887:0
-[    1370ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://118.89.204.198/resolv?host=www.zhihu.com&os_type=web:0
