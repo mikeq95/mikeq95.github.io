@@ -8,10 +8,6 @@ tags:
 description: "介绍 GSAP 官方出的 Claude Code Skills 包，让 AI 正确理解 GSAP API，几分钟为网页加上流畅动画效果。"
 ---
 
-{/* truncate */}
-
----
-
 ## GSAP 是什么
 
 [GSAP](https://gsap.com)（GreenSock Animation Platform）是目前最流行的 JavaScript 网页动画库，核心优势是：
@@ -22,8 +18,6 @@ description: "介绍 GSAP 官方出的 Claude Code Skills 包，让 AI 正确理
 - 时间线编排（Timeline）：多个动画要精确同步/接续（A 做完 0.2 秒后 B 才开始，且要跟着调整很方便），纯 CSS 写起来很痛苦，GSAP 的 timeline 这块体验好很多。
 - 性能：底层做了大量优化（用 transform 而不是触发重排的属性），大量元素同时动画也不卡。
 - ScrollTrigger 插件：滚动联动动画（滚到哪儿播放/暂停/pin 住）这块基本是行业标准，做起来比手写 IntersectionObserver + 手动算进度轻松很多。
-
----
 
 ## gsap-skills 是什么
 
@@ -41,8 +35,6 @@ AI 对 GSAP 的了解可能是过时的——比如 ScrollTrigger 的写法、Re
 | gsap-performance | 性能优化技巧 |
 | gsap-frameworks | Vue、Svelte 等框架用法 |
 | gsap-utils | gsap.utils 工具函数 |
-
----
 
 ## 安装 gsap-skills
 
@@ -69,8 +61,6 @@ npx skills add https://github.com/greensock/gsap-skills
 
 安装完成后，skill 会保存到 `~/.claude/skills/` 目录下。
 
----
-
 ## 如何使用
 
 安装完不需要任何特殊命令，**直接在 Claude Code 里描述你要做的动画就行**，Claude 会自动调用对应的 skill 来写出正确的代码。
@@ -88,8 +78,6 @@ npx skills add https://github.com/greensock/gsap-skills
 "首页 Banner 标题，页面加载完成后触发：从下方 30px 处向上滑入并淡入到正常位置，速度稍快（0.6 秒），带一点回弹效果（elastic）。如果标题里有多个单词/卡片，让它们依次错开 0.1 秒出现，而不是同时弹出。"
 
 >Banner是啥？Banner就是页顶部那种大幅横向展示区块，你第一眼就看到的就是。
-
----
 
 ## 应用实例
 
@@ -122,5 +110,3 @@ gsap.to(pill, {
   overwrite: true,
 });
 ```
-
-

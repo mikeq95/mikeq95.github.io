@@ -8,8 +8,6 @@ tags:
 description: "这个博客是怎么搭起来的：Docusaurus + Supabase + Cloudflare，外加 Claude Code 帮我写了大部分代码。"
 ---
 
-{/* truncate */}
-
 ## 网站本体：Docusaurus
 
 这个博客是用 [Docusaurus](https://docusaurus.io) 搭的，本质上是一个 React 框架，专门用来做文档站和博客——写 Markdown，它帮你编译成静态网页。好像是 Meta 旗下的项目。

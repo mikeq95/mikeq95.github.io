@@ -10,8 +10,6 @@ description: Blume is an open-source documentation framework built on Astro and 
 
 > If you're new to this, this post includes a ready-to-use AI prompt that can set up the environment for you in one go.
 
----
-
 ## Introduction
 
 If you've used Fumadocs or Docusaurus before, you know the feeling: you first have to set up a Next.js or React project yourself, install a pile of dependencies, wire up routing and theming, and only then can you start writing your first doc page — and that app has to be maintained alongside the framework going forward. Blume flips this around. All you have is a folder of `.md`/`.mdx` files, and the `blume` CLI generates and drives a hidden Astro project behind the scenes. You don't have to build navigation or search yourself, theming is already built in, and even the Open Graph images used for link previews get generated automatically at build time. If you want finer-grained control at some point, running `blume eject` promotes that Astro project into a standalone one you own — so it doesn't lock you out of that path entirely.
@@ -25,8 +23,6 @@ Output aimed at AI consumers is also built in: append `.md` to any page URL and 
 `blume check` runs `astro check` for type checking, `blume validate` checks internal links and assets, and `blume doctor` diagnoses configuration and content issues. I ran all three locally and the output was clean. `audit`, `validate --external`, `translate`, and `eval` can also hook into a locally installed Claude Code or Codex CLI to fix issues they find automatically, though these depend on a local agent environment I didn't test alongside this. Deploying to Vercel, Netlify, or Cloudflare Pages requires basically no manual adapter setup — it's auto-detected.
 
 The repository was created in late June 2026, hit its 1.0 release on July 13, and had passed 1,350 stars on GitHub by the time I wrote this post, with commits still landing in late August. Hayden Bleasel previously built next-forge and Ultracite, both following the same "zero-config, works out of the box" approach — Blume is the newest entry in that lineup.
-
----
 
 ## Setup
 
@@ -48,8 +44,6 @@ This generates a `package.json` (already wired with `dev`, `build`, and `doctor`
 npm install
 ```
 
----
-
 ## Running
 
 Start the dev server with hot reload:
@@ -67,8 +61,6 @@ npm run build
 ```
 
 This also ran cleanly on my end. The output directory contained `llms.txt`, `llms-full.txt`, `robots.txt`, and `blume-search.json`; `index.html` is the compiled static page, ready to drop onto any static host.
-
----
 
 ## Results
 
@@ -107,8 +99,6 @@ The summary panel printed after a build:
 ╰───────────────────────────────────────╯
 ```
 
----
-
 ## Similar Projects and Reception
 
 Blume's own FAQ names a few competitors directly. [Mintlify](https://mintlify.com) gets you results fast, but you write inside its hosted system and deploy to its infrastructure — the core is closed-source. [Fumadocs](https://fumadocs.dev) goes the other way: an open-source component library that's flexible, but it hands you a Next.js project you have to scaffold and maintain yourself long-term. Docusaurus gets grouped in the same category — also open source, also requiring you to own and maintain a React app. Blume takes a third path, "framework as template," running on Astro, with no separate app for you to maintain.
@@ -116,8 +106,6 @@ Blume's own FAQ names a few competitors directly. [Mintlify](https://mintlify.co
 [An analysis on Winbuzzer](https://winbuzzer.com/2026/07/16/blume-turns-markdown-folders-into-ai-ready-documentation-xcxwbn/) lines Blume up against VitePress and MkDocs, and raises its own question: features like Ask AI and MCP still require a team to run a server-side adapter, so whether Blume actually saves the operational overhead it promises depends on how it plays out in real deployments.
 
 Blume is young — the repo went up in late June, and 1.0 shipped July 13 — and while stars are climbing fast, independent community discussion is thin so far. Multiple keyword searches across X, Reddit, and Zhihu turned up mostly the author's own launch posts and tech-media write-ups that followed the release cycle, not independent hands-on accounts. Author Hayden Bleasel currently works at OpenAI; his earlier projects, next-forge and Ultracite, follow the same "zero-config, works out of the box" positioning — Blume is the newest entry in that line.
-
----
 
 ## Prompt for AI Coding Agents
 
@@ -137,8 +125,6 @@ Confirm that after `npm run dev` starts, the homepage returns a 200. Confirm tha
 For exact commands and details, see this post: https://mikeq95blog.uk/blog/2026/08/28/blume-github-project
 ```
 
----
-
 ## Uninstalling and Running It Again
 
 To uninstall, just remove the `blume` dependency along with the config, cache, and build output it generated.
@@ -157,8 +143,6 @@ npm run dev
 # or
 npm run build
 ```
-
----
 
 ## Summary
 

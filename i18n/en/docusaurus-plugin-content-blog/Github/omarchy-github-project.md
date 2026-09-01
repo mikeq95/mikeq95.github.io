@@ -8,8 +8,6 @@ description: Omarchy is an Arch Linux + Hyprland distribution led by DHH. It onl
 
 {/* truncate */}
 
----
-
 ## What It Is
 
 > Up front: Omarchy's official native support only covers Intel Macs. Apple Silicon (M-series) currently has no official support — the only options are a community-maintained Asahi Linux port, or squeezing it into a VM like Parallels or VirtualBox, and the manual's own words for the latter are "quite cumbersome," with performance that isn't great either. This is a full Linux distribution that takes over the whole disk. This article is compiled from the official manual and source, not something installed and run on real hardware.
@@ -19,8 +17,6 @@ DHH wrote Ruby on Rails and co-founded 37signals. Over the past couple of years 
 The repo sits under the basecamp organization, incubated by DHH's own 37signals. The goal isn't a sprawling, do-everything distro — it's getting DHH's own daily toolchain installed and tuned ahead of time. Neovim for editing, Chromium for browsing, Obsidian for notes, LibreOffice for office work, and there's even a retro Winamp-style music player thrown in. One line in the official manual puts it bluntly: the system is "zero bloat, just everything I use."
 
 Omarchy has an earlier sibling project called [Omakub](https://omakub.org/), which layers a tiling setup and common dev tools on top of Ubuntu + GNOME, aimed at people who aren't ready to fully switch distros yet. Omarchy goes further, moving all the way to Arch + Hyprland with rolling updates and keyboard-only operation, aimed at experienced users who want the fuller experience. The specific differences between these and other similar projects are covered later, in "Similar Projects and Reception."
-
----
 
 ## Setup
 
@@ -41,8 +37,6 @@ You disable Secure Boot beforehand in Recovery Mode (hold Command-R at boot), an
 M-series chips have no official support — the manual is explicit about that. The community route is [Asahi Alarm](https://asahi-alarm.org/), an Arch port built on top of the Asahi Linux project specifically for M1/M2 chips. On top of that, the community-maintained [omarchy-mac](https://github.com/omarchy-mac/omarchy-mac) project provides a guide for getting Omarchy running, and the official manual's own phrase for it is that it takes "some effort."
 
 The other route is a VM. The official manual has a whole page, [Omarchy on...](https://github.com/basecamp/omarchy/blob/quattro/manual/49-omarchy-on.md), listing a few non-standard setups. It describes running it in Parallels as "quite the cumbersome process," and for VirtualBox says "performance probably won't be great." Both are community-written guides, not paths the official project guarantees to maintain going forward.
-
----
 
 ## Running It
 
@@ -66,8 +60,6 @@ omarchy-sudo-passwordless 30
 
 `omarchy debug` prints out debugging information you can paste directly when asking for help on the official Discord. `omarchy reinstall` fixes a broken configuration by reinstalling the default packages and config files. `omarchy-channel-set` switches between the four update channels — stable, RC, edge, and dev. A fresh install starts on stable, which tracks one month behind Arch's own official mirror, specifically to catch any new incompatibilities before they become someone's problem.
 
----
-
 ## Demo
 
 This section wasn't run on real hardware. What follows is the effect as described in the official manual and its screenshots, plus what two long-term third-party write-ups have to say — not a first-hand account.
@@ -78,8 +70,6 @@ The official manual also has a dedicated table for people coming from Mac or Win
 
 Third-party long-term write-ups offer a more grounded reference point. [Arch Linux (Omarchy) — 8 Months Later](https://www.ssp.sh/blog/linux-omarchy-the-good-bad-and-fixable/) is a detailed retrospective from a developer who switched from Mac/Windows and used it for 8 months, listing which common macOS tools — Raycast, calendar apps, screen sharing — already have replacements on Linux, and which don't yet. [Giving Omarchy a Shot](https://chambers.io/blog/2025/08/28/omarchy.html) is a longtime Mac user's account of buying a new drive specifically to try Omarchy, explaining why he'd had enough of macOS and Windows 11 and decided to give Arch a serious try.
 
----
-
 ## Similar Projects and Reception
 
 Putting Omarchy next to comparable projects makes its positioning clearer. [Omakub](https://omakub.org/), mentioned earlier, is DHH's earlier project layering a tiling setup and common dev tools on top of Ubuntu + GNOME, aimed at people trying to ease over from Mac/Windows. Omarchy goes all the way to Arch + Hyprland, aimed at experienced users who want rolling updates and keyboard-only operation. [CachyOS](https://cachyos.org/) is also Arch-based with a Hyprland option available, but its selling point is a custom-tuned kernel and scheduler — it's chasing raw performance with the desktop environment left up to you, which isn't quite the same emphasis as Omarchy's out-of-the-box theming and AI-agent workflow presets. [HyDE](https://github.com/HyDE-Project/HyDE) isn't a full distribution at all, but a Hyprland theming config that layers on top of any existing Arch install, built around 70-plus one-click themes. Omarchy bundles that kind of desktop theming together with the installer, updates, and snapshot rollback into one complete distribution — by the time you install it, the whole system is already decided.
@@ -88,15 +78,11 @@ Community discussion turns up some real installation accounts. On Zhihu, [one an
 
 There are two posts on X worth a look too. [Hengqian Ling went digging through the official manual's table of contents after coming across Omarchy](https://x.com/linghengqian/status/2091395296274338239), and found that the distribution has no WSL version at all. More interesting is [the post from quantumfire_io](https://x.com/quantumfire_io/status/2092287329889100028), who tested the community-maintained Mac port on an M1 Max and found the experience smoother than the Intel MacBook Pro he'd used before — smooth enough that he repartitioned the M1 and made Omarchy his daily driver. That post is a real-world counterexample to the "no official support on Apple Silicon" line earlier: the community route does work, it's just on you to absorb the extra effort it takes.
 
----
-
 ## Uninstalling and Running It Again
 
 Omarchy isn't an app installed inside a system, it's the operating system that takes over the entire disk, so "uninstalling" it in the usual app-deleting sense doesn't quite apply. Mac users who want macOS back go through Internet Recovery per the official manual, reinstalling over the network. On a PC, going back to whatever ran before means overwriting the disk again with different install media. If all you want is to wipe your personal settings, account, and `/home` while keeping Omarchy itself and running through the first-boot setup again, the Omarchy menu has _Setup > Reset Computer_ for exactly that — type `reset` to confirm, and it clears every user account and all data, dropping you back at the first-boot setup screen, provided the machine was installed from the Omarchy ISO to begin with.
 
 Running it again isn't really about "relaunching" anything — once it's installed, Omarchy is just the machine's everyday OS, ready the moment you turn it on. If you only want to roll back to before a specific update, there's no need to reinstall: `omarchy update` takes an automatic system snapshot before every run, and picking an earlier snapshot from the Limine boot menu and rebooting does the trick. Only the root filesystem gets rolled back; personal files in `/home` are untouched.
-
----
 
 ## Summary
 

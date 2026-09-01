@@ -15,8 +15,6 @@ description: Agent Reach is an open-source command-line tool that selects, insta
 
 > If you're new to this, this post includes a ready-to-use AI prompt that can set up the environment for you in one go.
 
----
-
 ## Introduction
 
 Once installed, an agent can read Twitter, search Reddit, pull YouTube captions, browse XiaoHongShu, and look up GitHub repos, covering public content across a dozen-plus platforms, with no API cost according to the project. It's written in Python and was created in late February this year. As of when this post was written, in late August, its GitHub star count had climbed past 76,000, with over 6,500 forks, making it one of the fastest-growing agent-infrastructure projects this year. The latest commit landed three days ago — this isn't a repo that burned bright and went quiet.
@@ -44,8 +42,6 @@ Two engineering details stand out as genuinely useful. One is that each platform
 
 By default, installation only runs read-only checks and doesn't quietly modify your system — you need to explicitly pass `--system` before it actually installs dependencies and writes configuration. `--dry-run` lets you preview what it would do beforehand, and uninstalling lets you choose to remove only the skill files while keeping cookies you've already configured.
 
----
-
 ## Setup
 
 You need Python 3.10 or newer. The project specifically warns against installing directly from PyPI with `pip install agent-reach` — that's a different package with the same name, not this project. You have to install it from the GitHub source.
@@ -65,8 +61,6 @@ pip install https://github.com/Panniantong/agent-reach/archive/main.zip
 ```
 
 Either way, the `agent-reach` command ends up linked into your PATH once installed.
-
----
 
 ## Running
 
@@ -103,8 +97,6 @@ agent-reach doctor
 The zero-config channels — web pages, YouTube, RSS, V2EX — showed up as green ✅ right away on my machine.
 
 > Note: `doctor` marked GitHub and web-wide semantic search with a yellow warning, which doesn't mean they're broken. It's a deliberate choice not to run live network checks for those (for example, it avoids running `gh auth status`, which writes a device ID). Both actually worked fine when called directly, as the next section shows.
-
----
 
 ## Results
 
@@ -157,8 +149,6 @@ Title: 2026 年最佳 LLM 框架对比（附使用场景） – ModelRiver Blog
 ...
 ```
 
----
-
 ## Similar Projects and Reception
 
 There's more than one way to help an AI read the web. [Firecrawl](https://www.firecrawl.dev) takes a pure SaaS route — it turns a single web page into clean Markdown or structured data, charges by usage, and doesn't touch platforms with login walls like Twitter, Reddit, or XiaoHongShu. The third-party site [opensourcealternatives.to](https://www.opensourcealternatives.to/item/agent-reach) lists Agent Reach as its open-source, free alternative. [Bright Data](https://brightdata.com) targets enterprise customers — proxy pools, Web Unlocker, prebuilt datasets, all real money — and operates at a scale and price point completely different from a self-hosted router meant for individuals or small teams like Agent Reach. [Browserbase](https://www.browserbase.com) gives you a managed headless browser session, and you still have to write your own Playwright scripts to parse the page. Agent Reach goes the other direction — it picks a ready-made CLI or MCP for each platform ahead of time, so you don't write your own scraping code.
@@ -166,8 +156,6 @@ There's more than one way to help an AI read the web. [Firecrawl](https://www.fi
 [A hands-on review from Codefather.cn](https://www.codefather.cn/post/2082653593961345025) found a handful of concrete issues. XiaoHongShu search had only a 60% success rate due to anti-scraping measures, which they got up to 85% after adding retries and a proxy pool. Different platforms returned inconsistently formatted fields, so the author wrote their own adapter layer to normalize them. Under 30 concurrent requests, GitHub and Reddit returned 429s, and Twitter even had its IP temporarily banned for two hours — a rate limiter fixed that. Their conclusion was that the tool is good for quick validation, but not well suited to use cases that demand high data-collection precision.
 
 Two hands-on write-ups on Zhihu are worth a look. [One](https://zhuanlan.zhihu.com/p/2015498181513864402) points out that Claude Code only scans the root-level SKILL.md by default and doesn't detect Agent Reach's SKILL.md nested inside `agent_reach/skill/`, so you have to copy it out manually. It also notes that server-side access to Bilibili and Reddit often gets a 403 because the platforms block datacenter IPs, which a residential proxy fixes. [The other](https://zhuanlan.zhihu.com/p/2014693200489652339), by an author going by "老金" (Lao Jin), tested nine platforms and ran into finer-grained issues. Chrome 130 and later added cookie encryption, which broke automatic-extraction tools like rookiepy outright, leaving manual copying of `auth_token` and `ct0` from DevTools as the only option. On Windows, Unicode characters in mcporter's output crashed Python's GBK decoding, which they fixed by patching the source to add `encoding='utf-8'`; separately on Windows, mcporter's subprocess launch also failed to find the `.CMD` file. They also mentioned that while cookie-based auth is stable, it does expire, and recommended using a secondary account so a primary account isn't put at risk.
-
----
 
 ## Prompt for AI Coding Agents
 
@@ -197,8 +185,6 @@ Paste the full output of agent-reach doctor back to the user, confirm the zero-c
 For exact commands and details, see this post: https://mikeq95blog.uk/blog/2026/08/28/agent-reach-github-project
 ```
 
----
-
 ## Uninstalling and Running It Again
 
 Uninstalling maps to the two things that got installed: Agent Reach's own configuration, and the upstream tool dependencies.
@@ -218,8 +204,6 @@ agent-reach doctor
 ```
 
 Confirm the channel status still looks normal, and the agent can keep calling the upstream tools as usual.
-
----
 
 ## Summary
 

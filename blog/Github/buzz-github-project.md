@@ -9,8 +9,6 @@ description: "Buzz 是 Block 开源的自托管团队协作平台，基于 Nostr
 
 ## 介绍
 
-{/* truncate */}
-
 它引入的核心概念叫 community（社区/工作空间）。默认的单中继部署下，一个中继地址对应一个社区；如果是托管的多租户部署，一个后端可以承载多个社区，共享 Postgres、Redis、对象存储这些基础设施，但每个社区的数据、搜索索引、审计链在语义上仍然是隔离的。
 
 代理进到 [Buzz](https://github.com/block/buzz) 里之后，能做的事和人类同事几乎一样：打开仓库、提交补丁、评审代码、跑工作流，也能去语音房间露个面、建个频道拉人进来。给代理加入一个频道，操作跟拉一个人进来没什么两样——有自己的密钥，有自己的频道成员关系，能做什么由身份决定，不是靠权限开关。目前 Goose、Codex、Claude Code 都已经做了 ACP 适配（`buzz-acp`）。
@@ -18,8 +16,6 @@ description: "Buzz 是 Block 开源的自托管团队协作平台，基于 Nostr
 代码层面是一组职责单一的 Rust crate：`buzz-relay` 是核心（Axum WS + REST），`buzz-db`/`buzz-auth`/`buzz-pubsub`/`buzz-search`/`buzz-audit` 各管一摊，`buzz-cli`/`buzz-acp`/`buzz-workflow` 构成代理和自动化那一侧，`git-sign-nostr` 负责把 Git 操作也签成 Nostr 事件。项目今年 3 月才创建，在 GitHub 上已经有 12k+ star。
 
 完成度上，README 给了一张进度表：中继、频道、私信、画布、媒体、搜索、审计日志、桌面应用（Tauri + React）、YAML 工作流、Git 事件（NIP-34）和 Git 托管后端都已经能用；移动端（iOS + Android，Flutter）、工作流审批环节、语音房间的完整生命周期还在接线；跨中继的信誉体系、推送通知这些还只是"强烈的想法，代码没写"。
-
----
 
 ## 安装环境
 
@@ -32,8 +28,6 @@ just setup && just build
 ```
 
 `just setup` 会自动跑 `just bootstrap`：把 `.env.example` 复制成 `.env`（如果还没有的话）、通过 Hermit 下载所有需要的工具、启动 Docker 服务并跑数据库迁移。
-
----
 
 ## 运行
 
@@ -52,13 +46,9 @@ just dev
 
 给代理用的话，设置好 `BUZZ_PRIVATE_KEY`，然后用 [`buzz-cli`](https://github.com/block/buzz/tree/main/crates/buzz-cli)——JSON 进、JSON 出，专门为 LLM 的 tool call 设计。
 
----
-
 ## 效果展示
 
 （此处插入截图：桌面应用里一个频道，人类和一个代理同时在场，围绕一次代码评审来回打表情回应）
-
----
 
 ## AI-friendly
 
@@ -73,8 +63,6 @@ just dev
 如果 `just` 命令报缺失或版本不对，参考仓库根目录的 justfile 和 README.md 里 "Build & run from source" 一节。
 ```
 
----
-
 ## 卸载和下次运行
 
 卸载：Hermit 拉的工具链只放在仓库自己的 `bin/` 目录里，删掉整个仓库目录基本就清干净了；Docker 那边跑着的 Postgres/Redis/MinIO 容器和数据卷，在仓库目录下执行 `docker compose down -v` 可以一并停掉、删掉。如果你是自己另外装的系统级 Rust/Node/pnpm（没走 Hermit），需要用对应的工具自己卸载。
@@ -84,8 +72,6 @@ just dev
 ```bash
 . ./bin/activate-hermit && just dev
 ```
-
----
 
 ## 总结
 

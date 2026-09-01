@@ -6,11 +6,7 @@ tags: [github, Claude, prompt, writing, Ai-friendly]
 description: stop-slop 是一套开源的 Claude skill 规则文件，靠禁用词表、句式规则和打分标准，帮 Claude 在写作和改稿时去掉常见的 AI 写作痕迹。
 ---
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
@@ -23,8 +19,6 @@ description: stop-slop 是一套开源的 Claude skill 规则文件，靠禁用�
 改完之后还有一道打分关。方向性、节奏、信任感、真实感、信息密度，五个维度各打 1-10 分，总分低于 35/50 要求重写。
 
 仓库在 GitHub 上有 1.6 万多个 star，MIT 协议开源。按作者 Hardik Pandya 在 X 上回复一条质疑时的说法，这东西最初是他花 30 分钟学怎么写 Claude Skill 时顺手做出来的练手项目。
-
----
 
 ## 安装环境
 
@@ -48,8 +42,6 @@ stop-slop/
 ```
 
 真正麻烦的不是装什么，是怎么把这几份文件塞进你在用的 Claude 界面。Claude Code、Claude Projects、API 三种入口的加载机制完全不同，这件事反而比"装依赖"更值得花一节讲清楚，下一节具体说。
-
----
 
 ## 运行
 
@@ -78,8 +70,6 @@ Not because it's big. Because it's necessary.
 
 自定义指令场景，把 `SKILL.md` 的核心规则那部分复制粘贴进去就够。走 API 的话，把整份 `SKILL.md` 贴进 system prompt。`references/` 下的三个参考文件不用一次性全塞进去——按 README 的说法，这些文件是按需加载，真正要举例子、查禁用词表的时候再补进 context，省地方。
 
----
-
 ## 效果展示
 
 仓库自己在 `examples.md` 里放了几组真实的改写对照，直接看效果最直观。
@@ -104,8 +94,6 @@ Not because it's big. Because it's necessary.
 
 删掉了"Here's the thing"和"genuinely"，二元反转句改成直接陈述。"mistakes were made"这种被动语态换成了具体的人（reviewers）在做具体的事，"the decision...emerges"这种给决定装上人类动词的假拟人写法也一并处理掉了。
 
----
-
 ## 同类项目和评价
 
 stop-slop 不是唯一在做这件事的项目。[Humanizer](https://github.com/blader/humanizer) 规模更大，star 数已经过 3.8 万，规则来自维基百科"Signs of AI writing"词条收录的 35 个模式，能直接对着整份文档改写，代码块、数据、frontmatter 保持不动，还支持喂一段自己的文字做文风模仿——这是 stop-slop 没有的能力。[No AI Slop](https://github.com/petergyang/no-ai-slop) 走的是另一条路，分编辑、检测、生成讽刺文三种模式，检测模式只引用抓到的原句，不猜文字是不是 AI 写的。[skill-deslop](https://github.com/stephenturner/skill-deslop) 明确说自己是拿 stop-slop 的短语表、结构规则、打分标准，加上 tropes.fyi 的语料库合并出来的，专门给科研和技术写作场景做了调整，会保留方法论部分本该用的被动语态——这一点正好戳中了 stop-slop"一律禁止被动语态"的盲区。
@@ -113,8 +101,6 @@ stop-slop 不是唯一在做这件事的项目。[Humanizer](https://github.com/
 外部评测里，[Gaurav Tiwari 的长期使用体验](https://gauravtiwari.org/stop-slop-ai-slop/)提到，冷启动的初稿常常在第一段就能挑出六种以上的毛病，用久了会在动笔前就先绕开这些套路。他也提到，"看到破折号就当成 AI 写的"这种老判据到 2026 年已经不太可靠了。另一篇[评测](https://gabrielcassady.com/tools/stop-slop-claude-skill-to-remove-ai-writing-tells/)把它归类成"往模型脑子里装一套写作策略"的 prompting 工具而不是软件，提醒在监管严格或高风险场景下用之前先看 diff、锁定版本，别把必要的不确定性用语、警告、引用也一起削掉了。
 
 社区里也有不同意见。作者在 X 上[发布这个项目](https://x.com/hvpandya/status/2010330642714894391)后，[有网友直接回复](https://x.com/nixxin/status/2010547235902124035)："不是所有东西都是 AI 写作，你这是在把语言压平、抹掉俏皮话。"作者回怼说这不过是他花 30 分钟学 Claude Skill 写法时顺手做的东西。知乎上一篇[比较几个写作 skill 的文章](https://zhuanlan.zhihu.com/p/2059620590072476766)把 stop-slop 和 Humanizer、taste-skill 放在一起看，认为它的强项不是大段重写，而是写完之后的快速质检，适合短文案、邮件、社交媒体这类场景。
-
----
 
 ## 给 AI 编程助手的提示词
 
@@ -135,8 +121,6 @@ stop-slop 不是唯一在做这件事的项目。[Humanizer](https://github.com/
 具体命令、加载路径可以参考这篇文章核实：https://mikeq95blog.uk/blog/2026/08/28/stop-slop-github-project
 ```
 
----
-
 ## 卸载和下次运行
 
 卸载对应装的时候放了什么，删掉什么就行。
@@ -152,8 +136,6 @@ Claude Projects：去 Project Knowledge 里把上传的四个文件删掉。
 系统提示词/API：把塞进 system prompt 的那部分内容删掉。
 
 下次还想用不用重新 clone，本地这份文件夹留着就行。Claude Code 每次启动都会重新扫描 skills 目录，不需要额外操作；Claude Projects 里传过的文件会一直留着，除非手动删。
-
----
 
 ## 总结
 

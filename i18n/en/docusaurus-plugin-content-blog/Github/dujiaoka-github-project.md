@@ -10,8 +10,6 @@ description: dujiaoka is an open-source, Laravel-based automated vending system 
 
 > If you're new to this, this post includes a ready-to-use AI prompt that can help you set up the environment in one go.
 
----
-
 ## Introduction
 
 > Discontinued notice: dujiaoka stopped receiving updates and maintenance on February 12, 2026, and the repository is now archived and read-only. Author assimon has shifted development to a new project called Dujiao-Next, a rewrite in Go, and the top line of the README now simply says "please head to the new version." This post documents what dujiaoka looked like before it was discontinued — how it was designed and how the official docs describe deploying it. If you're setting up a vending site from scratch today, it's worth checking the successor project covered in the "Similar Projects and Reception" section below first.
@@ -19,8 +17,6 @@ description: dujiaoka is an open-source, Laravel-based automated vending system 
 When a buyer completes payment on a site built with dujiaoka, the system automatically delivers the card codes, software licenses, or membership accounts, so the site owner doesn't have to sit there processing orders by hand. The project is built on the Laravel framework, uses laravel-admin for the backend, and Bootstrap for the frontend UI — the most common combination in the Chinese PHP ecosystem. It currently has over 12,000 stars and more than 2,700 forks on GitHub, with [iLay1678](https://github.com/iLay1678) as its core contributor.
 
 The entire frontend template can be swapped out. Besides the official unicorn template, the community has contributed two more — luna and hyper — maintained by [Julyssn](https://github.com/Julyssn) and [bimoe](https://github.com/bimoe) respectively, so switching templates completely changes how a site looks without touching the core code. Payment coverage is fairly broad too: mainstream options in China like Alipay and WeChat Pay are supported, along with PayPal and Stripe for overseas payments, plus "signature-free" gateways like V 免签 that don't require enterprise business credentials. The code is fully open source, all extension packages are loaded through Composer, and it's released under the MIT license.
-
----
 
 ## Environment Setup
 
@@ -33,8 +29,6 @@ The official requirements are fairly strict: Linux only (not supported on shared
 The official docs lay out three deployment paths: a manual Linux install without any control panel, a Docker install, and a one-click flow through the 宝塔 (aaPanel) control panel, with separate guides for its 2.x and 1.x versions — all of these live in the project wiki, and since the project is discontinued, none of them will be updated further. The repository also ships its own `debian_manual.md`, a community-contributed manual walkthrough for people who don't want to use a control panel and prefer to configure everything themselves — it goes from installing Nginx, MariaDB, PHP 7.4, and Redis all the way through configuring Supervisor, in more detail than the wiki.
 
 With the environment requirements and the available deployment paths covered, the next section walks through the actual run steps based on the repo's own manual guide and Docker config files.
-
----
 
 ## Running It
 
@@ -71,8 +65,6 @@ Once installed, `/admin` is the backend management entry point, with the default
 
 That covers the deployment process compiled from the official docs. Since the project itself is discontinued, none of the steps above have actually been run and verified end to end. If you're actually deploying it, it's worth checking the "Problems" (问题锦集) page on the repo's wiki first — a lot of environment errors are already documented there.
 
----
-
 ## Results
 
 This section, too, wasn't put together from an actual hands-on run — the screenshots described below come from the three template previews posted in the official README.
@@ -91,8 +83,6 @@ The top bar uses a dark navigation style with the logo, "dujiaoka" title, and a 
 
 The three templates differ quite a bit in information density and visual style, ranging from card grids to a table-style list. Which one to pick comes down to preference — none of them change the core auto-delivery logic.
 
----
-
 ## Similar Projects and Reception
 
 After dujiaoka's discontinuation, the first thing worth looking at is [Dujiao-Next](https://github.com/dujiao-next/dujiao-next), the successor project led by the same author. It's a rewrite in Go, with a Gin + GORM backend and a Vue + TypeScript frontend, splitting the architecture into separate frontend and backend services. The default database also switched from MySQL to SQLite (with PostgreSQL as an option), removing the hard requirement to install MySQL and Redis, which lowers the deployment bar considerably compared to the old version. The license changed too, from MIT to GPL-3.0. It currently has just over 1,000 stars on GitHub and is still early stage, nowhere near the scale dujiaoka reached at its peak.
@@ -104,8 +94,6 @@ Among comparable projects, [ZFAKA](https://github.com/ZFAKA/ZFAKA) targets basic
 Third-party deployment accounts are worth reading too. Verne [wrote a technical breakdown of Dujiao-Next](https://blog.einverne.info/post/2026/04/dujiao-next-digital-goods-selling-system.html) on their personal blog, having used dujiaoka for a while beforehand — their own words were that it's "functionally complete overall, but as a PHP project, there are genuinely some headaches around deployment and performance." The post compares the technical choices and deployment approaches of the old and new versions in detail. 老梁 [documented on their blog](https://laoliang.net/jsjh/news/7927.html) the process of choosing between zfaka and dujiaoka, ultimately picking dujiaoka for having an interface that's "fairly clean, without a bunch of different colors," and included the actual deployment steps taken.
 
 On the community discussion side, [Nexmoe shared on X](https://x.com/nexmoe/status/1969239879599997250) an account of deploying a vending site with dujiaoka using a single command, with replies in the thread bringing up the earlier "彩虹发卡" (Rainbow Card) as a similar product. [叶学长 wrote a beginner's account on Zhihu](https://zhuanlan.zhihu.com/p/707483887) of setting up dujiaoka from scratch, mentioning they lost data and backups due to a poor server choice, while also saying "both the interface and the functionality are pretty much perfect — I personally like its UI." [小宇 posted on X](https://x.com/xiaoyuboi/article/2067094007868694572) about actually selling digital goods for a month, including revenue breakdowns and specifics about getting payment channels working — though this account is mainly about the post-discontinuation Dujiao-Next, not the original dujiaoka.
-
----
 
 ## Prompt for AI Coding Agents
 
@@ -130,15 +118,11 @@ Confirm you can log into the backend at /admin (default username and password ar
 Specific commands and parameter details can be verified against this article: https://mikeq95blog.uk/blog/2026/08/28/dujiaoka-github-project
 ```
 
----
-
 ## Uninstalling and Running It Again
 
 Uninstalling maps directly to what got installed in the "Environment Setup" section: stop the Supervisor-managed worker process, and drop the corresponding database in MySQL. For a Docker deployment, run `docker-compose down` and then remove the mounted `.env`, `install.lock`, and `public/uploads` volumes. For a manual deployment, remove the source directory along with the Nginx vhost config.
 
 To run it again later, there's no need to redo the dependency install or the setup wizard. For a Docker deployment, just run `docker-compose up -d`; for a manual deployment, confirm Nginx, PHP-FPM, Redis, and Supervisor are all running, then open the site domain.
-
----
 
 ## Summary
 

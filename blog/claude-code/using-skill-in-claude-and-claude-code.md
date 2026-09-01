@@ -8,16 +8,10 @@ tags:
 description: "claude.ai 和 Claude Code 的 skill 是两套独立系统，分别怎么装、怎么用、容易踩哪些坑，整理在这一篇。"
 ---
 
-{/* truncate */}
-
----
-
 ## [skill](https://clearlove7-ai.vercel.app?word=skill&postId=2026-06-22-using-skill-in-claude-and-claude-code) 是什么
 
 简单说，skill 就是一个文件夹，里面至少有一个 `SKILL.md`，写清楚"什么时候该用这个能力"和"具体怎么做"。
 > 个人感觉也有点像是单机游戏的 MOD，但是这个 MOD 是专门为了增强游戏体验的。
-
----
 
 ## 在 Claude Code 里装
 
@@ -68,8 +62,6 @@ ls ~/.claude/skills/blog-markdown-formatter
 
 至此，在 Claude Code 上安装 skill 已经完成。
 
----
-
 ## 在 Claude 里装
 
 1. 网页或 App 里找到 Settings → Customize → Skills
@@ -81,12 +73,9 @@ ls ~/.claude/skills/blog-markdown-formatter
 
 注意，在 Claude 上装了 skill，不代表 Claude Code 也能用——两边要分别装一次，不是一回事。
 
----
-
 ## 更新 skill
 
 你第一次用claud做出的skill，可能你不太满意，你打开vscode编辑了一下这个md文件，这时候你需要更新skill。
-
 
 **Claude Code 的做法**：
 
@@ -97,8 +86,6 @@ unzip blog-markdown-formatter.skill -d ~/.claude/skills/
 ```
 
 **Claude 的做法**：去 Settings → Customize → Skills，找到这个 skill，删掉旧的，重新上传新文件。
-
----
 
 ## skill用法
 

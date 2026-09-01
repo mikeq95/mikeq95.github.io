@@ -7,10 +7,6 @@ tags:
 description: "记录 docmd 笔记站的完整搭建过程：从零配置模式导致首页 404 排查、用 docmd init 生成正式配置，到用 wrangler CLI 部署到 Cloudflare Pages 挂自定义域名，再到接入 GitHub 实现 push 自动部署。"
 ---
 
-{/* truncate */}
-
----
-
 ## 背景：为什么首页会 404
 
 最初直接运行 `npx @docmd/core dev`，因为项目根目录下没有配置文件，docmd 会进入"零配置(auto)模式"，自动扫描当前目录的 Markdown 文件来生成站点。
@@ -26,8 +22,6 @@ description: "记录 docmd 笔记站的完整搭建过程：从零配置模式�
 
 解决办法：不再依赖零配置模式，用 `docmd init` 生成正式配置，并规范源文件目录结构。以下是完整的六步操作。
 
----
-
 ## 第 1 步：删除旧的构建产物
 
 ```bash
@@ -35,8 +29,6 @@ rm -rf site
 ```
 
 只删除 `site/` 这个生成的静态站点输出目录，不会影响任何 Markdown 笔记内容。
-
----
 
 ## 第 2 步：生成正式配置
 
@@ -51,8 +43,6 @@ npx @docmd/core init
 - `docs/` 目录，里面带一个示例首页 `docs/index.md`
 - `assets/` 目录（css/js/images 基础结构）
 - `SKILL.md`
-
----
 
 ## 第 3 步：把笔记迁移到 docs/ 目录
 
@@ -72,8 +62,6 @@ index.md
 
 至此，笔记文件已经全部迁移到位。
 
----
-
 ## 第 4 步：安装依赖
 
 ```bash
@@ -81,8 +69,6 @@ npm install
 ```
 
 根据 `package.json` 把 `@docmd/core` 等依赖装到 `node_modules/`。
-
----
 
 ## 第 5 步：修改 docmd.config.json
 
@@ -132,8 +118,6 @@ EOF
 - `src` / `out`：源目录 `docs`、输出目录 `site`，保持默认。
 - 去掉了默认的 `navigation` 数组：不写这个字段，docmd 会在构建时自动扫描 `docs/` 目录生成侧边栏导航，无需手动维护链接。
 
----
-
 ## 第 6 步：启动开发服务器验证
 
 ```bash
@@ -145,8 +129,6 @@ npx @docmd/core dev
 ✅ 正常：首页正常显示，不再是 404，侧边栏能看到两篇笔记
 
 ❌ 异常：还是 404，回头检查 `docs/` 目录下是否真的有 `index.md`
-
----
 
 ## 以后怎么添加新笔记
 
@@ -160,8 +142,6 @@ npx @docmd/core dev
 ---
 
 一直用 [docmd](https://docmd.io) 写点私人笔记，本地 `docmd build` 出来的静态站点一直躺在硬盘里没上线。这次把它部署到 Cloudflare Pages，挂上 `notes.mikeq95blog.uk` 这个独立子域名，记录一下整个过程。
-
----
 
 ## 第一步：本地构建
 
@@ -183,8 +163,6 @@ npm run build
 
 构建产物是纯静态 HTML，输出到 `site/` 目录，本地用 `npm run preview` 能直接预览。
 
----
-
 ## 第二步：用 wrangler 部署到 Cloudflare Pages
 
 不需要在 Cloudflare 后台手动新建项目，`wrangler pages deploy` 会自动创建：
@@ -205,8 +183,6 @@ npx wrangler pages deploy site --project-name=docmd-notes
 
 ⚠️ 踩过的坑：`cd` 命令如果带了多余的换行符或反斜杠会导致目录切换失败，`wrangler` 会在错误的目录下找不到 `site` 文件夹报 `ENOENT`。确认 `pwd` 输出的是项目目录再跑部署命令。
 
----
-
 ## 第三步：挂自定义域名
 
 进 Cloudflare Dashboard → **Workers & Pages** → 对应项目 → **Custom domains** → **Set up a custom domain**，填入子域名，比如 `notes.mikeq95blog.uk`。
@@ -219,8 +195,6 @@ npx wrangler pages deploy site --project-name=docmd-notes
 
 不需要自己去 DNS 页面手动加记录，Cloudflare 会自动创建、自动打开代理（Proxied）。状态会先显示 `Initializing`，官方说最多等 48 小时全网生效，实际测下来通常几分钟到几十分钟就能访问。
 
----
-
 ## 验证
 
 DNS 记录生效后，直接访问确认：
@@ -230,8 +204,6 @@ curl -sI https://notes.mikeq95blog.uk | head -5
 ```
 
 看到 `HTTP/2 200` 就说明子域名已经指向新部署的站点了。
-
----
 
 ## FAQ
 
@@ -243,8 +215,6 @@ docmd 这类小型笔记项目本地改动频率不高，`wrangler` 直传省去
 
 **pages.dev 的默认域名会失效吗？**
 不会，`docmd-notes.pages.dev` 和自定义域名 `notes.mikeq95blog.uk` 会同时生效，两个地址都能访问同一个部署。
-
----
 
 ## 总结
 
@@ -261,8 +231,6 @@ docmd 这类小型笔记项目本地改动频率不高，`wrangler` 直传省去
 ---
 
 docmd 笔记站最早是用 `wrangler pages deploy` 直传部署的，每次改完笔记都要手动跑一遍"构建 + 上传"两条命令，跟平时 `git push` 就能更新的博客比起来总觉得多了一步。这次把它接上 GitHub，改成推送自动部署，记录一下步骤。
-
----
 
 ## 第一步：把项目变成 git 仓库
 
@@ -285,8 +253,6 @@ git commit -m "Initial commit: docmd notes site"
 
 至此，本地仓库已经建好。
 
----
-
 ## 第二步：建 GitHub 仓库并推上去
 
 装了 `gh` CLI 并登录过账号的话，一条命令就能建仓库 + 推送：
@@ -298,8 +264,6 @@ gh repo create docmd-notes --private --source=. --remote=origin --push
 ✅ 正常：终端打印出仓库地址（比如 `https://github.com/你的用户名/docmd-notes`），并提示 `Pushed commits to ...`
 
 ❌ 异常：提示未登录，先跑 `gh auth login` 走一遍授权
-
----
 
 ## 第三步：在 Cloudflare 里接上这个仓库
 
@@ -314,8 +278,6 @@ gh repo create docmd-notes --private --source=. --remote=origin --push
    - **Build output directory**：`site`
 6. 保存
 
----
-
 ## 验证
 
 保存后 Cloudflare 会立刻拿最新一次提交跑一次构建，回到项目的 **Deployments** 页面看：
@@ -325,8 +287,6 @@ gh repo create docmd-notes --private --source=. --remote=origin --push
 ❌ 异常：Status 显示失败，点进 **Details** 看构建日志，多半是构建命令或输出目录填错了
 
 之后随便改一篇笔记，`git add` → `git commit` → `git push`，几十秒后回 Deployments 页面刷新，就能看到新的一次自动构建。
-
----
 
 ## 以后的日常流程
 

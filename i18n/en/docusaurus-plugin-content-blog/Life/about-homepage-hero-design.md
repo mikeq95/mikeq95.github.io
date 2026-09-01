@@ -9,8 +9,6 @@ description: "How the homepage headline and subtitle went from copy to layout: p
 
 {/* truncate */}
 
----
-
 ## Nailing down the copy: what the headline says
 
 Modeled on Apple's own "Listen, watch, or read. Now we're talking." — three parallel items plus a punchline — it landed on:

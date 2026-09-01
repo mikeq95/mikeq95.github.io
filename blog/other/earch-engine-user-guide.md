@@ -6,8 +6,6 @@ image: https://cdn.mikeq95blog.uk/coverimage/%E5%B8%B8%E7%94%A8%E7%9A%84%E6%90%9
 description: "介绍日常可用的搜索引擎及其适用场景，告别单一依赖，找到适合自己的搜索工具组合。"
 ---
 
-{/* truncate */}
-
 #### 各引擎特点
 
 - **[Google](https://www.google.com)**：搜争议内容时结果偏 PC，反方观点少且力度弱，不够尖锐。

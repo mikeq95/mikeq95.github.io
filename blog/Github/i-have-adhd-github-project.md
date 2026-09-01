@@ -11,11 +11,7 @@ tags:
 description: i-have-adhd 是一个开源 skill，靠 SKILL.md 里的十条输出规则，让 Claude Code、Codex 等编程 Agent 的回复先给动作、砍掉寒暄客套，这篇记录实际安装、触发和前后对比的效果。
 ---
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
@@ -26,8 +22,6 @@ description: i-have-adhd 是一个开源 skill，靠 SKILL.md 里的十条输出
 仓库里不只是一份 Markdown。`tests/` 目录下有 21 个单元测试，覆盖常开钩子、OpenCode 插件这些集成点。`evals/cases.jsonl` 另外放了 14 条行为评测用例，每条都带一份判分标准，专门测规则改动会不会让模型答非所问。这个项目在 GitHub 上涨得很快，目前有 2.5 万+ star。贡献者也不止作者一个人，31 个人提交过代码，最近一次更新就在两天前。
 
 这份规则不只服务 Claude 生态，Codex、Cursor、Gemini CLI 这些常见的编程 Agent 工具都有对应的安装方式，各自装法写在仓库的 `INSTALL.md` 里。装的时候不需要 API Key，也不用额外配运行环境。
-
----
 
 ## 安装环境
 
@@ -45,8 +39,6 @@ claude plugin install i-have-adhd@i-have-adhd
 ```text
 Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd, refer to the repo's AGENTS.md for instructions.
 ```
-
----
 
 ## 运行
 
@@ -73,8 +65,6 @@ rm ~/.claude/.i-have-adhd-always
 ```
 
 至此，[i-have-adhd](https://github.com/ayghri/i-have-adhd) 已经装好并且能正常触发了。
-
----
 
 ## 效果展示
 
@@ -119,8 +109,6 @@ rm ~/.claude/.i-have-adhd-always
 
 条数从 10 条砍到了 5 条。命令原来排在"第一步"里，现在直接是回复的第一句。结尾也不一样，原来是等你把脚本发过来，现在是一步能立刻执行的动作。
 
----
-
 ## 相关项目和评价
 
 同样瞄准"AI 说话啰嗦"这个问题，思路不完全一样。[caveman](https://github.com/JuliusBrussee/caveman) 走的是压缩路线，直接把回复削成电报体，官方说法能砍掉六成多的输出 token。这跟 i-have-adhd 靠结构（先动作、编号、封顶列表）解决"读起来费脑子"是两个方向，一个省 token，一个省阅读成本，不冲突，可以一起装。
@@ -130,8 +118,6 @@ rm ~/.claude/.i-have-adhd-always
 用过的人写了两篇比较扎实的体验文。[Medium 上一篇](https://medium.com/@joe.njenga/i-tried-this-claude-code-adhd-skill-that-no-one-is-talking-about-a990a647b1c7)从 git clone 到实际提问全程记录，附了装前装后的真实回复对比。[Android Authority 那篇](https://www.androidauthority.com/claude-i-have-adhd-skill-how-use-3697353/)用了两周之后提到一个官方文档没写的细节：回复默认变短了，用量额度消耗得也更慢；但也提醒不是所有 ADHD 用户都吃这套，有人反而更想要信息量拉满的长回复。
 
 知乎上有篇[对比文章](https://zhuanlan.zhihu.com/p/2063679630872253251)用真实的前后回复做对比，强调这东西只是换了个说话方式，AI 本身没变聪明。X 上也有质疑的声音：Angelica Parente 在讨论"怎么让 AI 输出更简洁"时，[把自定义 output style 和装 skill 做了对比](https://x.com/draparente/status/2085785882788077991)，认为 output style 更省 token，但 skill 换来的是更明确的规则约束——两条路各有取舍，谈不上谁完全取代谁。
-
----
 
 ## 给 AI 编程助手的提示词
 
@@ -153,8 +139,6 @@ rm ~/.claude/.i-have-adhd-always
 具体命令、代码细节可以参考这篇文章核实：https://mikeq95blog.uk/blog/2026/08/28/i-have-adhd-github-project
 ```
 
----
-
 ## 卸载和下次运行
 
 对应"安装环境"那节装的插件和市场源，卸载时两个都要删：
@@ -171,8 +155,6 @@ rm -f ~/.claude/.i-have-adhd-always
 ```
 
 下次运行：插件装好之后会一直留着，不用重装。想用的时候，直接在任意会话里喊一次 `/i-have-adhd` 就行。
-
----
 
 ## 总结
 

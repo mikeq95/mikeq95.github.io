@@ -7,15 +7,9 @@ tags:
 description: "claude-howto 用 10 个模块 + 自带的自测 Skill，把 Slash Commands、Memory、Skills、Hooks、MCP、Subagents 等 Claude Code 功能串成一条学习路径，记录一下怎么上手。"
 ---
 
-{/* truncate */}
-
----
-
 ## 它是什么
 
 不是一个要"运行"的程序，就是一套纯 Markdown 教程 + 模板库。核心是 **10 个模块**，从入门（Slash Commands、Memory、CLI 基础）到进阶（Checkpoints、Skills、Hooks、MCP、Subagents），再到高阶（Advanced Features、Plugins），每个模块都配教程和现成模板。官方预估全部学完 **11-13 小时**，也可以按自己的水平跳着学。文档中英双语。
-
----
 
 ## 怎么跑起来
 
@@ -71,8 +65,6 @@ ls ~/Documents/MyBlog/my-blog/.claude/commands/
 
 然后在博客项目里跑 `claude`，输入 `/optimize` 试试效果。
 
----
-
 ## 实际学习节奏
 
 跟着 `LEARNING-ROADMAP.md`（或中文版）给出的顺序学——注意官方推荐的学习顺序不完全等于目录编号 01→10，比如 `08-checkpoints` 实际排在 `03-skills` 前面，具体顺序看文档里的表格。跑了几个模块下来，比较顺的节奏是这三步循环：
@@ -82,8 +74,6 @@ ls ~/Documents/MyBlog/my-blog/.claude/commands/
 3. **自测** —— 回 `claude-howto` 目录跑 `/lesson-quiz <模块名>`，查漏补缺
 
 比起对着文档纯看，这样过一遍模块，记忆会深很多。
-
----
 
 ## 总结
 

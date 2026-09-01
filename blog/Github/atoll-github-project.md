@@ -6,19 +6,13 @@ tags: [macos, swift, open-source, notch, media, Ai-friendly]
 description: Atoll 是一个开源 macOS 应用，把 MacBook 的刘海屏改造成媒体控制、系统监控和生产力工具的集合面板。本文基于源码阅读整理。
 ---
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
 [Atoll](https://github.com/Ebullioscopic/Atoll) 是一个 Swift/SwiftUI 写的 macOS 原生应用，用刘海屏那块区域做展开式控制面板。平时收起来不占地方，鼠标移过去展开，里面可以放媒体控制、系统状态、定时器、剪贴板历史等一堆东西。
 
 它起步于 [Boring.Notch](https://github.com/TheBoredTeam/boring.notch) 的代码库——媒体播放器集成、AirDrop 面板、文件 Dock 这些核心架构都是从那边改过来的，然后在上面加了一大圈自己的东西：锁屏挂件、LLM 用量追踪、终端标签页、可拖拽的剪贴板卡片……
-
----
 
 ## 安装环境
 
@@ -33,8 +27,6 @@ description: Atoll 是一个开源 macOS 应用，把 MacBook 的刘海屏改造
 
 >Accessbility是必须的，Screen Recording 和 Calendar 和 Muscic 看情况选择。（建议全选）
 
----
-
 ## 运行
 
 ## 功能介绍：
@@ -44,7 +36,6 @@ description: Atoll 是一个开源 macOS 应用，把 MacBook 的刘海屏改造
 1. 媒体控制
 
 这个软件接入了spotify,Apple Music，或者其他任何小众的音乐软件，又或者是打开了网易云音乐Web版的Safar浏览器，他都支持，都可以上岛然后控制，下面这个视频展示Apple Music
-
 
 然后他还可以切换播放模式，比如随机播放，也有顺序播放（不开启随机播放那就是顺序播放，个人觉得这个思路还挺好），可以设置输出源，可以快捷控制音量，非常方便，基本涵盖日常常用的所有功能
 
@@ -86,7 +77,6 @@ description: Atoll 是一个开源 macOS 应用，把 MacBook 的刘海屏改造
 
 在右边，你可以根据此时的需要来快速计时。
 
-
 <video controls width="100%">
   <source src="https://cdn.mikeq95blog.uk/coverimage/timer.mp4" type="video/mp4" />
   你的浏览器不支持视频播放。
@@ -104,8 +94,6 @@ description: Atoll 是一个开源 macOS 应用，把 MacBook 的刘海屏改造
 > 这还挺帅的，我觉得。
 
 ![Atoll lock screen](https://cdn.mikeq95blog.uk/coverimage/Atoll-lock-screen.png)
-
----
 
 ## 卸载和下次运行
 

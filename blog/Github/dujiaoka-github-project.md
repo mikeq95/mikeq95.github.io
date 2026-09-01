@@ -6,11 +6,7 @@ tags: [github, open-source, Ai-friendly]
 description: 独角数卡（dujiaoka）是一款基于 Laravel 的开源自动售货系统，用来给虚拟商品自动发货，项目已在 2026 年 2 月停止维护并被归档，这篇文章根据官方文档和第三方评测整理它的部署方式与现状。
 ---
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
@@ -19,8 +15,6 @@ description: 独角数卡（dujiaoka）是一款基于 Laravel 的开源自动�
 买家在独角数卡搭的站上下单付款之后，系统自动把卡密、软件许可或者会员账号发出去，站长不用守在电脑前人工处理。项目基于 Laravel 框架搭建，后台管理套的是 laravel-admin，前端 UI 用 Bootstrap，走的是国内 PHP 生态里最主流的一套组合。GitHub 上目前有 1.2 万多个 star、2700 多个 fork，核心贡献者是 [iLay1678](https://github.com/iLay1678)。
 
 前端模板可以整个换掉。官方自带 unicorn 模板，社区另外贡献了 luna 和 hyper 两套，分别由 [Julyssn](https://github.com/Julyssn) 和 [bimoe](https://github.com/bimoe) 维护，换个模板站点的观感就完全不一样，不用碰核心代码。支付渠道覆盖得也比较全，支付宝和微信这些国内常用方式都支持，也能接 PayPal、Stripe 收海外用户的钱，还有 V 免签这种不需要企业资质的免签方案。代码全部开源，扩展包都走 Composer 加载，用的是 MIT 协议。
-
----
 
 ## 安装环境
 
@@ -33,8 +27,6 @@ dujiaoka 已经停更，现在从零装一套 PHP 7.4 + MySQL + Redis + Supervis
 官方给了三条部署路径：不依赖面板的 Linux 手动安装、Docker 安装，还有宝塔面板一键流程（2.x 和 1.x 版本教程分开），都整理在项目 Wiki 里，项目停更之后这些教程不会再更新了。仓库自己还带了一份 `debian_manual.md`，是社区补的手动教程，针对不想用面板、想自己一步步配置的人，从装 Nginx、MariaDB、PHP 7.4、Redis 一路讲到配置 Supervisor，步骤写得比 Wiki 细。
 
 至此，环境要求和几条部署路径已经理清楚，下面按仓库自带的手动教程和 Docker 配置文件，把实际运行的步骤过一遍。
-
----
 
 ## 运行
 
@@ -71,8 +63,6 @@ numprocs=1
 
 至此，按官方文档整理的部署流程已经讲完。由于项目本身已经停更，上面这套流程没有实际跑通验证过，如果真要按这个教程部署，建议先看一眼仓库 Wiki 里的"问题锦集"，很多环境报错在那里能查到。
 
----
-
 ## 效果展示
 
 这一节同样没有实际搭起来跑一遍，下面的截图描述来自官方 README 里贴出的三套模板预览图。
@@ -91,8 +81,6 @@ numprocs=1
 
 三套模板的信息密度和视觉风格差别不小，从卡片网格到列表式表格都有，选哪套更多是看个人喜好，功能上不影响自动发货这个核心逻辑。
 
----
-
 ## 相关项目和评价
 
 dujiaoka 停更之后，最值得先看的是作者亲自主导的继任版本 [Dujiao-Next](https://github.com/dujiao-next/dujiao-next)。它用 Go 重写，后端换成 Gin + GORM，前端是 Vue + TypeScript，架构上做了前后端分离，默认数据库也从 MySQL 换成了 SQLite（可选 PostgreSQL），不再强制要求装 MySQL 和 Redis，部署门槛比旧版低不少。不过开源协议也从 MIT 换成了 GPL-3.0，目前 GitHub 上有 1000 多个 star，还在早期阶段，跟 dujiaoka 巅峰时期的体量没法比。
@@ -104,8 +92,6 @@ dujiaoka 停更之后，最值得先看的是作者亲自主导的继任版本 [
 第三方的实际部署记录也能当参考。Verne 在自己的独立博客里[写过一篇 Dujiao-Next 的技术拆解](https://blog.einverne.info/post/2026/04/dujiao-next-digital-goods-selling-system.html)，他之前用过一段时间 dujiaoka，原话是"整体功能完整，但作为一个 PHP 项目，在部署和性能方面确实有一些让人头疼的地方"，文章里详细比较了新旧两版的技术选型和部署方式。老梁则在[博客里记录了自己在 zfaka 和 dujiaoka 之间选型的过程](https://laoliang.net/jsjh/news/7927.html)，最终选了 dujiaoka，理由是界面"比较简洁无各种颜色"，也贴出了具体的部署步骤。
 
 社区讨论这边，[Nexmoe 在 X 上分享过用独角数卡一行指令部署发卡站的经历](https://x.com/nexmoe/status/1969239879599997250)，评论区还有人联想到更早的"彩虹发卡"。[叶学长在知乎写过一篇小白从零搭建独角数卡的踩坑记录](https://zhuanlan.zhihu.com/p/707483887)，提到自己因为服务器选得不好丢过数据和备份，同时也说"不管是界面还是功能都很完美，个人比较喜欢它的 UI"。[小宇在 X 上记录过自己实测卖了一个月虚拟商品的体验](https://x.com/xiaoyuboi/article/2067094007868694572)，包含收益核算和支付渠道打通的细节，不过这条内容主要针对的是停更后的 Dujiao-Next，不是原版 dujiaoka。
-
----
 
 ## 给 AI 编程助手的提示词
 
@@ -130,15 +116,11 @@ dujiaoka 停更之后，最值得先看的是作者亲自主导的继任版本 [
 具体命令、参数细节可以参考这篇文章核实：https://mikeq95blog.uk/blog/2026/08/28/dujiaoka-github-project
 ```
 
----
-
 ## 卸载和下次运行
 
 卸载对应"安装环境"那节装了什么，这里就清掉什么：停掉 Supervisor 管的 worker 进程，删掉 MySQL 里对应的数据库；Docker 部署的话直接 `docker-compose down`，再删掉挂载的 `.env`、`install.lock`、`public/uploads` 这几个数据卷；手动部署的话把源码目录和 Nginx 的 vhost 配置一起清掉。
 
 下次想再跑起来，不用重新走一遍装依赖和安装向导。Docker 部署直接 `docker-compose up -d`；手动部署确认 Nginx、PHP-FPM、Redis、Supervisor 这几个服务都在跑，再打开站点域名就行。
-
----
 
 ## 总结
 

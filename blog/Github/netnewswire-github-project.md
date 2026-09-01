@@ -7,17 +7,11 @@ tags:
 description: "NetNewsWire 是一款免费开源的 macOS/iOS RSS 阅读器，2002 年由 Brent Simmons 做出来，中间被卖过两次，2018 年才重新开源。这篇记录一下它的来历、支持的订阅格式和实际用下来的感受。"
 ---
 
-{/* truncate */}
-
----
-
 ## 它是什么
 
 NetNewsWire 是一款 macOS/iOS 上的免费开源 RSS/Atom 阅读器，支持 [RSS](https://cyber.harvard.edu/rss/rss.html)、[Atom](https://datatracker.ietf.org/doc/html/rfc4287)、[JSON Feed](https://jsonfeed.org/) 和 RSS-in-JSON 四种订阅格式。
 
 它的历史比较特别：最早由 Brent Simmons 在 2002 年做出来，2005 年卖给了 NewsGator，后来又转手到 Black Pixel。2018 年 Simmons 拿回了知识产权，把它作为开源项目重新发布，也就是现在这个由 [Ranchero Software](https://github.com/Ranchero-Software) 维护的版本。算下来是少数几个从 Web 2.0 时代活到现在、还在持续更新的 RSS 阅读器之一。
-
----
 
 ## 安装
 
@@ -35,8 +29,6 @@ brew install --cask netnewswire
 
 iOS 版本在 App Store 搜 "NetNewsWire" 就能装，也提供 TestFlight 测试版。
 
----
-
 ## 实际使用感受
 
 ### 订阅同步
@@ -50,8 +42,6 @@ iOS 版本在 App Store 搜 "NetNewsWire" 就能装，也提供 TestFlight 测�
 ### 隐私
 
 官方[隐私政策](https://netnewswire.com/privacypolicy.html)写得很直接：netnewswire.com 和作者博客都不用 cookie、不用 JavaScript、不做追踪、不放广告；App 内唯一会收集的是用户主动选择开启的崩溃日志，用来定位闪退问题，没有其他遥测。
-
----
 
 ## 总结
 

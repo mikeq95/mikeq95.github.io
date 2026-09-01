@@ -12,10 +12,6 @@ description: "tty7 是用纯 Rust 写的跨平台终端工作台：会话常驻�
 
 [tty7](https://github.com/l0ng-ai/tty7) 是一个终端工作台，不只是"再做一个更好看的终端"。它把 shell 会话、SSH 连接和 coding agent 放在同一套界面里：关掉窗口甚至重启机器，shell 还在跑，不用再靠 tmux 保活；pane 里如果跑着 Claude Code、Codex、OpenCode 这类 agent，侧栏会显示状态点、分支和 diff，agent 卡住等你批准时还会弹通知。
 
-{/* truncate */}
-
----
-
 底层是纯 Rust。界面走 [Zed](https://github.com/zed-industries/zed) 的 gpui 做 GPU 渲染，终端 VT 解析用的是 [Alacritty](https://github.com/alacritty/alacritty) 那一套。官方在同一台 M1 Pro 上做过对比：11 MB 纯文本 `cat` 大约 95 ms，同条件的 Alacritty / [Ghostty](https://ghostty.org/) / [Kitty](https://sw.kovidgoyal.net/kitty/) 在 179–239 ms；DOOM-fire 帧率也更高一截。冷启动内存大约 116 MB（GUI 加常驻 server）。
 
 日常输入这块做得很满：历史影子建议、带说明的 Tab 补全、边打边高亮的语法着色、`⌃R` 模糊搜历史、多行编辑、点一下就能把光标放到任意位置。窗口侧有标签、分屏、`⌘P` 命令面板、`⌘F` 回滚搜索，侧栏还能按 git 仓库分组。SSH 不走系统 `ssh`，是内置的 russh 栈：profile、keychain 凭据、SFTP 面板、端口转发和跳板机都在应用里。
@@ -25,8 +21,6 @@ description: "tty7 是用纯 Rust 写的跨平台终端工作台：会话常驻�
 这一版真正拉开差距的是两件事。第一是**远程工作区**：不再只是开一个 SSH 进去的 pane，而是整扇窗口绑定到一台机器。文件树、git 状态、diff 浮层都由远端的 `tty7-server` 提供，关窗口只是 detach，远端的 shell 和 agent 继续跑，换一台电脑也能接回去。WSL 发行版也会作为 machine 出现在工作区切换里。第二是**可脚本化的 `tty7` CLI**：安装包里自带，启动后会自动挂到 PATH。Coding agent 或脚本可以用 `run`、`send`、`capture`、`events` 这些非交互命令驱动 pane，全程支持 `--json`。
 
 项目在 GitHub 上目前大约四百多 star，macOS / Windows / Linux 都有原生安装包。
-
----
 
 ## 安装环境
 
@@ -44,8 +38,6 @@ macOS 上打开 dmg，把 `tty7.app` 拖进「应用程序」。第一次打开�
 Linux 的 AppImage 需要先 `chmod +x` 再运行。Windows 用 setup 安装，或解压 zip 直接跑。
 
 不想从 release 装、非要从源码编的话，仓库是 Cargo workspace，需要较新的 Rust 工具链，还要拉 gpui 相关依赖，构建成本明显高于直接下安装包。日常使用走 release 就够。
-
----
 
 ## 运行
 
@@ -101,8 +93,6 @@ tty7 machine ls
 
 Agent hooks 在 **设置 → Agents** 里一键安装。装完之后，对应 agent 的状态点、通知、会话恢复和 fork 才有完整数据可依。
 
----
-
 ## 效果展示
 
 （此处插入截图：tty7 主界面，左侧按仓库分组的侧栏，某个 pane 里跑着 Claude Code / Codex，状态点和分支 diff 可见）
@@ -128,8 +118,6 @@ PANE  WS        TAB  CWD     LIVE
 $ tty7 run -- echo "hello from tty7"
 hello from tty7
 ```
-
----
 
 ## AI-friendly
 
@@ -157,8 +145,6 @@ hello from tty7
 不要执行卸载以外的破坏性操作；配置目录默认在 ~/.config/tty7/。
 ```
 
----
-
 ## 卸载和下次运行
 
 卸载（macOS 二进制安装）：
@@ -183,8 +169,6 @@ tty7 doctor
 tty7 ls
 tty7 run -- <你的命令>
 ```
-
----
 
 ## 总结
 

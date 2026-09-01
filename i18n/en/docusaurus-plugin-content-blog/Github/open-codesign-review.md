@@ -12,8 +12,6 @@ description: "Open CoDesign is an open-source alternative to Claude Design — r
 
 {/* truncate */}
 
----
-
 ## What It Is
 
 Open CoDesign is a desktop AI design tool. The core idea is simple: **you enter a prompt, it generates a viewable HTML prototype page**. It's positioned as an open-source alternative to Claude Design, v0, and Lovable. Key points:
@@ -22,8 +20,6 @@ Open CoDesign is a desktop AI design tool. The core idea is simple: **you enter 
 - **BYOK** (Bring Your Own Key) — supports Claude, GPT, Gemini, and Ollama
 - **MIT open-source** — free to use; you only pay for your own model's API costs
 - **Exports real files** — HTML, PDF, PPTX, ZIP, all supported
-
----
 
 ## Deployment
 
@@ -58,8 +54,6 @@ pnpm dev
 
 After a moment, an Electron window will appear. The first time, it asks you to configure a provider — paste in your Claude API key (`sk-ant-...`), test the connection, and you're ready to go.
 
----
-
 ## How It Feels in Practice
 
 ### Generation Speed
@@ -78,8 +72,6 @@ A genuinely useful feature: click any element in the preview and leave a comment
 
 After generation, the AI automatically identifies "tunable parameters" — like primary color, font size, spacing — and presents them as sliders. No need to write "change the button color to blue" in a new prompt.
 
----
-
 ## vs. Claude Design
 
 | | Open CoDesign | Claude Design |
@@ -89,8 +81,6 @@ After generation, the AI automatically identifies "tunable parameters" — like 
 | Multi-model support | ✅ 20+ | ❌ Claude only |
 | Price | ✅ Free (pay your own API) | 💳 Subscription |
 | Data privacy | ✅ Local | ❌ Cloud-processed |
-
----
 
 ## Summary
 

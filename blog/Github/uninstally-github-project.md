@@ -7,17 +7,11 @@ tags:
 description: "Uninstally 是一款开源的 macOS 卸载器，靠 bundle identifier 检测清理 App 留下的偏好设置、缓存、容器等残留文件。这篇记录一下它的原理、安装方式和实际用下来的体验。"
 ---
 
-{/* truncate */}
-
----
-
 ## 它是什么
 
 Uninstally 是一款原生 macOS 应用，卸载 App 的同时清理它散落在系统各处的残留文件——偏好设置、缓存、容器（container）、日志等。核心原理是通过 App 的 bundle identifier 去扫描关联文件，扫描完会先列出来让用户确认，再决定删不删，不会一上来就直接删。
 
 除了卸载 App，它还能接管 Homebrew 安装的包，算是把"手动装的 App"和"命令行装的包"放在同一个界面里管理。
-
----
 
 ## 安装
 
@@ -30,8 +24,6 @@ brew install --cask gostonx/tap/uninstally
 ```
 
 或者去 [release 页面](https://github.com/gostonx/uninstally/releases/latest)下载最新的 DMG，拖进 `Applications` 即可。
-
----
 
 ## 实际使用感受
 
@@ -54,8 +46,6 @@ README 里写得比较明确：不收集任何数据、不发送统计、不需�
 ### 多语言
 
 界面支持 10 种语言，更新走 Sparkle 框架，提供多个更新渠道可选。
-
----
 
 ## 总结
 

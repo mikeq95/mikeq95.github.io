@@ -10,8 +10,6 @@ description: "Echo Loop 是一款开源的英语听说训练 App，把精听、�
 
 ## 介绍
 
-{/* truncate */}
-
 [Echo Loop](https://github.com/echo-loop/Echo-Loop) 就是把这个决策过程接管掉的 App。它是一款开源的英语听说训练工具，把练透一段音频拆成精听、跟读、盲听、复述四个固定动作，首学结束再排七轮间隔复习，间隔从 6 小时一路拉长到两周，到点自动提醒。你只管打开 App 跟着走，不用再想"现在该干嘛"。
 
 项目用 Flutter 写的，GitHub 上目前三千多个 star。README 里注明训练方法由中央民族大学外国语学院的老师指导设计，倒不算程序员拍脑袋。iOS 和 Android 都已上架，macOS 还在开发中。
@@ -19,8 +17,6 @@ description: "Echo Loop 是一款开源的英语听说训练 App，把精听、�
 上面这些不是我照抄 README——复习调度写在 `lib/database/enums.dart` 里，首学加七轮共八个阶段一目了然；生词和难句的闪卡复习接的是 [FSRS](https://github.com/open-spaced-repetition/free-spaced-repetition-scheduler) 算法包来排期。流程算不算"科学"可以争论，但每个环节都摆在明面上，怎么算的、改在哪儿，代码里查得到。
 
 > 收藏不等于学会。我的收藏夹可以作证。
-
----
 
 ## 安装环境
 
@@ -42,8 +38,6 @@ dart run build_runner build   # 生成 Riverpod 相关代码
 
 `.dev.env` 里最关键的是 Supabase 两项（`SUPABASE_URL` 和 `SUPABASE_PUBLISHABLE_KEY`），登录功能靠它，去 supabase.com 免费建个项目就能拿到。RevenueCat 的 key 只影响订阅，留空照样能跑。这个文件已经被 `.gitignore` 排除，真实密钥别手滑提交上去。
 
----
-
 ## 运行
 
 连上设备（真机或模拟器都行）：
@@ -59,8 +53,6 @@ flutter run -d android --dart-define-from-file=.dev.env  # Android
 
 至此，一段素材的首学就算完成，剩下的事交给复习排程：到点提醒，重练难句，七轮走完这段素材才算"毕业"。练到哪一句、学了多久都有记录，五分钟碎片时间也能接着上次的进度继续。
 
----
-
 ## 效果展示
 
 （此处插入截图：导入音频界面，本地文件列表与字幕选项）
@@ -70,8 +62,6 @@ flutter run -d android --dart-define-from-file=.dev.env  # Android
 （此处插入截图：跟读评测结果，命中词高亮）
 
 官方在仓库里放了整套截图（`assets/screenshots/`），懒得自己截可以直接取用。
-
----
 
 ## AI-friendly
 
@@ -92,8 +82,6 @@ flutter run -d android --dart-define-from-file=.dev.env  # Android
 注意：.dev.env 含密钥，不要输出其内容，也不要提交到 git。
 ```
 
----
-
 ## 卸载和下次运行
 
 手机上装的，直接删 App 就完事，学习记录都存本地，删了也就没了。源码编译的，删掉 clone 出来的目录即可；Flutter SDK 要是专为它装的、之后也没别的用途，可以顺手一起卸。
@@ -106,8 +94,6 @@ flutter run -d ios --dart-define-from-file=.dev.env
 ```
 
 依赖早就装好了，这条命令就是全部。
-
----
 
 ## 总结
 

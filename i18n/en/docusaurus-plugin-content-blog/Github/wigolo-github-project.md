@@ -10,8 +10,6 @@ description: "wigolo is a local-first MCP server that turns web search, fetch, c
 
 > If you're new to this, this article includes a ready-to-use AI prompt that can set up the environment for you in one go.
 
----
-
 ## Introduction
 
 wigolo is a local-first MCP server by KnockOutEZ. It packs the two things AI agents most often do online — web search and fetching — into an engine that runs locally, and on top of that it can crawl a site across multiple pages by following links, and pull structured data out of a page. All six core tools need no API key, and queries are free. All the data stays in the local `~/.wigolo/` directory and never gets sent anywhere else.
@@ -21,8 +19,6 @@ The project is written in TypeScript and was only created this April. It's alrea
 Beyond that, wigolo has two autonomous tools that need an LLM key to run. `research` breaks a question into several sub-queries, fetches sources in parallel, and synthesizes a report with citations. `agent` takes a single natural-language instruction and plans out what to search for and which URLs to fetch on its own, running within a given time budget. I didn't test either of these this time — they require a free Gemini key or a local Ollama setup, which I'll touch on later.
 
 What actually sets wigolo apart from a regular search API is that every result comes with a byte offset back to the source text, which the project calls `source_span`. Testing it out, a search does return `start`/`end` fields under `source_span`, pinpointing exactly where the excerpted text sits in the original page — so an agent citing content can point to a specific passage instead of a vague "probably from this article." Each result's credibility is also broken down instead of collapsed into one generic relevance number: semantic relevance and keyword match are the main factors, and how many search engines independently surfaced the same result also plays a part. When an engine drops out or gets rate-limited, wigolo doesn't quietly paper over the gap — more on that in the demo section below.
-
----
 
 ## Setup
 
@@ -50,8 +46,6 @@ npx wigolo doctor
 
 At this point, wigolo's local environment is set up and ready to run.
 
----
-
 ## Running It
 
 There are two ways to use it once it's installed. Run it with no arguments at all:
@@ -63,8 +57,6 @@ wigolo
 This starts an MCP server on stdio, ready to use with whatever coding agent you wired up via `--agents` during `init`. The other way is a one-shot CLI call for a single tool, which is handy for testing one capability at a time — that's how each of the six core tools below was tested.
 
 At this point, wigolo is up and running.
-
----
 
 ## Demo
 
@@ -138,15 +130,11 @@ This one also runs a search-plus-rerank pass internally — the log showed the r
 
 All six core tools ran successfully against real network requests. `research` and `agent`, which need an LLM key, weren't tested this time — they should work with a free Gemini key or a local Ollama setup, but I haven't actually verified that.
 
----
-
 ## Similar Projects and Reception
 
 There's no shortage of commercial products doing the same thing. [Firecrawl](https://www.firecrawl.dev/) focuses on web scraping and structured extraction and also supports full-site crawling — wigolo's own README lists it as one of its comparison targets. The difference is that Firecrawl requires an API key and charges by usage, while wigolo adds byte-level source location and explainable scoring on top of free queries. [Exa](https://exa.ai/) is stronger on semantic search specifically — wigolo's README notes it can fully render structured content like comparison matrices — but it also requires an API key, charges per request, and lacks things like `source_span` and the scoring breakdown. [Tavily](https://www.tavily.com/) is positioned as a search API for agent and RAG use cases, with search and fetch capabilities roughly on par with wigolo's, except it doesn't support full-site crawling and, again, needs a key and charges for use.
 
 A [Zhihu writeup on the open-source project](https://zhuanlan.zhihu.com/p/2062103128321930499) breaks down the design logic behind all 10 tools in some detail, explaining both the byte-level source location and explainable scoring mechanisms clearly, and its advice is to pick tools based on the scenario rather than blindly favoring one over the others; it also mentions an honest limitation — datacenter IPs clear anti-bot challenges less reliably than residential networks do. On X, a verified account, [@geekbb, posted a comparison thread](https://x.com/geekbb/status/2082645166876471506) titled "Firecrawl vs Wigolo, Wigolo is ridiculously strong," which picked up 464 likes and 69,000+ views. In the replies, [@Ericgongg_ pushed back](https://x.com/Ericgongg_/status/2082659076333563980) with a different take: "Looks strong, but setting it up is really unstable, and the search engines are a hassle too." That lines up exactly with the three-minute stall I hit on my first `search` call, which suggests it's not just my machine.
-
----
 
 ## Prompt for AI Coding Agents
 
@@ -169,8 +157,6 @@ Send me the command and result for each of the six tools. Check specifically for
 Exact commands and parameter details can be checked against this article: https://mikeq95blog.uk/blog/2026/08/28/wigolo-github-project
 ```
 
----
-
 ## Uninstalling and Running It Again
 
 Everything was installed through `npx`, so nothing was installed globally — what actually takes up space is the browser engine and models downloaded by `init`. Uninstalling is a single command:
@@ -188,8 +174,6 @@ npx wigolo search "your query" --json
 ```
 
 wigolo automatically detects whether the local components are already installed, and re-runs the download process for whatever's missing.
-
----
 
 ## Summary
 

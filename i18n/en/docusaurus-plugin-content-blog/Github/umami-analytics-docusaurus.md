@@ -10,8 +10,6 @@ description: "Umami is a privacy-friendly open-source analytics tool that skips 
 
 {/* truncate */}
 
----
-
 ## Step 1: Sign up and add your website
 
 Umami's cloud-hosted version is free and the easiest way to start:
@@ -22,8 +20,6 @@ Umami's cloud-hosted version is free and the easiest way to start:
    - Name: your blog's name
    - Domain: your blog's domain, e.g. `mikeq95blog.uk`
 4. Click **Save**, then **Edit** → **Tracking code**, and copy your `data-website-id` (a UUID)
-
----
 
 ## Step 2: Inject the tracking script in Docusaurus
 
@@ -46,8 +42,6 @@ Gating on `NODE_ENV === 'production'` keeps local dev from sending tracking requ
 
 It's fine to hardcode the website ID here — it ends up embedded in the public HTML source anyway, visible to anyone, so there's nothing to protect.
 
----
-
 ## Step 3: Push and wait for deploy
 
 Commit and push:
@@ -59,8 +53,6 @@ git push origin main
 ```
 
 GitHub Actions will kick off a build and deploy automatically — give it a couple of minutes. Check the **Actions** tab in your repo and look for a green `completed success`.
-
----
 
 ## Step 4: Verify the script made it into the page
 

@@ -8,8 +8,6 @@ description: "DSH Desktop is a community-built native desktop client for DeepSee
 
 {/* truncate */}
 
----
-
 ## What It Is
 
 DeepSeek Harness is an agent framework DeepSeek open-sourced in mid-August 2026, built around the idea that "everything is a plugin." On its own it only ships a CLI and a local web interface, with no official desktop client. DSH Desktop fills that gap as a third-party desktop shell.
@@ -21,8 +19,6 @@ The repo was originally named deepseek-harness-desktop before being renamed to d
 Its core design principle is that "the desktop shell is itself a plugin." The project doesn't modify upstream DeepSeek Harness's source code at all; the window, tray, and terminal capabilities are all wired into the same runtime through Harness's built-in Cordis plugin mechanism, following the same composition rules as any third-party plugin. Cordis itself isn't new — it was originally split out of the Koishi chatbot framework as a general-purpose plugin system.
 
 The code is open source under the MIT license, and the repo had a code push just yesterday, so updates are frequent.
-
----
 
 ## Setup
 
@@ -48,8 +44,6 @@ codesign -dv --verbose=4 "/Applications/DSH Desktop.app"
 >
 > ❌ Not working: it reports `code object is not signed at all`, meaning you have an unsigned unofficial build — go back to the official page and re-download
 
----
-
 ## Running It
 
 On macOS, the first launch will likely get flagged by Gatekeeper — right-click and choose "Open" to confirm once, and that's it.
@@ -71,8 +65,6 @@ dsh plugin update
 ```
 
 Installing and removing only applies to the currently active profile by default, and a new plugin only takes effect after you restart the app.
-
----
 
 ## Demo
 
@@ -96,8 +88,6 @@ Updates follow a silent-check, non-silent-install pattern: the app checks for a 
 
 The README still marks mobile remote control as "coming soon," so the feature shown in the promotional images isn't usable yet.
 
----
-
 ## Similar Projects and Reception
 
 DSH Desktop isn't the only project building a desktop shell for DeepSeek Harness. [MochiNek0/dsh-desktop](https://github.com/MochiNek0/dsh-desktop) takes the Tauri route instead of Electron, similarly wrapping the `dsh web` interface in a native window and sharing the same session data — a direct point of comparison on size and resource usage. [desktop-cc-gui](https://github.com/zhukunpenglinyutong/desktop-cc-gui) goes further, packing Claude Code, Codex, Gemini, and OpenCode into a single Tauri desktop shell — a "one client for every coding agent" approach that's the opposite of DSH Desktop's commitment to deep integration with a single harness. Its star count (over 4,000) is also noticeably higher.
@@ -106,8 +96,6 @@ CSDN blogger "高擎 AI+" wrote a [hands-on install tutorial](https://blog.csdn.
 
 Geekbang co-founder Chi Jianqiang [posted on X](https://x.com/sagacity/status/2089183016807809385) saying he'd always felt DeepSeek's Harness should be packaged as a download-install-open desktop app the way Codex or Qoder are, and specifically called this out after installing a DSH preview build. That post is a small window into why third-party desktop shells like DSH Desktop showed up in the first place — the official framework was never meant to do this on its own.
 
----
-
 ## Uninstalling and Running It Again
 
 Uninstalling: on macOS, drag DSH Desktop from Applications to the Trash; on Windows, use "Add or Remove Programs."
@@ -115,8 +103,6 @@ Uninstalling: on macOS, drag DSH Desktop from Applications to the Trash; on Wind
 The local profile, logs, and installation ID persist in `~/Library/Application Support/DSH Desktop` on macOS, or the corresponding Windows AppData directory. Removing the app itself doesn't clear these files automatically — if you want a clean wipe, you'll need to delete them by hand.
 
 To run it again, just open the app directly. There's no need to redo the setup wizard, since the configuration is already saved in the profile.
-
----
 
 ## Summary
 

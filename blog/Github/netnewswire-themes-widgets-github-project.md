@@ -7,10 +7,6 @@ tags:
 description: "接着上一篇 NetNewsWire 的来历和基础安装，这篇专门看它给深度用户留的自定义空间——.nnwtheme 主题包、iOS 小组件的数据来源，以及四个要靠 defaults write 才能开的隐藏偏好设置。"
 ---
 
-{/* truncate */}
-
----
-
 ## 主题：.nnwtheme 包
 
 NetNewsWire 的文章阅读页外观是可以换主题的，主题文件打包成 `.nnwtheme` 格式，里面有三个文件：`Info.plist`（主题元数据，必须包含 `ThemeIdentifier`、`Name`、`CreatorName`、`CreatorHomePage`、`Version` 这些字段）、`template.html`（页面结构模板）和 `stylesheet.css`（样式表）。因为用的是标准的 HTML/CSS，会写网页的人几乎没有学习成本，直接照着模板改样式就行。
@@ -23,8 +19,6 @@ netnewswire://theme/add?url={主题zip包的URL}
 
 主题作者把这个链接分享出来，用户点一下就在 App 内直接触发安装。
 
----
-
 ## iOS 小组件
 
 小组件只在 iOS 上提供，一共 7 个，分三种尺寸：
@@ -34,8 +28,6 @@ netnewswire://theme/add?url={主题zip包的URL}
 - 大尺寸 3 个：中尺寸的放大版
 
 小组件里能看到 feed 标题、文章标题、摘要、feed 图标、发布时间，以及未读/今天/加星标各自的数量。有个实现细节挺有意思：小组件不是直接读主 App 的数据库，而是通过 App Group 容器里一份单独编码成 JSON 的数据来读取，算是 iOS Widget 沙盒机制下的标准做法。
-
----
 
 ## 四个隐藏偏好设置
 
@@ -54,8 +46,6 @@ defaults write com.ranchero.NetNewsWire-Evergreen DevroeSuppressSyncOnLaunch -bo
 - `CorreiaSeparators`：文章列表里每条之间加一条分隔线
 - `GruberFeedDoubleClickMarkAsRead`：侧边栏双击 feed 直接标记为已读
 - `DevroeSuppressSyncOnLaunch`：启动时不自动同步
-
----
 
 ## 总结
 

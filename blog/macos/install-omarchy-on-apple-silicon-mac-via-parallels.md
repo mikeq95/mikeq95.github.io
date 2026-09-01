@@ -31,8 +31,6 @@ description: "在 Mac 上用 Parallels Desktop 安装 Omarchy 全过程"
 - 一个**全小写**的 Linux 用户名  
   例如 `amy`，不要用 `Amy`
 
----
-
 ## 2. 下载安装镜像
 
 ### 2.1 Archboot ARM64 下载地址
@@ -58,8 +56,6 @@ cd ~/Downloads
 gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 5B7E3FB71B7F10329A1C03AB771DF6627EDF681F
 gpg --verify archboot-*.iso.sig archboot-*.iso   # 验证 ISO 是否被篡改
 ```
-
----
 
 ## 3. 创建虚拟机
 
@@ -91,8 +87,6 @@ Parallels：
 - 启动顺序：硬盘优先，光盘不要排在最前
 
 创建完成后先启动一次，确认能进 Archboot。
-
----
 
 ## 4. 安装 Arch Linux ARM
 
@@ -147,8 +141,6 @@ Parallels：
 
 登录时用户名大小写必须一致。  
 `amy` 和 `Amy` 不是同一个账号。
-
----
 
 ## 5. 初始化系统
 
@@ -207,8 +199,6 @@ su -
 ```
 
 重启后 IP 可能会变成 `10.211.55.13` 这类地址，连不上就回虚拟机再看一次 `ip -br address`。
-
----
 
 ## 6. 安装 Omarchy
 
@@ -322,8 +312,6 @@ systemctl reboot
 - `Command + Enter`
 - 或 `Command + Space`，搜索 `terminal` / `kitty`
 
----
-
 ## 7. 安装 Parallels Tools
 
 ### 7.1 挂载 Tools 镜像
@@ -406,8 +394,6 @@ systemctl is-active prltoolsd
 2. 用 **Actions → Send Keys → Return**
 3. 不要选 `Reboot Into Firmware Interface`
 
----
-
 ## 8. 配置桌面集成
 
 ### 8.1 安装动态分辨率
@@ -446,8 +432,6 @@ ip -br address
 
 再用新 IP 连接。
 
----
-
 ## 9. 日常使用
 
 ### 9.1 常用快捷键
@@ -477,8 +461,6 @@ systemctl --user is-active parallels-dynamic-resolution.service
 ```
 
 `uname -m` 应是 `aarch64`。
-
----
 
 ## 10. 附录
 

@@ -11,15 +11,11 @@ description: "Convert your English articles into high-quality audio using Kokoro
 
 {/* truncate */}
 
----
-
 ## What Is Kokoro
 
 Kokoro is an open-source TTS (text-to-speech) model with 82M parameters — lightweight but surprisingly good. English quality approaches ElevenLabs commercial level, with 88 voices to choose from and an Apache 2.0 license, free for commercial use.
 
 We'll use [kokoro-web](https://github.com/eduardolat/kokoro-web) — a project that wraps Kokoro into a local service, launched with a single Docker command, with a web UI included, ready to use out of the box.
-
----
 
 ## Choosing a Voice
 
@@ -33,8 +29,6 @@ Kokoro voices are graded A–D by quality, A being highest. For English, just pi
 | Emma | B- | British female voice |
 
 > The first time you use a voice, its model file is downloaded automatically and cached — no need to re-download.
-
----
 
 ## Installing Docker
 
@@ -62,8 +56,6 @@ Verify the installation:
 ```bash
 docker --version && docker compose version
 ```
-
----
 
 ## Deploying kokoro-web
 
@@ -109,8 +101,6 @@ docker compose logs -f
 # Success: Listening on http://0.0.0.0:3000
 ```
 
----
-
 ## Using the Web UI
 
 Open your browser and go to `http://localhost:3000`.
@@ -155,8 +145,6 @@ Generated with the Heart voice (~150 words, ~30 seconds on local CPU):
   <source src="/assets/kokoro-demo-google.mp3" type="audio/mpeg" />
 </audio>
 
----
-
 ## Processing Markdown Files
 
 Kokoro only accepts plain text. Pasting a `.md` file directly will cause it to read out `##`, `**bold**`, and other Markdown syntax aloud.
@@ -170,8 +158,6 @@ brew install pandoc
 # Convert md to plain text, then copy-paste the output
 pandoc article.md -t plain
 ```
-
----
 
 ## Useful Commands
 

@@ -7,10 +7,6 @@ tags:
 description: "记录首页主标题和副标题从文案到排版的完整过程：怎么参考苹果官网抓真实的 CSS 数值，怎么写响应式字号和容器宽度，附完整代码和逐段讲解。"
 ---
 
-{/* truncate */}
-
----
-
 ## 先定文案：主标题写什么
 
 参考苹果那句 "Listen, watch, or read. Now we're talking."——三个并列词 + 一句 punchline 的结构，最后落定成这样：

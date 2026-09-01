@@ -7,10 +7,6 @@ tags:
 description: "收集几个好用又小众的网站，第一期先介绍四个。"
 ---
 
-{/* truncate */}
-
----
-
 ## 1. macOS Icons
 
 [macosicons.com](https://macosicons.com) 收集了大量自定义 macOS App 图标，免费下载替换 Dock 里的默认图标，用来美化系统。
@@ -43,16 +39,13 @@ description: "收集几个好用又小众的网站，第一期先介绍四个。
 
 [ipcheck](https://ipcheck.ing/#/)可以检测你的IP信息
 
-
 ## kukutool去水印
 
 [dy.kukutool.com](https://dy.kukutool.com/zh-Hans-SG)
 
-
 ## uigradient
 
 [uigradient](https://uigradients.com/#Kyoto)
----
 
 ## fast
 

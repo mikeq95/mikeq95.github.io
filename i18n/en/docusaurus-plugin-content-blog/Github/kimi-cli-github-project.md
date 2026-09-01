@@ -15,8 +15,6 @@ description: Kimi CLI is Moonshot AI's terminal-based AI coding agent that can r
 
 > If you're new to this, this post includes a ready-to-use AI prompt that can set up the environment for you in one go.
 
----
-
 ## Introduction
 
 Right at the top of the README there's a notice marked with `[!IMPORTANT]`, and it doesn't mince words: Kimi CLI is evolving into [Kimi Code CLI](https://github.com/MoonshotAI/kimi-code), the next-generation terminal agent from the same team. Installing Kimi Code CLI automatically migrates your existing config and sessions, while Kimi CLI itself will be gradually wound down. The docs and any existing install still work, but it's no longer the path the team recommends. That detail matters more than any feature listed further down this page.
@@ -26,8 +24,6 @@ Setting that notice aside, Kimi CLI itself can read and edit code, run shell com
 It's not just a chat-box coding assistant — it doubles as a shell. Press `Ctrl-X` and you can switch between "AI agent" mode and "native terminal" mode without leaving Kimi CLI to open a separate window for ordinary commands. Built-in shell commands like `cd` aren't supported yet, though; the documented workaround is to point `--work-dir` at a directory, or just exit and start a new session. Installing the official zsh-kimi-cli plugin carries this same switching habit over into whatever Zsh setup you already use day to day.
 
 On the editor side, Kimi CLI ships a VS Code extension that brings the CLI into the editor UI. For editors that support the Agent Client Protocol (ACP), such as Zed or JetBrains, it can plug in directly as an external agent — one protocol covers all of them, so there's no need to write a separate integration for each editor. On the extensibility front, the `kimi mcp` subcommand group manages adding, removing, listing, and OAuth-authorizing MCP servers, and it also supports one-off connections via a config file. Beyond the terminal, the `kimi web` command spins up a local web UI, which by default only listens on `127.0.0.1` — reaching it from your LAN requires explicitly passing `--network` or specifying `--host`.
-
----
 
 ## Installation
 
@@ -52,8 +48,6 @@ uv tool install --python 3.13 kimi-cli
 Once it's installed, run `kimi --version` to check. A 1.x version is the Kimi CLI covered here (packaged in Python, distributed via PyPI); a 0.x version means you installed the successor, Kimi Code CLI instead (written in TypeScript, distributed via npm, as a single-file binary) — both install a command literally named `kimi`, which makes them easy to mix up.
 
 Logging in is where money almost certainly enters the picture. On first run, execute `/login`; you can either go through browser OAuth on the Kimi Code platform, or manually enter an API key from the Moonshot AI Open Platform (moonshot.cn or moonshot.ai). The official docs' FAQ has a dedicated troubleshooting entry for "membership expired or quota exhausted," pointing to the `/usage` command and a renewal page, which suggests the free allotment doesn't stretch very far. Third-party hands-on write-ups have also documented free accounts hitting a 402 error on the first real call, with paid subscriptions starting at ¥49 per month. This article didn't go as far as opening a paid account to verify this step.
-
----
 
 ## Running It
 
@@ -97,8 +91,6 @@ kimi --mcp-config-file /path/to/mcp.json
 
 At this point, the common paths — command line, editor integration, and MCP extension — all check out.
 
----
-
 ## Results
 
 This section is compiled from official docs and third-party reviews, not a local hands-on test. Fully running through this workflow requires a paid Kimi or Moonshot account, and this article didn't go and open one.
@@ -106,8 +98,6 @@ This section is compiled from official docs and third-party reviews, not a local
 The demo assets bundled with the docs give a rough sense of what it looks like in practice. The README's shell-mode animation shows command-line output switching over into a plain terminal prompt; the VS Code extension screenshot shows the agent panel docked in the editor's sidebar; the ACP integration animation walks through creating a new Kimi CLI session inside Zed. (Insert screenshot here: an actual run of any of the above.)
 
 On the third-party side, [a hands-on guide on Zhihu](https://zhuanlan.zhihu.com/p/2003206943536326314) documents the process of configuring the API and switching modes in detail. [A Chinese-language review on wangruofeng007.com](https://wangruofeng007.com/blog/2026-01/kimi-code-cli-review/) paid ¥4.99 for a 7-day trial plan and tested it against scenarios like analyzing an unfamiliar codebase, generating project architecture docs, and rebuilding a tech blog site built on React, TypeScript, Vite, Tailwind, and Framer Motion — concluding that "the overall experience is close to Claude Code." These are the reviewers' own accounts, not results this article has verified itself.
-
----
 
 ## Similar Projects and Reception
 
@@ -124,8 +114,6 @@ An English-language independent blog, [andrew.ooo](https://andrew.ooo/posts/kimi
 [A Zhihu getting-started post](https://zhuanlan.zhihu.com/p/2003206943536326314) goes into fairly granular detail, stating plainly that "the first launch requires configuring the API, which means buying a monthly plan on Kimi's official site," and offers a specific comparison: "compared to a Claude Code plan, Kimi-CLI gets you 3x the usage at 1/7 the price." It also mentions a `--yolo` flag, a no-confirmation mode similar to what Claude Code offers.
 
 Reddit's take is less uniform. [One thread](https://www.reddit.com/r/kimi/comments/1rth36f/incredible_trick_w_k25/) has a user stating outright that "kimi-cli is very barebones," with a specific complaint about access control: "it did not have a proper access control implementation. Either allow all commands or keep approving all commands." Another comment there argues "the Claude Code harness far outperforms Kimi CLI." [A second thread](https://www.reddit.com/r/kimi/comments/1r7dn7v/how_to_see_usage_of_kimi/) documents the practical flow of actually subscribing to a paid plan, getting a discount, generating an API key at kimi.com/code/console, and wiring that key into a third-party tool — useful as a reference for understanding Kimi's billing and key-issuance process.
-
----
 
 ## Prompt for AI Coding Agents
 
@@ -147,8 +135,6 @@ Share the output of kimi --version and the agent's actual reply after /login wit
 Specific commands and details can be checked against this article: https://mikeq95blog.uk/blog/2026/08/28/kimi-cli-github-project
 ```
 
----
-
 ## Uninstalling and Running It Again
 
 Uninstalling means removing two things: Kimi CLI itself, and everything it's accumulated under `~/.kimi/` — config, sessions, login credentials, and logs.
@@ -167,8 +153,6 @@ kimi
 ```
 
 If the login has expired, running `/login` again takes care of it.
-
----
 
 ## Summary
 

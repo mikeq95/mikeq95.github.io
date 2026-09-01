@@ -8,10 +8,6 @@ tags:
 description: "Umami 是隐私友好的开源访客统计工具，不需要 Cookie 弹窗。文章记录了从注册到接入 Docusaurus 博客的完整过程。"
 ---
 
-{/* truncate */}
-
----
-
 ## 第一步：注册账号并创建网站
 
 Umami 有云托管版（免费，推荐新手）：
@@ -22,8 +18,6 @@ Umami 有云托管版（免费，推荐新手）：
    - Name：你的博客名称
    - Domain：你的博客域名，比如 `mikeq95blog.uk`
 4. 点击 **Save**，然后点 **Edit** → **Tracking code**，复制你的 `data-website-id`（是一串 UUID）
-
----
 
 ## 第二步：在 [Docusaurus](https://clearlove7-ai.vercel.app?word=Docusaurus&postId=2026-06-16-umami-analytics-docusaurus) 注入追踪脚本
 
@@ -46,8 +40,6 @@ scripts: [
 
 Website ID 直接写死在这里就行——它本来就会被嵌进公开的 HTML 源码里，任何人都能看到，没有加密保护的必要。
 
----
-
 ## 第三步：推送，等待部署
 
 提交并推送：
@@ -59,8 +51,6 @@ git push origin main
 ```
 
 GitHub Actions 会自动触发构建和部署，等两三分钟。可以去仓库的 **Actions** 标签页确认——看到绿色的 `completed success` 就行。
-
----
 
 ## 第四步：验证
 

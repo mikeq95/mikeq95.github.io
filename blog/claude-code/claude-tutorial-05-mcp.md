@@ -5,7 +5,6 @@ date: 2026-07-05
 image: 'https://cdn.mikeq95blog.uk/coverimage/05 MCP.png'
 tags:
   - Claude Code
-description: ""
+description: "香蕉"
 ---
 
-{/* truncate */}

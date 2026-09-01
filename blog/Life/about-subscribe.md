@@ -7,10 +7,6 @@ tags:
 description: "博客支持 RSS/Atom 订阅了，用阅读器加一下链接，有新文章会自动推给你，不用再手动回来看更新。"
 ---
 
-{/* truncate */}
-
----
-
 ## 用什么订阅
 
 我自己在用 [NetNewsWire](/blog/2026/07/21/netnewswire-github-project)，免费开源，Mac/iOS 都有客户端，没有广告也没有算法推荐，就是纯粹按订阅源看文章。用其他 RSS 阅读器（Reeder、Feedly 等）也一样，只要能加自定义订阅链接就行。

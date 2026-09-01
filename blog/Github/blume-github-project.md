@@ -6,11 +6,7 @@ tags: [markdown, open-source, llm, Ai-friendly]
 description: Blume 是一个基于 Astro 和 Vite 的开源文档框架，维护一个 Markdown 文件夹就能生成带本地搜索、AI-ready 输出和组件库的静态文档站，不用自己搭一个 React 项目。
 ---
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
@@ -25,8 +21,6 @@ description: Blume 是一个基于 Astro 和 Vite 的开源文档框架，维护
 `blume check` 用 `astro check` 做类型检查，`blume validate` 校验内部链接和资源，`blume doctor` 诊断配置和内容问题，这三个我本地都跑了一遍，输出很干净。`audit`、`validate --external`、`translate`、`eval` 这几个命令还能接本地装好的 Claude Code 或 Codex CLI，直接帮你把发现的问题改掉，不过这几个依赖本地 agent 环境，我没有连带测。部署到 Vercel、Netlify、Cloudflare Pages 基本不用自己配 adapter，会自动识别。
 
 仓库建于 2026 年 6 月下旬，7 月 13 日发布 1.0，写这篇文章时 star 数已经过了 1350，8 月下旬还在提交代码。作者 Hayden Bleasel 之前做过 next-forge 和 Ultracite，走的也是"零配置、装完就能用"的路线，Blume 算是这条产品线上最新的一个。
-
----
 
 ## 安装环境
 
@@ -48,8 +42,6 @@ npx blume init --yes
 npm install
 ```
 
----
-
 ## 运行
 
 启动带热更新的开发服务器：
@@ -67,8 +59,6 @@ npm run build
 ```
 
 这一步我这边也跑通了，输出目录里能看到 `llms.txt`、`llms-full.txt`、`robots.txt`、`blume-search.json`，`index.html` 是编译好的静态页面，扔到任何静态托管都能直接用。
-
----
 
 ## 效果展示
 
@@ -107,8 +97,6 @@ $ npm run doctor
 ╰───────────────────────────────────────╯
 ```
 
----
-
 ## 同类项目和评价
 
 Blume 自己的 FAQ 页面点出了几个对标产品。[Mintlify](https://mintlify.com) 出效果快，但内容要写在它的托管系统里，部署也绑定在它的基础设施上，核心闭源。[Fumadocs](https://fumadocs.dev) 换了个方向，开源组件库，灵活度高，代价是给你一个要自己搭、自己长期维护的 Next.js 项目。Docusaurus 也被归进同一类：同样开源，同样需要你自己拥有并维护一个 React 应用。Blume 走的是第三条路——"框架即模板"，跑在 Astro 上，不需要额外维护一个应用。
@@ -116,8 +104,6 @@ Blume 自己的 FAQ 页面点出了几个对标产品。[Mintlify](https://mintl
 [Winbuzzer 的一篇分析](https://winbuzzer.com/2026/07/16/blume-turns-markdown-folders-into-ai-ready-documentation-xcxwbn/)把 Blume 和 VitePress、MkDocs 放在一起横向比较，也提出了自己的疑问：Ask AI 和 MCP 这类交互功能还是要团队自己维护一个服务端 adapter，最终能不能省下 Blume 想帮你省掉的运维负担，得看实际部署情况。
 
 Blume 是个刚发布一个半月的新项目（仓库建于 6 月下旬，7 月 13 日发布 1.0），星标涨得快，但在 X、Reddit、知乎上换了几组关键词都没搜到真正独立的社区讨论或使用体验，找到的大多是作者自己的发布推文和跟着发布节奏写的科技媒体介绍稿。作者 Hayden Bleasel 目前在 OpenAI 工作，之前做的 next-forge、Ultracite 走的也是同一种"零配置、开箱即用"路线，Blume 是这条产品线上最新的一个。
-
----
 
 ## 给 AI 编程助手的提示词
 
@@ -137,8 +123,6 @@ Ask AI 助手和托管 MCP 服务器需要切换到服务端渲染部署，并�
 具体命令、代码细节可以参考这篇文章核实：https://mikeq95blog.uk/blog/2026/08/28/blume-github-project
 ```
 
----
-
 ## 卸载和下次运行
 
 卸载：删掉 `blume` 依赖和它生成的配置、缓存、构建产物就行。
@@ -157,8 +141,6 @@ npm run dev
 # 或
 npm run build
 ```
-
----
 
 ## 总结
 

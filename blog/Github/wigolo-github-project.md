@@ -8,11 +8,7 @@ description: wigolo 是一个本地优先的 MCP server，把网页搜索、抓�
 
 [wigolo](https://github.com/KnockOutEZ/wigolo) 是一个跑在本机的 MCP server，专门给 AI coding agent 处理"上网"这件事。它的六个核心工具完全不用 API Key，查询免费，数据也不会离开本机。
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
@@ -23,8 +19,6 @@ description: wigolo 是一个本地优先的 MCP server，把网页搜索、抓�
 再往上，wigolo 还有两个需要接一个 LLM key 才能用的自治工具。research 把一个问题拆成好几个子查询，并行抓取来源，最后合成一份带引用的报告。agent 只要给一句自然语言指令，就会自己规划该搜什么、抓哪些 URL，在给定的时间预算内跑完。这两个工具我这次没测，得配一个免费的 Gemini key 或者本地 Ollama 才能用，怎么配后面会提一句。
 
 真正让 wigolo 和普通搜索 API 不一样的，是它在每条结果里都带上原文出处的字节偏移量，官方叫 `source_span`。实测搜一个词，返回结果里确实带着 `source_span` 的 `start`/`end` 字段，精确到摘录文字在原网页里的哪个位置，agent 引用内容的时候能明确指到具体是哪一段，不是"大概来自这篇文章"这种模糊说法。每条结果的可信度也拆开给分，不是甩一个笼统的相关度数字了事，语义相关度和关键词匹配度是主要依据，另外还会看有几个搜索引擎同时召回同一条结果。哪个引擎掉线、被限流，wigolo 也不会悄悄把结果里的空缺抹平，这点在效果展示部分具体测过。
-
----
 
 ## 安装环境
 
@@ -52,8 +46,6 @@ npx wigolo doctor
 
 至此，wigolo 的本地环境已经装好，可以往下运行了。
 
----
-
 ## 运行
 
 装完之后有两种用法。什么参数都不加，直接跑：
@@ -65,8 +57,6 @@ wigolo
 这条命令会在 stdio 上起一个 MCP server，配合 `init` 时 `--agents` 接好的编程 agent 就能直接用。另一种是命令行一次性调用某个工具，方便单独验证某个功能，接下来六个核心工具都是用这种方式测的。
 
 至此，wigolo 已经能正常跑起来。
-
----
 
 ## 效果展示
 
@@ -140,15 +130,11 @@ npx wigolo find-similar "https://docs.astral.sh/uv/" --max-results 5 --json
 
 六个核心工具都在真实网络请求下跑通了。research 和 agent 这两个需要接 LLM key 的工具这次没测，配一个免费的 Gemini key 或者本地 Ollama 应该也能用，只是没有实际验证。
 
----
-
 ## 相关项目和评价
 
 做同一件事的商业产品不少。[Firecrawl](https://www.firecrawl.dev/) 专注网页抓取和结构化提取，也支持全站爬取，wigolo 官方对比表里把它列为对标对象之一，差别在于 Firecrawl 要 API Key、按量计费，wigolo 额外做了字节级来源定位和可解释评分，查询也免费。[Exa](https://exa.ai/) 语义搜索这块更专精，wigolo 的 README 里实测过它能完整渲染对比矩阵这类结构化内容，但同样要 API Key、按次收费，也没有 source_span 和评分拆解这些东西。[Tavily](https://www.tavily.com/) 定位是给 agent、RAG 场景用的搜索 API，搜索和抓取能力跟 wigolo 差不多在一个量级，只是不支持全站爬取，同样要 Key 要计费。
 
 知乎有篇[开源项目介绍文章](https://zhuanlan.zhihu.com/p/2062103128321930499)把这 10 个工具的设计逻辑拆得比较细，也讲清楚了字节级来源定位和可解释评分这两个机制，给出的建议是按场景挑工具，不是无脑吹一个踩另外几个；文章里也提到一个诚实的局限，数据中心 IP 在有反爬措施的网站上，挑战清除率不如家庭网络。X 上认证账号 [@geekbb 发的一条对比帖](https://x.com/geekbb/status/2082645166876471506)标题是"Firecrawl vs Wigolo，Wigolo 强得没边了"，拿到了 464 个赞、6.9 万次浏览，评论区里 [@Ericgongg_ 的回复](https://x.com/Ericgongg_/status/2082659076333563980)给出了不同意见："好像很强，但是配置下来非常不稳定，搜索引擎也费劲。"这条回复正好跟我这边第一次调用 `search` 卡了三分多钟的情况对得上，说明这不是我这台机器特有的问题。
-
----
 
 ## 给 AI 编程助手的提示词
 
@@ -171,8 +157,6 @@ npx wigolo find-similar "https://docs.astral.sh/uv/" --max-results 5 --json
 具体命令、参数细节可以参考这篇文章核实：https://mikeq95blog.uk/blog/2026/08/28/wigolo-github-project
 ```
 
----
-
 ## 卸载和下次运行
 
 装的时候全程用 `npx`，没有全局安装什么东西，真正占地方的是 `init` 下载的浏览器引擎和模型。卸载一步到位：
@@ -190,8 +174,6 @@ npx wigolo search "your query" --json
 ```
 
 wigolo 会自动判断本机有没有装好的组件，缺了再重新走一遍下载流程。
-
----
 
 ## 总结
 

@@ -11,11 +11,7 @@ tags:
 description: Agent Reach 是一个开源命令行工具，为 AI Agent 挑选、安装并体检十几个平台当前最稳定的接入方式，实际的搜索和读取由 gh、yt-dlp 等上游工具直接执行。
 ---
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
@@ -44,8 +40,6 @@ description: Agent Reach 是一个开源命令行工具，为 AI Agent 挑选、
 
 装的时候默认只做只读检查，不会偷偷改系统，得显式加 `--system` 才会真的装依赖、写配置；`--dry-run` 能提前看会做什么；卸载时也能选择只删 skill 文件、保留已经配好的 Cookie。
 
----
-
 ## 安装环境
 
 本机需要 Python 3.10 及以上。官方特别提醒不要从 PyPI 直接 `pip install agent-reach`——那是同名的另一个包，不是这个项目，必须从 GitHub 源码装。
@@ -65,8 +59,6 @@ pip install https://github.com/Panniantong/agent-reach/archive/main.zip
 ```
 
 两种方式装完，`agent-reach` 命令都会被链到 PATH 里。
-
----
 
 ## 运行
 
@@ -103,8 +95,6 @@ agent-reach doctor
 网页、YouTube、RSS、V2EX 这几个零配置渠道，在我这台机器上直接就是绿色的 ✅。
 
 > 注意，`doctor` 把 GitHub 和全网语义搜索标成了黄色感叹号，不代表它们坏了。它是刻意不做实时联网校验（比如不去执行会写 device-id 的 `gh auth status`），实际调用起来都是通的，下一节可以看到。
-
----
 
 ## 效果展示
 
@@ -157,8 +147,6 @@ Title: 2026 年最佳 LLM 框架对比（附使用场景） – ModelRiver Blog
 ...
 ```
 
----
-
 ## 相关项目和评价
 
 ### 同类产品
@@ -172,8 +160,6 @@ Title: 2026 年最佳 LLM 框架对比（附使用场景） – ModelRiver Blog
 ### 社区讨论
 
 知乎上有两篇实操记录值得一看。[一篇](https://zhuanlan.zhihu.com/p/2015498181513864402)提到，Claude Code 默认只扫描根目录的 SKILL.md，识别不到 Agent Reach 嵌套在 `agent_reach/skill/` 目录下的文件，得手动复制一份出来。服务器访问 B 站、Reddit 时常因为数据中心 IP 被平台封锁返回 403，配一个住宅代理能解决。[另一篇](https://zhuanlan.zhihu.com/p/2014693200489652339)是"老金"实测 9 个平台的记录，踩的坑更细一点。Chrome 130 以后给 Cookie 加了一层加密，rookiepy 这类自动提取工具直接失效，只能去 DevTools 里手动复制 `auth_token` 和 `ct0`。Windows 上 mcporter 输出的 Unicode 字符会让 Python 按 GBK 解码崩掉，他自己改了源码加上 `encoding='utf-8'` 才修好；同样在 Windows，mcporter 启动子进程时还会找不到 `.CMD` 文件。他也提到 Cookie 认证虽然稳定，但会过期，建议用小号操作，免得主账号被牵连。
-
----
 
 ## 给 AI 编程助手的提示词
 
@@ -203,8 +189,6 @@ Title: 2026 年最佳 LLM 框架对比（附使用场景） – ModelRiver Blog
 具体命令、细节可以参考这篇文章核实：https://mikeq95blog.uk/blog/2026/08/28/agent-reach-github-project
 ```
 
----
-
 ## 卸载和下次运行
 
 卸载对应装的两块东西：Agent Reach 自己的配置，和上游工具的依赖。
@@ -224,8 +208,6 @@ agent-reach doctor
 ```
 
 确认渠道状态还正常，就能照常让 Agent 调用上游工具了。
-
----
 
 ## 总结
 

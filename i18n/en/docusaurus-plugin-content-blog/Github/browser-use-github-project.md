@@ -15,8 +15,6 @@ description: Browser Use is an open-source Python framework that lets an AI agen
 
 > If you're new to this, this post includes a ready-to-use AI prompt that can set up the environment for you in one go.
 
----
-
 ## Introduction
 
 The project was created in late 2024 by Magnus Müller and Gregor Žunič, one based in Zurich, the other in San Francisco. As of when this post was written, its GitHub star count had climbed to 111,498, with over 12,000 forks — one of the largest open-source projects in the AI browser-automation space. The repo is still getting commits regularly; this isn't a project that burned bright once and went quiet.
@@ -28,8 +26,6 @@ If you want to run tasks in bulk from your own code, or embed browser capability
 The open-source version is free, runs entirely on your own machine, and lets you deeply customize agent behavior. The README also says plainly that concurrent multi-browser sessions, proxy rotation, and anti-detection all concentrate in the paid Browser Use Cloud, and the accuracy chart it includes shows the cloud version scoring noticeably higher — a tradeoff the project acknowledges itself in its own documentation. The cloud tier additionally offers automatic CAPTCHA handling, sessions up to 4 hours long (for paid subscribers), over a thousand third-party integrations, and rerunnable scripts that keep working even after a target site's layout changes.
 
 On the benchmark side, the project open-sourced `browser-use/benchmark`, covering 100 real-world browser tasks that anyone can pull down and verify for themselves. A separate third-party leaderboard, Odysseys, measures 200 long-horizon web tasks specifically, and browser-use ranks first there with an average score of 87.4%, ahead of the computer-use agents from OpenAI, Anthropic, Google, and Microsoft.
-
----
 
 ## Setup
 
@@ -56,8 +52,6 @@ BROWSER_USE_API_KEY=your-key
 ```
 
 `BROWSER_USE_API_KEY` is the project's own key, and it works with `ChatBrowserUse` as well as any provider-prefixed model id. If you'd rather not use it, you can fill in an OpenAI, Anthropic, or Google key directly instead. If you're going the CLI-plus-coding-agent route, you can skip this step entirely — the coding agent's own model subscription is enough.
-
----
 
 ## Running
 
@@ -105,8 +99,6 @@ curl -X POST https://api.browser-use.com/api/v4/runs \
 
 > Note: the CLI path and the Python library path are two distinct mechanisms. In the CLI, the coding agent's own model is the "brain," and browser-use just carries out the resulting CDP instructions. In the Python library, `Agent()` is browser-use's own full decision loop. Don't conflate the two.
 
----
-
 ## Results
 
 This section is put together from the official docs, the open-source benchmark repo, and community reports — not a local, hands-on test. Running an agent loop burns LLM tokens, and this post deliberately doesn't spin up an actual agent task to spend that money.
@@ -114,8 +106,6 @@ This section is put together from the official docs, the open-source benchmark r
 The README gives two concrete scenarios. One is filling out a job application, matching resume details to form fields one by one — [the corresponding example script](https://github.com/browser-use/browser-use/blob/main/examples/use-cases/apply_to_job.py) is right there in the repo. The other is extracting structured data about a user's followers on a social platform and exporting it as a CSV, done through [the Cloud path](https://docs.browser-use.com/cloud/quickstart). The `examples/use-cases` directory also has scripts for price comparison, checking appointment availability, CAPTCHA handling, and password-manager integration — a wider range of tasks than what's shown on the front page.
 
 On benchmarks, the project's own `browser-use/benchmark` covers 100 real-world browser tasks and is itself open source, so anyone curious can run it and check the numbers themselves. The third-party Odysseys leaderboard separately measures 200 long-horizon web tasks, and browser-use ranks first there with an average score of 87.4% — that number comes from a third-party leaderboard, not the project grading its own homework.
-
----
 
 ## Similar Projects and Reception
 
@@ -130,8 +120,6 @@ An analysis on the independent blog [artificiallyintimidating.com](https://artif
 ### Community Discussion
 
 Two Reddit threads are worth a look. [The first](https://www.reddit.com/r/AI_Agents/comments/1r4wa5a/deterministic_verification_for_browseruse_run_step/) describes a real "silent drift" problem: a click registers but the page state doesn't actually change, a scroll happens but the content doesn't move, and the agent believes the action succeeded anyway. The poster shared a verification plugin they wrote to catch this. [The second](https://www.reddit.com/r/AI_Agents/comments/1kfkp7u/how_do_you_handle_authentication_with_browseruse/) discusses sites with passkey login enabled, where logging in via browser-use's Chromium session frequently fails — a concrete scenario that, as of the discussion, still isn't fully solved. [A post on X from Nous Research](https://x.com/NousResearch/status/2086881660658663469) offers feedback from a cost-efficiency angle. After replacing Hermes Agent's original twelve separate browser tools with a single tool driven by browser-use CLI 3.0, they measured a 48% to 66% drop in token consumption, with no corresponding drop in accuracy.
-
----
 
 ## Prompt for AI Coding Agents
 
@@ -154,8 +142,6 @@ Paste back to the user the output of browser-use --doctor, along with the histor
 For exact commands and details, see this post: https://mikeq95blog.uk/blog/2026/08/28/browser-use-github-project
 ```
 
----
-
 ## Uninstalling and Running It Again
 
 Uninstalling maps to the two things that got installed: the Python package itself, and the Chromium it pulled down.
@@ -172,8 +158,6 @@ To use it again later, there's no need to redo the whole install flow — just c
 ```bash
 browser-use --doctor
 ```
-
----
 
 ## Summary
 

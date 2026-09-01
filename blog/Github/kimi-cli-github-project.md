@@ -11,11 +11,7 @@ tags:
 description: Kimi CLI 是 Moonshot AI 做的终端 AI 编程 Agent，能读写代码、执行 Shell 命令并接入 MCP、ACP 编辑器协议，项目目前已被官方标注为逐步停止维护，建议新用户直接使用继任项目 Kimi Code CLI。
 ---
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
@@ -26,8 +22,6 @@ description: Kimi CLI 是 Moonshot AI 做的终端 AI 编程 Agent，能读写�
 它不只是一个对话框式的编程助手，同时还兼任 Shell。按一下 `Ctrl-X`，就能在"AI 智能体"模式和"原生终端"模式之间切换，不用退出 Kimi CLI 另开一个窗口跑普通命令。不过 `cd` 这类 Shell 内建命令目前还不支持，官方文档给的绕开办法是用 `--work-dir` 参数指定目录，或者干脆退出重开一次会话。装上官方的 zsh-kimi-cli 插件，还能把这个切换习惯带进日常用的 Zsh 里。
 
 编辑器这一侧，Kimi CLI 提供了一个 VS Code 扩展，把 CLI 接进编辑器界面；对 Zed、JetBrains 这类支持 Agent Client Protocol（ACP）的编辑器，它可以作为外部 Agent 直接接入，一套协议通用，不用为每个编辑器单独写适配。扩展能力上，`kimi mcp` 子命令组管理 MCP 服务器的增删查和 OAuth 授权，也支持用配置文件做一次性接入。除了终端界面，`kimi web` 命令还能起一个本地网页版，默认只监听 `127.0.0.1`，想在局域网内用需要显式加 `--network` 或指定 `--host`。
-
----
 
 ## 安装环境
 
@@ -52,8 +46,6 @@ uv tool install --python 3.13 kimi-cli
 装完用 `kimi --version` 确认一下。1.x 是这里说的 Kimi CLI（Python 打包，PyPI 分发），如果看到 0.x，说明装到的是继任项目 Kimi Code CLI（TypeScript 写的，npm 分发，单文件二进制）——两者都会装出一个叫 `kimi` 的命令，容易混。
 
 登录这一步大概率要花钱。首次运行时执行 `/login`，可以选 Kimi Code 平台走浏览器 OAuth 授权，也可以手动填 Moonshot AI Open Platform（moonshot.cn 或 moonshot.ai）的 API Key。官方文档的 FAQ 里专门有一条"会员到期或额度用尽"的排查项，指向 `/usage` 命令和续费页面，说明免费额度大概率撑不了太久；第三方实测博客也记录过免费账号直接调用会触发 402 错误，正式订阅从每月 49 元起。这篇文章不打算实际开通付费账号验证这一步。
-
----
 
 ## 运行
 
@@ -97,8 +89,6 @@ kimi --mcp-config-file /path/to/mcp.json
 
 至此，从命令行到编辑器再到 MCP 扩展，这几条常见路径都跑通了。
 
----
-
 ## 效果展示
 
 这一节的内容整理自官方文档和第三方评测，不是本地实测的结果。按计划要跑通完整流程需要一个付费的 Kimi 或 Moonshot 账号，这篇文章没有去开通。
@@ -106,8 +96,6 @@ kimi --mcp-config-file /path/to/mcp.json
 文档自带的演示素材能看出个大概。README 里的 Shell 模式动图展示的是命令行输出直接切换成普通终端提示符的过程，VS Code 扩展截图能看到 Agent 面板嵌在编辑器侧边栏，ACP 集成的动图演示了在 Zed 里新建一个 Kimi CLI 会话的流程。（此处插入截图：以上任一场景的实际运行画面）
 
 第三方实测方面，[知乎一篇上手指南](https://zhuanlan.zhihu.com/p/2003206943536326314)详细记录了配置 API、切换模式的过程；[wangruofeng007.com 的中文评测](https://wangruofeng007.com/blog/2026-01/kimi-code-cli-review/)花 4.99 元买了 7 天体验套餐，实测了分析陌生代码库、生成项目架构文档、复刻一个 React、TypeScript、Vite、Tailwind、Framer Motion 技术栈的博客网站这几个场景，结论是"整体体验接近 Claude Code"。这些都是使用者自己的记录，不是这篇文章验证过的结果。
-
----
 
 ## 相关项目和评价
 
@@ -124,8 +112,6 @@ kimi --mcp-config-file /path/to/mcp.json
 [知乎的一篇入门指南](https://zhuanlan.zhihu.com/p/2003206943536326314)写得比较细，直接提到"首次启动需要配置 API，需要在 kimi 官网购买包月套餐"，给出的对比数据是"Kimi-CLI 与 Claude Code 套餐相比 1/7 价格的情况下可以获得 3x 用量"，也提到了 `--yolo` 这种类似 Claude Code 的免确认模式。
 
 Reddit 上的评价没有那么一致。[一个帖子](https://www.reddit.com/r/kimi/comments/1rth36f/incredible_trick_w_k25/)里有用户直接说"kimi-cli is very barebones"，具体的抱怨是权限控制做得比较糙，原话是"it did not have a proper access control implementation. Either allow all commands or keep approving all commands"，还有评论认为"The Claude Code harness far outperforms Kimi CLI"。[另一个帖子](https://www.reddit.com/r/kimi/comments/1r7dn7v/how_to_see_usage_of_kimi/)记录的是实际开通付费套餐、拿折扣、在 kimi.com/code/console 生成 API Key、再接到第三方工具里用的完整流程，可以当作理解 Kimi 付费和取号流程的参考。
-
----
 
 ## 给 AI 编程助手的提示词
 
@@ -147,8 +133,6 @@ Reddit 上的评价没有那么一致。[一个帖子](https://www.reddit.com/r/
 具体命令、细节可以参考这篇文章核实：https://mikeq95blog.uk/blog/2026/08/28/kimi-cli-github-project
 ```
 
----
-
 ## 卸载和下次运行
 
 卸载对应装的两块东西：Kimi CLI 本身，还有它在 `~/.kimi/` 目录下攒的所有数据，包括配置、会话、登录凭证和日志。
@@ -167,8 +151,6 @@ kimi
 ```
 
 如果登录信息过期了，重新跑一次 `/login` 就行。
-
----
 
 ## 总结
 

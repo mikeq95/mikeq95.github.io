@@ -7,17 +7,11 @@ tags:
 description: "Codex Dream Skin 通过本地 CDP 注入给 OpenAI Codex 桌面客户端加自定义背景皮肤，不改官方二进制和签名，原生控件照常可交互。这篇记录一下它的原理、安装方式和使用体验。"
 ---
 
-{/* truncate */}
-
----
-
 ## 它是什么
 
 [Codex Dream Skin](https://github.com/Fei-Away/Codex-Dream-Skin) 是一个给 Codex 桌面客户端加"皮肤"（skin）的工具，"皮肤"具体指的是给整个窗口铺一层自定义背景图，但侧边栏、建议卡片、项目选择器、输入框这些原生控件都保持真实可交互，不是简单地截图替换成静态图片。
 
 实现原理是本地 CDP（Chrome DevTools Protocol）注入，只在 `127.0.0.1` 本地回环地址上操作，不修改 Codex 的官方二进制文件，也不破坏代码签名——换句话说，换皮肤这件事和 Codex 本体是完全分离的两层。
-
----
 
 ## 安装
 
@@ -32,8 +26,6 @@ start-dream-skin.ps1
 
 前提是本机已经装好 Codex 桌面客户端。
 
----
-
 ## 实际使用感受
 
 ### 自带主题
@@ -47,8 +39,6 @@ start-dream-skin.ps1
 ### 主题切换和一键还原
 
 macOS 菜单栏、Windows 系统托盘里都能保存和切换主题；不想要的时候，一键就能恢复到官方原始外观，不会留下痕迹。
-
----
 
 ## 总结
 

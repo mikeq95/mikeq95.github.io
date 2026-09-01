@@ -7,17 +7,11 @@ tags:
 description: "Langflow 是一个开源的可视化 AI 工作流构建平台，拖拽节点就能搭多 Agent 编排，也能随时切到 Python 源码自定义组件，支持导出成 API、JSON 或 MCP Server。这篇记录一下它的原理、安装方式和使用体验。"
 ---
 
-{/* truncate */}
-
----
-
 ## 它是什么
 
 [Langflow](https://github.com/langflow-ai/langflow) 是一个开源的 AI Agent / 工作流构建平台，核心是一个可视化拖拽界面——把不同功能的节点（模型调用、检索、工具、条件分支等）拖到画布上连线，就能搭出一条完整的工作流,不用从零手写胶水代码。
 
 它没有把自己限制成"纯拖拽工具"：每个节点背后都能打开源码用 Python 自定义，拖拽搭建和写代码可以随时切换。搭好的流程还能一步步单独执行调试,方便定位是哪个节点出的问题,而不是整条流程跑完才知道结果不对。
-
----
 
 ## 安装
 
@@ -38,8 +32,6 @@ docker run -p 7860:7860 langflowai/langflow:latest
 
 想改源码的话也可以走克隆仓库的开发模式安装。
 
----
-
 ## 实际使用感受
 
 ### 多 Agent 编排
@@ -53,8 +45,6 @@ docker run -p 7860:7860 langflowai/langflow:latest
 ### 生态覆盖广
 
 主流的 LLM 服务商和向量数据库基本都能接，也原生支持接入 LangSmith、LangFuse 这类可观测性平台，方便追踪线上跑的工作流具体发生了什么。
-
----
 
 ## 总结
 

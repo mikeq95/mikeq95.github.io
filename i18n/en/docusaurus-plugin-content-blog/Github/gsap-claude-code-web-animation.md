@@ -11,8 +11,6 @@ description: "GSAP's official Claude Code Skills package teaches the AI how to u
 
 {/* truncate */}
 
----
-
 ## What Is GSAP
 
 [GSAP](https://gsap.com) (GreenSock Animation Platform) is currently the most popular JavaScript web animation library. Its core strengths:
@@ -24,8 +22,6 @@ description: "GSAP's official Claude Code Skills package teaches the AI how to u
 - Timeline orchestration: when multiple animations need to be precisely synced or chained (B starts 0.2s after A finishes, and the timing needs to stay easy to tweak), pure CSS gets painful fast. GSAP's timeline makes this much more pleasant.
 - Performance: heavily optimized under the hood (uses transforms instead of layout-triggering properties), so animating lots of elements at once stays smooth.
 - ScrollTrigger plugin: scroll-linked animation (play/pause/pin based on scroll position) is basically the industry standard here, and it's a lot less work than hand-rolling IntersectionObserver and computing progress yourself.
-
----
 
 ## What Is gsap-skills
 
@@ -43,8 +39,6 @@ It includes 8 skills:
 | gsap-performance | Performance optimization tips |
 | gsap-frameworks | Vue, Svelte, and other frameworks |
 | gsap-utils | gsap.utils helper functions |
-
----
 
 ## Installing gsap-skills
 
@@ -71,8 +65,6 @@ For the remaining prompts:
 
 After installation, the skills are saved to `~/.claude/skills/`.
 
----
-
 ## How to Use It
 
 No special commands needed after installation. **Just describe the animation you want in Claude Code**, and Claude will automatically use the relevant skill to write correct code.
@@ -89,8 +81,6 @@ For example, describing an animation along these four points might look like thi
 "The homepage banner title, triggered once the page finishes loading: slide up from 30px below while fading in to its normal position, slightly fast (0.6s), with a bit of elastic bounce. If the title has multiple words/cards, stagger them by 0.1s each instead of having them all pop in at once."
 
 > What's a "banner"? It's that big horizontal showcase block near the top of a page — the thing you see first.
-
----
 
 ## Real Example
 

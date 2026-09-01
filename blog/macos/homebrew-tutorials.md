@@ -8,10 +8,6 @@ tags:
 description: "Mac 用户必备包管理工具 Homebrew 入门指南：一条命令安装、更新、卸载软件，告别手动下载。"
 ---
 
-{/* truncate */}
-
----
-
 ## 安装 Homebrew
 
 ### 在中国
@@ -32,8 +28,6 @@ description: "Mac 用户必备包管理工具 Homebrew 入门指南：一条命�
 
 >"中国有他自己的世界，嗯🤔"
 
----
-
 ## 核心概念：formula 和 cask
 
 在用 [Homebrew](https://brew.sh) 之前，先搞清楚两个概念：
@@ -44,8 +38,6 @@ description: "Mac 用户必备包管理工具 Homebrew 入门指南：一条命�
 > 我说的不是英雄联盟的那个酒桶😂
 
 简单记忆：**有图标的 App → cask，纯命令行工具 → formula**。
-
----
 
 ## 安装软件
 
@@ -60,8 +52,6 @@ brew install git  # 安装 git
 ```bash
 brew install --cask firefox  # 安装 Firefox
 ```
-
----
 
 ## 更新软件
 
@@ -78,8 +68,6 @@ brew upgrade python  # 升级 Python 到最新版
 ```
 
 > **注意**：`brew update` 是更新 Homebrew 自己的清单，`brew upgrade` 才是真正升级软件，两者不一样哦。
-
----
 
 ## 锁定版本
 
@@ -101,8 +89,6 @@ brew list --pinned
 brew unpin python  # 解锁 python
 ```
 
----
-
 ## 卸载软件
 
 卸载命令行工具：
@@ -122,8 +108,6 @@ brew uninstall --cask firefox  # 卸载 Firefox
 ```bash
 /bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/uninstall.sh)"
 ```
-
----
 
 ## 总结
 

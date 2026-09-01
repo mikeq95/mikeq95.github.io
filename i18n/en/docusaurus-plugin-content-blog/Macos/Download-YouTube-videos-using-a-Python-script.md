@@ -10,8 +10,6 @@ description: "Download YouTube videos locally on Mac using a Python script with 
 
 {/* truncate */}
 
----
-
 ## Setting Up the Environment
 
 Your Mac needs the following four tools.
@@ -88,8 +86,6 @@ System Settings → Privacy & Security → Full Disk Access → Add "Terminal"
 
 **Enable a proxy** (required to access YouTube outside China)
 
----
-
 ## Get the Code
 
 You can download the script I wrote, or write it yourself (or have AI write it — see the next section).
@@ -158,8 +154,6 @@ if __name__ == "__main__":
     download_video(url, OUTPUT_DIR)
 ```
 
----
-
 ## The Lazy Approach: Let AI Write the Code
 
 Don't want to write the code yourself? Just paste one of these prompts into ChatGPT, DeepSeek, or Claude and they'll output a working script.
@@ -206,8 +200,6 @@ Explain how to run the script in one sentence.
 
 > AI can write the code for you, but **you still need to set up the environment yourself** (the four tools above). If you don't want to do that manually either, use Claude Code or Codex to run the install commands automatically — just keep clicking yes.
 
----
-
 ## Usage
 
 Once the environment is set up, every download only takes one command.
@@ -227,8 +219,6 @@ python3 ~/Downloads/main.py "https://www.youtube.com/watch?v=5wvq8w7YBXU"
 ```
 
 Press Enter and wait — the video will appear on your **Desktop** when done.
-
----
 
 ## FAQ
 

@@ -8,10 +8,6 @@ tags:
 description: "用一段 Python 脚本配合 yt-dlp，在 Mac 上本地下载 YouTube 视频，配置一次，换链接直接用。"
 ---
 
-{/* truncate */}
-
----
-
 ## 配置运行环境
 
 你的 Mac 上需要以下四个工具
@@ -85,8 +81,6 @@ yt-dlp --version
 
 **开启代理**（在国内访问 YouTube 必须）
 
----
-
 ## 获取代码
 
 你可以直接下载我写好的脚本，也可以自己写（或者让 AI 写，见下一节）。
@@ -155,8 +149,6 @@ if __name__ == "__main__":
     download_video(url, OUTPUT_DIR)
 ```
 
----
-
 ## 懒人做法：让 AI 帮你写代码
 
 不想手动写代码？直接把下面的提示词丢给 ChatGPT、DeepSeek 或 Claude，它们都能给你输出一个可用的脚本。
@@ -211,8 +203,6 @@ Explain how to run the script in one sentence.
 
 > AI 能帮你写好代码，但**环境还是要自己配置**（就是上面那四个工具）。如果你连这个也不想手动做，可以用 Claude Code / Codex 帮你自动执行安装命令，一路点 yes 就行。
 
----
-
 ## 使用步骤
 
 配置好环境之后，每次使用只需要一条命令。
@@ -232,8 +222,6 @@ python3 ~/Downloads/main.py "https://www.youtube.com/watch?v=5wvq8w7YBXU"
 ```
 
 回车之后等待下载完成，视频会自动出现在**桌面**上。
-
----
 
 ## FAQ
 

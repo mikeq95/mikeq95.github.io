@@ -8,17 +8,11 @@ tags:
 description: "CodeGraph 把代码库预建成知识图谱供 Claude Code 直接查询，实测减少 58% 工具调用次数、节省约 16% token 费用。"
 ---
 
-{/* truncate */}
-
----
-
 ## 为什么 Claude Code 会"浪费" token
 
 用 Claude Code 问一个架构问题，比如"这个请求是怎么到数据库的"，它会先开 Explore 子代理，跑一堆 grep/ls/Read 去找文件，找完才开始分析。**整个探索过程本身就在消耗 token**，而且很多时候读了一堆不相关的文件。
 
 [CodeGraph](https://github.com/colbymchenry/codegraph) 的思路是：把这些探索工作提前做好，索引成本地 SQLite 数据库，Claude Code 直接查——一次工具调用返回相关符号的源码、调用图、依赖关系，不用再扫文件。
-
----
 
 ## 安装 CodeGraph
 
@@ -54,5 +48,3 @@ ls your-project/.codegraph
 ```
 
 有就是建过了，没有就跑一次 `codegraph init -i`。
-
-

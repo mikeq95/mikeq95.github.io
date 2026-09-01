@@ -8,10 +8,6 @@ tags:
 description: "用 kokoro-web 把开源 TTS 模型 Kokoro 包成网页界面，Docker 一键启动，填文字点按钮就能生成配音，不用写一行 Python。"
 ---
 
-{/* truncate */}
-
----
-
 ## 它是什么
 
 [kokoro-web](https://github.com/eduardolat/kokoro-web) 是 [Kokoro](https://github.com/hexgrad/kokoro) 模型的一个第三方网页壳，作者是 [eduardolat](https://github.com/eduardolat)，⭐ 600+，MIT 协议。核心功能就是起一个网页，你在输入框里粘贴文字、选个声音、点 Generate，几秒钟后网页里直接出来一个能播放、能下载的音频文件。
@@ -22,8 +18,6 @@ description: "用 kokoro-web 把开源 TTS 模型 Kokoro 包成网页界面，Do
 - **API (Self-hosted)**：本机用 Docker 起一个服务，网页调用这个本地服务生成，速度快很多，模型只下载一次。
 
 这篇教程走第二种，效果更好，也是作者自己推荐的用法。
-
----
 
 ## 装 Docker
 
@@ -51,8 +45,6 @@ source ~/.zshrc
 ```bash
 docker --version && docker compose version
 ```
-
----
 
 ## 部署 kokoro-web
 
@@ -105,8 +97,6 @@ Listening on http://0.0.0.0:3000
 
 `Ctrl+C` 退出日志查看（不会影响服务运行，服务是后台跑的）。
 
----
-
 ## 打开网页，配置一下
 
 浏览器访问 `http://localhost:3000`，就能看到界面：
@@ -141,8 +131,6 @@ Listening on http://0.0.0.0:3000
 
 生成完下面会出现一个播放器，能直接试听，右边的下载图标点一下就能存成音频文件。第一次生成会顺带下载模型（读取 Model quantization 里选的那个版本，几十到几百 MB 不等），之后就会缓存在 `./kokoro-cache` 目录里，不用重复下载。
 
----
-
 ## 效果示例
 
 用 Heart 声音生成的效果：
@@ -150,8 +138,6 @@ Listening on http://0.0.0.0:3000
 <audio controls>
   <source src="/assets/kokoro-demo-google.mp3" type="audio/mpeg" />
 </audio>
-
----
 
 ## 处理 Markdown 文件
 
@@ -166,8 +152,6 @@ pandoc article.md -t plain
 
 终端里会打印出转换后的纯文本，全选复制，粘到网页的 Text to process 框里就行。
 
----
-
 ## 常用命令
 
 ```bash
@@ -178,16 +162,12 @@ docker compose pull       # 拉取新版本镜像
 docker compose down       # 彻底停止并删除容器（./kokoro-cache 里的模型缓存不会被删）
 ```
 
----
-
 ## 常见问题
 
 - **网页打不开 `localhost:3000`**：先 `docker compose ps` 看容器是不是真的在跑，没起来的话看 `docker compose logs` 里的报错。
 - **Generate 之后报 401 / 认证失败**：API Key 填错了，去 ⚙️ 里核对是不是只填了值本身，没带 `KW_SECRET_API_KEY=` 前缀。
 - **选了 Browser 模式巨慢**：模型是在浏览器里现下现跑的，正常但慢，改回 `API` 用本机 Docker 服务。
 - **想换个端口**：`compose.yaml` 里 `"3000:3000"` 改成比如 `"3001:3000"`，重新 `docker compose up -d`，网页地址和 API Base URL 里的端口也要跟着改成 3001。
-
----
 
 ## 卸载
 

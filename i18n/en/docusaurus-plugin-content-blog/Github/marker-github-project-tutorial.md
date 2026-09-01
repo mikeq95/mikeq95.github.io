@@ -93,8 +93,6 @@ Every time you open a new Terminal, remember to activate the environment first:
 conda activate marker
 ```
 
----
-
 ## How to Use
 
 The basic format is a single line:
@@ -114,8 +112,6 @@ Useful options:
 
 After conversion, the output folder will contain a `.md` file and extracted images. Open with Typora or Obsidian for proper rendering.
 
----
-
 ## Practical Examples
 
 ### Convert a Research Paper
@@ -126,8 +122,6 @@ marker_single ~/Downloads/paper.pdf \
 ```
 
 The first run downloads the AI models (~1 GB) — be patient. Afterwards, math formulas are converted to LaTeX, tables and headings are preserved. Results are quite good.
-
----
 
 ## Let AI Tools Handle the Setup
 
@@ -148,8 +142,6 @@ Please complete the following steps in order, check the result after each step, 
 
 Tell me what you're doing before each step. Do not modify system-level configuration. When done, output the installed versions of Python, PyTorch, and marker-pdf.
 ```
-
----
 
 ## Uninstalling
 

@@ -11,11 +11,7 @@ tags:
 description: Browser Use 是一个开源 Python 框架，让 AI 智能体通过 LLM 实时决策来操作浏览器，支持接入编码 Agent 的 CLI 和独立运行的 Python 库两种用法。
 ---
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
@@ -28,8 +24,6 @@ description: Browser Use 是一个开源 Python 框架，让 AI 智能体通过 
 开源版免费，能在自己机器上完整跑起来，也能深度定制 Agent 行为。README 里也直说，多浏览器并发、代理轮换、反检测这些能力集中在付费的 Browser Use Cloud 上，配的那张跑分对比图里，云端版本的准确率明显高出一截——这是项目自己在文档里承认的取舍。云端版另外带验证码自动处理、4 小时长会话（面向付费订阅用户）、上千个第三方集成，还有可以反复执行、目标网站改版了也能继续跑的脚本能力。
 
 跑分方面，官方开源了一个叫 `browser-use/benchmark` 的项目，覆盖 100 个真实浏览器任务，谁都能拉下来自己核实。另一项第三方的 [Odysseys](https://arxiv.org/abs/2604.24964) 榜单专门衡量 200 个长链路网页任务，browser-use 排在第一，平均分 87.4%，比 OpenAI、Anthropic、Google、微软各自的 computer-use 智能体都靠前。
-
----
 
 ## 安装环境
 
@@ -56,8 +50,6 @@ BROWSER_USE_API_KEY=your-key
 ```
 
 `BROWSER_USE_API_KEY` 是官方自己发的 Key，走 `ChatBrowserUse` 或者带厂商前缀的模型 id 都能用；不用它的话，直接填 OpenAI、Anthropic、Google 这些厂商自己的 Key 也行。走 CLI 接编码 Agent 那条路，这一步可以跳过——编码 Agent 自己的模型订阅就够用。
-
----
 
 ## 运行
 
@@ -105,8 +97,6 @@ curl -X POST https://api.browser-use.com/api/v4/runs \
 
 > 注意，CLI 那条路和 Python 库那条路是两套不同的机制。CLI 里编码 Agent 自己的模型是"大脑"，browser-use 只负责把 CDP 指令落地；Python 库里的 `Agent()` 是 browser-use 自己跑的一整套决策循环，两者不要混着理解。
 
----
-
 ## 效果展示
 
 这一节的内容整理自官方文档、开源 benchmark 仓库和社区反馈，不是本地实测的结果。跑一次 Agent 循环要吃 LLM token，这篇文章按计划不实际起一个 Agent 任务去花这笔钱。
@@ -114,8 +104,6 @@ curl -X POST https://api.browser-use.com/api/v4/runs \
 README 里给了两个具体场景。一个是帮你填一份求职申请表，把简历信息对着表单逐项填进去，[对应的示例脚本](https://github.com/browser-use/browser-use/blob/main/examples/use-cases/apply_to_job.py)在仓库里能直接找到；另一个是从社交平台提取粉丝的结构化数据，导出成 CSV，走的是 [Cloud 那条路](https://docs.browser-use.com/cloud/quickstart)。`examples/use-cases` 目录里还有比价、查预约、验证码处理、密码管理器联动这些场景的脚本，覆盖的任务类型比首页展示的要多。
 
 跑分上，官方自建的 `browser-use/benchmark` 覆盖 100 个真实浏览器任务，这个基准本身也开源了，感兴趣可以自己跑一遍核实。第三方的 Odysseys 榜单单独衡量 200 个长链路网页任务，browser-use 排名第一，87.4% 的平均分——这条数据来自第三方榜单，不是官方自己出题自己判。
-
----
 
 ## 相关项目和评价
 
@@ -130,8 +118,6 @@ README 里给了两个具体场景。一个是帮你填一份求职申请表，�
 ### 社区讨论
 
 Reddit 上有两个帖子值得一看。[第一个](https://www.reddit.com/r/AI_Agents/comments/1r4wa5a/deterministic_verification_for_browseruse_run_step/)描述了一个真实遇到的"静默漂移"问题：点了按钮但页面状态其实没变，滚动了但内容没往下走，Agent 自己却以为操作成功了。发帖人分享了自己写的一个校验插件来堵这个漏洞。[第二个](https://www.reddit.com/r/AI_Agents/comments/1kfkp7u/how_do_you_handle_authentication_with_browseruse/)讨论的是开了 passkey 登录的网站，browser-use 用 Chromium session 登录经常会失败，这是一个具体的、目前还没被完全解决的场景。[Nous Research 在 X 上的一条帖子](https://x.com/NousResearch/status/2086881660658663469)是从性价比角度给的反馈。他们把 Hermes Agent 原本十二个独立的浏览器工具换成了 browser-use CLI 3.0 驱动的单一工具，实测下来 token 消耗降低了 48% 到 66%，准确率没有跟着掉。
-
----
 
 ## 给 AI 编程助手的提示词
 
@@ -154,8 +140,6 @@ Reddit 上有两个帖子值得一看。[第一个](https://www.reddit.com/r/AI_
 具体命令、细节可以参考这篇文章核实：https://mikeq95blog.uk/blog/2026/08/28/browser-use-github-project
 ```
 
----
-
 ## 卸载和下次运行
 
 卸载对应装的两块东西：Python 包本身，还有它拉起来的 Chromium。
@@ -172,8 +156,6 @@ rm -rf ~/Library/Caches/ms-playwright   # macOS 上删掉 browser-use install �
 ```bash
 browser-use --doctor
 ```
-
----
 
 ## 总结
 

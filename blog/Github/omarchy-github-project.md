@@ -8,10 +8,6 @@ description: Omarchy 是 DHH 主导的 Arch Linux + Hyprland 发行版，官方�
 
 Omarchy 是 DHH 做的一整套 Arch Linux 发行版，桌面用 Hyprland 平铺窗口管理器，配了他们自己写的 Quickshell 桌面壳。它不是一份装到别的系统上的配置脚本，而是直接给一个完整的安装 ISO。分区、全盘加密、桌面美化这些事在安装阶段就一次做完，重启进去就是一套调好的系统，不用自己从零折腾 Arch。
 
-{/* truncate */}
-
----
-
 ## 介绍
 
 > 写在前面：Omarchy 官方原生支持的 Mac 只有 Intel 芯片机型。苹果芯片（M 系列）目前没有官方支持，只能装社区维护的 Asahi Linux 移植版，或者塞进 Parallels、VirtualBox 这类虚拟机，后一种官方手册原话是"相当繁琐"，性能也不理想。这是一个要接管整块硬盘的完整 Linux 发行版，这篇文章基于官方手册和源码整理，没有实机装过。
@@ -21,8 +17,6 @@ DHH 是 Ruby on Rails 的作者，37signals 的联合创始人，这两年公开
 项目挂在 basecamp 组织名下，由 DHH 所在的 37signals 孵化。它的目标不是做一个大而全的发行版，而是把 DHH 自己日常在用的那套工具链提前装好、调好。编辑器是 Neovim，浏览器是 Chromium，笔记用 Obsidian，办公软件是 LibreOffice，甚至还塞了一个复古风格的 Winamp 式播放器。官方手册里有一句话形容得挺直接，这套系统"零臃肿，只放我自己真正在用的东西"。
 
 Omarchy 更早之前还有一个姊妹项目叫 [Omakub](https://omakub.org/)，是在 Ubuntu + GNOME 上叠一层平铺配置，面向还不想彻底换发行版的人。Omarchy 走得更远，直接换成 Arch + Hyprland，滚动更新、纯键盘操作，面向愿意折腾、想要更彻底体验的人。这两个项目和其他同类方案的具体差异，放在文末"相关项目和评价"里细说。
-
----
 
 ## 安装环境
 
@@ -43,8 +37,6 @@ Omarchy 的 ISO 从 [omarchy.org](https://omarchy.org/) 下载，几个 GB 大�
 M 系列芯片没有官方支持，这一点手册里说得很明确。社区这边能走的路是 [Asahi Alarm](https://asahi-alarm.org/)——一个基于 Asahi Linux 项目、专门给 M1/M2 芯片做的 Arch 移植，在这个基础上再装 Omarchy，社区维护的 [omarchy-mac](https://github.com/omarchy-mac/omarchy-mac) 项目提供了具体教程，官方原话是"需要花点功夫"。
 
 另一条路是虚拟机。官方手册专门有一页 [Omarchy on...](https://github.com/basecamp/omarchy/blob/quattro/manual/49-omarchy-on.md) 列了几种非标准跑法，其中 Parallels VM 的说法是"相当繁琐的过程"，VirtualBox 的说法是"性能大概率不会好"。这两条都是社区自发写的指南，不是官方保证会一直维护的路径。
-
----
 
 ## 运行
 
@@ -68,8 +60,6 @@ omarchy-sudo-passwordless 30
 
 `omarchy debug` 会打印一份调试信息，去官方 Discord 求助时可以直接贴出来；`omarchy reinstall` 用来修复损坏的配置，会把默认包和配置文件重装一遍；`omarchy-channel-set` 用来在 stable、RC、edge、dev 四条更新通道之间切换，新装的系统默认在 stable，会比 Arch 官方镜像慢一个月上线，专门用来提前接住可能出问题的新版本。
 
----
-
 ## 效果展示
 
 这一节没有实机装过跑过，下面写的是官方手册和截图里描述的效果，加上两篇第三方长期使用记录里的说法，不是第一手体验。
@@ -80,8 +70,6 @@ omarchy-sudo-passwordless 30
 
 第三方的长期使用记录能提供更真实的一手参照。[Arch Linux (Omarchy) — 8 Months Later](https://www.ssp.sh/blog/linux-omarchy-the-good-bad-and-fixable/) 是一位从 Mac/Windows 转过来用了 8 个月的开发者写的详细复盘，列出了哪些 macOS 常用工具（比如 Raycast、日历、屏幕共享）在 Linux 上已经找到了替代品、哪些还没彻底解决。另一篇 [Giving Omarchy a Shot](https://chambers.io/blog/2025/08/28/omarchy.html) 是一位常年用 Mac 的开发者专门买了块新硬盘装 Omarchy 试用的记录，讲了自己为什么受够了 macOS 和 Windows 11、决定认真试一次 Arch。
 
----
-
 ## 相关项目和评价
 
 拿 Omarchy 跟同类方案摆在一起看会更清楚它的定位。前面提到的 [Omakub](https://omakub.org/) 是 DHH 更早做的项目，在 Ubuntu + GNOME 上叠一层平铺配置和常用开发软件，面向想从 Mac/Windows 平滑过渡的人；Omarchy 直接换成 Arch + Hyprland，面向愿意折腾、想要滚动更新和纯键盘操作的资深用户。[CachyOS](https://cachyos.org/) 同样基于 Arch，也有 Hyprland 版本可选，卖点是自家优化过的内核和调度器，走的是"极致性能优先，桌面环境自选"的路线，跟 Omarchy 强调的开箱即用美化和 AI agent 工作流预设不是一个重点。[HyDE](https://github.com/HyDE-Project/HyDE) 则不是完整发行版，而是能叠加在任意 Arch 系统上的 Hyprland 美化配置脚本，主打 70 多套可一键切换的主题；Omarchy 把这类桌面美化和系统安装、更新、快照回滚打包成了一体化发行版，装的时候就已经决定了整套系统。
@@ -90,15 +78,11 @@ omarchy-sudo-passwordless 30
 
 X 上也有两条值得一看的帖子。[Hengqian Ling 刷到 Omarchy 后去翻了官网手册目录](https://x.com/linghengqian/status/2091395296274338239)，发现这个发行版根本没有 WSL 版本可用。更有意思的是 [quantumfire_io 的那条帖子](https://x.com/quantumfire_io/status/2092287329889100028)，他在 M1 Max 上测试社区维护的 Mac 移植版，体验反而比之前用的 Intel MacBook Pro 还流畅，测完之后直接把这台 M1 重新分区，把 Omarchy 换成了主力系统。这条帖子算是给前面那句"苹果芯片没有官方支持"加了个真实的反例，社区路线走通了确实能用，只是要自己承担折腾成本。
 
----
-
 ## 卸载和下次运行
 
 Omarchy 不是装在系统里的一个 App，而是接管了整块硬盘的操作系统本身，所以严格意义上的"卸载"跟平时删软件不是一回事。Mac 用户想恢复回 macOS，官方手册给出的路径是用 Internet Recovery 重新联网装回系统；PC 用户想彻底换回原来的系统，就得用别的安装介质重新覆盖磁盘。如果只是想清空当前的个人设置、账号和 `/home`，但保留 Omarchy 本身重新走一遍开机向导，Omarchy 菜单里的 _Setup > Reset Computer_ 提供了这个选项，输入 `reset` 确认后会清掉所有用户账户和数据，回到首次开机的设置界面，前提是这台机器本来就是从 Omarchy ISO 装出来的。
 
 下次运行不涉及"重新启动它"这件事，装好之后 Omarchy 就是这台机器的日常系统，开机即用。如果只是想回退到某次更新之前的状态，不用重装，`omarchy update` 每次执行前都会自动打一个系统快照，在 Limine 引导菜单里选回之前的快照重启就行，只回滚根文件系统，`/home` 里的个人文件不受影响。
-
----
 
 ## 总结
 

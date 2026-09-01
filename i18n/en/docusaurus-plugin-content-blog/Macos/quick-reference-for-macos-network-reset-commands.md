@@ -10,8 +10,6 @@ description: "A quick-reference card for macOS network troubleshooting commands 
 
 {/* truncate */}
 
----
-
 ## Common Commands (in recommended order)
 
 ### 1. Flush DNS Cache
@@ -25,4 +23,3 @@ sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 ```bash
 sudo ipconfig set en0 DHCP
 ```
-

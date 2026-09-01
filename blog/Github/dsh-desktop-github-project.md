@@ -6,10 +6,6 @@ tags: [github, AI, llm, open-source, macos]
 description: DSH Desktop 是社区做的 DeepSeek Harness 原生桌面客户端，把官方 Web UI、Host 服务和插件系统打包进一个下载即用的桌面应用，不隶属深度求索官方。
 ---
 
-{/* truncate */}
-
----
-
 ## 介绍
 
 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 是深度求索在 2026 年 8 月中旬开源的一个智能体框架，主打"万物皆插件"的思路，但它自己只给命令行和一个本地 Web 界面，没有官方桌面客户端。[DSH Desktop](https://github.com/anywhere-labs/dsh-desktop) 就是补这块空白的第三方桌面壳。
@@ -21,8 +17,6 @@ description: DSH Desktop 是社区做的 DeepSeek Harness 原生桌面客户端�
 它的核心设计原则是"桌面本身也是一个插件"。项目没有改动上游 DeepSeek Harness 的源码，窗口、托盘、终端这些桌面能力全部通过 Harness 自带的 [Cordis](https://github.com/cordiverse/cordis) 插件机制拼进同一个运行时，跟其他第三方插件遵守同一套组合规则。Cordis 这套插件框架并不新鲜，最早是从 [Koishi](https://github.com/koishijs/koishi) 机器人框架里拆出来的通用插件系统。
 
 代码以 MIT 协议开源，仓库昨天还有代码推送，更新算勤快。
-
----
 
 ## 安装环境
 
@@ -48,8 +42,6 @@ codesign -dv --verbose=4 "/Applications/DSH Desktop.app"
 >
 > ❌ 异常：报 `code object is not signed at all`，说明装的是没签名的野生包，回官方页面重新下载
 
----
-
 ## 运行
 
 macOS 首次打开大概率会被 Gatekeeper 拦一下，右键点"打开"确认一次就行。
@@ -71,8 +63,6 @@ dsh plugin update
 ```
 
 装卸默认只作用于当前激活的 profile，重启应用后新插件才会生效。
-
----
 
 ## 效果展示
 
@@ -96,8 +86,6 @@ DSH Community Market 内置在应用里，提供插件的发现、详情、安�
 
 README 里手机远程控制还标着"即将推出"，宣传图上的功能目前用不了。
 
----
-
 ## 相关项目和评价
 
 DSH Desktop 不是唯一在给 DeepSeek Harness 做桌面壳的项目。[MochiNek0/dsh-desktop](https://github.com/MochiNek0/dsh-desktop) 走的是 Tauri 路线而不是 Electron，同样把 `dsh web` 的界面装进原生窗口、共享同一份 session 数据，体积和资源占用上是个直接的对照组。[desktop-cc-gui](https://github.com/zhukunpenglinyutong/desktop-cc-gui) 走得更远，同一个 Tauri 桌面壳里塞了 Claude Code、Codex、Gemini、OpenCode 好几个 Agent 引擎，是"一个客户端管所有 Coding Agent"的思路，跟 DSH Desktop 死磕单一 Harness 深度集成正好相反，star 数（4000 多）也明显更高。
@@ -106,8 +94,6 @@ CSDN 博主"高擎 AI+"写过一篇[实测安装教程](https://blog.csdn.net/25
 
 极客邦联合创始人池建强在 X 上[发过一条推文](https://x.com/sagacity/status/2089183016807809385)，说他一直觉得 DeepSeek 的 Harness 应该像 Codex、Qoder 那样做成下载安装、打开就能用的桌面 App，装完 DSH 预览版之后特意提了这一点。这条推文侧面说明了为什么 DSH Desktop 这类第三方桌面壳会冒出来——官方框架本身没打算做这件事。
 
----
-
 ## 卸载和下次运行
 
 卸载：macOS 从 Applications 把 DSH Desktop 拖进废纸篓；Windows 走系统"添加或删除程序"。
@@ -115,8 +101,6 @@ CSDN 博主"高擎 AI+"写过一篇[实测安装教程](https://blog.csdn.net/25
 本地留存的 profile、日志、安装 ID 存在 `~/Library/Application Support/DSH Desktop`（macOS）或对应的 Windows AppData 目录下，卸载应用本体不会自动清掉这些文件，想彻底清干净得自己手动删。
 
 下次运行直接打开应用即可，不需要重新走一遍设置向导，配置已经保存在 profile 里了。
-
----
 
 ## 总结
 

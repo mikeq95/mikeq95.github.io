@@ -10,8 +10,6 @@ description: 卡片/分栏/步骤条/Tabs/手风琴/代码组在这个博客里�
 >
 > 这一版把六个 `import` 全删了——`Tabs`/`TabItem`/`Card`/`CardGrid`/`Columns`/`Steps`/`Step` 现在都在 `src/theme/MDXComponents.js` 里全局注册了，下面这些组件标签是直接写的，文件里没有任何 import 语句。
 
----
-
 ## 1. 卡片（自建组件，已注册为全局，零 import）
 
 <CardGrid>
@@ -25,8 +23,6 @@ description: 卡片/分栏/步骤条/Tabs/手风琴/代码组在这个博客里�
     颜色和圆角都复用了博客已有的 CSS 变量。
   </Card>
 </CardGrid>
-
----
 
 ## 2. 分栏（自建组件，已注册为全局，零 import）
 
@@ -46,8 +42,6 @@ description: 卡片/分栏/步骤条/Tabs/手风琴/代码组在这个博客里�
 
   </div>
 </Columns>
-
----
 
 ## 3. 步骤条（自建组件，已注册为全局，零 import）
 
@@ -73,8 +67,6 @@ npm start
   </Step>
 </Steps>
 
----
-
 ## 4. Tabs（Docusaurus 原生，已注册为全局，零 import）
 
 <Tabs>
@@ -88,8 +80,6 @@ npm start
     用发行版自带的包管理器。
   </TabItem>
 </Tabs>
-
----
 
 ## 5. 手风琴（Docusaurus 原生，`<details>` 标签，不需要 import）
 
@@ -110,8 +100,6 @@ console.log('accordion 里也能放代码');
 ```
 
 </details>
-
----
 
 ## 6. 代码组（没有原生组件，用零 import 的 Tabs 包代码块实现）
 
@@ -138,8 +126,6 @@ yarn add blume
 
   </TabItem>
 </Tabs>
-
----
 
 ## 小结
 

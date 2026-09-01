@@ -6,11 +6,7 @@ tags: [e-reader, esp32, firmware, open-source, Ai-friendly]
 description: CrossPoint Reader 是运行在 Xteink X3/X4 电纸书上的开源固件，用 C++ 写成、基于 PlatformIO 构建，这篇文章根据源码、官方文档和第三方评测整理，没有做实机验证。
 ---
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
@@ -21,8 +17,6 @@ description: CrossPoint Reader 是运行在 Xteink X3/X4 电纸书上的开源�
 ESP32-C3 只有大约 380KB 可用 RAM，这个限制几乎决定了整套固件的设计思路。书籍章节第一次打开时会解析并缓存到 SD 卡，之后直接读缓存，不用每次都重新解析全文。
 
 项目的边界划得也很清楚。SCOPE.md 里明确把记事本、计算器、游戏这类"互动应用"划在范围外，也不打算做 RSS 阅读器或网页浏览器——常驻 Wi-Fi 太耗电，单核 CPU 也扛不住。PDF 更是直接被排除，理由是它属于固定排版格式，电纸书渲染出来只能靠平移缩放看，体验天生就差。眼下主题系统和新的网络同步类 PR 也暂时关闭，团队想先把代码和多设备支持这块收拢好，再谈新功能。项目靠 Royalty.dev 给贡献者分钱，开放资助的头几个小时就筹到 600 多美元，官方说这是社区需求真实存在的信号。
-
----
 
 ## 安装环境
 
@@ -50,8 +44,6 @@ Nix/NixOS 用户可以直接 `nix develop -f nix` 或 `nix-shell nix` 进开发�
 注意，有一类设备需要额外一步。从 AliExpress 等第三方渠道买的部分 Xteink 机器出厂时锁了 USB 刷机，得先用官方的 Xteink Unlocker（crosspointreader.com/#unlock-tool）解锁。官方特别提醒，解锁工具里目前只有 CrossPoint 和 CrossInk 是官方支持的固件，刷别的固件有可能永久变砖，或者卡死在当前固件上没法恢复。直接从 xteink.com 买的机器不受影响，不用解锁。不确定自己的设备锁没锁，可以先直接试网页刷机，序列设备选择框里如果找不到设备，换个 USB 口或浏览器再试一次，还是不行才需要考虑解锁。
 
 至此，装什么、什么时候不用装，应该已经分清楚了。
-
----
 
 ## 运行
 
@@ -99,8 +91,6 @@ USER_GUIDE.md 里写了首次开机会直接停在 Home 主界面，之后每次
 
 至此，几条刷机路径已经讲完，下面这些是刷完之后固件实际能做的事。
 
----
-
 ## 效果展示
 
 这一节同样没有实机跑过，下面的功能描述来自 README、USER_GUIDE.md，以及「相关项目和评价」里链的第三方评测和视频。
@@ -125,8 +115,6 @@ USER_GUIDE.md 里写了首次开机会直接停在 Home 主界面，之后每次
 
 以上是文档和 README 里写的能力，实际渲染速度、翻页流畅度这些主观体验，下面「相关项目和评价」链的第三方评测可以当参考。The eBook Reader 那篇提到从 1.2.0 升到 1.3.0 之后字体渲染深浅不均，作者主动回退到了旧版本，说明版本之间不是只加功能不出问题。
 
----
-
 ## 相关项目和评价
 
 CrossPoint 定位收得很紧，不做的事情，社区分支里基本都能找到替代。README 自己列了一份「Community forks」清单：[CrossInk](https://github.com/uxjulia/CrossInk) 主打排版和阅读追踪，做了 Bionic Reading、词间引导点、更细的段落缩进，还换了默认字体；[papyrix-reader](https://github.com/bigbag/papyrix-reader) 加了 FB2 和 Markdown 格式支持，还做了阿拉伯文脚本适配；[crosspoint-reader-cjk](https://github.com/aBER0724/crosspoint-reader-cjk) 专门为中日韩文字阅读场景做了优化。README 原话是这些功能里很多迟早会并进主线，只是团队想保持慢一点的节奏，先把稳定性和 bug 修好再合入。项目本身也不是凭空冒出来的，README 结尾特意致谢了 [diy-esp32-epub-reader](https://github.com/atomic14/diy-esp32-epub-reader)，一个更早的、没绑定具体商用硬件的 ESP32 开源阅读器实现，是 CrossPoint 的灵感来源。
@@ -134,8 +122,6 @@ CrossPoint 定位收得很紧，不做的事情，社区分支里基本都能找
 第三方评测这边，The eBook Reader 博主 Nathan Groezinger 写了一篇[带视频的实测](https://blog.the-ebook-reader.com/2026/05/20/xteink-x4-with-crosspoint-software-review-with-video-demo/)，细到具体版本号，从 1.2.0 升到 1.3.0 后发现新版字体渲染深浅不均，干脆主动回退。PocketInk 博客写了一篇[刷机故障排查指南](https://pocketink.io/blog/flash-crosspoint-xteink-x3-x4/)，专门点出了当时还没修好的 SD 卡刷机 "Error 9" 报错，也就是 [issue #2536](https://github.com/crosspoint-reader/crosspoint-reader/issues/2536)，写这篇文章时在 GitHub 上查依然是 open 状态，并给了临时规避思路。个人博客 brie.dev 有一篇[长期使用记录](https://brie.dev/tiny-ereader)，记录了 2026 年 4 月那次 USB 锁定事件之后的购买建议，以及在 CrossPoint、CrossInk、Crosspet 几个分支之间怎么取舍。Pocket-lint 也写了一篇[带截图的完整刷机实测](https://www.pocket-lint.com/custom-e-reader-firmware/)，走的是从头到尾的操作说明。
 
 社区讨论方面，Reddit 的 r/xteinkereader 板块能找到[项目最早的发布帖](https://www.reddit.com/r/xteinkereader/comments/1plj85s/crosspoint_custom_firmware_for_the_xteink_x4/)，评论区有不少第一手反馈；也有一条[具体的故障案例](https://www.reddit.com/r/xteinkereader/comments/1rq1vlm/epub_file_wont_open_w_crosspoint_x4_just_reboots/)，某个 EPUB 文件一打开设备就重启，说明固件在个别文件上还是有稳定性问题，不是完全没坑。知乎上有一篇[实测刷机体验的帖子](https://zhuanlan.zhihu.com/p/2004526108197011730)，作者说这是他刷过最丝滑的固件刷入体验，同时提到自己也试过 crosspoint-reader-cjk 分支，当时 bug 比较多、经常卡死，还观察到 Xteink 官方固件后来在界面设计上似乎受到了 CrossPoint 的影响——这是作者自己的主观判断，不是官方证实的信息。
-
----
 
 ## 给 AI 编程助手的提示词
 
@@ -159,8 +145,6 @@ CrossPoint 定位收得很紧，不做的事情，社区分支里基本都能找
 具体命令、参数细节可以参考这篇文章核实：https://mikeq95blog.uk/blog/2026/08/21/crosspoint-reader-github-project
 ```
 
----
-
 ## 卸载和下次运行
 
 卸载对应「安装环境」那节装了什么：只用了网页刷机的话，没有任何东西装在电脑上，不用就行；装了 esptool 的话 `pip uninstall esptool`；从源码构建过的话，删掉本地 clone 目录和 `.pio` 编译缓存就干净了。
@@ -168,8 +152,6 @@ CrossPoint 定位收得很紧，不做的事情，社区分支里基本都能找
 真想把设备恢复原状，回到 crosspointreader.com/#flash-tools，选刷入官方最新固件即可。
 
 下次想再刷新版本，不用重装任何东西。设备联网后进设置检查更新，OTA 直接下载安装；或者手动把新的 `firmware.bin` 丢进 SD 卡离线升级；从源码构建的场景，仓库目录还在的话，`git pull` 拉最新代码，一条 `pio run --target upload` 就够了。
-
----
 
 ## 总结
 

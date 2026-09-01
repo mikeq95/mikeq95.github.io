@@ -7,10 +7,6 @@ tags:
 description: "ditto.site 通过 Playwright 抓取网页真实渲染结果，走确定性的 capture-to-code 流水线生成 Next.js/Vite 项目，而不是靠 AI 现场瞎编页面。这篇记录一下它的原理、安装方式和使用场景。"
 ---
 
-{/* truncate */}
-
----
-
 ## 它是什么
 
 [ditto.site](https://github.com/ion-design/ditto.site) 是一个把任意公开 URL "编译"成可运行 TypeScript 项目的工具。关键区别在于它不是让 AI 看着截图现场编代码，而是先用浏览器真实抓取页面渲染出来的一切——DOM 结构、计算后的样式、布局、静态资源、字体、截图、交互状态，甚至 robots 文件、sitemap、JSON-LD、llms.txt 这些元数据，都会被捕获下来，再走一套确定性流水线生成代码。
@@ -18,8 +14,6 @@ description: "ditto.site 通过 Playwright 抓取网页真实渲染结果，走�
 官方把这个流程叫 "capture-to-code"：浏览器抓取 → 归一化的中间表示（IR）→ 确定性推断 → 生成应用。因为是确定性的，同一份抓取快照永远会生成一模一样的代码，不会像 AI 现场生成那样每次结果都不一样。
 
 需要说明的是，它明确不会还原页面背后跑不到的逻辑，比如登录鉴权、支付流程、第三方 JS 脚本——生成的是页面的呈现层，不是后端业务逻辑。
-
----
 
 ## 安装和使用
 
@@ -38,13 +32,9 @@ npm run clone -- https://example.com/ --out=./output
 
 如果要跑完整的本地服务（而不只是 CLI），需要 Docker Compose 起 Postgres 和 MinIO 这些依赖；也有一个不依赖这些外部服务的 inline 模式方便先试用。
 
----
-
 ## 生成的项目长什么样
 
 输出可以选 Next.js App Router 或者 Vite + React，样式可以选 Tailwind CSS 或者原生 CSS。生成结果里还带了 `AGENTS.md` 和 `ARCHITECTURE.md` 两份交接文档，方便后续再丢给 AI 编程 Agent 继续改。支持单页模式和多页模式（多页可以设路由数量上限），数据库用 Drizzle ORM 接 Postgres，静态资源存本地或者兼容 S3/R2 的对象存储。
-
----
 
 ## 总结
 

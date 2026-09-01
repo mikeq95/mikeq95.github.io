@@ -7,10 +7,6 @@ tags:
 description: "记录一下在 macOS 上装 Rime 输入法（鼠须管 Squirrel），配上万象拼音方案，再调一下候选框配色、排版和开发工具自动切英文。"
 ---
 
-{/* truncate */}
-
----
-
 ## 安装鼠须管
 
 去 [Squirrel 的 GitHub Releases 页面](https://github.com/rime/squirrel/releases/latest) 下载最新的 `.pkg` 安装包（要求 macOS 13.0 及以上），双击安装。习惯用 Homebrew 的话也可以直接：
@@ -26,8 +22,6 @@ brew install --cask squirrel-app
 第一次安装有个小细节：初次安装如果在部分应用里打不出字，注销重新登录一次（或者直接重启）就好，这是官方文档里特别提到的已知情况。
 
 至此，鼠须管已经装好并加入了系统输入法列表，用切换输入法的快捷键就能切到它。
-
----
 
 ## 装万象拼音方案
 
@@ -47,8 +41,6 @@ brew install --cask squirrel-app
 ```
 
 至此，万象拼音已经是默认方案，随便找个输入框打几个字，能感觉到候选词联想比之前聪明不少。
-
----
 
 ## 自定义候选框外观和行为
 

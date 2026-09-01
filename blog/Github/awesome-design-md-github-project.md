@@ -7,17 +7,11 @@ tags:
 description: "awesome-design-md 收录了 73+ 个知名品牌网站的 DESIGN.md 设计系统文档，扔进项目根目录就能让 Claude Code 这类编程 Agent 生成风格统一的界面。这篇记录一下 DESIGN.md 是什么、怎么用。"
 ---
 
-{/* truncate */}
-
----
-
 ## DESIGN.md 是什么
 
 `DESIGN.md` 是一份纯文本的 Markdown 设计系统文档。README 里的原话是：「就是个 Markdown 文件，没有 Figma 导出，没有 JSON schema，不需要特殊工具。」
 
 里面写清楚了色板、字体层级、组件状态、间距规则、布局原则这些设计规范。AI 编程 Agent 读完之后，生成的界面会更贴品牌调性，而不是「能用但没设计感」的默认输出。
-
----
 
 ## 这个仓库收录了什么
 
@@ -46,8 +40,6 @@ description: "awesome-design-md 收录了 73+ 个知名品牌网站的 DESIGN.md
 
 每个条目除了 `DESIGN.md` 本体，还配了 `preview.html` 和 `preview-dark.html` 两个预览文件，能直接看到色板、字号层级和交互组件的效果。选主题之前，建议先打开预览瞅一眼。
 
----
-
 ## 怎么用
 
 用法很直接，三步就够：
@@ -64,15 +56,11 @@ description: "awesome-design-md 收录了 73+ 个知名品牌网站的 DESIGN.md
 
 至此，日常用法已经够用了。
 
----
-
 ## 配套网站 getdesign.md
 
 仓库背后还有个配套站：[getdesign.md](https://getdesign.md/)。定位类似「市场 + 定制请求平台」——既能浏览现成的 `DESIGN.md`，也能针对某个具体网站（包括私有站点）付费定制，提取一份专属的设计系统文档。
 
 平时随便挑风格够用；真要复刻某个特定站的视觉，再考虑走定制。
-
----
 
 ## 总结
 

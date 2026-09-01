@@ -9,8 +9,6 @@ tags:
 description: "持续收录日常和学术场景中的实用英语短语，每条附例句与中文释义，适合非母语学习者积累表达。"
 ---
 
-{/* truncate */}
-
 2. **One for all, all for one**
     
     - 例句: The three friends made a pact: ==one for all, all for one==. They promised to stand by each other no matter what challenges lay ahead.

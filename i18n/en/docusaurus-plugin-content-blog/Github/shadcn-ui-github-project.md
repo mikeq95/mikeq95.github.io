@@ -10,8 +10,6 @@ description: "shadcn/ui is an open-source React component collection whose CLI c
 
 > If you're new to this, this article includes a ready-to-use AI prompt that can set up the environment for you in one go.
 
----
-
 ## What It Is
 
 The project was released by shadcn (the community generally just calls him that) in January 2023. Not long after, he joined Vercel, where he's now a design engineer. The repo has accumulated over 120,000 stars on GitHub, with forks past 10,000. It's built on top of Radix UI or the newly supported Base UI — both unstyled primitives — and all styling is written in Tailwind CSS.
@@ -23,8 +21,6 @@ Distribution doesn't go through npm packages either. It uses a flat-file schema 
 The component count has passed 60, covering common cases like Accordion, Data Table, Dialog, Sidebar, and Calendar, plus more niche ones like Field, Item, Empty, and Kbd. August 2026 also added Questionnaire, a component built specifically for multi-step Q&A flows — form research, onboarding flows, that kind of thing. The underlying engine now uniformly supports both Radix UI and Base UI as unstyled primitives. A Radix UI migration was completed in June 2025, and in February 2026 the Radix UI package was unified further with blocks support added, so you can switch between the two engines without changing how you use components at the top level.
 
 Cross-framework install guides are also thorough — Next.js, Vite, Laravel, Astro, and a few other major frameworks each have their own dedicated docs, and manual integration into any React project is supported too. For new projects, the official recommendation is to first use the visual tool shadcn/create to pick a style, icon set, and theme, which then generates the right init command for your framework, so you don't have to try flags one by one yourself.
-
----
 
 ## Setup
 
@@ -88,8 +84,6 @@ export default defineConfig({
 
 At this point, the environment shadcn/ui itself needs is ready.
 
----
-
 ## Running It
 
 Setting up the environment isn't the whole job — shadcn/ui itself starts with the `init` command.
@@ -148,8 +142,6 @@ npm run build
 >
 > ❌ Not working: if `tsc` reports `TS5101`, go back to the note in the previous section and remove `baseUrl` from your tsconfig.
 
----
-
 ## Demo
 
 (Insert screenshot here: the shadcn Button, outline variant, rendered by the Vite dev server)
@@ -180,8 +172,6 @@ dist/assets/index-CSebWqlH.js         227.49 kB │ gzip: 71.55 kB
 
 Installing a second or third component doesn't require repeating any of the setup above — you can list several names at once, like `npx shadcn@latest add card dialog`.
 
----
-
 ## Similar Projects and Reception
 
 shadcn/ui is built on Radix UI, which is also a fully usable library on its own. If you don't even want shadcn's pre-chosen default styling and want to design your own system from scratch, it's common to work directly with the [Radix UI](https://www.radix-ui.com/) (or the newly supported Base UI) primitives and wire up Tailwind or something else yourself.
@@ -193,8 +183,6 @@ The more common comparison is against "install and go" traditional component lib
 On the community-discussion side, Vercel CEO Guillermo Rauch's [comment on X](https://x.com/rauchg/status/2088757738037989755) got fairly widely shared — he said a lot of people don't realize how much of React's success owes to shadcn, calling React "Lego for adults" and arguing shadcn is the layer people actually wanted. Not everyone agrees. [alexanderisorax wrote on X](https://x.com/alexanderisorax/status/1823617909223997932) about their conclusion after building a mid-sized SaaS product: even for something as simple as a button, Mantine offers more configuration options than shadcn, and its hooks, component count, and overall completeness are higher too — they don't buy the idea that shadcn is the default choice for every project.
 
 Zhihu has two longer pieces approaching this from different angles. [One](https://zhuanlan.zhihu.com/p/2004607340721218879) starts from the question of whether developers should have full control over component code, focusing on AI-friendliness — a traditional component library buried in `node_modules` is invisible to AI, while shadcn puts the source directly in the project where AI can read and edit it. [The other](https://zhuanlan.zhihu.com/p/694048244) compares shadcn against traditional libraries like Ant Design, arguing that while shadcn makes customization easier, it also raises the maintenance cost of component styling as a project evolves.
-
----
 
 ## Prompt for AI Coding Agents
 
@@ -215,8 +203,6 @@ Confirm that component files were actually generated under src/components/ui/ (n
 Specific commands and configuration details can be checked against this article: https://mikeq95blog.uk/blog/2026/08/28/shadcn-ui-github-project
 ```
 
----
-
 ## Uninstalling and Running It Again
 
 This isn't a standalone program you "uninstall." The CLI itself always runs ephemerally through `npx` / `pnpm dlx`, so there's no global install footprint to clean up — what needs removing is what it wrote into your project.
@@ -235,8 +221,6 @@ Want to use it again later? No need to reinstall anything. If the project struct
 ```bash
 npx shadcn@latest add card dialog
 ```
-
----
 
 ## Summary
 

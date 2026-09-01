@@ -7,17 +7,11 @@ tags:
 description: "Starship 是用 Rust 写的跨 Shell 命令行提示符工具，Bash/Zsh/Fish/PowerShell 等十几种 Shell 都能用同一套配置。这篇记录一下它的原理、安装配置方式和实际用下来的体验。"
 ---
 
-{/* truncate */}
-
----
-
 ## 它是什么
 
 Starship 是一个命令行提示符（prompt）工具，定位是"极简、快、随便怎么定制"。它最大的特点是跨 Shell——同一套配置文件在 Bash、Zsh、Fish、PowerShell、Nushell、Elvish、Ion、Tcsh、Xonsh，甚至 Windows 的 Cmd（通过 Clink）上都能用，换 Shell 不用重新配置提示符。
 
 底层用 Rust 写，官方主打的卖点就是"够快"，提示符里显示的 Git 状态、编程语言版本、执行耗时这些信息，实测切目录、敲命令的时候基本感觉不到延迟。
-
----
 
 ## 安装
 
@@ -61,8 +55,6 @@ starship init fish | source
 
 PowerShell 则是加进 `$PROFILE` 文件。
 
----
-
 ## 实际使用感受
 
 ### 配置文件
@@ -76,8 +68,6 @@ PowerShell 则是加进 `$PROFILE` 文件。
 ### 跨 Shell 是真的省心
 
 之前用 zsh 主题（比如 Powerlevel10k）换到 fish 就得重新配一遍，Starship 换 Shell 之后提示符观感基本不变，配置文件是共用的，不用重复劳动。
-
----
 
 ## 总结
 

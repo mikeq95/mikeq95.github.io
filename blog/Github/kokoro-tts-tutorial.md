@@ -9,19 +9,13 @@ tags:
 description: "用开源 TTS 工具 Kokoro 把英文文章转成高质量音频，免费、本地运行、效果出色，边走路边听自己写的内容。"
 ---
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## Kokoro 是什么
 
 [Kokoro](https://github.com/hexgrad/kokoro) 是一个开源 [TTS](https://clearlove7-ai.vercel.app?word=TTS&postId=2026-05-16-kokoro-tts-tutorial)（文字转语音）模型，82M 参数，轻量但效果出奇地好。英文效果接近 ElevenLabs 商业级别，Apache 2.0 协议，免费商用。
 
 它本质上就是个 [PyPI](https://pypi.org/project/kokoro/) 包，`pip install kokoro` 就能装，不需要 clone 仓库、也不需要 Docker——这也是这篇教程和网上大部分"部署教程"的区别：跑起来只要几行 Python。
-
----
 
 ## 声音怎么选
 
@@ -33,7 +27,6 @@ description: "用开源 TTS 工具 Kokoro 把英文文章转成高质量音频�
 | Bella | `af_bella` | A- | 高质量女声 |
 | Michael | `am_michael` | C+ | 成熟男声 |
 | Emma | `bf_emma` | B- | 英式女声 |
-
 
 中文声音：
 
@@ -51,8 +44,6 @@ description: "用开源 TTS 工具 Kokoro 把英文文章转成高质量音频�
 - 识别ID： ID 前缀有讲究：`a` 开头是美式英语，`b` 开头是英式英语；`f` 是女声，`m` 是男声
 - 声音质量： Kokoro 的声音按质量分 A~D 级，A 最高
 - 切换音色：不管中文英文，都是改代码里 `pipeline(text, voice='af_heart')` 这一行的 `voice` 参数，换成上面表里想要的 ID，其他代码不用动。
-
----
 
 ## 安装环境
 
@@ -89,8 +80,6 @@ source kokoro-env/bin/activate
 brew install espeak-ng
 pip install "kokoro>=0.9.4" soundfile
 ```
-
----
 
 ## 跑起来
 
@@ -134,20 +123,15 @@ python3 say.py
 afplay 0.wav
 ```
 
----
-
 ## 效果示例
 
 > Google is renowned for its innovative and employee-centric work environment. The company's campuses, often called "Googleplexes," feature vibrant designs with open spaces, recreational facilities, free gourmet meals, and wellness centers. Employees enjoy flexible work hours, remote options, and a strong emphasis on collaboration through team projects and hackathons.
 >
 > A culture of creativity thrives with "20% time," encouraging personal passion projects that have led to major products like Gmail. Diversity, inclusion, and continuous learning are prioritized through training programs and supportive leadership. This unique blend of fun, freedom, and purpose fosters high productivity and job satisfaction, making Google a top destination for tech talent worldwide.
 
-
 <audio controls>
   <source src="/assets/kokoro-demo-google.mp3" type="audio/mpeg" />
 </audio>
-
----
 
 ## 其他语言
 
@@ -183,8 +167,6 @@ for i, (gs, ps, audio) in enumerate(generator):
 
 > 日语同理，`lang_code='j'`，装 `pip install "misaki[ja]"`。
 
----
-
 ## 给 AI 编程助手的提示词
 
 懒得自己一步步照着敲？把下面这段丢给 Claude Code、Codex 之类的 AI 编程助手，让它帮你配好环境、跑通一次示例。
@@ -215,7 +197,6 @@ for i, (gs, ps, audio) in enumerate(generator):
 cd ~/kokoro-tts
 source kokoro-env/bin/activate
 ```
----
 
 ## 卸载
 
@@ -226,4 +207,3 @@ rm -rf ~/.cache/huggingface/hub   # 顺带清掉缓存的模型权重
 ```
 
 ---
-

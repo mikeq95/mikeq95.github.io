@@ -10,8 +10,6 @@ tags:
 description: "整理编程文档、教程和 issue 中常见的英文词汇与表达，附例句与中文释义，帮助读懂英文技术资料。"
 ---
 
-{/* truncate */}
-
 2. **prevent**  
      
     - 例句: This option will ==prevent== Shadowrocket from being set as the default route.

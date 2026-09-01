@@ -8,10 +8,6 @@ tags:
 description: "MarkEdit 是一款开源免费的 macOS 原生 Markdown 编辑器，安装包只有 4MB，主打轻量、原生、能扛大文件，记录一下它的特点和安装方法。"
 ---
 
-{/* truncate */}
-
----
-
 ## 它是什么
 
 [MarkEdit](https://github.com/MarkEdit-app/MarkEdit) 是一个 macOS 原生的 Markdown 编辑器，几个关键点：
@@ -23,8 +19,6 @@ description: "MarkEdit 是一款开源免费的 macOS 原生 Markdown 编辑器�
 - **严格遵循 [GFM 规范](https://github.github.com/gfm/)**，没有自创语法，编辑内核基于 [CodeMirror 6](https://codemirror.net/)
 
 作者的说法是，他们不追求在某一个维度上做到最好，而是在**体积、速度、原生体验、正确性**这几个维度上找平衡——纯 Rust 写的编辑器性能强但缺原生功能，基于 TextKit 的编辑器原生但扛不住大文件，靠正则解析 Markdown 的编辑器又谈不上正确性。MarkEdit 想把这几头都兼顾到。
-
----
 
 ## 安装
 
@@ -39,8 +33,6 @@ brew install --cask markedit
 ```
 
 装完之后会自动检查更新，不用手动操心版本。
-
----
 
 ## 实际使用感受
 
@@ -62,8 +54,6 @@ brew install --cask markedit
 
 作者在 [Why MarkEdit](https://github.com/MarkEdit-app/MarkEdit/wiki/Why-MarkEdit) 里提到，这个项目是刻意"功能贫乏"的——能用扩展解决的就不往主程序里塞，core 保持精简。提需求要先讨论行为变化是否合理，不是无脑加功能。
 
----
-
 ## 和其他编辑器比
 
 | | MarkEdit | [Typora](https://typora.io) | [iA Writer](https://ia.net/writer) |
@@ -73,8 +63,6 @@ brew install --cask markedit
 | 体积 | ✅ ~4MB | 中等 | 中等 |
 | 大文件性能 | ✅ 10MB 流畅 | 一般 | 一般 |
 | 数据隐私 | ✅ 纯本地 | 本地 | 本地 |
-
----
 
 ## 总结
 

@@ -10,8 +10,6 @@ description: "A cheat sheet for touch, mkdir -p, code, heredoc, and cat — thes
 
 {/* truncate */}
 
----
-
 ## touch
 
 `touch` creates a new file:

@@ -10,15 +10,11 @@ description: "Claude (claude.ai) and Claude Code run two separate skill systems.
 
 {/* truncate */}
 
----
-
 ## What is a [skill](https://clearlove7-ai.vercel.app?word=skill&postId=2026-06-22-using-skill-in-claude-and-claude-code)
 
 Put simply, a skill is just a folder containing at least one `SKILL.md` file that spells out "when to use this capability" and "exactly how to do it." The example I'll use here is a skill I had Claude write with skill-creator, called blog-markdown-formatter. Next up: how to install it and how to use it.
 
 > Personally it reminds me a bit of a mod for a single-player game — except this "mod" exists purely to make the experience better.
-
----
 
 ## Installing in Claude Code
 
@@ -69,8 +65,6 @@ Once unzipped correctly, the directory structure should look like this:
 
 At this point, installing the skill in Claude Code is done.
 
----
-
 ## Installing in Claude
 
 1. In the web app or desktop app, go to Settings → Customize → Skills
@@ -81,8 +75,6 @@ At this point, installing the skill in Claude Code is done.
 At this point, installing the skill in Claude is done.
 
 Note: installing a skill on Claude doesn't mean Claude Code can use it too — you install separately on each side, they're not the same thing.
-
----
 
 ## Updating a Skill
 
@@ -97,8 +89,6 @@ unzip blog-markdown-formatter.skill -d ~/.claude/skills/
 ```
 
 **On Claude**: go to Settings → Customize → Skills, find the skill, delete the old one, and upload the new file.
-
----
 
 ## Skill Usage
 

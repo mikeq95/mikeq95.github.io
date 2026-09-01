@@ -8,9 +8,6 @@ tags:
 description: "Marker 是一款开源工具，可将 PDF、Word、PPT 快速转换为 Markdown，记录本地运行 Marker 的完整流程。"
 ---
 
-{/* truncate */}
-
----
 ### 前言：
 
 我个人很喜欢浏览[instructables](https://www.instructables.com)这个网站，网站很贴心的在右上角给了你”将文章导出为PDF”的选项，但是没有”导出为markdown”的选项。我很希望格式是md，因为在AI更喜欢读md而不是PDF的文件。我在网上搜索，最终找到这个github项目。
@@ -91,8 +88,6 @@ marker_single --help
 conda activate marker
 ```
 
----
-
 ## 怎么用
 
 基本格式就一行：
@@ -112,8 +107,6 @@ marker_single 你的文件路径 --output_dir 输出目录
 
 转换完成后，输出目录里会有一个 `.md` 文件和提取出来的图片，用 Typora 或 Obsidian 打开就能正常显示。
 
----
-
 ## 实际使用示例
 
 ### 转一篇论文
@@ -124,8 +117,6 @@ marker_single ~/Downloads/paper.pdf \
 ```
 
 第一次跑会下载 AI 模型，大概 1GB 左右，耐心等一下。跑完之后数学公式会变成 [LaTeX](https://clearlove7-ai.vercel.app?word=LaTeX&postId=2026-05-28-marker-github-project-tutorial)，表格和标题格式都会保留，效果还不错。
-
----
 
 ## 用 AI 工具帮你
 
@@ -149,9 +140,6 @@ marker_single ~/Downloads/paper.pdf \
 每步执行前先告诉我你要做什么，不要修改系统级配置。完成后输出已安装的 Python、PyTorch、marker-pdf 版本号。
 ```
 
-
----
-
 ## 卸载
 
 只卸载 marker 包，保留环境：
@@ -169,5 +157,3 @@ conda env remove -n marker
 ```
 
 ---
-
-

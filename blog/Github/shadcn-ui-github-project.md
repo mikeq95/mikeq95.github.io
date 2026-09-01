@@ -8,11 +8,7 @@ description: shadcn/ui 是一套通过 CLI 把组件源码直接拷贝进项目�
 
 [shadcn/ui](https://github.com/shadcn-ui/ui) 是一套开源的 React 组件集合，解决的是一个具体的老问题。用惯了的组件库，要么把你锁在它给的默认外观里，要么为了改样式层层覆盖、拼凑不兼容的 API。shadcn/ui 换了个方向。CLI 会把组件的源代码直接拷贝进项目里的 `components/ui` 目录，装完之后这些代码就是你自己的，想怎么改都行。
 
-{/* truncate */}
-
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
@@ -25,8 +21,6 @@ description: shadcn/ui 是一套通过 CLI 把组件源码直接拷贝进项目�
 组件数量已经过 60 个，覆盖了 Accordion、Data Table、Dialog、Sidebar、Calendar 这些常见场景，也有 Field、Item、Empty、Kbd 这类偏细节的组件。2026 年 8 月还新增了 Questionnaire，一个专门做多步问答流的组件，适合表单调研、引导流程这类场景。底层引擎目前统一支持 Radix UI 和 Base UI 两套无样式 primitive。2025 年 6 月完成过一次 Radix UI 迁移，2026 年 2 月又统一了 Radix UI 包并加上了 blocks 支持，你可以在两者之间切换，上层用法不用跟着改。
 
 跨框架的安装指南也齐全，Next.js、Vite、Laravel、Astro 等几个主流框架各自有单独的文档，任意 React 项目也支持手动接入。新项目官方还推荐先用可视化工具 shadcn/create 选好 style、图标、主题，再生成对应框架的初始化命令，省得自己一个个 flag 去试。
-
----
 
 ## 安装环境
 
@@ -90,8 +84,6 @@ export default defineConfig({
 
 至此，shadcn/ui 本身需要的环境已经准备好了。
 
----
-
 ## 运行
 
 装环境不算完，真正的 shadcn/ui 从 `init` 命令开始。
@@ -150,8 +142,6 @@ npm run build
 >
 > ❌ 异常：如果 `tsc` 报 `TS5101`，回去看上一节的注意事项，把 `baseUrl` 从 tsconfig 里删掉。
 
----
-
 ## 效果展示
 
 （此处插入截图：Vite 开发服务器里渲染出来的 shadcn Button，outline 变体）
@@ -182,8 +172,6 @@ dist/assets/index-CSebWqlH.js         227.49 kB │ gzip: 71.55 kB
 
 装第二个、第三个组件不用再重复上面的配置步骤，`npx shadcn@latest add card dialog` 这样列几个名字一次装多个就行。
 
----
-
 ## 相关项目和评价
 
 shadcn/ui 底层用的 Radix UI，本身也是一套独立可用的东西。如果连 shadcn 预先选好的默认样式都不想要，想从零画自己的设计系统，直接用 [Radix UI](https://www.radix-ui.com/)（或新支持的 Base UI）这层原语，自己接 Tailwind 或别的方案也是常见做法。
@@ -195,8 +183,6 @@ shadcn/ui 底层用的 Radix UI，本身也是一套独立可用的东西。如�
 社区讨论这块，Vercel CEO Guillermo Rauch 在 [X 上的一条评价](https://x.com/rauchg/status/2088757738037989755)流传比较广，他说很多人没意识到 React 的成功很大程度上要归功于 shadcn，把 React 比作"给成年人的乐高积木"，认为 shadcn 才是大家真正想要的那一层。不是所有人都这么想，[alexanderisorax 在 X 上写过](https://x.com/alexanderisorax/status/1823617909223997932)自己做完一个中等规模 SaaS 后的结论：连按钮这种简单组件，Mantine 给的配置项都比 shadcn 多，hooks 和组件数量、完整度也更高，他不认同"随便什么项目都该无脑上 shadcn"这种说法。
 
 知乎上也有两篇从不同角度切入的长文。[一篇](https://zhuanlan.zhihu.com/p/2004607340721218879)从"开发者该不该对组件代码有完全控制权"切入，重点讲 AI 友好性，传统组件库塞在 `node_modules` 里 AI 看不到实现，shadcn 把源码摆在项目里，AI 能直接读、能改。[另一篇](https://zhuanlan.zhihu.com/p/694048244)拿 shadcn 和 Ant Design 这类传统组件库做对比，认为 shadcn 定制样式更容易，但项目迭代过程中组件样式的维护成本也会跟着上去。
-
----
 
 ## 给 AI 编程助手的提示词
 
@@ -217,8 +203,6 @@ shadcn/ui 底层用的 Radix UI，本身也是一套独立可用的东西。如�
 具体命令、配置细节可以参考这篇文章核实：https://mikeq95blog.uk/blog/2026/08/28/shadcn-ui-github-project
 ```
 
----
-
 ## 卸载和下次运行
 
 这套东西不是一个要"卸载"的独立程序。CLI 本身一直通过 `npx` / `pnpm dlx` 临时执行，没有全局安装的痕迹要清理，需要卸的是它写进你项目里的那些文件。
@@ -237,8 +221,6 @@ npm uninstall tailwindcss @tailwindcss/vite class-variance-authority radix-ui lu
 ```bash
 npx shadcn@latest add card dialog
 ```
-
----
 
 ## 总结
 

@@ -7,17 +7,11 @@ tags:
 description: "Gifski 是高产开源作者 Sindre Sorhus 的 macOS App，用同名的 gifski Rust 编码器把视频转成体积小、质量高的 GIF。这篇记录一下它的原理、安装方式和实际用下来的体验。"
 ---
 
-{/* truncate */}
-
----
-
 ## 它是什么
 
 [Gifski](https://github.com/sindresorhus/Gifski) 是一款 macOS 应用，把视频转换成高质量的 GIF 动图。名字和它底层用的编码器同名——[gifski](https://github.com/ImageOptim/gifski) 是一个用 Rust 写的 GIF 编码器，核心思路是用 [pngquant](https://pngquant.org/) 生成更精细的调色板，再交给 [gifsicle](https://www.lcdf.org/gifsicle/) 做质量调整，比系统自带或大多数在线工具转出来的 GIF 观感要清晰不少，尤其是渐变和肤色部分不容易出现色块。
 
 这款 macOS App 本身是 Sindre Sorhus 众多开源小工具之一，界面很简洁：拖一个视频进去，调质量、尺寸、帧率、裁剪范围，导出就行。
-
----
 
 ## 安装
 
@@ -36,8 +30,6 @@ description: "Gifski 是高产开源作者 Sindre Sorhus 的 macOS App，用同�
 
 从源码编译需要 Rust、SwiftLint 和 Xcode 命令行工具，仓库里有对应的构建说明。
 
----
-
 ## 实际使用感受
 
 ### 支持的格式和参数
@@ -55,8 +47,6 @@ description: "Gifski 是高产开源作者 Sindre Sorhus 的 macOS App，用同�
 ### 没有 CLI
 
 需要注意的是这个 macOS App 本身不带命令行工具，纯 GUI 操作。如果想要命令行批量转换，得用底层那个同名的 [gifski](https://github.com/ImageOptim/gifski) 库单独编译 CLI 版本，是两个独立的仓库。
-
----
 
 ## 总结
 

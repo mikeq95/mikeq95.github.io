@@ -10,8 +10,6 @@ description: "stop-slop is an open-source set of Claude skill rules — a banned
 
 > If you're new to this, this article includes a ready-to-use AI prompt that can set up the environment for you in one go.
 
----
-
 ## What It Is
 
 The repo structure is simple: a core instruction file, `SKILL.md`, plus three reference files under `references/`. `phrases.md` lists the phrases to cut, `structures.md` lists the sentence patterns to break up, and `examples.md` gives real before/after rewrites.
@@ -23,8 +21,6 @@ The structural level is harsher. The "not A, it's B" binary contrast is public e
 After a rewrite there's a scoring step. Directness, rhythm, trust, authenticity, and density each get rated 1-10, and a total below 35/50 means revise.
 
 The repo sits at over 16,000 stars on GitHub, MIT licensed. According to the author, Hardik Pandya, replying to a critic on X, this started as a side project he built while spending 30 minutes learning how to write a Claude Skill.
-
----
 
 ## Setup
 
@@ -48,8 +44,6 @@ stop-slop/
 ```
 
 The hard part isn't installing anything — it's getting these files into whichever Claude interface you're using. Claude Code, Claude Projects, and API calls each load a skill differently, which is worth its own section more than any dependency install would be. That's next.
-
----
 
 ## Running It
 
@@ -78,8 +72,6 @@ Upload `SKILL.md` along with `phrases.md`, `structures.md`, and `examples.md` fr
 
 For custom-instructions fields, pasting in the core rules section of `SKILL.md` is enough. For API use, paste the full `SKILL.md` into the system prompt. The three reference files don't need to go in all at once — per the README, they load on demand, pulled into context only when the model actually needs an example or the banned-phrase table, which saves space.
 
----
-
 ## Demo
 
 The repo ships its own before/after pairs in `examples.md`, and they're the clearest way to see what it does.
@@ -104,8 +96,6 @@ Both of these come straight from the repo's own examples. To confirm the rules a
 
 "Here's the thing" and "genuinely" are gone, and the binary-contrast sentence became a direct statement. The passive "mistakes were made" turned into a specific person (reviewers) doing a specific thing, and the false-agency phrasing in "the decision...emerges" got cleaned up along with it.
 
----
-
 ## Similar Projects and Reception
 
 stop-slop isn't the only project doing this. [Humanizer](https://github.com/blader/humanizer) is bigger, past 38,000 stars, and its rules come from the 35 patterns catalogued in Wikipedia's "Signs of AI writing" entry. It can rewrite an entire document in place while leaving code blocks, data, and frontmatter untouched, and it supports feeding it a sample of your own writing to mimic your style — a capability stop-slop doesn't have. [No AI Slop](https://github.com/petergyang/no-ai-slop) takes a different approach, splitting into edit, detect, and satire-generation modes; its detect mode only quotes the flagged original sentences rather than guessing whether text is AI-written. [skill-deslop](https://github.com/stephenturner/skill-deslop) says outright that it merges stop-slop's phrase list, structural rules, and scoring rubric with a corpus from tropes.fyi, tuned specifically for scientific and technical writing — and it deliberately keeps the passive voice that methods sections are supposed to use, which happens to hit right at the blind spot in stop-slop's blanket ban on passive voice.
@@ -113,8 +103,6 @@ stop-slop isn't the only project doing this. [Humanizer](https://github.com/blad
 In outside reviews, [Gaurav Tiwari's long-term write-up](https://gauravtiwari.org/stop-slop-ai-slop/) says a cold first draft can turn up six or more violations in the opening paragraph alone, and that using it for a while makes you start avoiding those patterns before you even write them. He also notes that "if it has an em dash, it's AI" stopped being a reliable test by 2026. [Another review](https://gabrielcassady.com/tools/stop-slop-claude-skill-to-remove-ai-writing-tells/) classifies it as a prompting tool — a writing strategy loaded into the model's head — rather than software, and warns that in regulated or high-stakes writing you should check the diff and pin a version before trusting it, so it doesn't strip out hedging language, warnings, or citations that actually need to stay.
 
 The community isn't unanimous either. After the author [posted the project on X](https://x.com/hvpandya/status/2010330642714894391), [one reply pushed back directly](https://x.com/nixxin/status/2010547235902124035): "Not everything is AI writing — you're flattening language and killing the personality out of it." The author's response was that it was just something he threw together in 30 minutes while learning how Claude Skills work. A [Zhihu article comparing several writing skills](https://zhuanlan.zhihu.com/p/2059620590072476766) puts stop-slop alongside Humanizer and taste-skill, and argues its strength isn't large rewrites but a fast quality check after you've already written something — a good fit for short copy, emails, and social posts.
-
----
 
 ## Prompt for AI Coding Agents
 
@@ -135,8 +123,6 @@ Write a test paragraph with typical AI tells (pick one or two of: throat-clearin
 Specific commands and load paths can be checked against this article: https://mikeq95blog.uk/blog/2026/08/28/stop-slop-github-project
 ```
 
----
-
 ## Uninstalling and Running It Again
 
 Uninstalling just means removing whatever you put in place during setup.
@@ -152,8 +138,6 @@ Claude Projects: delete the four uploaded files from Project Knowledge.
 System prompt/API: remove the section you pasted into the system prompt.
 
 Using it again doesn't require re-cloning — keep the local folder around. Claude Code rescans the skills directory on every launch, so there's nothing else to do; files uploaded to Claude Projects stay there until you delete them manually.
-
----
 
 ## Summary
 

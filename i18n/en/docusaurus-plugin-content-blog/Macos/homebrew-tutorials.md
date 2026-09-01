@@ -10,8 +10,6 @@ description: "A beginner's guide to Homebrew, the essential Mac package manager 
 
 {/* truncate */}
 
----
-
 ## Installing Homebrew
 
 ### In China
@@ -32,8 +30,6 @@ Use the official script: [source](https://brew.sh/)
 
 > "China has its own world, huh 🤔"
 
----
-
 ## Core Concepts: formula and cask
 
 Before using Homebrew, understand two key concepts:
@@ -44,8 +40,6 @@ Before using Homebrew, understand two key concepts:
 Simple rule: **App with an icon → cask; command-line only → formula**.
 
 > Not talking about Gragas from League of Legends 😂
-
----
 
 ## Installing Software
 
@@ -60,8 +54,6 @@ Install a GUI app (cask), e.g. Firefox:
 ```bash
 brew install --cask firefox
 ```
-
----
 
 ## Updating Software
 
@@ -78,8 +70,6 @@ brew upgrade python
 ```
 
 > **Note:** `brew update` updates Homebrew's own package index; `brew upgrade` actually upgrades the software. They are different.
-
----
 
 ## Pinning a Version
 
@@ -101,8 +91,6 @@ Unpin to allow upgrades again:
 brew unpin python
 ```
 
----
-
 ## Uninstalling Software
 
 Uninstall a command-line tool:
@@ -122,8 +110,6 @@ Uninstall Homebrew itself:
 ```bash
 /bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/uninstall.sh)"
 ```
-
----
 
 ## Summary
 

@@ -15,8 +15,6 @@ description: "i-have-adhd is an open-source skill built around ten output rules 
 
 > If you're new to this, this article includes a ready-to-use AI prompt that can set up the environment for you in one go.
 
----
-
 ## Introduction
 
 This isn't a new capability bolted onto the model — it's a fixed rule file, `SKILL.md`, with ten output rules. The first line has to be a command, a path, or a snippet; the explanation, if there is one, comes after. Anything with more than one step gets numbered, and the rules explicitly call for the fewest steps that still work, merging any that can be merged. Every reply has to end with one next action doable in under two minutes, even if that action is just "open this file." Lists are capped too — five items max, and past that they get split into "do now" and "later." When something breaks, words like "Uh oh" are banned; the reply states where it broke, why, and how to fix it.
@@ -26,8 +24,6 @@ The rules aren't applied blindly, though. SKILL.md has a whole section on when t
 The repo is more than a markdown file. The `tests/` directory has 21 unit tests covering things like the always-on hook and the OpenCode plugin integration. `evals/cases.jsonl` adds 14 behavioral eval cases, each with its own scoring criteria, specifically to check that a rule change doesn't make the model answer the wrong question. The project has been growing fast on GitHub — it's past 25,000 stars now. It's not a one-person effort either: 31 people have contributed code, and the most recent commit landed two days ago.
 
 The rule set isn't tied to the Claude ecosystem either — Codex, Cursor, Gemini CLI, and other common coding agents each have their own install path, documented in the repo's `INSTALL.md`. None of it needs an API key or any extra runtime setup.
-
----
 
 ## Setting Up the Environment
 
@@ -45,8 +41,6 @@ If you just want to try it once without a proper install, you can also paste thi
 ```text
 Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd, refer to the repo's AGENTS.md for instructions.
 ```
-
----
 
 ## Running It
 
@@ -73,8 +67,6 @@ rm ~/.claude/.i-have-adhd-always
 ```
 
 At this point, i-have-adhd is installed and triggering correctly.
-
----
 
 ## Seeing It in Action
 
@@ -119,8 +111,6 @@ After invoking `/i-have-adhd`, the same question came back like this:
 
 The count dropped from 10 items to 5. The command used to sit inside "step one" — now it's the first line of the reply. The ending changed too: instead of waiting for you to send over the script, it hands you one action you can run immediately.
 
----
-
 ## Related Projects and Reception
 
 A few other projects are chasing the same "AI talks too much" problem, from different angles. [caveman](https://github.com/JuliusBrussee/caveman) goes for straight compression, cutting replies down to telegraphic style — the project claims over 60% fewer output tokens. That's a different axis from i-have-adhd's structural approach (lead with action, number steps, cap lists): one saves tokens, the other saves reading effort. They're not mutually exclusive — you can run both.
@@ -130,8 +120,6 @@ There's also a community fork building on the original. [melodic-software's vers
 Two people wrote fairly thorough hands-on reviews. [One on Medium](https://medium.com/@joe.njenga/i-tried-this-claude-code-adhd-skill-that-no-one-is-talking-about-a990a647b1c7) documents the whole process from cloning the repo to actually asking questions, with real before/after replies attached. [Android Authority's piece](https://www.androidauthority.com/claude-i-have-adhd-skill-how-use-3697353/), written after two weeks of use, mentions something the official docs don't: replies get shorter by default, so usage quota burns slower too — though it also notes the skill isn't for every ADHD user, since some people actually prefer longer, denser replies.
 
 A [comparison piece on Zhihu](https://zhuanlan.zhihu.com/p/2063679630872253251) uses real before/after replies to make the point that this only changes how the model talks, not how smart it is. There's pushback on X too: discussing how to make AI output more concise, Angelica Parente [compared a custom output style against installing a skill](https://x.com/draparente/status/2085785882788077991), arguing the output style saves more tokens while a skill buys stricter rule enforcement — two different trade-offs, neither one clearly better.
-
----
 
 ## Prompt for AI Coding Agents
 
@@ -153,8 +141,6 @@ Confirm the plugin status is enabled, and that the post-trigger reply clearly le
 Exact commands and details can be checked against this article: https://mikeq95blog.uk/blog/2026/08/28/i-have-adhd-github-project
 ```
 
----
-
 ## Uninstalling and Running It Again
 
 This undoes exactly what "Setting Up the Environment" installed — both the plugin and the marketplace need to go:
@@ -171,8 +157,6 @@ rm -f ~/.claude/.i-have-adhd-always
 ```
 
 Running it again: the plugin stays installed once it's in, so there's no need to reinstall. Just type `/i-have-adhd` in any session whenever you want it.
-
----
 
 ## Summary
 

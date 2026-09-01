@@ -11,15 +11,11 @@ description: "CodeGraph pre-builds your codebase into a knowledge graph for Clau
 
 {/* truncate */}
 
----
-
 ## Why Claude Code "Wastes" Tokens
 
 When you ask Claude Code an architecture question — like "how does this request reach the database?" — it first spins up an Explore sub-agent, runs a bunch of grep/ls/Read operations to find files, and only then starts analyzing. **The whole exploration process burns tokens**, and a lot of the time it reads a bunch of irrelevant files along the way.
 
 CodeGraph's approach: do all that exploration work up front, index it into a local SQLite database. Claude Code queries it directly — one tool call returns the source code of relevant symbols, call graphs, and dependency relationships, without scanning files.
-
----
 
 ## Installation
 

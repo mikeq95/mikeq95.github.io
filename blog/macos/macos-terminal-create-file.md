@@ -8,10 +8,6 @@ tags:
 description: "一张速查卡：touch、mkdir -p、code、heredoc、cat 拼命令操作文件，比 Finder 右键快不少，批量建文件时效率提升明显。"
 ---
 
-{/* truncate */}
-
----
-
 ## touch
 
 `touch` 可以新建文件
