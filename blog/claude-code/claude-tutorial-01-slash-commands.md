@@ -8,10 +8,6 @@ tags:
 description: "记录自己在实际使用 Claude Code 过程中逐个搞懂的 slash command 用法和容易搞混的地方，陆续更新，目前整理了 /add-dir、/agents。"
 ---
 
-{/* truncate */}
-
----
-
 ## `/add-dir <path>` 
 
 官方解释： Add a new working directory
@@ -28,22 +24,16 @@ description: "记录自己在实际使用 Claude Code 过程中逐个搞懂的 s
 - **git操作是分别进行的**。两个目录的各个git状态，commit,push都是独立的。`/add-dir`不会把它们变成一个仓库
 - **只在当前对话有效**。重新打开Claude code需要重新`/add-dir`
 
----
-
 ## `/cd <path>` 
 
 官方解释： Move this session to a new working directory
 
 个人理解： 把整个会话的主工作目录换掉，同时不破坏 prompt cache。
 
----
-
 ## `/chrome` 与 `/claude-in-chrome` ——
 
 - **`/chrome`** —— 配置 Chrome 
 - **`/claude-in-chrome`** ——  操作Chrome 浏览器 
-
----
 
 ## `1btw <question>`
 
@@ -51,8 +41,6 @@ description: "记录自己在实际使用 Claude Code 过程中逐个搞懂的 s
 
 btw 就是by the way（顺便问一下）的意思，当Claude code在对话时候，你可以`/btw 目前我们进展到哪里了？`问一下他。
 note: 无论你问什么内容，都不会污染到主聊天，所以随便问。
-
----
 
 ## `/clear`
 
@@ -75,8 +63,6 @@ mkdir -p .claude/docs
 
 写完之后你就可以 /clear,下次需要时再让 Claude 读那个文件(比如 "读一下 .claude/docs/xxx.md 里的内容"),就能把关键结论重新带回上下文,而不用把整个旧对话都保留着。
 
----
-
 ## `/compact`
 
 官方解释： Free up context by summarizing the conversation so far
@@ -86,8 +72,6 @@ mkdir -p .claude/docs
 
 最好还是带上instrucitons,就是在compact 后面写一点话，比如
 `/compact 保留关于数据库设计的所有决策`,而不是简短的`/compact`
-
----
 
 ## `/color`
 
@@ -99,13 +83,9 @@ mkdir -p .claude/docs
 
 > 如果你的工作流需要看很多Claude,那么你可以试一下换不同窗口中的Claude的主题色，这样会更好辨认。
 
----
-
 ## `/config`
 
 官方解释： open setting
-
----
 
 ## `/comtext`
 
@@ -140,19 +120,13 @@ mkdir -p .claude/docs
 
 总结一句:它更像是个"仪表盘",在你怀疑上下文出问题、或者想优化配置(MCP、记忆文件)的时候拿出来看,而不是日常必查项。日常监控其实靠状态栏(status line)上实时显示的百分比就够了。
 
----
-
 ## `/copy`
 
 官方解释： Copy Claude's last response to clipboard (or /copy N for the Nth-latest)
 
----
-
 ## `/cost` 
 
 官方解释： Show session cost, plan usage, and activity stats
-
----
 
 ## `/doctor`
 
@@ -164,13 +138,9 @@ mkdir -p .claude/docs
 
 > 当然，在中国使用Claude可能还会有网络问题，😂cao
 
----
-
 ## `/effort`
 
 官方解释： Set effort level for model usage
-
----
 
 ## `/export`
 
@@ -190,25 +160,17 @@ mkdir -p .claude/docs
 ```
 会直接把完整对话写成文件保存到当前位置,不弹窗、不确认。
 
----
-
 ## `/focus`
 
 官方解释： Toggle focus view: just your prompt, summary, and response
-
----
 
 ## `/ide`
 
 官方解释： Manage IDE integrations
 
----
-
 ## `/login & /logout`
 
 官方解释： Switch Anthropic accounts & Sign out from your Anthropic account
-
----
 
 ## `/memory`
 
@@ -228,27 +190,19 @@ mkdir -p .claude/docs
 
 note: 我建议是打开auto-memmory的，这样，Claude就能记住你的爱好，挺好☺️
 
----
-
 ## `/model`
 
 官方解释：Set the AI model for Claude Code (currently Sonnet 5)
 
 ![model](https://cdn.mikeq95blog.uk/coverimage/model命令.png)
 
----
-
 ## `/permission`
 
 官方解释： Manage allow and deny tool permission rules
 
----
-
 ## `/plan`
 
 官方解释： enable plan mmode
-
----
 
 ## `/powerup`
 
@@ -258,17 +212,11 @@ note: 我建议是打开auto-memmory的，这样，Claude就能记住你的爱�
 
 ![powerup命令](https://cdn.mikeq95blog.uk/coverimage/powerup命令.png)
 
-
----
-
 ## `/recap`
 
 官方解释：Generate a one-line session recap now
 
 个人理解：:让 Claude 生成当前会话的简要摘要,回答"我们做到哪了、接下来要干嘛"这类问题——专门解决"离开终端一段时间回来,忘了自己刚才在干什么"的场景。
-
-
----
 
 ## `/rename`
 
@@ -276,15 +224,11 @@ note: 我建议是打开auto-memmory的，这样，Claude就能记住你的爱�
 
 个人理解： 用`/rename`时候最好加上`<name>`,否则Claude就会自己编一个
 
----
-
 ## `/resume`
 
 官方解释：Resume a previous conversation
 
 个人理解： 这个可以帮你看历史对话。所以，我觉得一个用Claude Code的好习惯就是：一个对话只完成一个任务，然后名字最好起一个相关的，这样当你想`/resume <name>`继续做的话，会方便许多。
-
----
 
 ## `/rewind`
 
@@ -298,8 +242,6 @@ note: 我建议是打开auto-memmory的，这样，Claude就能记住你的爱�
 ## `/theme`
 
 官方解释： Change the theme
-
----
 
 ## 结尾
 

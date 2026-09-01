@@ -8,10 +8,6 @@ tags:
 description: "结合官方文档和多方评测，整理几个跟 Next.js、Supabase、Vercel、Docusaurus/GitHub 技术栈契合的 Claude Code 插件，分官方/合作方和社区热门两类，附安装命令和优先级建议。"
 ---
 
-{/* truncate */}
-
----
-
 ## 官方 / 合作方插件
 
 来源是 Anthropic 或对应厂商维护，可信度高，权限相对可控，推荐优先装这类。
@@ -58,8 +54,6 @@ description: "结合官方文档和多方评测，整理几个跟 Next.js、Supa
 
 至此，官方/合作方这一档的插件就介绍完了，风险都不高，看哪个跟自己技术栈对得上直接装就行。
 
----
-
 ## 社区热门插件
 
 社区插件权限范围和维护质量参差不齐，装之前最好先翻一下它的 GitHub 仓库，看看用了哪些 hooks、要什么权限。
@@ -72,17 +66,11 @@ description: "结合官方文档和多方评测，整理几个跟 Next.js、Supa
 /plugin install context7@claude-plugins-official
 ```
 
-
-
----
-
 ## 怎么排优先级
 
 日常工作量最大的地方是博客 UI 调整和后端项目的支付/库存逻辑，所以我自己的排序是：**frontend-design + commit-commands + Supabase/Vercel 官方插件**优先装，这四个跟日常工作关联最直接，风险也最低，都是官方/合作方来源。Superpowers 这类社区大插件先观望，等真的有大 功能要开发时再考虑装。
 
 > 想确认自己装的插件有没有生效，可以在对话里问一句"你现在能用哪些插件"，Claude 会把当前会话加载到的插件列出来。
-
----
 
 ## 补充：插件安装和使用的几个细节
 
