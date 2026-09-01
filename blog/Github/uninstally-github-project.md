@@ -7,8 +7,6 @@ tags:
 description: "Uninstally 是一款开源的 macOS 卸载器，靠 bundle identifier 检测清理 App 留下的偏好设置、缓存、容器等残留文件。这篇记录一下它的原理、安装方式和实际用下来的体验。"
 ---
 
-macOS 自带的删除方式是把 App 拖进废纸篓，但偏好设置、缓存、日志这些残留文件基本不会跟着走。翻到 [Uninstally](https://github.com/gostonx/uninstally) 这个项目——⭐ 509，MIT 协议，SwiftUI 写的原生小工具，专门干这件事，用下来觉得值得写一篇。
-
 {/* truncate */}
 
 ---

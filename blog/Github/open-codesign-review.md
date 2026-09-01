@@ -18,7 +18,7 @@ description: "Open CoDesign 是 Claude Design 的开源平替，本地运行、M
 
 Open CoDesign 是一个桌面端的 AI 设计工具，核心逻辑就一句话：**你输入 prompt，它帮你生成可以直接看的 HTML 原型页面**。
 
-它的定位是 Claude Design、v0、Lovable 这类工具的开源替代品。几个关键点：
+它的定位是 [Claude Design](https://claude.com/product/design)、[v0](https://v0.app/)、[Lovable](https://lovable.dev/) 这类工具的开源替代品。几个关键点：
 
 - **本地运行**，数据不出你的电脑
 - **BYOK**（Bring Your Own Key），Claude、GPT、Gemini、Ollama 都支持

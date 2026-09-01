@@ -7,8 +7,6 @@ tags:
 description: "NetNewsWire 是一款免费开源的 macOS/iOS RSS 阅读器，2002 年由 Brent Simmons 做出来，中间被卖过两次，2018 年才重新开源。这篇记录一下它的来历、支持的订阅格式和实际用下来的感受。"
 ---
 
-前两天在排查自己博客 RSS feed 的问题时，一直在用 [NetNewsWire](https://github.com/Ranchero-Software/NetNewsWire) 订阅、验证效果，用下来觉得挺值得写一篇——免费开源，⭐ 10.2k，MIT 协议，而且是少见的"活了 20 多年还在维护"的老项目。
-
 {/* truncate */}
 
 ---

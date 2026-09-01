@@ -8,12 +8,6 @@ tags:
 description: "Mac 用户必备包管理工具 Homebrew 入门指南：一条命令安装、更新、卸载软件，告别手动下载。"
 ---
 
-> "macOS 上最流行的命令行软件安装器。"
-
-在 Mac 上装软件，你是不是还在官网一个个找安装包？有了 Homebrew，一条命令搞定一切——安装、更新、卸载，全部统一管理，告别手动下载的烦恼。
-
-Homebrew 是一个用于 macOS 和 Linux 的[包管理器](https://clearlove7-ai.vercel.app?word=包管理器&postId=2026-05-28-homebrew-tutorials)，它的核心价值就一句话：**用命令行统一管理你电脑上的所有软件**。
-
 {/* truncate */}
 
 ---
@@ -42,7 +36,7 @@ Homebrew 是一个用于 macOS 和 Linux 的[包管理器](https://clearlove7-ai
 
 ## 核心概念：formula 和 cask
 
-在用 Homebrew 之前，先搞清楚两个概念：
+在用 [Homebrew](https://brew.sh) 之前，先搞清楚两个概念：
 
 - **[formula](https://clearlove7-ai.vercel.app?word=formula&postId=2026-05-28-homebrew-tutorials)（配方）**：用来安装**命令行工具**，比如 `git`、`python`，没有图形界面
 - **[cask](https://clearlove7-ai.vercel.app?word=cask&postId=2026-05-28-homebrew-tutorials)（酒桶）**：用来安装**有图形界面的 App**，比如 Firefox、VS Code

@@ -6,8 +6,6 @@ tags: [github, Claude, prompt, writing, Ai-friendly]
 description: "stop-slop is an open-source set of Claude skill rules — a banned-phrase list, structural rules, and a scoring rubric — that helps Claude strip out common AI writing tells during drafting and editing."
 ---
 
-stop-slop is a Claude skill by Hardik Pandya that teaches Claude to recognize the tells in its own writing and cut them during editing. The whole repo has no executable code, just a handful of Markdown rule files.
-
 {/* truncate */}
 
 > If you're new to this, this article includes a ready-to-use AI prompt that can set up the environment for you in one go.

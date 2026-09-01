@@ -8,8 +8,6 @@ tags:
 description: "Umami is a privacy-friendly open-source analytics tool that skips the cookie banner. This walks through the full setup, from signup to wiring it into a Docusaurus blog."
 ---
 
-[Umami](https://umami.is) is an open-source analytics tool that doesn't track users or require a cookie banner. It has a free cloud-hosted tier with 100k events/month — plenty for a personal blog.
-
 {/* truncate */}
 
 ---

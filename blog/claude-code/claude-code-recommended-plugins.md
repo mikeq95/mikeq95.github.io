@@ -8,8 +8,6 @@ tags:
 description: "结合官方文档和多方评测，整理几个跟 Next.js、Supabase、Vercel、Docusaurus/GitHub 技术栈契合的 Claude Code 插件，分官方/合作方和社区热门两类，附安装命令和优先级建议。"
 ---
 
-Claude Code 的插件市场里插件不少，但不是每个都值得装——装太多权限范围大的插件，反而会拖慢速度、增加风险。这篇整理几个跟我自己技术栈（Next.js、Supabase、Vercel、Docusaurus/GitHub）比较契合的插件，分两类：官方/合作方出的（可信度高），和社区热门的（装之前得自己多留意）。
-
 {/* truncate */}
 
 ---
@@ -18,7 +16,7 @@ Claude Code 的插件市场里插件不少，但不是每个都值得装——�
 
 来源是 Anthropic 或对应厂商维护，可信度高，权限相对可控，推荐优先装这类。
 
-### frontend-design
+### [frontend-design](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/frontend-design)
 
 官方一方插件，目前是官方市场里安装量最高的插件之一（近 83 万次安装）。给前端 UI/视觉设计提供指导，做导航栏、glassmorphism 样式这类工作时正好用得上。
 

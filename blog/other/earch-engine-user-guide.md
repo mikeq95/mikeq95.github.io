@@ -6,21 +6,13 @@ image: https://cdn.mikeq95blog.uk/coverimage/%E5%B8%B8%E7%94%A8%E7%9A%84%E6%90%9
 description: "介绍日常可用的搜索引擎及其适用场景，告别单一依赖，找到适合自己的搜索工具组合。"
 ---
 
-
-
-### 一、搜索引擎选择
-
-#### 推荐排序
-
-Google适合日常搜索，DuckDuckGo和Brave适合注重隐私的人用，yandex适合搜索那种不正经的内容，Bing国内版，如果无法上外网，这个也能凑活用。
-
 {/* truncate */}
 
 #### 各引擎特点
 
-- **Google**：搜争议内容时结果偏 PC，反方观点少且力度弱，不够尖锐。
-- **DuckDuckGo**：比 Google 中立，但是每次用这个搜索结果的时候没有高亮，需要加一个脚本，我在文末会写到。（这个脚本用AI写就行）
-- **Yandex**：完全不理会西方政治正确那套，适合搜一些敏感，比较劲爆的内容。
+- **[Google](https://www.google.com)**：搜争议内容时结果偏 PC，反方观点少且力度弱，不够尖锐。
+- **[DuckDuckGo](https://duckduckgo.com)**：比 Google 中立，但是每次用这个搜索结果的时候没有高亮，需要加一个脚本，我在文末会写到。（这个脚本用AI写就行）
+- **[Yandex](https://yandex.com)**：完全不理会西方政治正确那套，适合搜一些敏感，比较劲爆的内容。
     - 例：搜「爱泼斯坦名单」，只有 Yandex 将名单置顶
     - 例：搜「好莱坞丑闻」，只有 Yandex 显示激烈结果
 - **[政治正确](https://clearlove7-ai.vercel.app?word=政治正确&postId=2026-05-16-earch-engine-user-guide)程度**：`Google > Brave > DuckDuckGo > Yandex`

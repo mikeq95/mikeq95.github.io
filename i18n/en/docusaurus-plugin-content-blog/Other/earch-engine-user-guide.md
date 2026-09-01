@@ -8,12 +8,6 @@ tags:
 description: "A guide to choosing the right search engine for different tasks — break the habit of relying on just one."
 ---
 
-### 1. Choosing a Search Engine
-
-#### Recommended Order
-
-Google is great for everyday searches. DuckDuckGo and Brave are better for privacy-conscious users. Yandex is good for finding edgier content. Bing (Chinese version) works as a fallback if you can't access international sites.
-
 {/* truncate */}
 
 #### Engine Characteristics

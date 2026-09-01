@@ -9,8 +9,6 @@ tags:
 description: "CodeGraph pre-builds your codebase into a knowledge graph for Claude Code to query directly, cutting tool calls by 58% and saving ~16% on tokens."
 ---
 
-I came across a GitHub project today — [CodeGraph](https://github.com/colbymchenry/codegraph), 38k+ stars, MIT licensed. The core idea: **pre-build your codebase into a knowledge graph so Claude Code can query it directly, instead of grep-scanning files every time**. I installed it and tried it out — on average, 16% cost savings and 58% fewer tool calls.
-
 {/* truncate */}
 
 ---

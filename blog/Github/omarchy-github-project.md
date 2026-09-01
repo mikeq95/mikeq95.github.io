@@ -16,7 +16,7 @@ Omarchy 是 DHH 做的一整套 Arch Linux 发行版，桌面用 Hyprland 平铺
 
 > 写在前面：Omarchy 官方原生支持的 Mac 只有 Intel 芯片机型。苹果芯片（M 系列）目前没有官方支持，只能装社区维护的 Asahi Linux 移植版，或者塞进 Parallels、VirtualBox 这类虚拟机，后一种官方手册原话是"相当繁琐"，性能也不理想。这是一个要接管整块硬盘的完整 Linux 发行版，这篇文章基于官方手册和源码整理，没有实机装过。
 
-DHH 是 Ruby on Rails 的作者，37signals 的联合创始人，这两年公开吐槽过苹果 App Store 的抽成机制和库克治下苹果产品缺乏创新，转而把日常主力设备换成了 Linux。Omarchy 就是这次转换的产物，在 GitHub 上已经攒了 3.2 万多个 star，仓库标注的主语言是 Shell，绝大部分代码是负责串起安装、包管理和桌面配置的脚本，不是一个传统意义上的应用程序。
+DHH 是 Ruby on Rails 的作者，37signals 的联合创始人，这两年公开吐槽过苹果 App Store 的抽成机制和库克治下苹果产品缺乏创新，转而把日常主力设备换成了 Linux。[Omarchy](https://github.com/basecamp/omarchy) 就是这次转换的产物，在 GitHub 上已经攒了 3.2 万多个 star，仓库标注的主语言是 Shell，绝大部分代码是负责串起安装、包管理和桌面配置的脚本，不是一个传统意义上的应用程序。
 
 项目挂在 basecamp 组织名下，由 DHH 所在的 37signals 孵化。它的目标不是做一个大而全的发行版，而是把 DHH 自己日常在用的那套工具链提前装好、调好。编辑器是 Neovim，浏览器是 Chromium，笔记用 Obsidian，办公软件是 LibreOffice，甚至还塞了一个复古风格的 Winamp 式播放器。官方手册里有一句话形容得挺直接，这套系统"零臃肿，只放我自己真正在用的东西"。
 

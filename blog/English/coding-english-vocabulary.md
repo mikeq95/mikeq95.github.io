@@ -9,11 +9,6 @@ tags:
   - "collection"
 description: "整理编程文档、教程和 issue 中常见的英文词汇与表达，附例句与中文释义，帮助读懂英文技术资料。"
 ---
-1.  **demonstrate**
-    
-    - 例句: This tutorial no longer ==demonstrates== current [SwiftUI](https://clearlove7-ai.vercel.app?word=SwiftUI&postId=2026-04-29-coding-english-vocabulary) or Xcode practices.
-    - 译文: 本教程不再演示当前的 SwiftUI 或 Xcode 实践。
-    - 释义: 演示
 
 {/* truncate */}
 

@@ -8,8 +8,6 @@ tags:
 description: "Claude (claude.ai) and Claude Code run two separate skill systems. Here's how to install and use skills on each side, and the pitfalls I ran into."
 ---
 
-What is a skill, and how do you install and use one in Claude and Claude Code?
-
 {/* truncate */}
 
 ---

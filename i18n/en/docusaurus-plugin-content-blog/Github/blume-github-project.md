@@ -6,8 +6,6 @@ tags: [markdown, open-source, llm, Ai-friendly]
 description: Blume is an open-source documentation framework built on Astro and Vite — maintain a folder of Markdown and it generates a static docs site with local search, AI-ready output, and a component library, without you having to build a React app yourself.
 ---
 
-Blume is an open-source documentation framework built by Hayden Bleasel, and it isn't just "another nicer-looking Docusaurus theme." It turns a folder of Markdown/MDX files directly into a full documentation site — navigation, search, theming, and a whole component library are all handled by a hidden Astro project that it generates and drives behind the scenes.
-
 {/* truncate */}
 
 > If you're new to this, this post includes a ready-to-use AI prompt that can set up the environment for you in one go.

@@ -8,15 +8,13 @@ tags:
 description: "用 kokoro-web 把开源 TTS 模型 Kokoro 包成网页界面，Docker 一键启动，填文字点按钮就能生成配音，不用写一行 Python。"
 ---
 
-之前写过[一篇 Kokoro 教程](/blog/2026/05/16/kokoro-tts-tutorial)，用 pip 装、写 Python 脚本调用模型。有朋友反馈不想敲命令、不想碰代码，只想要个网页填文字点一下就出音频的东西。正好 Kokoro 官方主页上就推荐了 [kokoro-web](https://github.com/eduardolat/kokoro-web)——把 Kokoro 包成了一个带网页界面的本地服务，Docker 一键启动，装完全程点鼠标就行。这篇记录一下怎么把它跑起来。
-
 {/* truncate */}
 
 ---
 
 ## 它是什么
 
-kokoro-web 是 [Kokoro](https://github.com/hexgrad/kokoro) 模型的一个第三方网页壳，作者是 [eduardolat](https://github.com/eduardolat)，⭐ 600+，MIT 协议。核心功能就是起一个网页，你在输入框里粘贴文字、选个声音、点 Generate，几秒钟后网页里直接出来一个能播放、能下载的音频文件。
+[kokoro-web](https://github.com/eduardolat/kokoro-web) 是 [Kokoro](https://github.com/hexgrad/kokoro) 模型的一个第三方网页壳，作者是 [eduardolat](https://github.com/eduardolat)，⭐ 600+，MIT 协议。核心功能就是起一个网页，你在输入框里粘贴文字、选个声音、点 Generate，几秒钟后网页里直接出来一个能播放、能下载的音频文件。
 
 支持两种运行方式：
 

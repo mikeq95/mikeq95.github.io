@@ -8,7 +8,6 @@ tags:
 description: "用一段 Python 脚本配合 yt-dlp，在 Mac 上本地下载 YouTube 视频，配置一次，换链接直接用。"
 ---
 
-想下载 YouTube 视频存到本地？这篇文章用一个 Python 脚本帮你搞定，配置一次，之后换链接直接用。
 {/* truncate */}
 
 ---
@@ -46,7 +45,7 @@ ffmpeg -version
 
 ---
 
-### Node.js
+### [Node.js](https://nodejs.org)
 
 破解 YouTube 的 JS 加密挑战，缺它格式全部丢失。
 

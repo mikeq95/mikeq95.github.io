@@ -11,8 +11,6 @@ tags:
 description: i-have-adhd 是一个开源 skill，靠 SKILL.md 里的十条输出规则，让 Claude Code、Codex 等编程 Agent 的回复先给动作、砍掉寒暄客套，这篇记录实际安装、触发和前后对比的效果。
 ---
 
-i-have-adhd 是 [Ayoub Ghriss](https://github.com/ayghri) 做的一个开源 skill，装给 Claude Code、Codex、Gemini CLI 这类编程 Agent 用，治的是 AI 回答问题喜欢先寒暄两句、绕一圈才说到重点的毛病。装上之后，每条回复都得先给动作，能砍掉的客套全砍掉。
-
 {/* truncate */}
 
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
@@ -74,7 +72,7 @@ touch ~/.claude/.i-have-adhd-always
 rm ~/.claude/.i-have-adhd-always
 ```
 
-至此，i-have-adhd 已经装好并且能正常触发了。
+至此，[i-have-adhd](https://github.com/ayghri/i-have-adhd) 已经装好并且能正常触发了。
 
 ---
 

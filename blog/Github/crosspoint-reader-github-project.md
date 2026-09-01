@@ -6,8 +6,6 @@ tags: [e-reader, esp32, firmware, open-source, Ai-friendly]
 description: CrossPoint Reader 是运行在 Xteink X3/X4 电纸书上的开源固件，用 C++ 写成、基于 PlatformIO 构建，这篇文章根据源码、官方文档和第三方评测整理，没有做实机验证。
 ---
 
-CrossPoint Reader 是一套跑在 Xteink X3/X4 电纸书上的开源固件，社区自己维护，想解决的是官方固件（XTOS）在排版、字体和无线传书上一直被吐槽的问题。它不打算把电纸书做成什么都能干的万能机，SCOPE.md 里写得很直接，不装记事本，不装游戏，一门心思把阅读这件事做扎实。
-
 {/* truncate */}
 
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
@@ -16,7 +14,7 @@ CrossPoint Reader 是一套跑在 Xteink X3/X4 电纸书上的开源固件，社
 
 ## 介绍
 
-CrossPoint Reader 用 C++ 写成，基于 PlatformIO 和 Arduino 框架构建，跑在 ESP32-C3 芯片上。项目发起人是 Dave Allie，到现在他依然是提交量最高的贡献者，195 次提交，第二名只有 94 次。GitHub 上目前有 7300 多个 star、1500 多个 fork，用的是 MIT 协议，README 里也写明白了跟 Xteink 官方没有从属关系。
+[CrossPoint Reader](https://github.com/crosspoint-reader/crosspoint-reader) 用 C++ 写成，基于 PlatformIO 和 Arduino 框架构建，跑在 ESP32-C3 芯片上。项目发起人是 Dave Allie，到现在他依然是提交量最高的贡献者，195 次提交，第二名只有 94 次。GitHub 上目前有 7300 多个 star、1500 多个 fork，用的是 MIT 协议，README 里也写明白了跟 Xteink 官方没有从属关系。
 
 它目前正式支持的硬件只有 Xteink X3 和 X4，但 SCOPE.md 说得很清楚，核心团队正在有意把代码往更多 ESP32-C3/S3 电纸书设备上迁。已经有社区分支把它移植到了 M5Stack Paper S3 和 LilyGo T5S3 上，只是这些还没进主线，属于社区自己维护的独立分支。
 

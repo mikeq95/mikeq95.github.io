@@ -8,10 +8,6 @@ tags:
   - collection
 description: "A running collection of useful English phrases for everyday and academic use, each with example sentences and Chinese explanations."
 ---
-1. **Based on the principle of voluntariness**
-
-    - Example: Membership in the union is ==based on the principle of voluntariness==—no employee is forced to join.
-    - Meaning: following the principle that participation is entirely a personal choice; voluntary basis
 
 {/* truncate */}
 

@@ -6,8 +6,6 @@ tags: [github, open-source, AI, Ai-friendly]
 description: "shadcn/ui is an open-source React component collection whose CLI copies component source code directly into your project instead of publishing an npm package, so the component code is fully yours to maintain and modify."
 ---
 
-shadcn/ui is an open-source React component collection that addresses a specific, long-standing problem. Traditional component libraries either lock you into their default look, or force you to layer overrides and stitch together incompatible APIs just to restyle them. shadcn/ui took a different route. Its CLI copies component source code directly into your project's `components/ui` directory, and from that point on the code is yours — change it however you want.
-
 {/* truncate */}
 
 > If you're new to this, this article includes a ready-to-use AI prompt that can set up the environment for you in one go.

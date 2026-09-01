@@ -146,4 +146,4 @@ yarn add blume
 - **手风琴**：原生 `<details>`/`<summary>`，从来就不用 import。
 - **Tabs / 卡片 / 分栏 / 步骤条**：现在全部注册进了 `src/theme/MDXComponents.js`，任何一篇 `.md`/`.mdx` 文章都能直接用标签，不用再写 import。
 - **代码组**：Docusaurus 没有专门的组件，用零 import 的 `Tabs` 包代码块是社区通用做法（Docusaurus 官方文档自己也这么写多包管理器安装命令）。
-- 这六个标签现在是**全站生效**的，不只是这篇文章——任何新文章都能直接用，这也是 Blume 里 `<CardGroup>`/`<Tabs>` 不用 import 的同一种机制。
+- 这六个标签现在是**全站生效**的，不只是这篇文章——任何新文章都能直接用，这也是 [Blume](https://github.com/haydenbleasel/blume) 里 `<CardGroup>`/`<Tabs>` 不用 import 的同一种机制。

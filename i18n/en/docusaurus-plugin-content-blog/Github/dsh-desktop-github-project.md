@@ -6,8 +6,6 @@ tags: [github, AI, llm, open-source, macos]
 description: "DSH Desktop is a community-built native desktop client for DeepSeek Harness, packaging the official Web UI, Host service, and plugin system into a download-and-run desktop app, unaffiliated with DeepSeek's official team."
 ---
 
-DSH Desktop is a desktop client made by the community organization anywhere-labs. It packages DeepSeek Harness's local Web UI, Host service, and plugin system into a single native app with a window and a system tray icon. The installer ships with an Electron and Node runtime built in, so it works right after you install it, with nothing to set up beforehand.
-
 {/* truncate */}
 
 ---

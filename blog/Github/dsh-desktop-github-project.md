@@ -6,21 +6,19 @@ tags: [github, AI, llm, open-source, macos]
 description: DSH Desktop 是社区做的 DeepSeek Harness 原生桌面客户端，把官方 Web UI、Host 服务和插件系统打包进一个下载即用的桌面应用，不隶属深度求索官方。
 ---
 
-DSH Desktop 是社区组织 anywhere-labs 做的一个桌面客户端，把 DeepSeek Harness 的本地 Web UI、Host 服务和插件系统整个装进一个带窗口、带系统托盘的原生应用。安装包自带 Electron 和 Node 运行时，双击装完就能用，不用先装任何东西。
-
 {/* truncate */}
 
 ---
 
 ## 介绍
 
-DeepSeek Harness 是深度求索在 2026 年 8 月中旬开源的一个智能体框架，主打"万物皆插件"的思路，但它自己只给命令行和一个本地 Web 界面，没有官方桌面客户端。DSH Desktop 就是补这块空白的第三方桌面壳。
+[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 是深度求索在 2026 年 8 月中旬开源的一个智能体框架，主打"万物皆插件"的思路，但它自己只给命令行和一个本地 Web 界面，没有官方桌面客户端。[DSH Desktop](https://github.com/anywhere-labs/dsh-desktop) 就是补这块空白的第三方桌面壳。
 
 项目用 TypeScript 写成，仓库在 GitHub 上已经攒了两万多颗 star。它在 README 和文档里反复强调自己是独立社区项目，跟深度求索没有隶属、合作或背书关系。仓库贡献者列表里能看到一些"上游贡献者"，那只是 fork 继承下来的提交历史，不代表这些人真的参与了这个仓库的开发。
 
 仓库最早叫 deepseek-harness-desktop，后来改成了现在的 dsh-desktop。GitHub 会自动把旧链接跳转过来，但网上不少地方（包括项目自己的 npm 包名）还在混用两个名字，说的是同一个项目。
 
-它的核心设计原则是"桌面本身也是一个插件"。项目没有改动上游 DeepSeek Harness 的源码，窗口、托盘、终端这些桌面能力全部通过 Harness 自带的 Cordis 插件机制拼进同一个运行时，跟其他第三方插件遵守同一套组合规则。Cordis 这套插件框架并不新鲜，最早是从 Koishi 机器人框架里拆出来的通用插件系统。
+它的核心设计原则是"桌面本身也是一个插件"。项目没有改动上游 DeepSeek Harness 的源码，窗口、托盘、终端这些桌面能力全部通过 Harness 自带的 [Cordis](https://github.com/cordiverse/cordis) 插件机制拼进同一个运行时，跟其他第三方插件遵守同一套组合规则。Cordis 这套插件框架并不新鲜，最早是从 [Koishi](https://github.com/koishijs/koishi) 机器人框架里拆出来的通用插件系统。
 
 代码以 MIT 协议开源，仓库昨天还有代码推送，更新算勤快。
 

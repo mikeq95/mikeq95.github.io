@@ -6,8 +6,6 @@ tags: [github, open-source, Ai-friendly]
 description: 独角数卡（dujiaoka）是一款基于 Laravel 的开源自动售货系统，用来给虚拟商品自动发货，项目已在 2026 年 2 月停止维护并被归档，这篇文章根据官方文档和第三方评测整理它的部署方式与现状。
 ---
 
-独角数卡（dujiaoka）是一款开源的自动售货系统，解决的是买家付款后自动发货这件事，不用站长人工值守。它 2018 年开源至今，是中文社区里数一数二知名的发卡系统，不过项目已经在今年年初停更归档。
-
 {/* truncate */}
 
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
@@ -16,7 +14,7 @@ description: 独角数卡（dujiaoka）是一款基于 Laravel 的开源自动�
 
 ## 介绍
 
-> 停更提醒：dujiaoka 已经在 2026 年 2 月 12 日停止更新和维护，仓库目前是 archived 只读状态。作者 assimon 把开发重心转向了用 Go 重写的新项目 Dujiao-Next，README 首行现在也只剩一句"请前往新版"。这篇文章记录的是它停更之前的样子——是怎么设计的、按官方文档要怎么部署——如果是想现在从零搭一个发卡站，更值得先看看文末"相关项目和评价"里的继任版本。
+> 停更提醒：[dujiaoka](https://github.com/assimon/dujiaoka) 已经在 2026 年 2 月 12 日停止更新和维护，仓库目前是 archived 只读状态。作者 assimon 把开发重心转向了用 Go 重写的新项目 [Dujiao-Next](https://github.com/dujiao-next/dujiao-next)，README 首行现在也只剩一句"请前往新版"。这篇文章记录的是它停更之前的样子——是怎么设计的、按官方文档要怎么部署——如果是想现在从零搭一个发卡站，更值得先看看文末"相关项目和评价"里的继任版本。
 
 买家在独角数卡搭的站上下单付款之后，系统自动把卡密、软件许可或者会员账号发出去，站长不用守在电脑前人工处理。项目基于 Laravel 框架搭建，后台管理套的是 laravel-admin，前端 UI 用 Bootstrap，走的是国内 PHP 生态里最主流的一套组合。GitHub 上目前有 1.2 万多个 star、2700 多个 fork，核心贡献者是 [iLay1678](https://github.com/iLay1678)。
 

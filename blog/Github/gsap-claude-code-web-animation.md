@@ -8,10 +8,6 @@ tags:
 description: "介绍 GSAP 官方出的 Claude Code Skills 包，让 AI 正确理解 GSAP API，几分钟为网页加上流畅动画效果。"
 ---
 
-最近发现一个有意思的 GitHub 项目——[gsap-skills](https://github.com/greensock/gsap-skills)，是 GSAP 官方出的 AI Skills 包，专门用来"教" Claude Code 正确使用 GSAP 动画库。
-
-有点意思，试试。
-
 {/* truncate */}
 
 ---

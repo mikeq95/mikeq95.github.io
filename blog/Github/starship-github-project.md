@@ -7,8 +7,6 @@ tags:
 description: "Starship 是用 Rust 写的跨 Shell 命令行提示符工具，Bash/Zsh/Fish/PowerShell 等十几种 Shell 都能用同一套配置。这篇记录一下它的原理、安装配置方式和实际用下来的体验。"
 ---
 
-换了几次终端 Shell 之后，最烦的是每次都要重新折腾提示符（prompt）配置。翻到 [Starship](https://github.com/starship/starship) 解决了这个问题——⭐ 5.9 万，ISC 协议，用 Rust 写的跨 Shell 提示符工具，用下来觉得值得写一篇。
-
 {/* truncate */}
 
 ---

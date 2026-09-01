@@ -8,11 +8,6 @@ tags:
   - collection
 description: "持续收录日常和学术场景中的实用英语短语，每条附例句与中文释义，适合非母语学习者积累表达。"
 ---
-1. **Based on the principle of voluntariness**
-    
-    - 例句: Membership in the union is ==based on the principle of voluntariness==—no employee is forced to join.
-    - 译文: 加入工会遵循自愿原则，没有任何员工被强迫参加。
-    - 释义: 根据自愿的原则
 
 {/* truncate */}
 

@@ -7,8 +7,6 @@ tags:
 description: "接着上一篇 NetNewsWire 的来历和基础安装，这篇专门看它给深度用户留的自定义空间——.nnwtheme 主题包、iOS 小组件的数据来源，以及四个要靠 defaults write 才能开的隐藏偏好设置。"
 ---
 
-之前写过一篇 [NetNewsWire](https://github.com/Ranchero-Software/NetNewsWire) 的来历和基础安装，这次翻它仓库里的 [Technotes](https://github.com/Ranchero-Software/NetNewsWire/tree/main/Technotes) 文档，发现给深度用户留了不少自定义空间——主题、iOS 小组件、隐藏偏好设置，用下来觉得值得单独写一篇。
-
 {/* truncate */}
 
 ---

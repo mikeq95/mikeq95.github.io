@@ -7,8 +7,6 @@ tags:
 description: "How the homepage headline and subtitle went from copy to layout: pulling real CSS values off Apple's own site, writing the responsive font sizes and container widths, with the full code and a line-by-line walkthrough."
 ---
 
-The homepage used to just say "欢迎 Hello～" (Welcome) with a one-line intro, written on the fly without much thought. This time I wanted something closer to how Apple does it on [apple.com/apple-podcasts](https://www.apple.com/apple-podcasts/) — a big headline plus a paragraph underneath. This post records how the copy and the typography details ended up where they are.
-
 {/* truncate */}
 
 ---

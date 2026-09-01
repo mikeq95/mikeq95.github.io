@@ -8,12 +8,6 @@ tags:
 description: "A beginner's guide to Homebrew, the essential Mac package manager — install, update, and remove software with a single command."
 ---
 
-> "The most popular command-line package manager for macOS."
-
-Still hunting down installers one by one on official websites? With Homebrew, one command handles everything — install, update, uninstall — all managed in one place. Say goodbye to manual downloads.
-
-Homebrew is a package manager for macOS and Linux. Its core value in one sentence: **manage all your software from the command line, unified.**
-
 {/* truncate */}
 
 ---

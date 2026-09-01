@@ -6,8 +6,6 @@ tags: [github, open-source, macos, AI]
 description: Omarchy is an Arch Linux + Hyprland distribution led by DHH. It only natively supports Intel Macs, and Apple Silicon needs a community port or a VM; this article is compiled from the official manual and source, not a hands-on install.
 ---
 
-Omarchy is a full Arch Linux distribution built by DHH, with the Hyprland tiling window manager on top and a desktop shell called Quickshell that they wrote themselves. It isn't a config script you drop onto another system, it's a complete installer ISO. Partitioning, full-disk encryption, and desktop theming all happen during the install itself, so a reboot drops you straight into a tuned system without hand-rolling Arch from scratch.
-
 {/* truncate */}
 
 ---

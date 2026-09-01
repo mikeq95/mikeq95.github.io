@@ -6,8 +6,6 @@ tags: [markdown, open-source, llm, Ai-friendly]
 description: Blume 是一个基于 Astro 和 Vite 的开源文档框架，维护一个 Markdown 文件夹就能生成带本地搜索、AI-ready 输出和组件库的静态文档站，不用自己搭一个 React 项目。
 ---
 
-Blume 是 Hayden Bleasel 做的一个开源文档框架，不是又一个"更好看的 Docusaurus 主题"。它把一个 Markdown/MDX 文件夹直接变成完整的文档站，导航、搜索、主题和一整套组件都由背后一个自动生成、你平时看不到的 Astro 项目撑着。
-
 {/* truncate */}
 
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
@@ -16,7 +14,7 @@ Blume 是 Hayden Bleasel 做的一个开源文档框架，不是又一个"更好
 
 ## 介绍
 
-用惯 Fumadocs 或 Docusaurus 的人应该都懂那种感觉：先得自己搭一个 Next.js 或 React 项目，装好一堆依赖，配好路由和主题，才能开始写第一篇文档，后续这个应用还得跟着框架版本一起维护。Blume 反过来做——你手上只有一个装 `.md`/`.mdx` 文件的文件夹，`blume` 的 CLI 在背后生成并驱动一个隐藏的 Astro 项目。导航和搜索都不用自己搭，主题也是内置好的，连分享用的 Open Graph 图片也会在构建时自动生成。哪天想要更细的控制权，跑一下 `blume eject` 就能把这层 Astro 项目导出来自己接管，不算是把路堵死。
+用惯 Fumadocs 或 [Docusaurus](https://docusaurus.io) 的人应该都懂那种感觉：先得自己搭一个 Next.js 或 React 项目，装好一堆依赖，配好路由和主题，才能开始写第一篇文档，后续这个应用还得跟着框架版本一起维护。[Blume](https://github.com/haydenbleasel/blume) 反过来做——你手上只有一个装 `.md`/`.mdx` 文件的文件夹，`blume` 的 CLI 在背后生成并驱动一个隐藏的 Astro 项目。导航和搜索都不用自己搭，主题也是内置好的，连分享用的 Open Graph 图片也会在构建时自动生成。哪天想要更细的控制权，跑一下 `blume eject` 就能把这层 Astro 项目导出来自己接管，不算是把路堵死。
 
 配置文件 `blume.config.ts` 和每个目录下的 `meta.ts` 都是真的 TypeScript，用 `defineConfig`、`defineMeta` 写，编辑器能在构建之前就标出字段名拼错这类问题。MDX 里可以直接用卡片、分栏、步骤条、Tabs、手风琴、代码组这些组件，不用在每篇文档开头堆一长串 import。
 

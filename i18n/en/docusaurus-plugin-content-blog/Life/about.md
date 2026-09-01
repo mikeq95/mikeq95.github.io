@@ -8,12 +8,6 @@ tags:
 description: "A Gen Z EE student writing for himself — documenting what he's figured out, and verifying that he actually understands it."
 ---
 
-## About Me
-
-Born after 2005, Gen Z, sophomore majoring in Electronic Information Engineering. I play basketball, game (LoL, CS2), and I'm learning English on the side — not great at it yet, but working on it.
-
-I'm a science student, so I'm probably not great at writing articles. I think you should make a sentence, a complex concept, simpler — not obscure and hard to follow. So I keep my articles simple and concise (which doesn't mean low on information).
-
 {/* truncate */}
 
 ## What This Blog Is For

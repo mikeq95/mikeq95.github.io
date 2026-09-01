@@ -11,8 +11,6 @@ tags:
 description: Kimi CLI is Moonshot AI's terminal-based AI coding agent that can read and edit code, run shell commands, and hook into MCP and ACP editor protocols; the project has now been flagged by its own maintainers as being gradually wound down, with new users pointed to the successor project Kimi Code CLI.
 ---
 
-Kimi CLI is a terminal AI coding agent from Moonshot AI. It can read and edit code, run shell commands, and adjust its next move based on what those commands return, right inside the command line. It's also at a somewhat unusual point in its life right now: the maintainers have posted a notice on the repo's front page saying the project is being replaced by its successor, Kimi Code CLI.
-
 {/* truncate */}
 
 > If you're new to this, this post includes a ready-to-use AI prompt that can set up the environment for you in one go.

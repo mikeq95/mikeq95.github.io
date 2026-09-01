@@ -8,8 +8,6 @@ tags:
 description: "A cheat sheet for touch, mkdir -p, code, heredoc, and cat — these terminal commands beat right-clicking in Finder, especially when creating files in bulk."
 ---
 
-A handful of commands I use all the time on my Mac: `touch`, `mkdir`, `code`, `cat`, plus a `cat`-based trick called `heredoc`.
-
 {/* truncate */}
 
 ---

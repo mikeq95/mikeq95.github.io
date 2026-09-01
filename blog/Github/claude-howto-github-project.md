@@ -7,8 +7,6 @@ tags:
 description: "claude-howto 用 10 个模块 + 自带的自测 Skill，把 Slash Commands、Memory、Skills、Hooks、MCP、Subagents 等 Claude Code 功能串成一条学习路径，记录一下怎么上手。"
 ---
 
-[claude-howto](https://github.com/luongnv89/claude-howto)，一个面向 Claude Code 学习者的结构化教程 + 配置模板库，包含 10 个学习模块，从基础的 Slash Commands 到高级的 Subagents、MCP、Hooks 逐层深入（⭐ 39.2k，MIT 开源）。
-
 {/* truncate */}
 
 ---
@@ -89,4 +87,4 @@ ls ~/Documents/MyBlog/my-blog/.claude/commands/
 
 ## 总结
 
-如果已经用过 Claude Code 但只停留在"打字提问"层面，想系统了解 Slash Commands、Skills、Hooks、Subagents、MCP 这些功能怎么组合成实际工作流，claude-howto 是个挺合适的起点——不用装任何环境，克隆下来跟着 10 个模块过一遍就行。
+如果已经用过 Claude Code 但只停留在"打字提问"层面，想系统了解 Slash Commands、Skills、Hooks、Subagents、MCP 这些功能怎么组合成实际工作流，[claude-howto](https://github.com/luongnv89/claude-howto) 是个挺合适的起点——不用装任何环境，克隆下来跟着 10 个模块过一遍就行。

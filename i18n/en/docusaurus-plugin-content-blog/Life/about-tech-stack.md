@@ -8,8 +8,6 @@ tags:
 description: "How this blog is actually built: Docusaurus + Supabase + Cloudflare, with Claude Code writing most of the code."
 ---
 
-I mentioned in [About This Blog](/blog/about) that I'd write a separate post going into the tech stack. This is that post.
-
 {/* truncate */}
 
 ## The Site Itself: Docusaurus

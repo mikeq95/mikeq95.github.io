@@ -10,13 +10,13 @@ description: "tty7 是用纯 Rust 写的跨平台终端工作台：会话常驻�
 
 ## 介绍
 
-tty7 是一个终端工作台，不只是"再做一个更好看的终端"。它把 shell 会话、SSH 连接和 coding agent 放在同一套界面里：关掉窗口甚至重启机器，shell 还在跑，不用再靠 tmux 保活；pane 里如果跑着 Claude Code、Codex、OpenCode 这类 agent，侧栏会显示状态点、分支和 diff，agent 卡住等你批准时还会弹通知。
+[tty7](https://github.com/l0ng-ai/tty7) 是一个终端工作台，不只是"再做一个更好看的终端"。它把 shell 会话、SSH 连接和 coding agent 放在同一套界面里：关掉窗口甚至重启机器，shell 还在跑，不用再靠 tmux 保活；pane 里如果跑着 Claude Code、Codex、OpenCode 这类 agent，侧栏会显示状态点、分支和 diff，agent 卡住等你批准时还会弹通知。
 
 {/* truncate */}
 
 ---
 
-底层是纯 Rust。界面走 [Zed](https://github.com/zed-industries/zed) 的 gpui 做 GPU 渲染，终端 VT 解析用的是 Alacritty 那一套。官方在同一台 M1 Pro 上做过对比：11 MB 纯文本 `cat` 大约 95 ms，同条件的 Alacritty / Ghostty / Kitty 在 179–239 ms；DOOM-fire 帧率也更高一截。冷启动内存大约 116 MB（GUI 加常驻 server）。
+底层是纯 Rust。界面走 [Zed](https://github.com/zed-industries/zed) 的 gpui 做 GPU 渲染，终端 VT 解析用的是 [Alacritty](https://github.com/alacritty/alacritty) 那一套。官方在同一台 M1 Pro 上做过对比：11 MB 纯文本 `cat` 大约 95 ms，同条件的 Alacritty / [Ghostty](https://ghostty.org/) / [Kitty](https://sw.kovidgoyal.net/kitty/) 在 179–239 ms；DOOM-fire 帧率也更高一截。冷启动内存大约 116 MB（GUI 加常驻 server）。
 
 日常输入这块做得很满：历史影子建议、带说明的 Tab 补全、边打边高亮的语法着色、`⌃R` 模糊搜历史、多行编辑、点一下就能把光标放到任意位置。窗口侧有标签、分屏、`⌘P` 命令面板、`⌘F` 回滚搜索，侧栏还能按 git 仓库分组。SSH 不走系统 `ssh`，是内置的 russh 栈：profile、keychain 凭据、SFTP 面板、端口转发和跳板机都在应用里。
 

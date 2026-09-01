@@ -8,8 +8,6 @@ tags:
 description: "这个博客是怎么搭起来的：Docusaurus + Supabase + Cloudflare，外加 Claude Code 帮我写了大部分代码。"
 ---
 
-之前在[关于这个博客](/blog/about)里说过，技术栈会单独写一篇文章详细说说。这就是那篇。
-
 {/* truncate */}
 
 ## 网站本体：Docusaurus

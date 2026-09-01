@@ -11,8 +11,6 @@ tags:
 description: "i-have-adhd is an open-source skill built around ten output rules in a SKILL.md file, making Claude Code, Codex, and similar coding agents lead with the action and drop the small talk."
 ---
 
-i-have-adhd is an open-source skill by [Ayoub Ghriss](https://github.com/ayghri), built for coding agents like Claude Code, Codex, and Gemini CLI. It targets a specific habit: AI tends to open with a bit of small talk and circle around before getting to the point. Once installed, every reply has to lead with the action first, and the pleasantries that can go, go.
-
 {/* truncate */}
 
 > If you're new to this, this article includes a ready-to-use AI prompt that can set up the environment for you in one go.

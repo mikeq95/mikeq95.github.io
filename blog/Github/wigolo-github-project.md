@@ -6,7 +6,7 @@ tags: [github, AI, llm, open-source, Ai-friendly]
 description: wigolo 是一个本地优先的 MCP server，把网页搜索、抓取、爬取、结构化提取等六个核心工具做成完全不需要 API Key 的本地引擎，这篇记录实际装好后逐个测试这六个工具的过程。
 ---
 
-wigolo 是一个跑在本机的 MCP server，专门给 AI coding agent 处理"上网"这件事。它的六个核心工具完全不用 API Key，查询免费，数据也不会离开本机。
+[wigolo](https://github.com/KnockOutEZ/wigolo) 是一个跑在本机的 MCP server，专门给 AI coding agent 处理"上网"这件事。它的六个核心工具完全不用 API Key，查询免费，数据也不会离开本机。
 
 {/* truncate */}
 
@@ -16,7 +16,7 @@ wigolo 是一个跑在本机的 MCP server，专门给 AI coding agent 处理"�
 
 ## 介绍
 
-wigolo 是 KnockOutEZ 做的一个本地优先 MCP server。它把网页搜索和抓取这两件 AI agent 上网最常用的动作装进一个跑在本机的引擎里，另外还能顺着链接爬多页网站，也能把页面内容按结构化的方式提取出来。六个核心工具完全不需要 API Key，查询也不计费。数据全部留在本机的 `~/.wigolo/` 目录，不会传到别处。
+[wigolo](https://github.com/KnockOutEZ/wigolo) 是 KnockOutEZ 做的一个本地优先 MCP server。它把网页搜索和抓取这两件 AI agent 上网最常用的动作装进一个跑在本机的引擎里，另外还能顺着链接爬多页网站，也能把页面内容按结构化的方式提取出来。六个核心工具完全不需要 API Key，查询也不计费。数据全部留在本机的 `~/.wigolo/` 目录，不会传到别处。
 
 项目用 TypeScript 写成，今年 4 月才创建。GitHub 上已经攒了 4700 多个 star，不过眼下还是 public beta 阶段，没到 v1。作者说核心功能背后有 7600 条测试用例撑着。
 

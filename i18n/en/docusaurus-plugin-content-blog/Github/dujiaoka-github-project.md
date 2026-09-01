@@ -6,8 +6,6 @@ tags: [github, open-source, Ai-friendly]
 description: dujiaoka is an open-source, Laravel-based automated vending system for delivering digital goods, archived in February 2026; this post summarizes its setup and current status from official docs and third-party reviews.
 ---
 
-dujiaoka is an open-source automated vending system built to handle one thing: automatically delivering goods once a buyer pays, without a site owner manually processing every order. It's been open source since 2018 and is one of the best-known vending systems in the Chinese open-source community, though the project was archived and stopped receiving updates earlier this year.
-
 {/* truncate */}
 
 > If you're new to this, this post includes a ready-to-use AI prompt that can help you set up the environment in one go.

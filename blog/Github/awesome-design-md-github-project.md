@@ -7,8 +7,6 @@ tags:
 description: "awesome-design-md 收录了 73+ 个知名品牌网站的 DESIGN.md 设计系统文档，扔进项目根目录就能让 Claude Code 这类编程 Agent 生成风格统一的界面。这篇记录一下 DESIGN.md 是什么、怎么用。"
 ---
 
-用 AI 编程助手写前端界面，最常见的问题是「能跑但丑」——颜色、字号、间距全靠 Agent 自由发挥。翻到 [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) 这个项目——⭐ 10 万+，MIT 协议，专门解决这件事。用下来觉得值得写一篇。
-
 {/* truncate */}
 
 ---

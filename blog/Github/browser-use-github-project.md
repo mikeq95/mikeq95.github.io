@@ -11,8 +11,6 @@ tags:
 description: Browser Use 是一个开源 Python 框架，让 AI 智能体通过 LLM 实时决策来操作浏览器，支持接入编码 Agent 的 CLI 和独立运行的 Python 库两种用法。
 ---
 
-Browser Use 是一个开源的 Python 框架，能让 AI 智能体像人一样操作浏览器。它自己不判断该点哪个按钮、该往哪个框里打字，这些动作由 LLM 在运行时看着页面实际内容临场决定，不需要提前写好一行 CSS 选择器。
-
 {/* truncate */}
 
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
@@ -23,13 +21,13 @@ Browser Use 是一个开源的 Python 框架，能让 AI 智能体像人一样�
 
 项目由 Magnus Müller 和 Gregor Žunič 两人在 2024 年底创建，一个在苏黎世，一个在旧金山。写这篇文章的时候，GitHub 上的 star 数已经涨到 111,498，fork 超过 1.2 万，在 AI 浏览器自动化这个细分方向里算是体量最大的开源项目之一。仓库最近还在持续提交代码，不是那种火过一阵就沉寂下去的项目。
 
-接入方式分两条路。如果本来就在用 Claude Code、Codex、Cursor 这类编码 Agent，把官方给的一段自然语言提示词粘贴过去，它会自己装好 browser-use、注册对应的 skill，然后连上本机正在跑的浏览器。装完之后，编码 Agent 直接往 CLI 里管道一段 Python 代码去控制浏览器，点哪、填什么全靠编码 Agent 自己的模型判断，browser-use 这一层只负责把 CDP 指令真正落地，不用再单独配一个 LLM API Key。
+接入方式分两条路。如果本来就在用 Claude Code、Codex、Cursor 这类编码 Agent，把官方给的一段自然语言提示词粘贴过去，它会自己装好 [browser-use](https://github.com/browser-use/browser-use)、注册对应的 skill，然后连上本机正在跑的浏览器。装完之后，编码 Agent 直接往 CLI 里管道一段 Python 代码去控制浏览器，点哪、填什么全靠编码 Agent 自己的模型判断，browser-use 这一层只负责把 CDP 指令真正落地，不用再单独配一个 LLM API Key。
 
 想在自己的代码里批量跑任务，或者把浏览器能力嵌进产品逻辑，就用 Python 库这条路。装好之后 import 一个 `Agent` 类，几行代码起一个浏览器智能体。这时候智能体的判断是 browser-use 自己跑的一整套 Agent 循环，需要单独配一个 LLM API Key 才能跑起来。模型不锁定某一家：官方给了一个专门针对浏览器任务调过的 `ChatBrowserUse`，也可以直接传 `anthropic/claude-sonnet-4-6`、`openai/gpt-5.5` 这类带厂商前缀的模型 id，一个 `BROWSER_USE_API_KEY` 就能打通多家供应商。需要额外能力的话，用 `Tools()` 类配 `@tools.action` 装饰器，可以把浏览器操作之外的动作（比如调用内部 API）加进 Agent 能用的工具列表。
 
 开源版免费，能在自己机器上完整跑起来，也能深度定制 Agent 行为。README 里也直说，多浏览器并发、代理轮换、反检测这些能力集中在付费的 Browser Use Cloud 上，配的那张跑分对比图里，云端版本的准确率明显高出一截——这是项目自己在文档里承认的取舍。云端版另外带验证码自动处理、4 小时长会话（面向付费订阅用户）、上千个第三方集成，还有可以反复执行、目标网站改版了也能继续跑的脚本能力。
 
-跑分方面，官方开源了一个叫 `browser-use/benchmark` 的项目，覆盖 100 个真实浏览器任务，谁都能拉下来自己核实。另一项第三方的 Odysseys 榜单专门衡量 200 个长链路网页任务，browser-use 排在第一，平均分 87.4%，比 OpenAI、Anthropic、Google、微软各自的 computer-use 智能体都靠前。
+跑分方面，官方开源了一个叫 `browser-use/benchmark` 的项目，覆盖 100 个真实浏览器任务，谁都能拉下来自己核实。另一项第三方的 [Odysseys](https://arxiv.org/abs/2604.24964) 榜单专门衡量 200 个长链路网页任务，browser-use 排在第一，平均分 87.4%，比 OpenAI、Anthropic、Google、微软各自的 computer-use 智能体都靠前。
 
 ---
 

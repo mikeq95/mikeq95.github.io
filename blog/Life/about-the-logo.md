@@ -8,12 +8,6 @@ tags:
 description: "博客 logo 的原型是英雄联盟里的 Poro，由我女朋友手绘设计，记录了这个 logo 背后的故事。"
 ---
 
-## 这个 logo 是怎么来的
-
-这个网站的 logo 是我女朋友帮我做的。原型是英雄联盟里的 Poro——那只圆滚滚、白白的小东西。
-
-![英雄联盟里的 Poro 原型](https://cdn.mikeq95blog.uk/coverimage/poluobaby.jpg)
-
 {/* truncate */}
 
 ## 视频电话

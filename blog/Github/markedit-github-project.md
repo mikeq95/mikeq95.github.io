@@ -8,17 +8,13 @@ tags:
 description: "MarkEdit 是一款开源免费的 macOS 原生 Markdown 编辑器，安装包只有 4MB，主打轻量、原生、能扛大文件，记录一下它的特点和安装方法。"
 ---
 
-一直在找一个纯粹一点的 Markdown 编辑器，不想要那种又大又卡、还要联网的 Electron 应用。最近发现了 [MarkEdit](https://github.com/MarkEdit-app/MarkEdit)，开源免费，专门给 macOS 做的，定位就是"Mac 上的 TextEdit，但专门用来写 Markdown"。这篇文章记录一下它的特点和安装方法。
-
-![markedit]('/Users/a1234/Documents/MyBlog/my-blog/static/img/markedit image.png')
-
 {/* truncate */}
 
 ---
 
 ## 它是什么
 
-MarkEdit 是一个 macOS 原生的 Markdown 编辑器，几个关键点：
+[MarkEdit](https://github.com/MarkEdit-app/MarkEdit) 是一个 macOS 原生的 Markdown 编辑器，几个关键点：
 
 - **免费开源**，MIT 协议
 - **体积小**，安装包大概 4MB，比 Electron 应用小很多
@@ -70,7 +66,7 @@ brew install --cask markedit
 
 ## 和其他编辑器比
 
-| | MarkEdit | Typora | iA Writer |
+| | MarkEdit | [Typora](https://typora.io) | [iA Writer](https://ia.net/writer) |
 |---|:---:|:---:|:---:|
 | 价格 | ✅ 免费 | 💳 一次性付费 | 💳 一次性付费 |
 | 开源 | ✅ MIT | ❌ | ❌ |

@@ -9,10 +9,6 @@ tags:
   - "collection"
 description: "Common English vocabulary from programming docs, tutorials, and issues — with examples and translations to help you read technical content."
 ---
-1. **demonstrate**
-
-    - Example: This tutorial no longer ==demonstrates== current SwiftUI or Xcode practices.
-    - Meaning: to show or illustrate something; to demonstrate
 
 {/* truncate */}
 

@@ -11,8 +11,6 @@ tags:
 description: Browser Use is an open-source Python framework that lets an AI agent operate a browser through real-time LLM decisions, supporting both a CLI for coding agents and a standalone Python library.
 ---
 
-Browser Use is an open-source Python framework that lets an AI agent operate a browser the way a person would. It doesn't decide in advance which button to click or which field to type into — that decision is made by an LLM at runtime, based on what's actually on the page, without a single line of pre-written CSS selector needed.
-
 {/* truncate */}
 
 > If you're new to this, this post includes a ready-to-use AI prompt that can set up the environment for you in one go.

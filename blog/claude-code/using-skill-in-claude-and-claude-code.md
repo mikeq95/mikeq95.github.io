@@ -8,8 +8,6 @@ tags:
 description: "claude.ai 和 Claude Code 的 skill 是两套独立系统，分别怎么装、怎么用、容易踩哪些坑，整理在这一篇。"
 ---
 
-什么是 skill？如何在 Claude 和 Claude Code 中安装和使用 skill？
-
 {/* truncate */}
 
 ---

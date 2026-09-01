@@ -9,7 +9,7 @@ description: Tolaria 是一个跨平台桌面应用，把 Markdown 文件夹变�
 {/* truncate */}
 ---
 ## 介绍
-Tolaria 是 [Luca Rossi](https://x.com/lucaronin)（Refactoring Newsletter 的作者）做的一个跨平台桌面应用，用 Tauri + React + TypeScript 写成，macOS、Windows、Linux 都能跑。它把一个普通文件夹当作「vault」，里面全是 `.md` 文件加 YAML frontmatter，Tolaria 在上面加了四栏式导航界面、类型系统、双向链接、属性面板和内置 MCP server。
+[Tolaria](https://github.com/refactoringhq/tolaria) 是 [Luca Rossi](https://x.com/lucaronin)（Refactoring Newsletter 的作者）做的一个跨平台桌面应用，用 Tauri + React + TypeScript 写成，macOS、Windows、Linux 都能跑。它把一个普通文件夹当作「vault」，里面全是 `.md` 文件加 YAML frontmatter，Tolaria 在上面加了四栏式导航界面、类型系统、双向链接、属性面板和内置 MCP server。
 几个核心设计决定值得说一下：
 **文件是唯一真相来源。** 应用有内存缓存和 React 状态，但两者都是从磁盘文件派生出来的，随时可以删掉重建。文件在磁盘上是什么，应用就显示什么。
 **每个 vault 是一个 Git 仓库。** 版本历史、回滚、多设备同步全靠 Git，不需要 Tolaria 自己的服务器。你用 GitHub 私仓、自建 Gitea 或者本地 bare repo 都行。

@@ -7,8 +7,6 @@ tags:
 description: "记录 docmd 笔记站的完整搭建过程：从零配置模式导致首页 404 排查、用 docmd init 生成正式配置，到用 wrangler CLI 部署到 Cloudflare Pages 挂自定义域名，再到接入 GitHub 实现 push 自动部署。"
 ---
 
-本地跑 docmd，因为项目根目录下没建配置文件，直接进了"零配置(auto)模式"，结果首页直接 404——记录一下这次从排查原因到用 `docmd init` 生成正式配置、把笔记迁移进 `docs/` 目录的完整过程。
-
 {/* truncate */}
 
 ---

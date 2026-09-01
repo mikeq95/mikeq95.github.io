@@ -7,8 +7,6 @@ tags:
 description: "收集几个好用又小众的网站，第一期先介绍四个。"
 ---
 
-平时收藏了不少好用的小网站，挑几个整理成合集，方便自己找也方便分享。
-
 {/* truncate */}
 
 ---
@@ -23,7 +21,7 @@ description: "收集几个好用又小众的网站，第一期先介绍四个。
 
 ## 3. OSS Insight
 
-[ossinsight.io](https://ossinsight.io) 由 PingCAP 打造，用可视化图表展示 GitHub 开源项目的数据洞察，比如 Star 增长趋势、语言排行榜、贡献者活跃度等。
+[ossinsight.io](https://ossinsight.io) 由 [PingCAP](https://www.pingcap.com) 打造，用可视化图表展示 GitHub 开源项目的数据洞察，比如 Star 增长趋势、语言排行榜、贡献者活跃度等。
 
 ## 4. Vocatype
 
@@ -35,7 +33,7 @@ description: "收集几个好用又小众的网站，第一期先介绍四个。
 
 ## 6. Apple Store 比价格
 
-[appstoreprice.org]（https://appstoreprice.org）一个可以查看各类App价格的网站
+[appstoreprice.org](https://appstoreprice.org) 一个可以查看各类App价格的网站
 
 ## 7. Swift Language Learning Tutorials
 
@@ -48,7 +46,7 @@ description: "收集几个好用又小众的网站，第一期先介绍四个。
 
 ## kukutool去水印
 
-https://dy.kukutool.com/zh-Hans-SG
+[dy.kukutool.com](https://dy.kukutool.com/zh-Hans-SG)
 
 
 ## uigradient

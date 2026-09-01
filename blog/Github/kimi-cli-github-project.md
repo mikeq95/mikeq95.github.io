@@ -11,8 +11,6 @@ tags:
 description: Kimi CLI 是 Moonshot AI 做的终端 AI 编程 Agent，能读写代码、执行 Shell 命令并接入 MCP、ACP 编辑器协议，项目目前已被官方标注为逐步停止维护，建议新用户直接使用继任项目 Kimi Code CLI。
 ---
 
-Kimi CLI 是 Moonshot AI 做的一个终端 AI 编程 Agent，能直接在命令行里读写代码、跑 Shell 命令，还会根据执行结果自己调整下一步动作。不过它现在处于一个比较特殊的阶段，官方已经在仓库首页挂出提示，这个项目正在被继任者 Kimi Code CLI 取代。
-
 {/* truncate */}
 
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
@@ -21,7 +19,7 @@ Kimi CLI 是 Moonshot AI 做的一个终端 AI 编程 Agent，能直接在命令
 
 ## 介绍
 
-仓库 README 顶部有一条用 `[!IMPORTANT]` 标出来的提示，写得很直白：Kimi CLI 正在演进为 [Kimi Code CLI](https://github.com/MoonshotAI/kimi-code)，同一个团队做的下一代终端 Agent。装 Kimi Code CLI 会自动迁移原来的配置和会话，Kimi CLI 这边则会逐步停止维护，文档和已经装好的版本还能继续用，只是不再是官方推荐的路线。看这篇文章之前，这条信息比后面任何一个功能点都重要。
+仓库 README 顶部有一条用 `[!IMPORTANT]` 标出来的提示，写得很直白：[Kimi CLI](https://github.com/MoonshotAI/kimi-cli) 正在演进为 [Kimi Code CLI](https://github.com/MoonshotAI/kimi-code)，同一个团队做的下一代终端 Agent。装 Kimi Code CLI 会自动迁移原来的配置和会话，Kimi CLI 这边则会逐步停止维护，文档和已经装好的版本还能继续用，只是不再是官方推荐的路线。看这篇文章之前，这条信息比后面任何一个功能点都重要。
 
 抛开这条提示，Kimi CLI 本身能读写代码、执行 Shell 命令、搜索和抓取网页，并根据执行反馈自主规划下一步该做什么。它在 GitHub 上的 star 数已经过万，写这篇文章时是 11,279。项目最新一次发版是 1.49.0（2026 年 7 月），CHANGELOG 里能看到迭代还在继续，只是节奏比之前慢了一些，最近一次代码提交停在 8 月初。
 

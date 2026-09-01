@@ -6,8 +6,6 @@ tags: [e-reader, esp32, firmware, open-source, Ai-friendly]
 description: CrossPoint Reader is open-source firmware for the Xteink X3/X4 e-reader, written in C++ and built with PlatformIO; this post is compiled from source code, official docs, and third-party reviews, without hands-on testing.
 ---
 
-CrossPoint Reader is open-source firmware for the Xteink X3/X4 e-reader, maintained by its community, built to fix the layout, font, and wireless-transfer problems that the stock firmware (XTOS) has long been criticized for. It isn't trying to turn the device into a do-everything gadget — SCOPE.md is direct about it: no notepad, no games, just a firm focus on the reading experience itself.
-
 {/* truncate */}
 
 > If you're new to this, this post includes a ready-to-use AI prompt that can help you set up the environment in one go.

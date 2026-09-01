@@ -6,8 +6,6 @@ tags: [github, Claude, prompt, writing, Ai-friendly]
 description: stop-slop 是一套开源的 Claude skill 规则文件，靠禁用词表、句式规则和打分标准，帮 Claude 在写作和改稿时去掉常见的 AI 写作痕迹。
 ---
 
-stop-slop 是 Hardik Pandya 做的一个 Claude skill，教 Claude 认出自己写作里那些容易被一眼看穿的套路，然后在改稿时把它们删掉。整个仓库没有一行可执行代码，只有几份 Markdown 规则文件。
-
 {/* truncate */}
 
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。

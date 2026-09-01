@@ -7,15 +7,13 @@ tags:
 description: "ditto.site 通过 Playwright 抓取网页真实渲染结果，走确定性的 capture-to-code 流水线生成 Next.js/Vite 项目，而不是靠 AI 现场瞎编页面。这篇记录一下它的原理、安装方式和使用场景。"
 ---
 
-想把一个公开网站的界面搬过来做二次开发，通常要么找不到源码，要么对方压根没开源。翻到 [ditto.site](https://github.com/ion-design/ditto.site) 这个项目——MIT 协议，专门解决这个问题，思路和常见的"AI 生成页面"不太一样，用下来觉得值得写一篇。
-
 {/* truncate */}
 
 ---
 
 ## 它是什么
 
-ditto.site 是一个把任意公开 URL "编译"成可运行 TypeScript 项目的工具。关键区别在于它不是让 AI 看着截图现场编代码，而是先用浏览器真实抓取页面渲染出来的一切——DOM 结构、计算后的样式、布局、静态资源、字体、截图、交互状态，甚至 robots 文件、sitemap、JSON-LD、llms.txt 这些元数据，都会被捕获下来，再走一套确定性流水线生成代码。
+[ditto.site](https://github.com/ion-design/ditto.site) 是一个把任意公开 URL "编译"成可运行 TypeScript 项目的工具。关键区别在于它不是让 AI 看着截图现场编代码，而是先用浏览器真实抓取页面渲染出来的一切——DOM 结构、计算后的样式、布局、静态资源、字体、截图、交互状态，甚至 robots 文件、sitemap、JSON-LD、llms.txt 这些元数据，都会被捕获下来，再走一套确定性流水线生成代码。
 
 官方把这个流程叫 "capture-to-code"：浏览器抓取 → 归一化的中间表示（IR）→ 确定性推断 → 生成应用。因为是确定性的，同一份抓取快照永远会生成一模一样的代码，不会像 AI 现场生成那样每次结果都不一样。
 

@@ -8,8 +8,6 @@ tags:
 description: "Download YouTube videos locally on Mac using a Python script with yt-dlp — set it up once, swap the link each time."
 ---
 
-Want to save YouTube videos locally? This post walks through a Python script that handles everything for you — set it up once, then just swap the URL each time.
-
 {/* truncate */}
 
 ---

@@ -8,8 +8,6 @@ tags:
 description: "一张速查卡：touch、mkdir -p、code、heredoc、cat 拼命令操作文件，比 Finder 右键快不少，批量建文件时效率提升明显。"
 ---
 
-在 Mac 电脑上常用的几个命令：`touch`、`mkdir`、`code`、`cat`，`heredoc`(个人推荐)
-
 {/* truncate */}
 
 ---

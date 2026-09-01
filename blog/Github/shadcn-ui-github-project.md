@@ -6,7 +6,7 @@ tags: [github, open-source, AI, Ai-friendly]
 description: shadcn/ui 是一套通过 CLI 把组件源码直接拷贝进项目的开源 React 组件集合，不发布 npm 包，装完之后组件代码完全归你自己维护和修改。
 ---
 
-shadcn/ui 是一套开源的 React 组件集合，解决的是一个具体的老问题。用惯了的组件库，要么把你锁在它给的默认外观里，要么为了改样式层层覆盖、拼凑不兼容的 API。shadcn/ui 换了个方向。CLI 会把组件的源代码直接拷贝进项目里的 `components/ui` 目录，装完之后这些代码就是你自己的，想怎么改都行。
+[shadcn/ui](https://github.com/shadcn-ui/ui) 是一套开源的 React 组件集合，解决的是一个具体的老问题。用惯了的组件库，要么把你锁在它给的默认外观里，要么为了改样式层层覆盖、拼凑不兼容的 API。shadcn/ui 换了个方向。CLI 会把组件的源代码直接拷贝进项目里的 `components/ui` 目录，装完之后这些代码就是你自己的，想怎么改都行。
 
 {/* truncate */}
 
@@ -16,7 +16,7 @@ shadcn/ui 是一套开源的 React 组件集合，解决的是一个具体的老
 
 ## 介绍
 
-这个项目由 shadcn（社区一般直接这么称呼他）在 2023 年 1 月发布，没过多久他就加入了 Vercel，现在是那边的设计工程师。仓库在 GitHub 上已经积累了 12 万多 star，fork 数也过了 1 万。它构建在 Radix UI 或新支持的 Base UI 这两套无样式 primitive 之上，样式全部用 Tailwind CSS 写。
+这个项目由 shadcn（社区一般直接这么称呼他）在 2023 年 1 月发布，没过多久他就加入了 Vercel，现在是那边的设计工程师。仓库在 GitHub 上已经积累了 12 万多 star，fork 数也过了 1 万。它构建在 [Radix UI](https://www.radix-ui.com/) 或新支持的 [Base UI](https://base-ui.com/) 这两套无样式 primitive 之上，样式全部用 Tailwind CSS 写。
 
 官方给这套东西定的调子是"开放代码"。组件顶层代码对你完全开放，可以直接改。这也是它主打对 AI 友好的原因，LLM 能直接读到这些代码、理解它的结构，再按你的设计系统去改，不像塞在 `node_modules` 里的第三方包那样是个黑盒。所有组件还遵循同一套可组合的接口约定，用惯一个组件之后，学别的组件不用重新摸索一遍 API。出厂的默认样式也经过认真挑选，彼此搭配一致，装完直接能用，深度定制的空间还留着。官方文档有一句原话，"这不是一个组件库，是你用来搭建自己组件库的东西"，把这套理念说得比较直白。
 

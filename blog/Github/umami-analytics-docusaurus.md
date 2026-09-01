@@ -8,8 +8,6 @@ tags:
 description: "Umami 是隐私友好的开源访客统计工具，不需要 Cookie 弹窗。文章记录了从注册到接入 Docusaurus 博客的完整过程。"
 ---
 
-[Umami](https://umami.is) 是开源的访客统计工具，不追踪用户行为、不需要 Cookie 弹窗，有免费的云托管版本，每月 10 万次事件额度，个人博客完全够用。
-
 {/* truncate */}
 
 ---

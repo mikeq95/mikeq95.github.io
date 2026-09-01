@@ -8,12 +8,6 @@ tags:
 description: "The blog logo is based on the Poro from League of Legends, hand-drawn by my girlfriend — here's how it came to be."
 ---
 
-## Where the Logo Came From
-
-The logo of this site was made by my girlfriend. It's based on the Poro from League of Legends — that round, fluffy little white thing.
-
-![The Poro from League of Legends](https://cdn.mikeq95blog.uk/coverimage/poluobaby.jpg)
-
 {/* truncate */}
 
 ## A Video Call

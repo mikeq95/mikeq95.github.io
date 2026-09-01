@@ -9,8 +9,6 @@ tags:
 description: "用开源 TTS 工具 Kokoro 把英文文章转成高质量音频，免费、本地运行、效果出色，边走路边听自己写的内容。"
 ---
 
-我想把自己写的英文文章转成音频，方便边走路边听。调研了一圈，免费、效果好、本地跑——这三个条件同时满足的，只有 [Kokoro](https://github.com/hexgrad/kokoro)。
-
 {/* truncate */}
 
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
@@ -19,7 +17,7 @@ description: "用开源 TTS 工具 Kokoro 把英文文章转成高质量音频�
 
 ## Kokoro 是什么
 
-Kokoro 是一个开源 [TTS](https://clearlove7-ai.vercel.app?word=TTS&postId=2026-05-16-kokoro-tts-tutorial)（文字转语音）模型，82M 参数，轻量但效果出奇地好。英文效果接近 ElevenLabs 商业级别，Apache 2.0 协议，免费商用。
+[Kokoro](https://github.com/hexgrad/kokoro) 是一个开源 [TTS](https://clearlove7-ai.vercel.app?word=TTS&postId=2026-05-16-kokoro-tts-tutorial)（文字转语音）模型，82M 参数，轻量但效果出奇地好。英文效果接近 ElevenLabs 商业级别，Apache 2.0 协议，免费商用。
 
 它本质上就是个 [PyPI](https://pypi.org/project/kokoro/) 包，`pip install kokoro` 就能装，不需要 clone 仓库、也不需要 Docker——这也是这篇教程和网上大部分"部署教程"的区别：跑起来只要几行 Python。
 

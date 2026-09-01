@@ -8,8 +8,6 @@ tags:
 description: "CodeGraph 把代码库预建成知识图谱供 Claude Code 直接查询，实测减少 58% 工具调用次数、节省约 16% token 费用。"
 ---
 
-今天看到一个 GitHub 项目——[CodeGraph](https://github.com/colbymchenry/codegraph)，⭐ 三万八千多，MIT 开源。核心思路：**把代码库预先建成知识图谱，让 Claude Code 直接查，而不是每次都 grep 扫文件**。装来试了试，平均省 16% 费用、减少 58% 工具调用次数。
-
 {/* truncate */}
 
 ---
@@ -18,7 +16,7 @@ description: "CodeGraph 把代码库预建成知识图谱供 Claude Code 直接�
 
 用 Claude Code 问一个架构问题，比如"这个请求是怎么到数据库的"，它会先开 Explore 子代理，跑一堆 grep/ls/Read 去找文件，找完才开始分析。**整个探索过程本身就在消耗 token**，而且很多时候读了一堆不相关的文件。
 
-CodeGraph 的思路是：把这些探索工作提前做好，索引成本地 SQLite 数据库，Claude Code 直接查——一次工具调用返回相关符号的源码、调用图、依赖关系，不用再扫文件。
+[CodeGraph](https://github.com/colbymchenry/codegraph) 的思路是：把这些探索工作提前做好，索引成本地 SQLite 数据库，Claude Code 直接查——一次工具调用返回相关符号的源码、调用图、依赖关系，不用再扫文件。
 
 ---
 

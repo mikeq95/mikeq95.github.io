@@ -6,8 +6,6 @@ tags: [github, AI, llm, open-source, Ai-friendly]
 description: "wigolo is a local-first MCP server that turns web search, fetch, crawl, and structured extraction — six core tools total — into a local engine that needs no API key at all; this article covers actually setting it up and testing each of the six tools."
 ---
 
-wigolo is an MCP server that runs on your own machine, built specifically to handle "going online" for AI coding agents. Its six core tools need no API key, queries are free, and the data never leaves your machine.
-
 {/* truncate */}
 
 > If you're new to this, this article includes a ready-to-use AI prompt that can set up the environment for you in one go.

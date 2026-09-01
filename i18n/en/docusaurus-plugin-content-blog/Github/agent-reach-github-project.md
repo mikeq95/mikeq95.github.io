@@ -11,8 +11,6 @@ tags:
 description: Agent Reach is an open-source command-line tool that selects, installs, and health-checks the currently most reliable access method for a dozen-plus platforms for AI agents; the actual searching and reading is carried out directly by upstream tools like gh and yt-dlp.
 ---
 
-Agent Reach is an open-source command-line tool built by developer Panniantong, aimed at one specific problem: an AI agent can help you write code and edit documents, but the moment you ask it to look something up online, it's probably stuck. Searching Twitter needs a paid API, Reddit's anonymous endpoints were blocked long ago, and XiaoHongShu simply won't load without logging in. Agent Reach doesn't write the actual scraping logic itself — it only selects, installs, and health-checks the currently most reliable access method for each platform, and hands the actual reading off to upstream tools like `gh` and `yt-dlp`.
-
 {/* truncate */}
 
 > If you're new to this, this post includes a ready-to-use AI prompt that can set up the environment for you in one go.
