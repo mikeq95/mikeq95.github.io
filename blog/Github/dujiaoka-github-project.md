@@ -10,9 +10,9 @@ description: 独角数卡（dujiaoka）是一款基于 Laravel 的开源自动�
 
 ## 介绍
 
-> 停更提醒：[dujiaoka](https://github.com/assimon/dujiaoka) 已经在 2026 年 2 月 12 日停止更新和维护，仓库目前是 archived 只读状态。作者 assimon 把开发重心转向了用 Go 重写的新项目 [Dujiao-Next](https://github.com/dujiao-next/dujiao-next)，README 首行现在也只剩一句"请前往新版"。这篇文章记录的是它停更之前的样子——是怎么设计的、按官方文档要怎么部署——如果是想现在从零搭一个发卡站，更值得先看看文末"相关项目和评价"里的继任版本。
+> 停更提醒：[dujiaoka](https://github.com/assimon/dujiaoka) 仓库目前是 archived 只读状态，最后一次改动是 2026 年 3 月 12 日的一条提交，提交信息直接写着"停更"。作者 assimon 把开发重心转向了用 Go 重写的新项目 [Dujiao-Next](https://github.com/dujiao-next/dujiao-next)，README 首行现在也只剩一句"请前往新版"。这篇文章记录的是它停更之前的样子——是怎么设计的、按官方文档要怎么部署——如果是想现在从零搭一个发卡站，更值得先看看文末"相关项目和评价"里的继任版本。
 
-买家在独角数卡搭的站上下单付款之后，系统自动把卡密、软件许可或者会员账号发出去，站长不用守在电脑前人工处理。项目基于 Laravel 框架搭建，后台管理套的是 laravel-admin，前端 UI 用 Bootstrap，走的是国内 PHP 生态里最主流的一套组合。GitHub 上目前有 1.2 万多个 star、2700 多个 fork，核心贡献者是 [iLay1678](https://github.com/iLay1678)。
+买家在独角数卡搭的站上下单付款之后，系统自动把卡密、软件许可或者会员账号发出去，站长不用守在电脑前人工处理。项目基于 Laravel 框架搭建，后台管理套的是 laravel-admin，前端 UI 用 Bootstrap，走的是国内 PHP 生态里最主流的一套组合。GitHub 上目前有 1.2 万多个 star（12141）、2800 左右 fork，核心贡献者是 [iLay1678](https://github.com/iLay1678)。
 
 前端模板可以整个换掉。官方自带 unicorn 模板，社区另外贡献了 luna 和 hyper 两套，分别由 [Julyssn](https://github.com/Julyssn) 和 [bimoe](https://github.com/bimoe) 维护，换个模板站点的观感就完全不一样，不用碰核心代码。支付渠道覆盖得也比较全，支付宝和微信这些国内常用方式都支持，也能接 PayPal、Stripe 收海外用户的钱，还有 V 免签这种不需要企业资质的免签方案。代码全部开源，扩展包都走 Composer 加载，用的是 MIT 协议。
 
@@ -83,11 +83,11 @@ numprocs=1
 
 ## 相关项目和评价
 
-dujiaoka 停更之后，最值得先看的是作者亲自主导的继任版本 [Dujiao-Next](https://github.com/dujiao-next/dujiao-next)。它用 Go 重写，后端换成 Gin + GORM，前端是 Vue + TypeScript，架构上做了前后端分离，默认数据库也从 MySQL 换成了 SQLite（可选 PostgreSQL），不再强制要求装 MySQL 和 Redis，部署门槛比旧版低不少。不过开源协议也从 MIT 换成了 GPL-3.0，目前 GitHub 上有 1000 多个 star，还在早期阶段，跟 dujiaoka 巅峰时期的体量没法比。
+dujiaoka 停更之后，最值得先看的是作者亲自主导的继任版本 [Dujiao-Next](https://github.com/dujiao-next/dujiao-next)。它用 Go 重写，后端换成 Gin + GORM，前端是 Vue + TypeScript，架构上做了前后端分离，默认数据库也从 MySQL 换成了 SQLite（可选 PostgreSQL），不再强制要求装 MySQL 和 Redis，部署门槛比旧版低不少。不过开源协议也从 MIT 换成了 GPL-3.0。目前 GitHub 上有 1191 个 star，跟 dujiaoka 巅峰时期的体量还没法比，但迭代速度很快——最新的 v1.4.7 版本是 9 月 2 日刚发的，commit 记录里几乎每天都有新提交，不是那种发完初版就没人管的项目。
 
-如果就是想留在 PHP 技术栈，[hiouttime/dujiaoka](https://github.com/hiouttime/dujiaoka) 是一个正在活跃开发的社区重构版，框架升级到了 Laravel 12、PHP 8.2+，后台管理换成了 Filament 3，新增了用户等级、购物车批量下单这些功能。它自己在 README 里标注"正在积极开发中，不建议用于生产环境"，现在还是技术预览阶段。
+如果就是想留在 PHP 技术栈，[hiouttime/dujiaoka](https://github.com/hiouttime/dujiaoka) 是一个基于独角数卡的社区重构版，框架升级到了 Laravel 12、PHP 8.2+，后台管理换成了 Filament 3，新增了用户等级、购物车批量下单这些功能。它的 README 里还标注着"正在积极开发中，不建议用于生产环境"，但实际最后一次提交停在 2025 年 9 月，一年多没有新动作了，这个"积极开发中"的说法目前对不上实际的提交记录，选之前建议先去仓库看一眼最新的 commit 时间。
 
-同类产品里，[ZFAKA](https://github.com/ZFAKA/ZFAKA) 定位和 dujiaoka 几乎一样，也支持 USDT 支付，不过体量小很多，目前一百多个 star，仍在正常维护。[acg-faka](https://github.com/lizhipay/acg-faka) 是二次元圈子里更常用的一套发卡系统，5500 多个 star，比 dujiaoka 少但也不算小众。另外还有 [card-system](https://github.com/Tai7sy/card-system)，是 Tai7sy 做的卡密商城系统，3000 多个 star，是国内另一个常见的开源发卡替代方案。
+同类产品里，[ZFAKA](https://github.com/ZFAKA/ZFAKA) 定位和 dujiaoka 几乎一样，也支持 USDT 支付，不过体量小很多，目前一百多个 star，仍在正常维护。[acg-faka](https://github.com/lizhipay/acg-faka) 是二次元圈子里更常用的一套发卡系统，5600 多个 star，比 dujiaoka 少但也不算小众，仓库这两天还有新提交，维护得比较勤。另外还有 [card-system](https://github.com/Tai7sy/card-system)，是 Tai7sy 做的卡密商城系统，3000 多个 star，是国内另一个常见的开源发卡替代方案。
 
 第三方的实际部署记录也能当参考。Verne 在自己的独立博客里[写过一篇 Dujiao-Next 的技术拆解](https://blog.einverne.info/post/2026/04/dujiao-next-digital-goods-selling-system.html)，他之前用过一段时间 dujiaoka，原话是"整体功能完整，但作为一个 PHP 项目，在部署和性能方面确实有一些让人头疼的地方"，文章里详细比较了新旧两版的技术选型和部署方式。老梁则在[博客里记录了自己在 zfaka 和 dujiaoka 之间选型的过程](https://laoliang.net/jsjh/news/7927.html)，最终选了 dujiaoka，理由是界面"比较简洁无各种颜色"，也贴出了具体的部署步骤。
 
@@ -124,4 +124,4 @@ dujiaoka 停更之后，最值得先看的是作者亲自主导的继任版本 [
 
 ## 总结
 
-独角数卡在停更之前，是国内个人站长搭发卡站最常被提起的选择之一，技术栈成熟、支付渠道覆盖广，前端模板还能整套换。但它现在已经归档，官方漏洞响应也一起停了，继续在生产环境用旧版有安全风险。如果是想现在从零搭一个发卡站，作者亲自维护的 Dujiao-Next 部署门槛更低，值得先看看；如果离不开 PHP 技术栈，hiouttime/dujiaoka 这类还在活跃开发的社区分支也是一个方向，只是目前还标注着不建议用于生产环境。这篇文章整理的部署流程本身没有实际跑通验证过，真要按它部署，多留意仓库 Wiki 的问题锦集，能少踩不少坑。
+独角数卡在停更之前，是国内个人站长搭发卡站最常被提起的选择之一，技术栈成熟、支付渠道覆盖广，前端模板还能整套换。但它现在已经归档，官方漏洞响应也一起停了，继续在生产环境用旧版有安全风险。如果是想现在从零搭一个发卡站，作者亲自维护的 Dujiao-Next 部署门槛更低，迭代也确实在持续，更值得先看看；PHP 技术栈这边的 hiouttime/dujiaoka 虽然功能规划不错，但实际提交已经停了一年多，暂时不算一个可靠的活跃选项。这篇文章整理的部署流程本身没有实际跑通验证过，真要按它部署，多留意仓库 Wiki 的问题锦集，能少踩不少坑。
