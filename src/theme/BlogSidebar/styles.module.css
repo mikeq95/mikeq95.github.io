@@ -9,14 +9,18 @@
 /* aside.sidebarCol (element+class) rather than bare .sidebarCol: same
    specificity trick as Infima's own .col--3 (a single class selector) would
    tie on specificity and leave source order to decide the winner — this
-   guarantees it wins regardless of bundle order. blume's own sidebar width
-   (RootLayout.astro's `lg:grid-cols-[17.5rem_...]`), ported directly instead
-   of picking a value ourselves. Infima's .col--3 is a 25% flex-basis; this
-   overrides it with a fixed track width — compensated by the
-   .row:has(...) rule in custom.css that widens <main> to match. */
+   guarantees it wins regardless of bundle order. Widened from blume's
+   original 17.5rem to 20.3125rem (325px) per user request, so post titles
+   have room to wrap without truncating. Must stay in sync with the TOC
+   rail's `.col--2` width in custom.css — the two flank <main> symmetrically,
+   and it centers itself via margin-inline: auto within whatever space is
+   left, so mismatched rail widths visibly throw the article column
+   off-center. Infima's .col--3 is a 25% flex-basis; this overrides it with
+   a fixed track width — compensated by the .row:has(...) rule in custom.css
+   that widens <main> to match. */
 aside.sidebarCol {
-  flex: 0 0 17.5rem;
-  max-width: 17.5rem;
+  flex: 0 0 20.3125rem;
+  max-width: 20.3125rem;
 }
 
 .sidebar {
@@ -42,76 +46,11 @@ aside.sidebarCol {
   list-style: none;
 }
 
-.itemFirst {
-  margin-top: 0;
-}
-
-.item {
-  margin-top: 0;
-}
-
-.details {
-  width: 100%;
-}
-
-.summary {
-  display: flex;
-  cursor: pointer;
-  list-style: none;
-  align-items: center;
-  gap: 0.375rem;
-  border-radius: 0.65rem;
-  padding: 0.1875rem 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: var(--ifm-color-emphasis-700);
-  transition: background-color 150ms, color 150ms;
-}
-
-.summary::-webkit-details-marker {
-  display: none;
-}
-
-.summary:hover {
-  background: var(--ifm-color-emphasis-200);
-  color: var(--ifm-font-color-base);
-}
-
-.summary:focus-visible {
-  outline: 2px solid var(--ifm-color-emphasis-600);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-.summaryLabel {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-weight: 400;
-  color: var(--ifm-color-emphasis-600);
-}
-
-.chevron {
-  flex-shrink: 0;
-  color: var(--ifm-color-emphasis-600);
-  transition: transform 150ms;
-}
-
-.details[open] > .summary > .chevron {
-  transform: rotate(90deg);
-}
-
-.children {
-  padding-left: 0.75rem;
-  border-left: 1px solid var(--ifm-color-emphasis-300);
-}
-
 .pageLink {
   display: block;
   border-radius: 0.65rem;
-  padding: 0.1875rem 0.5rem;
-  font-size: 0.875rem;
+  padding: 0.3125rem 0.5rem;
+  font-size: 0.8125rem;
   line-height: 1.25rem;
   color: var(--ifm-color-emphasis-700);
   text-decoration: none;
@@ -141,19 +80,15 @@ aside.sidebarCol {
 
 .pageLinkLabel {
   display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 /* blume accent theme: swap the neutral Infima grays above for blume's own
    oklch tokens (defined in custom.css), matching the reference exactly. */
-:global([data-accent-theme='blume']) .summary,
 :global([data-accent-theme='blume']) .pageLink {
   color: var(--blume-muted-foreground);
 }
 
-:global([data-accent-theme='blume']) .summary:hover,
 :global([data-accent-theme='blume']) .pageLink:hover,
 :global([data-accent-theme='blume']) .pageLink[aria-current='page'] {
   background: var(--blume-muted);
@@ -164,19 +99,6 @@ aside.sidebarCol {
   box-shadow: inset 2px 0 0 0 var(--blume-foreground);
 }
 
-:global([data-accent-theme='blume']) .summaryLabel {
-  color: var(--blume-muted-foreground);
-}
-
-:global([data-accent-theme='blume']) .summary:focus-visible,
 :global([data-accent-theme='blume']) .pageLink:focus-visible {
   outline-color: var(--blume-accent);
-}
-
-:global([data-accent-theme='blume']) .chevron {
-  color: var(--blume-muted-foreground);
-}
-
-:global([data-accent-theme='blume']) .children {
-  border-left-color: var(--blume-border);
 }

@@ -178,8 +178,11 @@ body {
 }
 
 .row:has([aria-label="Blog categories navigation"]) > .col--2 {
-  flex: 0 0 17.5rem;
-  max-width: 17.5rem;
+  /* Kept equal to BlogSidebar's aside.sidebarCol (styles.module.css) — the
+     two rails flank <main>, which centers itself in the space left between
+     them, so any mismatch here throws the article column visibly off-center. */
+  flex: 0 0 20.3125rem;
+  max-width: 20.3125rem;
 }
 
 /* Search results dropdown — this is third-party plugin DOM (not a React
