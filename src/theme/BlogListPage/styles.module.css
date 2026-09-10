@@ -1,0 +1,8 @@
+/* Center the post list in a narrower reading column now that there's no
+   sidebar competing for the row's width — same --blume-content-width rail
+   post pages already read at (custom.css), so /blog and individual posts
+   land on the same line length. */
+.main {
+  max-width: var(--blume-content-width);
+  margin-inline: auto;
+}
