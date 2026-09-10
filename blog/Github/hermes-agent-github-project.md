@@ -6,13 +6,7 @@ tags: [github, python, open-source, AI, Ai-friendly]
 description: Hermes Agent 是 Nous Research 开源的一款终端 AI agent，带记忆系统、技能自我改进和消息平台网关，能接 Telegram、Discord、Slack 等渠道。本文基于官方 README 整理，因为安装脚本会向系统目录写入工具、且需要自备 LLM API Key，没有在本地实际跑起来验证；另外这个仓库的 star 数据有明显异常，文中做了说明。
 ---
 
-Hermes Agent 是 [Nous Research](https://nousresearch.com) 做的一个终端 AI agent，主打"带学习循环"——它会从对话里总结经验生成技能，用的过程中还会自己改进这些技能，不是装完就一成不变的助手。
-
 {/* truncate */}
-
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 

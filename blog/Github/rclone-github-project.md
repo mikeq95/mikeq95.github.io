@@ -6,13 +6,7 @@ tags: [github, open-source, Ai-friendly]
 description: rclone 是一个开源命令行工具，用同一套 sync/copy/move/mount 命令操作 S3、Google Drive、OneDrive、Dropbox、Backblaze B2、Cloudflare R2 等几十种云存储，还带客户端加密和去重能力。本文实际装好环境，验证了本地 remote 的同步命令和 crypt 加密 remote。
 ---
 
-同时管着好几个云盘和对象存储，还想用一套命令搬文件、加密、挂载成本地盘——这基本就是 [rclone](https://github.com/rclone/rclone) 要解决的事。
-
 {/* truncate */}
-
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 🗄️ rclone 是什么
 

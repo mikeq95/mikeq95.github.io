@@ -6,11 +6,7 @@ tags: [github, open-source]
 description: Outfit 是品牌自动化公司 outfit.io 找独立字体设计师 Rodrigo Fuenzalida 定制、以 SIL 开源协议免费发布的几何无衬线字体家族，9 个静态字重加一个可变字体文件，早已进了 Google Fonts。本文核对了仓库里实际的字重文件、下载渠道、Fonts In Use 上的真实使用案例，还给了 macOS 装字体和网页项目里用 @font-face 的具体步骤，源码仓库本身在 2025 年已经被归档只读。
 ---
 
-很多海外 SaaS 官网的标题字体长得都有点像——线条几何、字母比例统一，你大概率见过很多次，却叫不出它的名字。这款字体叫 Outfit，而且是完全免费开源的。
-
 {/* truncate */}
-
----
 
 ## 介绍
 

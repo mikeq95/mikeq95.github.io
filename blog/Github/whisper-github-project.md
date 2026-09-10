@@ -6,13 +6,7 @@ tags: [github, python, open-source, AI, Ai-friendly]
 description: Whisper 是 OpenAI 开源的通用语音识别模型，支持多语言转录、翻译和语言检测，CPU 就能跑最小的 tiny 模型。本文在本地实际装好环境、下载模型、跑通一次转录做验证，正文附真实命令和转录结果。
 ---
 
-语音转文字这件事，很长一段时间里绕不开讯飞、Google 这些商业云服务。Whisper 出来之后，本地跑、免费、多语言，一个模型全搞定，成了很多人的默认选择。
-
 {/* truncate */}
-
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## Whisper 是什么
 

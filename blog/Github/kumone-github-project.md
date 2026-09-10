@@ -6,11 +6,7 @@ tags: [github, open-source, macos, swift, media]
 description: Kumone 是开发者 missuo 用 SwiftUI 从零写的网易云音乐第三方客户端，直连网易云接口、支持二维码登录和 Hi-Res 播放，不到一个月已经攒了近千颗 star。本文记录了通过 Homebrew 实际安装、签名验证和启动测试的过程。
 ---
 
-网易云音乐官方客户端在 macOS 上一直不算原生，功能堆得不少，交互却总差一口气。missuo 上个月起了个新项目，用纯 SwiftUI 从零重写了一遍，短短几周就攒了近千颗 star。
-
 {/* truncate */}
-
----
 
 ## 介绍
 

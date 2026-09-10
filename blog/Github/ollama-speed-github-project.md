@@ -6,13 +6,7 @@ tags: [github, open-source, AI, llm, Ai-friendly]
 description: 不是泛泛介绍 Ollama 是什么，而是专门测它的速度——在 Apple M1 Pro 上用 llama3.2:1b、qwen2.5:0.5b 跑出真实的 tokens/s 数据，同时梳理社区里"Ollama 比原生 llama.cpp 慢"的争议、和 vLLM/MLX 的对比，以及量化、上下文长度、GPU 开关这些影响速度的关键因素。
 ---
 
-装 Ollama 好装是公认的，但社区里一直有人吵它比底层的 llama.cpp 慢一截，慢多少、什么场景下慢，说法很不统一。这篇文章不整理"是什么",直接上真实跑分。
-
 {/* truncate */}
-
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 

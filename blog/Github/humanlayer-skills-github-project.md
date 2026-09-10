@@ -6,13 +6,7 @@ tags: [github, "Claude Code", open-source, Ai-friendly]
 description: humanlayer/skills 是 HumanLayer 团队开源的一套 Claude Code Agent Skills 合集，包含 improve-claude-md、narrow-react-prop-types、build-iterated-agentic-loop、design-control-loop、show-me 共 5 个 skill，用 npx skills 一条命令就能装。本文实际执行了安装命令，检查了本地生成的文件和目录结构，Skill 本身的运行效果（比如 show-me 判断该画哪种图）需要在真实 agent 会话里触发，文中会说明验证到了哪一步。
 ---
 
-humanlayer/skills 是 [HumanLayer](https://humanlayer.dev) 团队开源的一套 Claude Code Agent Skills 合集，里面装了 5 个各自独立的 skill，分别处理 CLAUDE.md 写法、React 组件 prop 类型收紧、把一次性任务变成定时跑的 CI agent、以及用可视化替代大段文字这几件具体的事，用一条 `npx` 命令就能装到本地项目里。
-
 {/* truncate */}
-
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 

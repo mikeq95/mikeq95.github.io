@@ -6,11 +6,7 @@ tags: [github, open-source, AI]
 description: Cloudflare Computer 是 Cloudflare 开源的一个预览版基础设施库，在 Durable Object 里实现了一个持久化虚拟文件系统，并提供容器、Worker Shell、Worker JavaScript 三种可插拔的执行后端，主要面向需要给 AI agent 一块工作目录的开发者。本文基于源码和官方文档整理，项目还在早期预览阶段，没有实际部署运行。
 ---
 
-Cloudflare Computer 是 Cloudflare 开源的一个基础设施库，给 Durable Object 装了一套持久化虚拟文件系统。它的目标读者不是普通开发者，而是需要给 AI agent 一块能读写、能跑命令的工作目录的人。
-
 {/* truncate */}
-
----
 
 ## 介绍
 

@@ -6,13 +6,7 @@ tags: [github, open-source, AI]
 description: Gopeed 是一个用 Go 和 Flutter 写的跨平台开源下载管理器，支持 HTTP、BitTorrent、磁力链和 ed2k，还带了一个 MCP 接口能让 AI agent 直接管理下载任务。本文基于官方 README 整理，因为这次环境网络限速下不了安装包，没有实际跑起来验证。
 ---
 
-Gopeed 是一个开源下载管理器，用 Go 写后端、Flutter 写界面，桌面端不套 Electron 也不用 WebView，走的是原生渲染这条路。它同时支持 HTTP/HTTPS、BitTorrent、磁力链接和 ed2k，桌面、移动端、Web 都能用。
-
 {/* truncate */}
-
-> 这篇文章没有实际下载运行验证——这次环境对 GitHub 大文件的下载限速得很厉害，release 包和源码包都卡在 20～40KB/s，几十兆的安装包下不完。下面的内容是照着官方 [README](https://github.com/GopeedLab/gopeed) 和文档整理的，实际体验建议直接去 [gopeed.com](https://gopeed.com) 下载试用。
-
----
 
 ## 介绍
 

@@ -5,19 +5,7 @@ date: 2026-07-24
 description: "Otty 是一款 GPU 加速的原生终端应用，专门针对 Claude Code、Codex 这类跑在终端里的代码代理做了适配。这篇记录一下它的定位、安装方式和主要功能。"
 ---
 
-## 它是什么
-
-[Otty](https://otty.sh) 是一款原生、GPU 加速的跨平台终端模拟器。定位介于"传统终端"和"完整的 Agent 开发环境"之间——既保留了终端本身简洁、键盘优先的操作方式，又针对终端里跑代理会话这件事做了专门设计。
-
-> Designed for anyone who cares about the feel of every keystroke. Tuned for code agents you already run.
-
-目前不是开源项目，[官网](https://otty.sh) 提供的是编译好的应用下载。
-
-> 如果你是 M 芯片的 Mac，直接点击[下载链接](https://downloads.otty.sh/macos/Otty.dmg)就可以下载。
-
 {/* truncate */}
-
----
 
 ## 官方文档怎么说
 

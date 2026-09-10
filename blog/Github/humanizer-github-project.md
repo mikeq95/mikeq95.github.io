@@ -6,13 +6,7 @@ tags: [github, Claude, prompt, writing, Ai-friendly]
 description: Humanizer 把维基百科编辑们总结的《AI 写作特征》词条拆成 25 条识别规则，装进一个 Claude Skill 里，读一遍文字就能挑出"不是而是""三段式排比""破折号连接一切"这类痕迹并重写。本文实际装了一遍，读了它的规则文件，拿一段文字手动过了一遍改写流程。
 ---
 
-"不是 X，而是 Y"、每段结尾一句"这才是真正的胜利"、破折号——不管前后是不是真的需要停顿——满天飞。这几个句式熟不熟悉？[Humanizer](https://github.com/blader/humanizer) 就是专门盯着这套配方改写的一个 Claude Skill。
-
 {/* truncate */}
-
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 

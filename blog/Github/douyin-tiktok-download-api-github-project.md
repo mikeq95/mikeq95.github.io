@@ -6,13 +6,7 @@ tags: [github, python, open-source, Ai-friendly]
 description: Douyin_TikTok_Download_API 是一个开源的抖音/TikTok/Bilibili数据爬取和无水印下载工具，用 FastAPI 提供 REST API，用 PyWebIO 做了个网页端批量解析界面。本文基于源码阅读和本地实际运行整理，B站接口实测不用配置就能直接用，抖音/TikTok接口需要自己换一个有效的Cookie。
 ---
 
-Douyin_TikTok_Download_API 是一个开源的数据爬取工具，专门解析抖音、TikTok 和 B 站的视频、直播、评论数据，顺带能把无水印视频或图集下载下来。它不是一个简单的下载脚本，而是把爬虫封装成了一整套 REST API，配了 Swagger 文档、网页端批量解析界面，还能配合 iOS 快捷指令在手机上直接调用。
-
 {/* truncate */}
-
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 

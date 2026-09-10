@@ -6,13 +6,7 @@ tags: [github, open-source, python, Ai-friendly]
 description: yt-dlp 是 youtube-dl 停更风波后分裂出来的活跃分支，支持数千个站点的命令行下载。这篇实际装了一遍、真的下载了一段 CC 授权的短片验证格式合并和音频提取，也记录了它和 YouTube 反爬对抗的争议。
 ---
 
-命令行下载视频音频，很多人第一反应还是 youtube-dl，但那个项目早就更新很慢了。[yt-dlp](https://github.com/yt-dlp/yt-dlp) 是它分裂出来的活跃分支，支持的站点更多，功能也一直在加。
-
 {/* truncate */}
-
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
----
 
 ## 介绍
 
