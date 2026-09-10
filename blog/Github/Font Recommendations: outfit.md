@@ -10,10 +10,10 @@ description: Outfit 是品牌自动化公司 outfit.io 找独立字体设计师 
 
 ## 介绍
 
-![outfit]('/Users/a1234/Documents/MyBlog/my-blog/blog/Github/assets/outfit/documentation%2Fimage1.png')
+![outfit](https://cdn.mikeq95blog.uk/coverimage/outfit-documentation-image1.png)
 [Outfit](https://github.com/Outfitio/Outfit-Fonts) 最早是品牌自动化公司 [outfit.io](https://outfit.io) 给自己定制的品牌字体，2021 年 8 月以 v1.0 版本开源发布，用的是 SIL 开源字体许可证（OFL 1.1）。这意味着任何人都能免费拿它做商业项目、修改甚至二次分发，不用付费也不用署名。
 
-![Strawberry font]('/Users/a1234/Documents/MyBlog/my-blog/blog/Github/assets/outfit/documentation%2Fimage1.png')
+![Strawberry font](https://cdn.mikeq95blog.uk/coverimage/outfit-strawberry-fruits.png)
 字体是几何无衬线风格，设计者是常驻智利圣地亚哥的独立字体设计师 [Rodrigo Fuenzalida](https://fontsinuse.com/type_designers/2910/rodrigo-fuenzalida)。outfit.io 官方账号在 X 上[发过一条帖子](https://x.com/outfitio/status/1462632932460347392)，说他们专门找 Rodrigo 定制了这套字体，做完之后直接通过 Google Fonts 免费开放下载。
 
 > 我是如何发现这个字体的? 我看到minimax code，他们用的标题的这个字体，我感觉很喜欢，看起来不像是苹方，我就问chatgpt，它告诉我是outfit.
@@ -31,7 +31,7 @@ description: Outfit 是品牌自动化公司 outfit.io 找独立字体设计师 
 
 ## 效果展示
 
-![effectsdemonstration]('/Users/a1234/Documents/MyBlog/my-blog/blog/Github/assets/outfit/Effectsdemonstration .png')
+![effectsdemonstration](https://cdn.mikeq95blog.uk/coverimage/outfit-effects-demonstration.png)
 Outfit 因为字形干净、比例统一。拿它用来做Logo文字很合适，很好看，很有美感，
 
 ## 相关字体
@@ -40,4 +40,4 @@ Outfit 因为字形干净、比例统一。拿它用来做Logo文字很合适，
 
 ## 总结
 
-很好！
+Outfit 不是那种需要装环境、跑命令的项目，它就是一套字体文件，拿来就能用。唯一要花心思的地方是从上面三条获取渠道里挑一个适合自己项目的方式。仓库归档了，但作为一款字体它谈不上"过期"，现在依然能在不少网站的标题栏里看到它的身影。
