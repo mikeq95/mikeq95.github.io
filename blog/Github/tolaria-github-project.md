@@ -5,7 +5,7 @@ date: 2026-08-21
 tags: [markdown, knowledge-base, tauri, open-source, macos]
 description: Tolaria 是一个跨平台桌面应用，把 Markdown 文件夹变成带类型系统、双向链接和 Git 版本历史的知识库，不绑定账号，不依赖云服务。
 ---
-笔记软件用久了，最怕的一件事是数据在别人那里。Notion 服务挂了你的文档打不开，Obsidian 的插件格式用三方工具不认，迁移一次劳民伤财。Tolaria 的出发点就是反这件事——你的笔记是普通 Markdown 文件，Git 管版本，换任何编辑器照样能用。
+
 ## 介绍
 [Tolaria](https://github.com/refactoringhq/tolaria) 是 [Luca Rossi](https://x.com/lucaronin)（Refactoring Newsletter 的作者）做的一个跨平台桌面应用，用 Tauri + React + TypeScript 写成，macOS、Windows、Linux 都能跑。它把一个普通文件夹当作「vault」，里面全是 `.md` 文件加 YAML frontmatter，Tolaria 在上面加了四栏式导航界面、类型系统、双向链接、属性面板和内置 MCP server。
 几个核心设计决定值得说一下：

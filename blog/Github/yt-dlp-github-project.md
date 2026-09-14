@@ -1,9 +1,9 @@
 ---
 slug: 2026/09/09/yt-dlp-github-project
-title: yt-dlp，命令行音视频下载工具（youtube-dl 的活跃分支）
+title: yt-dlp
 date: 2026-09-09
 tags: [github, open-source, python, Ai-friendly]
-description: yt-dlp 是 youtube-dl 停更风波后分裂出来的活跃分支，支持数千个站点的命令行下载。这篇实际装了一遍、真的下载了一段 CC 授权的短片验证格式合并和音频提取，也记录了它和 YouTube 反爬对抗的争议。
+description: yt-dlp 是 youtube-dl 停更风波后分裂出来的活跃分支，支持数千个站点的命令行下载。
 ---
 
 {/* truncate */}

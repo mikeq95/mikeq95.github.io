@@ -1,6 +1,6 @@
 ---
 slug: 2026/07/23/rime-squirrel-wanxiang-setup
-title: "🐿️ macOS 装 Rime 输入法(鼠须管)+ 万象拼音，顺便调个好看的候选框"
+title: "🐿️ macOS 装 Rime 输入法"
 date: 2026-07-23
 tags:
   - github

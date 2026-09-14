@@ -6,8 +6,6 @@ tags: [github, Claude, prompt, writing, Ai-friendly]
 description: stop-slop 是一套开源的 Claude skill 规则文件，靠禁用词表、句式规则和打分标准，帮 Claude 在写作和改稿时去掉常见的 AI 写作痕迹。
 ---
 
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
-
 ## 介绍
 
 仓库结构很简单：核心指令 `SKILL.md` 之外，`references/` 目录下有三个参考文件。`phrases.md` 列的是要删掉的词组，`structures.md` 列的是要打散的句式，`examples.md` 给了几组真实的改写示例。

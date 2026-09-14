@@ -61,8 +61,6 @@ description: Atoll 是一个开源 macOS 应用，把 MacBook 的刘海屏改造
 
 之前你需要做2步，1右键2分享，现在只需要一步，而且很简单——把需要Airdrop的文件拖到刘海里，他会切换到Airdrop选项。：
 
-2， 暂存文件
-
 你可以把需要时不时用到的文件快速存在刘海中，这样你可以方便快速粘贴。本人觉得这个功能非常好，比如我有一个文档A和图片B，提前存在刘海里，然后我可以很方便地把文档A发给小A，图片B发给小B，而不是Command + Tab切来切去。
 
 ![Atoll AirDrop panel](https://cdn.mikeq95blog.uk/coverimage/AirDrop.png)
@@ -87,6 +85,11 @@ description: Atoll 是一个开源 macOS 应用，把 MacBook 的刘海屏改造
 点击即可打开clipboard manager,然后可以快速复制粘贴一些内容进去，功能基本够用
 
 ![Atoll Clipboard manager](https://cdn.mikeq95blog.uk/coverimage/Clipboard.png)
+
+### Terminal
+
+快速打开一个终端窗口（不是默认选项，需要在设置中找到Terminal然后打开）
+![Terminal](https://cdn.mikeq95blog.uk/coverimage/Atoll-terminal.png)
 
 ### 锁屏
 

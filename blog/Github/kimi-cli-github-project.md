@@ -1,6 +1,6 @@
 ---
 slug: 2026/08/28/kimi-cli-github-project
-title: Kimi CLI：正在被 Kimi Code CLI 取代的 Moonshot 终端编程 Agent
+title: Kimi CLI
 date: 2026-08-28
 tags:
   - github

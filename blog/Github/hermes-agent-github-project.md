@@ -1,6 +1,6 @@
 ---
 slug: 2026/09/09/hermes-agent-github-project
-title: Hermes Agent，Nous Research 出的会自我进化的终端 AI Agent
+title: Hermes Agent
 date: 2026-09-09
 tags: [github, python, open-source, AI, Ai-friendly]
 description: Hermes Agent 是 Nous Research 开源的一款终端 AI agent，带记忆系统、技能自我改进和消息平台网关，能接 Telegram、Discord、Slack 等渠道。本文基于官方 README 整理，因为安装脚本会向系统目录写入工具、且需要自备 LLM API Key，没有在本地实际跑起来验证；另外这个仓库的 star 数据有明显异常，文中做了说明。
@@ -12,15 +12,10 @@ description: Hermes Agent 是 Nous Research 开源的一款终端 AI agent，带
 
 [Hermes Agent](https://github.com/NousResearch/hermes-agent) 是一个用 Python 写的终端 AI agent，MIT 协议开源。它不是简单套壳某个大模型 API 的聊天工具，README 里强调的核心是一套闭环学习机制：agent 会自己整理记忆、定期提醒自己沉淀知识、做完复杂任务后自动生成技能，这些技能之后还会在使用中持续改进，同时支持搜索自己过去的对话记录，跨会话建立起对使用者的理解。
 
-> 这里要提醒一句：这个仓库的 star 数据有点反常。截至写这篇文章时，star 数是 24.3 万，但真正订阅关注仓库动态的只有 951 人，open issue 却有 4.1 万条——仓库是 2025 年 7 月才建的，一年多时间涨到这个体量，star 和订阅数之间的比例又差这么多倍，正常的自然增长很难长这样，看起来更像是被刷过星。这不代表项目本身不能用，但"star 很高"这件事在这里不适合当作项目质量或受欢迎程度的证据。
-
-功能覆盖得比较广：内置一个功能完整的终端 UI（多行编辑、斜杠命令自动补全、对话历史、可以打断当前任务插话）；同时是个多平台网关，一套进程能同时接 Telegram、Discord、Slack、WhatsApp、Signal，语音留言还能自动转文字；执行环境不锁定在本机，支持本地、Docker、SSH、Singularity、Modal、Daytona、Vercel Sandbox 七种终端后端，其中 Daytona 和 Modal 这两个是无服务器的，agent 的运行环境空闲时会休眠，几乎不产生费用，理论上可以扔到一台 5 美元的 VPS 上跑，也能挂到 GPU 集群上；另外还带一个基于 cron 的定时任务系统，用自然语言描述"每天生成报告""每晚备份"这类周期性工作，可以委派给隔离的子 agent 并行处理多条工作流。模型这块不锁定供应商，Nous 自己的 Portal、OpenRouter、OpenAI 或者任何自定义端点都能接，用 `hermes model` 一条命令切换，不用改代码。
-
 ---
 
 ## 安装环境
 
-> 这一节没有实际跑起来验证：官方安装脚本会往用户的真实系统目录（`~/.hermes`，Windows 上是 `%LOCALAPPDATA%\hermes`）安装 uv、Python 3.11、Node.js、ripgrep、ffmpeg 这些系统级工具，属于会改动本机环境的操作；真要跟它对话还需要自备一个 LLM 供应商的 API Key。下面按官方 README 整理，没有一步步跑通。
 
 Linux、macOS、WSL2、Termux 用一行命令安装：
 

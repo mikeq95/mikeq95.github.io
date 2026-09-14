@@ -1,6 +1,6 @@
 ---
 slug: 2026/09/09/kumone-github-project
-title: Kumone，一个原生 SwiftUI 写的网易云音乐 macOS 客户端
+title: Kumone
 date: 2026-09-09
 tags: [github, open-source, macos, swift, media]
 description: Kumone 是开发者 missuo 用 SwiftUI 从零写的网易云音乐第三方客户端，直连网易云接口、支持二维码登录和 Hi-Res 播放，不到一个月已经攒了近千颗 star。本文记录了通过 Homebrew 实际安装、签名验证和启动测试的过程。
