@@ -8,3 +8,5 @@ tags:
 description: "香蕉"
 ---
 
+参考文档：https://claude.com/blog/skills
+https://claude.com/skills

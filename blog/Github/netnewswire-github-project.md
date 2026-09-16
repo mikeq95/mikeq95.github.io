@@ -1,6 +1,6 @@
 ---
 slug: 2026/07/21/netnewswire-github-project
-title: NetNewsWire，一款开源了 20 多年的 macOS/iOS RSS 阅读器
+title: NetNewsWire：macOS/iOS RSS 阅读器
 date: 2026-07-21
 tags:
   - github

@@ -35,8 +35,6 @@ Claude Code 用户还能走插件方式（需要 Claude Code 2.1.142 及以上�
 
 Claude Desktop 没有 CLI，得手动来：去 [Releases](https://github.com/blader/humanizer/releases) 下载源码 ZIP 当作 skill 上传，或者直接把 `SKILL.md` 拷进对应 agent 的 skill 文件夹。
 
-> 实测在沙盒环境里跑了一遍 `npx skills add blader/humanizer`（没加 `--global`，避免污染本机全局配置），CLI 检测到当前在 agent 里运行会自动切成非交互模式，clone 完仓库直接把 skill 装到 79 个受支持的 agent 里，Claude Code 那份是符号链接，整个过程没有卡住，也没有要求额外输入。
-
 至此，装的这一步已经跑通。
 
 ## 运行
