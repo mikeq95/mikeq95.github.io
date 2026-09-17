@@ -40,24 +40,10 @@ function HomepageHeader() {
             <span className={styles.logoWordmark}>mikeq95</span>
           </div>
           <Heading as="h1" className={styles.title}>
-            {isZh ? (
-              <>
-                Claude、GitHub，或者其他。
-                <br />
-                我一直在写。
-              </>
-            ) : (
-              <>
-                Claude, GitHub, or others.
-                <br />
-                I keep writing.
-              </>
-            )}
+            mikeq95's blog
           </Heading>
           <p className={styles.description}>
-            {isZh
-              ? '读你想读的内容，用你喜欢的方式——这是一个为记录而生的博客。探索能直接照做的教程，读懂经过验证的方法，用清晰的排版找到你需要的答案。没有广告干扰，内容持续更新，你随时都能找到你需要的。'
-              : "Read what you want, the way you like — a blog built for exactly that. Explore tutorials you can follow step by step, methods that have been put to the test, and a layout clear enough to find what you need. No ads in the way, content updated regularly, so what you're looking for is always here."}
+            Welcome to my blog
           </p>
           <div className={styles.buttons}>
             <Link className={styles.blogButton} to="/blog">
