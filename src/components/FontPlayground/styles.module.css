@@ -1,0 +1,236 @@
+.card {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: var(--space-lg) 0;
+  padding: var(--space-lg);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--radius-panel);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.family {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.modeMenu {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.badge {
+  flex-shrink: 0;
+  padding: 0.15rem 0.6rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.badge:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem;
+  min-width: 170px;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.menuGroupLabel {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-600);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.menuDivider {
+  height: 1px;
+  margin: 0.3rem 0;
+  background: var(--ifm-color-emphasis-200);
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.35rem 0.6rem;
+  border: none;
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  font-size: 0.85rem;
+  font-family: inherit;
+  text-align: left;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.menuItemCheck {
+  display: inline-flex;
+  width: 16px;
+  flex-shrink: 0;
+  color: var(--ifm-color-primary);
+}
+
+.menuItemHint {
+  margin-left: auto;
+  padding-left: 0.5rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.sample {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 3.5em;
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+  border: 1px dashed var(--ifm-color-emphasis-300);
+  border-radius: var(--radius-panel);
+  line-height: 1.3;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  outline: none;
+}
+
+.sample:focus {
+  border-style: solid;
+  border-color: var(--ifm-color-primary);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.controlRow {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr 5.5rem;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.controlLabel {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.85rem;
+}
+
+.valueControl {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.numberInput {
+  width: 3.4rem;
+  box-sizing: border-box;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  font-family: inherit;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.numberInput::-webkit-outer-spin-button,
+.numberInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.numberInput:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+}
+
+.numberInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.unit {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.slider {
+  width: 100%;
+  accent-color: var(--ifm-color-primary);
+}
+
+.slider:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.copyButton {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.copyButton:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.copiedFlash {
+  color: var(--color-success);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.credit {
+  margin-top: var(--space-md);
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.75rem;
+}

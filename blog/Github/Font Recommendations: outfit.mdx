@@ -6,6 +6,8 @@ tags: [github, open-source]
 description: Outfit 是品牌自动化公司 outfit.io 找独立字体设计师 Rodrigo Fuenzalida 定制、以 SIL 开源协议免费发布的几何无衬线字体家族，9 个静态字重加一个可变字体文件，早已进了 Google Fonts。本文核对了仓库里实际的字重文件、下载渠道、Fonts In Use 上的真实使用案例，还给了 macOS 装字体和网页项目里用 @font-face 的具体步骤，源码仓库本身在 2025 年已经被归档只读。
 ---
 
+import FontPlayground from '@site/src/components/FontPlayground';
+
 {/* truncate */}
 
 ## 介绍
@@ -33,6 +35,18 @@ description: Outfit 是品牌自动化公司 outfit.io 找独立字体设计师 
 
 ![effectsdemonstration](https://cdn.mikeq95blog.uk/coverimage/outfit-effects-demonstration.png)
 Outfit 因为字形干净、比例统一。拿它用来做Logo文字很合适，很好看，很有美感，
+
+<FontPlayground
+  family="Outfit"
+  cssHref="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+  weightMin={100}
+  weightMax={900}
+  defaultWeight={500}
+  defaultSize={80}
+  sampleText="Outfit"
+  variable={true}
+  credit="SIL OFL 1.1 · Google Fonts"
+/>
 
 ## 相关字体
 
