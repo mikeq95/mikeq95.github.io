@@ -1,0 +1,53 @@
+---
+slug: 2026/09/17/clash-display-fontshare-font
+title: Clash Display，Fontshare 上专门为大字号标题设计的几何无衬线免费字体
+date: 2026-09-17
+tags: [Website]
+description: Clash Display 由 Indian Type Foundry 在自家免费字体平台 Fontshare 上发布，6 个静态字重外加一个字重轴 200–700 的可变字体文件，专门给标题、海报这类大字号场景用，闭源许可但个人和商用完全免费、不用署名。本文整理了字重列表、Fontshare CSS API 的用法、macOS 装字体步骤，以及容易和它撞名的 Clash Grotesk 区别。
+---
+
+import FontPlayground from '@site/src/components/FontPlayground';
+
+{/* truncate */}
+
+## 介绍
+
+[Clash Display](https://www.fontshare.com/fonts/clash-display) 是 [Indian Type Foundry](https://www.indiantypefoundry.com)（ITF）自家免费字体平台 [Fontshare](https://www.fontshare.com) 上的一款几何无衬线字体，2021 年 3 月上架。属于 Fontshare 的"Closed Source"分类，用的是 ITF 自己的 Free Font License，不是 SIL OFL——个人和商用都完全免费、不用署名，但不能拿字体文件本身去改字重、二次分发或者转卖。
+
+字腔（aperture）收得比较小，官方定位就是给大字号场景用：标题、海报、Banner、杂志封面这类地方合适，正文小字不是它的强项。
+
+## 字重和获取方式
+
+Extra Light 到 Bold 一共 6 个静态字重，外加一个字重轴 200–700 的可变字体文件，没有斜体。去 [Fontshare 的 Clash Display 页面](https://www.fontshare.com/fonts/clash-display)下载字体包，或者用 CSS API 直接在网页里引入：
+
+```
+https://api.fontshare.com/v2/css?f[]=clash-display@variable&display=swap
+```
+
+> 只想要某个固定字重就把 `@variable` 换成具体数字，比如 `@500` 只拿 Medium。
+
+## 在 macOS 上安装
+
+下载包里选 Variable 或者某个静态字重的 otf/ttf 文件，双击用字体册打开安装即可。
+
+## 效果展示
+
+<FontPlayground
+  family="Clash Display"
+  cssHref="https://api.fontshare.com/v2/css?f[]=clash-display@variable&display=swap"
+  weightMin={200}
+  weightMax={700}
+  defaultWeight={600}
+  defaultSize={80}
+  sampleText="Clash Display"
+  variable={true}
+  credit="ITF Free Font License · Fontshare"
+/>
+
+## 相关字体
+
+容易搞混的是 Fontshare 上还有一款叫 [Clash Grotesk](https://www.fontshare.com/fonts/clash-grotesk) 的字体，名字很像但是两款独立的字体，别下错。免费替代品里，Google Fonts 上的 [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk)（SIL OFL 协议）跟它相似度比较高，同样走可变字重路线；同属 Fontshare/ITF 的 [Cabinet Grotesk](https://www.fontshare.com/fonts/cabinet-grotesk) 走的是更有表现力的展示字方向，也可以对比看看。
+
+## 总结
+
+Clash Display 就是一套现成的字体文件，Fontshare 页面下载或者 CSS API 直接引用都行，唯一要注意的是许可证是闭源免费而不是开源协议，改字重、二次分发这些事做不了，纯粹拿来用没问题。

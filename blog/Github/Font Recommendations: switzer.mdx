@@ -1,0 +1,51 @@
+---
+slug: 2026/09/17/switzer-fontshare-font
+title: Switzer，Fontshare 上瑞士新怪诞体风格的免费无衬线字体
+date: 2026-09-17
+tags: [Website]
+description: Switzer 由巴黎独立字体设计师 Jérémie Hornus 设计，2021 年 4 月发布在 Fontshare 上，9 个字重（Thin 到 Black）加斜体一共 18 款字形，外加字重轴 100–900 的可变字体版本，瑞士新怪诞体（neo-grotesk）风格，个人和商用免费但闭源许可、不能改字体文件或二次分发。本文整理了字重列表、Fontshare CSS API 用法、macOS 装字体步骤，以及跟 Inter、General Sans 的对比。
+---
+
+import FontPlayground from '@site/src/components/FontPlayground';
+
+{/* truncate */}
+
+## 介绍
+
+[Switzer](https://www.fontshare.com/fonts/switzer) 是巴黎独立字体设计师 [Jérémie Hornus](https://www.indiantypefoundry.com/designers/jeremie-hornus)（Black Foundry 联合创始人）做的一款新怪诞体（neo-grotesk）无衬线字体，2021 年 4 月发布在 [Fontshare](https://www.fontshare.com) 上。跟 Clash Display 一样走的是 Fontshare 的"Closed Source"许可（ITF Free Font License）：个人商用都免费、不用署名，但不能改字体文件本身或者二次分发。
+
+设计偏经典、克制，瑞士新怪诞体那种干净中性的气质，适合网站、书籍、Logo、杂志这类偏正文和品牌的场景，不像 Clash Display 那样只盯着大字号标题。
+
+## 字重和获取方式
+
+Thin 到 Black 九个字重，每个都配斜体，一共 18 款字形，另外还有一个字重轴 100–900 的可变字体（含斜体）。去 [Fontshare 的 Switzer 页面](https://www.fontshare.com/fonts/switzer)下载字体包，或者用 CSS API：
+
+```
+https://api.fontshare.com/v2/css?f[]=switzer@variable&display=swap
+```
+
+## 在 macOS 上安装
+
+下载包里挑 Variable 或者某个静态字重的 otf/ttf，字体册打开装上就行。
+
+## 效果展示
+
+<FontPlayground
+  family="Switzer"
+  cssHref="https://api.fontshare.com/v2/css?f[]=switzer@variable&display=swap"
+  weightMin={100}
+  weightMax={900}
+  defaultWeight={500}
+  defaultSize={72}
+  sampleText="Switzer"
+  variable={true}
+  credit="ITF Free Font License · Fontshare"
+/>
+
+## 相关字体
+
+跟 Switzer 常被拿来比较的是 Google Fonts 上的 [Inter](https://fonts.google.com/specimen/Inter)（SIL OFL 协议），Inter 更偏界面场景，针对屏幕小字号、数字对齐做了专门优化，气质上也更"互联网感"一点；Switzer 更中性、更"瑞士"。同属 Fontshare/ITF 的 [General Sans](https://www.fontshare.com/fonts/general-sans) 跟它相似度也很高，同样是新怪诞体路线，选哪个更多是手感偏好问题。
+
+## 总结
+
+Switzer 拿来当正文字体、品牌字体都合适，18 款字形加可变版本覆盖得很全。跟 Clash Display 一样是 Fontshare 的闭源免费许可，用没问题，但别指望能拿字体文件去改造或者重新发布。

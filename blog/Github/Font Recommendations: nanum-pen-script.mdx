@@ -1,0 +1,54 @@
+---
+slug: 2026/09/17/nanum-pen-script-google-fonts
+title: Nanum Pen Script，Naver 出品、Google Fonts 上的韩文钢笔手写体
+date: 2026-09-17
+tags: [github, open-source]
+description: Nanum Pen Script 是 Naver（当时还叫 NHN）2010 年找 Sandoll Communications 定制、2012 年收进 Google Fonts 的韩文手写风格字体，源码开源在 naver/nanumfont 仓库，SIL OFL 1.1 协议免费商用不用署名，支持韩文和拉丁字母，只有一个 Regular 字重。本文整理了获取方式、macOS 装字体步骤，以及跟同系列 Nanum Brush Script、Gaegu 的区别。
+---
+
+import FontPlayground from '@site/src/components/FontPlayground';
+
+{/* truncate */}
+
+## 介绍
+
+[Nanum Pen Script](https://fonts.google.com/specimen/Nanum+Pen+Script) 是 Naver（当时还叫 NHN）"한글한글아름답게"（让韩文更美）字体计划里的一款，找的是韩国字体公司 [Sandoll Communications](https://www.sandoll.co.kr) 定制（Sandoll 也做过 Malgun Gothic、Apple SD Gothic Neo 这些常见韩文字体），2010 年发布，2012 年 5 月收进 Google Fonts。源码开源在 [naver/nanumfont](https://github.com/naver/nanumfont) 仓库，SIL 开源字体许可证（OFL 1.1），免费商用不用署名。
+
+钢笔手写风格，笔画粗细比较均匀、字形干净，比同系列的 Nanum Brush Script（毛笔风格）克制很多，适合需要一点手写感又不想太张扬的场景。支持韩文和基本拉丁字母。
+
+## 字重和获取方式
+
+只有一个 Regular（400）字重，没有其他字重或斜体。去 [Google Fonts 页面](https://fonts.google.com/specimen/Nanum+Pen+Script)下载，或者网页里直接引入：
+
+```
+https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap
+```
+
+> 用 `next/font/google` 之类的方案接进项目的话，CSS 变量名按自己项目的命名习惯来就行，比如 `--font-nanum-pen`。
+
+## 在 macOS 上安装
+
+下载下来的 ttf 文件双击，字体册里点安装就行。
+
+## 效果展示
+
+<FontPlayground
+  family="Nanum Pen Script"
+  cssHref="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap"
+  weightMin={400}
+  weightMax={400}
+  defaultWeight={400}
+  defaultSize={72}
+  sampleText="나눔손글씨 펜"
+  variable={false}
+  styles={[{ label: 'Regular', weight: 400 }]}
+  credit="SIL OFL 1.1 · Google Fonts"
+/>
+
+## 相关字体
+
+同属 Nanum 系列的还有 [Nanum Brush Script](https://fonts.google.com/specimen/Nanum+Brush+Script)，毛笔字风格，笔画粗细变化更大、更随性，跟 Pen Script 的克制正好是两个方向。另一款常被拿来对比的韩文手写体是 [Gaegu](https://fonts.google.com/specimen/Gaegu)，同样是 Google Fonts 上的开源字体，带 Light / Regular / Bold 三个字重，风格更偏可爱、孩子气一些。
+
+## 总结
+
+Nanum Pen Script 是那种拿来就能用的开源字体，Google Fonts 直接引入或者下载 ttf 装到系统都行，唯一要注意的是只有一个字重，想要更粗或者更细的笔画得换字体。
