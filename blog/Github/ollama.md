@@ -3,7 +3,7 @@ slug: 2026/09/09/ollama-speed-benchmark
 title: Ollama
 date: 2026-09-09
 tags: [github, open-source, AI, llm, Ai-friendly]
-description: 不是泛泛介绍 Ollama 是什么，而是专门测它的速度——在 Apple M1 Pro 上用 llama3.2:1b、qwen2.5:0.5b 跑出真实的 tokens/s 数据，同时梳理社区里"Ollama 比原生 llama.cpp 慢"的争议、和 vLLM/MLX 的对比，以及量化、上下文长度、GPU 开关这些影响速度的关键因素。
+description: ollma。
 ---
 
 {/* truncate */}

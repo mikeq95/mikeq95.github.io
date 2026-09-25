@@ -11,7 +11,6 @@ tags:
 description: i-have-adhd 是一个开源 skill，靠 SKILL.md 里的十条输出规则，让 Claude Code、Codex 等编程 Agent 的回复先给动作、砍掉寒暄客套，这篇记录实际安装、触发和前后对比的效果。
 ---
 
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
 
 ## 介绍
 

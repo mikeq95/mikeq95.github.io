@@ -3,7 +3,7 @@ slug: 2026/09/09/humanlayer-skills-github-project
 title: humanlayer/skills，HumanLayer 团队开源的 5 个 Claude Code Agent Skill
 date: 2026-09-09
 tags: [github, "Claude Code", open-source, Ai-friendly]
-description: humanlayer/skills 是 HumanLayer 团队开源的一套 Claude Code Agent Skills 合集，包含 improve-claude-md、narrow-react-prop-types、build-iterated-agentic-loop、design-control-loop、show-me 共 5 个 skill，用 npx skills 一条命令就能装。本文实际执行了安装命令，检查了本地生成的文件和目录结构，Skill 本身的运行效果（比如 show-me 判断该画哪种图）需要在真实 agent 会话里触发，文中会说明验证到了哪一步。
+description: humanlayer/skills 是 HumanLayer 团队开源的一套 Claude Code Agent Skills 合集，包含 improve-claude-md、narrow-react-prop-types、build-iterated-agentic-loop、design-control-loop、show-me 共 5 个 skill，用 npx skills 一条命令就能装。
 ---
 
 {/* truncate */}

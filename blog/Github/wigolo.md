@@ -3,12 +3,11 @@ slug: 2026/08/28/wigolo-github-project
 title: wigolo：本地优先、免 API Key 的网络智能 MCP server
 date: 2026-08-28
 tags: [github, AI, llm, open-source, Ai-friendly]
-description: wigolo 是一个本地优先的 MCP server，把网页搜索、抓取、爬取、结构化提取等六个核心工具做成完全不需要 API Key 的本地引擎，这篇记录实际装好后逐个测试这六个工具的过程。
+description: wigolo 是一个本地优先的 MCP server，把网页搜索、抓取、爬取、结构化提取等六个核心工具做成完全不需要 API Key 的本地引擎，
 ---
 
 [wigolo](https://github.com/KnockOutEZ/wigolo) 是一个跑在本机的 MCP server，专门给 AI coding agent 处理"上网"这件事。它的六个核心工具完全不用 API Key，查询免费，数据也不会离开本机。
 
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
 
 ## 介绍
 

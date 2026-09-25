@@ -3,7 +3,7 @@ slug: 2026/09/09/hermes-agent-github-project
 title: Hermes Agent
 date: 2026-09-09
 tags: [github, python, open-source, AI, Ai-friendly]
-description: Hermes Agent 是 Nous Research 开源的一款终端 AI agent，带记忆系统、技能自我改进和消息平台网关，能接 Telegram、Discord、Slack 等渠道。本文基于官方 README 整理，因为安装脚本会向系统目录写入工具、且需要自备 LLM API Key，没有在本地实际跑起来验证；另外这个仓库的 star 数据有明显异常，文中做了说明。
+description: Hermes Agent 是 Nous Research 开源的一款终端 AI agent，带记忆系统、技能自我改进和消息平台网关，能接 Telegram、Discord、Slack 等渠道。
 ---
 
 {/* truncate */}

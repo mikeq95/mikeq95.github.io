@@ -8,7 +8,7 @@ tags:
   - prompt
   - open-source
   - Ai-friendly
-description: Ponytail 是给 Claude Code、Codex 等 20 多个 AI 编程 agent 用的规则插件，核心是一套“七级决策梯度”，逼 agent 写代码前先想有没有更懒的办法。项目 3 个月冲到 13 万+ star，也伴随着基准测试被社区挑战、作者公开改数据的插曲，本文基于源码克隆和真实测试跑通验证整理。
+description: Ponytail 是给 Claude Code、Codex 等 20 多个 AI 编程 agent 用的规则插件，核心是一套“七级决策梯度”，逼 agent 写代码前先想有没有更懒的办法。项目 3 个月冲到 13 万+ star，也伴随着基准测试被社区挑战、作者公开改数据的插曲，
 ---
 
 {/* truncate */}
