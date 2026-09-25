@@ -3,7 +3,7 @@ slug: 2026/08/21/atoll-dynamic-island-macos
 title: Atoll：让Macbook也有灵动岛
 date: 2026-08-21
 tags: [macos, swift, open-source, notch, media, Ai-friendly]
-description: Atoll 是一个开源 macOS 应用，把 MacBook 的刘海屏改造成媒体控制、系统监控和生产力工具的集合面板。本文基于源码阅读整理。
+description: Atoll 是一个开源 macOS 应用，把 MacBook 的刘海屏改造成媒体控制、系统监控和生产力工具的集合面板。
 ---
 
 > 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。

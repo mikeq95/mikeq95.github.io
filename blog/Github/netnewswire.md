@@ -4,7 +4,7 @@ title: NetNewsWire：macOS/iOS RSS 阅读器
 date: 2026-07-21
 tags:
   - github
-description: "NetNewsWire 是一款免费开源的 macOS/iOS RSS 阅读器，
+description: NetNewsWire 是一款免费开源的 macOS/iOS RSS 阅读器。
 ---
 
 ## 它是什么

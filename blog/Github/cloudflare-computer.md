@@ -3,7 +3,7 @@ slug: 2026/09/08/cloudflare-computer-github-project
 title: Cloudflare Computer：给 Agent 一台云端工作电脑
 date: 2026-09-08
 tags: [github, open-source, AI]
-description: Cloudflare Computer 是开源预览库，在 Durable Object 里放一个持久虚拟文件系统，并接上 Worker Shell、Worker JavaScript、Linux 容器三种执行后端。本文按官方文档整理，用 Claude Code 经 MCP 接入作为默认演示。项目仍是早期预览，不建议上生产。
+description: Cloudflare Computer。
 ---
 
 {/* truncate */}
