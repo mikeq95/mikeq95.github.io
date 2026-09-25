@@ -1,6 +1,6 @@
 ---
 slug: 2026/08/28/i-have-adhd-github-project
-title: i-have-adhd：让 AI 编程助手说话别绕弯子
+title: i-have-adhd
 date: 2026-08-28
 tags:
   - github

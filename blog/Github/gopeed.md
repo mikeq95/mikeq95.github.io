@@ -1,6 +1,6 @@
 ---
 slug: 2026/09/09/gopeed-github-project
-title: Gopeed，一个 Go + Flutter 写的开源下载器
+title: Gopeed下载器
 date: 2026-09-09
 tags: [github, open-source, AI]
 description: Gopeed 是一个用 Go 和 Flutter 写的跨平台开源下载管理器，支持 HTTP、BitTorrent、磁力链和 ed2k，还带了一个 MCP 接口能让 AI agent 直接管理下载任务。

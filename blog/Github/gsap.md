@@ -1,6 +1,6 @@
 ---
 slug: 2026/06/02/gsap-claude-code-web-animation
-title: GSAP 为你的网页加上炫酷动画
+title: GSAP 
 date: 2026-06-02
 image: https://cdn.mikeq95blog.uk/coverimage/gsap-skill-en-cn.png
 tags:

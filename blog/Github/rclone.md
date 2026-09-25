@@ -1,6 +1,6 @@
 ---
 slug: 2026/09/09/rclone-github-project
-title: rclone，命令行里的云存储瑞士军刀
+title: rclone
 date: 2026-09-09
 tags: [github, open-source, Ai-friendly]
 description: rclone 是一个开源命令行工具，用同一套 sync/copy/move/mount 命令操作 S3、Google Drive、OneDrive、Dropbox、Backblaze B2、Cloudflare R2 等几十种云存储，还带客户端加密和去重能力。

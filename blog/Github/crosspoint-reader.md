@@ -6,7 +6,7 @@ tags: [e-reader, esp32, firmware, open-source, Ai-friendly]
 description: CrossPoint Reader 是运行在 Xteink X3/X4 电纸书上的开源固件，用 C++ 写成、基于 PlatformIO 构建，这篇文章根据源码、官方文档和第三方评测整理，没有做实机验证。
 ---
 
-> 如果你是新手小白，这篇文章提供了现成的 AI 提示词，可以帮你一键配置环境。
+
 
 ## 介绍
 
