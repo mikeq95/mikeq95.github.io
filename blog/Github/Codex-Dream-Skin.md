@@ -15,16 +15,8 @@ description: "Codex Dream Skin 通过本地 CDP 注入给 OpenAI Codex 桌面客
 
 ## 安装
 
-macOS：进入仓库的 `macos/` 目录，双击 `Install Codex Dream Skin.command` 即可。
+[macOS和win](https://github.com/Fei-Away/Codex-Dream-Skin/releases)
 
-Windows：依次执行两个 PowerShell 脚本：
-
-```powershell
-install-dream-skin.ps1
-start-dream-skin.ps1
-```
-
-前提是本机已经装好 Codex 桌面客户端。
 
 ## 实际使用感受
 

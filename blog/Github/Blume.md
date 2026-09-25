@@ -1,14 +1,10 @@
 ---
 slug: 2026/08/28/blume-github-project
-title: Blume，一个零配置的 AI-ready 文档框架
+title: Blume
 date: 2026-08-28
 tags: [markdown, open-source, llm, Ai-friendly]
 description: Blume 是一个基于 Astro 和 Vite 的开源文档框架，维护一个 Markdown 文件夹就能生成带本地搜索、AI-ready 输出和组件库的静态文档站，不用自己搭一个 React 项目。
 ---
-
-```
-Blume - 零配置 Markdown 文档站
-```
 
 **来源**：[GitHub - haydenbleasel/blume](https://github.com/haydenbleasel/blume)
 

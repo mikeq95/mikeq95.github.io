@@ -5,7 +5,8 @@ date: 2026-06-16
 image: https://cdn.mikeq95blog.uk/coverimage/umami-en-cn.png
 tags:
   - github
-description: "Umami 是隐私友好的开源访客统计工具，不需要 Cookie 弹窗。文章记录了从注册到接入 Docusaurus 博客的完整过程。"
+description: "Um
+ami 是隐私友好的开源访客统计工具，不需要 Cookie 弹窗。文章记录了从注册到接入 Docusaurus 博客的完整过程。"
 ---
 
 ## 第一步：注册账号并创建网站

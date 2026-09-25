@@ -10,9 +10,7 @@ description: Atoll 是一个开源 macOS 应用，把 MacBook 的刘海屏改造
 
 ## 介绍
 
-[Atoll](https://github.com/Ebullioscopic/Atoll) 是一个 Swift/SwiftUI 写的 macOS 原生应用，用刘海屏那块区域做展开式控制面板。平时收起来不占地方，鼠标移过去展开，里面可以放媒体控制、系统状态、定时器、剪贴板历史等一堆东西。
-
-它起步于 [Boring.Notch](https://github.com/TheBoredTeam/boring.notch) 的代码库——媒体播放器集成、AirDrop 面板、文件 Dock 这些核心架构都是从那边改过来的，然后在上面加了一大圈自己的东西：锁屏挂件、LLM 用量追踪、终端标签页、可拖拽的剪贴板卡片……
+[Atoll](https://github.com/Ebullioscopic/Atoll) 是一个 Swift/SwiftUI 写的 macOS 原生应用，可以让你的Mac也有灵动岛。
 
 ## 安装环境
 
