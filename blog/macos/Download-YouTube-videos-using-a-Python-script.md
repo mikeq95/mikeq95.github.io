@@ -10,9 +10,9 @@ description: "用一段 Python 脚本配合 yt-dlp，在 Mac 上本地下载 You
 
 ## 配置运行环境
 
-你的 Mac 上需要以下四个工具
+你的 Mac 上需要四个命令行工具，以及两项系统设置。
 
-### [Homebrew](/blog/2026/05/28/homebrew-tutorials)
+### [Homebrew](/blog/Macos/homebrew-tutorials)
 
 macOS 包管理器，装其他工具的基础。
 
@@ -27,7 +27,8 @@ brew --version
 ```
 
 ### [ffmpeg](https://clearlove7-ai.vercel.app?word=ffmpeg&postId=2026-05-29-Download-YouTube-videos-using-a-Python-script)
-。
+
+合并视频轨和音频轨、输出 MP4 时需要它。
 
 ```bash
 brew install ffmpeg
@@ -78,6 +79,8 @@ yt-dlp --version
 **终端获得完全磁盘访问权限**（读取 Safari [Cookie](https://clearlove7-ai.vercel.app?word=Cookie&postId=2026-05-29-Download-YouTube-videos-using-a-Python-script) 需要）
 
 系统设置 → 隐私与安全性 → 完全磁盘访问权限 → 添加「终端」
+
+若你实际用的是 iTerm、Warp 等，添加的应是那个 App，不是「终端」。改完后新开一个窗口再运行。
 
 **开启代理**（在国内访问 YouTube 必须）
 
@@ -180,7 +183,7 @@ Check whether the following tools are installed one by one. If not, provide the 
 4. yt-dlp: via pip3 install yt-dlp --break-system-packages
 
 ### Step 2 — Write the Python Script
-Filename: youtube_downloader.py
+Filename: main.py
 Requirements:
 - Use subprocess to call the yt-dlp CLI (do NOT use the yt_dlp Python API)
 - Video format: H.264 codec, MP4 container
@@ -189,7 +192,7 @@ Requirements:
 - Node.js path: /opt/homebrew/bin/node
 - Include --remote-components ejs:github to solve JS challenges
 - Output directory: Desktop (~/Desktop)
-- Accept video URL as a command-line argument: python3 youtube_downloader.py "YouTube URL"
+- Accept video URL as a command-line argument: python3 main.py "YouTube URL"
 - Add comments in English
 
 ### Step 3 — Tell Me How To Use It
@@ -202,6 +205,14 @@ Explain how to run the script in one sentence.
 ```
 
 > AI 能帮你写好代码，但**环境还是要自己配置**（就是上面那四个工具）。如果你连这个也不想手动做，可以用 Claude Code / Codex 帮你自动执行安装命令，一路点 yes 就行。
+
+## 使用前请知晓
+
+脚本会读取 Safari 里已登录的 YouTube Cookie，请求会带上你的账号身份。
+
+- 只下载你有权保存的内容（自己的视频、创作者明确允许、CC 许可等）。
+- 不要把带 Cookie 的命令或脚本发给别人代跑。
+- 不要用同一账号短时间批量下载，可能触发验证，极端情况下会影响登录。
 
 ## 使用步骤
 
@@ -239,4 +250,11 @@ python3 ~/Downloads/main.py "https://www.youtube.com/watch?v=5wvq8w7YBXU"
 
 **提示 `permission denied` 或 Cookie 读取失败？** 终端没有完全磁盘访问权限。去系统设置 → 隐私与安全性 → 完全磁盘访问权限 → 添加「终端」，然后重新开一个终端窗口再试。
 
-**下载失败，看不懂报错？** 问Claude code
+**下载失败，看不懂报错？**
+把终端完整输出发给 Claude / ChatGPT，并附上这两条命令的结果：
+
+```bash
+yt-dlp --version
+node --version
+```
+```

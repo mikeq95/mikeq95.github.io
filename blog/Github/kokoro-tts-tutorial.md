@@ -52,7 +52,7 @@ description: "用开源 TTS 工具 Kokoro 把英文文章转成高质量音频�
 - Python 3.10 ~ 3.12
 - [espeak-ng](https://clearlove7-ai.vercel.app?word=espeak-ng&postId=2026-05-16-kokoro-tts-tutorial) 它负责处理模型没见过的单词、非英语的发音兜底
 
-1. 用 [Homebrew](/blog/2026/05/28/homebrew-tutorials) 安装python3.12：
+1. 用 [Homebrew](/blog/Macos/homebrew-tutorials) 安装python3.12：
 
 ```bash
 brew install python@3.12

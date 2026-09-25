@@ -101,8 +101,6 @@ Listening on http://0.0.0.0:3000
 
 浏览器访问 `http://localhost:3000`，就能看到界面：
 
-![kokoro-web 输入界面](/img/kokoro-web-api-settings.jpg)
-
 几个字段照下面这样填：
 
 | 字段 | 设为 | 说明 |
@@ -126,8 +124,6 @@ Listening on http://0.0.0.0:3000
 ### 生成
 
 在 **Text to process** 里粘贴想转成语音的文字，点 **Generate Voice**：
-
-![kokoro-web 生成结果](/img/kokoro-web-output.jpg)
 
 生成完下面会出现一个播放器，能直接试听，右边的下载图标点一下就能存成音频文件。第一次生成会顺带下载模型（读取 Model quantization 里选的那个版本，几十到几百 MB 不等），之后就会缓存在 `./kokoro-cache` 目录里，不用重复下载。
 

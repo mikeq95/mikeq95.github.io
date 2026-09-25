@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://mikeq95blog.uk/sitemap.xml

@@ -1,6 +1,6 @@
 ---
 slug: 2026/07/21/awesome-design-md-github-project
-title: awesome-design-md，把大厂设计系统喂给 AI 编程助手的 DESIGN.md 合集
+title: awesome-design-md DESIGN.md 合集
 date: 2026-07-21
 tags:
   - github

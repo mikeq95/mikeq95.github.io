@@ -1,26 +1,18 @@
 {
-  "title": {
-    "message": "mikeq95's blog",
-    "description": "The title in the navbar"
-  },
-  "item.label.Blog": {
-    "message": "Blog",
-    "description": "Navbar item with label Blog"
-  },
-  "item.label.AI Blog": {
-    "message": "AI Blog",
-    "description": "Navbar item with label AI Blog"
+  "item.label.AI tool": {
+    "message": "AI tool",
+    "description": "Item labeled 'AI tool' in the dropdown menu opened by the Settings button in the navbar"
   },
   "item.label.Shop": {
     "message": "Shop",
-    "description": "Navbar item with label Shop"
+    "description": "Item labeled 'Shop' in the dropdown menu opened by the Settings button in the navbar"
   },
   "item.label.Kris' Notes": {
     "message": "Kris' Notes",
-    "description": "Navbar item with label Kris' Notes"
+    "description": "Item labeled 'Kris' Notes' in the dropdown menu opened by the Settings button in the navbar"
   },
   "item.label.Amy's English Notes": {
     "message": "Amy's English Notes",
-    "description": "Navbar item with label Amy's English Notes"
+    "description": "Item labeled 'Amy's English Notes' in the dropdown menu opened by the Settings button in the navbar"
   }
 }
