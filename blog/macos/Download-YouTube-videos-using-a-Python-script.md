@@ -12,7 +12,7 @@ description: "用一段 Python 脚本配合 yt-dlp，在 Mac 上本地下载 You
 
 你的 Mac 上需要四个命令行工具，以及两项系统设置。
 
-### [Homebrew](/blog/Macos/homebrew-tutorials)
+### [Homebrew](/blog/2026/05/28/homebrew-tutorials)
 
 macOS 包管理器，装其他工具的基础。
 
